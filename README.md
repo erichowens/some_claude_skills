@@ -52,60 +52,73 @@ The Orchestrator will automatically:
 
 ## 🎨 Available Skills
 
-### 1. Web Design Expert
-Creates unique, professionally designed web apps with strong brand identity.
+### Core Design & Development Skills
 
+#### 1. Web Design Expert
+Creates unique, professionally designed web apps with strong brand identity.
 **Skills**: Brand identity, color theory, typography, UI/UX, accessibility
 
-**Example**:
-```
-Create a brand identity for a productivity app targeting creative 
-freelancers. Make it energetic but not overwhelming.
-```
-
-### 2. Design System Creator
+#### 2. Design System Creator
 Builds comprehensive design systems and "design bibles" with production-ready CSS.
-
 **Skills**: Design tokens, CSS architecture, component libraries, documentation
 
-**Example**:
-```
-Take this brand identity and create a complete design system with 
-design tokens, component library, and BEM-style CSS.
-```
+#### 3. Native App Designer (Swift & JS)
+Breathtaking iOS/Mac and web apps with organic, non-AI aesthetic inspired by Weta/Pixar.
+**Skills**: SwiftUI, React animations, physics-based motion, human-crafted design
 
-### 3. Research Analyst
+### Specialized Technical Skills
+
+#### 4. Drone & Computer Vision Expert
+Expert in drone systems, computer vision, and autonomous navigation.
+**Skills**: Flight control, SLAM, object detection, sensor fusion, real-time processing
+
+#### 5. Drone Inspection Specialist
+Advanced CV for infrastructure inspection: forest fires, roofs, residential properties + Gaussian Splatting.
+**Skills**: Multi-modal detection, thermal analysis, 3D reconstruction, property assessment
+
+#### 6. Metal Shader Expert
+20 years Weta/Pixar experience in real-time graphics, shaders, and visual effects.
+**Skills**: MSL shaders, PBR rendering, performance optimization, debug tools
+
+### Research & Strategy Skills
+
+#### 7. Research Analyst
 Conducts thorough research on landscapes, best practices, and methodologies.
-
 **Skills**: Market research, competitive analysis, trend forecasting, evidence-based recommendations
 
-**Example**:
-```
-Research whether I should offer dark mode, light mode, or both 
-in my SaaS dashboard. What do top products do and why?
-```
-
-### 4. Team Builder & Organizational Psychologist
+#### 8. Team Builder & Organizational Psychologist
 Designs high-performing teams using organizational psychology principles.
-
 **Skills**: Team composition, personality balancing, collaboration rituals, organizational design
 
-**Example**:
-```
-Design the ideal team to build and maintain a design system. 
-Include roles, personality types, and how they should work together.
-```
+### Health & Neuroscience Skills
 
-### 5. Orchestrator - Pluripotent Meta-Skill
+#### 9. HRV & Alexithymia Expert
+Heart rate variability biometrics and emotional awareness training.
+**Skills**: HRV analysis, interoception training, biofeedback, emotional intelligence
+
+#### 10. ADHD Design Expert
+Neuroscience-backed UX design specifically for ADHD brains.
+**Skills**: Executive function support, dopamine-driven engagement, cognitive load reduction
+
+### Personal Growth & Business Skills
+
+#### 11. Wisdom & Accountability Coach
+Longitudinal memory tracking, philosophy teaching, personal accountability with compassion.
+**Skills**: Pattern recognition, Stoicism/Buddhism/Existentialism, commitment tracking, growth guidance
+
+#### 12. Tech Entrepreneur Coach (ADHD-Aware)
+Big tech ML engineer → indie founder transition, business execution for ADHD brains.
+**Skills**: Idea validation, MVP development, marketing, monetization, sustainable growth
+
+### Meta Skills
+
+#### 13. Agent & Skill Creator
+Meta-agent for creating new custom agents, skills, and MCP integrations on the fly.
+**Skills**: Agent design, MCP development, skill architecture, rapid prototyping
+
+#### 14. Orchestrator - Pluripotent Meta-Skill
 Coordinates all specialists to solve complex, multi-domain problems.
-
 **Skills**: Problem decomposition, delegation, synthesis, quality assurance
-
-**Example**:
-```
-Build me everything I need to launch a new SaaS product: research, 
-design, design system, and team plan.
-```
 
 ## 💡 Why These Skills?
 
