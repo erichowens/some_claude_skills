@@ -11,7 +11,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "start": "node dist/index.js",
-    "dev": "tsc --watch & node --watch dist/index.js",
+    "dev": "tsc && node --watch dist/index.js",
     "prepare": "npm run build"
   },
   "keywords": [
