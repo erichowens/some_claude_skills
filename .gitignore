@@ -1,0 +1,27 @@
+# MCP Server build artifacts
+mcp_servers/*/node_modules/
+mcp_servers/*/dist/
+mcp_servers/*/.env
+
+# npm
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+/tmp/
+*.test.ts
+*.spec.ts
