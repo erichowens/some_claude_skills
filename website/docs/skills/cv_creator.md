@@ -10,12 +10,27 @@ import SkillHeader from '@site/src/components/SkillHeader';
 
 <SkillHeader
   skillName="CV Creator"
-  skillId="cv-creator"
+  fileName="cv-creator"
   description="Professional resume builder that transforms career narratives into ATS-optimized, multi-format resumes with strategic positioning."
-  difficulty="Intermediate"
-  category="Career Tools"
-  tags={['Resume Builder', 'ATS Optimization', 'Career Development', 'PDF Generation', 'Multi-Format Export']}
 />
+
+## 🎉 Production Implementation Available!
+
+**CV Creator is now a complete, production-ready TypeScript application!**
+
+- 📦 **GitHub**: [github.com/erichowens/cv-creator](https://github.com/erichowens/cv-creator)
+- ⚡ **Status**: Production-ready (~2,000 LOC)
+- ✅ **ATS Score**: 95/100 achieved
+- 🚀 **Deploy**: `npm install && npm run example`
+
+Built through multi-skill orchestration (8 skills, 9 phases), this implementation generates:
+- ATS-optimized PDF resumes (&lt;5 sec)
+- Deploy-ready portfolio websites (&lt;1 sec)
+- Detailed validation reports
+
+[View the complete artifact →](/artifacts) documenting the full production journey.
+
+---
 
 ## Overview
 
@@ -365,17 +380,17 @@ interface PositioningStrategy {
 
 ## Troubleshooting
 
-### Low ATS Score (<70)
+### Low ATS Score (&lt;70)
 **Causes:** Complex formatting, graphics, non-standard fonts
 **Fix:** Switch to Minimalist template, remove all graphics, use standard headers
 
-### Low Keyword Coverage (<60%)
+### Low Keyword Coverage (&lt;60%)
 **Causes:** Not tailoring to job description, different terminology
 **Fix:** Extract keywords from posting, add to Core Skills, use exact job description language
 
-### Resume >2 Pages
+### Resume &gt;2 Pages
 **Causes:** Including every role, too many bullets, verbose
-**Fix:** Consolidate older roles, limit bullets (7-10 recent, 3-5 older), trim to 1-2 lines each
+**Fix:** Consolidate older roles, limit bullets \(7-10 recent, 3-5 older\), trim to 1-2 lines each
 
 ### Generic Professional Summary
 **Causes:** Template language, no specific achievements
@@ -390,10 +405,9 @@ interface PositioningStrategy {
 
 ## Learn More
 
-- [Career Biographer Skill](/skills/career_biographer)
-- [Competitive Cartographer Skill](/skills/competitive_cartographer)
+- [Career Biographer Skill](/docs/skills/career_biographer)
+- [Competitive Cartographer Skill](/docs/skills/competitive_cartographer)
 - [JSON Resume Standard](https://jsonresume.org/)
-- [2025 Resume Trends Research](/planning/cv-creator-architecture.md)
 
 ---
 

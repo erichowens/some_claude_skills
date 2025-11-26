@@ -60,8 +60,9 @@ export const ALL_SKILLS: Skill[] = [
   { id: 'team-builder', title: 'Team Builder', category: 'Research & Strategy', path: '/docs/skills/team_builder', description: getDesc('team-builder', 'Designs high-performing team structures using organizational psychology.') },
   { id: 'competitive-cartographer', title: 'Competitive Cartographer', category: 'Research & Strategy', path: '/docs/skills/competitive_cartographer', description: getDesc('competitive-cartographer', 'Strategic analyst that maps competitive landscapes and identifies white space opportunities.') },
 
-  // 🌱 Coaching & Personal Development (9 skills)
+  // 🌱 Coaching & Personal Development (10 skills)
   { id: 'career-biographer', title: 'Career Biographer', category: 'Coaching & Personal Development', path: '/docs/skills/career_biographer', description: getDesc('career-biographer', 'AI-powered career biographer that conducts empathetic interviews and transforms professional stories into portfolios, CVs, and personal brand assets.') },
+  { id: 'cv-creator', title: 'CV Creator', category: 'Coaching & Personal Development', path: '/docs/skills/cv_creator', description: getDesc('cv-creator', 'Professional resume builder that transforms career narratives into ATS-optimized, multi-format resumes with strategic positioning.') },
   { id: 'personal-finance-coach', title: 'Personal Finance Coach', category: 'Coaching & Personal Development', path: '/docs/skills/personal_finance_coach', description: getDesc('personal-finance-coach', 'Expert personal finance coach grounded in academic research: MPT, factor investing, tax optimization, and retirement mathematics.') },
   { id: 'tech-entrepreneur-coach-adhd', title: 'Tech Entrepreneur Coach', category: 'Coaching & Personal Development', path: '/docs/skills/tech_entrepreneur_coach_adhd', description: getDesc('tech-entrepreneur-coach-adhd', 'Big tech ML engineer to indie founder transition coach.') },
   { id: 'project-management-guru-adhd', title: 'Project Management Guru', category: 'Coaching & Personal Development', path: '/docs/skills/project_management_guru_adhd', description: getDesc('project-management-guru-adhd', 'Expert project manager for ADHD engineers managing concurrent projects.') },
@@ -70,12 +71,16 @@ export const ALL_SKILLS: Skill[] = [
   { id: 'hrv-alexithymia-expert', title: 'HRV & Alexithymia Expert', category: 'Coaching & Personal Development', path: '/docs/skills/hrv_alexithymia_expert', description: getDesc('hrv-alexithymia-expert', 'Heart rate variability biometrics and emotional awareness training.') },
   { id: 'speech-pathology-ai', title: 'Speech Pathology AI', category: 'Coaching & Personal Development', path: '/docs/skills/speech_pathology_ai', description: getDesc('speech-pathology-ai', 'AI-powered speech therapy, phoneme analysis, and articulation visualization.') },
   { id: 'adhd-design-expert', title: 'ADHD Design Expert', category: 'Coaching & Personal Development', path: '/docs/skills/adhd_design_expert', description: getDesc('adhd-design-expert', 'Designs digital experiences for ADHD brains using neuroscience research.') },
+
+  // ⚙️ DevOps & Site Reliability (1 skill)
+  { id: 'site-reliability-engineer', title: 'Site Reliability Engineer', category: 'DevOps & Site Reliability', path: '/docs/skills/site_reliability_engineer', description: getDesc('site-reliability-engineer', 'Proactive validation and build reliability expert that prevents SSG failures through pre-commit hooks, MDX validation, and systematic error detection.') },
 ];
 
 /**
  * Featured skills for homepage display
  */
 export const FEATURED_SKILLS: Skill[] = [
+  ALL_SKILLS.find(s => s.id === 'cv-creator')!, // Production implementation with artifact
   ALL_SKILLS.find(s => s.id === 'metal-shader-expert')!,
   ALL_SKILLS.find(s => s.id === 'vr-avatar-engineer')!,
   ALL_SKILLS.find(s => s.id === 'drone-cv-expert')!,

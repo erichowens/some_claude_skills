@@ -13,10 +13,12 @@ import styles from './artifact.module.css';
 // Import artifacts
 import skillCoachArtifact from '@site/src/data/artifacts/single-skill/skill-coach/001-self-improvement/artifact.json';
 import vaporwaveMidiPlayerArtifact from '@site/src/data/artifacts/single-skill/vaporwave-glassomorphic-ui-designer/001-midi-player/artifact.json';
+import siteReliabilityEngineerArtifact from '@site/src/data/artifacts/frontend/multi-skill/1-site-reliability-engineer-integration/artifact.json';
 
 const ARTIFACTS_MAP: Record<string, Artifact> = {
   'skill-coach-001-self-improvement': skillCoachArtifact as Artifact,
   'vaporwave-glassomorphic-ui-designer-001-midi-player': vaporwaveMidiPlayerArtifact as Artifact,
+  'multi-skill-site-reliability-engineer-integration': siteReliabilityEngineerArtifact as Artifact,
 };
 
 const CATEGORY_CONFIG = {

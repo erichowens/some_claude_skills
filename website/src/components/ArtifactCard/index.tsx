@@ -26,8 +26,13 @@ export default function ArtifactCard({ artifact }: ArtifactCardProps): JSX.Eleme
   const category = categoryConfig[artifact.category];
   const difficulty = artifact.difficulty ? difficultyConfig[artifact.difficulty] : null;
 
-  // Construct the artifact URL with query parameter
-  const artifactPath = `/artifact?id=${artifact.id}`;
+  // Custom routes for specific artifacts with dedicated pages
+  const customRoutes: Record<string, string> = {
+    'multi-skill-site-reliability-engineer-integration': '/artifacts/site-reliability-engineer-integration',
+  };
+
+  // Construct the artifact URL - use custom route if available, otherwise query parameter
+  const artifactPath = customRoutes[artifact.id] || `/artifact?id=${artifact.id}`;
 
   return (
     <div className={styles.artifactCard}>
@@ -56,11 +61,17 @@ export default function ArtifactCard({ artifact }: ArtifactCardProps): JSX.Eleme
       <p className={styles.description}>{artifact.description}</p>
 
       <div className={styles.skills}>
-        {artifact.skills.map((skill, index) => (
-          <span key={index} className={styles.skillTag}>
-            <Link to={`/docs/skills/${skill.name}`}>{skill.name}</Link>
-          </span>
-        ))}
+        {artifact.skills.map((skill, index) => {
+          // Most skill doc files use underscores, but some use dashes in their ID
+          const skillPath = skill.name === 'site-reliability-engineer'
+            ? skill.name  // Keep dashes for site-reliability-engineer (matches doc ID)
+            : skill.name.replace(/-/g, '_');  // Convert to underscores for others
+          return (
+            <span key={index} className={styles.skillTag}>
+              <Link to={`/docs/skills/${skillPath}`}>{skill.name}</Link>
+            </span>
+          );
+        })}
       </div>
 
       {artifact.outcome.metrics && artifact.outcome.metrics.length > 0 && (

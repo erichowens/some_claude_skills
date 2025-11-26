@@ -1,0 +1,457 @@
+/* Windows 3.1 Authentic Validation Demo */
+
+.container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', system-ui, -apple-system, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ifm-font-color-base);
+}
+
+.titleGradient {
+  /* Minimal gradient - just a hint */
+  background: linear-gradient(
+    135deg,
+    var(--ifm-font-color-base) 0%,
+    var(--ifm-color-primary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+}
+
+.validationTypes {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.typeButton {
+  /* Classic Windows 3.1 button */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+
+  background: #c0c0c0;
+  border: none;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: none;
+
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.typeButton:hover {
+  background: #d0d0d0;
+}
+
+.typeButton.active {
+  /* Active state - invert bevel */
+  background: #a0a0a0;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  color: #000000;
+  box-shadow: none;
+}
+
+.typeIcon {
+  font-size: 1.125rem;
+  color: #000080; /* Windows blue */
+}
+
+.editorContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.editorPanel,
+.outputPanel {
+  /* Windows 3.1 window chrome */
+  background: #c0c0c0;
+
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+
+  box-shadow:
+    inset 1px 1px 0 #dfdfdf,
+    inset -1px -1px 0 #808080;
+
+  border-radius: 0; /* Windows 3.1 had no rounded corners */
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.25rem;
+
+  /* Windows 3.1 title bar */
+  background: #000080; /* Windows blue */
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.panelTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.statusBadge {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0;
+
+  /* Inset badge */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #dfdfdf;
+  border-bottom-color: #dfdfdf;
+  color: #000000;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+.codeEditor {
+  width: 100%;
+  min-height: 400px;
+  padding: 1.25rem;
+
+  /* Windows terminal-style editor */
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+
+  border: none;
+  resize: vertical;
+  outline: none;
+
+  /* Inset bevel effect */
+  box-shadow:
+    inset 2px 2px 0 #808080,
+    inset -2px -2px 0 #ffffff;
+}
+
+.codeEditor::selection {
+  background: #000080;
+  color: #ffffff;
+}
+
+.outputConsole {
+  padding: 1.25rem;
+  min-height: 400px;
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.9375rem;
+
+  /* Inset console background */
+  background: #ffffff;
+  color: #000000;
+  box-shadow:
+    inset 2px 2px 0 #808080,
+    inset -2px -2px 0 #ffffff;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+
+  /* Windows 3.1 inset panel with green accent */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-left-width: 4px;
+  border-left-color: #008000; /* Windows green */
+
+  color: #008000;
+  font-weight: 600;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+.successIcon {
+  font-size: 1.5rem;
+  color: #008000; /* Windows green */
+}
+
+.errorsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error {
+  padding: 1rem;
+
+  /* Windows 3.1 inset panel with red accent */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-left-width: 4px;
+  border-left-color: #ff0000; /* Red */
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+.errorHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.errorIcon {
+  font-size: 1.125rem;
+  color: #ff0000; /* Red */
+}
+
+.errorLine {
+  font-weight: 700;
+  color: #ff0000;
+  font-size: 0.875rem;
+}
+
+.errorMessage {
+  color: #000000;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.errorFix {
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+
+  /* Inset panel for fix suggestion */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  border-left-width: 3px;
+  border-left-color: #000080; /* Windows blue */
+  box-shadow: inset 1px 1px 0 #000000;
+
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #000000;
+}
+
+.fixLabel {
+  font-weight: 700;
+  color: #000080; /* Windows blue */
+  margin-right: 0.5rem;
+}
+
+.installSection {
+  margin-top: 3rem;
+  padding: 2rem;
+
+  /* Windows 3.1 window */
+  background: #c0c0c0;
+
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+
+  box-shadow:
+    inset 1px 1px 0 #dfdfdf,
+    inset -1px -1px 0 #808080,
+    0 4px 8px rgba(0, 0, 0, 0.2);
+
+  border-radius: 0;
+  text-align: center;
+}
+
+.installTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #000080; /* Windows blue */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.installText {
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.codeBlock {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+
+  /* Windows 3.1 inset terminal */
+  background: #000000;
+  border: 2px solid;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  border-radius: 0;
+
+  box-shadow:
+    inset 2px 2px 0 #000000;
+}
+
+.codeBlock code {
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 1rem;
+  color: #00ff00; /* DOS green */
+  font-weight: 600;
+}
+
+.installNote {
+  color: #000000;
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .editorPanel,
+[data-theme='dark'] .outputPanel,
+[data-theme='dark'] .installSection {
+  background: #404040; /* Darker gray but still Windows-style */
+  border-top-color: #606060;
+  border-left-color: #606060;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+}
+
+[data-theme='dark'] .typeButton {
+  background: #404040;
+  color: #d0d0d0;
+}
+
+[data-theme='dark'] .typeButton:hover {
+  background: #484848;
+}
+
+[data-theme='dark'] .typeButton.active {
+  background: #303030;
+}
+
+[data-theme='dark'] .codeEditor,
+[data-theme='dark'] .outputConsole {
+  background: #303030;
+  color: #d0d0d0;
+  border-top-color: #202020;
+  border-left-color: #202020;
+  border-right-color: #505050;
+  border-bottom-color: #505050;
+}
+
+[data-theme='dark'] .successMessage,
+[data-theme='dark'] .error,
+[data-theme='dark'] .errorFix {
+  background: #303030;
+  color: #d0d0d0;
+  border-top-color: #202020;
+  border-left-color: #202020;
+  border-right-color: #505050;
+  border-bottom-color: #505050;
+}
+
+[data-theme='dark'] .successIcon {
+  color: #51cf66; /* Lighter green for dark mode visibility */
+}
+
+[data-theme='dark'] .errorIcon,
+[data-theme='dark'] .errorLine {
+  color: #ff6b6b; /* Lighter red for dark mode visibility */
+}
+
+[data-theme='dark'] .fixLabel,
+[data-theme='dark'] .installTitle {
+  color: #5B9BD5; /* Lighter blue for dark mode */
+}
+
+[data-theme='dark'] .errorMessage,
+[data-theme='dark'] .installText,
+[data-theme='dark'] .installNote {
+  color: #d0d0d0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .editorContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .validationTypes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .typeButton {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .codeEditor,
+  .outputConsole {
+    min-height: 300px;
+  }
+
+  .installSection {
+    padding: 1.5rem;
+  }
+
+  .codeBlock {
+    padding: 0.75rem 1.5rem;
+  }
+}

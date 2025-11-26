@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Chen - Architect-Leader Bridging Technical Depth with Business Impact</title>
+  <meta name="description" content="Passionate backend engineer with 8 years of experience building scalable distributed systems. Specialized in microservices architecture, cloud-native applications, and high-performance APIs. Led teams through successful migrations serving millions of users. Strong advocate for clean code, comprehensive testing, and continuous improvement.">
+  <meta name="keywords" content="distributed systems,microservices,golang,kubernetes,scalability,backend engineering,Distributed systems architecture,Performance optimization case studies,Team mentoring and growth,Production reliability">
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alex Chen - Architect-Leader Bridging Technical Depth with Business Impact">
+  <meta property="og:description" content="Passionate backend engineer with 8 years of experience building scalable distributed systems. Specialized in microservices architecture, cloud-native applications, and high-performance APIs. Led teams through successful migrations serving millions of users. Strong advocate for clean code, comprehensive testing, and continuous improvement.">
+
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --bg-light: #f9fafb;
+      --border-color: #e5e7eb;
+      --spacing: 2rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: #fff;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Section */
+    section {
+      padding: 5rem 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    section:nth-child(even) {
+      background: var(--bg-light);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding-top: 8rem;
+    }
+
+    #hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #hero .headline {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    #hero .tagline {
+      font-size: 1.125rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* About Section */
+    #about .content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .differentiators {
+      margin-top: 2rem;
+    }
+
+    .differentiators h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .differentiators ul {
+      list-style: none;
+    }
+
+    .differentiators li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .differentiators li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Experience Section */
+    .experience-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .experience-timeline:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .experience-item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .experience-item:before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 3px solid white;
+    }
+
+    .experience-header {
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-role {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--text-dark);
+    }
+
+    .experience-company {
+      font-size: 1.125rem;
+      color: var(--primary-color);
+    }
+
+    .experience-dates {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .experience-description {
+      margin: 0.5rem 0;
+      color: var(--text-light);
+    }
+
+    .achievements {
+      list-style: disc;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .achievements li {
+      margin-bottom: 0.25rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tech-tag {
+      background: var(--bg-light);
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-screenshot {
+      width: 100%;
+      height: 200px;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+
+    .project-screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .project-impact {
+      font-weight: 500;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Skills Section */
+    .skills-categories {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .skill-category h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-name {
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .skill-years {
+      font-size: 0.875rem;
+      color: var(--text-light);
+    }
+
+    .skill-bar {
+      height: 6px;
+      background: var(--border-color);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      transition: width 0.5s ease;
+    }
+
+    /* Contact Section */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      font-size: 1.125rem;
+    }
+
+    .contact-info a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .availability {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2.5rem;
+      }
+
+      #about .content {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      section {
+        min-height: auto;
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <h1>Alex Chen</h1>
+      <p class="headline">Architect-Leader Bridging Technical Depth with Business Impact</p>
+      <p class="tagline">Senior backend engineer who builds scalable systems that ship fast and last. Proven track record improving performance by 40%+ while mentoring teams to excellence.</p>
+
+      <div class="hero-links">
+        <a href="resume.pdf" class="btn btn-primary" download>Download Resume</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://linkedin.com/in/alexchen" target="_blank" aria-label="LinkedIn">🔗 LinkedIn</a>
+        <a href="https://github.com/alexchen" target="_blank" aria-label="GitHub">💻 GitHub</a>
+        <a href="mailto:alex.chen@example.com" aria-label="Email">✉️ Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="content">
+        <div>
+          <p>Passionate backend engineer with 8 years of experience building scalable distributed systems. Specialized in microservices architecture, cloud-native applications, and high-performance APIs. Led teams through successful migrations serving millions of users. Strong advocate for clean code, comprehensive testing, and continuous improvement.</p>
+
+          <div class="differentiators">
+            <h3>What Sets Me Apart</h3>
+            <ul>
+              <li>Rare combination of deep distributed systems expertise with proven team leadership</li>
+              <li>Track record of 40%+ performance improvements in production systems</li>
+              <li>Strong focus on observable, maintainable systems (not just &quot;move fast and break things&quot;)</li>
+              <li>Effective technical communicator who can explain complex systems to non-technical stakeholders</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">My professional journey and key achievements</p>
+
+      <div class="experience-timeline">
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-role">Senior Backend Engineer</div>
+            <div class="experience-company">TechCorp Inc</div>
+            <div class="experience-dates">Jun 2021</div>
+          </div>
+          <p class="experience-description">Lead backend engineer for core infrastructure team, responsible for microservices architecture serving 10M+ daily active users.</p>
+
+          <ul class="achievements">
+            <li>Led microservices migration from monolith, reducing API latency by 40% and improving deployment frequency from weekly to daily releases</li>
+            <li>Architected event-driven system processing 500K messages/second using Kafka and Go with 99.99% uptime SLA</li>
+            <li>Optimized PostgreSQL query performance through indexing and query rewriting, reducing average query time from 800ms to 120ms (85% improvement)</li>
+            <li>Implemented distributed tracing with Jaeger, reducing mean time to resolution for production issues by 60%</li>
+            <li>Mentored 5 junior engineers through code reviews and pair programming, resulting in 3 promotions</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">gRPC</span>
+            <span class="tech-tag">Kafka</span>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-role">Backend Engineer</div>
+            <div class="experience-company">StartupXYZ</div>
+            <div class="experience-dates">Mar 2018</div>
+          </div>
+          <p class="experience-description">Full-stack engineer building B2B SaaS platform for data analytics.</p>
+
+          <ul class="achievements">
+            <li>Built REST API serving 2M+ requests/day with sub-200ms p95 latency</li>
+            <li>Designed and implemented RESTful API using Django Rest Framework, handling 2M daily requests</li>
+            <li>Reduced infrastructure costs by 35% through AWS resource optimization and reserved instance planning</li>
+            <li>Implemented CI/CD pipeline using GitHub Actions and Docker, reducing deployment time from 2 hours to 15 minutes</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-role">Software Engineer</div>
+            <div class="experience-company">Enterprise Solutions Corp</div>
+            <div class="experience-dates">Jul 2016</div>
+          </div>
+          <p class="experience-description">Junior engineer working on internal tools and automation.</p>
+
+          <ul class="achievements">
+            <li>Automated manual processes saving 20 hours/week of team time</li>
+            <li>Developed automation tools in Java/Spring Boot reducing manual report generation from 4 hours to 5 minutes</li>
+            <li>Created internal dashboard for monitoring system health, reducing incident response time by 40%</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Jenkins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Showcase of my work and side projects</p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-screenshot">
+            📊 Project Screenshot
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Event-Driven Microservices Platform</h3>
+            <p class="project-description">Designed and implemented scalable event-driven architecture using Kafka, Go, and Kubernetes</p>
+            <p class="project-impact">💡 Reduced coupling between services, improved system resilience, enabled 500K events/sec throughput</p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Kafka</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">gRPC</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/alexchen/event-platform" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-screenshot">
+            📊 Project Screenshot
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Real-Time Log Aggregation System</h3>
+            <p class="project-description">Built centralized logging system processing 1TB+ logs daily with real-time search capabilities</p>
+            <p class="project-impact">💡 Reduced debugging time by 60%, enabled real-time alerting on critical errors</p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Elasticsearch</span>
+              <span class="tech-tag">Logstash</span>
+              <span class="tech-tag">Kafka</span>
+              <span class="tech-tag">Go</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/alexchen/log-aggregator" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-screenshot">
+            📊 Project Screenshot
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">API Gateway with Rate Limiting</h3>
+            <p class="project-description">Custom API gateway with intelligent rate limiting, authentication, and request routing</p>
+            <p class="project-impact">💡 Protected backend services from abuse, improved security posture</p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">nginx</span>
+            </div>
+
+            <div class="project-links">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-subtitle">Technologies and tools I work with</p>
+
+      <div class="skills-categories">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Go</span>
+                <span class="skill-years">4 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Python</span>
+                <span class="skill-years">6 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Java</span>
+                <span class="skill-years">5 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>SQL</span>
+                <span class="skill-years">7 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>PostgreSQL</span>
+                <span class="skill-years">6 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Cloud &amp; DevOps</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Kubernetes</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Docker</span>
+                <span class="skill-years">5 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>AWS</span>
+                <span class="skill-years">5 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Terraform</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>CI/CD</span>
+                <span class="skill-years">5 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>GitHub Actions</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools &amp; Technologies</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Redis</span>
+                <span class="skill-years">4 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Kafka</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>gRPC</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>GraphQL</span>
+                <span class="skill-years">2 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Microservices</span>
+                <span class="skill-years">4 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Distributed Systems</span>
+                <span class="skill-years">5 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>System Design</span>
+                <span class="skill-years">6 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>API Design</span>
+                <span class="skill-years">7 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Prometheus</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Grafana</span>
+                <span class="skill-years">3 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Jaeger</span>
+                <span class="skill-years">2 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Leadership</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Mentoring</span>
+                <span class="skill-years">4 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Code Review</span>
+                <span class="skill-years">6 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-name">
+                <span>Technical Writing</span>
+                <span class="skill-years">5 yrs</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-subtitle">I'm always open to new opportunities and collaborations</p>
+
+      <div class="availability">✅ Open to opportunities</div>
+
+      <div class="contact-info">
+        <p>Email: <a href="mailto:alex.chen@example.com">alex.chen@example.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/alexchen" target="_blank">View Profile</a></p>
+        <p>GitHub: <a href="https://github.com/alexchen" target="_blank">@https://github.com/alexchen</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy;  Alex Chen. All rights reserved.</p>
+    <p>Built with care • Powered by passion</p>
+  </footer>
+
+  <script>
+    // Add current year to footer
+    document.addEventListener('DOMContentLoaded', function() {
+      const year = new Date().getFullYear();
+      document.querySelectorAll('footer').forEach(el => {
+        el.innerHTML = el.innerHTML.replace('', year);
+      });
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Fade-in animation on scroll (simple version)
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

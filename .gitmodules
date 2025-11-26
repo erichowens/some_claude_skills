@@ -1,0 +1,3 @@
+[submodule "cv-creator-implementation"]
+	path = cv-creator-implementation
+	url = https://github.com/erichowens/cv-creator.git

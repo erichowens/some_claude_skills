@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "prebuild": "tsx scripts/fetchPlausibleStats.ts && tsx scripts/generateSkillZips.ts",
+    "prebuild": "npm run validate:all && tsx scripts/fetchPlausibleStats.ts && tsx scripts/generateSkillZips.ts",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -14,7 +14,12 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "generate:zips": "tsx scripts/generateSkillZips.ts"
+    "generate:zips": "tsx scripts/generateSkillZips.ts",
+    "validate:liquid": "node scripts/validate-liquid.js docs/**/*.md",
+    "validate:brackets": "node scripts/validate-brackets.js docs/**/*.md",
+    "validate:props": "node scripts/validate-skill-props.js docs/skills/*.md",
+    "validate:all": "npm run validate:liquid && npm run validate:brackets && npm run validate:props",
+    "install-hooks": "node scripts/install-git-hooks.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

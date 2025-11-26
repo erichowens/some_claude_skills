@@ -52,13 +52,14 @@ const config: Config = {
         },
       };
     },
-    [
+    // Plausible analytics - only in production
+    ...(process.env.NODE_ENV === 'production' ? [[
       'docusaurus-plugin-plausible',
       {
         domain: 'someclaudeskills.com',
         customDomain: 'https://plausible.io',
       },
-    ],
+    ]] : []),
   ],
 
   presets: [

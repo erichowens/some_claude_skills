@@ -1,0 +1,320 @@
+/* Windows 3.1 Authentic Error Showcase */
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', system-ui, -apple-system, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ifm-font-color-base);
+}
+
+.subtitle {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1rem;
+}
+
+.tabNavigation {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #808080;
+  padding-bottom: 0.5rem;
+}
+
+.tabButton {
+  /* Windows 3.1 button */
+  padding: 0.75rem 1.5rem;
+  background: #c0c0c0;
+  border: none;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  color: #000000;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.1s ease;
+}
+
+.tabButton:hover:not(.active) {
+  background: #d0d0d0;
+}
+
+.tabButton.active {
+  /* Active state - invert bevel */
+  background: #a0a0a0;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  color: #000000;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comparePanel {
+  /* Windows 3.1 window chrome */
+  background: #c0c0c0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+  box-shadow:
+    inset 1px 1px 0 #dfdfdf,
+    inset -1px -1px 0 #808080;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.beforeHeader {
+  background: #000080; /* Windows blue */
+  color: #ffffff;
+  border-bottom: 1px solid #000000;
+}
+
+.afterHeader {
+  background: #000080; /* Windows blue */
+  color: #ffffff;
+  border-bottom: 1px solid #000000;
+}
+
+.errorIcon {
+  font-size: 1.125rem;
+  color: #ff0000;
+}
+
+.successIcon {
+  font-size: 1.125rem;
+  color: #00ff00;
+}
+
+.codeContainer {
+  position: relative;
+  /* Windows 3.1 inset panel */
+  background: #ffffff;
+  box-shadow:
+    inset 2px 2px 0 #808080,
+    inset -2px -2px 0 #ffffff;
+}
+
+.codeBlock {
+  padding: 1rem;
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.875rem;
+  background: #ffffff !important;
+  color: #000000 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Override syntax highlighter colors for Windows 3.1 aesthetic */
+.codeBlock :global(pre) {
+  background: #ffffff !important;
+  color: #000000 !important;
+  margin: 0 !important;
+}
+
+.lineHighlight {
+  position: absolute;
+  left: 10px;
+  width: 6px;
+  height: 24px;
+  border-radius: 0;
+}
+
+.errorLine {
+  background: #ff0000;
+}
+
+.fixLine {
+  background: #008000;
+}
+
+.validationSection {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.validationOutput {
+  /* Windows 3.1 terminal */
+  background: #000000;
+  color: #00ff00; /* DOS green */
+  padding: 1rem;
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+
+  /* Windows 3.1 inset bevel */
+  border: 2px solid;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  border-radius: 0;
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+.tryItSection {
+  margin-top: 2rem;
+  padding: 1.5rem;
+
+  /* Windows 3.1 window */
+  background: #c0c0c0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+  box-shadow:
+    inset 1px 1px 0 #dfdfdf,
+    inset -1px -1px 0 #808080;
+  border-radius: 0;
+}
+
+.tryItTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #000080; /* Windows blue */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tryItText {
+  color: #000000;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.commandBlock {
+  /* Windows 3.1 terminal */
+  background: #000000;
+  color: #00ff00; /* DOS green */
+  padding: 1rem;
+  font-family: 'Courier New', Monaco, monospace;
+  font-size: 0.9375rem;
+  margin: 1rem 0;
+
+  border: 2px solid;
+  border-top-color: #000000;
+  border-left-color: #000000;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  border-radius: 0;
+  box-shadow: inset 2px 2px 0 #000000;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .comparePanel,
+[data-theme='dark'] .tryItSection {
+  background: #404040;
+  border-top-color: #606060;
+  border-left-color: #606060;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+}
+
+[data-theme='dark'] .tabButton {
+  background: #404040;
+  color: #d0d0d0;
+}
+
+[data-theme='dark'] .tabButton:hover:not(.active) {
+  background: #484848;
+}
+
+[data-theme='dark'] .tabButton.active {
+  background: #303030;
+}
+
+[data-theme='dark'] .codeContainer {
+  background: #303030;
+  border-top-color: #202020;
+  border-left-color: #202020;
+  border-right-color: #505050;
+  border-bottom-color: #505050;
+}
+
+[data-theme='dark'] .codeBlock {
+  background: #303030 !important;
+  color: #d0d0d0 !important;
+}
+
+[data-theme='dark'] .codeBlock :global(pre) {
+  background: #303030 !important;
+  color: #d0d0d0 !important;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: #d0d0d0;
+}
+
+[data-theme='dark'] .tryItTitle {
+  color: #5B9BD5; /* Lighter blue for dark mode */
+}
+
+[data-theme='dark'] .tryItText {
+  color: #d0d0d0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .tabNavigation {
+    flex-direction: column;
+  }
+
+  .tabButton {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .tryItSection {
+    padding: 1rem;
+  }
+}

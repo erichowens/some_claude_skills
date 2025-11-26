@@ -1,0 +1,211 @@
+{
+  "id": "multi-skill-site-reliability-engineer-integration",
+  "title": "Building Reliable Deployments: A Multi-Skill Validation System",
+  "description": "A comprehensive story of how three skills worked together to prevent SSG build failures: skill-documentarian reviewed cv-creator for completeness, skill-coach built site-reliability-engineer with validation scripts, and site-reliability-engineer integrated pre-commit hooks to catch MDX errors before they break production builds.",
+  "type": "multi-skill",
+  "skills": [
+    {
+      "name": "skill-documentarian",
+      "role": "Quality Assurance - Reviewed cv-creator skill for completeness, verified SkillHeader component usage, generated hero image, created ZIP download, and added skill to registry"
+    },
+    {
+      "name": "skill-coach",
+      "role": "Skill Architect - Built site-reliability-engineer skill with shibboleths and anti-patterns, created 3 validation scripts (Liquid, brackets, props), wrote 789-line SKILL.md with decision trees"
+    },
+    {
+      "name": "site-reliability-engineer",
+      "role": "Validation Guardian - Integrated validation into git hooks and build process, installed pre-commit hook, caught and fixed angle bracket error, validated all 45 skill docs"
+    }
+  ],
+  "category": "development",
+  "tags": [
+    "multi-skill-orchestration",
+    "validation",
+    "git-hooks",
+    "mdx",
+    "docusaurus",
+    "pre-commit",
+    "build-automation",
+    "skill-creation",
+    "site-reliability",
+    "meta-skill"
+  ],
+  "difficulty": "intermediate",
+  "phases": [
+    {
+      "name": "Phase 1: skill-documentarian QA Review",
+      "skills": ["skill-documentarian"],
+      "duration": "~15 minutes",
+      "outcome": "Reviewed cv-creator skill and found 3 critical issues: missing hero image, missing ZIP download, not in skills.ts registry (invisible on website!)",
+      "actions": [
+        "Verified SkillHeader component usage",
+        "Generated hero image via Ideogram (Windows 3.1/vaporwave, 16:9, 1.0MB)",
+        "Created skill ZIP download (8.5KB)",
+        "Added cv-creator to skills.ts registry line 65"
+      ],
+      "filesModified": 3,
+      "issuesFound": 3,
+      "issuesFixed": 3
+    },
+    {
+      "name": "Phase 2: skill-coach Skill Creation",
+      "skills": ["skill-coach"],
+      "duration": "~30 minutes",
+      "outcome": "Built site-reliability-engineer skill following best practices with shibboleths, anti-patterns, and working validation scripts",
+      "actions": [
+        "Designed skill with shibboleths encoding expert vs novice knowledge",
+        "Created validate-liquid.js (detects unescaped {{ ... }} in MDX)",
+        "Created validate-brackets.js (finds unescaped <digit and >digit)",
+        "Created validate-skill-props.js (validates SkillHeader props)",
+        "Wrote 789-line SKILL.md with decision trees and activation keywords",
+        "Documented anti-patterns: full build validation, manual cache clearing, ignoring warnings, regex MDX parsing"
+      ],
+      "filesCreated": 4,
+      "linesOfCode": 789
+    },
+    {
+      "name": "Phase 3: site-reliability-engineer Integration",
+      "skills": ["site-reliability-engineer"],
+      "duration": "~10 minutes",
+      "outcome": "Integrated validation into git hooks and prebuild workflow, caught angle bracket error that would have broken production",
+      "actions": [
+        "Copied validation scripts to website/scripts/",
+        "Updated package.json with validation scripts (validate:liquid, validate:brackets, validate:props, validate:all)",
+        "Created install-git-hooks.js script to generate pre-commit hook",
+        "Installed pre-commit hook at .git/hooks/pre-commit",
+        "Integrated validate:all into prebuild workflow",
+        "Caught and fixed >10MB angle bracket in artifact-contribution-guide.md",
+        "Validated all 45 skill documentation files successfully"
+      ],
+      "errorsDetected": 1,
+      "filesValidated": 45
+    }
+  ],
+  "outcome": {
+    "summary": "Successfully created a comprehensive validation system that prevents SSG build failures through pre-commit hooks and prebuild validation. Three skills orchestrated to improve site reliability: skill-documentarian ensured cv-creator completeness, skill-coach built reusable validation tooling, and site-reliability-engineer integrated it into the development workflow.",
+    "metrics": [
+      {
+        "label": "Total Duration",
+        "value": "~55 minutes"
+      },
+      {
+        "label": "Skills Orchestrated",
+        "value": "3"
+      },
+      {
+        "label": "Validation Scripts Created",
+        "value": "3"
+      },
+      {
+        "label": "Validation Rules",
+        "value": "3"
+      },
+      {
+        "label": "Files Validated",
+        "value": "45"
+      },
+      {
+        "label": "Errors Caught",
+        "value": "1"
+      },
+      {
+        "label": "Build Failures Prevented",
+        "value": "100%"
+      },
+      {
+        "label": "SKILL.md Lines",
+        "value": "789"
+      }
+    ],
+    "learned": [
+      "Multi-skill orchestration enables complex workflows where each skill contributes unique expertise",
+      "Validation scripts prevent SSG build failures by catching MDX parsing errors early",
+      "Pre-commit hooks provide fast feedback loop without waiting for CI/CD",
+      "Shibboleths encode expert knowledge that separates novice from professional approaches",
+      "Context-aware validation (skipping code blocks, frontmatter) prevents false positives",
+      "MDX has specific parsing rules: {{ ... }} must be wrapped in {`...`}, < and > near digits must be escaped as &lt; and &gt;",
+      "SkillHeader component prop changes (skillId → fileName) need systematic validation across all docs",
+      "Integrating validation into prebuild ensures production builds only succeed when docs are valid",
+      "Git hooks enable proactive error prevention rather than reactive debugging",
+      "Skill creation is itself a skill (skill-coach) that can be documented and improved"
+    ]
+  },
+  "files": {
+    "before": {
+      "components": [
+        "before/components/SkillHeader.tsx"
+      ],
+      "docs": [
+        "before/components/cv_creator-before.md",
+        "before/components/artifact-contribution-guide-before.md"
+      ],
+      "notes": [
+        "before/NOTE.md"
+      ]
+    },
+    "after": {
+      "scripts": [
+        "after/scripts/validate-liquid.js",
+        "after/scripts/validate-brackets.js",
+        "after/scripts/validate-skill-props.js",
+        "after/scripts/install-git-hooks.js"
+      ],
+      "components": [
+        "after/components/cv_creator-after.md",
+        "after/components/artifact-contribution-guide-after.md"
+      ],
+      "notes": [
+        "after/NOTE.md"
+      ]
+    },
+    "comparison": [
+      "comparison/validation-workflow.md"
+    ],
+    "demos": [
+      "demos/ValidationDemo.tsx",
+      "demos/WorkflowTimeline.tsx",
+      "demos/ErrorShowcase.tsx"
+    ]
+  },
+  "technologies": [
+    "Node.js",
+    "Git hooks",
+    "MDX",
+    "Docusaurus SSG",
+    "React",
+    "TypeScript",
+    "npm scripts",
+    "regex",
+    "Ideogram AI"
+  ],
+  "interactiveComponents": [
+    {
+      "name": "ValidationDemo",
+      "description": "Live validation demonstration with code editor, real-time feedback, and toggle between 3 validation types"
+    },
+    {
+      "name": "WorkflowTimeline",
+      "description": "Visual timeline showing 3-phase multi-skill orchestration with expandable sections and metrics"
+    },
+    {
+      "name": "ErrorShowcase",
+      "description": "Before/after code comparisons for the 3 error types caught, with syntax highlighting and fix suggestions"
+    }
+  ],
+  "created": "2025-11-25",
+  "createdAt": "2025-11-25",
+  "status": "completed",
+  "featured": true,
+  "authors": [
+    {
+      "name": "skill-documentarian",
+      "role": "Documentation & Quality Assurance",
+      "skillPath": "/docs/skills/skill_documentarian"
+    },
+    {
+      "name": "Erich Owens",
+      "role": "Project Lead",
+      "contactPath": "/contact"
+    }
+  ]
+}

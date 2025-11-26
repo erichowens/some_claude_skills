@@ -1,0 +1,569 @@
+/* Windows 3.1 Authentic Aesthetic */
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', system-ui, -apple-system, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ifm-font-color-base);
+}
+
+.titleGradient {
+  /* Minimal gradient - just a hint */
+  background: linear-gradient(
+    135deg,
+    var(--ifm-font-color-base) 0%,
+    var(--ifm-color-primary) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.replayButton {
+  /* Classic Windows 3.1 button */
+  background: #c0c0c0;
+  border: none;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: none;
+
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.replayButton:hover:not(:disabled) {
+  background: #d0d0d0;
+}
+
+.replayButton:active:not(:disabled) {
+  /* Pressed state - invert bevel */
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  background: #a0a0a0;
+}
+
+.replayButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.replayIcon {
+  font-size: 0.875rem;
+  color: #000080; /* Windows 3.1 blue */
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.phaseContainer {
+  position: relative;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.connector {
+  position: absolute;
+  left: 32px;
+  top: 100%;
+  width: 4px;
+  height: 2rem;
+  background: #808080;
+  box-shadow: none;
+}
+
+.phaseCard {
+  /* Windows 3.1 window chrome */
+  background: #c0c0c0;
+
+  /* Classic beveled border */
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+
+  /* Inner shadow for depth */
+  box-shadow:
+    inset 1px 1px 0 #dfdfdf,
+    inset -1px -1px 0 #808080;
+
+  border-radius: 0; /* Windows 3.1 had no rounded corners */
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.phaseCard:hover {
+  background: #c8c8c8;
+  box-shadow:
+    inset 1px 1px 0 #e0e0e0,
+    inset -1px -1px 0 #808080,
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.expanded {
+  animation: expandCard 0.2s ease forwards;
+}
+
+@keyframes expandCard {
+  from {
+    transform: scale(0.99);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.phaseHeader {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.phaseNumber {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Windows 3.1 beveled circle */
+  background: #c0c0c0;
+  border-radius: 50%;
+  border: 3px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+
+  box-shadow:
+    inset 2px 2px 0 #dfdfdf,
+    inset -2px -2px 0 #808080;
+}
+
+.phaseNumberText {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+.phaseNumberGlow {
+  /* Remove glow effect */
+  display: none;
+}
+
+.phaseInfo {
+  min-width: 0;
+}
+
+.skillName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000080; /* Windows 3.1 blue */
+  font-family: 'Courier New', monospace;
+}
+
+.role {
+  font-size: 0.875rem;
+  color: #000000;
+  margin-top: 0.25rem;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+
+  /* Windows 3.1 inset panel */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #dfdfdf;
+  border-bottom-color: #dfdfdf;
+  box-shadow: inset 1px 1px 0 #000000;
+
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.durationIcon {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.expandButton {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #000000;
+  transition: all 0.1s ease;
+  min-width: 24px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandButton:hover {
+  background: #d0d0d0;
+}
+
+.expandButton:active {
+  border-top-color: #000000;
+  border-left-color: #000000;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  background: #a0a0a0;
+}
+
+.chevronDown,
+.chevronUp {
+  font-size: 0.875rem;
+  display: inline-block;
+  transition: none;
+}
+
+.outcome {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+
+  /* Windows 3.1 inset panel */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  box-shadow: inset 1px 1px 0 #000000;
+
+  margin-bottom: 1rem;
+}
+
+.outcomeIcon {
+  font-size: 1.25rem;
+  color: #008000; /* Windows green */
+  flex-shrink: 0;
+}
+
+.outcomeText {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #000000;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.metric {
+  text-align: center;
+  padding: 0.75rem;
+
+  /* Windows 3.1 inset bevel - IMPORTANT: visible metric boxes */
+  background: #ffffff;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+.metricValue {
+  /* CRITICAL FIX: Solid, high-contrast color instead of transparent gradient */
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #000080; /* Windows 3.1 blue - HIGHLY VISIBLE */
+  margin-bottom: 0.25rem;
+
+  /* Remove all transparency and gradients */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  filter: none;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.details {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #808080;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.actionsHeader {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #808080;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.actionsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.action {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  animation: fadeIn 0.3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.actionBullet {
+  color: #000080;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.actionText {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.summary {
+  margin-top: 3rem;
+}
+
+.summaryCard {
+  /* Windows 3.1 window */
+  background: #c0c0c0;
+
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+
+  box-shadow:
+    inset 1px 1px 0 #dfdfdf,
+    inset -1px -1px 0 #808080,
+    0 4px 8px rgba(0, 0, 0, 0.2);
+
+  padding: 2rem;
+}
+
+.summaryTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000080; /* Windows blue */
+  padding: 0.5rem;
+  background: #000080;
+  color: #ffffff;
+}
+
+.summaryStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+}
+
+.summaryStat {
+  text-align: center;
+}
+
+.summaryStatValue {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000080; /* Solid Windows blue */
+  margin-bottom: 0.5rem;
+
+  /* Remove all gradients and effects */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  filter: none;
+}
+
+.summaryStatLabel {
+  font-size: 0.875rem;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Dark mode: Keep Windows 3.1 aesthetic but adjust for dark backgrounds */
+[data-theme='dark'] .phaseCard,
+[data-theme='dark'] .summaryCard {
+  background: #404040; /* Darker gray but still Windows-style */
+  border-top-color: #606060;
+  border-left-color: #606060;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+}
+
+[data-theme='dark'] .phaseCard:hover {
+  background: #484848;
+}
+
+[data-theme='dark'] .metric,
+[data-theme='dark'] .outcome,
+[data-theme='dark'] .duration {
+  background: #303030;
+  border-top-color: #202020;
+  border-left-color: #202020;
+  border-right-color: #505050;
+  border-bottom-color: #505050;
+}
+
+[data-theme='dark'] .skillName {
+  color: #5B9BD5; /* Lighter blue for dark mode visibility */
+}
+
+[data-theme='dark'] .metricValue,
+[data-theme='dark'] .summaryStatValue {
+  color: #5B9BD5; /* Lighter blue for dark mode */
+}
+
+[data-theme='dark'] .outcomeText,
+[data-theme='dark'] .actionText,
+[data-theme='dark'] .role,
+[data-theme='dark'] .metricLabel,
+[data-theme='dark'] .summaryStatLabel {
+  color: #d0d0d0;
+}
+
+[data-theme='dark'] .replayButton {
+  background: #404040;
+  color: #d0d0d0;
+}
+
+[data-theme='dark'] .replayIcon {
+  color: #5B9BD5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .phaseHeader {
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+  }
+
+  .duration {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .expandButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summaryStats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

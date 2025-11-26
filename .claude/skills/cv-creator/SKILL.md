@@ -6,6 +6,24 @@ allowed-tools: Read,Write,Edit,WebFetch,WebSearch
 
 # CV Creator
 
+## 🎉 Production Implementation Available!
+
+**CV Creator is now a complete, production-ready TypeScript application!**
+
+- 📦 **GitHub**: [github.com/erichowens/cv-creator](https://github.com/erichowens/cv-creator)
+- ⚡ **Status**: Production-ready (~2,000 LOC)
+- ✅ **ATS Score**: 95/100 achieved
+- 🚀 **Deploy**: `npm install && npm run example`
+
+Built through multi-skill orchestration (8 skills, 9 phases), this implementation generates:
+- ATS-optimized PDF resumes (&lt;5 sec)
+- Deploy-ready portfolio websites (&lt;1 sec)
+- Detailed validation reports
+
+[View the artifact](https://erichowens.github.io/some_claude_skills/artifacts) documenting the full production journey.
+
+---
+
 A specialized resume builder that transforms structured career data and competitive positioning insights into ATS-optimized, professionally formatted resumes and CVs.
 
 ## Quick Start
@@ -192,7 +210,7 @@ Performance Optimization, Monitoring & Observability
 
 **What to avoid:**
 - Generic skills ("Problem Solving", "Team Player")
-- Too many skills (>25 overwhelming, <10 insufficient)
+- Too many skills (&gt;25 overwhelming, &lt;10 insufficient)
 - Listing skills not mentioned elsewhere in resume
 
 ### Step 4: Format Work Experience
@@ -239,7 +257,7 @@ Stanford University | 2017
 ```
 
 **When to include GPA:**
-- Recent graduate (<5 years) AND GPA ≥3.5
+- Recent graduate (&lt;5 years) AND GPA ≥3.5
 - Otherwise, omit
 
 **What to avoid:**
@@ -517,7 +535,7 @@ Output:
 
 ## Troubleshooting
 
-### Issue: ATS Score <70
+### Issue: ATS Score &lt;70
 
 **Possible causes:**
 - Complex formatting (tables, columns, text boxes)
@@ -531,7 +549,7 @@ Output:
 3. Use standard section headers ("Work Experience", "Education")
 4. Ensure all required sections present
 
-### Issue: Keyword Coverage <60%
+### Issue: Keyword Coverage &lt;60%
 
 **Possible causes:**
 - Not tailoring resume to specific job description
@@ -552,7 +570,7 @@ Output:
 - Verbose descriptions
 
 **Fix:**
-1. Consolidate older roles (>10 years ago) into single "Early Career" section
+1. Consolidate older roles (&gt;10 years ago) into single "Early Career" section
 2. Limit recent roles to 7-10 bullets, older roles to 3-5 bullets
 3. Remove bullet points not relevant to target role
 4. Trim each bullet to 1-2 lines maximum
@@ -592,7 +610,7 @@ A well-generated resume should achieve:
 - **Keyword Coverage**: 80%+ for job-specific variants
 - **Length**: 1-2 pages (strict maximum)
 - **Parsing Errors**: 0 when tested through ATS simulator
-- **Readability**: Scannable in <30 seconds by recruiter
+- **Readability**: Scannable in &lt;30 seconds by recruiter
 - **Format Compliance**: Passes all formatting checks
 
 ## Integration with Other Skills

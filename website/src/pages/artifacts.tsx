@@ -9,10 +9,12 @@ import styles from './artifacts.module.css';
 // Note: In production, this would dynamically load from the artifacts directory
 import skillCoachArtifact from '@site/src/data/artifacts/single-skill/skill-coach/001-self-improvement/artifact.json';
 import vaporwaveMidiPlayerArtifact from '@site/src/data/artifacts/single-skill/vaporwave-glassomorphic-ui-designer/001-midi-player/artifact.json';
+import siteReliabilityEngineerArtifact from '@site/src/data/artifacts/frontend/multi-skill/1-site-reliability-engineer-integration/artifact.json';
 
 const ARTIFACTS: Artifact[] = [
   skillCoachArtifact as Artifact,
   vaporwaveMidiPlayerArtifact as Artifact,
+  siteReliabilityEngineerArtifact as Artifact,
   // More artifacts will be added here as they're created
 ];
 
