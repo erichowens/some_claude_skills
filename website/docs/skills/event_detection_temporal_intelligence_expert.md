@@ -11,6 +11,8 @@ sidebar_position: 17
   skillName="Event Detection Temporal Intelligence Expert"
   fileName="event-detection-temporal-intelligence-expert"
   description="Expert in event detection and temporal intelligence for computer vision systems"
+
+  tags={["analysis","cv","photography","ml","data","advanced"]}
 />
 
 

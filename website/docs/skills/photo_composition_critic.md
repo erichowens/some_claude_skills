@@ -9,6 +9,8 @@ description: Expert photography composition critic grounded in graduate-level vi
   skillName="Photo Composition Critic"
   fileName="photo-composition-critic"
   description="Expert photography composition critic grounded in graduate-level visual aesthetics and computational aesthetics research (NIMA, AVA, LAION)"
+
+  tags={["analysis","validation","photography","ml","advanced"]}
 />
 
 Expert photography critic with deep grounding in graduate-level visual aesthetics, computational aesthetics research, and professional image analysis.

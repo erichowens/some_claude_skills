@@ -11,6 +11,8 @@ sidebar_position: 14
   skillName="Orchestrator"
   fileName="orchestrator"
   description="Coordinates all specialists to solve complex, multi-domain problems"
+
+  tags={["orchestration","automation","production-ready"]}
 />
 
 

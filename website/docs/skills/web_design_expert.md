@@ -11,6 +11,8 @@ sidebar_position: 1
   skillName="Web Design Expert"
   fileName="web-design-expert"
   description="Creates unique, professionally designed web applications with strong brand identity"
+
+  tags={["creation","design","visual","code","beginner-friendly"]}
 />
 
 

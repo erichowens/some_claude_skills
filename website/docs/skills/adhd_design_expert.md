@@ -11,6 +11,8 @@ sidebar_position: 10
   skillName="Adhd Design Expert"
   fileName="adhd-design-expert"
   description="Neuroscience-backed UX design specifically for ADHD brains"
+
+  tags={["creation","design","accessibility","research","beginner-friendly"]}
 />
 
 

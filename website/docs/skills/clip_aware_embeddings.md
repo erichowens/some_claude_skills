@@ -9,6 +9,8 @@ description: Semantic image-text matching with CLIP and alternatives, knowing wh
   skillName="CLIP-Aware Embeddings"
   fileName="clip-aware-embeddings"
   description="Semantic image-text matching with CLIP and alternatives, knowing when CLIP works and when to use specialized models"
+
+  tags={["analysis","cv","ml","data","advanced"]}
 />
 
 Smart image-text matching that knows when CLIP works and when to use alternatives.

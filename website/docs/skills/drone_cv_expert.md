@@ -87,6 +87,8 @@ Solve complex problems in drone control, navigation, computer vision, and autono
   skillName="Drone Cv Expert"
   fileName="drone-cv-expert"
   description="Expert in drone systems, computer vision, and autonomous navigation. Specializes in flight control, SLAM, object detection, and sensor fusion."
+
+  tags={["creation","robotics","cv","code","advanced"]}
 />
 
 class WaypointNavigator:

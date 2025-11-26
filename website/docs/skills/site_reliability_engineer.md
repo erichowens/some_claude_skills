@@ -1,5 +1,5 @@
 ---
-id: site-reliability-engineer
+id: site_reliability_engineer
 title: Site Reliability Engineer
 sidebar_label: Site Reliability Engineer
 description: Proactive validation and build reliability expert that prevents SSG failures through pre-commit hooks, MDX validation, and systematic error detection before they break production.
@@ -12,6 +12,8 @@ import SkillHeader from '@site/src/components/SkillHeader';
   skillName="Site Reliability Engineer"
   fileName="site-reliability-engineer"
   description="Prevent build failures before they happen with proactive validation, pre-commit hooks, and systematic error detection."
+
+  tags={["validation","automation","devops","code","production-ready"]}
 />
 
 ## Overview

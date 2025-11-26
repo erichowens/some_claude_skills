@@ -1,20 +1,67 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Layout from '@theme/Layout';
+import { useHistory, useLocation } from '@docusaurus/router';
 import SkillQuickView from '../components/SkillQuickView';
 import SkillGalleryCard from '../components/SkillGalleryCard';
 import type { Skill } from '../types/skill';
 import { ALL_SKILLS, searchSkills } from '../data/skills';
 import { SKILL_CATEGORIES } from '../types/skill';
+import { ALL_TAGS, getTagsByType, TAG_TYPE_LABELS, TAG_TYPE_COLORS, type TagType } from '../types/tags';
 import { useStarredSkills } from '../hooks/useStarredSkills';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
 
 export default function SkillsGallery(): JSX.Element {
+  const history = useHistory();
+  const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [showStarredOnly, setShowStarredOnly] = useState(false);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [showTagFilter, setShowTagFilter] = useState(false);
   const { toggleStar, isStarred, getStarredCount } = useStarredSkills();
+
+  // Read tags from URL on mount
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tagsParam = params.get('tags');
+    if (tagsParam) {
+      const tags = tagsParam.split(',').filter(t => ALL_TAGS.some(at => at.id === t));
+      setSelectedTags(tags);
+      if (tags.length > 0) {
+        setShowTagFilter(true);
+      }
+    }
+  }, [location.search]);
+
+  // Update URL when tags change
+  const updateUrlWithTags = (tags: string[]) => {
+    const params = new URLSearchParams(location.search);
+    if (tags.length > 0) {
+      params.set('tags', tags.join(','));
+    } else {
+      params.delete('tags');
+    }
+    const newSearch = params.toString();
+    history.replace({
+      pathname: location.pathname,
+      search: newSearch ? `?${newSearch}` : '',
+    });
+  };
+
+  const handleTagToggle = (tagId: string) => {
+    const newTags = selectedTags.includes(tagId)
+      ? selectedTags.filter(t => t !== tagId)
+      : [...selectedTags, tagId];
+    setSelectedTags(newTags);
+    updateUrlWithTags(newTags);
+  };
+
+  const handleClearTags = () => {
+    setSelectedTags([]);
+    updateUrlWithTags([]);
+  };
 
   const filteredSkills = useMemo(() => {
     let skills = ALL_SKILLS;
@@ -29,15 +76,35 @@ export default function SkillsGallery(): JSX.Element {
       skills = skills.filter(skill => skill.category === selectedCategory);
     }
 
-    // Filter by search
-    return searchSkills(skills, searchQuery);
-  }, [selectedCategory, searchQuery, showStarredOnly, isStarred]);
+    // Filter by tags (OR logic - skill matches if it has ANY of the selected tags)
+    if (selectedTags.length > 0) {
+      skills = skills.filter(skill =>
+        skill.tags?.some(tag => selectedTags.includes(tag))
+      );
+    }
+
+    // Filter by search (also searches tags)
+    if (searchQuery) {
+      const lowerQuery = searchQuery.toLowerCase();
+      skills = skills.filter(skill =>
+        skill.title.toLowerCase().includes(lowerQuery) ||
+        skill.description.toLowerCase().includes(lowerQuery) ||
+        skill.tags?.some(tag => tag.toLowerCase().includes(lowerQuery))
+      );
+    }
+
+    return skills;
+  }, [selectedCategory, searchQuery, showStarredOnly, isStarred, selectedTags]);
 
   const handleResetFilters = () => {
     setSelectedCategory('all');
     setSearchQuery('');
     setShowStarredOnly(false);
+    setSelectedTags([]);
+    updateUrlWithTags([]);
   };
+
+  const tagsByType = getTagsByType();
 
   return (
     <Layout
@@ -85,6 +152,20 @@ export default function SkillsGallery(): JSX.Element {
             >
               ★ Starred ({getStarredCount()})
             </button>
+            {/* Tag Filter Toggle */}
+            <button
+              onClick={() => setShowTagFilter(!showTagFilter)}
+              className="win31-push-button"
+              style={{
+                fontSize: '14px',
+                padding: '10px 20px',
+                background: selectedTags.length > 0 ? 'var(--win31-lime)' : 'var(--win31-gray)',
+                color: 'black',
+                fontWeight: selectedTags.length > 0 ? 'bold' : 'normal',
+              }}
+            >
+              🏷️ Tags {selectedTags.length > 0 && `(${selectedTags.length})`}
+            </button>
             {SKILL_CATEGORIES.map((category) => (
               <button
                 key={category}
@@ -102,6 +183,122 @@ export default function SkillsGallery(): JSX.Element {
               </button>
             ))}
           </div>
+
+          {/* Tag Filter Panel */}
+          {showTagFilter && (
+            <div className="win31-panel-box" style={{ marginBottom: '20px', padding: '20px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <div>
+                  <h3 className="win31-font" style={{ margin: 0, fontSize: '14px', color: 'var(--win31-navy)' }}>
+                    Filter by Tags
+                  </h3>
+                  <p className="win31-font" style={{ margin: '4px 0 0 0', fontSize: '11px', color: '#666', fontStyle: 'italic' }}>
+                    Shows skills matching <strong>any</strong> selected tag
+                  </p>
+                </div>
+                {selectedTags.length > 0 && (
+                  <button
+                    onClick={handleClearTags}
+                    className="win31-push-button"
+                    style={{ fontSize: '12px', padding: '4px 12px' }}
+                  >
+                    Clear All
+                  </button>
+                )}
+              </div>
+
+              {(Object.keys(tagsByType) as TagType[]).map((type) => (
+                <div key={type} style={{ marginBottom: '12px' }}>
+                  <div
+                    className="win31-font"
+                    style={{
+                      fontSize: '11px',
+                      color: '#666',
+                      marginBottom: '6px',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {TAG_TYPE_LABELS[type]}
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {tagsByType[type].map((tag) => {
+                      const isSelected = selectedTags.includes(tag.id);
+                      const colors = TAG_TYPE_COLORS[type];
+                      return (
+                        <button
+                          key={tag.id}
+                          onClick={() => handleTagToggle(tag.id)}
+                          title={tag.description}
+                          className="win31-font"
+                          style={{
+                            display: 'inline-block',
+                            backgroundColor: isSelected ? colors.text : colors.bg,
+                            color: isSelected ? '#fff' : colors.text,
+                            border: `1px solid ${colors.border}`,
+                            borderRadius: '12px',
+                            padding: '4px 12px',
+                            fontSize: '11px',
+                            fontWeight: isSelected ? 600 : 500,
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease',
+                          }}
+                        >
+                          {tag.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Active Tag Pills */}
+          {selectedTags.length > 0 && !showTagFilter && (
+            <div style={{ marginBottom: '20px', display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+              <span className="win31-font" style={{ fontSize: '12px', color: '#666' }}>Active tags:</span>
+              {selectedTags.map((tagId) => {
+                const tag = ALL_TAGS.find(t => t.id === tagId);
+                if (!tag) return null;
+                const colors = TAG_TYPE_COLORS[tag.type];
+                return (
+                  <button
+                    key={tagId}
+                    onClick={() => handleTagToggle(tagId)}
+                    className="win31-font"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      backgroundColor: colors.bg,
+                      color: colors.text,
+                      border: `1px solid ${colors.border}`,
+                      borderRadius: '12px',
+                      padding: '4px 10px',
+                      fontSize: '11px',
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {tag.label} ×
+                  </button>
+                );
+              })}
+              <button
+                onClick={handleClearTags}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#666',
+                  fontSize: '11px',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                }}
+              >
+                Clear all
+              </button>
+            </div>
+          )}
 
           {/* Skills Grid */}
           <div className="skills-grid">
@@ -142,6 +339,11 @@ export default function SkillsGallery(): JSX.Element {
               <div className="win31-statusbar-panel">
                 {selectedCategory === 'all' ? 'All Categories' : selectedCategory}
               </div>
+              {selectedTags.length > 0 && (
+                <div className="win31-statusbar-panel">
+                  {selectedTags.length} tag{selectedTags.length !== 1 ? 's' : ''} selected
+                </div>
+              )}
               <div className="win31-statusbar-panel">
                 <a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>
                   Back to Home

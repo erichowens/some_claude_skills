@@ -31,10 +31,8 @@ export default function PhaseTimeline({ phases }: PhaseTimelineProps): JSX.Eleme
                   <div className={styles.skillsLabel}>Skills Involved:</div>
                   <div className={styles.skillsList}>
                     {phase.skills.map((skillName, skillIndex) => {
-                      // Most skill doc files use underscores, but some use dashes in their ID
-                      const skillPath = skillName === 'site-reliability-engineer'
-                        ? skillName  // Keep dashes for site-reliability-engineer (matches doc ID)
-                        : skillName.replace(/-/g, '_');  // Convert to underscores for others
+                      // All skill doc files use underscores in the path
+                      const skillPath = skillName.replace(/-/g, '_');
                       return (
                         <Link
                           key={skillIndex}

@@ -22,14 +22,15 @@ function validateSkillHeader(filePath) {
     });
   }
 
-  // Check for removed props (difficulty, category, tags)
-  const deprecatedProps = ['difficulty', 'category', 'tags'];
+  // Check for removed props (difficulty, category)
+  // Note: tags is now a valid prop for displaying skill tags
+  const deprecatedProps = ['difficulty', 'category'];
   deprecatedProps.forEach(prop => {
     if (headerText.includes(`${prop}=`)) {
       errors.push({
         line: lineNum,
         issue: `Uses deprecated "${prop}" prop`,
-        fix: `Remove ${prop} prop (only use: skillName, fileName, description)`
+        fix: `Remove ${prop} prop (only use: skillName, fileName, description, tags)`
       });
     }
   });

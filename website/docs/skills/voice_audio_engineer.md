@@ -9,6 +9,8 @@ description: Expert audio engineer with deep signal processing knowledge, spatia
   skillName="Voice & Audio Engineer"
   fileName="voice-audio-engineer"
   description="Expert audio engineer with deep signal processing knowledge, spatial audio (Ambisonics, binaural), and production-ready DSP"
+
+  tags={["creation","audio","code","elevenlabs","production-ready"]}
 />
 
 Expert audio engineer with deep signal processing knowledge, spatial audio expertise, and production-ready implementation skills.

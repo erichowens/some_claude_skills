@@ -46,6 +46,7 @@ const sidebars: SidebarsConfig = {
         'skills/design_system_creator',
         'skills/native_app_designer',
         'skills/vaporwave_glassomorphic_ui_designer',
+        'skills/windows_3_1_web_designer',
         'skills/typography_expert',
         'skills/vibe_matcher',
         'skills/interior_design_expert',
@@ -117,6 +118,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'skills/career_biographer',
+        'skills/cv_creator',
         'skills/personal_finance_coach',
         'skills/tech_entrepreneur_coach_adhd',
         'skills/project_management_guru_adhd',
@@ -125,6 +127,14 @@ const sidebars: SidebarsConfig = {
         'skills/hrv_alexithymia_expert',
         'skills/speech_pathology_ai',
         'skills/adhd_design_expert',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'DevOps & Site Reliability',
+      collapsed: false,
+      items: [
+        'skills/site_reliability_engineer',
       ],
     },
   ],

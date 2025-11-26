@@ -39,7 +39,7 @@ Great skills are **progressive disclosure machines** that:
 **Immediate improvements for existing skills**:
 1. **Add NOT clause** to description → Prevents false activation
 2. **Add 1-2 anti-patterns** → Prevents common mistakes
-3. **Check line count** (`wc -l`) → Should be <500
+3. **Check line count** (`wc -l`) → Should be fewer than 500 lines
 4. **Remove dead files** → Delete unreferenced scripts/references
 5. **Test activation** → Ask questions that should/shouldn't trigger it
 
@@ -58,7 +58,7 @@ Great skills are **progressive disclosure machines** that:
 
 Skills load in three phases:
 - **Phase 1 (~100 tokens)**: Metadata (name, description) - "Should I activate?"
-- **Phase 2 (<5k tokens)**: Main instructions in SKILL.md - "How do I do this?"
+- **Phase 2 (under 5k tokens)**: Main instructions in SKILL.md - "How do I do this?"
 - **Phase 3 (as needed)**: Scripts, references, assets - "Show me the details"
 
 **Critical**: Keep SKILL.md under 500 lines. Split details into `/references`.
@@ -114,7 +114,7 @@ Technology evolves. Capture what changed and when:
 **Mandatory**:
 ```
 your-skill/
-└── SKILL.md           # Core instructions (<500 lines)
+└── SKILL.md           # Core instructions (max 500 lines)
 ```
 
 **Optional** (only if needed):
@@ -292,7 +292,7 @@ Shibboleths = deep knowledge that separates novices from experts.
 - Description quality (keywords, exclusions, length)
 - Anti-pattern detection
 - Progressive disclosure compliance
-- Line count (<500 for SKILL.md)
+- Line count (max 500 for SKILL.md)
 
 ## Example: Good vs Bad Skills
 
@@ -448,7 +448,7 @@ Ask questions that SHOULD NOT trigger the skill:
 ## Common Questions
 
 **Q: SKILL.md vs /references?**
-SKILL.md: Core instructions (<500 lines). /references: Deep dives (loaded as needed).
+SKILL.md: Core instructions (max 500 lines). /references: Deep dives (loaded as needed).
 
 **Q: How do I handle deprecated patterns?**
 ```markdown
@@ -459,8 +459,8 @@ SKILL.md: Core instructions (<500 lines). /references: Deep dives (loaded as nee
 
 ## Success Metrics
 
-- **Activation**: 90%+ when appropriate, <5% false positives
-- **Token efficiency**: <5k tokens typical invocation
+- **Activation**: 90%+ when appropriate, under 5% false positives
+- **Token efficiency**: Under 5k tokens typical invocation
 - **Error prevention**: Measurable reduction in common mistakes
 
 ---

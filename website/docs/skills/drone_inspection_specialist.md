@@ -9,6 +9,8 @@ description: Advanced CV for infrastructure inspection including forest fires, r
   skillName="Drone Inspection Specialist"
   fileName="drone-inspection-specialist"
   description="Advanced CV for infrastructure inspection including forest fires, roofs, residential properties, and Gaussian Splatting. Expert in multi-modal detecti..."
+
+  tags={["analysis","robotics","cv","3d","advanced"]}
 />
 
 

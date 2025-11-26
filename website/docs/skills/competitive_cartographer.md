@@ -11,6 +11,8 @@ sidebar_position: 24
   skillName="Competitive Cartographer"
   fileName="competitive-cartographer"
   description="Strategic analyst that maps competitive landscapes and identifies white space opportunities"
+
+  tags={["research","analysis","strategy","entrepreneurship","career"]}
 />
 
 A strategic analyst who maps competitive spaces to reveal positioning opportunities, white space, and differentiation strategies. Think of this as creating a "you are here" map in a crowded market.

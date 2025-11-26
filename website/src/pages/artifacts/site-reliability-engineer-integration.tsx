@@ -120,10 +120,8 @@ export default function SiteReliabilityEngineerArtifact(): JSX.Element {
             <h2 className={styles.sectionTitle}>Skills Involved</h2>
             <div className={styles.skillsGrid}>
               {artifact.skills.map((skill, index) => {
-                // Most skill doc files use underscores, but some use dashes in their ID
-                const skillPath = skill.name === 'site-reliability-engineer'
-                  ? skill.name  // Keep dashes for site-reliability-engineer (matches doc ID)
-                  : skill.name.replace(/-/g, '_');  // Convert to underscores for others
+                // All skill doc files use underscores in the path
+                const skillPath = skill.name.replace(/-/g, '_');
                 return (
                   <div key={index} className={styles.skillCard}>
                     <div className={styles.skillHeader}>

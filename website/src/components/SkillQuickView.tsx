@@ -5,6 +5,7 @@ import { shareSkill } from '../hooks/useStarredSkills';
 import { downloadSkillZip } from '@site/src/utils/downloadSkillZip';
 import { useSkillStats } from '../hooks/usePlausibleStats';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { TagList } from './TagBadge';
 
 interface SkillQuickViewProps {
   skill: Skill;
@@ -154,6 +155,13 @@ export default function SkillQuickView({ skill, onClose, isStarred = false, onTo
               </div>
             )}
           </div>
+
+          {/* Tags */}
+          {skill.tags && skill.tags.length > 0 && (
+            <div style={{ marginBottom: '16px' }}>
+              <TagList tags={skill.tags} size="md" />
+            </div>
+          )}
 
           {/* Description */}
           <p style={{

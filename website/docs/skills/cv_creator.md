@@ -1,5 +1,5 @@
 ---
-id: cv-creator
+id: cv_creator
 title: CV Creator
 sidebar_label: CV Creator
 description: Professional CV and resume builder that transforms career narratives into ATS-optimized, multi-format resumes. Integrates with career-biographer for structured career data and competitive-cartographer for strategic positioning.
@@ -12,6 +12,8 @@ import SkillHeader from '@site/src/components/SkillHeader';
   skillName="CV Creator"
   fileName="cv-creator"
   description="Professional resume builder that transforms career narratives into ATS-optimized, multi-format resumes with strategic positioning."
+
+  tags={["creation","career","document","beginner-friendly","production-ready"]}
 />
 
 ## 🎉 Production Implementation Available!

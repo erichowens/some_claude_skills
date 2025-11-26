@@ -11,6 +11,8 @@ sidebar_position: 22
   skillName="Design Archivist"
   fileName="design-archivist"
   description="Long-running design anthropologist that builds comprehensive visual databases from 500-1000 real-world examples"
+
+  tags={["research","design","data","advanced"]}
 />
 
 A design anthropologist that systematically builds comprehensive visual databases through large-scale analysis of real-world examples. This is a long-running skill designed for multi-day research jobs (2-7 days for 500-1000 examples).

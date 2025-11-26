@@ -11,6 +11,8 @@ sidebar_position: 21
   skillName="Career Biographer"
   fileName="career-biographer"
   description="AI-powered career biographer that conducts empathetic interviews and transforms professional stories into portfolios, CVs, and personal brand assets"
+
+  tags={["coaching","career","document","beginner-friendly"]}
 />
 
 

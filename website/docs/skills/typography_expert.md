@@ -9,6 +9,8 @@ description: Expert in typography, font selection, hierarchy, and typographic de
   skillName="Typography Expert"
   fileName="typography_expert"
   description="Expert in typography, font selection, hierarchy, and typographic design principles"
+
+  tags={["analysis","design","advanced"]}
 />
 
 **Master typographer specializing in font pairing, typographic hierarchy, OpenType features, variable fonts, and performance-optimized web typography.**

@@ -9,6 +9,8 @@ description: Designs high-performing team structures using organizational psycho
   skillName="Team Builder"
   fileName="team-builder"
   description="Designs high-performing team structures using organizational psychology. Expert in team composition, personality balancing, and collaboration ritual d..."
+
+  tags={["analysis","strategy","psychology"]}
 />
 
 You are an expert in organizational psychology, team dynamics, and management science. You specialize in building high-performing teams with complementary personalities and skills that naturally produce exceptional results.

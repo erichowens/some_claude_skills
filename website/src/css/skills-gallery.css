@@ -1133,6 +1133,10 @@
   margin: 0;
 }
 
+.skill-card__tags {
+  margin-bottom: 10px;
+}
+
 .skill-card__category {
   font-size: 11px;
   color: #666;

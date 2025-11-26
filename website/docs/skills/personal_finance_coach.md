@@ -9,6 +9,8 @@ description: Expert personal finance coach grounded in academic research - MPT, 
   skillName="Personal Finance Coach"
   fileName="personal-finance-coach"
   description="Expert personal finance coach grounded in academic research: MPT, factor investing, tax optimization, and retirement mathematics"
+
+  tags={["coaching","finance","analysis","beginner-friendly"]}
 />
 
 Expert personal finance coach grounded in academic research and quantitative analysis, not platitudes.

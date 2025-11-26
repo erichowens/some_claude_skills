@@ -11,6 +11,8 @@ sidebar_position: 3
   skillName="Native App Designer"
   fileName="native-app-designer"
   description="Breathtaking iOS/Mac and web apps with organic, non-AI aesthetic"
+
+  tags={["creation","design","code","visual","advanced"]}
 />
 
 

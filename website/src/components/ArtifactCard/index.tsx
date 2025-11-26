@@ -62,10 +62,8 @@ export default function ArtifactCard({ artifact }: ArtifactCardProps): JSX.Eleme
 
       <div className={styles.skills}>
         {artifact.skills.map((skill, index) => {
-          // Most skill doc files use underscores, but some use dashes in their ID
-          const skillPath = skill.name === 'site-reliability-engineer'
-            ? skill.name  // Keep dashes for site-reliability-engineer (matches doc ID)
-            : skill.name.replace(/-/g, '_');  // Convert to underscores for others
+          // All skill doc files use underscores in the path
+          const skillPath = skill.name.replace(/-/g, '_');
           return (
             <span key={index} className={styles.skillTag}>
               <Link to={`/docs/skills/${skillPath}`}>{skill.name}</Link>

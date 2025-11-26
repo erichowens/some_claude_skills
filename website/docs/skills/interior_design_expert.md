@@ -9,6 +9,8 @@ description: Expert interior designer with color science (Munsell), IES lighting
   skillName="Interior Design Expert"
   fileName="interior-design-expert"
   description="Expert interior designer with color science (Munsell), IES lighting standards, and computational space planning"
+
+  tags={["creation","design","spatial","visual","advanced"]}
 />
 
 Expert interior designer combining classical training with computational design tools and AI-assisted visualization.

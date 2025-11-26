@@ -9,6 +9,8 @@ description: Expert in computational collage composition inspired by David Hockn
   skillName="Collage Layout Expert"
   fileName="collage-layout-expert"
   description="Expert in computational collage composition inspired by David Hockney's joiners technique. Masters edge-based assembly using greedy edge growth with intelligent optimizations."
+
+  tags={["creation","cv","photography","visual","advanced"]}
 />
 
 

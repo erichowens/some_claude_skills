@@ -11,6 +11,8 @@ sidebar_position: 23
   skillName="Project Management Guru Adhd"
   fileName="project-management-guru-adhd"
   description="Expert project manager for ADHD engineers managing multiple concurrent projects with hyperfocus awareness"
+
+  tags={["coaching","accessibility","strategy","beginner-friendly"]}
 />
 
 

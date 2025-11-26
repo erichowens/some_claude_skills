@@ -9,6 +9,8 @@ description: Guide for creating high-quality Agent Skills with domain expertise,
   skillName="Skill Coach"
   fileName="skill-coach"
   description="Guide for creating high-quality Agent Skills with domain expertise, anti-pattern detection, and progressive disclosure best practices"
+
+  tags={["coaching","validation","beginner-friendly"]}
 />
 
 This meta-skill helps you create Agent Skills that encode real domain expertise, not just surface-level instructions. It focuses on the **shibboleths** - the deep knowledge that separates novices from experts.

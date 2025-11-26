@@ -11,6 +11,8 @@ sidebar_position: 9
   skillName="Windows 3.1 Web Designer"
   fileName="windows_3_1_web_designer"
   description="Expert in authentic Windows 3.1 aesthetic for modern web applications. Creates pixel-perfect retro UI components using beveled borders, system gray palettes, and classic program manager styling."
+
+  tags={["creation","design","visual","code"]}
 />
 
 Expert in authentic Windows 3.1 aesthetic for modern web applications. Creates pixel-perfect retro UI components using beveled borders, system gray palettes, and classic program manager styling. Specializes in translating 1990s desktop metaphors into responsive web experiences while maintaining nostalgic authenticity.

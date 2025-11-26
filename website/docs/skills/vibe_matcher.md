@@ -11,6 +11,8 @@ sidebar_position: 23
   skillName="Vibe Matcher"
   fileName="vibe-matcher"
   description="Synesthete designer that translates emotional vibes and brand keywords into concrete visual DNA"
+
+  tags={["analysis","creation","design","data","beginner-friendly"]}
 />
 
 A synesthete designer who translates abstract feelings and brand vibes into concrete visual language - the bridge between "I want it to feel edgy" and "Use #FF006E with 800-weight Montserrat".

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InstallTabs from './InstallTabs';
+import { TagList } from './TagBadge';
 import { downloadSkillZip } from '@site/src/utils/downloadSkillZip';
 import '../css/win31.css';
 
@@ -7,9 +8,10 @@ interface SkillHeaderProps {
   skillName: string;
   fileName: string;
   description: string;
+  tags?: string[];
 }
 
-export default function SkillHeader({ skillName, fileName, description }: SkillHeaderProps): JSX.Element {
+export default function SkillHeader({ skillName, fileName, description, tags }: SkillHeaderProps): JSX.Element {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   // Convert fileName (underscore format) to skillId (hyphen format)
@@ -46,6 +48,13 @@ export default function SkillHeader({ skillName, fileName, description }: SkillH
           }}
         />
       </div>
+
+      {/* Tags */}
+      {tags && tags.length > 0 && (
+        <div style={{ marginBottom: '20px' }}>
+          <TagList tags={tags} size="md" />
+        </div>
+      )}
 
       {/* Get This Skill Panel - Authentic Windows 3.1 Style */}
       <div

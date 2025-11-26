@@ -11,6 +11,8 @@ sidebar_position: 19
   skillName="Photo Content Recognition Curation Expert"
   fileName="photo-content-recognition-curation-expert"
   description="Expert in photo content recognition, curation, and intelligent organization systems"
+
+  tags={["analysis","cv","photography","ml","data"]}
 />
 
 

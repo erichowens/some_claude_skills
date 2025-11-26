@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Skill } from '../../types/skill';
 import { useHoverLift, HOVER_CONFIGS } from '../../hooks/useHoverLift';
 import { shareSkill } from '../../hooks/useStarredSkills';
+import { TagList } from '../TagBadge';
 import '../../css/skills-gallery.css';
 
 interface SkillGalleryCardProps {
@@ -100,6 +101,12 @@ export default function SkillGalleryCard({
       <div className={contentClass}>
         <h3 className={titleClass}>{skill.title}</h3>
         <p className={descriptionClass}>{skill.description}</p>
+        {/* Tags */}
+        {skill.tags && skill.tags.length > 0 && (
+          <div className="skill-card__tags">
+            <TagList tags={skill.tags} maxTags={4} size="sm" />
+          </div>
+        )}
         {variant === 'default' && (
           <div className="win31-font skill-card__category">
             {skill.category}

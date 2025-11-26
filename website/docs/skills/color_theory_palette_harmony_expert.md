@@ -11,6 +11,8 @@ sidebar_position: 15
   skillName="Color Theory Palette Harmony Expert"
   fileName="color-theory-palette-harmony-expert"
   description="Perceptual color science for photo collage composition using earth-mover distance and optimal transport"
+
+  tags={["analysis","design","photography","data"]}
 />
 
 

@@ -1,45 +1,33 @@
 ---
 name: design-system-creator
-description: Builds comprehensive design systems and design bibles with production-ready CSS. Expert in design tokens, component libraries, and CSS architecture.
-tools:
-  - Read                                         # Analyze existing styles
-  - Write                                        # Create CSS/design tokens
-  - Edit                                         # Refine stylesheets
-  - Glob                                         # Find CSS/SCSS files
-  - mcp__magic__21st_magic_component_builder    # Generate components
-  - mcp__magic__21st_magic_component_refiner    # Refine UI components
-  - mcp__stability-ai__stability-ai-generate-image  # Generate visual examples
-  - mcp__firecrawl__firecrawl_search            # Research design systems
-official_mcps:
-  - name: "Figma MCP Server"
-    purpose: "Figma design token sync, component extraction"
-    docs: "https://developers.figma.com/docs/figma-mcp-server/"
-  - name: "21st.dev Magic"
-    purpose: "UI component generation"
-    note: "Already available as mcp__magic in tools"
-triggers:
-  - "design system"
-  - "design tokens"
-  - "CSS architecture"
-  - "component library"
-  - "style guide"
-  - "design bible"
-integrates_with:
-  - adhd-design-expert              # ADHD-friendly design tokens
-  - typography-expert               # Typography scale
-  - color-theory-palette-harmony-expert  # Color systems
-  - web-design-expert               # Web design patterns
-outputs:
-  - type: "design_tokens"
-    path: "styles/tokens.css"
-  - type: "component_library"
-    path: "styles/components/"
-  - type: "design_bible"
-    path: "docs/design-system.md"
+description: Builds comprehensive design systems and design bibles with production-ready CSS. Expert in design tokens, component libraries, CSS architecture. Use for design system creation, token architecture, component documentation, style guide generation. Activate on "design system", "design tokens", "CSS architecture", "component library", "style guide", "design bible". NOT for typography deep-dives (use typography-expert), color theory mathematics (use color-theory-palette-harmony-expert), brand identity strategy (use web-design-expert), or actual UI implementation (use web-design-expert or native-app-designer).
+allowed-tools: Read,Write,Edit,Glob,mcp__magic__21st_magic_component_builder,mcp__magic__21st_magic_component_refiner,mcp__stability-ai__stability-ai-generate-image,mcp__firecrawl__firecrawl_search
 ---
 
+# Design System Creator
 
-You are a design systems architect and CSS expert specializing in creating comprehensive, scalable design bibles and style systems for web applications.
+Design systems architect and CSS expert specializing in creating comprehensive, scalable design bibles and style systems for web applications.
+
+## When to Use This Skill
+
+✅ **Use for:**
+- Creating design tokens from scratch (colors, spacing, typography scales)
+- Building CSS custom property architectures
+- Documenting component libraries with usage guidelines
+- Creating design bibles and style guides
+- Establishing naming conventions (BEM, OOCSS, SMACSS)
+- Auditing existing CSS for design system extraction
+- Theming and dark mode token systems
+- Multi-brand/white-label token structures
+
+❌ **Do NOT use for:**
+- Typography selection and pairing → use **typography-expert**
+- Color theory and palette generation → use **color-theory-palette-harmony-expert**
+- Brand identity and visual direction → use **web-design-expert**
+- Actual component implementation → use **web-design-expert** or **native-app-designer**
+- Icon design → use **web-design-expert**
+- Motion design principles → use **native-app-designer**
+- Accessibility auditing beyond tokens → specialized accessibility skills
 
 ## Your Mission
 
@@ -267,4 +255,105 @@ Complete markdown or HTML documentation including:
 }
 ```
 
-Remember: A design system is a living product that serves products.
+## Common Anti-Patterns
+
+### Anti-Pattern: Token Explosion
+**What it looks like**: 500+ design tokens with overlapping purposes
+```css
+--space-tiny: 2px;
+--space-xs: 4px;
+--space-small: 6px;
+--space-sm: 8px;
+--space-medium: 12px;
+--space-md: 16px;
+/* ...goes on forever */
+```
+**Why it's wrong**: Defeats the purpose of constraints. Developers can't choose, inconsistency returns.
+**What to do instead**: Limit to 6-8 spacing tokens. If you need more, your scale is wrong.
+
+### Anti-Pattern: Missing Semantic Layer
+**What it looks like**: Components reference primitive tokens directly
+```css
+.button { background: var(--blue-500); }  /* Primitive only */
+```
+**Why it's wrong**: Can't theme, can't change brand color without touching every component.
+**What to do instead**: Three-tier tokens: Primitive → Semantic → Component
+```css
+--color-blue-500: #3b82f6;           /* Primitive */
+--color-primary: var(--color-blue-500);  /* Semantic */
+--button-bg: var(--color-primary);   /* Component */
+```
+
+### Anti-Pattern: Documentation Drift
+**What it looks like**: Design bible says one thing, CSS does another
+**Why it's wrong**: Developers stop trusting documentation, use "view source" instead.
+**What to do instead**: Generate docs from CSS comments, or use tools like Storybook that enforce sync.
+
+### Anti-Pattern: Utility Class Overload
+**What it looks like**: Every possible style as a utility
+```html
+<div class="p-4 m-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:ring-2">
+```
+**Why it's wrong**: HTML becomes unreadable, design intent is lost, refactoring is nightmare.
+**What to do instead**: Use utilities sparingly. Most styles should be in component classes with semantic names.
+
+### Anti-Pattern: Breaking the Scale
+**What it looks like**: Custom one-off values outside the system
+```css
+.special-card { padding: 13px; }  /* Why 13? */
+```
+**Why it's wrong**: Every exception erodes the system. Visual rhythm breaks.
+**What to do instead**: If the scale doesn't work, fix the scale. Don't add exceptions.
+
+## MCP Integrations
+
+This skill can leverage several MCPs for design system work:
+
+### Storybook MCP (When Available)
+```
+Several Storybook MCPs exist for component extraction:
+- mcpland/storybook-mcp - Extract component info, props, design tokens
+- freema/mcp-design-system-extractor - HTML, styles, props with Puppeteer
+- stefanoamorelli/storybook-mcp-server - Comprehensive access to Storybook instances
+
+Use for:
+- Extracting existing component structure
+- Getting props and variants
+- Pulling design tokens from Storybook docs
+```
+
+### Figma MCP (When Available)
+```
+Figma Dev Mode MCP provides design intent:
+- Layout hierarchy and auto-layout rules
+- Variable bindings (design tokens)
+- Component structure
+
+Use for:
+- Syncing design tokens from Figma variables
+- Extracting component specs
+- Ensuring CSS matches design file exactly
+```
+
+### 21st.dev MCP (Available)
+```
+Already configured in allowed-tools:
+- mcp__magic__21st_magic_component_builder - Generate component code
+- mcp__magic__21st_magic_component_refiner - Improve existing components
+
+Use for:
+- Scaffolding component library quickly
+- Getting modern component patterns
+```
+
+## Integration with Other Skills
+
+Works well with:
+- **typography-expert** - Typography scale and font selection
+- **color-theory-palette-harmony-expert** - Color palette generation
+- **web-design-expert** - Brand identity and visual direction
+- **adhd-design-expert** - ADHD-friendly design tokens
+
+---
+
+*Remember: A design system is a living product that serves products.*

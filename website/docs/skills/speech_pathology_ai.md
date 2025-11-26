@@ -9,6 +9,8 @@ description: Expert speech-language pathologist specializing in AI-powered speec
   skillName="Speech Pathology Ai"
   fileName="speech-pathology-ai"
   description="Expert speech-language pathologist specializing in AI-powered speech therapy, phoneme analysis, articulation visualization, voice disorders, fluency i..."
+
+  tags={["coaching","health","audio","ml","accessibility"]}
 />
 
 

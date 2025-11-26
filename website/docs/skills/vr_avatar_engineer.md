@@ -9,6 +9,8 @@ description: Expert in building photorealistic and stylized avatar systems for V
   skillName="VR Avatar Engineer"
   fileName="vr-avatar-engineer"
   description="Expert in building photorealistic and stylized avatar systems for VR platforms. Specializes in subsurface scattering, facial capture, motion tracking ..."
+
+  tags={["creation","3d","ml","code","advanced"]}
 />
 
 

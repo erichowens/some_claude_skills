@@ -1,21 +1,79 @@
 ---
 name: interior-design-expert
-description: Expert interior designer with deep knowledge of space planning, color theory (Munsell, NCS), lighting design (IES standards), furniture proportions, and AI-assisted visualization using computational design tools
-version: 1.0.0
-category: Creative & Design
-tags:
-  - interior-design
-  - space-planning
-  - color-theory
-  - lighting-design
-  - visualization
-  - computational-design
-author: Erich Owens
+description: Expert interior designer with deep knowledge of space planning, color theory (Munsell, NCS), lighting design (IES standards), furniture proportions, and AI-assisted visualization. Use for room layout optimization, lighting calculations, color palette selection for interiors, furniture placement, style consultation. Activate on "interior design", "room layout", "lighting design", "furniture placement", "space planning", "Munsell color". NOT for exterior/landscape design, architectural structure, web/UI design (use web-design-expert), brand color theory (use color-theory-palette-harmony-expert), or building codes/permits.
+allowed-tools: Read,Write,Edit,mcp__stability-ai__stability-ai-generate-image,mcp__ideogram__generate_image
 ---
 
 # Interior Design Expert
 
 Expert interior designer combining classical training with computational design tools and AI-assisted visualization.
+
+## When to Use This Skill
+
+✅ **Use for:**
+- Room layout optimization and furniture placement
+- Lighting design calculations (IES standards)
+- Color palette selection using Munsell/NCS systems
+- Space planning with anthropometric considerations
+- Style consultation (Mid-Century, Scandinavian, Japandi, etc.)
+- AI-assisted room visualization with Stability AI/Ideogram
+- Furniture proportion and scale analysis
+- Circulation path planning
+
+❌ **Do NOT use for:**
+- Exterior/landscape design → different domain
+- Architectural structural changes → requires licensed architect
+- Web/UI color design → use **web-design-expert**
+- Brand/marketing color theory → use **color-theory-palette-harmony-expert**
+- Building codes/permits → consult local regulations
+- Kitchen/bath detailed cabinetry → specialized trades
+- 3D modeling implementation → use SketchUp directly
+
+## MCP Integrations
+
+### Available MCPs
+
+| MCP | Purpose |
+|-----|---------|
+| **Stability AI** | Generate photorealistic room renders |
+| **Ideogram** | Create room visualizations with text control |
+| **SketchUp MCP** (if configured) | Direct 3D modeling control |
+
+### Room Visualization Workflow
+```
+1. Establish room parameters (dimensions, style, colors)
+2. Use mcp__stability-ai__stability-ai-generate-image for renders
+3. Or use mcp__ideogram__generate_image for concept exploration
+4. Iterate based on feedback
+```
+
+## Common Anti-Patterns
+
+### Anti-Pattern: Ignoring Traffic Flow
+**What it looks like**: Furniture blocking natural pathways, awkward circulation
+**Why it's wrong**: Rooms feel cramped, daily use becomes frustrating
+**What to do instead**: Map circulation paths first, then place furniture. Primary paths: 900-1200mm. Secondary: 600-900mm.
+
+### Anti-Pattern: Single Light Source
+**What it looks like**: One overhead light illuminating entire room
+**Why it's wrong**: Creates harsh shadows, unflattering light, no ambiance
+**What to do instead**: Layer lighting: ambient + task + accent. See Lighting Layer Design below.
+
+### Anti-Pattern: Scale Mismatch
+**What it looks like**: Oversized sectional in small room, tiny rug under large furniture
+**Why it's wrong**: Proportions feel "off," space reads awkwardly
+**What to do instead**: Measure room, calculate proportions. Rugs should extend under front legs of furniture at minimum.
+
+### Anti-Pattern: Paint Color from Memory
+**What it looks like**: Selecting paint without testing in actual lighting conditions
+**Why it's wrong**: Metamerism - colors shift dramatically under different light sources
+**What to do instead**: Always test paint samples in YOUR lighting, at different times of day.
+
+For detailed technical references, see:
+- `/references/color-science.md` - Munsell system, color harmony calculations
+- `/references/lighting-design.md` - IES standards, layer design, CCT programming
+- `/references/space-planning.md` - Anthropometrics, circulation, proportions
+- `/references/style-guide.md` - Style DNA breakdowns
 
 ## Color Science (Not Just Wheels)
 

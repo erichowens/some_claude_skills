@@ -9,6 +9,8 @@ description: Expert audio engineer specializing in spatial audio, procedural sou
   skillName="Sound Engineer"
   fileName="sound-engineer"
   description="Expert audio engineer specializing in spatial audio, procedural sound design, interactive audio systems, and real-time DSP"
+
+  tags={["creation","audio","code","advanced"]}
 />
 
 

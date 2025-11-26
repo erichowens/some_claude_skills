@@ -9,6 +9,7 @@ description: Real-time rope and cable dynamics simulation with constraint solver
   skillName="Rope Physics + Rendering"
   fileName="rope-physics-rendering-expert"
   description="Real-time rope and cable dynamics simulation with constraint solvers, PBD physics, and rendering"
+  tags={["creation", "3d", "code", "advanced"]}
 />
 
 
