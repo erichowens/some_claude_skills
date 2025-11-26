@@ -1,3 +1,23 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+build/
+dist/
+.docusaurus/
+.cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
 # MCP Server build artifacts
 mcp_servers/*/node_modules/
 mcp_servers/*/dist/
@@ -17,6 +37,21 @@ npm-debug.log*
 *.swo
 *~
 
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Claude plugin artifacts
+.claude-plugin/
 # OS
 .DS_Store
 Thumbs.db

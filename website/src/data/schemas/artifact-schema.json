@@ -1,0 +1,175 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Artifact",
+  "description": "Schema for skill demonstration artifacts",
+  "type": "object",
+  "required": ["id", "title", "description", "type", "skills", "category", "outcome", "files", "createdAt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier (skill-name-###-slug)",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title",
+      "minLength": 10,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what this artifact demonstrates",
+      "minLength": 50,
+      "maxLength": 500
+    },
+    "type": {
+      "type": "string",
+      "enum": ["single-skill", "multi-skill", "comparison"],
+      "description": "Type of demonstration"
+    },
+    "skills": {
+      "type": "array",
+      "description": "Skills involved in this artifact",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "role"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Skill name (matches skill directory name)"
+          },
+          "role": {
+            "type": "string",
+            "description": "What this skill contributed"
+          },
+          "activatedAt": {
+            "type": "number",
+            "description": "Timestamp in transcript (milliseconds)"
+          }
+        }
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": ["design", "development", "ai-ml", "research", "writing", "meta"],
+      "description": "Primary category"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Searchable tags",
+      "items": {
+        "type": "string"
+      }
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"],
+      "description": "Complexity level"
+    },
+    "phases": {
+      "type": "array",
+      "description": "For multi-skill: workflow phases",
+      "items": {
+        "type": "object",
+        "required": ["name", "skills", "outcome"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "duration": {
+            "type": "string",
+            "description": "e.g. '5 minutes', '2 iterations'"
+          },
+          "outcome": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Brief outcome summary"
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "value"],
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "learned": {
+          "type": "array",
+          "description": "Key insights from this artifact",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "description": "Paths to artifact files (relative to artifact directory)",
+      "properties": {
+        "transcript": {
+          "type": "string",
+          "description": "Path to conversation transcript"
+        },
+        "before": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files showing before state"
+        },
+        "after": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files showing after state"
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Screenshots, videos, diagrams"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp"
+    },
+    "featured": {
+      "type": "boolean",
+      "description": "Show on homepage",
+      "default": false
+    },
+    "viewCount": {
+      "type": "number",
+      "description": "Number of views",
+      "minimum": 0
+    }
+  }
+}

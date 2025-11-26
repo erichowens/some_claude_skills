@@ -1,0 +1,429 @@
+/* Windows 3.1 Code Comparison - Like WinDiff */
+.comparison {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Header - Windows 3.1 Menu Bar Style */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: var(--win31-gray);
+  border-bottom: 2px groove var(--win31-dark-gray);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fileName {
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--win31-light-gray);
+  color: var(--win31-black);
+  padding: 2px 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* View Mode Toggle - Windows 3.1 Button Group */
+.viewModeToggle {
+  display: flex;
+  gap: 0;
+}
+
+.viewModeButton {
+  padding: 4px 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  background: var(--win31-gray);
+  color: var(--win31-black);
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.1s ease;
+  letter-spacing: 0.3px;
+}
+
+.viewModeButton:hover {
+  background: var(--win31-light-gray);
+}
+
+.viewModeButton:active {
+  border-top-color: var(--win31-black);
+  border-left-color: var(--win31-black);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+}
+
+.viewModeButton.active {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-light-gray);
+  border-right-color: var(--win31-light-gray);
+}
+
+/* Split View - Two panes side by side */
+.splitView {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 300px;
+  border-top: 1px solid var(--win31-dark-gray);
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  border-right: 2px groove var(--win31-dark-gray);
+  background: var(--win31-white);
+}
+
+.pane:last-child {
+  border-right: none;
+}
+
+/* Pane Header - Like a Windows 3.1 list header */
+.paneHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background: var(--win31-gray);
+  border-bottom: 1px solid var(--win31-dark-gray);
+}
+
+.paneLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.beforeIcon {
+  color: #dc2626; /* Red for removed */
+  font-weight: 700;
+}
+
+.afterIcon {
+  color: #16a34a; /* Green for added */
+  font-weight: 700;
+}
+
+.lineCount {
+  font-family: var(--font-system);
+  font-size: 10px;
+  color: var(--win31-dark-gray);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Code Container */
+.codeContainer {
+  flex: 1;
+  overflow: auto;
+  background: var(--win31-white);
+}
+
+/* Override syntax highlighter styles for readability */
+.syntaxHighlighter {
+  margin: 0 !important;
+  padding: 12px !important;
+  background: var(--win31-white) !important;
+  font-family: var(--font-code) !important;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+
+/* Force light theme colors for readability on beige */
+.syntaxHighlighter code {
+  background: var(--win31-white) !important;
+  color: var(--win31-black) !important;
+}
+
+/* Unified View */
+.unifiedView {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--win31-white);
+  border-top: 1px solid var(--win31-dark-gray);
+}
+
+.unifiedSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.unifiedHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--win31-gray);
+  border-bottom: 1px solid var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.beforeCode {
+  border-bottom: 3px solid #dc2626;
+}
+
+.afterCode {
+  border-top: 3px solid #16a34a;
+}
+
+/* Divider between before/after in unified view */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: var(--win31-gray);
+  border-top: 1px solid var(--win31-dark-gray);
+  border-bottom: 1px solid var(--win31-dark-gray);
+}
+
+.dividerText {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--win31-navy);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Stats - Windows 3.1 Status Bar Style */
+.stats {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  background: var(--win31-gray);
+  border-top: 2px groove var(--win31-dark-gray);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-right: 1px solid var(--win31-dark-gray);
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.statLabel {
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.statValue {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--win31-navy);
+  letter-spacing: 0.3px;
+}
+
+/* Diff View - Line-by-line with green/red highlighting */
+.diffView {
+  background: var(--win31-white);
+  font-family: var(--font-code);
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-x: auto;
+  border-top: 1px solid var(--win31-dark-gray);
+}
+
+.addedLine,
+.removedLine,
+.contextLine {
+  display: flex;
+  padding: 2px 0;
+  font-family: var(--font-code);
+  font-size: 11px;
+  white-space: pre;
+}
+
+.addedLine {
+  background: #dcfce7; /* Light green */
+  color: #15803d;
+}
+
+.removedLine {
+  background: #fee2e2; /* Light red */
+  color: #991b1b;
+}
+
+.contextLine {
+  background: var(--win31-white);
+  color: var(--win31-black);
+}
+
+.linePrefix {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.lineContent {
+  flex: 1;
+  padding-left: 8px;
+  padding-right: 8px;
+  overflow-x: auto;
+}
+
+.addIcon,
+.removeIcon {
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 6px;
+  margin-right: 8px;
+}
+
+.addIcon {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.removeIcon {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Code block styling for split view */
+.codeBlock {
+  margin: 0;
+  padding: 12px;
+  font-family: var(--font-code);
+  font-size: 11px;
+  line-height: 1.5;
+  background: var(--win31-white);
+  overflow-x: auto;
+}
+
+.codeLine {
+  display: flex;
+  white-space: pre;
+}
+
+.lineNumber {
+  display: inline-block;
+  width: 40px;
+  text-align: right;
+  padding-right: 12px;
+  color: var(--win31-dark-gray);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.lineText {
+  flex: 1;
+  color: var(--win31-black);
+}
+
+/* Responsive design */
+@media (max-width: 996px) {
+  .splitView {
+    grid-template-columns: 1fr;
+  }
+
+  .pane {
+    border-right: none;
+    border-bottom: 2px groove var(--win31-dark-gray);
+  }
+
+  .pane:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 4px 8px;
+    gap: 8px;
+  }
+
+  .headerLeft {
+    gap: 8px;
+  }
+
+  .viewModeToggle {
+    width: 100%;
+  }
+
+  .viewModeButton {
+    flex: 1;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .stat {
+    border-right: none;
+    border-bottom: 1px solid var(--win31-dark-gray);
+    padding: 6px 12px;
+  }
+
+  .stat:last-child {
+    border-bottom: none;
+  }
+}
