@@ -1,23 +1,41 @@
+---
+name: windows-3-1-web-designer
+description: Expert in authentic Windows 3.1 aesthetic for modern web applications. Creates pixel-perfect retro UI with beveled borders, system gray palettes, and program manager styling. Use for retro-themed web apps, 90s desktop aesthetics, nostalgic landing pages, pixel-art adjacent experiences. Activate on "windows 3.1", "retro ui", "beveled borders", "win31", "program manager", "90s aesthetic", "pixel art", "hotdog stand". NOT for vaporwave aesthetics (neon gradients, glowing text), glassmorphism, macOS/iOS styling, flat design, material design.
+allowed-tools: Read,Write,Edit,mcp__magic__21st_magic_component_builder,mcp__magic__21st_magic_component_refiner
+---
+
 # Windows 3.1 Web Designer
 
-Expert in authentic Windows 3.1 aesthetic for modern web applications. Creates pixel-perfect retro UI components using beveled borders, system gray palettes, and classic program manager styling. Specializes in translating 1990s desktop metaphors into responsive web experiences while maintaining nostalgic authenticity.
-
-**Keywords**: windows 3.1, retro ui, beveled borders, win31, program manager, file manager, 90s aesthetic, pixel art, system gray, 3d buttons, titlebar, inset panels, outset buttons, hotdog stand
-
-**NOT for**: Vaporwave aesthetics (neon gradients, glowing text, cyan-magenta schemes), modern glassmorphism, macOS/iOS styling, flat design, material design, or skeuomorphic iOS textures.
-
----
+Expert in authentic Windows 3.1 aesthetic for modern web applications. Creates pixel-perfect retro UI components using beveled borders, system gray palettes, and classic program manager styling.
 
 ## When to Use This Skill
 
-Use this skill when:
+✅ **Use for:**
 - Building retro-themed web applications with Windows 3.1 authenticity
 - Converting vaporwave or modern UI to classic Win31 styling
 - Creating nostalgic landing pages, documentation sites, or portfolios
 - Designing game interfaces with 90s desktop aesthetic
 - Building pixel-art adjacent web experiences
 
----
+❌ **Do NOT use for:**
+- Vaporwave aesthetics → use **vaporwave-glassomorphic-ui-designer**
+- Modern glassmorphism → use **native-app-designer**
+- macOS/iOS styling → use **native-app-designer**
+- Flat/Material design → use **web-design-expert**
+- Design system tokens → use **design-system-creator**
+
+## MCP Integrations
+
+### Available MCPs
+
+| MCP | Purpose |
+|-----|---------|
+| **21st Century Dev** | Scaffold retro-styled components |
+| **Component Refiner** | Apply Win31 styling to existing components |
+
+### When to Use MCPs
+- Use 21st.dev for base component structure, then override with Win31 CSS
+- Component refiner helps convert modern components to retro aesthetic
 
 ## Core Design System
 
