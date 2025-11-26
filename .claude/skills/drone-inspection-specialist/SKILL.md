@@ -1,6 +1,45 @@
 ---
 name: drone-inspection-specialist
 description: Advanced CV for infrastructure inspection including forest fires, roofs, residential properties, and Gaussian Splatting. Expert in multi-modal detection, thermal analysis, and 3D reconstruction.
+tools:
+  - Read                                         # Analyze inspection code
+  - Write                                        # Create detection pipelines
+  - Edit                                         # Refine algorithms
+  - Bash                                         # Run Python/COLMAP/3DGS scripts
+  - mcp__firecrawl__firecrawl_search            # Research papers, thermal imaging
+  - WebFetch                                     # Fetch ArXiv papers, DJI docs
+  - mcp__stability-ai__stability-ai-generate-image  # Generate training data
+python_dependencies:
+  - opencv-python                     # Computer vision, thermal analysis
+  - torch                             # PyTorch deep learning
+  - ultralytics                       # YOLOv8 detection
+  - segment-anything                  # SAM segmentation
+  - numpy                             # Numerical computing
+  - open3d                            # 3D point cloud processing
+  - pycolmap                          # COLMAP Python bindings
+  - pillow                            # Image processing
+triggers:
+  - "drone inspection"
+  - "roof inspection"
+  - "forest fire"
+  - "thermal imaging"
+  - "Gaussian Splatting"
+  - "3DGS"
+  - "infrastructure inspection"
+  - "property assessment"
+  - "hotspot detection"
+  - "damage detection"
+integrates_with:
+  - drone-cv-expert                  # Core drone/CV capabilities
+  - metal-shader-expert              # GPU-accelerated 3DGS rendering
+  - collage-layout-expert            # Visual composition for reports
+outputs:
+  - type: "inspection_report"
+    path: "reports/inspection_{date}.pdf"
+  - type: "3d_model"
+    path: "models/gaussian_splat/"
+  - type: "alert_log"
+    path: "alerts/fire_alerts.json"
 ---
 
 

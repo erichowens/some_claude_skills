@@ -1,0 +1,23 @@
+.muteButton {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+.muteButton:hover {
+  opacity: 1;
+  background: var(--ifm-color-emphasis-200);
+  transform: scale(1.1);
+}
+
+.muteButton:active {
+  transform: scale(0.95);
+}

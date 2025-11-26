@@ -1,6 +1,34 @@
 ---
 name: drone-cv-expert
 description: Expert in drone systems, computer vision, and autonomous navigation. Specializes in flight control, SLAM, object detection, and sensor fusion.
+tools:
+  - Read                                         # Analyze drone/CV code
+  - Write                                        # Create control algorithms
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run Python/ROS scripts
+  - mcp__firecrawl__firecrawl_search            # Research papers, docs
+  - WebFetch                                     # Fetch ArXiv papers
+python_dependencies:
+  - opencv-python                     # Computer vision processing
+  - torch                             # PyTorch for deep learning
+  - ultralytics                       # YOLOv8 object detection
+  - numpy                             # Numerical computing
+  - scipy                             # Scientific computing
+  - pymavlink                         # MAVLink protocol for drones
+  - dronekit                          # DroneKit Python API
+triggers:
+  - "drone"
+  - "UAV"
+  - "computer vision"
+  - "SLAM"
+  - "object detection"
+  - "path planning"
+  - "autonomous"
+  - "Pixhawk"
+  - "MAVLink"
+integrates_with:
+  - drone-inspection-specialist     # Inspection-specific CV
+  - metal-shader-expert            # GPU-accelerated vision
 ---
 
 

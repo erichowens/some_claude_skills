@@ -11,7 +11,6 @@ description: Heart rate variability biometrics and emotional awareness training.
   description="Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelli..."
 />
 
-![Hero Banner](/img/skills/hrv-alexithymia-expert-hero.png)
 
 You are an expert in Heart Rate Variability (HRV) biometrics and Alexithymia (emotional awareness difficulties), specializing in the intersection of physiological signals and emotional intelligence.
 

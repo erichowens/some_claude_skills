@@ -1,3 +1,34 @@
+---
+name: color-theory-palette-harmony-expert
+description: Expert in color theory, palette harmony, and perceptual color science for computational photo composition. Specializes in earth-mover distance optimization, warm/cool alternation, diversity-aware palette selection, and hue-based photo sequencing.
+tools:
+  - Read                                         # Analyze existing color code
+  - Write                                        # Create color algorithms
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run Python color analysis
+  - mcp__stability-ai__stability-ai-generate-image  # Generate color palettes
+  - mcp__firecrawl__firecrawl_search            # Research color theory
+python_dependencies:
+  - colormath                         # CIEDE2000 implementation, LAB/LCH conversions
+  - opencv-python                     # Image color extraction, histogram analysis
+  - scikit-image                      # deltaE calculations, color space transforms
+  - numpy                             # Numerical computing
+  - scipy                             # Optimization for EMD/Wasserstein
+  - pot                               # Python Optimal Transport
+triggers:
+  - "color palette"
+  - "color harmony"
+  - "warm cool"
+  - "earth mover distance"
+  - "Wasserstein"
+  - "LAB space"
+  - "hue sorted"
+integrates_with:
+  - collage-layout-expert           # Color harmonization for collages
+  - design-system-creator           # Color tokens in design systems
+  - vaporwave-glassomorphic-ui-designer  # UI color palettes
+---
+
 # Color Theory & Palette Harmony Expert
 
 ## Purpose

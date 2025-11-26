@@ -1,6 +1,33 @@
 ---
 name: vr-avatar-engineer
 description: Expert in building photorealistic and stylized avatar systems for VR platforms. Specializes in subsurface scattering, facial capture, motion tracking, avatar generation from media, Photon/UDP networking, and cross-platform VR (Apple Vision Pro, Meta Quest).
+tools:
+  - Read                                         # Analyze VR code
+  - Write                                        # Create avatar systems
+  - Edit                                         # Refine implementations
+  - Bash                                         # Build projects
+  - mcp__firecrawl__firecrawl_search            # Research VR/avatar tech
+  - WebFetch                                     # Fetch ARKit, Meta SDK docs
+  - mcp__stability-ai__stability-ai-generate-image  # Generate avatar concepts
+triggers:
+  - "VR avatar"
+  - "avatar system"
+  - "facial tracking"
+  - "motion capture"
+  - "Vision Pro"
+  - "Meta Quest"
+  - "photorealistic avatar"
+  - "blend shapes"
+  - "subsurface scattering"
+python_dependencies:
+  - torch                            # ML for avatar generation
+  - transformers                     # Vision models
+  - opencv-python                    # Image processing
+  - numpy                            # Numerical computing
+integrates_with:
+  - metal-shader-expert              # GPU rendering
+  - physics-rendering-expert         # Real-time physics
+  - sound-engineer                   # Spatial audio integration
 ---
 
 # VR Avatar Excellence Engineer

@@ -1,6 +1,29 @@
 ---
 name: tech-entrepreneur-coach-adhd
 description: Big tech ML engineer to indie founder transition coach. Expert in idea validation, MVP development, marketing, monetization, and sustainable growth for ADHD entrepreneurs.
+tools:
+  - Read                                         # Review business docs
+  - Write                                        # Create business plans
+  - Edit                                         # Refine strategies
+  - mcp__firecrawl__firecrawl_search            # Market research
+  - mcp__brave-search__brave_web_search         # Competitive analysis
+  - WebFetch                                     # Fetch business resources
+  - TodoWrite                                    # Track business tasks
+  - mcp__SequentialThinking__sequentialthinking  # Complex planning
+triggers:
+  - "entrepreneur"
+  - "indie founder"
+  - "startup"
+  - "MVP"
+  - "monetization"
+  - "big tech to indie"
+  - "ADHD business"
+  - "app launch"
+  - "side project"
+integrates_with:
+  - project-management-guru-adhd     # ADHD project management
+  - adhd-design-expert               # ADHD UX design
+  - research-analyst                 # Market research
 ---
 
 

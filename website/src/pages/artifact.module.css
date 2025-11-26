@@ -1,0 +1,795 @@
+/* Windows 3.1 Artifact Detail Page */
+.artifactDetail {
+  min-height: calc(100vh - 60px);
+  background: #F5F5DC !important; /* Beige background */
+}
+
+/* Hero Section - Teal Desktop Style */
+.hero {
+  background: var(--win31-teal);
+  padding: 2rem 0 2.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid var(--win31-black);
+  box-shadow: inset 0 -2px 0 var(--win31-dark-gray);
+}
+
+/* Breadcrumbs - File Path Style */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--win31-gray);
+  padding: 4px 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  letter-spacing: 0.3px;
+}
+
+.breadcrumb {
+  color: var(--win31-navy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb:hover {
+  color: var(--win31-teal);
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  color: var(--win31-dark-gray);
+}
+
+.breadcrumbCurrent {
+  color: var(--win31-black);
+  font-weight: 600;
+}
+
+.heroHeader {
+  max-width: 900px;
+}
+
+/* Badges - Windows 3.1 Button Style */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.categoryBadge,
+.typeBadge,
+.featuredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--win31-gray);
+  color: var(--win31-black);
+  box-shadow: inset 0.5px 0.5px 0 var(--win31-light-gray), inset -0.5px -0.5px 0 var(--win31-dark-gray);
+}
+
+.featuredBadge {
+  background: var(--win31-bright-yellow);
+  border-width: 2px;
+}
+
+.badgeIcon {
+  font-size: 14px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: normal;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+  color: var(--win31-white);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+}
+
+.description {
+  font-family: var(--font-system);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--win31-white);
+  margin: 0 0 1.5rem 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--win31-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: rgba(0, 0, 0, 0.5);
+  border-left-color: rgba(0, 0, 0, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  border-right-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Hero Image - Inset Window Style */
+.heroImageContainer {
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: rgba(0, 0, 0, 0.6);
+  border-left-color: rgba(0, 0, 0, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.4);
+  border-right-color: rgba(255, 255, 255, 0.4);
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.8);
+  padding: 4px;
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Sections - Windows 3.1 Window Style */
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: normal;
+  margin: 0 0 1.5rem 0;
+  color: var(--win31-navy);
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--win31-navy);
+  letter-spacing: 1px;
+}
+
+/* Exposition - Blog-like narrative window */
+.exposition {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.expositionTitle {
+  font-family: var(--font-system);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  padding: 8px 16px;
+  color: var(--win31-white);
+  background: var(--win31-navy);
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.expositionContent {
+  padding: 20px;
+  background: var(--win31-white);
+}
+
+.expositionParagraph {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--win31-black);
+  margin: 0 0 16px 0;
+  letter-spacing: 0.3px;
+}
+
+.expositionParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.expositionParagraph strong {
+  font-weight: 700;
+  color: var(--win31-navy);
+}
+
+/* Skills Grid - Windows 3.1 Windows */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.skillCard {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-1px);
+}
+
+.skillHeader {
+  background: var(--win31-navy);
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.skillName {
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--win31-white);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.skillName:hover {
+  color: var(--win31-white);
+  text-decoration: underline;
+}
+
+.activationBadge {
+  display: inline-block;
+  background: var(--win31-lime);
+  color: var(--win31-black);
+  padding: 2px 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-right-color: rgba(0, 0, 0, 0.5);
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.skillRole {
+  font-family: var(--font-system);
+  color: var(--win31-black);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: 12px;
+  letter-spacing: 0.3px;
+}
+
+/* Outcome Card - Major Windows 3.1 Window */
+.outcomeCard {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  padding: 20px;
+}
+
+.outcomeSummary {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.7;
+  color: var(--win31-black);
+  margin: 0 0 24px 0;
+  letter-spacing: 0.3px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  background: var(--win31-light-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  margin-bottom: 20px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--win31-gray);
+  padding: 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+}
+
+.metricValue {
+  font-family: var(--font-pixel);
+  font-size: 28px;
+  font-weight: normal;
+  color: var(--win31-navy);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metricLabel {
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--win31-black);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Learned Section - Success Window */
+.learned {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  padding: 0;
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+}
+
+.learnedTitle {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  padding: 6px 12px;
+  color: var(--win31-white);
+  background: var(--win31-navy);
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.learnedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.learnedItem {
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--win31-dark-gray);
+  color: var(--win31-black);
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+.learnedItem:last-child {
+  border-bottom: none;
+}
+
+/* Tags - File Extension Style */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--win31-gray);
+  color: var(--win31-black);
+  padding: 4px 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.1s ease;
+}
+
+.tag:hover {
+  background: var(--win31-light-gray);
+}
+
+.tag:active {
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+}
+
+/* Navigation - Back Button */
+.navigation {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.backButton {
+  display: inline-block;
+  padding: 8px 24px;
+  background: var(--win31-gray);
+  color: var(--win31-black);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  min-width: 120px;
+  text-align: center;
+  transition: background 0.1s ease;
+}
+
+.backButton:hover {
+  background: var(--win31-light-gray);
+  color: var(--win31-black);
+}
+
+.backButton:active {
+  border-top-color: var(--win31-black);
+  border-left-color: var(--win31-black);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+}
+
+/* Not Found - Error Dialog Box */
+.notFound {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.notFound > div {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+}
+
+.notFound h1 {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  color: var(--win31-navy);
+  letter-spacing: 1px;
+}
+
+.notFound p {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--win31-black);
+  margin-bottom: 2rem;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive design - Windows 3.1 style preserved */
+@media (max-width: 996px) {
+  .title {
+    font-size: 52px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem 0 2rem;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .metricValue {
+    font-size: 22px;
+  }
+
+  .metricLabel {
+    font-size: 9px;
+  }
+
+  .outcomeCard {
+    padding: 16px;
+  }
+
+  .outcomeSummary {
+    font-size: 13px;
+  }
+}
+
+/* File Comparison Section - Windows 3.1 Style */
+.comparisonNotice {
+  background: var(--win31-bright-yellow);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: rgba(255, 255, 255, 0.8);
+  border-left-color: rgba(255, 255, 255, 0.8);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-right-color: rgba(0, 0, 0, 0.5);
+  padding: 12px 16px;
+  margin-bottom: 24px;
+}
+
+.comparisonNotice p {
+  margin: 0;
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.fileComparison {
+  margin-bottom: 16px;
+  background: var(--win31-white);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  padding: 0;
+}
+
+.fileComparison:last-child {
+  margin-bottom: 0;
+}
+
+.fileComparisonHeader {
+  background: var(--win31-navy);
+  padding: 8px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.1s ease;
+}
+
+.fileComparisonHeader:hover {
+  background: var(--win31-teal);
+}
+
+.fileComparisonHeader:active {
+  background: var(--win31-dark-gray);
+}
+
+.fileComparisonTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.fileComparisonTitle {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--win31-white);
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.expandIcon {
+  font-size: 12px;
+  display: inline-block;
+  width: 12px;
+}
+
+.fileStats {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fileStat {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-white);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.3px;
+}
+
+.fileComparisonContent {
+  max-height: 600px;
+  overflow-y: auto;
+  border-top: 2px solid var(--win31-black);
+}
+
+/* Scrollbar styling for Windows 3.1 */
+.fileComparisonContent::-webkit-scrollbar {
+  width: 16px;
+  background: var(--win31-gray);
+}
+
+.fileComparisonContent::-webkit-scrollbar-thumb {
+  background: var(--win31-dark-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+}
+
+.fileComparisonContent::-webkit-scrollbar-button {
+  height: 16px;
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+}
+
+/* Interactive Demo Section - Windows 3.1 Call-to-Action Style */
+.interactiveDemoCard {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  padding: 24px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.interactiveDemoDescription {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--win31-black);
+  margin: 0 0 20px 0;
+  letter-spacing: 0.3px;
+}
+
+.launchDemoButton {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--win31-lime);
+  color: var(--win31-black);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  min-width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.launchDemoButton:hover {
+  background: var(--win31-bright-yellow);
+  transform: translateY(-1px);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.launchDemoButton:active {
+  border-top-color: var(--win31-black);
+  border-left-color: var(--win31-black);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+  box-shadow: inset -1px -1px 0 rgba(255, 255, 255, 0.5), inset 1px 1px 0 rgba(0, 0, 0, 0.3);
+}

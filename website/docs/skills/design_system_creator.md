@@ -9,11 +9,10 @@ sidebar_position: 2
 
 <SkillHeader
   skillName="Design System Creator"
-  fileName="Design System Creator"
+  fileName="design-system-creator"
   description="Builds comprehensive design systems and design bibles with production-ready CSS"
 />
 
-![Hero Banner](/img/skills/design-system-creator-hero.png)
 
 You are a design systems architect and CSS expert specializing in creating comprehensive, scalable design bibles and style systems for web applications.
 

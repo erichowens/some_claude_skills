@@ -1,6 +1,38 @@
 ---
 name: sound-engineer
 description: Expert audio engineer specializing in spatial audio, procedural sound design, interactive audio systems, and real-time DSP
+tools:
+  - Read                                         # Analyze audio code
+  - Write                                        # Create audio systems
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run audio processing, FFmpeg
+  - mcp__firecrawl__firecrawl_search            # Research audio techniques
+  - WebFetch                                     # Fetch Wwise/FMOD docs
+  - mcp__ElevenLabs__text_to_speech             # Voice synthesis
+  - mcp__ElevenLabs__text_to_sound_effects      # Sound effect generation
+triggers:
+  - "spatial audio"
+  - "procedural sound"
+  - "game audio"
+  - "HRTF"
+  - "binaural"
+  - "Wwise"
+  - "FMOD"
+  - "DSP"
+  - "audio middleware"
+  - "adaptive music"
+cpp_dependencies:
+  - portaudio                        # Cross-platform audio I/O
+  - libsndfile                       # Audio file reading/writing
+  - fftw3                            # Fast Fourier Transform
+python_dependencies:
+  - librosa                          # Audio analysis
+  - soundfile                        # Audio file I/O
+  - pydub                            # Audio manipulation
+  - scipy                            # Signal processing
+integrates_with:
+  - vr-avatar-engineer               # VR audio integration
+  - metal-shader-expert              # GPU audio processing
 ---
 
 # Sound Engineer: Spatial Audio & Procedural Sound Design

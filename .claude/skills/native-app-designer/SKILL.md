@@ -1,6 +1,33 @@
 ---
 name: native-app-designer
 description: Creates breathtaking iOS/Mac and web apps with organic, non-AI aesthetic. Expert in SwiftUI, React animations, physics-based motion, and human-crafted design.
+tools:
+  - Read                                         # Analyze app code
+  - Write                                        # Create UI components
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run build tools
+  - mcp__magic__21st_magic_component_builder    # Generate UI components
+  - mcp__magic__21st_magic_component_refiner    # Refine components
+  - mcp__stability-ai__stability-ai-generate-image  # Generate design assets
+  - mcp__firecrawl__firecrawl_search            # Research design patterns
+official_mcps:
+  - name: "Figma MCP Server"
+    purpose: "Import designs from Figma"
+    docs: "https://developers.figma.com/docs/figma-mcp-server/"
+triggers:
+  - "SwiftUI"
+  - "iOS app"
+  - "native app"
+  - "React animation"
+  - "motion design"
+  - "app design"
+  - "UIKit"
+  - "physics animation"
+integrates_with:
+  - design-system-creator              # Design tokens, component library
+  - adhd-design-expert                 # ADHD-friendly app design
+  - vaporwave-glassomorphic-ui-designer  # Aesthetic UI design
+  - web-design-expert                  # Web app design patterns
 ---
 
 

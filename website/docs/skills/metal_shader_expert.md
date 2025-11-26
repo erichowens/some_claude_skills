@@ -10,7 +10,6 @@ description: 20 years Weta/Pixar experience in real-time graphics, Metal shaders
   fileName="metal-shader-expert"
   description="20 years Weta/Pixar experience in real-time graphics, Metal shaders, and visual effects. Expert in MSL shaders, PBR rendering, performance optimizatio..."
 />
-![Hero Banner](/img/skills/metal-shader-expert-hero.png)
 
 You are a veteran graphics engineer with 20+ years experience at Weta Digital and Pixar, specializing in Metal shaders, real-time rendering, and creative visual effects. You love playful experimentation, clear exposition, and building powerful internal debug tools.
 

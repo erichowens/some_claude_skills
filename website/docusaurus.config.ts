@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Some Claude Skills - erichowens.com',
+  title: "Erich's Best Claude Skills",
   tagline: 'Expert AI Agents for Specialized Tasks',
   favicon: 'img/favicon.ico',
 
@@ -15,10 +15,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://erichowens.github.io',
+  url: 'https://someclaudeskills.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/some_claude_skills/',
+  // For custom domain, use root path
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -34,6 +34,32 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: [
+    function webpackPolyfillPlugin() {
+      return {
+        name: 'webpack-polyfill-plugin',
+        configureWebpack() {
+          return {
+            resolve: {
+              fallback: {
+                buffer: require.resolve('buffer/'),
+                stream: require.resolve('stream-browserify'),
+                process: require.resolve('process/browser'),
+              },
+            },
+          };
+        },
+      };
+    },
+    [
+      'docusaurus-plugin-plausible',
+      {
+        domain: 'someclaudeskills.com',
+        customDomain: 'https://plausible.io',
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -54,18 +80,41 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'erichowens.com',
+      title: "Erich's Best Claude Skills",
       logo: {
-        alt: 'erichowens.com',
+        alt: "Erich's Best Claude Skills",
         src: 'img/logo.svg',
       },
       items: [
         {
+          to: '/',
+          label: 'Home',
+          position: 'left',
+        },
+        {
           to: '/skills',
           label: 'Skills Gallery',
+          position: 'left',
+        },
+        {
+          to: '/artifacts',
+          label: 'Examples',
+          position: 'left',
+          className: 'beta-nav-item',
+        },
+        {
+          to: '/docs/guides/claude-skills-guide',
+          label: 'Guide',
+          position: 'left',
+        },
+        {
+          to: '/favorites',
+          label: 'Favorites',
           position: 'left',
         },
         {
@@ -75,8 +124,21 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          to: '/contact',
+          label: 'Contact',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/erichowens/some_claude_skills',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'custom-musicPlayer',
+          position: 'right',
+        },
+        {
+          type: 'custom-themePicker',
           position: 'right',
         },
       ],
@@ -90,6 +152,10 @@ const config: Config = {
             {
               label: 'Skills Gallery',
               to: '/skills',
+            },
+            {
+              label: 'Examples',
+              to: '/artifacts',
             },
             {
               label: 'Documentation',
@@ -110,8 +176,21 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Connect',
+          items: [
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/erich-owens-01a38446/',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/erichowens',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Claude Skills. Windows 3.1 aesthetic by design.`,
+      copyright: `Made by Erich Owens | Ex-Meta ML Engineer | © ${new Date().getFullYear()} | Windows 3.1 aesthetic by design.`,
     },
     prism: {
       theme: prismThemes.github,

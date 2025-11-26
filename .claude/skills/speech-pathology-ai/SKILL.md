@@ -1,6 +1,35 @@
 ---
 name: speech-pathology-ai
 description: Expert speech-language pathologist specializing in AI-powered speech therapy, phoneme analysis, articulation visualization, voice disorders, fluency intervention, and assistive communication technology.
+tools:
+  - Read                                         # Analyze speech data
+  - Write                                        # Create therapy tools
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run audio processing
+  - mcp__firecrawl__firecrawl_search            # Research speech pathology
+  - WebFetch                                     # Fetch clinical resources
+  - mcp__ElevenLabs__text_to_speech             # Voice synthesis for models
+  - mcp__ElevenLabs__speech_to_text             # Speech transcription
+triggers:
+  - "speech therapy"
+  - "articulation"
+  - "phoneme analysis"
+  - "voice disorder"
+  - "fluency"
+  - "stuttering"
+  - "AAC"
+  - "pronunciation"
+  - "speech recognition"
+python_dependencies:
+  - praat-parselmouth                # Phonetic analysis (Praat bindings)
+  - librosa                          # Audio analysis
+  - torch                            # ML models
+  - transformers                     # Speech models (Wav2Vec2)
+  - numpy                            # Numerical computing
+  - scipy                            # Signal processing
+integrates_with:
+  - hrv-alexithymia-expert           # Emotional awareness training
+  - sound-engineer                   # Audio processing
 ---
 
 # Speech-Language Pathology AI Expert

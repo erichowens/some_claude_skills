@@ -1,6 +1,41 @@
 ---
 name: design-system-creator
 description: Builds comprehensive design systems and design bibles with production-ready CSS. Expert in design tokens, component libraries, and CSS architecture.
+tools:
+  - Read                                         # Analyze existing styles
+  - Write                                        # Create CSS/design tokens
+  - Edit                                         # Refine stylesheets
+  - Glob                                         # Find CSS/SCSS files
+  - mcp__magic__21st_magic_component_builder    # Generate components
+  - mcp__magic__21st_magic_component_refiner    # Refine UI components
+  - mcp__stability-ai__stability-ai-generate-image  # Generate visual examples
+  - mcp__firecrawl__firecrawl_search            # Research design systems
+official_mcps:
+  - name: "Figma MCP Server"
+    purpose: "Figma design token sync, component extraction"
+    docs: "https://developers.figma.com/docs/figma-mcp-server/"
+  - name: "21st.dev Magic"
+    purpose: "UI component generation"
+    note: "Already available as mcp__magic in tools"
+triggers:
+  - "design system"
+  - "design tokens"
+  - "CSS architecture"
+  - "component library"
+  - "style guide"
+  - "design bible"
+integrates_with:
+  - adhd-design-expert              # ADHD-friendly design tokens
+  - typography-expert               # Typography scale
+  - color-theory-palette-harmony-expert  # Color systems
+  - web-design-expert               # Web design patterns
+outputs:
+  - type: "design_tokens"
+    path: "styles/tokens.css"
+  - type: "component_library"
+    path: "styles/components/"
+  - type: "design_bible"
+    path: "docs/design-system.md"
 ---
 
 

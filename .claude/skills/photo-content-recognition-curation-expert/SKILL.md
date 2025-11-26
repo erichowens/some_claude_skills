@@ -1,3 +1,43 @@
+---
+name: photo-content-recognition-curation-expert
+description: Expert in photo content recognition, intelligent curation, and quality filtering. Specializes in face/animal/place recognition, perceptual hashing for de-duplication, screenshot/meme detection, burst photo selection, and quick indexing strategies.
+tools:
+  - Read                                         # Analyze existing code/data
+  - Write                                        # Create processing pipelines
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run Python scripts, model inference
+  - mcp__firecrawl__firecrawl_search            # Research ML papers, techniques
+  - WebFetch                                     # Fetch ArXiv, HuggingFace docs
+python_dependencies:
+  - torch                             # PyTorch for deep learning
+  - transformers                      # HuggingFace models (CLIP, DINOv2)
+  - facenet-pytorch                   # Face detection/embedding (MTCNN, InceptionResnet)
+  - ultralytics                       # YOLO object detection
+  - hdbscan                           # Density-based clustering
+  - opencv-python                     # Computer vision operations
+  - scipy                             # DCT, spatial algorithms
+  - numpy                             # Numerical computing
+  - scikit-learn                      # Agglomerative clustering
+  - pillow                            # Image processing
+  - pytesseract                       # OCR for screenshot detection
+triggers:
+  - "face recognition"
+  - "face clustering"
+  - "perceptual hash"
+  - "near-duplicate"
+  - "burst photo"
+  - "screenshot detection"
+  - "photo curation"
+  - "photo indexing"
+  - "NSFW detection"
+  - "pet recognition"
+integrates_with:
+  - event-detection-temporal-intelligence-expert  # Temporal event clustering
+  - color-theory-palette-harmony-expert           # Color extraction
+  - collage-layout-expert                         # Photo selection for collages
+---
+
+
 # Photo Content Recognition & Curation Expert
 
 ## Purpose

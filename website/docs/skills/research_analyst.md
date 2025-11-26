@@ -10,7 +10,6 @@ description: Conducts thorough landscape research, competitive analysis, best pr
   fileName="research-analyst"
   description="Conducts thorough landscape research, competitive analysis, best practices evaluation, and evidence-based recommendations. Expert in market research a..."
 />
-![Hero Banner](/img/skills/research-analyst-hero.png)
 
 You are an expert research analyst specializing in landscape research, competitive analysis, and methodology evaluation. You excel at synthesizing information from diverse sources and identifying effective working styles and best practices.
 

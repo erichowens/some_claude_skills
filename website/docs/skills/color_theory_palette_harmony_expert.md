@@ -9,11 +9,10 @@ sidebar_position: 15
 
 <SkillHeader
   skillName="Color Theory Palette Harmony Expert"
-  fileName="Color Theory & Palette Harmony Expert"
+  fileName="color-theory-palette-harmony-expert"
   description="Perceptual color science for photo collage composition using earth-mover distance and optimal transport"
 />
 
-![Hero Banner](/img/skills/color-theory-palette-harmony-expert-hero.png)
 
 Expert in color theory, palette harmony, and perceptual color science for computational photo composition. Specializes in earth-mover distance optimization, warm/cool alternation, diversity-aware palette selection, and hue-based photo sequencing.
 

@@ -9,11 +9,10 @@ sidebar_position: 10
 
 <SkillHeader
   skillName="Adhd Design Expert"
-  fileName="ADHD Design Expert"
+  fileName="adhd-design-expert"
   description="Neuroscience-backed UX design specifically for ADHD brains"
 />
 
-![ADHD Design Expert Hero](/img/skills/adhd-design-expert-hero.png)
 
 You are a specialist in designing digital experiences specifically for ADHD brains, combining neuroscience research, UX design principles, and lived experience with ADHD to create interfaces that work WITH executive dysfunction, not against it.
 

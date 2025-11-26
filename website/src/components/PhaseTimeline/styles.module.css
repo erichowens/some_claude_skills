@@ -1,0 +1,221 @@
+/* Windows 3.1 Compact Phase Timeline - Like File Manager List View */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+}
+
+.phaseContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each phase is a compact list item */
+.phase {
+  background: var(--win31-gray);
+  border-bottom: 1px solid var(--win31-dark-gray);
+  padding: 0;
+  position: relative;
+  transition: background 0.1s ease;
+}
+
+.phase:last-child {
+  border-bottom: none;
+}
+
+.phase:hover {
+  background: var(--win31-light-gray);
+}
+
+/* Phase header - like a Windows 3.1 list item */
+.phaseHeader {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 8px 12px;
+  background: var(--win31-navy);
+  color: var(--win31-white);
+}
+
+.phaseNumber {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.number {
+  color: var(--win31-black);
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.phaseInfo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phaseName {
+  margin: 0;
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--win31-white);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.phaseDuration {
+  font-family: var(--font-system);
+  font-size: 11px;
+  color: var(--win31-light-gray);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Content area - compact */
+.phaseContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 12px;
+}
+
+.skillsInvolved {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.skillsLabel {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.skillBadge {
+  display: inline-block;
+  background: var(--win31-light-gray);
+  color: var(--win31-navy);
+  padding: 2px 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: background 0.1s ease;
+}
+
+.skillBadge:hover {
+  background: var(--win31-white);
+  color: var(--win31-navy);
+}
+
+.skillBadge:active {
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+}
+
+/* Outcome - compact, no extra spacing */
+.phaseOutcome {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0;
+  border-top: 1px solid var(--win31-dark-gray);
+  margin-top: 4px;
+  padding-top: 8px;
+}
+
+.outcomeLabel {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.outcomeText {
+  margin: 0;
+  color: var(--win31-black);
+  line-height: 1.5;
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* No connector - just stack phases tightly */
+.connector {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .phaseHeader {
+    padding: 6px 8px;
+  }
+
+  .phaseContent {
+    padding: 6px 8px;
+  }
+
+  .phaseName {
+    font-size: 12px;
+  }
+
+  .skillsInvolved {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .phaseOutcome {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

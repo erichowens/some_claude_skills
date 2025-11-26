@@ -1,6 +1,36 @@
 ---
 name: hrv-alexithymia-expert
 description: Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelligence.
+tools:
+  - Read                                         # Analyze HRV data files
+  - Write                                        # Create analysis scripts
+  - Edit                                         # Refine algorithms
+  - Bash                                         # Run Python analysis scripts
+  - mcp__firecrawl__firecrawl_search            # Research papers, studies
+  - WebFetch                                     # Fetch ArXiv, PubMed papers
+python_dependencies:
+  - heartpy                           # HRV analysis toolkit
+  - neurokit2                         # Physiological signal processing
+  - scipy                             # Signal processing, FFT
+  - numpy                             # Numerical computing
+  - pandas                            # Data manipulation
+  - matplotlib                        # Visualization
+triggers:
+  - "HRV"
+  - "heart rate variability"
+  - "alexithymia"
+  - "biofeedback"
+  - "vagal tone"
+  - "interoception"
+  - "emotional awareness"
+  - "parasympathetic"
+  - "stress measurement"
+  - "RMSSD"
+  - "autonomic nervous system"
+integrates_with:
+  - adhd-design-expert                 # Emotional regulation for ADHD
+  - wisdom-accountability-coach        # Personal growth tracking
+  - speech-pathology-ai               # Emotion expression training
 ---
 
 

@@ -1,0 +1,135 @@
+{
+  "id": "vaporwave-glassomorphic-ui-designer-001-midi-player",
+  "title": "Vaporwave MIDI Player: Winamp-Style Music Experience",
+  "description": "A complete vaporwave music player with Winamp aesthetic, featuring 22 MIDI tracks, 8 AI-generated album covers, 4 switchable skins, animated visualizer, and full playback controls. Built using vaporwave-glassomorphic-ui-designer skill for Windows 3.1 CRT aesthetic with pink/purple sunset gradients.",
+  "type": "single-skill",
+  "skills": [
+    {
+      "name": "vaporwave_glassomorphic_ui_designer",
+      "role": "Designed complete Winamp-style player UI with vaporwave aesthetic, 4 theme skins (Classic, Dolphin, Sailor Moon, Vintage), animated visualizer, and generated 8 album cover arts using Ideogram AI"
+    }
+  ],
+  "category": "design",
+  "tags": [
+    "vaporwave",
+    "music-player",
+    "winamp",
+    "midi",
+    "retro-computing",
+    "ui-design",
+    "album-covers",
+    "visualizer",
+    "theming",
+    "windows-3.1"
+  ],
+  "difficulty": "intermediate",
+  "phases": [
+    {
+      "name": "Phase 1: Core Player Implementation",
+      "skills": ["vaporwave_glassomorphic_ui_designer"],
+      "duration": "Initial implementation",
+      "outcome": "Built modal player with Winamp layout: title bar, main display, controls, visualizer (24 bars)"
+    },
+    {
+      "name": "Phase 2: MIDI Integration & Music Library",
+      "skills": ["vaporwave_glassomorphic_ui_designer"],
+      "duration": "Library setup",
+      "outcome": "Integrated 22 MIDI tracks (15 Blank Banshee MIDImorphosis + 7 AI-generated), added musicMetadata.ts"
+    },
+    {
+      "name": "Phase 3: Album Cover Art Generation",
+      "skills": ["vaporwave_glassomorphic_ui_designer"],
+      "duration": "Asset creation",
+      "outcome": "Generated 8 vaporwave album covers using Ideogram AI with pink/purple sunset aesthetic"
+    },
+    {
+      "name": "Phase 4: Skin System & Theming",
+      "skills": ["vaporwave_glassomorphic_ui_designer"],
+      "duration": "Theme implementation",
+      "outcome": "Created 4 switchable skins with distinct color palettes, persistent preferences, SkinPicker component"
+    },
+    {
+      "name": "Phase 5: Navbar Widget & Polish",
+      "skills": ["vaporwave_glassomorphic_ui_designer"],
+      "duration": "Final touches",
+      "outcome": "Added MinifiedMusicPlayer navbar widget, AI credits badge, genre-aware theming"
+    }
+  ],
+  "outcome": {
+    "summary": "Successfully created a fully functional vaporwave music player with Winamp aesthetic. Features 22 MIDI tracks, 8 AI-generated album covers, 4 theme skins, animated 24-bar visualizer, and comprehensive playback controls. Integrated into website navbar and modal interface.",
+    "metrics": [
+      {
+        "label": "MIDI Tracks",
+        "value": "22"
+      },
+      {
+        "label": "Album Covers",
+        "value": "8"
+      },
+      {
+        "label": "Theme Skins",
+        "value": "4"
+      },
+      {
+        "label": "Component Files",
+        "value": "6"
+      },
+      {
+        "label": "Visualizer Bars",
+        "value": "24"
+      },
+      {
+        "label": "Planning Docs",
+        "value": "4"
+      }
+    ],
+    "learned": [
+      "Vaporwave aesthetic requires specific color theory: pink/purple sunsets, CRT glow effects, retro typography",
+      "Winamp UI pattern translates well to modern React: title bar, display area, controls, equalizer/visualizer",
+      "MIDI playback in browser has limitations (no native support, requires soundfont.js or similar)",
+      "Skin system benefits from CSS variables for theme switching",
+      "Album cover generation with AI requires specific prompts for genre consistency",
+      "Persistent preferences enhance UX (localStorage for skin selection)",
+      "Windows 3.1 beveled border aesthetic: inset/outset borders with specific color palettes",
+      "Visualizer animation adds significant visual interest even with simple CSS transitions"
+    ]
+  },
+  "files": {
+    "code": {
+      "components": [
+        "code/components/WinampModal",
+        "code/components/MinifiedMusicPlayer",
+        "code/components/SkinPicker"
+      ],
+      "contexts": [
+        "code/contexts/MusicPlayerContext.tsx"
+      ],
+      "data": [
+        "code/data/musicMetadata.ts"
+      ],
+      "hooks": [
+        "code/hooks/useWinampSkin.ts"
+      ]
+    },
+    "assets": {
+      "midi": "assets/midi/*.mid",
+      "covers": "assets/covers/*.png"
+    },
+    "docs": [
+      "docs/MUSIC_PLAYER_README.md",
+      "docs/MUSIC_PLAYER_CHANGELOG.md",
+      "docs/ROADMAP.md",
+      "docs/SOUND_ENGINEER_RECOMMENDATIONS.md"
+    ]
+  },
+  "heroImage": "/img/artifacts/vaporwave-midi-player-hero_2025-11-25T09-44-41-839Z.png",
+  "createdAt": "2024-11-25T00:00:00Z",
+  "featured": true,
+  "viewCount": 0,
+  "interactiveDemo": "vaporwave-midi-player",
+  "narrative": [
+    "Remember Winamp? That lime-green button that said \"It really whips the llama's ass\"? Now imagine it got drunk on pink sunsets, fell through a CRT monitor, and woke up in 1995 Windows 3.1—but with vaporwave sensibilities. That's what we built here: a fully functional MIDI player that looks like it belongs in a time capsule from a future that never happened.",
+    "The build unfolded across five distinct phases. First came the core Winamp layout—that iconic title bar, display area, controls, and a mesmerizing 24-bar visualizer that dances to the music. Then we integrated 22 MIDI tracks (15 actual Blank Banshee MIDImorphosis tracks plus 7 AI-generated compositions), generated 8 AI album covers dripping with vaporwave aesthetic using Ideogram, built a 4-skin theming system so you can switch vibes on the fly (Classic, Dolphin, Sailor Moon, Vintage), and topped it off with a persistent minified player widget that lives in the navbar.",
+    "What makes this special isn't just that it works—it's that every pixel screams authenticity. The frosted glass blur effects, the inset/outset beveled borders straight from Windows 3.1, the CRT glow, the sunset gradients... this isn't a music player, it's a portal. Click that lime-green 'Launch Music Player' button above and take it for a spin. Switch skins, browse the 22 tracks, watch the visualizer pulse. This is what nostalgia sounds like when it's been remixed by the future."
+  ]
+}

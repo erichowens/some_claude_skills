@@ -183,3 +183,354 @@ html:not([data-theme='dark']) .plain {
   font-weight: 300;
   opacity: 0.9;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DOCS PAGES - Windows 3.1 Styling
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Page background */
+.docs-doc-page {
+  background: var(--win31-desktop, #008080);
+  min-height: calc(100vh - 60px);
+  padding: 20px;
+}
+
+/* Main doc content wrapper - Windows window */
+.docs-doc-page .theme-doc-markdown,
+.docs-doc-page article {
+  background: var(--win31-gray, #c0c0c0);
+  border: 3px solid var(--win31-black, #000);
+  box-shadow:
+    inset 2px 2px 0 var(--win31-white, #fff),
+    inset -2px -2px 0 var(--win31-dark-gray, #808080),
+    6px 6px 0 rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+/* Title bar for doc pages (added via before pseudo-element) */
+.docs-doc-page article > header:first-child,
+.docs-doc-page .theme-doc-markdown > h1:first-child {
+  background: linear-gradient(90deg, var(--win31-navy, #000080), var(--win31-blue, #0000ff));
+  color: white;
+  margin: -20px -20px 20px -20px;
+  padding: 6px 10px;
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* All headings in docs - section window style */
+.docs-doc-page h2,
+.docs-doc-page h3 {
+  background: var(--win31-gray, #c0c0c0);
+  border: 2px solid var(--win31-black, #000);
+  box-shadow:
+    inset 1px 1px 0 var(--win31-white, #fff),
+    inset -1px -1px 0 var(--win31-dark-gray, #808080),
+    3px 3px 0 rgba(0, 0, 0, 0.3);
+  margin: 24px -10px 16px -10px;
+  padding: 8px 12px;
+  color: var(--win31-navy, #000080);
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+}
+
+.docs-doc-page h2 {
+  font-size: 16px;
+}
+
+.docs-doc-page h3 {
+  font-size: 14px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Code blocks - terminal style */
+.docs-doc-page pre {
+  background: #000 !important;
+  border: 2px solid var(--win31-lime, #00ff00);
+  box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.8);
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.docs-doc-page pre code {
+  color: var(--win31-lime, #00ff00) !important;
+  font-family: var(--font-code, 'Consolas', 'Courier New', monospace);
+  font-size: 13px;
+}
+
+/* Inline code */
+.docs-doc-page code:not(pre code) {
+  background: var(--win31-light-gray, #dfdfdf);
+  border: 1px solid var(--win31-dark-gray, #808080);
+  padding: 2px 6px;
+  font-family: var(--font-code, 'Consolas', 'Courier New', monospace);
+  font-size: 0.9em;
+  color: var(--win31-navy, #000080);
+}
+
+/* Blockquotes - info box style */
+.docs-doc-page blockquote {
+  background: var(--win31-light-gray, #dfdfdf);
+  border: 2px solid var(--win31-black, #000);
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray, #808080),
+    inset 1px 1px 0 var(--win31-white, #fff);
+  padding: 12px 16px;
+  margin: 16px 0;
+  color: var(--win31-black, #000);
+}
+
+/* Tables */
+.docs-doc-page table {
+  border: 2px solid var(--win31-black, #000);
+  background: var(--win31-white, #fff);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.docs-doc-page th {
+  background: var(--win31-navy, #000080);
+  color: white;
+  padding: 8px 12px;
+  font-weight: bold;
+  border: 1px solid var(--win31-black, #000);
+}
+
+.docs-doc-page td {
+  padding: 8px 12px;
+  border: 1px solid var(--win31-dark-gray, #808080);
+}
+
+/* Links */
+.docs-doc-page a {
+  color: var(--win31-navy, #000080);
+  text-decoration: underline;
+}
+
+.docs-doc-page a:hover {
+  color: var(--win31-blue, #0000ff);
+}
+
+/* Sidebar - Windows tree view style */
+.theme-doc-sidebar-container {
+  background: var(--win31-gray, #c0c0c0);
+  border-right: 3px solid var(--win31-black, #000);
+  box-shadow: inset -2px 0 0 var(--win31-dark-gray, #808080);
+}
+
+.theme-doc-sidebar-menu {
+  padding: 8px;
+}
+
+.menu__link {
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 0;
+}
+
+.menu__link--active {
+  background: var(--win31-navy, #000080);
+  color: white !important;
+}
+
+.menu__link:hover:not(.menu__link--active) {
+  background: var(--win31-light-gray, #dfdfdf);
+}
+
+/* TOC styling */
+.table-of-contents {
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  font-size: 12px;
+}
+
+.table-of-contents__link {
+  color: var(--win31-navy, #000080);
+}
+
+.table-of-contents__link--active {
+  color: var(--win31-black, #000);
+  font-weight: bold;
+}
+
+/* Breadcrumbs */
+.theme-doc-breadcrumbs {
+  background: var(--win31-gray, #c0c0c0);
+  border: 2px solid var(--win31-black, #000);
+  box-shadow:
+    inset 1px 1px 0 var(--win31-white, #fff),
+    inset -1px -1px 0 var(--win31-dark-gray, #808080);
+  padding: 6px 12px;
+  margin-bottom: 16px;
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  font-size: 11px;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  background: var(--win31-gray, #c0c0c0);
+  border: 2px solid;
+  border-top-color: var(--win31-white, #fff);
+  border-left-color: var(--win31-white, #fff);
+  border-bottom-color: var(--win31-black, #000);
+  border-right-color: var(--win31-black, #000);
+  padding: 12px 16px;
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  transition: all 0.1s;
+}
+
+.pagination-nav__link:hover {
+  background: var(--win31-light-gray, #dfdfdf);
+  transform: none;
+  box-shadow: none;
+}
+
+.pagination-nav__link:active {
+  border-top-color: var(--win31-black, #000);
+  border-left-color: var(--win31-black, #000);
+  border-bottom-color: var(--win31-white, #fff);
+  border-right-color: var(--win31-white, #fff);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GUIDE HERO BANNER
+   ═══════════════════════════════════════════════════════════════════ */
+
+.guide-hero-banner {
+  margin: -20px -20px 30px -20px;
+}
+
+.guide-hero-window {
+  background: var(--win31-gray, #c0c0c0);
+  border: 3px solid var(--win31-black, #000);
+  box-shadow:
+    inset 2px 2px 0 var(--win31-white, #fff),
+    inset -2px -2px 0 var(--win31-dark-gray, #808080),
+    8px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+.guide-hero-titlebar {
+  background: linear-gradient(90deg, var(--win31-navy, #000080), #4040c0);
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-hero-titlebar-icon {
+  font-size: 16px;
+}
+
+.guide-hero-titlebar-text {
+  flex: 1;
+  color: white;
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.guide-hero-titlebar-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.guide-hero-btn {
+  background: var(--win31-gray, #c0c0c0);
+  border: 2px solid;
+  border-top-color: var(--win31-white, #fff);
+  border-left-color: var(--win31-white, #fff);
+  border-bottom-color: var(--win31-black, #000);
+  border-right-color: var(--win31-black, #000);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--win31-black, #000);
+}
+
+.guide-hero-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.guide-hero-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 24px;
+  color: var(--win31-lime, #00ff00);
+  text-shadow: 3px 3px 0 var(--win31-navy, #000080);
+  margin: 0 0 16px 0;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.guide-hero-subtitle {
+  font-family: var(--font-system, 'MS Sans Serif', 'Segoe UI', sans-serif);
+  font-size: 14px;
+  color: var(--win31-light-gray, #dfdfdf);
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  line-height: 1.6;
+}
+
+.guide-hero-badges {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.guide-hero-badge {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  padding: 8px 16px;
+  border: 2px solid;
+}
+
+.guide-hero-badge--yellow {
+  color: var(--win31-yellow, #ffff00);
+  border-color: var(--win31-yellow, #ffff00);
+  background: rgba(255, 255, 0, 0.1);
+}
+
+.guide-hero-badge--lime {
+  color: var(--win31-lime, #00ff00);
+  border-color: var(--win31-lime, #00ff00);
+  background: rgba(0, 255, 0, 0.1);
+}
+
+.guide-hero-badge--teal {
+  color: var(--win31-teal, #00ffff);
+  border-color: var(--win31-teal, #00ffff);
+  background: rgba(0, 255, 255, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   VAPORWAVE PLAYER WINDOW
+   ═══════════════════════════════════════════════════════════════════ */
+
+.vaporwave-window {
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.vaporwave-window__content {
+  padding: 0;
+  background: linear-gradient(135deg,
+    rgba(138, 43, 226, 0.05) 0%,
+    rgba(255, 71, 184, 0.05) 50%,
+    rgba(0, 255, 255, 0.05) 100%);
+}
+
+/* Override player styles to fit Windows 3.1 aesthetic */
+.vaporwave-window .vaporwave-player {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}

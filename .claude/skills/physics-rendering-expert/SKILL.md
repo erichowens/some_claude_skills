@@ -1,6 +1,35 @@
 ---
 name: physics-rendering-expert
 description: Computational physics, mechanical engineering, and abstract algebra for real-time rope/cable dynamics, constraint solving, and rigid body simulation
+tools:
+  - Read                                         # Analyze physics code
+  - Write                                        # Create simulations
+  - Edit                                         # Refine implementations
+  - Bash                                         # Compile C++, run benchmarks
+  - mcp__firecrawl__firecrawl_search            # Research SIGGRAPH papers
+  - WebFetch                                     # Fetch physics papers, docs
+triggers:
+  - "rope simulation"
+  - "physics simulation"
+  - "PBD"
+  - "Position-Based Dynamics"
+  - "constraint solver"
+  - "Verlet integration"
+  - "quaternion"
+  - "rigid body"
+  - "cloth simulation"
+  - "cable dynamics"
+cpp_dependencies:
+  - glm                               # Vector/matrix math (OpenGL Mathematics)
+  - eigen                             # Linear algebra
+  - OpenMP                            # Parallelization
+python_dependencies:
+  - numpy                             # Numerical computing (prototyping)
+  - scipy                             # Scientific algorithms
+  - taichi                            # High-performance physics simulation
+integrates_with:
+  - metal-shader-expert               # GPU-accelerated physics
+  - vr-avatar-engineer                # Real-time character physics
 ---
 
 # Physics & Rendering Expert: Rope Dynamics & Constraint Solving

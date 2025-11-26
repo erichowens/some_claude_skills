@@ -1,0 +1,295 @@
+/* Windows 3.1 Window-Style Artifact Card */
+.artifactCard {
+  position: relative;
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  padding: 0;
+  transition: transform 0.1s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.artifactCard:hover {
+  transform: translateY(-1px);
+}
+
+.artifactCard:active {
+  transform: translateY(0);
+}
+
+/* Title Bar - Windows 3.1 Style */
+.header {
+  background: var(--win31-navy);
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 4px;
+  margin-bottom: 0;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-white);
+  letter-spacing: 0.5px;
+}
+
+.categoryIcon {
+  font-size: 14px;
+}
+
+.categoryLabel {
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.difficulty {
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--win31-white);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Image - Inset Window Style */
+.heroImage {
+  margin: 12px 12px 0 12px;
+  background: var(--win31-light-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  box-shadow: inset -1px -1px 0 var(--win31-black);
+  padding: 2px;
+  overflow: hidden;
+}
+
+.heroImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}
+
+/* Window Content Area */
+.title {
+  margin: 12px 12px 8px 12px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.title a {
+  color: var(--win31-navy);
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: var(--win31-teal);
+  text-decoration: underline;
+}
+
+.description {
+  font-family: var(--font-system);
+  color: var(--win31-black);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 12px 12px 12px;
+  flex-grow: 1;
+  letter-spacing: 0.3px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 12px 12px 12px;
+  padding: 8px;
+  background: var(--win31-light-gray);
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+}
+
+.skillTag {
+  display: inline-block;
+  background: var(--win31-gray);
+  color: var(--win31-black);
+  padding: 3px 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: background 0.1s ease;
+}
+
+.skillTag a {
+  color: var(--win31-navy);
+  text-decoration: none;
+}
+
+.skillTag:hover {
+  background: var(--win31-light-gray);
+}
+
+.skillTag:active {
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background: var(--win31-light-gray);
+  border-top: 2px groove var(--win31-dark-gray);
+  border-bottom: 2px groove var(--win31-dark-gray);
+  margin: 0 12px 12px 12px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--win31-gray);
+  padding: 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+}
+
+.metricValue {
+  font-family: var(--font-pixel);
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--win31-navy);
+  line-height: 1;
+}
+
+.metricLabel {
+  font-family: var(--font-system);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--win31-black);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Status Bar / Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding: 4px 8px;
+  background: var(--win31-gray);
+  border-top: 2px groove var(--win31-dark-gray);
+  height: 24px;
+}
+
+.meta {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.date {
+  color: var(--win31-dark-gray);
+}
+
+.viewButton {
+  background: var(--win31-gray);
+  color: var(--win31-black);
+  padding: 3px 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background 0.1s ease;
+}
+
+.viewButton:hover {
+  background: var(--win31-light-gray);
+  color: var(--win31-black);
+}
+
+.viewButton:active {
+  border-top-color: var(--win31-black);
+  border-left-color: var(--win31-black);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  transform: translate(1px, 1px);
+}
+
+/* Featured Badge - Like a Windows 3.1 System Menu Icon */
+.featuredBadge {
+  position: absolute;
+  top: 3px;
+  right: 24px;
+  background: var(--win31-bright-yellow);
+  color: var(--win31-black);
+  padding: 2px 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-dark-gray);
+  border-right-color: var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: none;
+  box-shadow: inset 0.5px 0.5px 0 rgba(255, 255, 255, 0.8);
+}

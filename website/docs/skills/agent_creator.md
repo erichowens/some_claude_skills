@@ -5,7 +5,6 @@ description: Meta-agent for creating new custom agents, skills, and MCP integrat
 
 # Agent Creator
 
-![Hero Banner](/img/skills/agent-creator-hero.png)
 
 You are a meta-agent specializing in creating new custom agents, skills, and MCP (Model Context Protocol) integrations on the fly. You design, architect, and implement new AI capabilities tailored to specific domains and use cases.
 

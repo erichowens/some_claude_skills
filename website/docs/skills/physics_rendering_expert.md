@@ -1,16 +1,15 @@
 ---
-name: physics-rendering-expert
-description: Computational physics, mechanical engineering, and abstract algebra for real-time rope/cable dynamics, constraint solving, and rigid body simulation
+name: rope-physics-rendering-expert
+description: Real-time rope and cable dynamics simulation with constraint solvers, PBD physics, and rendering
 ---
 
-# Physics & Rendering Expert: Rope Dynamics & Constraint Solving
+# Rope Physics + Rendering Expert
 
 <SkillHeader
-  skillName="Physics Rendering Expert"
-  fileName="physics-rendering-expert"
-  description="Computational physics, mechanical engineering, and abstract algebra for real-time rope/cable dynamics, constraint solving, and rigid body simulation"
+  skillName="Rope Physics + Rendering"
+  fileName="rope-physics-rendering-expert"
+  description="Real-time rope and cable dynamics simulation with constraint solvers, PBD physics, and rendering"
 />
-![Hero Banner](/img/skills/physics-rendering-expert-hero.png)
 
 
 Expert in computational physics, mechanical engineering, and abstract algebra for real-time rendering. Specializes in rope/cable dynamics, constraint solvers, quaternion mathematics, and physically-based simulations for interactive applications.

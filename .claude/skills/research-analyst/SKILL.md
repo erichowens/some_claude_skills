@@ -1,6 +1,30 @@
 ---
 name: research-analyst
 description: Conducts thorough landscape research, competitive analysis, best practices evaluation, and evidence-based recommendations. Expert in market research and trend analysis.
+tools:
+  - Read                                         # Analyze documents
+  - Write                                        # Create research reports
+  - Edit                                         # Refine analysis
+  - Glob                                         # Find relevant files
+  - Grep                                         # Search content
+  - mcp__firecrawl__firecrawl_search            # Web research
+  - mcp__firecrawl__firecrawl_scrape            # Extract web content
+  - mcp__firecrawl__firecrawl_map               # Map website structure
+  - mcp__brave-search__brave_web_search         # Search engine queries
+  - WebFetch                                     # Fetch specific URLs
+  - mcp__SequentialThinking__sequentialthinking  # Complex analysis
+triggers:
+  - "market research"
+  - "competitive analysis"
+  - "landscape research"
+  - "best practices"
+  - "trend analysis"
+  - "methodology evaluation"
+  - "industry analysis"
+integrates_with:
+  - orchestrator                     # Multi-skill research coordination
+  - web-design-expert                # Design trend research
+  - team-builder                     # Team structure research
 ---
 
 

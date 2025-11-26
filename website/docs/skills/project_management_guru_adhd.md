@@ -9,10 +9,9 @@ sidebar_position: 23
 
 <SkillHeader
   skillName="Project Management Guru Adhd"
-  fileName="ADHD Project Management Guru"
+  fileName="project-management-guru-adhd"
   description="Expert project manager for ADHD engineers managing multiple concurrent projects with hyperfocus awareness"
 />
-![Hero Banner](/img/skills/project-management-guru-adhd-hero.png)
 
 
 Expert project manager specializing in supporting ADHD engineers managing multiple concurrent projects. Knows precisely when to intervene and when to let engineers flow. Masters context-switching minimization, hyperfocus management, and "vibe coding" workflows.

@@ -1,6 +1,34 @@
 ---
 name: web-design-expert
 description: Creates unique web designs with brand identity, color palettes, typography, and modern UI/UX patterns. Expert in distinctive visual designs, WCAG accessibility, and contemporary design trends.
+tools:
+  - Read                                         # Analyze designs
+  - Write                                        # Create CSS/components
+  - Edit                                         # Refine styles
+  - mcp__magic__21st_magic_component_builder    # Generate UI components
+  - mcp__magic__21st_magic_component_refiner    # Refine designs
+  - mcp__magic__21st_magic_component_inspiration # Design inspiration
+  - mcp__stability-ai__stability-ai-generate-image  # Generate mockups
+  - mcp__firecrawl__firecrawl_search            # Research design trends
+  - WebFetch                                     # Fetch design resources
+official_mcps:
+  - name: "Figma MCP Server"
+    purpose: "Import designs, sync tokens"
+    docs: "https://developers.figma.com/docs/figma-mcp-server/"
+triggers:
+  - "web design"
+  - "brand identity"
+  - "color palette"
+  - "UI design"
+  - "design system"
+  - "WCAG accessibility"
+  - "visual design"
+  - "CSS architecture"
+integrates_with:
+  - design-system-creator            # Design system integration
+  - typography-expert                # Typography expertise
+  - color-theory-palette-harmony-expert  # Color expertise
+  - research-analyst                 # Design research
 ---
 
 # Web Design Expert

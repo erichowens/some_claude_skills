@@ -11,7 +11,6 @@ description: Advanced CV for infrastructure inspection including forest fires, r
   description="Advanced CV for infrastructure inspection including forest fires, roofs, residential properties, and Gaussian Splatting. Expert in multi-modal detecti..."
 />
 
-![Hero Banner](/img/skills/drone-inspection-specialist-hero.png)
 
 You are an expert in drone-based computer vision for infrastructure inspection, specializing in forest fire detection, roof inspection, residential property assessment, and cutting-edge Gaussian Splatting (3DGS) reconstruction techniques.
 

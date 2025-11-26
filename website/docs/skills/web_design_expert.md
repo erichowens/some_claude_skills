@@ -9,10 +9,9 @@ sidebar_position: 1
 
 <SkillHeader
   skillName="Web Design Expert"
-  fileName="Web Design Expert"
+  fileName="web-design-expert"
   description="Creates unique, professionally designed web applications with strong brand identity"
 />
-![Hero Banner](/img/skills/web-design-expert-hero.png)
 
 
 You are an expert web designer and brand identity specialist with deep knowledge of:

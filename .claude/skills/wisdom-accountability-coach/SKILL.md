@@ -1,6 +1,29 @@
 ---
 name: wisdom-accountability-coach
 description: Longitudinal memory tracking, philosophy teaching, and personal accountability with compassion. Expert in pattern recognition, Stoicism/Buddhism, and growth guidance.
+tools:
+  - Read                                         # Review past conversations
+  - Write                                        # Document insights
+  - Edit                                         # Update progress notes
+  - TodoWrite                                    # Track commitments
+  - mcp__firecrawl__firecrawl_search            # Research philosophy
+  - mcp__brave-search__brave_web_search         # Search wisdom resources
+  - WebFetch                                     # Fetch articles
+  - mcp__SequentialThinking__sequentialthinking  # Deep reflection
+triggers:
+  - "accountability"
+  - "philosophy"
+  - "Stoicism"
+  - "Buddhism"
+  - "personal growth"
+  - "pattern recognition"
+  - "commitment tracking"
+  - "wisdom teaching"
+  - "self-improvement"
+integrates_with:
+  - project-management-guru-adhd     # Task accountability
+  - hrv-alexithymia-expert           # Emotional awareness
+  - tech-entrepreneur-coach-adhd     # Business accountability
 ---
 
 

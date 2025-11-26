@@ -9,10 +9,9 @@ sidebar_position: 19
 
 <SkillHeader
   skillName="Photo Content Recognition Curation Expert"
-  fileName="Photo Content Recognition & Curation Expert"
+  fileName="photo-content-recognition-curation-expert"
   description="Expert in photo content recognition, curation, and intelligent organization systems"
 />
-![Hero Banner](/img/skills/photo-content-recognition-curation-expert-hero.png)
 
 
 ## Purpose

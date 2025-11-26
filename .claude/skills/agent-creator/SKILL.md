@@ -1,6 +1,40 @@
 ---
 name: agent-creator
 description: Meta-agent for creating new custom agents, skills, and MCP integrations. Expert in agent design, MCP development, skill architecture, and rapid prototyping.
+tools:
+  - Read                                         # Analyze existing skills and agents
+  - Write                                        # Create new skill files
+  - Edit                                         # Refine skill definitions
+  - Glob                                         # Find existing skills/patterns
+  - Grep                                         # Search for patterns across skills
+  - Bash                                         # Run npm/npx for MCP server setup
+  - mcp__firecrawl__firecrawl_search            # Research MCP patterns and APIs
+  - WebFetch                                     # Fetch MCP documentation
+official_packages:
+  - name: "@modelcontextprotocol/sdk"
+    purpose: "Core MCP TypeScript SDK for building custom servers"
+    install: "npm install @modelcontextprotocol/sdk"
+    docs: "https://www.npmjs.com/package/@modelcontextprotocol/sdk"
+  - name: "@modelcontextprotocol/create-server"
+    purpose: "Scaffold new MCP servers (deprecated but functional)"
+    install: "npx @modelcontextprotocol/create-server my-server"
+  - name: "@modelcontextprotocol/inspector"
+    purpose: "Test and debug MCP servers"
+    install: "npx @modelcontextprotocol/inspector"
+triggers:
+  - "create agent"
+  - "new skill"
+  - "MCP server"
+  - "custom tool"
+  - "agent design"
+  - "skill architecture"
+outputs:
+  - type: "skill_file"
+    path: ".claude/skills/{name}/SKILL.md"
+  - type: "mcp_server"
+    path: "mcp-servers/{name}/index.ts"
+  - type: "reference_docs"
+    path: ".claude/skills/{name}/reference.md"
 ---
 
 

@@ -10,7 +10,6 @@ description: Expert in typography, font selection, hierarchy, and typographic de
   fileName="typography_expert"
   description="Expert in typography, font selection, hierarchy, and typographic design principles"
 />
-![Hero Banner](/img/skills/typography-expert-hero.png)
 
 **Master typographer specializing in font pairing, typographic hierarchy, OpenType features, variable fonts, and performance-optimized web typography.**
 

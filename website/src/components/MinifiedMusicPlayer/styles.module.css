@@ -1,0 +1,186 @@
+.minifiedPlayer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(135deg,
+    rgba(255, 71, 184, 0.15) 0%,
+    rgba(0, 255, 255, 0.15) 100%);
+  border: 1px solid rgba(255, 71, 184, 0.4);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(255, 71, 184, 0.2);
+  max-width: 350px;
+  font-family: 'Courier New', monospace;
+}
+
+.minifiedPlayer:hover {
+  background: linear-gradient(135deg,
+    rgba(255, 71, 184, 0.25) 0%,
+    rgba(0, 255, 255, 0.25) 100%);
+  border-color: #ff47b8;
+  box-shadow: 0 0 15px rgba(255, 71, 184, 0.4);
+  transform: scale(1.02);
+}
+
+.visualizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 24px;
+}
+
+.bar {
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    #ff47b8 0%,
+    #00ffff 100%
+  );
+  border-radius: 1px;
+  height: 8px;
+  transition: height 0.1s ease;
+  box-shadow: 0 0 4px rgba(255, 71, 184, 0.5);
+}
+
+.barAnimated {
+  animation: miniSpectrum 0.8s ease-in-out infinite;
+}
+
+@keyframes miniSpectrum {
+  0%, 100% {
+    height: 8px;
+    opacity: 0.7;
+  }
+  25% {
+    height: 18px;
+    opacity: 1;
+  }
+  50% {
+    height: 22px;
+    opacity: 1;
+  }
+  75% {
+    height: 14px;
+    opacity: 0.9;
+  }
+}
+
+.bar:nth-child(1) { animation-delay: 0s; }
+.bar:nth-child(2) { animation-delay: 0.1s; }
+.bar:nth-child(3) { animation-delay: 0.2s; }
+.bar:nth-child(4) { animation-delay: 0.3s; }
+.bar:nth-child(5) { animation-delay: 0.4s; }
+.bar:nth-child(6) { animation-delay: 0.3s; }
+.bar:nth-child(7) { animation-delay: 0.2s; }
+.bar:nth-child(8) { animation-delay: 0.1s; }
+
+.playButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ff47b8;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ff47b8;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.playButton:hover {
+  background: rgba(255, 71, 184, 0.2);
+  border-color: #00ffff;
+  color: #00ffff;
+  transform: scale(1.1);
+}
+
+.playButton:active {
+  transform: scale(0.95);
+}
+
+.trackInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.trackTitle {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ff47b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.5px;
+}
+
+.trackArtist {
+  font-size: 0.65rem;
+  color: rgba(0, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 1px;
+}
+
+.expandIcon {
+  font-size: 0.9rem;
+  color: rgba(255, 71, 184, 0.6);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.minifiedPlayer:hover .expandIcon {
+  color: #ff47b8;
+}
+
+/* Dark mode support */
+html[data-theme='dark'] .minifiedPlayer {
+  background: linear-gradient(135deg,
+    rgba(255, 71, 184, 0.2) 0%,
+    rgba(0, 255, 255, 0.2) 100%);
+}
+
+html[data-theme='dark'] .minifiedPlayer:hover {
+  background: linear-gradient(135deg,
+    rgba(255, 71, 184, 0.3) 0%,
+    rgba(0, 255, 255, 0.3) 100%);
+}
+
+/* Responsive - hide on small screens */
+@media (max-width: 996px) {
+  .minifiedPlayer {
+    max-width: 200px;
+  }
+
+  .trackInfo {
+    display: none;
+  }
+
+  .expandIcon {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .minifiedPlayer {
+    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .visualizer {
+    gap: 1px;
+  }
+
+  .bar {
+    width: 2px;
+  }
+}

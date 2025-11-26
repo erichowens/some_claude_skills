@@ -1,15 +1,37 @@
 ---
 sidebar_position: 1
-slug: /
+slug: /intro
 ---
 
 # Welcome to Claude Skills
 
-**Expert AI agents that make your life easier. AI that knows better than you.**
+**Expert AI agents that make Claude truly powerful. Skills that know more than you do.**
 
-Claude Skills are specialized AI agents with encoded domain expertise across design, research, team building, and development. Unlike one-off prompts, these skills provide consistent, expert-level capabilities you can reuse across projects.
+Claude Skills are specialized AI agents with deep domain expertise across design, engineering, research, health, and creative disciplines. Unlike one-off prompts, these skills provide consistent, expert-level capabilities you can deploy across all your projects.
 
-## 🎯 What Are Claude Skills?
+## Choose Your Path
+
+### Browse the Skills Gallery
+
+The best way to discover Claude Skills is to explore them visually. Each skill has a beautifully designed hero image and detailed documentation.
+
+**[View Skills Gallery](/skills)** - Browse all 25 skills with hero images, search, and category filtering
+
+### Get the Code
+
+All skills are open source and available on GitHub. Clone, fork, or contribute.
+
+**[GitHub Repository](https://github.com/erichowens/some_claude_skills)** - Source code, installation instructions, and contribution guide
+
+### Read the Documentation
+
+Learn how Claude Skills work, how to install them, and how to create your own.
+
+**[Skills Guide](/docs/guides/claude-skills-guide)** - Complete guide to using and creating skills
+
+---
+
+## What Are Claude Skills?
 
 Claude Skills are custom AI agents that embody deep expertise in specific domains. Instead of telling Claude what to do, these skills teach Claude:
 
@@ -18,92 +40,64 @@ Claude Skills are custom AI agents that embody deep expertise in specific domain
 - **How experts work** - Proven methodologies and workflows
 - **Why experts make certain choices** - The reasoning behind decisions
 
-## ✨ Why Use Claude Skills?
+## Quick Installation
 
-Traditional prompts are one-off instructions. Claude Skills are:
+### Add Marketplace (Recommended)
 
-- ✅ **Expert-level** - Encoded domain expertise from professionals
-- ✅ **Reusable** - Use across unlimited projects
-- ✅ **Composable** - Stack multiple skills together
-- ✅ **Consistent** - Same quality every time
-- ✅ **Teachable** - Share across teams
+```bash
+# In Claude Code, add this marketplace:
+/plugin marketplace add erichowens/some_claude_skills
 
-## 🚀 Quick Start
+# Then install any skill:
+/plugin install orchestrator@some-claude-skills
 
-### Choose Your Path
-
-**Need Something Specific?**
-Jump directly to the skill you need:
-- Brand identity? → [Web Design Expert](/docs/skills/web_design_expert)
-- Design documentation? → [Design System Creator](/docs/skills/design_system_creator)
-- Research insights? → [Research Analyst](/docs/skills/research_analyst)
-- Team planning? → [Team Builder](/docs/skills/team_builder)
-
-**Need Everything?**
-Use the [Orchestrator](/docs/skills/orchestrator) - it coordinates all specialists automatically.
-
-## 📚 Available Skills
-
-We have 17 specialized skills across 6 categories:
-
-### Core Design & Development
-- [Web Design Expert](/docs/skills/web_design_expert) - Unique brand identities and visual designs
-- [Design System Creator](/docs/skills/design_system_creator) - Comprehensive design systems with production CSS
-- [Native App Designer](/docs/skills/native_app_designer) - Breathtaking iOS/Mac and web apps
-
-### Specialized Technical
-- [Drone & Computer Vision Expert](/docs/skills/drone_cv_expert) - Drone systems and autonomous navigation
-- [Drone Inspection Specialist](/docs/skills/drone_inspection_specialist) - Infrastructure inspection with CV
-- [Metal Shader Expert](/docs/skills/metal_shader_expert) - Real-time graphics and visual effects
-
-### Photo Intelligence
-- [Color Theory & Palette Harmony Expert](/docs/skills/color_theory_palette_harmony_expert) - Perceptual color science for photo collages
-- [Event Detection & Temporal Intelligence](/docs/skills/event_detection_temporal_intelligence_expert) - Spatio-temporal clustering and shareability
-- [Photo Content Recognition & Curation](/docs/skills/photo_content_recognition_curation_expert) - Face clustering, duplicates, and quality assessment
-
-### Research & Strategy
-- [Research Analyst](/docs/skills/research_analyst) - Thorough landscape and competitive research
-- [Team Builder](/docs/skills/team_builder) - High-performing team design
-
-### Health & Personal Growth
-- [HRV & Alexithymia Expert](/docs/skills/hrv_alexithymia_expert) - Heart rate variability and emotional awareness
-- [ADHD Design Expert](/docs/skills/adhd_design_expert) - Neuroscience-backed UX for ADHD brains
-- [Wisdom Coach](/docs/skills/wisdom_accountability_coach) - Personal accountability and philosophy
-- [Tech Entrepreneur Coach](/docs/skills/tech_entrepreneur_coach_adhd) - Indie founder transition
-
-### Meta Skills
-- [Agent Creator](/docs/skills/agent_creator) - Create new custom agents and skills
-- [Orchestrator](/docs/skills/orchestrator) - Coordinate all specialists for complex problems
-
-## 💡 Common Use Cases
-
-**Launching New Product**
-```
-Orchestrator → Complete solution (research + design + system + team)
+# Or install all skills at once:
+/plugin install adhd-design-expert@some-claude-skills
+/plugin install metal-shader-expert@some-claude-skills
+# ... etc
 ```
 
-**Redesigning Existing App**
-```
-Research Analyst → Web Design Expert → Design System Creator
+### Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/erichowens/some_claude_skills
+
+# Copy all skills to your personal Claude skills folder
+cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/
+
+# Or copy to a specific project
+cp -r some_claude_skills/.claude/skills/* /path/to/your/project/.claude/skills/
 ```
 
-**Building Design System**
-```
-Research Analyst → Design System Creator
-```
+## Skill Categories
 
-**Team Planning**
-```
-Research Analyst → Team Builder
-```
+| Category | Skills | Description |
+|----------|--------|-------------|
+| **Meta Skills** | Orchestrator, Agent Creator | Coordinate and create new skills |
+| **Design & Development** | 6 skills | UI/UX, design systems, typography |
+| **Specialized Technical** | 6 skills | Graphics, drones, VR, audio |
+| **Photo Intelligence** | 3 skills | Color, events, content recognition |
+| **Health & Personal Growth** | 6 skills | ADHD, coaching, speech therapy |
+| **Research & Strategy** | 2 skills | Analysis and team building |
 
-## 🎓 Next Steps
+## Featured Skills
 
-1. [Explore the Skills Gallery](/skills) - See all available skills with interactive examples
-2. [Try the Playground](/playground) - Test skills with example prompts
-3. [Read the Guide](/docs/guides/claude-skills-guide) - Learn how to create your own skills
-4. [View Examples](/docs/guides/examples) - Real-world use cases and workflows
+### [Orchestrator](/docs/skills/orchestrator)
+The master coordinator that automatically delegates to specialist skills based on your needs. Start here if you're not sure which skill to use.
+
+### [Agent Creator](/docs/skills/agent_creator)
+Meta-agent for creating new custom agents, skills, and MCP integrations. Use this to build your own specialized skills.
+
+### [Design System Creator](/docs/skills/design_system_creator)
+Builds comprehensive design systems with production-ready CSS, design tokens, and component libraries.
 
 ---
 
-Ready to make Claude know better? Let's get started!
+## Next Steps
+
+1. **[Browse Skills Gallery](/skills)** - Explore all 25 skills with beautiful hero images
+2. **[Read the Guide](/docs/guides/claude-skills-guide)** - Learn how skills work
+3. **[View on GitHub](https://github.com/erichowens/some_claude_skills)** - Get the source code
+
+Ready to make Claude an expert? Let's get started!

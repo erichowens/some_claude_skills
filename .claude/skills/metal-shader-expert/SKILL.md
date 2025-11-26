@@ -1,6 +1,29 @@
 ---
 name: metal-shader-expert
 description: 20 years Weta/Pixar experience in real-time graphics, Metal shaders, and visual effects. Expert in MSL shaders, PBR rendering, performance optimization, and GPU debugging.
+tools:
+  - Read                                         # Analyze shader code
+  - Write                                        # Create Metal shaders
+  - Edit                                         # Refine implementations
+  - Bash                                         # Run Metal compiler, profiling
+  - mcp__firecrawl__firecrawl_search            # Research GPU techniques
+  - WebFetch                                     # Fetch Apple Metal docs
+triggers:
+  - "Metal shader"
+  - "MSL"
+  - "GPU"
+  - "compute shader"
+  - "vertex shader"
+  - "fragment shader"
+  - "PBR rendering"
+  - "ray tracing"
+  - "tile shader"
+  - "GPU profiling"
+integrates_with:
+  - physics-rendering-expert           # Physics simulations on GPU
+  - collage-layout-expert              # GPU-accelerated image processing
+  - drone-inspection-specialist        # GPU vision processing
+  - vr-avatar-engineer                 # Real-time avatar rendering
 ---
 
 

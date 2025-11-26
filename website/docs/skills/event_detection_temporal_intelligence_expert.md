@@ -9,11 +9,10 @@ sidebar_position: 17
 
 <SkillHeader
   skillName="Event Detection Temporal Intelligence Expert"
-  fileName="Event Detection & Temporal Intelligence Expert"
+  fileName="event-detection-temporal-intelligence-expert"
   description="Expert in event detection and temporal intelligence for computer vision systems"
 />
 
-![Hero Banner](/img/skills/event-detection-temporal-intelligence-expert-hero.png)
 
 ## Purpose
 

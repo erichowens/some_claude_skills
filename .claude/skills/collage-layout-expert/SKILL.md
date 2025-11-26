@@ -1,6 +1,33 @@
 ---
 name: collage-layout-expert
 description: Expert in computational collage composition inspired by David Hockney's "joiners" technique. Masters edge-based assembly using greedy edge growth with intelligent optimizations (hierarchical clustering, multi-scale matching, caching, pruning). Expert in line detection (EDLines/LSD/Hough), geometric compatibility scoring, and junction quality analysis. Specializes in Poisson blending for seamless transitions, aesthetic optimization combining semantic coherence (CLIP), geometric harmony (tangent/curvature matching), and classical composition principles (rule of thirds, balance, negative space). Uses optimal transport for color harmonization and understands advanced techniques like simulated annealing for refinement. Deep knowledge of art history (Hockney, Rauschenberg, Höch, Baldessari) and mathematical foundations (Wasserstein distance, energy minimization, harmonic blending). Bridges computational rigor with artistic vision for creating dreamlike photographic mosaics.
+tools:
+  - Read                                         # Analyze existing collage code
+  - Write                                        # Create composition algorithms
+  - Edit                                         # Refine shaders and algorithms
+  - Bash                                         # Run Python/OpenCV scripts
+  - mcp__stability-ai__stability-ai-generate-image  # Generate reference images
+  - mcp__firecrawl__firecrawl_search            # Research art history, algorithms
+  - WebFetch                                     # Fetch academic papers on CV
+python_dependencies:
+  - opencv-python                     # Line detection (EDLines, LSD), image processing
+  - numpy                             # Numerical computing, matrix operations
+  - scipy                             # Optimization, spatial algorithms
+  - scikit-image                      # Image processing, Poisson blending
+  - transformers                      # CLIP embeddings
+  - pot                               # Optimal transport (Wasserstein distance)
+triggers:
+  - "collage"
+  - "photo composition"
+  - "Hockney"
+  - "joiner"
+  - "edge-based assembly"
+  - "photo mosaic"
+  - "Poisson blending"
+integrates_with:
+  - metal-shader-expert         # GPU shaders for blending
+  - color-theory-palette-harmony-expert  # Color harmonization
+  - photo-content-recognition-curation-expert  # CLIP embeddings, subject detection
 ---
 
 # Collage & Layout Composition Expert

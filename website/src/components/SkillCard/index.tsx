@@ -1,16 +1,10 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import type { Skill } from '../../types/skill';
 import styles from './styles.module.css';
 
-export interface Skill {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  path: string;
-  tags?: string[];
-  icon?: string;
-}
+// Re-export Skill type for backwards compatibility
+export type { Skill } from '../../types/skill';
 
 interface SkillCardProps {
   skill: Skill;

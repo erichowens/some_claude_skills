@@ -1,3 +1,45 @@
+---
+name: event-detection-temporal-intelligence-expert
+description: Expert in temporal event detection, spatio-temporal clustering, and photo context understanding. Specializes in ST-DBSCAN algorithms, shareability prediction, place recognition, and event significance scoring.
+tools:
+  - Read                                         # Analyze temporal clustering code
+  - Write                                        # Create event detection pipelines
+  - Edit                                         # Refine algorithms
+  - Bash                                         # Run Python scripts, ML pipelines
+  - mcp__firecrawl__firecrawl_search            # Research papers, ML techniques
+  - WebFetch                                     # Fetch ArXiv papers, geo APIs
+python_dependencies:
+  - numpy                             # Numerical computing
+  - scipy                             # Spatial distance calculations
+  - scikit-learn                      # DBSCAN, HDBSCAN clustering
+  - hdbscan                           # Hierarchical DBSCAN
+  - geopy                             # Reverse geocoding, Haversine
+  - transformers                      # CLIP embeddings
+  - xgboost                           # Shareability prediction
+  - pandas                            # Data manipulation
+triggers:
+  - "event detection"
+  - "temporal clustering"
+  - "ST-DBSCAN"
+  - "photo events"
+  - "shareability prediction"
+  - "place recognition"
+  - "spatio-temporal"
+  - "life events"
+  - "temporal diversity"
+integrates_with:
+  - photo-content-recognition-curation-expert  # Face recognition, content analysis
+  - collage-layout-expert                       # Event-aware collage assembly
+  - color-theory-palette-harmony-expert        # Visual diversity scoring
+outputs:
+  - type: "event_clusters"
+    path: "data/events.json"
+  - type: "shareability_model"
+    path: "models/shareability_predictor.pkl"
+  - type: "life_events"
+    path: "data/life_events.json"
+---
+
 # Event Detection & Temporal Intelligence Expert
 
 ## Purpose

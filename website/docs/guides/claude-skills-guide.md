@@ -1,9 +1,32 @@
 ---
 title: Claude Skills Guide
 description: Complete guide to understanding and creating Claude Skills
-
 sidebar_position: 1
 ---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<div className="guide-hero-banner">
+  <div className="guide-hero-window">
+    <div className="guide-hero-titlebar">
+      <span className="guide-hero-titlebar-icon">📖</span>
+      <span className="guide-hero-titlebar-text">GUIDE.HLP - Claude Skills Manual</span>
+      <span className="guide-hero-titlebar-buttons">
+        <span className="guide-hero-btn">─</span>
+        <span className="guide-hero-btn">□</span>
+      </span>
+    </div>
+    <div className="guide-hero-content">
+      <h1 className="guide-hero-title">Claude Skills Guide</h1>
+      <p className="guide-hero-subtitle">The complete reference for understanding, using, and creating Claude Skills - modular expertise for AI agents</p>
+      <div className="guide-hero-badges">
+        <span className="guide-hero-badge guide-hero-badge--yellow">Beginner Friendly</span>
+        <span className="guide-hero-badge guide-hero-badge--lime">With Examples</span>
+        <span className="guide-hero-badge guide-hero-badge--teal">Best Practices</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 # Understanding Claude Skills: A Comprehensive Guide
 

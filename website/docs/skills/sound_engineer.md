@@ -10,7 +10,6 @@ description: Expert audio engineer specializing in spatial audio, procedural sou
   fileName="sound-engineer"
   description="Expert audio engineer specializing in spatial audio, procedural sound design, interactive audio systems, and real-time DSP"
 />
-![Hero Banner](/img/skills/sound-engineer-hero.png)
 
 
 Expert audio engineer specializing in spatial audio, procedural sound design, interactive audio systems, and real-time DSP. Expert in game audio, immersive experiences, and adaptive soundscapes using modern middleware (Wwise, FMOD) and cutting-edge 2024-2025 techniques.
