@@ -33,6 +33,19 @@ export interface ArtifactFiles {
   assets?: string[];
 }
 
+export interface Screenshot {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface AlbumArt {
+  src: string;
+  title: string;
+  artist: string;
+  style: string;
+}
+
 export interface Artifact {
   id: string;
   title: string;
@@ -46,6 +59,8 @@ export interface Artifact {
   outcome: Outcome;
   files: ArtifactFiles;
   heroImage?: string;  // Path to hero image (e.g., '/img/artifacts/skill-coach-hero.png')
+  screenshots?: Screenshot[]; // Additional screenshots with captions
+  albumArt?: AlbumArt[]; // AI-generated album art for music-related artifacts
   createdAt: string;
   featured?: boolean;
   viewCount?: number;

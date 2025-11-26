@@ -196,6 +196,7 @@
   "createdAt": "2025-11-25",
   "status": "completed",
   "featured": true,
+  "heroImage": "/img/artifacts/site-reliability-engineer-integration-hero_2025-11-26T07-36-24-786Z.png",
   "authors": [
     {
       "name": "skill-documentarian",

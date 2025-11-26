@@ -2,6 +2,92 @@
 
 A complete preserved implementation of the Winamp-style vaporwave music player built for the Claude Skills website.
 
+---
+
+## 📸 The Player in Action
+
+![Winamp Player - LARVA Track](/img/artifacts/winamp-player/winamp-full-player-larva.png)
+
+*The full player interface showing the MIDImorphosis album with LARVA track selected. Note the Windows 3.1 beveled borders, CRT glow effects, and the 24-bar visualizer.*
+
+---
+
+## 🎨 AI-Generated Album Art Gallery
+
+Every album cover was generated using Ideogram AI with vaporwave aesthetic prompts. Each captures a different facet of the genre:
+
+### The Complete Collection
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/blank-banshee-midimorphosis.png" width="200" alt="MIDImorphosis"/>
+<br/><strong>MIDImorphosis</strong>
+<br/><em>Blank Banshee</em>
+<br/>Pixelated butterfly, vaporwave grid
+</td>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/neon-dreams.png" width="200" alt="Digital Paradise"/>
+<br/><strong>Digital Paradise</strong>
+<br/><em>Cyber Lotus</em>
+<br/>Dolphin, lotus flowers, sunset
+</td>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/outrun-nights.png" width="200" alt="Neon Highway"/>
+<br/><strong>Neon Highway</strong>
+<br/><em>Outrun Nights</em>
+<br/>DeLorean, palm trees, sunset grid
+</td>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/dark-ritual.png" width="200" alt="King Night"/>
+<br/><strong>King Night</strong>
+<br/><em>Salem</em>
+<br/>Hooded figure, candles, occult
+</td>
+</tr>
+<tr>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/vapor-trap.png" width="200" alt="With Love"/>
+<br/><strong>With Love</strong>
+<br/><em>Luxury Elite</em>
+<br/>Champagne, penthouse, sunset
+</td>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/chip-dreams.png" width="200" alt="Fasttracker Forever"/>
+<br/><strong>Fasttracker Forever</strong>
+<br/><em>Chip Dreams</em>
+<br/>Pixel art, retro computer
+</td>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/mall-soft.png" width="200" alt="Virtua.zip"/>
+<br/><strong>Virtua.zip</strong>
+<br/><em>Esprit 空虚</em>
+<br/>Pink mall corridor, liminal
+</td>
+<td align="center" width="25%">
+<img src="/img/artifacts/winamp-player/blank-banshee-flow.png" width="200" alt="MEGA"/>
+<br/><strong>MEGA</strong>
+<br/><em>Digital</em>
+<br/>Mall escalators, statues
+</td>
+</tr>
+</table>
+
+### Art Style Breakdown
+
+| Cover | Genre Influence | Key Elements |
+|-------|-----------------|--------------|
+| **MIDImorphosis** | Future Funk | 8-bit butterfly, neon grid, Japanese text |
+| **Digital Paradise** | Chillwave | Dolphins, lotus flowers, pastel sunset |
+| **Neon Highway** | Synthwave/Outrun | Sports car, palm trees, sunset gradient |
+| **King Night** | Witch House | Occult imagery, purple haze, candles |
+| **With Love** | Late Night Lo-Fi | Luxury aesthetic, champagne, skyline |
+| **Fasttracker Forever** | Chiptune | Pixel art, floppy disks, green CRT |
+| **Virtua.zip** | Mallsoft | Empty mall, pink tiles, plants |
+| **MEGA** | Classic Vaporwave | Mall escalators, Greek statues |
+
+---
+
 ## What's Preserved Here
 
 This artifact captures the initial working implementation of the vaporwave music player created by the `vaporwave-glassomorphic-ui-designer` skill. This is the **vaporwave skill's work only** - it does not include later enhancements from the sound-engineer skill.

@@ -122,7 +122,64 @@
       "docs/SOUND_ENGINEER_RECOMMENDATIONS.md"
     ]
   },
-  "heroImage": "/img/artifacts/vaporwave-midi-player-hero_2025-11-25T09-44-41-839Z.png",
+  "heroImage": "/img/artifacts/winamp-player/winamp-full-player-larva.png",
+  "screenshots": [
+    {
+      "src": "/img/artifacts/winamp-player/winamp-full-player-larva.png",
+      "alt": "Winamp Player showing LARVA track from MIDImorphosis",
+      "caption": "Full player interface with 24-bar visualizer, playlist, and metadata display"
+    }
+  ],
+  "albumArt": [
+    {
+      "src": "/img/artifacts/winamp-player/blank-banshee-midimorphosis.png",
+      "title": "MIDImorphosis",
+      "artist": "Blank Banshee",
+      "style": "Future Funk - 8-bit butterfly, neon grid"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/neon-dreams.png",
+      "title": "Digital Paradise",
+      "artist": "Cyber Lotus",
+      "style": "Chillwave - Dolphin, lotus flowers, sunset"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/outrun-nights.png",
+      "title": "Neon Highway",
+      "artist": "Outrun Nights",
+      "style": "Synthwave - DeLorean, palm trees"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/dark-ritual.png",
+      "title": "King Night",
+      "artist": "Salem",
+      "style": "Witch House - Occult, candles"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/vapor-trap.png",
+      "title": "With Love",
+      "artist": "Luxury Elite",
+      "style": "Late Night Lo-Fi - Champagne, penthouse"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/chip-dreams.png",
+      "title": "Fasttracker Forever",
+      "artist": "Chip Dreams",
+      "style": "Chiptune - Pixel art, retro computer"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/mall-soft.png",
+      "title": "Virtua.zip",
+      "artist": "Esprit 空虚",
+      "style": "Mallsoft - Pink mall corridor"
+    },
+    {
+      "src": "/img/artifacts/winamp-player/blank-banshee-flow.png",
+      "title": "MEGA",
+      "artist": "Digital",
+      "style": "Classic Vaporwave - Mall escalators"
+    }
+  ],
   "createdAt": "2024-11-25T00:00:00Z",
   "featured": true,
   "viewCount": 0,

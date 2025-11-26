@@ -47,127 +47,204 @@ export default function SkillHeader({ skillName, fileName, description }: SkillH
         />
       </div>
 
-      {/* Get This Skill Panel - Windows 3.1 Style */}
+      {/* Get This Skill Panel - Authentic Windows 3.1 Style */}
       <div
+        className="win31-window"
         style={{
-          background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
-          border: '3px solid var(--win31-black)',
-          boxShadow: 'inset 2px 2px 0 rgba(255,255,255,0.1), inset -2px -2px 0 rgba(0,0,0,0.5)',
           marginBottom: '20px',
-          position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        {/* Vaporwave accent line */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '3px',
-          background: 'linear-gradient(90deg, var(--win31-teal) 0%, var(--win31-magenta) 50%, var(--win31-teal) 100%)',
-        }} />
-
-        {/* Content */}
-        <div style={{ padding: '20px 24px' }}>
-          {/* Title */}
-          <div style={{
-            fontFamily: 'var(--font-pixel)',
-            fontSize: '11px',
-            letterSpacing: '3px',
-            color: 'var(--win31-teal)',
-            marginBottom: '16px',
-            textTransform: 'uppercase',
-            textShadow: '0 0 10px rgba(0, 255, 255, 0.5)',
-          }}>
-            ⚡ Get This Skill
+        {/* Win31 Title Bar */}
+        <div
+          style={{
+            background: 'var(--win31-navy)',
+            padding: '4px 8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div
+              className="win31-btn-3d win31-btn-3d--small"
+              style={{ padding: '2px 6px', fontSize: '10px' }}
+            >
+              ─
+            </div>
           </div>
+          <span
+            style={{
+              fontFamily: 'var(--font-pixel)',
+              fontSize: '12px',
+              fontWeight: 'bold',
+              color: '#fff',
+              letterSpacing: '1px',
+            }}
+          >
+            GET_SKILL.EXE
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <div
+              className="win31-btn-3d win31-btn-3d--small"
+              style={{ padding: '2px 6px', fontSize: '10px' }}
+            >
+              ▲
+            </div>
+            <div
+              className="win31-btn-3d win31-btn-3d--small"
+              style={{ padding: '2px 6px', fontSize: '10px' }}
+            >
+              ▼
+            </div>
+          </div>
+        </div>
 
+        {/* Content Area */}
+        <div
+          style={{
+            background: 'var(--win31-gray)',
+            padding: '16px 20px',
+          }}
+        >
           {/* Download Options */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '12px',
-          }}>
-            {/* Download Skill Folder ZIP */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '12px',
+            }}
+          >
+            {/* Download Skill Folder ZIP - Primary Action */}
             <button
               onClick={handleDownloadZip}
               disabled={isDownloading}
-              className="win31-push-button win31-push-button-default"
+              className="win31-btn-3d"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start',
                 gap: '6px',
-                padding: '16px 20px',
+                padding: '14px 18px',
                 cursor: isDownloading ? 'wait' : 'pointer',
                 opacity: isDownloading ? 0.7 : 1,
-                background: 'linear-gradient(135deg, #00d4ff 0%, #ff00ff 100%)',
-                border: '2px outset #00d4ff',
-                position: 'relative',
+                background: 'var(--win31-gray)',
+                border: '2px solid var(--win31-black)',
+                boxShadow:
+                  'inset -2px -2px 0 var(--win31-dark-gray), inset 2px 2px 0 #fff, inset -3px -3px 0 var(--win31-black), inset 3px 3px 0 var(--win31-light-gray)',
               }}
             >
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontFamily: 'var(--font-system)',
-                fontSize: '16px',
-                fontWeight: '700',
-                color: '#000',
-              }}>
-                <span style={{ fontSize: '20px' }}>{isDownloading ? '⏳' : '📦'}</span>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-system)',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  color: 'var(--win31-black)',
+                }}
+              >
+                <span style={{ fontSize: '18px' }}>
+                  {isDownloading ? '⏳' : '📦'}
+                </span>
                 {isDownloading ? 'Downloading...' : 'Download Skill Folder'}
               </div>
-              <div style={{
-                fontFamily: 'var(--font-system)',
-                fontSize: '12px',
-                color: '#000',
-                fontWeight: '600',
-                lineHeight: '1.5',
-              }}>
-                {isDownloading ? 'Creating zip file...' : 'Complete skill folder with SKILL.md and all resources'}
+              <div
+                style={{
+                  fontFamily: 'var(--font-system)',
+                  fontSize: '11px',
+                  color: 'var(--win31-dark-gray)',
+                  lineHeight: '1.4',
+                }}
+              >
+                {isDownloading
+                  ? 'Creating zip file...'
+                  : 'Complete skill folder with SKILL.md and all resources'}
               </div>
             </button>
 
-            {/* View on GitHub */}
+            {/* View on GitHub - Secondary Action */}
             <a
               href={githubFolderUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="win31-push-button"
+              className="win31-btn-3d"
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start',
                 gap: '6px',
                 textDecoration: 'none',
-                padding: '16px 20px',
+                padding: '14px 18px',
                 background: 'var(--win31-gray)',
-                border: '2px outset var(--win31-gray)',
+                boxShadow:
+                  'inset -2px -2px 0 var(--win31-dark-gray), inset 2px 2px 0 #fff, inset -3px -3px 0 var(--win31-black), inset 3px 3px 0 var(--win31-light-gray)',
               }}
             >
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontFamily: 'var(--font-system)',
-                fontSize: '16px',
-                fontWeight: '600',
-                color: '#000',
-              }}>
-                <span style={{ fontSize: '20px' }}>🔗</span>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-system)',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: 'var(--win31-black)',
+                }}
+              >
+                <span style={{ fontSize: '18px' }}>🔗</span>
                 Browse on GitHub
               </div>
-              <div style={{
-                fontFamily: 'var(--font-system)',
-                fontSize: '12px',
-                color: '#333',
-                lineHeight: '1.5',
-              }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-system)',
+                  fontSize: '11px',
+                  color: 'var(--win31-dark-gray)',
+                  lineHeight: '1.4',
+                }}
+              >
                 View source code and explore the skill folder structure
               </div>
             </a>
+          </div>
+        </div>
+
+        {/* Win31 Status Bar */}
+        <div
+          style={{
+            background: 'var(--win31-gray)',
+            borderTop: '2px solid var(--win31-dark-gray)',
+            padding: '4px 8px',
+            display: 'flex',
+            gap: '4px',
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              padding: '2px 8px',
+              fontFamily: 'var(--font-pixel)',
+              fontSize: '10px',
+              color: 'var(--win31-black)',
+              borderStyle: 'solid',
+              borderWidth: '1px',
+              borderColor: 'var(--win31-dark-gray) #fff #fff var(--win31-dark-gray)',
+            }}
+          >
+            Ready to install
+          </div>
+          <div
+            style={{
+              padding: '2px 8px',
+              fontFamily: 'var(--font-pixel)',
+              fontSize: '10px',
+              color: 'var(--win31-black)',
+              borderStyle: 'solid',
+              borderWidth: '1px',
+              borderColor: 'var(--win31-dark-gray) #fff #fff var(--win31-dark-gray)',
+            }}
+          >
+            MIT License
           </div>
         </div>
       </div>
@@ -224,27 +301,32 @@ export default function SkillHeader({ skillName, fileName, description }: SkillH
               compact={false}
             />
 
-            {/* Security Note */}
+            {/* Security Note - Win31 Group Box Style */}
             <div style={{
               marginTop: '16px',
-              padding: '10px',
-              background: '#1a1a0a',
-              border: '2px solid #aa0',
-              borderLeft: '4px solid #aa0',
+              padding: '12px 14px 10px',
+              background: 'var(--win31-gray)',
+              border: '2px solid var(--win31-dark-gray)',
+              position: 'relative',
             }}>
               <div style={{
-                color: '#dd0',
-                fontSize: '11px',
-                fontFamily: 'var(--font-code)',
+                position: 'absolute',
+                top: '-8px',
+                left: '12px',
+                background: 'var(--win31-yellow)',
+                padding: '0 6px',
+                fontFamily: 'var(--font-pixel)',
+                fontSize: '10px',
                 fontWeight: 'bold',
-                marginBottom: '4px',
+                color: 'var(--win31-black)',
               }}>
-                Security Note
+                ⚠ Security Note
               </div>
               <div style={{
-                color: '#aa8',
+                color: 'var(--win31-black)',
                 fontSize: '11px',
-                fontFamily: 'var(--font-code)',
+                fontFamily: 'var(--font-system)',
+                marginTop: '4px',
               }}>
                 Skills execute code. Only install from trusted sources.
               </div>

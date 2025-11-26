@@ -217,6 +217,32 @@ export default function ArtifactDetail(): JSX.Element {
             </div>
           </section>
 
+          {/* Album Art Gallery */}
+          {artifact.albumArt && artifact.albumArt.length > 0 && (
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>🎨 AI-Generated Album Art Gallery</h2>
+              <p className={styles.galleryDescription}>
+                {artifact.albumArt.length} unique album covers generated using Ideogram AI, each capturing a different facet of vaporwave aesthetics.
+              </p>
+              <div className={styles.albumArtGrid}>
+                {artifact.albumArt.map((cover, index) => (
+                  <div key={index} className={styles.albumArtCard}>
+                    <img
+                      src={cover.src}
+                      alt={cover.title}
+                      className={styles.albumArtImage}
+                    />
+                    <div className={styles.albumArtInfo}>
+                      <span className={styles.albumArtTitle}>{cover.title}</span>
+                      <span className={styles.albumArtArtist}>{cover.artist}</span>
+                      <span className={styles.albumArtStyle}>{cover.style}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Interactive Demo */}
           {artifact.interactiveDemo === 'vaporwave-midi-player' && (
             <section className={styles.section}>

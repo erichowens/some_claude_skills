@@ -793,3 +793,155 @@
   transform: translate(1px, 1px);
   box-shadow: inset -1px -1px 0 rgba(255, 255, 255, 0.5), inset 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
+
+/* Album Art Gallery - Vaporwave Marquee Style */
+.galleryDescription {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--win31-black);
+  margin: 0 0 24px 0;
+  letter-spacing: 0.3px;
+  padding: 12px 16px;
+  background: var(--win31-light-gray);
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+}
+
+.albumArtGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.albumArtCard {
+  background: var(--win31-gray);
+  border-style: solid;
+  border-width: 3px;
+  border-top-color: var(--win31-white);
+  border-left-color: var(--win31-white);
+  border-bottom-color: var(--win31-black);
+  border-right-color: var(--win31-black);
+  box-shadow: inset 1px 1px 0 var(--win31-light-gray), inset -1px -1px 0 var(--win31-dark-gray);
+  padding: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: hidden;
+}
+
+.albumArtCard:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    inset 1px 1px 0 var(--win31-light-gray),
+    inset -1px -1px 0 var(--win31-dark-gray),
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(255, 105, 180, 0.3);
+}
+
+.albumArtImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--win31-dark-gray);
+  border-left-color: var(--win31-dark-gray);
+  border-bottom-color: var(--win31-white);
+  border-right-color: var(--win31-white);
+  image-rendering: auto;
+  transition: filter 0.15s ease;
+}
+
+.albumArtCard:hover .albumArtImage {
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.albumArtInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 4px 4px;
+  text-align: center;
+}
+
+.albumArtTitle {
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--win31-navy);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.albumArtArtist {
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--win31-black);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.albumArtStyle {
+  font-family: var(--font-system);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--win31-dark-gray);
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* Responsive album art grid */
+@media (max-width: 1200px) {
+  .albumArtGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 996px) {
+  .albumArtGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .albumArtGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .albumArtCard {
+    padding: 6px;
+  }
+
+  .albumArtTitle {
+    font-size: 11px;
+  }
+
+  .albumArtArtist {
+    font-size: 9px;
+  }
+
+  .albumArtStyle {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .albumArtGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
