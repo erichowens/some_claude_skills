@@ -230,6 +230,7 @@ struct BouncyButton: View {
 ## Modern JavaScript Design Patterns
 
 ### React: Micro-interactions
+{% raw %}
 ```jsx
 import { motion } from 'framer-motion';
 
@@ -287,8 +288,10 @@ const DelightfulCard = ({ item }) => {
   );
 };
 ```
+{% endraw %}
 
 ### Vue: Organic State Transitions
+{% raw %}
 ```vue
 <template>
   <div class="breathtaking-list">
@@ -355,6 +358,7 @@ const handleHover = (id) => {
 }
 </style>
 ```
+{% endraw %}
 
 ## Color Psychology for Native Apps
 
