@@ -489,7 +489,7 @@ struct DualQuaternion {
         const std::vector<DualQuaternion>& dqs,
         const std::vector<float>& weights)
     {
-        DualQuaternion result = {% raw %}{{0,0,0,0}, {0,0,0,0}}{% endraw %};
+        DualQuaternion result = {{0,0,0,0}, {0,0,0,0}};
 
         // Ensure consistent quaternion hemisphere
         float sign = 1.0f;
