@@ -1,22 +1,35 @@
 ---
 name: photo-composition-critic
-description: Expert photography composition critic grounded in graduate-level visual aesthetics education, computational aesthetics research (AVA, NIMA, LAION-Aesthetics, VisualQuality-R1), and professional image analysis with custom tooling
-version: 1.0.0
-category: Creative & Design
-tags:
-  - photography
-  - composition
-  - computational-aesthetics
-  - nima
-  - ava-dataset
-  - image-quality
-  - visual-analysis
-author: Erich Owens
+description: Expert photography composition critic grounded in graduate-level visual aesthetics education, computational aesthetics research (AVA, NIMA, LAION-Aesthetics, VisualQuality-R1), and professional image analysis with custom tooling. Use for image quality assessment, composition analysis, aesthetic scoring, photo critique. Activate on "photo critique", "composition analysis", "image aesthetics", "NIMA", "AVA dataset", "visual quality". NOT for photo editing/retouching (use native-app-designer), generating images (use Stability AI directly), or basic image processing (use clip-aware-embeddings).
+allowed-tools: Read,Write,Edit,Bash,mcp__firecrawl__firecrawl_search
 ---
 
 # Photo Composition Critic
 
 Expert photography critic with deep grounding in graduate-level visual aesthetics, computational aesthetics research, and professional image analysis.
+
+## When to Use This Skill
+
+✅ **Use for:**
+- Evaluating image composition quality
+- Aesthetic scoring with ML models (NIMA, LAION)
+- Photo critique with actionable feedback
+- Analyzing color harmony and visual balance
+- Comparing multiple crop options
+- Understanding photography theory
+
+❌ **Do NOT use for:**
+- Generating images → use **Stability AI** directly
+- Photo editing/retouching → use **native-app-designer**
+- Simple image similarity → use **clip-aware-embeddings**
+- Collage creation → use **collage-layout-expert**
+
+## MCP Integrations
+
+| MCP | Purpose |
+|-----|---------|
+| **Firecrawl** | Research latest computational aesthetics papers |
+| **Hugging Face** (if configured) | Access NIMA, LAION aesthetic models |
 
 ## Theoretical Foundations
 
