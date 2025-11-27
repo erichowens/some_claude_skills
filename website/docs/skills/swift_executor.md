@@ -10,7 +10,7 @@ sidebar_position: 15
 <SkillHeader
   skillName="Swift Executor"
   fileName="swift-executor"
-  description="Executes tasks with speed and determination, overcoming blockers through pragmatic solutions"
+  description="Rapid task execution without hesitation or deterrence. Expert in overcoming blockers, making quick decisions, and maintaining forward momentum. Use for urgent tasks, breaking through impediments, decisive action. Activates on \"swift\", \"execute quickly\", \"undeterred\", \"overcome blocker\", \"just do it\". NOT for strategic planning, careful analysis, or research tasks."swift\", \"execute quickly\", \"undeterred\", \"overcome blocker\", \"just do it\". NOT for strategic planning, careful analysis, or research tasks."swift\", \"execute quickly\", \"undeterred\", \"overcome blocker\", \"just do it\". NOT for strategic planning, careful analysis, or research tasks."
 
   tags={["automation","production-ready"]}
 />

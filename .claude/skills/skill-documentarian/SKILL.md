@@ -28,6 +28,12 @@ triggers:
   - "NEW badge"
   - "UPDATED badge"
   - "skill badges"
+  - "metadata"
+  - "skill metadata"
+  - "regenerate metadata"
+  - "sort skills"
+  - "sync docs"
+  - "docs out of sync"
 integrates_with:
   - orchestrator                     # Documents multi-skill workflows
   - team-builder                     # Documents team structures
@@ -110,18 +116,27 @@ cp -r .claude/skills/skill-documentarian /path/to/your/project/.claude/skills/
 
 ## Core Responsibilities for This Website
 
-### 1. Skill-to-Website Sync
+### 1. Skill-to-Website Sync (AUTOMATED!)
 
-**Check constantly**:
+**⚡ AUTOMATION**: The pre-commit hook automatically syncs documentation when skill files change:
+- Runs `syncSkillDocs.ts` when any `.claude/skills/` file is staged
+- Updates description in `SkillHeader` component to match SKILL.md frontmatter
+- Auto-adds changed doc files to the commit
+
+**Manual sync** (batch job for all skills):
 ```bash
-# Skills in .claude/skills/
-ls -d .claude/skills/*/
-
-# Docs in website/docs/skills/
-ls website/docs/skills/*.md
-
-# Do they match?
+cd website && npm run sync:skills
 ```
+
+**What gets synced automatically**:
+- `description` field → SkillHeader description prop
+- `name` field → SkillHeader skillName prop (converted to Title Case)
+
+**What you still need to do manually**:
+- Create new doc file for new skills
+- Add skill to `website/src/data/skills.ts` ALL_SKILLS array
+- Create hero images
+- Update tags
 
 **Ensure**:
 - Every skill folder has a matching `.md` file
@@ -353,6 +368,72 @@ grep -E "badge: '(NEW|UPDATED)'" website/src/data/skills.ts
 **CSS for badges** (in `website/src/css/skills-gallery.css`):
 - `.new-skill-badge` - Green pulsing sticker style
 - `.updated-skill-badge` - Cyan pulsing sticker style
+
+### 3c. Skill Metadata Management (YOUR RESPONSIBILITY!)
+
+**You are the guardian of skill metadata**. Metadata powers the sortable list view, enabling users to sort skills by recency, size, and lines of content.
+
+**What metadata is captured** (in `website/src/data/skillMetadata.json`):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Skill identifier (folder name) |
+| `createdAt` | ISO date | First git commit date for skill folder |
+| `updatedAt` | ISO date | Latest git commit date for skill folder |
+| `totalLines` | number | Total lines across all files in skill folder |
+| `totalFiles` | number | Number of files in skill folder |
+| `skillMdSize` | number | Size of SKILL.md in bytes |
+| `skillMdLines` | number | Lines in SKILL.md |
+| `hasReferences` | boolean | Whether `references/` folder exists |
+| `hasExamples` | boolean | Whether `examples/` folder exists |
+| `hasChangelog` | boolean | Whether CHANGELOG.md exists |
+
+**Automatic Metadata Generation**:
+
+The pre-commit hook automatically regenerates metadata when skill files change:
+
+```bash
+# Triggered when any file in .claude/skills/ is staged
+# Runs: npx tsx scripts/generateSkillMetadata.ts
+# Auto-adds updated skillMetadata.json to commit
+```
+
+**Manual Metadata Regeneration**:
+
+```bash
+# From website/ directory
+npx tsx scripts/generateSkillMetadata.ts
+
+# Or as part of build
+npm run prebuild  # Includes metadata generation
+```
+
+**When metadata regenerates**:
+- New skill folder added → new entry created with createdAt/updatedAt
+- Existing skill modified → updatedAt updated, metrics recalculated
+- Skill deleted → entry removed
+- Commit staged → hook runs automatically
+
+**Metadata Validation**:
+
+```bash
+# Verify all skills have metadata entries
+echo "Skills: $(ls -d .claude/skills/*/ | wc -l)"
+echo "Metadata entries: $(grep '"id":' website/src/data/skillMetadata.json | wc -l)"
+
+# Check for stale entries (skills removed but metadata remains)
+for id in $(grep '"id":' website/src/data/skillMetadata.json | sed 's/.*"id": "\([^"]*\)".*/\1/'); do
+  if [ ! -d ".claude/skills/$id" ]; then
+    echo "Stale metadata: $id"
+  fi
+done
+```
+
+**Powers** (in the website):
+- Sortable list view (`/skills` page "List" mode)
+- Sort by: Updated, Created, Lines, Size
+- Relative dates ("2 days ago", "Last week")
+- Metadata badges (📚 refs, 📁 files)
 
 ### 4. Artifact Creation (Proactive!)
 

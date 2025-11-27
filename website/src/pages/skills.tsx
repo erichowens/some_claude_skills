@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import { useHistory, useLocation } from '@docusaurus/router';
 import SkillQuickView from '../components/SkillQuickView';
 import SkillGalleryCard from '../components/SkillGalleryCard';
+import SkillListView from '../components/SkillListView';
 import type { Skill } from '../types/skill';
 import { ALL_SKILLS, searchSkills } from '../data/skills';
 import { SKILL_CATEGORIES } from '../types/skill';
@@ -10,6 +11,8 @@ import { ALL_TAGS, getTagsByType, TAG_TYPE_LABELS, TAG_TYPE_COLORS, type TagType
 import { useStarredSkills } from '../hooks/useStarredSkills';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
+
+type ViewMode = 'cards' | 'list';
 
 export default function SkillsGallery(): JSX.Element {
   const history = useHistory();
@@ -20,6 +23,7 @@ export default function SkillsGallery(): JSX.Element {
   const [showStarredOnly, setShowStarredOnly] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [showTagFilter, setShowTagFilter] = useState(false);
+  const [viewMode, setViewMode] = useState<ViewMode>('cards');
   const { toggleStar, isStarred, getStarredCount } = useStarredSkills();
 
   // Read tags from URL on mount
@@ -138,6 +142,38 @@ export default function SkillsGallery(): JSX.Element {
 
           {/* Category Filter */}
           <div className="category-filter">
+            {/* View Mode Toggle */}
+            <div style={{ display: 'flex', border: '2px solid #808080', marginRight: '8px' }}>
+              <button
+                onClick={() => setViewMode('cards')}
+                className="win31-push-button"
+                style={{
+                  fontSize: '14px',
+                  padding: '10px 16px',
+                  background: viewMode === 'cards' ? 'var(--win31-navy)' : 'var(--win31-gray)',
+                  color: viewMode === 'cards' ? 'white' : 'black',
+                  fontWeight: viewMode === 'cards' ? 'bold' : 'normal',
+                  borderRight: '1px solid #808080',
+                }}
+                title="Card View"
+              >
+                ▦ Cards
+              </button>
+              <button
+                onClick={() => setViewMode('list')}
+                className="win31-push-button"
+                style={{
+                  fontSize: '14px',
+                  padding: '10px 16px',
+                  background: viewMode === 'list' ? 'var(--win31-navy)' : 'var(--win31-gray)',
+                  color: viewMode === 'list' ? 'white' : 'black',
+                  fontWeight: viewMode === 'list' ? 'bold' : 'normal',
+                }}
+                title="List View (Sortable)"
+              >
+                ☰ List
+              </button>
+            </div>
             {/* Starred Filter */}
             <button
               onClick={() => setShowStarredOnly(!showStarredOnly)}
@@ -300,18 +336,22 @@ export default function SkillsGallery(): JSX.Element {
             </div>
           )}
 
-          {/* Skills Grid */}
-          <div className="skills-grid">
-            {filteredSkills.map((skill) => (
-              <SkillGalleryCard
-                key={skill.id}
-                skill={skill}
-                onClick={setSelectedSkill}
-                isStarred={isStarred(skill.id)}
-                onToggleStar={toggleStar}
-              />
-            ))}
-          </div>
+          {/* Skills Grid or List */}
+          {viewMode === 'cards' ? (
+            <div className="skills-grid">
+              {filteredSkills.map((skill) => (
+                <SkillGalleryCard
+                  key={skill.id}
+                  skill={skill}
+                  onClick={setSelectedSkill}
+                  isStarred={isStarred(skill.id)}
+                  onToggleStar={toggleStar}
+                />
+              ))}
+            </div>
+          ) : (
+            <SkillListView skills={filteredSkills} />
+          )}
 
           {/* No Results */}
           {filteredSkills.length === 0 && (

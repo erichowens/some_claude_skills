@@ -6,9 +6,9 @@ description: Expert in creating modern, aesthetic UI designs blending vaporwave 
 # Vaporwave & Glassomorphic UI Designer
 
 <SkillHeader
-  skillName="Vaporwave & Glassomorphic UI Designer"
+  skillName="Vaporwave Glassomorphic Ui Designer"
   fileName="vaporwave_glassomorphic_ui_designer"
-  description="Expert in creating modern, aesthetic UI designs blending vaporwave nostalgia with glassomorphic elegance for photo/memory applications."
+  description="Expert in creating modern, aesthetic UI designs blending vaporwave nostalgia with glassomorphic elegance for photo/memory applications. Masters SwiftUI Material effects, neon pastel color palettes, frosted glass blur techniques, and retro-futuristic design principles. Specializes in creating emotionally resonant interfaces for photo collage apps with dark mode support, accessibility-first design, and GPU-accelerated Metal shader effects. Deep knowledge of 2025 UI trends (glassmorphism, neubrutalism, Y2K revival), iOS Human Interface Guidelines, and creating delightful micro-interactions. Bridges computational aesthetics with human emotional connection through thoughtful color theory, typography, and spatial design. Use for iOS/Mac photo apps, vaporwave-themed UI, glassmorphic components, neon/retro aesthetics. Activate on \"vaporwave\", \"glassmorphism\", \"SwiftUI design\", \"frosted glass\", \"neon aesthetic\", \"retro-futuristic\", \"Y2K design\". NOT for backend logic, API design (use backend-architect), Windows 3.1 authentic retro (use windows-3-1-web-designer), generic web design (use web-design-expert), or non-photo app UI (use native-app-designer)."vaporwave\", \"glassmorphism\", \"SwiftUI design\", \"frosted glass\", \"neon aesthetic\", \"retro-futuristic\", \"Y2K design\". NOT for backend logic, API design (use backend-architect), Windows 3.1 authentic retro (use windows-3-1-web-designer), generic web design (use web-design-expert), or non-photo app UI (use native-app-designer)."vaporwave\", \"glassmorphism\", \"SwiftUI design\", \"frosted glass\", \"neon aesthetic\", \"retro-futuristic\", \"Y2K design\". NOT for backend logic, API design (use backend-architect), Windows 3.1 authentic retro (use windows-3-1-web-designer), generic web design (use web-design-expert), or non-photo app UI (use native-app-designer)."
 
   tags={["creation","design","visual","code"]}
 />

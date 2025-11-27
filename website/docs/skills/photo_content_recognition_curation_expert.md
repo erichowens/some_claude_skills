@@ -11,7 +11,7 @@ tags: [cv, ml, photography, faces, duplicates, curation]
 <SkillHeader
   skillName="Photo Content Recognition Curation Expert"
   fileName="photo-content-recognition-curation-expert"
-  description="Expert in photo content recognition, intelligent curation, and quality filtering"
+  description="Expert in photo content recognition, intelligent curation, and quality filtering. Specializes in face/animal/place recognition, perceptual hashing for de-duplication, screenshot/meme detection, burst photo selection, and quick indexing strategies. Activate on \"face recognition\", \"face clustering\", \"perceptual hash\", \"near-duplicate\", \"burst photo\", \"screenshot detection\", \"photo curation\", \"photo indexing\", \"NSFW detection\", \"pet recognition\", \"DINOHash\", \"HDBSCAN faces\". NOT for GPS-based location clustering (use event-detection-temporal-intelligence-expert), color palette extraction (use color-theory-palette-harmony-expert), semantic image-text matching (use clip-aware-embeddings), or video analysis/frame extraction."face recognition\", \"face clustering\", \"perceptual hash\", \"near-duplicate\", \"burst photo\", \"screenshot detection\", \"photo curation\", \"photo indexing\", \"NSFW detection\", \"pet recognition\", \"DINOHash\", \"HDBSCAN faces\". NOT for GPS-based location clustering (use event-detection-temporal-intelligence-expert), color palette extraction (use color-theory-palette-harmony-expert), semantic image-text matching (use clip-aware-embeddings), or video analysis/frame extraction."face recognition\", \"face clustering\", \"perceptual hash\", \"near-duplicate\", \"burst photo\", \"screenshot detection\", \"photo curation\", \"photo indexing\", \"NSFW detection\", \"pet recognition\", \"DINOHash\", \"HDBSCAN faces\". NOT for GPS-based location clustering (use event-detection-temporal-intelligence-expert), color palette extraction (use color-theory-palette-harmony-expert), semantic image-text matching (use clip-aware-embeddings), or video analysis/frame extraction."
   tags={["cv","ml","photography","faces","duplicates","curation","indexing"]}
 />
 
@@ -177,7 +177,7 @@ What do you need to recognize/filter?
 | Aesthetic scoring | 2 min (GPU) |
 | Clustering + dedup | 1 min |
 | **Total (first run)** | **~13 min** |
-| **Incremental** | **\<1 min** |
+| **Incremental** | **&lt;1 min** |
 
 ---
 

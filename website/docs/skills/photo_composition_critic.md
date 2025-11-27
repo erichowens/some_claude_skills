@@ -8,7 +8,7 @@ description: Expert photography composition critic grounded in graduate-level vi
 <SkillHeader
   skillName="Photo Composition Critic"
   fileName="photo-composition-critic"
-  description="Expert photography composition critic grounded in graduate-level visual aesthetics and computational aesthetics research (NIMA, AVA, LAION)"
+  description="Expert photography composition critic grounded in graduate-level visual aesthetics education, computational aesthetics research (AVA, NIMA, LAION-Aesthetics, VisualQuality-R1), and professional image analysis with custom tooling. Use for image quality assessment, composition analysis, aesthetic scoring, photo critique. Activate on \"photo critique\", \"composition analysis\", \"image aesthetics\", \"NIMA\", \"AVA dataset\", \"visual quality\". NOT for photo editing/retouching (use native-app-designer), generating images (use Stability AI directly), or basic image processing (use clip-aware-embeddings)."photo critique\", \"composition analysis\", \"image aesthetics\", \"NIMA\", \"AVA dataset\", \"visual quality\". NOT for photo editing/retouching (use native-app-designer), generating images (use Stability AI directly), or basic image processing (use clip-aware-embeddings)."photo critique\", \"composition analysis\", \"image aesthetics\", \"NIMA\", \"AVA dataset\", \"visual quality\". NOT for photo editing/retouching (use native-app-designer), generating images (use Stability AI directly), or basic image processing (use clip-aware-embeddings)."
 
   tags={["analysis","validation","photography","ml","advanced"]}
 />

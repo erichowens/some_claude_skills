@@ -8,7 +8,7 @@ description: Conducts thorough landscape research, competitive analysis, best pr
 <SkillHeader
   skillName="Research Analyst"
   fileName="research-analyst"
-  description="Conducts thorough landscape research, competitive analysis, best practices evaluation, and evidence-based recommendations. Expert in market research a..."
+  description="Conducts thorough landscape research, competitive analysis, best practices evaluation, and evidence-based recommendations. Expert in market research and trend analysis."
 
   tags={["research","analysis","document","strategy","beginner-friendly"]}
 />

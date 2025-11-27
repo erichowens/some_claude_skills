@@ -1,0 +1,428 @@
+/* Windows 3.1 Sortable List View - Card Style with Hero Images */
+
+/* System Colors */
+:root {
+  --win31-white: #ffffff;
+  --win31-black: #000000;
+  --win31-gray: #c0c0c0;
+  --win31-dark-gray: #808080;
+  --win31-light-gray: #dfdfdf;
+  --win31-navy: #000080;
+  --win31-teal: #008080;
+}
+
+/* Main Container - Window Frame */
+.container {
+  background: var(--win31-gray);
+  border: 3px solid var(--win31-black);
+  box-shadow:
+    inset 2px 2px 0 var(--win31-white),
+    inset -2px -2px 0 var(--win31-dark-gray);
+  margin: 16px 0;
+  font-family: 'VT323', 'Courier New', monospace;
+}
+
+/* Title Bar */
+.titleBar {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.titleBarIcon {
+  font-size: 12px;
+}
+
+.titleBarText {
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.titleBarButtons {
+  display: flex;
+  gap: 2px;
+}
+
+.titleBarBtn {
+  background: var(--win31-gray);
+  border: none;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white);
+}
+
+.titleBarBtn:active {
+  box-shadow:
+    inset 1px 1px 0 var(--win31-dark-gray),
+    inset -1px -1px 0 var(--win31-white);
+}
+
+/* Sort Controls */
+.sortControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  background: var(--win31-gray);
+  border-bottom: 2px solid var(--win31-dark-gray);
+  flex-wrap: wrap;
+}
+
+.sortLabel {
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 8px;
+  text-transform: uppercase;
+}
+
+.sortBtn {
+  background: var(--win31-gray);
+  border: none;
+  padding: 6px 12px;
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white);
+  text-transform: uppercase;
+}
+
+.sortBtn:hover {
+  background: var(--win31-light-gray);
+}
+
+.sortBtn:active {
+  box-shadow:
+    inset 1px 1px 0 var(--win31-dark-gray),
+    inset -1px -1px 0 var(--win31-white);
+}
+
+.sortBtnActive {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+}
+
+.sortBtnActive:hover {
+  background: var(--win31-navy);
+}
+
+/* List Container */
+.listContainer {
+  background: var(--win31-white);
+  margin: 4px;
+  border: 2px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+  box-shadow: inset 1px 1px 0 var(--win31-black);
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+/* Skill Row - Card Style */
+.skillRow {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  padding: 12px;
+  border-bottom: 2px solid var(--win31-light-gray);
+  cursor: pointer;
+  background: var(--win31-white);
+  transition: background 0.1s ease;
+}
+
+.skillRow:hover {
+  background: var(--win31-light-gray);
+}
+
+.skillRow:last-child {
+  border-bottom: none;
+}
+
+/* Hero Image Thumbnail */
+.heroThumb {
+  flex-shrink: 0;
+  width: 140px;
+  height: 90px;
+  position: relative;
+  border: 2px solid var(--win31-dark-gray);
+  box-shadow: 2px 2px 0 var(--win31-dark-gray);
+  overflow: hidden;
+  background: var(--win31-gray);
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Badges on Hero Image */
+.badgeNew {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #00ff00;
+  color: var(--win31-black);
+  font-size: 9px;
+  padding: 2px 6px;
+  font-weight: bold;
+  border: 1px solid var(--win31-black);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+}
+
+.badgeUpdated {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #00ccff;
+  color: var(--win31-black);
+  font-size: 9px;
+  padding: 2px 6px;
+  font-weight: bold;
+  border: 1px solid var(--win31-black);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+}
+
+/* Skill Info */
+.skillInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.skillHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.skillTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--win31-navy);
+  font-family: 'VT323', 'Courier New', monospace;
+}
+
+.skillCategory {
+  font-size: 11px;
+  color: var(--win31-dark-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skillDesc {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+  font-family: 'VT323', 'Courier New', monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Meta Info Row */
+.skillMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.metaItem {
+  font-size: 11px;
+  color: var(--win31-dark-gray);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+.metaBadge {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--win31-gray);
+  border: 1px solid var(--win31-dark-gray);
+  color: var(--win31-black);
+  text-transform: uppercase;
+  font-family: 'VT323', monospace;
+}
+
+/* Action Arrow */
+.skillAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  font-size: 24px;
+  color: var(--win31-dark-gray);
+  font-weight: bold;
+}
+
+.skillRow:hover .skillAction {
+  color: var(--win31-navy);
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  gap: 2px;
+  padding: 2px 4px;
+  background: var(--win31-gray);
+  border-top: 2px solid var(--win31-dark-gray);
+}
+
+.statusPanel {
+  flex: 1;
+  padding: 2px 8px;
+  font-size: 11px;
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusPanel:first-child {
+  flex: 0 0 auto;
+}
+
+/* Scrollbar Styling (WebKit) */
+.listContainer::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.listContainer::-webkit-scrollbar-track {
+  background: var(--win31-light-gray);
+  border: 1px solid var(--win31-dark-gray);
+}
+
+.listContainer::-webkit-scrollbar-thumb {
+  background: var(--win31-gray);
+  border: 2px solid;
+  border-color: var(--win31-white) var(--win31-dark-gray) var(--win31-dark-gray) var(--win31-white);
+}
+
+.listContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--win31-light-gray);
+}
+
+.listContainer::-webkit-scrollbar-corner {
+  background: var(--win31-gray);
+}
+
+/* Sort indicators - keep for potential table view */
+.sortIndicator {
+  margin-left: 6px;
+  color: var(--win31-navy);
+  font-size: 10px;
+}
+
+.sortIndicatorInactive {
+  margin-left: 6px;
+  color: var(--win31-dark-gray);
+  font-size: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroThumb {
+    width: 100px;
+    height: 65px;
+  }
+
+  .skillTitle {
+    font-size: 16px;
+  }
+
+  .skillDesc {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  .skillMeta {
+    gap: 8px;
+  }
+
+  .metaItem {
+    font-size: 10px;
+  }
+
+  .skillAction {
+    padding: 0 8px;
+    font-size: 20px;
+  }
+
+  .sortControls {
+    gap: 2px;
+  }
+
+  .sortBtn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillRow {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .heroThumb {
+    width: 100%;
+    height: 120px;
+  }
+
+  .skillInfo {
+    width: 100%;
+  }
+
+  .skillAction {
+    display: none;
+  }
+
+  .skillCategory {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .skillMeta {
+    gap: 6px;
+  }
+
+  .metaItem:nth-child(n+4) {
+    display: none;
+  }
+
+  .sortControls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sortLabel {
+    margin-bottom: 4px;
+  }
+}

@@ -10,7 +10,7 @@ sidebar_position: 24
 <SkillHeader
   skillName="Competitive Cartographer"
   fileName="competitive-cartographer"
-  description="Strategic analyst that maps competitive landscapes and identifies white space opportunities"
+  description="Strategic analyst that maps competitive landscapes, identifies white space opportunities, and provides positioning recommendations. Use when users need competitive analysis, market positioning strategy, differentiation tactics, or \"how do I stand out?\" guidance across any domain (portfolios, products, services). NOT for market size estimation or financial forecasting."how do I stand out?\" guidance across any domain (portfolios, products, services). NOT for market size estimation or financial forecasting."how do I stand out?\" guidance across any domain (portfolios, products, services). NOT for market size estimation or financial forecasting."
 
   tags={["research","analysis","strategy","entrepreneurship","career"]}
 />

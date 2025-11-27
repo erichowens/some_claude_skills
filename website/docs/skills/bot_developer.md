@@ -8,7 +8,7 @@ description: Production-grade bot development for Discord, Telegram, Slack with 
 <SkillHeader
   skillName="Bot Developer"
   fileName="bot-developer"
-  description="Production-grade bot development for Discord, Telegram, Slack with state machines, rate limiting, and moderation systems"
+  description="Expert bot developer specializing in Discord, Telegram, Slack automation with deep knowledge of rate limiting, state machines, event sourcing, moderation systems, and conversational AI integration"
 
   tags={["creation","automation","code","production-ready"]}
 />

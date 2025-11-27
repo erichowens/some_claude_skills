@@ -8,7 +8,7 @@ description: Heart rate variability biometrics and emotional awareness training.
 <SkillHeader
   skillName="Hrv Alexithymia Expert"
   fileName="hrv-alexithymia-expert"
-  description="Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelli..."
+  description="Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelligence."
 
   tags={["coaching","health","psychology","data","advanced"]}
 />

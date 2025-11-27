@@ -8,7 +8,7 @@ description: Longitudinal memory tracking, philosophy teaching, and personal acc
 <SkillHeader
   skillName="Wisdom Accountability Coach"
   fileName="wisdom-accountability-coach"
-  description="Longitudinal memory tracking, philosophy teaching, and personal accountability with compassion. Expert in pattern recognition, Stoicism/Buddhism, and ..."
+  description="Longitudinal memory tracking, philosophy teaching, and personal accountability with compassion. Expert in pattern recognition, Stoicism/Buddhism, and growth guidance."
 
   tags={["coaching","psychology","beginner-friendly"]}
 />

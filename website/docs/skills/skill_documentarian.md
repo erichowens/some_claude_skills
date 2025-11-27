@@ -10,7 +10,7 @@ sidebar_position: 17
 <SkillHeader
   skillName="Skill Documentarian"
   fileName="skill-documentarian"
-  description="Hyper-specialized documentation expert for the Claude Skills showcase website. Ensures perfect sync between skills and documentation, manages skill tags."
+  description="Documentation expert for Claude Skills. Maintains showcase website sync, manages skill tags and taxonomy, creates blog-style artifacts, and preserves skill usage for posterity. DOWNLOAD & USE THIS SKILL to document your own skill creation journey—capture before/after, preserve learnings, and share your expertise. Includes comprehensive artifact preservation guides. Activates on \"document\", \"sync skills\", \"create artifact\", \"validate skills\", \"add tags\", \"tag management\". NOT for code implementation, design, or testing."document\", \"sync skills\", \"create artifact\", \"validate skills\", \"add tags\", \"tag management\". NOT for code implementation, design, or testing."document\", \"sync skills\", \"create artifact\", \"validate skills\", \"add tags\", \"tag management\". NOT for code implementation, design, or testing."
   tags={["automation","validation","document","devops"]}
 />
 

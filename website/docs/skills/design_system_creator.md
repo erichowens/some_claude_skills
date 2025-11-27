@@ -10,7 +10,7 @@ sidebar_position: 2
 <SkillHeader
   skillName="Design System Creator"
   fileName="design-system-creator"
-  description="Builds comprehensive design systems and design bibles with production-ready CSS"
+  description="Builds comprehensive design systems and design bibles with production-ready CSS. Expert in design tokens, component libraries, CSS architecture. Use for design system creation, token architecture, component documentation, style guide generation. Activate on \"design system\", \"design tokens\", \"CSS architecture\", \"component library\", \"style guide\", \"design bible\". NOT for typography deep-dives (use typography-expert), color theory mathematics (use color-theory-palette-harmony-expert), brand identity strategy (use web-design-expert), or actual UI implementation (use web-design-expert or native-app-designer)."design system\", \"design tokens\", \"CSS architecture\", \"component library\", \"style guide\", \"design bible\". NOT for typography deep-dives (use typography-expert), color theory mathematics (use color-theory-palette-harmony-expert), brand identity strategy (use web-design-expert), or actual UI implementation (use web-design-expert or native-app-designer)."design system\", \"design tokens\", \"CSS architecture\", \"component library\", \"style guide\", \"design bible\". NOT for typography deep-dives (use typography-expert), color theory mathematics (use color-theory-palette-harmony-expert), brand identity strategy (use web-design-expert), or actual UI implementation (use web-design-expert or native-app-designer)."
 
   tags={["creation","design","code","document","production-ready"]}
 />

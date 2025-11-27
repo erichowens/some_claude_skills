@@ -10,7 +10,7 @@ sidebar_position: 15
 <SkillHeader
   skillName="Color Theory Palette Harmony Expert"
   fileName="color-theory-palette-harmony-expert"
-  description="Perceptual color science for photo collage composition using earth-mover distance and optimal transport"
+  description="Expert in color theory, palette harmony, and perceptual color science for computational photo composition. Specializes in earth-mover distance optimization, warm/cool alternation, diversity-aware palette selection, and hue-based photo sequencing. Activate on \"color palette\", \"color harmony\", \"warm cool\", \"earth mover distance\", \"Wasserstein\", \"LAB space\", \"hue sorted\", \"palette matching\". NOT for basic RGB manipulation (use standard image processing), single-photo color grading (use native-app-designer), UI color schemes (use vaporwave-glassomorphic-ui-designer), or color blindness simulation (accessibility specialists)."color palette\", \"color harmony\", \"warm cool\", \"earth mover distance\", \"Wasserstein\", \"LAB space\", \"hue sorted\", \"palette matching\". NOT for basic RGB manipulation (use standard image processing), single-photo color grading (use native-app-designer), UI color schemes (use vaporwave-glassomorphic-ui-designer), or color blindness simulation (accessibility specialists)."color palette\", \"color harmony\", \"warm cool\", \"earth mover distance\", \"Wasserstein\", \"LAB space\", \"hue sorted\", \"palette matching\". NOT for basic RGB manipulation (use standard image processing), single-photo color grading (use native-app-designer), UI color schemes (use vaporwave-glassomorphic-ui-designer), or color blindness simulation (accessibility specialists)."
 
   tags={["analysis","design","photography","data"]}
 />

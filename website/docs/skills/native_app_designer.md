@@ -10,7 +10,7 @@ sidebar_position: 3
 <SkillHeader
   skillName="Native App Designer"
   fileName="native-app-designer"
-  description="Breathtaking iOS/Mac and web apps with organic, non-AI aesthetic"
+  description="Creates breathtaking iOS/Mac and web apps with organic, non-AI aesthetic. Expert in SwiftUI, React animations, physics-based motion, and human-crafted design. Use for iOS/Mac app UI, React/Vue animations, native-feel web apps, physics-based motion design. Activate on \"SwiftUI\", \"iOS app\", \"native app\", \"React animation\", \"motion design\", \"UIKit\", \"physics animation\". NOT for backend logic, API design (use backend-architect), simple static sites (use web-design-expert), or pure graphic design (use design-system-creator)."SwiftUI\", \"iOS app\", \"native app\", \"React animation\", \"motion design\", \"UIKit\", \"physics animation\". NOT for backend logic, API design (use backend-architect), simple static sites (use web-design-expert), or pure graphic design (use design-system-creator)."SwiftUI\", \"iOS app\", \"native app\", \"React animation\", \"motion design\", \"UIKit\", \"physics animation\". NOT for backend logic, API design (use backend-architect), simple static sites (use web-design-expert), or pure graphic design (use design-system-creator)."
 
   tags={["creation","design","code","visual","advanced"]}
 />

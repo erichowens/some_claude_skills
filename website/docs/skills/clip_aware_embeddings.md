@@ -6,9 +6,9 @@ description: Semantic image-text matching with CLIP and alternatives, knowing wh
 # CLIP-Aware Image Embeddings
 
 <SkillHeader
-  skillName="CLIP-Aware Embeddings"
+  skillName="Clip Aware Embeddings"
   fileName="clip-aware-embeddings"
-  description="Semantic image-text matching with CLIP and alternatives, knowing when CLIP works and when to use specialized models"
+  description="Semantic image-text matching with CLIP and alternatives. Use for image search, zero-shot classification, similarity matching. NOT for counting objects, fine-grained classification (celebrities, car models), spatial reasoning, or compositional queries. Activate on \"CLIP\", \"embeddings\", \"image similarity\", \"semantic search\", \"zero-shot classification\", \"image-text matching\"."CLIP\", \"embeddings\", \"image similarity\", \"semantic search\", \"zero-shot classification\", \"image-text matching\"."CLIP\", \"embeddings\", \"image similarity\", \"semantic search\", \"zero-shot classification\", \"image-text matching\"."
 
   tags={["analysis","cv","ml","data","advanced"]}
 />

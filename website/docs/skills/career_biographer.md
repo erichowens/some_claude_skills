@@ -10,7 +10,7 @@ sidebar_position: 21
 <SkillHeader
   skillName="Career Biographer"
   fileName="career-biographer"
-  description="AI-powered career biographer that conducts empathetic interviews and transforms professional stories into portfolios, CVs, and personal brand assets"
+  description="AI-powered career biographer that conducts empathetic interviews, extracts structured career narratives, and transforms professional stories into portfolios, CVs, and personal brand assets. This skill should be used when users want to document their career journey, create professional portfolios, generate CVs, or craft compelling career narratives."
 
   tags={["coaching","career","document","beginner-friendly"]}
 />
