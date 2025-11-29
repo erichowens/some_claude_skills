@@ -34,9 +34,22 @@ export default function McpDetailModal({
     };
   }, []);
 
-  const handleCopyInstall = async () => {
-    const installCmd = `npx @anthropic-ai/claude-code mcp add ${mcp.id}`;
-    await navigator.clipboard.writeText(installCmd);
+  // Generate the JSON config for settings.json
+  const generateSettingsJson = () => {
+    const config: Record<string, unknown> = {
+      command: mcp.installConfig.command,
+    };
+    if (mcp.installConfig.args) {
+      config.args = mcp.installConfig.args;
+    }
+    if (mcp.installConfig.env) {
+      config.env = mcp.installConfig.env;
+    }
+    return JSON.stringify({ [mcp.id]: config }, null, 2);
+  };
+
+  const handleCopyConfig = async () => {
+    await navigator.clipboard.writeText(generateSettingsJson());
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -60,19 +73,22 @@ export default function McpDetailModal({
         {/* Big Install CTA Section */}
         <div className={styles.installBanner}>
           <div className={styles.installLeft}>
-            <h2 className={styles.installTitle}>🚀 Get Started in 30 Seconds</h2>
+            <h2 className={styles.installTitle}>🚀 Add to Claude Code</h2>
             <p className={styles.installSubtitle}>
-              Add this MCP to Claude Code with a single command
+              Copy this config to your <code>~/.claude/settings.json</code>
             </p>
+            {mcp.installNotes && (
+              <p className={styles.installNote}>⚠️ {mcp.installNotes}</p>
+            )}
           </div>
           <div className={styles.installRight}>
-            <div className={styles.installCommand}>
-              <code>npx @anthropic-ai/claude-code mcp add {mcp.id}</code>
+            <div className={styles.installConfig}>
+              <pre className={styles.configCode}>{generateSettingsJson()}</pre>
               <button
                 className={styles.copyBtn}
-                onClick={handleCopyInstall}
+                onClick={handleCopyConfig}
               >
-                {copied ? '✓ Copied!' : '📋 Copy'}
+                {copied ? '✓ Copied!' : '📋 Copy Config'}
               </button>
             </div>
             <div className={styles.installLinks}>

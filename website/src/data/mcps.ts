@@ -19,6 +19,14 @@ Transform vague prompts like "Write code" into structured, specific prompts scor
     badge: 'FEATURED',
     githubUrl: 'https://github.com/erichowens/prompt-learning-mcp',
     docsUrl: '/docs/guides/prompt-learning-mcp',
+    installConfig: {
+      command: 'npx',
+      args: ['-y', 'github:erichowens/prompt-learning-mcp'],
+      env: {
+        OPENAI_API_KEY: 'your-openai-api-key',
+      },
+    },
+    installNotes: 'Requires Docker running for Qdrant (vector DB) and Redis. Run `docker-compose up -d` in the repo first.',
     tools: [
       { name: 'optimize_prompt', description: 'Transform a vague prompt into an optimized one' },
       { name: 'record_outcome', description: 'Log whether a prompt worked (builds the learning loop)' },
@@ -84,6 +92,11 @@ Works with career-biographer profiles and competitive-cartographer positioning s
     badge: 'NEW',
     githubUrl: 'https://github.com/erichowens/cv-creator-mcp',
     docsUrl: '/docs/guides/cv-creator-mcp',
+    installConfig: {
+      command: 'npx',
+      args: ['-y', 'github:erichowens/cv-creator-mcp'],
+    },
+    installNotes: 'Optional: Install Puppeteer for PDF export. Works standalone for analysis and recommendations.',
     tools: [
       { name: 'analyze_job', description: 'Parse job descriptions for keywords, requirements, and ATS hints' },
       { name: 'score_match', description: 'Calculate candidate-job fit with gap analysis' },

@@ -142,6 +142,24 @@
   margin: 0;
 }
 
+.installSubtitle code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+.installNote {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+  margin: 8px 0 0 0;
+  background: rgba(255, 193, 7, 0.2);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border-left: 3px solid #ffc107;
+}
+
 .installRight {
   display: flex;
   flex-direction: column;
@@ -163,6 +181,26 @@
   font-family: 'Monaco', 'Consolas', monospace;
   font-size: 13px;
   white-space: nowrap;
+}
+
+.installConfig {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.configCode {
+  color: #00ff88;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-size: 11px;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  line-height: 1.4;
 }
 
 .copyBtn {
@@ -592,5 +630,14 @@
     font-size: 11px;
     word-break: break-all;
     white-space: normal;
+  }
+
+  .installConfig {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .configCode {
+    font-size: 10px;
   }
 }

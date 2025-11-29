@@ -17,6 +17,16 @@ export interface McpExample {
   prompt?: string;
 }
 
+/**
+ * Installation configuration for an MCP
+ * Provides the actual JSON config users need
+ */
+export interface McpInstallConfig {
+  command: string;
+  args?: string[];
+  env?: Record<string, string>;
+}
+
 export interface McpServer {
   id: string;
   name: string;
@@ -30,6 +40,10 @@ export interface McpServer {
   githubUrl: string;
   docsUrl?: string;
   npmUrl?: string;
+
+  // Installation
+  installConfig: McpInstallConfig;
+  installNotes?: string; // e.g. "Requires Docker for Qdrant and Redis"
 
   // Technical details
   tools: McpTool[];
