@@ -114,6 +114,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/docs/guides/prompt-learning-mcp',
+          label: 'Prompt Learning',
+          position: 'left',
+        },
+        {
           to: '/favorites',
           label: 'Favorites',
           position: 'left',

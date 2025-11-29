@@ -74,14 +74,23 @@ function updateDocFile(skillId: string, frontmatter: SkillFrontmatter): { update
   let content = fs.readFileSync(docPath, 'utf-8');
   let modified = false;
 
-  // Update description in SkillHeader
-  const descRegex = /(<SkillHeader[\s\S]*?description=")([^"]*?)(")/;
+  // Escape quotes in description for JSX
+  const escapedDesc = frontmatter.description.replace(/"/g, '\\"');
+
+  // Update description in SkillHeader - use JSX expression syntax with curly braces
+  // Match description={" or description=" followed by content until closing
+  const descRegex = /(<SkillHeader[\s\S]*?description=\{?")([^]*?)("\}?\s*\n)/;
   const descMatch = content.match(descRegex);
-  if (descMatch && descMatch[2] !== frontmatter.description) {
-    // Escape quotes in description for JSX
-    const escapedDesc = frontmatter.description.replace(/"/g, '\\"');
-    content = content.replace(descRegex, `$1${escapedDesc}$3`);
-    modified = true;
+
+  if (descMatch) {
+    const currentDesc = descMatch[2];
+    if (currentDesc !== escapedDesc) {
+      // Use curly braces syntax: description={"..."} for proper JSX escaping
+      content = content.replace(descRegex, `$1${escapedDesc}"}\n`);
+      // Ensure we have the opening brace
+      content = content.replace(/description="([^]*?)"}/g, 'description={"$1"}');
+      modified = true;
+    }
   }
 
   // Update skillName in SkillHeader if different from name

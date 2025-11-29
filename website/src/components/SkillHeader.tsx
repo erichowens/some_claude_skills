@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import InstallTabs from './InstallTabs';
 import { TagList } from './TagBadge';
 import { downloadSkillZip } from '@site/src/utils/downloadSkillZip';
+import Win31FileManager from './Win31FileManager';
+import { useSkillFolderData } from '@site/src/hooks/useSkillFolderData';
 import '../css/win31.css';
 
 interface SkillHeaderProps {
@@ -13,10 +15,14 @@ interface SkillHeaderProps {
 
 export default function SkillHeader({ skillName, fileName, description, tags }: SkillHeaderProps): JSX.Element {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isFileBrowserOpen, setIsFileBrowserOpen] = useState(true); // Default open
   const [isDownloading, setIsDownloading] = useState(false);
   // Convert fileName (underscore format) to skillId (hyphen format)
   const skillId = fileName.replace(/_/g, '-');
   const githubFolderUrl = `https://github.com/erichowens/some_claude_skills/tree/main/.claude/skills/${skillId}`;
+
+  // Load skill folder data
+  const { folderData, loading, hasContent, fileCount, folderCount } = useSkillFolderData(skillId);
 
   const handleDownloadZip = async () => {
     setIsDownloading(true);
@@ -343,6 +349,77 @@ export default function SkillHeader({ skillName, fileName, description, tags }: 
           </div>
         )}
       </div>
+
+      {/* File Browser - Only show if skill has additional content */}
+      {hasContent && (
+        <div
+          className="win31-panel"
+          style={{
+            background: 'var(--win31-gray)',
+            border: '3px solid var(--win31-black)',
+            marginBottom: '24px',
+          }}
+        >
+          <button
+            onClick={() => setIsFileBrowserOpen(!isFileBrowserOpen)}
+            style={{
+              width: '100%',
+              padding: '16px 20px',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              fontFamily: 'var(--font-pixel)',
+              fontSize: '10px',
+              color: 'var(--win31-black)',
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+            }}
+          >
+            <span>
+              📁 Browse Skill Folder ({fileCount} file{fileCount !== 1 ? 's' : ''}, {folderCount} folder{folderCount !== 1 ? 's' : ''})
+            </span>
+            <span style={{ fontSize: '14px' }}>{isFileBrowserOpen ? '▼' : '▶'}</span>
+          </button>
+
+          {isFileBrowserOpen && (
+            <div style={{ padding: '0 4px 4px 4px' }}>
+              {loading ? (
+                <div style={{
+                  padding: '40px',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-system)',
+                  color: 'var(--win31-dark-gray)',
+                }}>
+                  ⏳ Loading skill folder contents...
+                </div>
+              ) : folderData ? (
+                <Win31FileManager
+                  title={`FILE_MGR.EXE - ${skillId.toUpperCase().replace(/-/g, '_')}`}
+                  rootFolder={folderData}
+                  defaultExpanded={[skillId]}
+                  height={450}
+                  showStatusBar={true}
+                />
+              ) : (
+                <div style={{
+                  padding: '40px',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-system)',
+                  color: 'var(--win31-dark-gray)',
+                }}>
+                  Could not load folder contents.{' '}
+                  <a href={githubFolderUrl} target="_blank" rel="noopener noreferrer">
+                    View on GitHub
+                  </a>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -3,6 +3,13 @@ import MidiPlayer from 'midi-player-js';
 import Soundfont from 'soundfont-player';
 import { MUSIC_LIBRARY, TrackMetadata } from '../data/musicMetadata';
 
+// EQ settings interface
+interface EQSettings {
+  bass: number;    // -12 to +12 dB
+  mid: number;     // -12 to +12 dB
+  treble: number;  // -12 to +12 dB
+}
+
 interface MusicPlayerContextType {
   // State
   isPlaying: boolean;
@@ -12,6 +19,15 @@ interface MusicPlayerContextType {
   volume: number;
   progress: number;
   isMinimized: boolean;
+  isVisualizerFullScreen: boolean;
+
+  // Audio Analysis (NEW)
+  analyserNode: AnalyserNode | null;
+  audioContext: AudioContext | null;
+  gainNode: GainNode | null;
+
+  // EQ State (NEW)
+  eqSettings: EQSettings;
 
   // Actions
   play: () => void;
@@ -23,6 +39,16 @@ interface MusicPlayerContextType {
   previousTrack: () => void;
   toggleMinimized: () => void;
   setMinimized: (minimized: boolean) => void;
+
+  // EQ Actions (NEW)
+  setEQ: (band: 'bass' | 'mid' | 'treble', value: number) => void;
+  resetEQ: () => void;
+
+  // Seeking
+  seekToPercent: (percent: number) => void;
+
+  // Full-screen visualizer
+  setVisualizerFullScreen: (fullScreen: boolean) => void;
 }
 
 const MusicPlayerContext = createContext<MusicPlayerContextType | undefined>(undefined);
@@ -39,18 +65,42 @@ interface MusicPlayerProviderProps {
   children: ReactNode;
 }
 
+// Default EQ settings
+const DEFAULT_EQ: EQSettings = { bass: 0, mid: 0, treble: 0 };
+
 export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(8); // Default to SPAWN by Blank Banshee
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0); // Start with first track
   const [volume, setVolumeState] = useState(0.7);
   const [progress, setProgress] = useState(0);
   const [isMinimized, setIsMinimized] = useState(true);
+  const [isVisualizerFullScreen, setVisualizerFullScreen] = useState(false);
+  const [eqSettings, setEqSettings] = useState<EQSettings>(DEFAULT_EQ);
 
+  // NEW: State for audioContext and gainNode for Butterchurn integration
+  const [audioContextState, setAudioContextState] = useState<AudioContext | null>(null);
+  const [gainNodeState, setGainNodeState] = useState<GainNode | null>(null);
+
+  // NEW: State for analyser node (not ref!) - so context updates when it's set
+  const [analyserNode, setAnalyserNode] = useState<AnalyserNode | null>(null);
+
+  // Core audio refs
   const playerRef = useRef<MidiPlayer.Player | null>(null);
   const instrumentsRef = useRef<Map<number, any>>(new Map());
   const audioContextRef = useRef<AudioContext | null>(null);
   const progressAnimationRef = useRef<number | null>(null);
+
+  // NEW: Audio processing chain refs
+  const gainNodeRef = useRef<GainNode | null>(null);
+  const compressorNodeRef = useRef<DynamicsCompressorNode | null>(null);
+
+  // NEW: EQ filter refs
+  const eqNodesRef = useRef<{
+    bass: BiquadFilterNode | null;
+    mid: BiquadFilterNode | null;
+    treble: BiquadFilterNode | null;
+  }>({ bass: null, mid: null, treble: null });
 
   const currentTrack = MUSIC_LIBRARY[currentTrackIndex] || null;
 
@@ -60,11 +110,86 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
       setIsLoading(true);
       try {
         // Create audio context
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+        audioContextRef.current = audioCtx;
+        setAudioContextState(audioCtx);  // Also store in state for context consumers
+
+        // ============================================
+        // AUDIO CHAIN: Source → Gain → EQ → Compressor → Analyser → Destination
+        // ============================================
+
+        // 1. Create GainNode for volume control
+        const gainNode = audioCtx.createGain();
+        // Apply logarithmic scaling for natural volume perception
+        const scaledVolume = Math.pow(volume, 2);
+        gainNode.gain.setValueAtTime(scaledVolume, audioCtx.currentTime);
+        gainNodeRef.current = gainNode;
+        setGainNodeState(gainNode);  // Also store in state for context consumers
+
+        // 2. Create 3-band EQ filters
+        // Bass: Low shelf filter at 200 Hz
+        const bassFilter = audioCtx.createBiquadFilter();
+        bassFilter.type = 'lowshelf';
+        bassFilter.frequency.setValueAtTime(200, audioCtx.currentTime);
+        bassFilter.gain.setValueAtTime(eqSettings.bass, audioCtx.currentTime);
+        eqNodesRef.current.bass = bassFilter;
+
+        // Mid: Peaking filter at 1000 Hz
+        const midFilter = audioCtx.createBiquadFilter();
+        midFilter.type = 'peaking';
+        midFilter.frequency.setValueAtTime(1000, audioCtx.currentTime);
+        midFilter.Q.setValueAtTime(1, audioCtx.currentTime);
+        midFilter.gain.setValueAtTime(eqSettings.mid, audioCtx.currentTime);
+        eqNodesRef.current.mid = midFilter;
+
+        // Treble: High shelf filter at 3000 Hz
+        const trebleFilter = audioCtx.createBiquadFilter();
+        trebleFilter.type = 'highshelf';
+        trebleFilter.frequency.setValueAtTime(3000, audioCtx.currentTime);
+        trebleFilter.gain.setValueAtTime(eqSettings.treble, audioCtx.currentTime);
+        eqNodesRef.current.treble = trebleFilter;
+
+        // 3. Create DynamicsCompressor to prevent clipping
+        const compressor = audioCtx.createDynamicsCompressor();
+        compressor.threshold.setValueAtTime(-24, audioCtx.currentTime);  // dB
+        compressor.knee.setValueAtTime(30, audioCtx.currentTime);        // dB
+        compressor.ratio.setValueAtTime(12, audioCtx.currentTime);       // 12:1 ratio
+        compressor.attack.setValueAtTime(0.003, audioCtx.currentTime);   // 3ms
+        compressor.release.setValueAtTime(0.25, audioCtx.currentTime);   // 250ms
+        compressorNodeRef.current = compressor;
+
+        // 4. Create AnalyserNode for FFT visualization
+        const analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 256;  // More bins for better resolution
+        analyser.smoothingTimeConstant = 0.8;  // Smooth transitions
+        setAnalyserNode(analyser);  // Use state setter to trigger re-render!
+
+        // 5. Connect the audio chain
+        // GainNode → Bass → Mid → Treble → Compressor → Analyser → Destination
+        gainNode.connect(bassFilter);
+        bassFilter.connect(midFilter);
+        midFilter.connect(trebleFilter);
+        trebleFilter.connect(compressor);
+        compressor.connect(analyser);
+        analyser.connect(audioCtx.destination);
+
+        console.log('[MusicPlayer] Audio chain initialized: Gain → EQ → Compressor → Analyser → Output');
+        console.log('[MusicPlayer] AnalyserNode created:', analyser);
+        console.log('[MusicPlayer] GainNode created:', gainNode);
+        console.log('[MusicPlayer] AudioContext state:', audioCtx.state);
 
         // Create MIDI player
+        let noteCount = 0;
         playerRef.current = new MidiPlayer.Player((event: any) => {
           if (event.name === 'Note on' && event.velocity > 0) {
+            noteCount++;
+            if (noteCount <= 5 || noteCount % 100 === 0) {
+              console.log('[MusicPlayer] MIDI Note', noteCount, ':', {
+                note: event.noteNumber,
+                velocity: event.velocity,
+                track: event.track,
+              });
+            }
             playNote(event.noteNumber, event.velocity, event.track);
           }
         });
@@ -133,20 +258,36 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
 
       const instrumentName = instrumentNames[program % instrumentNames.length] || 'acoustic_grand_piano';
 
+      // Verify gainNode is available
+      if (!gainNodeRef.current) {
+        console.error('[MusicPlayer] CRITICAL: gainNodeRef.current is null when loading instrument!');
+        return;
+      }
+
+      console.log(`[MusicPlayer] Loading instrument ${instrumentName} with destination:`, gainNodeRef.current);
+
+      // Route instrument audio through our gain node (which connects to EQ → Compressor → Analyser → Output)
       const instrument = await Soundfont.instrument(
         audioContextRef.current,
         instrumentName,
-        { gain: volume }
+        {
+          gain: 1,  // Use full gain here, volume controlled by our GainNode
+          destination: gainNodeRef.current,  // Route to our audio chain!
+        }
       );
 
+      console.log(`[MusicPlayer] ✓ Instrument ${instrumentName} loaded successfully`);
       instrumentsRef.current.set(program, instrument);
     } catch (error) {
-      console.error(`Failed to load instrument ${program}:`, error);
+      console.error(`[MusicPlayer] Failed to load instrument ${program}:`, error);
     }
   };
 
   const playNote = async (note: number, velocity: number, track: number) => {
-    if (!audioContextRef.current) return;
+    if (!audioContextRef.current || !gainNodeRef.current) {
+      console.warn('[MusicPlayer] playNote called but audio not ready');
+      return;
+    }
 
     const programMap: { [key: number]: number } = {
       0: 0,  // Acoustic piano
@@ -159,6 +300,7 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
 
     // Ensure instrument is loaded
     if (!instrumentsRef.current.has(program)) {
+      console.log(`[MusicPlayer] Loading instrument ${program} for track ${track}`);
       await loadInstrument(program);
     }
 
@@ -170,23 +312,64 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
         const noteName = noteNames[note % 12];
         const fullNoteName = `${noteName}${octave}`;
 
-        // Play the note with proper timing
+        // Play the note - destination is set at instrument load time
+        // Velocity controls note loudness, volume is controlled by GainNode in our chain
         instrument.play(fullNoteName, audioContextRef.current.currentTime, {
-          gain: (velocity / 127) * volume,
-          duration: 0.5, // Add note duration
+          gain: velocity / 127,
+          duration: 0.5,
         });
       } catch (error) {
-        console.error('Error playing note:', error);
+        console.error('[MusicPlayer] Error playing note:', error);
       }
+    } else {
+      console.warn('[MusicPlayer] No instrument available for program', program);
     }
   };
 
-  const play = () => {
+  // DEBUG: Play a test tone through the audio chain to verify it works
+  const playTestTone = async () => {
+    if (!audioContextRef.current || !gainNodeRef.current) {
+      console.error('[MusicPlayer] Cannot play test tone - audio context not ready');
+      return;
+    }
+
+    // Resume if needed
+    if (audioContextRef.current.state === 'suspended') {
+      await audioContextRef.current.resume();
+    }
+
+    console.log('[MusicPlayer] Playing test tone through audio chain...');
+
+    const osc = audioContextRef.current.createOscillator();
+    osc.frequency.setValueAtTime(440, audioContextRef.current.currentTime); // A4 note
+    osc.type = 'sine';
+
+    // Connect to our gain node (which routes through EQ → Compressor → Analyser → Output)
+    osc.connect(gainNodeRef.current!);
+
+    osc.start();
+    osc.stop(audioContextRef.current.currentTime + 0.5); // Play for 0.5 seconds
+
+    console.log('[MusicPlayer] Test tone should be audible now');
+  };
+
+  // Expose test tone function globally for debugging
+  if (typeof window !== 'undefined') {
+    (window as any).__playTestTone = playTestTone;
+  }
+
+  const play = async () => {
     if (!playerRef.current || !audioContextRef.current) return;
 
-    // Resume audio context if suspended
+    console.log('[MusicPlayer] Play called, AudioContext state:', audioContextRef.current.state);
+    console.log('[MusicPlayer] GainNode:', gainNodeRef.current);
+    console.log('[MusicPlayer] AnalyserNode (from state):', analyserNode);
+    console.log('[MusicPlayer] Try window.__playTestTone() in console to test audio chain');
+
+    // Resume audio context if suspended - MUST await this!
     if (audioContextRef.current.state === 'suspended') {
-      audioContextRef.current.resume();
+      await audioContextRef.current.resume();
+      console.log('[MusicPlayer] AudioContext resumed, new state:', audioContextRef.current.state);
     }
 
     playerRef.current.play();
@@ -223,13 +406,87 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     }
   };
 
-  const setVolume = (newVolume: number) => {
-    setVolumeState(newVolume);
-    instrumentsRef.current.forEach((instrument) => {
-      if (instrument && instrument.context) {
-        instrument.context.destination.gain?.setValueAtTime?.(newVolume, 0);
-      }
+  // FIXED: Volume control using proper GainNode with logarithmic scaling
+  const setVolume = (linearVolume: number) => {
+    // Clamp to valid range
+    const clamped = Math.max(0, Math.min(1, linearVolume));
+
+    console.log('[MusicPlayer] setVolume called:', {
+      input: linearVolume,
+      clamped,
+      hasGainNode: !!gainNodeRef.current,
+      currentGain: gainNodeRef.current?.gain.value,
     });
+
+    // Store linear value for slider display
+    setVolumeState(clamped);
+
+    // Apply logarithmic scaling for natural volume perception
+    // Human hearing is logarithmic, so square the value
+    const scaledVolume = Math.pow(clamped, 2);
+
+    // Apply to GainNode
+    if (gainNodeRef.current && audioContextRef.current) {
+      // Use setTargetAtTime for smooth transitions (avoids clicks)
+      gainNodeRef.current.gain.setTargetAtTime(
+        scaledVolume,
+        audioContextRef.current.currentTime,
+        0.02  // 20ms time constant for smooth fade
+      );
+      console.log('[MusicPlayer] Volume set to:', scaledVolume, '(scaled from', clamped, ')');
+    } else {
+      console.warn('[MusicPlayer] Cannot set volume - gainNode not ready');
+    }
+
+    // Persist to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('music-player-volume', clamped.toString());
+    }
+  };
+
+  // NEW: EQ control function
+  const setEQ = (band: 'bass' | 'mid' | 'treble', dbValue: number) => {
+    // Clamp to valid range (-12 to +12 dB)
+    const clamped = Math.max(-12, Math.min(12, dbValue));
+    const node = eqNodesRef.current[band];
+
+    if (node && audioContextRef.current) {
+      // Smooth transition for EQ changes
+      node.gain.setTargetAtTime(
+        clamped,
+        audioContextRef.current.currentTime,
+        0.02
+      );
+
+      // Update state
+      setEqSettings(prev => ({ ...prev, [band]: clamped }));
+
+      // Persist to localStorage
+      if (typeof window !== 'undefined') {
+        const currentEQ = JSON.parse(localStorage.getItem('music-player-eq') || '{}');
+        currentEQ[band] = clamped;
+        localStorage.setItem('music-player-eq', JSON.stringify(currentEQ));
+      }
+    }
+  };
+
+  // NEW: Reset EQ to flat
+  const resetEQ = () => {
+    setEQ('bass', 0);
+    setEQ('mid', 0);
+    setEQ('treble', 0);
+  };
+
+  // Seek to a specific percentage of the song (0-100)
+  const seekToPercent = (percent: number) => {
+    if (!playerRef.current) return;
+
+    const clamped = Math.max(0, Math.min(100, percent));
+    console.log('[MusicPlayer] Seeking to', clamped, '%');
+
+    // midi-player-js uses skipToPercent method
+    playerRef.current.skipToPercent(clamped);
+    setProgress(clamped);
   };
 
   const switchTrack = async (trackIndex: number) => {
@@ -257,6 +514,7 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   };
 
   const contextValue: MusicPlayerContextType = {
+    // State
     isPlaying,
     isLoading,
     currentTrack,
@@ -264,6 +522,17 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     volume,
     progress,
     isMinimized,
+    isVisualizerFullScreen,
+
+    // Audio Analysis (uses state so context updates when set)
+    analyserNode,
+    audioContext: audioContextState,
+    gainNode: gainNodeState,
+
+    // EQ State (NEW)
+    eqSettings,
+
+    // Actions
     play,
     pause,
     togglePlayPause,
@@ -273,6 +542,14 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     previousTrack,
     toggleMinimized,
     setMinimized: setIsMinimized,
+
+    // EQ Actions (NEW)
+    setEQ,
+    resetEQ,
+    seekToPercent,
+
+    // Full-screen visualizer
+    setVisualizerFullScreen,
   };
 
   return (

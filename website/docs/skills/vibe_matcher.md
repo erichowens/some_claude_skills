@@ -10,8 +10,7 @@ sidebar_position: 23
 <SkillHeader
   skillName="Vibe Matcher"
   fileName="vibe-matcher"
-  description="Synesthete designer that translates emotional vibes and brand keywords into concrete visual DNA (colors, typography, layouts, interactions). Use when users describe desired \"feel\" (edgy, trustworthy, premium, playful, minimal) and need specific design specifications. NOT for technical implementation or coding."feel\" (edgy, trustworthy, premium, playful, minimal) and need specific design specifications. NOT for technical implementation or coding."feel\" (edgy, trustworthy, premium, playful, minimal) and need specific design specifications. NOT for technical implementation or coding."
-
+  description={"Synesthete designer that translates emotional vibes and brand keywords into concrete visual DNA (colors, typography, layouts, interactions). Use when users describe desired \"feel\" (edgy, trustworthy, premium, playful, minimal) and need specific design specifications. NOT for technical implementation or coding."}
   tags={["analysis","creation","design","data","beginner-friendly"]}
 />
 

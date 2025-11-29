@@ -11,8 +11,7 @@ import SkillHeader from '@site/src/components/SkillHeader';
 <SkillHeader
   skillName="Cv Creator"
   fileName="cv-creator"
-  description="Professional CV and resume builder that transforms career narratives into ATS-optimized, multi-format resumes. Integrates with career-biographer for structured career data and competitive-cartographer for strategic positioning. Generates PDF, DOCX, LaTeX, JSON Resume, HTML, and Markdown formats optimized for 2025 hiring standards."
-
+  description={"Professional CV and resume builder that transforms career narratives into ATS-optimized, multi-format resumes. Integrates with career-biographer for structured career data and competitive-cartographer for strategic positioning. Generates PDF, DOCX, LaTeX, JSON Resume, HTML, and Markdown formats optimized for 2025 hiring standards."}
   tags={["creation","career","document","beginner-friendly","production-ready"]}
 />
 

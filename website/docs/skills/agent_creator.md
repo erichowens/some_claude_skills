@@ -197,8 +197,7 @@ await server.connect(transport);
 <SkillHeader
   skillName="Agent Creator"
   fileName="agent-creator"
-  description="Meta-agent for creating new custom agents, skills, and MCP integrations. Expert in agent design, MCP development, skill architecture, and rapid prototyping."
-
+  description={"Meta-agent for creating new custom agents, skills, and MCP integrations. Expert in agent design, MCP development, skill architecture, and rapid prototyping."}
   tags={["creation","code","mcp","advanced"]}
 />
 

@@ -10,8 +10,7 @@ sidebar_position: 10
 <SkillHeader
   skillName="Adhd Design Expert"
   fileName="adhd-design-expert"
-  description="Designs digital experiences for ADHD brains using neuroscience research and UX principles. Expert in reducing cognitive load, time blindness solutions, dopamine-driven engagement, and compassionate design patterns."
-
+  description={"Designs digital experiences for ADHD brains using neuroscience research and UX principles. Expert in reducing cognitive load, time blindness solutions, dopamine-driven engagement, and compassionate design patterns."}
   tags={["creation","design","accessibility","research","beginner-friendly"]}
 />
 

@@ -10,8 +10,7 @@ sidebar_position: 23
 <SkillHeader
   skillName="Project Management Guru Adhd"
   fileName="project-management-guru-adhd"
-  description="Expert project manager for ADHD engineers managing multiple concurrent projects. Knows when to intervene vs. let engineers flow, manages context switching, and provides timely advice without disrupting hyperfocus."
-
+  description={"Expert project manager for ADHD engineers managing multiple concurrent projects. Knows when to intervene vs. let engineers flow, manages context switching, and provides timely advice without disrupting hyperfocus."}
   tags={["coaching","accessibility","strategy","beginner-friendly"]}
 />
 

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useMusicPlayer } from '../../contexts/MusicPlayerContext';
-import { MUSIC_LIBRARY, getGenreColors } from '../../data/musicMetadata';
+import { MUSIC_LIBRARY } from '../../data/musicMetadata';
+import { useFFTData } from '../../hooks/useFFTData';
 import styles from './styles.module.css';
+
+// Butterchurn modules (loaded dynamically for SSR safety)
+let butterchurnModule: any = null;
+let butterchurnPresetsModule: any = null;
 
 export default function WinampModal() {
   const {
@@ -12,19 +17,177 @@ export default function WinampModal() {
     volume,
     progress,
     isMinimized,
+    analyserNode,
+    audioContext,
+    gainNode,
+    eqSettings,
     togglePlayPause,
     setVolume,
+    setEQ,
+    resetEQ,
     switchTrack,
     nextTrack,
     previousTrack,
     setMinimized,
+    seekToPercent,
+    setVisualizerFullScreen,
   } = useMusicPlayer();
+
+  // Real FFT frequency data for visualizer (24 bars)
+  const frequencyData = useFFTData({
+    analyserNode,
+    binCount: 24,
+    smoothing: 0.7,
+    isPlaying,
+  });
+
+  // Mini Milkdrop state
+  const [visualizerMode, setVisualizerMode] = useState<'fft' | 'milkdrop'>('fft');
+  const [milkdropReady, setMilkdropReady] = useState(false);
+  const [milkdropError, setMilkdropError] = useState<string | null>(null);
+  const [currentPreset, setCurrentPreset] = useState('');
+
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const visualizerRef = useRef<any>(null);
+  const presetsRef = useRef<Record<string, any>>({});
+  const presetKeysRef = useRef<string[]>([]);
+  const animationFrameRef = useRef<number | null>(null);
+
+  // Initialize Butterchurn when switching to milkdrop mode
+  useEffect(() => {
+    if (visualizerMode !== 'milkdrop' || isMinimized || !currentTrack) return;
+
+    const init = async () => {
+      try {
+        // Dynamic import for SSR safety
+        if (!butterchurnModule) {
+          butterchurnModule = await import('butterchurn');
+        }
+        if (!butterchurnPresetsModule) {
+          butterchurnPresetsModule = await import('butterchurn-presets');
+        }
+
+        if (!canvasRef.current || !audioContext || !gainNode) {
+          throw new Error('Canvas or audio context not available');
+        }
+
+        // Ensure audio context is running
+        if (audioContext.state === 'suspended') {
+          await audioContext.resume();
+        }
+
+        const canvas = canvasRef.current;
+        const container = canvas.parentElement;
+        const width = container?.clientWidth || 400;
+        const height = container?.clientHeight || 120;
+        const dpr = window.devicePixelRatio || 1;
+
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+
+        const butterchurn = butterchurnModule.default || butterchurnModule;
+        const butterchurnPresets = butterchurnPresetsModule.default || butterchurnPresetsModule;
+
+        if (!butterchurn || typeof butterchurn.createVisualizer !== 'function') {
+          throw new Error('Butterchurn createVisualizer not available');
+        }
+
+        const visualizer = butterchurn.createVisualizer(audioContext, canvas, {
+          width: width * dpr,
+          height: height * dpr,
+          pixelRatio: 1,
+          textureRatio: 1,
+        });
+
+        visualizer.connectAudio(gainNode);
+
+        // Load presets
+        const getPresets = butterchurnPresets.getPresets || butterchurnPresets;
+        const loadedPresets = typeof getPresets === 'function' ? getPresets() : getPresets;
+        const keys = Object.keys(loadedPresets);
+
+        presetsRef.current = loadedPresets;
+        presetKeysRef.current = keys;
+
+        // Pick a random preset to start
+        const startPreset = keys[Math.floor(Math.random() * keys.length)];
+        visualizer.loadPreset(loadedPresets[startPreset], 0);
+        setCurrentPreset(startPreset);
+
+        visualizerRef.current = visualizer;
+        setMilkdropReady(true);
+        setMilkdropError(null);
+
+      } catch (error) {
+        console.error('[WinampModal] Milkdrop init failed:', error);
+        setMilkdropError(error instanceof Error ? error.message : 'Failed to load');
+        setMilkdropReady(false);
+      }
+    };
+
+    init();
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+  }, [visualizerMode, isMinimized, currentTrack, audioContext, gainNode]);
+
+  // Render loop for milkdrop
+  useEffect(() => {
+    if (visualizerMode !== 'milkdrop' || !milkdropReady || !visualizerRef.current) return;
+
+    const render = () => {
+      if (visualizerRef.current) {
+        visualizerRef.current.render();
+      }
+      animationFrameRef.current = requestAnimationFrame(render);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(render);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+  }, [visualizerMode, milkdropReady]);
+
+  // Auto-cycle presets every 15 seconds when milkdrop is active
+  useEffect(() => {
+    if (visualizerMode !== 'milkdrop' || !milkdropReady || !isPlaying) return;
+
+    const interval = setInterval(() => {
+      loadRandomPreset();
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, [visualizerMode, milkdropReady, isPlaying]);
+
+  // Load random preset
+  const loadRandomPreset = useCallback(() => {
+    if (!visualizerRef.current || presetKeysRef.current.length === 0) return;
+
+    const keys = presetKeysRef.current;
+    const presets = presetsRef.current;
+    const randomIndex = Math.floor(Math.random() * keys.length);
+    const presetName = keys[randomIndex];
+
+    visualizerRef.current.loadPreset(presets[presetName], 1.5);
+    setCurrentPreset(presetName);
+  }, []);
+
+  // Toggle visualizer mode
+  const toggleVisualizerMode = useCallback(() => {
+    setVisualizerMode(prev => prev === 'fft' ? 'milkdrop' : 'fft');
+  }, []);
 
   if (isMinimized || !currentTrack) {
     return null;
   }
-
-  const genreColors = getGenreColors(currentTrack.genre);
 
   return (
     <div className={styles.modalOverlay} onClick={() => setMinimized(true)}>
@@ -75,10 +238,7 @@ export default function WinampModal() {
               </div>
               <div className={styles.metaRow}>
                 <span className={styles.metaLabel}>GENRE:</span>
-                <span
-                  className={styles.metaValue}
-                  style={{ color: genreColors.primary }}
-                >
+                <span className={styles.metaValue}>
                   {currentTrack.genre}
                 </span>
               </div>
@@ -97,7 +257,7 @@ export default function WinampModal() {
               {/* AI Generation Credits */}
               {currentTrackIndex < 7 && (
                 <div className={styles.aiCredits}>
-                  <span className={styles.creditIcon}>🤖</span>
+                  <span className={styles.creditIcon}>[AI]</span>
                   <span className={styles.creditText}>
                     MIDI & Album Art: AI-Generated
                   </span>
@@ -108,57 +268,129 @@ export default function WinampModal() {
 
           {/* Right: Player Controls */}
           <div className={styles.rightPanel}>
-            {/* Visualizer */}
+            {/* Visualizer with toggle between FFT and Milkdrop */}
             <div className={styles.visualizer}>
               <div className={styles.scanlines}></div>
-              <div className={styles.waveform}>
-                {[...Array(24)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`${styles.bar} ${isPlaying ? styles.barAnimated : ''}`}
-                    style={{
-                      animationDelay: `${i * 0.05}s`,
-                      background: `linear-gradient(180deg, ${genreColors.primary}, ${genreColors.secondary})`
-                    }}
+
+              {/* FFT Bar Graph Mode */}
+              {visualizerMode === 'fft' && (
+                <div className={styles.waveform}>
+                  {frequencyData.map((magnitude, i) => {
+                    const heightPx = Math.max(4, (magnitude / 255) * 100);
+                    return (
+                      <div
+                        key={i}
+                        className={styles.bar}
+                        style={{
+                          height: `${heightPx}px`,
+                          transition: 'height 50ms ease-out',
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Milkdrop Mode */}
+              {visualizerMode === 'milkdrop' && (
+                <>
+                  <canvas
+                    ref={canvasRef}
+                    className={styles.milkdropCanvas}
                   />
-                ))}
-              </div>
+                  {!milkdropReady && !milkdropError && (
+                    <div className={styles.milkdropLoading}>
+                      <span className={styles.loadingDots}>LOADING</span>
+                    </div>
+                  )}
+                  {milkdropError && (
+                    <div className={styles.milkdropError}>
+                      {milkdropError}
+                    </div>
+                  )}
+                  {milkdropReady && currentPreset && (
+                    <div className={styles.presetLabel}>
+                      {currentPreset.length > 30
+                        ? currentPreset.substring(0, 30) + '...'
+                        : currentPreset}
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Visualizer mode toggle button */}
+              <button
+                className={styles.modeToggleButton}
+                onClick={toggleVisualizerMode}
+                title={visualizerMode === 'fft' ? 'Switch to Milkdrop' : 'Switch to FFT Bars'}
+                aria-label="Toggle visualizer mode"
+              >
+                <span className={visualizerMode === 'fft' ? styles.milkdropIcon : styles.barsIcon} />
+              </button>
+
+              {/* Next preset button (only in milkdrop mode) */}
+              {visualizerMode === 'milkdrop' && milkdropReady && (
+                <button
+                  className={styles.nextPresetButton}
+                  onClick={loadRandomPreset}
+                  title="Next Preset"
+                  aria-label="Next preset"
+                >
+                  <span className={styles.shuffleIcon} />
+                </button>
+              )}
+
+              {/* Full-screen Milkdrop button */}
+              <button
+                className={styles.fullscreenButton}
+                onClick={() => {
+                  setMinimized(true);
+                  setVisualizerFullScreen(true);
+                }}
+                title="Launch Milkdrop Visualizer (Full Screen)"
+                aria-label="Fullscreen visualizer"
+              >
+                <span className={styles.expandIcon} />
+              </button>
             </div>
 
-            {/* Progress Bar */}
-            <div className={styles.progressBar}>
+            {/* Progress Bar - Click to seek */}
+            <div
+              className={styles.progressBar}
+              onClick={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const percent = (clickX / rect.width) * 100;
+                seekToPercent(percent);
+              }}
+              title="Click to seek"
+            >
               <div
                 className={styles.progressFill}
-                style={{
-                  width: `${progress}%`,
-                  background: `linear-gradient(90deg, ${genreColors.primary}, ${genreColors.secondary})`
-                }}
+                style={{ width: `${progress}%` }}
               />
             </div>
 
             {/* Main Controls */}
             <div className={styles.controls}>
               <button
-                className={styles.controlButton}
+                className={`${styles.controlButton} ${styles.prevButton}`}
                 onClick={previousTrack}
                 disabled={isLoading}
-              >
-                ⏮
-              </button>
+                title="Previous"
+              />
               <button
-                className={`${styles.controlButton} ${styles.playButton}`}
+                className={`${styles.controlButton} ${isPlaying ? styles.pauseButton : styles.playButton}`}
                 onClick={togglePlayPause}
                 disabled={isLoading}
-              >
-                {isPlaying ? '⏸' : '▶'}
-              </button>
+                title={isPlaying ? 'Pause' : 'Play'}
+              />
               <button
-                className={styles.controlButton}
+                className={`${styles.controlButton} ${styles.nextButton}`}
                 onClick={nextTrack}
                 disabled={isLoading}
-              >
-                ⏭
-              </button>
+                title="Next"
+              />
             </div>
 
             {/* Volume Control */}
@@ -172,11 +404,80 @@ export default function WinampModal() {
                 value={volume}
                 onChange={(e) => setVolume(parseFloat(e.target.value))}
                 className={styles.volumeSlider}
-                style={{
-                  background: `linear-gradient(90deg, ${genreColors.primary}, ${genreColors.secondary})`
-                }}
               />
               <span className={styles.volumeValue}>{Math.round(volume * 100)}%</span>
+            </div>
+
+            {/* Windows 3.1 Style EQ Panel */}
+            <div className={styles.eqPanel}>
+              <div className={styles.eqHeader}>
+                <span className={styles.eqTitle}>▓ EQUALIZER</span>
+                <button
+                  className={styles.eqResetButton}
+                  onClick={resetEQ}
+                  title="Reset EQ to flat"
+                >
+                  RESET
+                </button>
+              </div>
+              <div className={styles.eqSliders}>
+                {/* Bass */}
+                <div className={styles.eqSliderGroup}>
+                  <div className={styles.eqDbLabel}>
+                    {eqSettings.bass > 0 ? '+' : ''}{eqSettings.bass}dB
+                  </div>
+                  <input
+                    type="range"
+                    min="-12"
+                    max="12"
+                    step="1"
+                    value={eqSettings.bass}
+                    onChange={(e) => setEQ('bass', parseInt(e.target.value))}
+                    className={styles.eqVerticalSlider}
+                    orient="vertical"
+                  />
+                  <div className={styles.eqBandLabel}>BASS</div>
+                  <div className={styles.eqFreqLabel}>200Hz</div>
+                </div>
+
+                {/* Mid */}
+                <div className={styles.eqSliderGroup}>
+                  <div className={styles.eqDbLabel}>
+                    {eqSettings.mid > 0 ? '+' : ''}{eqSettings.mid}dB
+                  </div>
+                  <input
+                    type="range"
+                    min="-12"
+                    max="12"
+                    step="1"
+                    value={eqSettings.mid}
+                    onChange={(e) => setEQ('mid', parseInt(e.target.value))}
+                    className={styles.eqVerticalSlider}
+                    orient="vertical"
+                  />
+                  <div className={styles.eqBandLabel}>MID</div>
+                  <div className={styles.eqFreqLabel}>1kHz</div>
+                </div>
+
+                {/* Treble */}
+                <div className={styles.eqSliderGroup}>
+                  <div className={styles.eqDbLabel}>
+                    {eqSettings.treble > 0 ? '+' : ''}{eqSettings.treble}dB
+                  </div>
+                  <input
+                    type="range"
+                    min="-12"
+                    max="12"
+                    step="1"
+                    value={eqSettings.treble}
+                    onChange={(e) => setEQ('treble', parseInt(e.target.value))}
+                    className={styles.eqVerticalSlider}
+                    orient="vertical"
+                  />
+                  <div className={styles.eqBandLabel}>TREBLE</div>
+                  <div className={styles.eqFreqLabel}>3kHz</div>
+                </div>
+              </div>
             </div>
 
             {/* Track List */}
@@ -188,10 +489,6 @@ export default function WinampModal() {
                     key={track.id}
                     className={`${styles.playlistItem} ${idx === currentTrackIndex ? styles.playlistItemActive : ''}`}
                     onClick={() => switchTrack(idx)}
-                    style={idx === currentTrackIndex ? {
-                      borderColor: genreColors.primary,
-                      background: `linear-gradient(90deg, ${genreColors.primary}22, ${genreColors.secondary}22)`
-                    } : {}}
                   >
                     <span className={styles.trackNumber}>{String(idx + 1).padStart(2, '0')}</span>
                     <span className={styles.trackName}>{track.title}</span>

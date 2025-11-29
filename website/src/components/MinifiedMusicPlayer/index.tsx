@@ -1,17 +1,27 @@
 import React from 'react';
 import { useMusicPlayer } from '../../contexts/MusicPlayerContext';
 import { useWinampSkin } from '../../hooks/useWinampSkin';
+import { useFFTData } from '../../hooks/useFFTData';
 import styles from './styles.module.css';
 
 export default function MinifiedMusicPlayer() {
   const {
     isPlaying,
     currentTrack,
+    analyserNode,
     togglePlayPause,
     setMinimized
   } = useMusicPlayer();
 
   const { currentSkin } = useWinampSkin();
+
+  // Real FFT data for minified visualizer (8 bars)
+  const frequencyData = useFFTData({
+    analyserNode,
+    binCount: 8,
+    smoothing: 0.6,
+    isPlaying,
+  });
 
   if (!currentTrack) {
     return null;
@@ -27,16 +37,21 @@ export default function MinifiedMusicPlayer() {
       }}
     >
       <div className={styles.visualizer}>
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className={`${styles.bar} ${isPlaying ? styles.barAnimated : ''}`}
-            style={{
-              animationDelay: `${i * 0.1}s`,
-              backgroundColor: currentSkin.colors.visualizer,
-            }}
-          />
-        ))}
+        {frequencyData.map((magnitude, i) => {
+          // Normalize magnitude (0-255) to pixel height (max 22px for mini player)
+          const heightPx = Math.max(3, (magnitude / 255) * 22);
+          return (
+            <div
+              key={i}
+              className={styles.bar}
+              style={{
+                height: `${heightPx}px`,
+                backgroundColor: currentSkin.colors.visualizer,
+                transition: 'height 50ms ease-out',
+              }}
+            />
+          );
+        })}
       </div>
 
       <button

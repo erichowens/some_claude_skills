@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-27T07:04:54.085Z",
+  "generatedAt": "2025-11-29T00:43:51.955Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -34,6 +34,18 @@
       "skillMdSize": 16292,
       "skillMdLines": 603,
       "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "automatic-stateful-prompt-improver": {
+      "id": "automatic-stateful-prompt-improver",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 3123,
+      "totalFiles": 6,
+      "skillMdSize": 14811,
+      "skillMdLines": 482,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -79,7 +91,7 @@
       "updatedAt": "2025-11-26T20:09:33-08:00",
       "totalLines": 2102,
       "totalFiles": 8,
-      "skillMdSize": 13072,
+      "skillMdSize": 13078,
       "skillMdLines": 368,
       "hasReferences": true,
       "hasExamples": false,
@@ -293,10 +305,10 @@
       "id": "physics-rendering-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
       "updatedAt": "2025-11-25T18:43:58-08:00",
-      "totalLines": 619,
+      "totalLines": 1140,
       "totalFiles": 2,
-      "skillMdSize": 10363,
-      "skillMdLines": 273,
+      "skillMdSize": 18420,
+      "skillMdLines": 471,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -352,7 +364,7 @@
     "skill-documentarian": {
       "id": "skill-documentarian",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-26T20:56:23-08:00",
+      "updatedAt": "2025-11-26T23:04:52-08:00",
       "totalLines": 2120,
       "totalFiles": 5,
       "skillMdSize": 35445,
@@ -367,7 +379,7 @@
       "updatedAt": "2025-11-25T18:43:58-08:00",
       "totalLines": 565,
       "totalFiles": 2,
-      "skillMdSize": 11345,
+      "skillMdSize": 11348,
       "skillMdLines": 276,
       "hasReferences": true,
       "hasExamples": false,

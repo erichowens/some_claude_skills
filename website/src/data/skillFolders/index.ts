@@ -1,0 +1,274 @@
+// Auto-generated - do not edit
+export interface SkillFolderIndex {
+  [skillName: string]: {
+    hasContent: boolean;
+    fileCount: number;
+    folderCount: number;
+  };
+}
+
+export interface FileNode {
+  name: string;
+  type: 'file' | 'folder';
+  path: string;
+  children?: FileNode[];
+  content?: string;
+  size?: number;
+}
+
+// Skill folder index
+export const skillFolderIndex: SkillFolderIndex = {
+  "2000s-visualization-expert": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "adhd-design-expert": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "agent-creator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "automatic-stateful-prompt-improver": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
+  },
+  "bot-developer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "career-biographer": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "clip-aware-embeddings": {
+    "hasContent": true,
+    "fileCount": 3,
+    "folderCount": 1
+  },
+  "collage-layout-expert": {
+    "hasContent": true,
+    "fileCount": 8,
+    "folderCount": 1
+  },
+  "color-theory-palette-harmony-expert": {
+    "hasContent": true,
+    "fileCount": 8,
+    "folderCount": 1
+  },
+  "competitive-cartographer": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "cv-creator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "design-archivist": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 2
+  },
+  "design-system-creator": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "drone-cv-expert": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
+  "drone-inspection-specialist": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
+  },
+  "event-detection-temporal-intelligence-expert": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
+  },
+  "hrv-alexithymia-expert": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "interior-design-expert": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
+  },
+  "jungian-psychologist": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "metal-shader-expert": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "native-app-designer": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
+  "orchestrator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "personal-finance-coach": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "photo-composition-critic": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "photo-content-recognition-curation-expert": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
+  },
+  "physics-rendering-expert": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "project-management-guru-adhd": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "research-analyst": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "site-reliability-engineer": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 1
+  },
+  "skill-coach": {
+    "hasContent": true,
+    "fileCount": 9,
+    "folderCount": 19
+  },
+  "skill-documentarian": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 2
+  },
+  "sound-engineer": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "speech-pathology-ai": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "swift-executor": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "team-builder": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "tech-entrepreneur-coach-adhd": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "typography-expert": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "vaporwave-glassomorphic-ui-designer": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
+  },
+  "vibe-matcher": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "voice-audio-engineer": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "vr-avatar-engineer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "web-design-expert": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "windows-3-1-web-designer": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 0
+  },
+  "wisdom-accountability-coach": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  }
+};
+
+// Skills with rich content (more than just SKILL.md)
+export const skillsWithContent = [
+  "adhd-design-expert",
+  "automatic-stateful-prompt-improver",
+  "career-biographer",
+  "clip-aware-embeddings",
+  "collage-layout-expert",
+  "color-theory-palette-harmony-expert",
+  "competitive-cartographer",
+  "design-archivist",
+  "design-system-creator",
+  "drone-cv-expert",
+  "drone-inspection-specialist",
+  "event-detection-temporal-intelligence-expert",
+  "interior-design-expert",
+  "metal-shader-expert",
+  "native-app-designer",
+  "photo-composition-critic",
+  "photo-content-recognition-curation-expert",
+  "physics-rendering-expert",
+  "site-reliability-engineer",
+  "skill-coach",
+  "skill-documentarian",
+  "sound-engineer",
+  "tech-entrepreneur-coach-adhd",
+  "typography-expert",
+  "vaporwave-glassomorphic-ui-designer",
+  "vibe-matcher",
+  "voice-audio-engineer",
+  "web-design-expert",
+  "windows-3-1-web-designer"
+];

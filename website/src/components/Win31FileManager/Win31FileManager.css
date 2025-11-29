@@ -1,0 +1,406 @@
+/* Windows 3.1 File Manager Styles */
+
+.win31-file-manager {
+  font-family: var(--font-system);
+  font-size: 12px;
+  margin: 20px 0;
+}
+
+/* Toolbar */
+.win31-file-manager-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--win31-gray);
+  border-bottom: 2px solid var(--win31-dark-gray);
+}
+
+.win31-file-manager-toolbar .win31-push-button {
+  padding: 3px 10px;
+  min-width: 50px;
+  font-size: 11px;
+}
+
+.win31-file-manager-toolbar-divider {
+  width: 2px;
+  height: 20px;
+  background: var(--win31-dark-gray);
+  margin: 0 8px;
+  border-right: 1px solid var(--win31-white);
+}
+
+.win31-file-manager-toolbar-path {
+  flex: 1;
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: var(--win31-black);
+  padding: 2px 8px;
+  background: var(--win31-white);
+  border: 1px inset var(--win31-gray);
+}
+
+/* Main Content Split */
+.win31-file-manager-content {
+  display: flex;
+  background: var(--win31-gray);
+  overflow: hidden;
+}
+
+/* Tree Panel (Left) */
+.win31-file-manager-tree-panel {
+  width: 40%;
+  min-width: 200px;
+  max-width: 350px;
+  padding: 4px;
+}
+
+.win31-file-manager-tree-inner {
+  height: 100%;
+  overflow: auto;
+  background: var(--win31-white);
+  border: 2px inset var(--win31-gray);
+}
+
+/* Divider */
+.win31-file-manager-divider {
+  width: 4px;
+  background: var(--win31-gray);
+  cursor: col-resize;
+  border-left: 2px solid var(--win31-white);
+  border-right: 2px solid var(--win31-dark-gray);
+}
+
+/* View Panel (Right) */
+.win31-file-manager-view-panel {
+  flex: 1;
+  padding: 4px;
+  min-width: 0;
+}
+
+.win31-file-manager-view-inner {
+  height: 100%;
+  overflow: auto;
+  background: var(--win31-white);
+  border: 2px inset var(--win31-gray);
+}
+
+/* Tree View Styles */
+.win31-tree-node {
+  user-select: none;
+}
+
+.win31-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.win31-tree-item:hover {
+  background: var(--win31-light-gray);
+}
+
+.win31-tree-item--selected {
+  background: var(--win31-navy) !important;
+  color: var(--win31-white) !important;
+}
+
+.win31-tree-item--selected .win31-tree-label {
+  color: var(--win31-white);
+}
+
+.win31-tree-toggle {
+  width: 10px;
+  font-size: 8px;
+  color: var(--win31-dark-gray);
+  flex-shrink: 0;
+}
+
+.win31-tree-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.win31-tree-label {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--win31-black);
+  letter-spacing: 0.3px;
+}
+
+.win31-tree-children {
+  /* Indent children */
+}
+
+/* File Viewer Styles */
+.win31-file-viewer-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+  color: var(--win31-dark-gray);
+}
+
+.win31-file-viewer-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.win31-file-viewer-empty-text {
+  font-family: var(--font-system);
+  font-size: 12px;
+}
+
+/* Folder View */
+.win31-file-viewer-folder {
+  padding: 16px;
+}
+
+.win31-file-viewer-folder-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--win31-dark-gray);
+}
+
+.win31-file-viewer-folder-icon {
+  font-size: 32px;
+}
+
+.win31-file-viewer-folder-name {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--win31-navy);
+}
+
+.win31-file-viewer-folder-info {
+  margin-bottom: 16px;
+}
+
+.win31-file-viewer-folder-stats {
+  display: flex;
+  gap: 24px;
+  padding: 8px;
+  font-family: var(--font-system);
+  font-size: 12px;
+}
+
+/* Icon Grid in Folder View */
+.win31-file-viewer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 16px;
+  padding: 12px;
+  background: var(--win31-light-gray);
+  border: 2px inset var(--win31-gray);
+}
+
+.win31-file-viewer-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+  cursor: default;
+}
+
+.win31-file-viewer-grid-item:hover {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+}
+
+.win31-file-viewer-grid-item:hover .win31-file-viewer-grid-label {
+  color: var(--win31-white);
+}
+
+.win31-file-viewer-grid-icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.win31-file-viewer-grid-label {
+  font-family: var(--font-system);
+  font-size: 10px;
+  color: var(--win31-black);
+  word-break: break-all;
+  max-width: 70px;
+}
+
+/* File Content View */
+.win31-file-viewer-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.win31-file-viewer-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--win31-gray);
+  border-bottom: 2px solid var(--win31-dark-gray);
+  flex-shrink: 0;
+}
+
+.win31-file-viewer-file-icon {
+  font-size: 18px;
+}
+
+.win31-file-viewer-file-name {
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--win31-black);
+  flex: 1;
+}
+
+.win31-file-viewer-file-size {
+  font-family: var(--font-code);
+  font-size: 10px;
+  color: var(--win31-dark-gray);
+  padding: 2px 8px;
+  background: var(--win31-light-gray);
+  border: 1px solid var(--win31-dark-gray);
+}
+
+.win31-file-viewer-body {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+  background: var(--win31-white);
+}
+
+.win31-file-viewer-pre {
+  font-family: var(--font-code) !important;
+  font-size: 11px !important;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+  color: var(--win31-black);
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.win31-file-viewer-no-content {
+  text-align: center;
+  padding: 40px;
+  color: var(--win31-dark-gray);
+  font-family: var(--font-system);
+  font-size: 12px;
+}
+
+.win31-file-viewer-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--win31-navy) !important;
+  text-decoration: underline;
+}
+
+.win31-file-viewer-link:hover {
+  color: var(--win31-teal) !important;
+}
+
+/* Group Box */
+.win31-groupbox {
+  border: 2px solid var(--win31-dark-gray);
+  padding: 16px 12px 12px;
+  margin-top: 8px;
+  position: relative;
+  background: var(--win31-gray);
+}
+
+.win31-groupbox__label {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background: var(--win31-white);
+  padding: 0 6px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-black);
+}
+
+/* Scrollbar Styling */
+.win31-file-manager-tree-inner::-webkit-scrollbar,
+.win31-file-manager-view-inner::-webkit-scrollbar,
+.win31-file-viewer-body::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.win31-file-manager-tree-inner::-webkit-scrollbar-track,
+.win31-file-manager-view-inner::-webkit-scrollbar-track,
+.win31-file-viewer-body::-webkit-scrollbar-track {
+  background: var(--win31-light-gray);
+  border-left: 1px solid var(--win31-dark-gray);
+}
+
+.win31-file-manager-tree-inner::-webkit-scrollbar-thumb,
+.win31-file-manager-view-inner::-webkit-scrollbar-thumb,
+.win31-file-viewer-body::-webkit-scrollbar-thumb {
+  background: var(--win31-gray);
+  border: 2px outset var(--win31-gray);
+}
+
+.win31-file-manager-tree-inner::-webkit-scrollbar-thumb:hover,
+.win31-file-manager-view-inner::-webkit-scrollbar-thumb:hover,
+.win31-file-viewer-body::-webkit-scrollbar-thumb:hover {
+  background: var(--win31-dark-gray);
+}
+
+.win31-file-manager-tree-inner::-webkit-scrollbar-corner,
+.win31-file-manager-view-inner::-webkit-scrollbar-corner,
+.win31-file-viewer-body::-webkit-scrollbar-corner {
+  background: var(--win31-gray);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .win31-file-manager-content {
+    flex-direction: column;
+  }
+
+  .win31-file-manager-tree-panel {
+    width: 100%;
+    max-width: none;
+    height: 200px;
+  }
+
+  .win31-file-manager-divider {
+    width: 100%;
+    height: 4px;
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid var(--win31-white);
+    border-bottom: 2px solid var(--win31-dark-gray);
+    cursor: row-resize;
+  }
+
+  .win31-file-manager-view-panel {
+    flex: 1;
+    min-height: 200px;
+  }
+
+  .win31-file-viewer-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 8px;
+  }
+
+  .win31-file-viewer-grid-icon {
+    font-size: 24px;
+  }
+}

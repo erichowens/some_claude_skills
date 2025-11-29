@@ -3,6 +3,7 @@ import { useWin31Theme } from '../hooks/useWin31Theme';
 import { MusicPlayerProvider } from '../contexts/MusicPlayerContext';
 import { UISoundsProvider } from '../contexts/UISoundsContext';
 import WinampModal from '../components/WinampModal';
+import FullScreenVisualizer from '../components/FullScreenVisualizer';
 
 // Root component to apply Win31 theme globally across all pages
 function ThemeApplicator({ children }: { children: React.ReactNode }) {
@@ -17,6 +18,7 @@ export default function Root({ children }: { children: React.ReactNode }): JSX.E
       <MusicPlayerProvider>
         <ThemeApplicator>{children}</ThemeApplicator>
         <WinampModal />
+        <FullScreenVisualizer />
       </MusicPlayerProvider>
     </UISoundsProvider>
   );

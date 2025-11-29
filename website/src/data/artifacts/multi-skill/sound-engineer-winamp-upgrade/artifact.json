@@ -1,0 +1,96 @@
+{
+  "id": "sound-engineer-winamp-upgrade",
+  "title": "Winamp Music Player Audio Upgrade",
+  "description": "Comprehensive audio system upgrade for faux-Winamp MIDI player: fixed volume control, real FFT visualizer, 3-band EQ with Windows 3.1 styling, and professional audio chain with dynamics compression.",
+  "type": "multi-skill",
+  "category": "frontend",
+  "created": "2025-11-26",
+  "skills": [
+    {
+      "name": "sound-engineer",
+      "role": "primary",
+      "contribution": "Designed and implemented complete Web Audio API signal chain: GainNode volume control with logarithmic scaling, 3-band parametric EQ (lowshelf/peaking/highshelf), DynamicsCompressor for clipping prevention, AnalyserNode for FFT visualization. Created useFFTData and useVUMeter hooks for real-time audio analysis."
+    },
+    {
+      "name": "windows-3-1-web-designer",
+      "role": "secondary",
+      "contribution": "Designed EQ panel with authentic Windows 3.1 aesthetics: outset borders, blue gradient title bar, inset value displays, proper MS Sans Serif typography. Classic button states (hover, active) with period-accurate styling."
+    },
+    {
+      "name": "web-design-expert",
+      "role": "secondary",
+      "contribution": "Integrated new audio features into existing component architecture. Ensured responsive design for EQ panel on mobile. Maintained vaporwave aesthetic while adding new controls."
+    }
+  ],
+  "phases": [
+    {
+      "name": "Phase 1: Core Audio Infrastructure",
+      "skills": ["sound-engineer"],
+      "description": "Created proper Web Audio API signal chain with GainNode, EQ filters, compressor, and analyser. Fixed broken volume control."
+    },
+    {
+      "name": "Phase 2: Real-Time Visualization",
+      "skills": ["sound-engineer", "web-design-expert"],
+      "description": "Implemented useFFTData hook for real frequency analysis. Updated WinampModal and MinifiedMusicPlayer visualizers to use actual FFT data instead of CSS animations."
+    },
+    {
+      "name": "Phase 3: EQ User Interface",
+      "skills": ["windows-3-1-web-designer", "sound-engineer"],
+      "description": "Designed and implemented 3-band EQ panel with Windows 3.1 styling. Vertical sliders with dB readouts, reset functionality, and real-time audio response."
+    }
+  ],
+  "metrics": {
+    "linesOfCode": {
+      "added": 420,
+      "modified": 85,
+      "removed": 25
+    },
+    "filesChanged": 6,
+    "newFilesCreated": 1,
+    "iterations": 3,
+    "totalDuration": "45 minutes"
+  },
+  "before": {
+    "issues": [
+      "Volume control non-functional (AudioDestinationNode has no gain property)",
+      "FFT visualizer was fake CSS animations, not responsive to audio",
+      "No audio processing chain (no EQ, compression, or analysis)",
+      "Poor audio quality without dynamics processing"
+    ],
+    "files": [
+      "before/contexts/MusicPlayerContext.tsx",
+      "before/components/WinampModal/index.tsx",
+      "before/components/WinampModal/styles.module.css",
+      "before/components/MinifiedMusicPlayer/index.tsx"
+    ]
+  },
+  "after": {
+    "improvements": [
+      "Fully functional volume control with logarithmic scaling",
+      "Real FFT visualizer responding to actual audio frequencies",
+      "Complete audio chain: Gain → EQ → Compressor → Analyser → Output",
+      "3-band parametric EQ (Bass, Mid, Treble) with ±12dB range",
+      "Dynamics compression to prevent clipping",
+      "Windows 3.1 styled EQ panel UI",
+      "Smooth decay animations when audio stops"
+    ],
+    "files": [
+      "after/contexts/MusicPlayerContext.tsx",
+      "after/components/WinampModal/index.tsx",
+      "after/components/WinampModal/styles.module.css",
+      "after/components/MinifiedMusicPlayer/index.tsx",
+      "after/components/MinifiedMusicPlayer/styles.module.css",
+      "after/hooks/useFFTData.ts"
+    ]
+  },
+  "learnings": [
+    "AudioDestinationNode doesn't have a gain property - must create a GainNode",
+    "Human hearing is logarithmic, so volume should use Math.pow(volume, 2) scaling",
+    "setTargetAtTime is essential for smooth audio parameter changes (prevents clicks)",
+    "BiquadFilter types: lowshelf (bass), peaking (mid), highshelf (treble)",
+    "DynamicsCompressor threshold around -24dB with 12:1 ratio works well for music",
+    "AnalyserNode fftSize of 64 gives 32 bins, good for 24-bar visualizer",
+    "requestAnimationFrame loops need cleanup in useEffect return to prevent memory leaks"
+  ],
+  "tags": ["web-audio-api", "fft", "visualizer", "equalizer", "midi", "vaporwave", "windows-31", "react-hooks", "audio-processing"]
+}

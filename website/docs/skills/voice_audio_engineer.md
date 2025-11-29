@@ -1,94 +1,155 @@
 ---
 name: voice-audio-engineer
-description: Expert audio engineer with deep signal processing knowledge, spatial audio (Ambisonics, binaural), and production-ready DSP
+description: Expert in voice synthesis, TTS, voice cloning, podcast production, speech processing, and voice UI design via ElevenLabs integration
 ---
 
-# Voice & Audio Engineer: Signal Processing & Spatial Audio
+# Voice & Audio Engineer
 
 <SkillHeader
   skillName="Voice Audio Engineer"
   fileName="voice-audio-engineer"
-  description="\"Expert in voice synthesis, TTS, voice cloning, podcast production, speech processing, and voice UI design via ElevenLabs integration. Specializes in vocal clarity, loudness standards (LUFS), de-essing, dialogue mixing, and voice transformation. Activate on 'TTS', 'text-to-speech', 'voice clone', 'voice synthesis', 'ElevenLabs', 'podcast', 'voice recording', 'speech-to-speech', 'voice UI', 'audiobook', 'dialogue'. NOT for spatial audio (use sound-engineer), music production (use DAW tools), game audio middleware (use sound-engineer), sound effects generation (use sound-engineer with ElevenLabs SFX), or live concert audio.\""Expert in voice synthesis, TTS, voice cloning, podcast production, speech processing, and voice UI design via ElevenLabs integration. Specializes in vocal clarity, loudness standards (LUFS), de-essing, dialogue mixing, and voice transformation. Activate on 'TTS', 'text-to-speech', 'voice clone', 'voice synthesis', 'ElevenLabs', 'podcast', 'voice recording', 'speech-to-speech', 'voice UI', 'audiobook', 'dialogue'. NOT for spatial audio (use sound-engineer), music production (use DAW tools), game audio middleware (use sound-engineer), sound effects generation (use sound-engineer with ElevenLabs SFX), or live concert audio.\""Expert in voice synthesis, TTS, voice cloning, podcast production, speech processing, and voice UI design via ElevenLabs integration. Specializes in vocal clarity, loudness standards (LUFS), de-essing, dialogue mixing, and voice transformation. Activate on 'TTS', 'text-to-speech', 'voice clone', 'voice synthesis', 'ElevenLabs', 'podcast', 'voice recording', 'speech-to-speech', 'voice UI', 'audiobook', 'dialogue'. NOT for spatial audio (use sound-engineer), music production (use DAW tools), game audio middleware (use sound-engineer), sound effects generation (use sound-engineer with ElevenLabs SFX), or live concert audio.\""
-
+  description={"\"Expert in voice synthesis, TTS, voice cloning, podcast production, speech processing, and voice UI design via ElevenLabs integration. Specializes in vocal clarity, loudness standards (LUFS), de-essing, dialogue mixing, and voice transformation. Activate on 'TTS', 'text-to-speech', 'voice clone', 'voice synthesis', 'ElevenLabs', 'podcast', 'voice recording', 'speech-to-speech', 'voice UI', 'audiobook', 'dialogue'. NOT for spatial audio (use sound-engineer), music production (use DAW tools), game audio middleware (use sound-engineer), sound effects generation (use sound-engineer with ElevenLabs SFX), or live concert audio.\""}
   tags={["creation","audio","code","elevenlabs","production-ready"]}
 />
 
-Expert audio engineer with deep signal processing knowledge, spatial audio expertise, and production-ready implementation skills.
-
-## Your Mission
-
-Design and implement professional audio systems from the ground up. Understand the math behind filters, compressors, and spatial processing. Build production-ready audio pipelines for podcasts, games, VR, and interactive media.
-
 ## When to Use This Skill
 
-### Perfect For:
-- 🎙️ Podcast production (loudness standards, processing chains)
-- 🌐 Spatial audio (Ambisonics, binaural, HRTF, Dolby Atmos)
-- 🔧 Real-time DSP (filter design, dynamics processing)
-- 📊 Loudness measurement (ITU-R BS.1770, LUFS)
-- 🎛️ Signal chain design (gain staging, processing order)
-- 🐍 Python/FFmpeg audio processing scripts
+| Use Case | Example |
+|----------|---------|
+| Voice cloning & synthesis | Creating AI voices from samples |
+| Podcast production | Loudness normalization, processing chains |
+| Text-to-speech systems | Audiobooks, voice assistants |
+| Speech-to-speech | Voice transformation pipelines |
+| Conversational AI agents | ElevenLabs agent creation |
+| Dialogue mixing | Voice clarity, de-essing, compression |
 
-### Not For:
-- ❌ Music composition
-- ❌ Instrument performance
-- ❌ Hardware recommendations
-- ❌ DAW tutorials for beginners
+## Do NOT Use For
 
-## Core Competencies
+- **Spatial audio** → Use `sound-engineer` (Ambisonics, binaural, HRTF)
+- **Game audio middleware** → Use `sound-engineer` (Wwise, FMOD)
+- **Sound effects generation** → Use `sound-engineer` with ElevenLabs SFX
+- **Music production** → Use dedicated DAW tools
+- **Live concert audio** → Out of scope
 
-### Signal Processing Fundamentals
+## MCP Integrations
 
-Understanding the math, not just the knobs:
+| MCP Server | Capabilities |
+|------------|--------------|
+| **ElevenLabs** | Voice cloning, TTS, speech-to-speech, agents, transcription |
+| **Firecrawl** | Scrape reference audio from web |
+
+## Expert vs Novice Shibboleths
+
+| Topic | Novice Says | Expert Says |
+|-------|-------------|-------------|
+| Loudness | "Make it louder" | "-16 LUFS integrated, -1.5 dBTP for podcast spec" |
+| De-essing | "Remove sibilance" | "Dynamic EQ at 6-8kHz, 4:1 ratio, fast attack" |
+| Processing order | "EQ then compress" | "HPF → De-esser → Compressor → EQ → Limiter" |
+| Voice cloning | "Copy the voice" | "Need 30s-3min clean samples, consistent tone" |
+| Disfluencies | "Remove ums" | "Preserve natural rhythm, remove only distracting ones" |
+
+## Common Anti-Patterns
+
+### "Podcast processed to streaming loudness"
+
+**What it looks like:** Mastering podcast to -14 LUFS (Spotify target)
+
+**Why it's wrong:** Podcasts are speech, not music. -14 LUFS crushes dynamics and causes listener fatigue.
+
+**What to do instead:**
+```
+Podcast: -16 to -19 LUFS integrated, -1.5 dBTP
+Streaming music: -14 LUFS, -1 dBTP
+Broadcast: -23 LUFS (EBU R128)
+```
+
+### "Over-processing voice recordings"
+
+**What it looks like:** Heavy compression, aggressive de-essing, brick-wall limiting
+
+**Why it's wrong:** Destroys natural voice character, sounds robotic and fatiguing
+
+**What to do instead:**
+```python
+# Gentle processing chain
+processing_chain = {
+    "hpf": {"freq": 80, "slope": "12dB/oct"},
+    "deesser": {"freq": "6-8kHz", "ratio": "4:1", "threshold": "-20dB"},
+    "compressor": {"ratio": "3:1", "attack": "10ms", "release": "100ms"},
+    "eq": {"presence": "+2dB @ 3-5kHz"},
+    "limiter": {"ceiling": "-1.5dBTP"}
+}
+```
+
+## Voice Processing Chain
+
+The canonical order for voice processing:
+
+```
+Input → HPF (80Hz) → De-esser → Compressor (3:1) →
+EQ (presence 3-5kHz) → Limiter → Normalization → Output
+```
+
+### Loudness Standards Reference
+
+```
+LUFS TARGETS BY PLATFORM
+├── Podcast: -16 to -19 LUFS, -1.5 dBTP
+├── Spotify/Apple Music: -14 LUFS, -1 dBTP
+├── YouTube: -14 LUFS (normalized)
+├── Broadcast (EBU R128): -23 LUFS ±1, -1 dBTP
+└── Audiobook (ACX): -18 to -23 LUFS, -3 dBTP
+```
+
+## ElevenLabs Integration Examples
+
+### Voice Cloning Requirements
 
 ```python
-# Biquad filter coefficients (Audio EQ Cookbook)
-def biquad_lowpass(fc, fs, Q=0.707):
-    w0 = 2 * np.pi * fc / fs
-    alpha = np.sin(w0) / (2 * Q)
-    b0 = (1 - np.cos(w0)) / 2
-    b1 = 1 - np.cos(w0)
-    b2 = (1 - np.cos(w0)) / 2
-    a0 = 1 + alpha
-    a1 = -2 * np.cos(w0)
-    a2 = 1 - alpha
-    return [b0/a0, b1/a0, b2/a0], [1, a1/a0, a2/a0]
+# Optimal sample requirements
+sample_requirements = {
+    "duration": "30 seconds to 3 minutes",
+    "quality": "Clean, consistent tone, minimal background noise",
+    "format": "WAV or MP3, 44.1kHz minimum",
+    "content": "Natural speech, varied intonation"
+}
 ```
 
-### Spatial Audio Deep Dive
+### Creating Conversational Agents
 
-- **Ambisonics:** B-format encoding/decoding, higher-order systems
-- **Binaural:** HRTF convolution, CIPIC/MIT KEMAR databases
-- **Object-based:** Dolby Atmos, ADM metadata, beds vs objects
-
-### Loudness Standards
-
-```
-LUFS TARGETS
-├── Streaming (Spotify, Apple): -14 LUFS, -1 dBTP
-├── Broadcast (EBU R128): -23 LUFS ±1, -1 dBTP
-├── Podcast: -16 to -19 LUFS
-└── YouTube: -14 LUFS (normalized)
+```python
+# Agent configuration best practices
+agent_config = {
+    "first_message": "Clear, welcoming, sets expectations",
+    "system_prompt": "Personality + constraints + knowledge boundaries",
+    "turn_timeout": 7,  # seconds - balance responsiveness vs interruption
+    "asr_quality": "high",  # Worth the latency for accuracy
+    "stability": 0.5,  # Balance consistency vs expressiveness
+    "similarity_boost": 0.8  # High for cloned voices
+}
 ```
 
-### Production Chains
+## Disfluency Handling
 
-Voice-over processing chain:
-```
-Input → HPF (80Hz) → De-esser → Compression (3:1) →
-EQ (presence boost 3-5kHz) → Limiting → Output
-```
+Natural speech contains disfluencies. Handle them thoughtfully:
 
-## Integration
+| Disfluency Type | Keep/Remove | Reasoning |
+|-----------------|-------------|-----------|
+| "Um", "uh" | Remove if distracting | Preserve if rhythmic |
+| Repeated words | Remove stammers | Keep for emphasis |
+| Self-corrections | Remove false starts | Keep if clarifying |
+| Breaths | Reduce, don't eliminate | Unnatural without them |
+| Pauses | Shorten, don't remove | Pacing matters |
 
-Works with ElevenLabs MCP for:
-- Voice synthesis and cloning
-- Text-to-speech generation
-- Audio analysis and transcription
+## Integrates With
+
+- **sound-engineer**: For spatial audio, game audio, sound effects
+- **ElevenLabs MCP**: Voice synthesis, cloning, agents, transcription
+- **Firecrawl MCP**: Gathering voice samples and references
 
 ## References
 
-- Bristow-Johnson, R. "Audio EQ Cookbook"
 - ITU-R BS.1770 "Algorithms to measure audio programme loudness"
-- Gerzon, M. (1973). "Periphony: With-Height Sound Reproduction"
-- Blauert, J. (1997). *Spatial Hearing*
+- EBU R128 "Loudness normalisation and permitted maximum level"
+- ACX Audio Submission Requirements
+- ElevenLabs API Documentation

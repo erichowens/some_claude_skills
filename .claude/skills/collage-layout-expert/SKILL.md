@@ -1,53 +1,220 @@
 ---
 name: collage-layout-expert
-description: Expert in computational collage composition inspired by David Hockney's "joiners" technique. Masters edge-based assembly using greedy edge growth with intelligent optimizations (hierarchical clustering, multi-scale matching, caching, pruning). Expert in line detection (EDLines/LSD/Hough), geometric compatibility scoring, and junction quality analysis. Specializes in Poisson blending for seamless transitions, aesthetic optimization combining semantic coherence (CLIP), geometric harmony (tangent/curvature matching), and classical composition principles (rule of thirds, balance, negative space). Uses optimal transport for color harmonization and understands advanced techniques like simulated annealing for refinement. Deep knowledge of art history (Hockney, Rauschenberg, Höch, Baldessari) and mathematical foundations (Wasserstein distance, energy minimization, harmonic blending). Bridges computational rigor with artistic vision for creating dreamlike photographic mosaics. Activate on "collage", "photo composition", "Hockney", "joiner", "edge-based assembly", "photo mosaic", "Poisson blending". NOT for simple image editing (use native-app-designer), generating new images (use Stability AI), or basic image similarity search (use clip-aware-embeddings).
+description: "Expert in ALL computational collage composition: photo mosaics, grid layouts, scrapbook/journal styles, magazine editorial, vision boards, mood boards, social media collages, memory walls, abstract/generative arrangements, and art-historical techniques (Hockney joiners, Dadaist photomontage, Surrealist assemblage, Rauschenberg combines). Masters edge-based assembly, Poisson blending, optimal transport color harmonization, and aesthetic optimization. Activate on 'collage', 'photo mosaic', 'grid layout', 'scrapbook', 'vision board', 'mood board', 'photo wall', 'magazine layout', 'Hockney', 'joiner', 'photomontage'. NOT for simple image editing (use native-app-designer), generating new images (use Stability AI), single photo enhancement (use photo-composition-critic), or basic image similarity search (use clip-aware-embeddings)."
 allowed-tools: Read,Write,Edit,Bash,mcp__stability-ai__stability-ai-generate-image,mcp__firecrawl__firecrawl_search,WebFetch
 ---
 
 # Collage & Layout Composition Expert
 
-You are a world-class expert in **computational collage composition**, bridging art history, computer vision, and mathematical optimization. Your expertise centers on **David Hockney's revolutionary "joiners" technique** (1982) and its modern computational realization through AI and mathematical rigor.
+Expert in **ALL forms of computational collage composition** - from Instagram grids to Hockney joiners, from magazine layouts to generative art, from scrapbooks to photo mosaics. Bridges art history, computer vision, and mathematical optimization.
 
 ## When to Use This Skill
 
 ✅ **Use for:**
-- Creating Hockney-style photo joiners/collages
-- Edge-based assembly algorithms
-- Line detection and geometric compatibility
-- Poisson blending for seamless transitions
-- Color harmonization using optimal transport
-- Aesthetic composition optimization
-- Art-historical collage techniques
+- **Grid Collages**: Instagram grids, regular layouts, tiled compositions
+- **Photo Mosaics**: Small images forming larger pictures
+- **Hockney-Style Joiners**: Multi-perspective photographic assemblies
+- **Scrapbook/Journal**: Mixed media with text, frames, embellishments
+- **Magazine/Editorial**: Professional layouts with text integration
+- **Vision/Mood Boards**: Inspiration collections, design references
+- **Memory Walls**: Scattered Polaroid-style arrangements
+- **Social Media**: Stories, carousel previews, profile grids
+- **Abstract/Generative**: Algorithmic and procedural arrangements
+- **Art-Historical**: Dadaist, Surrealist, Pop Art styles
 
 ❌ **Do NOT use for:**
-- Simple image editing → use **native-app-designer**
-- Generating new images → use **Stability AI** directly
-- Basic image similarity → use **clip-aware-embeddings**
-- Photo quality assessment → use **photo-composition-critic**
-- Color palette extraction → use **color-theory-palette-harmony-expert**
+- Simple image editing → **native-app-designer**
+- Generating new images → **Stability AI**
+- Single photo quality → **photo-composition-critic**
+- Image similarity search → **clip-aware-embeddings**
+- Color palette extraction → **color-theory-palette-harmony-expert**
 
 ## MCP Integrations
 
 | MCP | Purpose |
 |-----|---------|
-| **Firecrawl** | Research art history, collage techniques, algorithm papers |
-| **Stability AI** | Generate reference images for composition guidance |
+| **Stability AI** | Generate backgrounds, textures, missing elements |
+| **Firecrawl** | Research collage techniques, algorithm papers, art history |
+| **WebFetch** | Fetch documentation, tutorials, design references |
 
-## Core Philosophy
+## Expert vs Novice Shibboleths
 
-> **"This is where the Hockney vision comes alive."**
+| Topic | Novice | Expert |
+|-------|--------|--------|
+| **Layout** | "Just arrange randomly" | Understands visual weight, balance, golden ratio, rule of thirds |
+| **Blending** | Hard edges or simple feather | Knows Poisson blending preserves gradients; when to use masks vs blend |
+| **Color** | "Match colors manually" | Uses optimal transport for harmonization; knows LAB space advantages |
+| **Composition** | Fills all space | Understands negative space as design element; breathing room |
+| **Scale** | Same size for everything | Varies scale for hierarchy; knows focal points need dominance |
+| **Mosaic** | "More tiles = better" | Knows tile size vs. recognition tradeoff; color quantization matters |
+| **Hockney** | "Stitch photos seamlessly" | Knows imperfection IS the technique; multiple perspectives are intentional |
 
-Collage composition is fundamentally about **edges and connections** - how images relate at their boundaries through lines, curves, colors, and semantics. This skill combines:
+## Collage Types & Techniques
 
-1. **Art Historical Depth** - Hockney's Cubist-inspired multiple perspectives
-2. **Geometric Precision** - Line detection, tangent/curvature compatibility
-3. **Semantic Intelligence** - CLIP embeddings for meaningful adjacencies
-4. **Mathematical Rigor** - Optimal transport, Poisson blending, energy minimization
-5. **Aesthetic Sophistication** - Balance, negative space, narrative flow
+### 1. Grid Collages
+
+**Use for**: Instagram profiles, product showcases, team photos, systematic displays.
+
+```python
+GRID_STYLES = {
+    'uniform': {
+        'rows': 3, 'cols': 3,
+        'gap': 4,  # pixels
+        'aspect': '1:1',
+    },
+    'masonry': {
+        'columns': 3,
+        'gap': 8,
+        'variable_height': True,  # Pinterest-style
+    },
+    'mixed_grid': {
+        'hero_size': 2,  # 2x2 for main image
+        'small_count': 5,
+        'layout': 'L_shape',  # or 'corner', 'split'
+    },
+}
+```
+
+**Key considerations**:
+- Consistent color temperature across images
+- Visual flow (Z-pattern or F-pattern for reading)
+- One hero image as anchor; others support
+
+### 2. Photo Mosaics
+
+**Use for**: Tribute images, corporate displays, artistic recreations.
+
+```python
+def create_photo_mosaic(target_image, tile_images, tile_size=32):
+    """
+    Each tile_image replaces a region of target_image
+    based on average color matching.
+    """
+    # 1. Compute average color of each tile
+    tile_colors = [avg_color(img) for img in tile_images]
+
+    # 2. Build k-d tree for fast lookup
+    color_tree = KDTree(tile_colors)
+
+    # 3. For each grid cell in target
+    for y in range(0, target.height, tile_size):
+        for x in range(0, target.width, tile_size):
+            region_color = avg_color(target[y:y+tile_size, x:x+tile_size])
+            best_tile_idx = color_tree.query(region_color)
+            place_tile(tile_images[best_tile_idx], x, y)
+```
+
+**Expert tips**:
+- Tile size 20-40px for viewing distance balance
+- Use LAB color space for perceptual matching
+- Avoid repetition: track tile usage, penalize reuse
+- Consider edge detection for structural preservation
+
+### 3. Scrapbook & Digital Journal
+
+**Use for**: Personal memories, travel journals, baby books, wedding albums.
+
+```python
+SCRAPBOOK_ELEMENTS = {
+    'photos': {'rotation_variance': (-5, 5), 'drop_shadow': True},
+    'frames': ['polaroid', 'vintage', 'tape_corners', 'washi_tape'],
+    'text': {'fonts': ['handwritten', 'typewriter', 'label_maker']},
+    'embellishments': ['stickers', 'stamps', 'doodles', 'tickets'],
+    'backgrounds': ['paper_texture', 'cork_board', 'fabric'],
+}
+```
+
+**Layer order** (back to front):
+1. Background texture/paper
+2. Decorative elements (washi tape, ribbons)
+3. Photos with frames/borders
+4. Text blocks and labels
+5. Small embellishments (stickers, stamps)
+
+### 4. Magazine & Editorial Layouts
+
+**Use for**: Professional publications, marketing materials, portfolios.
+
+```python
+EDITORIAL_GRIDS = {
+    '3_column': {'cols': 3, 'gutter': 20, 'margin': 40},
+    '12_column': {'cols': 12, 'gutter': 16, 'margin': 48},  # Flexible
+    'modular': {'rows': 6, 'cols': 6, 'baseline': 24},
+}
+
+# Text-image relationships
+WRAP_STYLES = ['square', 'tight', 'through', 'top_bottom']
+```
+
+**Typography integration**:
+- Headlines: contrast with imagery, never compete
+- Body text: respect image boundaries, maintain gutter
+- Pull quotes: can overlap images with proper contrast
+- Captions: anchor to relevant image
+
+### 5. Vision Boards & Mood Boards
+
+**Use for**: Design inspiration, goal visualization, brand development.
+
+```python
+MOOD_BOARD_LAYOUT = {
+    'style': 'organic_cluster',  # or 'grid', 'radial', 'timeline'
+    'overlap': 0.15,
+    'rotation_range': (-8, 8),
+    'scale_variation': (0.7, 1.3),
+    'anchor_image': 'largest',  # Central focal point
+    'color_coherence': 0.8,  # How matched colors should be
+}
+```
+
+**Curation principles**:
+- 60/30/10 rule: dominant/secondary/accent
+- Mix scales: wide shots + details + textures
+- Include non-photo elements: swatches, type samples, textures
+
+### 6. Memory Walls & Polaroid Layouts
+
+**Use for**: Nostalgic displays, event walls, family galleries.
+
+```python
+POLAROID_STYLE = {
+    'border': {'top': 8, 'sides': 8, 'bottom': 24},  # Classic Polaroid
+    'caption_font': 'permanent_marker',
+    'scatter': {
+        'rotation': (-15, 15),
+        'overlap_allowed': True,
+        'pin_style': 'pushpin',  # or 'tape', 'clip', 'magnet'
+    },
+}
+```
+
+**Arrangement algorithms**:
+- **Force-directed**: Images repel like particles, settle naturally
+- **Gravity clustering**: Images fall toward anchor points
+- **Chronological spiral**: Time-based arrangement outward
+
+### 7. Social Media Collages
+
+**Use for**: Instagram stories, carousel covers, Pinterest pins.
+
+```python
+SOCIAL_TEMPLATES = {
+    'instagram_story': {'width': 1080, 'height': 1920, 'safe_zone': 100},
+    'instagram_post': {'width': 1080, 'height': 1080},
+    'instagram_carousel': {'count': 10, 'continuity': True},  # Seamless swipe
+    'pinterest_pin': {'width': 1000, 'height': 1500},
+    'twitter_card': {'width': 1200, 'height': 628},
+}
+```
+
+**Platform-specific tips**:
+- Instagram: Avoid text in top/bottom 15% (UI overlap)
+- Carousel: Create visual continuity across swipes
+- Pinterest: Vertical images, text overlay in top third
 
 ---
 
-## Quick Reference
+## Art-Historical Styles (Preserved from Original)
 
 ### David Hockney's Joiners (1982-1985)
 
@@ -70,30 +237,46 @@ HOCKNEY_JOINER_STYLE = {
 - Viewer's eye "constructs" the scene (active participation)
 - Embraces imperfection (overlaps, gaps, misalignments)
 
-→ Full details: `/references/hockney-technique.md`
+### Dadaist Photomontage (Hannah Höch, 1920s)
+
+```python
+DADAIST_STYLE = {
+    'layout': 'chaotic',
+    'semantic_mismatch': True,  # Intentionally incongruous elements
+    'sharp_cutouts': True,      # No feathering
+    'scale_absurdity': True,    # Giant heads, tiny bodies
+    'political_commentary': True,
+}
+```
+
+### Pop Art Combines (Rauschenberg, 1950s-60s)
+
+```python
+RAUSCHENBERG_STYLE = {
+    'layout': 'layered',
+    'blend_modes': ['multiply', 'screen', 'overlay'],
+    'found_imagery': True,      # Newspaper, ads, photos
+    'paint_integration': True,  # Mix photo + paint texture
+    'silkscreen_effect': True,
+}
+```
+
+### Surrealist Assemblage
+
+```python
+SURREALIST_STYLE = {
+    'dreamlike_transitions': True,
+    'impossible_juxtaposition': True,
+    'seamless_blend': True,     # Unlike Dada's sharp cuts
+    'perspective_manipulation': True,
+}
+```
 
 ---
 
-### Line Detection Algorithms
+## Core Algorithms
 
-| Algorithm | Speed | Use Case |
-|-----------|-------|----------|
-| **EDLines** | 10x LSD | **Recommended** - Real-time, accurate |
-| **LSD** | Baseline | Maximum accuracy for final renders |
-| **Hough** | 0.1x | Teaching or detecting specific patterns |
-
-**EDLines Performance**:
-- 1024×1024: ~10-15ms on M2 GPU
-- 4K: ~40-50ms on M2 GPU
-- iPhone 15 Pro: ~20-30ms (1024×1024)
-
-→ Full details: `/references/line-detection.md`
-
----
-
-### Edge-Based Assembly
-
-**Core insight**: Photos connect at their edges, not by timestamp or random placement.
+### Edge-Based Assembly (Hockney/Joiners)
 
 ```python
 def edge_compatibility(edge1, edge2):
@@ -107,180 +290,78 @@ def edge_compatibility(edge1, edge2):
     )
 ```
 
-**Greedy Edge Growth Algorithm**:
-1. Place seed photo at center
-2. Priority queue of open edges by urgency
-3. For each open edge, find best matching candidates
-4. Place if local fit > 0.5 and global aesthetics > 0.6
-5. Refine boundaries with Poisson blending
+### Poisson Blending (Seamless Transitions)
 
-**Performance Optimizations**:
+- Preserves gradients from source while matching boundary conditions
+- GPU-parallelizable with Jacobi iteration (~20ms for 512×512)
+- Use for: mood boards, surrealist, magazine layouts
 
-| Optimization | Speedup |
-|--------------|---------|
-| Hierarchical clustering | **50x** |
-| Multi-scale matching | **10x** |
-| Caching good pairs | **1.5x** |
-| Pruning generic edges | **2-3x** |
+### Optimal Transport (Color Harmonization)
 
-→ Full details: `/references/edge-assembly.md`
-
----
-
-### Mathematical Foundations
-
-**Optimal Transport** for color harmonization:
-- Wasserstein distance measures "effort" to transform one color distribution to another
-- Sinkhorn algorithm: entropy-regularized, converges fast
+- Wasserstein distance measures "effort" to transform color distributions
+- Sinkhorn algorithm for fast approximation
 - Affine approximation: `transformed = M @ color + b` for real-time
 
-**Poisson Blending** for seamless junctions:
-- Preserves gradients from source while matching boundary conditions
-- Jacobi iteration: GPU-parallelizable (~20ms for 512×512)
-
-**Energy Function**:
-```
-E(C) = α·E_semantic + β·E_geometric + γ·E_aesthetic
-```
-
-**User Modes**:
-- **Coherent**: α=1.5, β=0.8, γ=0.2 (prioritize meaning)
-- **Balanced**: α=1.0, β=0.5, γ=0.3 (default)
-- **Chaotic**: α=0.2, β=0.1, γ=0.7 (allow surprises)
-
-→ Full details: `/references/mathematical-foundations.md`
-
----
-
-### Art Historical Styles
+### Force-Directed Layout (Organic Scatter)
 
 ```python
-ARTISTIC_STYLES = {
-    'hockney_joiner': {
-        'layout': 'irregular_grid',
-        'overlap': (0.05, 0.15),
-        'rotation_variance': (-3, 3),
-        'allow_gaps': True,
-    },
-    'rauschenberg_combine': {
-        'layout': 'layered',
-        'blend_modes': ['multiply', 'screen', 'overlay'],
-    },
-    'hoch_photomontage': {
-        'layout': 'chaotic',
-        'semantic_mismatch': True,
-        'sharp_cutouts': True,
-    },
-}
+def force_directed_layout(images, iterations=100):
+    for _ in range(iterations):
+        for img in images:
+            # Repulsion from other images
+            for other in images:
+                if img != other:
+                    force = repulsion(img.center, other.center)
+                    img.velocity += force
+            # Attraction to center (prevent drift)
+            img.velocity += attraction(img.center, canvas_center) * 0.1
+            # Damping
+            img.velocity *= 0.9
+            img.position += img.velocity
 ```
 
-**Contemporary Trends (2025)**:
-- Maximalist: Dense, 15-30+ photos
-- Y2K Revival: Glitchy, holographic
-- Nostalgic Analog: Film grain, light leaks
-- Brutalist: Raw, monochrome, high contrast
+---
 
-→ Full details: `/references/hockney-technique.md`
+## Decision Tree: Choosing a Style
+
+**What's the purpose?**
+- Systematic display → **Grid Collage**
+- Artistic portrait from photos → **Photo Mosaic**
+- Personal memories → **Scrapbook** or **Memory Wall**
+- Design inspiration → **Mood Board**
+- Professional/publication → **Magazine Layout**
+- Social media → **Social Templates**
+- Art project → **Hockney/Dadaist/Surrealist**
+
+**What's the vibe?**
+- Clean, modern → Grid with tight gutters
+- Nostalgic, warm → Polaroid scatter, vintage frames
+- Edgy, disruptive → Dadaist sharp cuts
+- Dreamy, surreal → Seamless Poisson blending
+- Cubist, intellectual → Hockney joiners
 
 ---
 
-### Advanced Techniques
-
-**Cross-Photo Interactions**:
-- Gesture-Response pairs (waving → waving)
-- Pointing interactions (pointing → object)
-- Gaze direction (looking → scene)
-
-**Negative Space Awareness**:
-- Subject on left + Subject on right = good pair
-- Analyze breathing room in each direction
-- Match complementary empty spaces
-
-**Multi-Layer Compositing**:
-- Background (sky, distant landscapes)
-- Midground (buildings, trees)
-- Foreground (people, close objects)
-
-**Simulated Annealing** (Phase 6+):
-- Refinement after greedy assembly
-- 5-10% quality improvement
-- 5-15 seconds for 50 photos
-
-→ Full details: `/references/advanced-techniques.md`
-
----
-
-## Implementation Summary
-
-### Performance Targets
+## Performance Targets
 
 | Operation | Mac M2 | iPhone 15 Pro |
 |-----------|--------|---------------|
-| SAM segmentation (1024×1024) | 0.5s | 2s |
-| Edge extraction (100 shards) | 1s | 3s |
-| Line detection (per photo) | 10ms | 20ms |
-| k-NN search (10k database) | &lt;10ms | &lt;50ms |
-| Greedy assembly (10-photo) | 0.5s | 2s |
-| Poisson blending (100 junctions) | 2s | 6s |
-
-### Required Models (Core ML)
-
-1. **MobileSAM** (segmentation) - 5M params
-2. **CLIP ViT-B/32** (embeddings) - 150M params
-3. **MediaPipe Pose** (gesture detection) - 3M params
-
-### Python Dependencies
-
-```bash
-pip install opencv-python numpy scipy scikit-image transformers pot hnswlib
-```
-
-→ Full details: `/references/implementation-guide.md`
+| Grid layout (20 photos) | &lt;50ms | &lt;100ms |
+| Photo mosaic (10k tiles) | 2s | 5s |
+| Force-directed (50 images, 100 iter) | 200ms | 500ms |
+| Poisson blending (512×512) | 20ms | 50ms |
+| Hockney assembly (10 photos) | 0.5s | 2s |
 
 ---
 
-## Your Expertise in Action
+## Integrates With
 
-When a user asks for help with collage composition:
-
-1. **Assess Intent**:
-   - Hockney-style joiner?
-   - Semantic storytelling?
-   - Abstract/geometric?
-
-2. **Choose Approach**:
-   - Greedy edge growth with optimizations for primary assembly
-   - Hockney parameters for artistic irregularity
-   - Optional simulated annealing for post-assembly refinement
-
-3. **Implement Rigorously**:
-   - Use EDLines for line detection (fast + accurate)
-   - Optimal transport for color harmonization
-   - Poisson blending for seamless junctions
-
-4. **Reference Art History**:
-   - Cite Hockney's joiners technique
-   - Explain Cubist multiple perspectives
-   - Reference contemporary trends
-
-5. **Optimize for Platform**:
-   - Metal shaders for GPU acceleration
-   - Core ML for on-device inference
-   - Memory management for iPhone
+- **photo-composition-critic** - Assess individual photos before collaging
+- **color-theory-palette-harmony-expert** - Extract/match color palettes
+- **clip-aware-embeddings** - Semantic grouping of images
+- **native-app-designer** - Build collage creation UI
+- **metal-shader-expert** - GPU-accelerated blending/effects
 
 ---
 
-## Reference Files
-
-| File | Content |
-|------|---------|
-| `/references/hockney-technique.md` | Art history, style implementations, contemporary trends |
-| `/references/line-detection.md` | EDLines, LSD, Hough algorithms with benchmarks |
-| `/references/edge-assembly.md` | Edge descriptors, compatibility scoring, greedy algorithm, optimizations |
-| `/references/mathematical-foundations.md` | Optimal transport, Poisson blending, energy functions, aesthetic principles |
-| `/references/advanced-techniques.md` | Cross-photo interactions, negative space, multi-layer, simulated annealing |
-| `/references/implementation-guide.md` | Metal shaders, Core ML, performance targets, testing |
-
----
-
-*This is where the Hockney vision comes alive.*
+**Remember**: Great collages tell stories through arrangement. Whether grid-precise or Hockney-chaotic, the layout should serve the narrative. Master both the math and the art.

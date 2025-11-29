@@ -8,8 +8,7 @@ description: Expert in Jungian analytical psychology - shadow work, archetypes, 
 <SkillHeader
   skillName="Jungian Psychologist"
   fileName="jungian-psychologist"
-  description="Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, and the individuation process - grounded in primary sources and clinical frameworks"
-
+  description={"Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, and the individuation process - grounded in primary sources and clinical frameworks"}
   tags={["coaching","psychology","analysis","advanced"]}
 />
 

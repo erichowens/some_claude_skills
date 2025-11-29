@@ -1,895 +1,470 @@
 ---
 name: physics-rendering-expert
-description: Computational physics, mechanical engineering, and abstract algebra for real-time rope/cable dynamics, constraint solving, and rigid body simulation
-tools:
-  - Read                                         # Analyze physics code
-  - Write                                        # Create simulations
-  - Edit                                         # Refine implementations
-  - Bash                                         # Compile C++, run benchmarks
-  - mcp__firecrawl__firecrawl_search            # Research SIGGRAPH papers
-  - WebFetch                                     # Fetch physics papers, docs
-triggers:
-  - "rope simulation"
-  - "physics simulation"
-  - "PBD"
-  - "Position-Based Dynamics"
-  - "constraint solver"
-  - "Verlet integration"
-  - "quaternion"
-  - "rigid body"
-  - "cloth simulation"
-  - "cable dynamics"
-cpp_dependencies:
-  - glm                               # Vector/matrix math (OpenGL Mathematics)
-  - eigen                             # Linear algebra
-  - OpenMP                            # Parallelization
-python_dependencies:
-  - numpy                             # Numerical computing (prototyping)
-  - scipy                             # Scientific algorithms
-  - taichi                            # High-performance physics simulation
-integrates_with:
-  - metal-shader-expert               # GPU-accelerated physics
-  - vr-avatar-engineer                # Real-time character physics
+description: "Real-time rope/cable physics using Position-Based Dynamics (PBD), Verlet integration, and constraint solvers. Expert in quaternion math, Gauss-Seidel/Jacobi solvers, and tangling detection. Activate on 'rope simulation', 'PBD', 'Position-Based Dynamics', 'Verlet', 'constraint solver', 'quaternion', 'cable dynamics', 'cloth simulation', 'leash physics'. NOT for fluid dynamics (SPH/MPM), fracture simulation (FEM), offline cinematic physics, molecular dynamics, or general game physics engines (use Unity/Unreal built-ins)."
+allowed-tools: Read,Write,Edit,Bash,mcp__firecrawl__firecrawl_search,WebFetch
 ---
 
 # Physics & Rendering Expert: Rope Dynamics & Constraint Solving
 
-Expert in computational physics, mechanical engineering, and abstract algebra for real-time rendering. Specializes in rope/cable dynamics, constraint solvers, quaternion mathematics, and physically-based simulations for interactive applications.
-
-## Your Mission
-
-Design and implement production-ready physics simulations for ropes, cables, chains, and deformable objects in real-time applications (games, VR, robotics). Solve complex constraint problems including tangling, collision, and multi-body dynamics using modern 2024-2025 algorithms.
+Expert in computational physics for real-time rope/cable dynamics, constraint solving, and physically-based simulations. Specializes in PBD, Verlet integration, quaternion math, and multi-body tangling.
 
 ## When to Use This Skill
 
-### Perfect For:
-- 🪢 Real-time rope/cable/chain simulation (leashes, climbing ropes, cables)
-- 🔗 Constraint-based physics (distance constraints, bending, collision)
-- 🎯 Position-Based Dynamics (PBD) implementation
-- 🔄 Quaternion and dual-quaternion mathematics for rotation
-- ⚙️ Gauss-Seidel and Jacobi solvers for constraint systems
-- 🌊 Verlet integration for stable particle systems
-- 🎮 Real-time character physics (hair, cloth, soft bodies)
-- 🤖 Robotics simulation (cable routing, manipulator dynamics)
+✅ **Use for:**
+- Real-time rope/cable/chain simulation (leashes, climbing ropes)
+- Position-Based Dynamics (PBD) implementation
+- Constraint solvers (Gauss-Seidel, Jacobi)
+- Quaternion/dual-quaternion rotation math
+- Verlet integration for particle systems
+- Tangle detection (multi-rope collisions)
+- Character physics (hair, cloth attachments)
 
-### Not For:
-- ❌ Fluid dynamics (specialized SPH/MPM solvers)
-- ❌ Fracture simulation (requires FEM or MPM)
-- ❌ Offline cinematic physics (different performance constraints)
-- ❌ Molecular dynamics (quantum-scale physics)
+❌ **Do NOT use for:**
+- Fluid dynamics → specialized SPH/MPM solvers
+- Fracture simulation → requires FEM or MPM
+- Offline cinematic physics → different constraints
+- Molecular dynamics → quantum-scale physics
+- Unity/Unreal physics → use built-in systems
+- Rigid body engines → use Bullet/PhysX directly
 
-## Core Competencies
+## MCP Integrations
 
-### 1. Position-Based Dynamics (PBD)
+| MCP | Purpose |
+|-----|---------|
+| **Firecrawl** | Research SIGGRAPH papers, physics algorithms |
+| **WebFetch** | Fetch documentation, academic papers |
 
-**Why PBD Over Force-Based Physics?**
+## Expert vs Novice Shibboleths
 
-Traditional force-based methods (F=ma) can be unstable and require tiny timesteps. PBD directly manipulates positions to satisfy constraints, resulting in:
-- ✅ Unconditional stability (large timesteps possible)
+| Topic | Novice | Expert |
+|-------|--------|--------|
+| **Constraint approach** | Uses spring forces (F=ma) | Uses PBD (directly manipulates positions) |
+| **Why PBD** | "Springs work fine" | Knows springs require tiny timesteps for stiffness; PBD is unconditionally stable |
+| **Solver choice** | "Just iterate until done" | Gauss-Seidel for chains (fast convergence), Jacobi for GPU (parallelizable) |
+| **Iterations** | 20+ iterations | Knows 5-10 is optimal; diminishing returns after |
+| **Rotation** | Uses Euler angles | Uses quaternions (no gimbal lock, stable composition) |
+| **Skinning** | Linear blend skinning | Dual quaternions (no candy-wrapper artifact) |
+| **Integration** | Forward Euler | Verlet (symplectic, energy-conserving, second-order) |
+| **Collision** | Per-frame point checks | Continuous collision detection with segment-segment distance |
+
+## Common Anti-Patterns
+
+### Anti-Pattern: Force-Based Springs for Stiff Constraints
+**What it looks like**: `force = k * (distance - rest_length)` with high spring constant
+**Why it's wrong**: High `k` requires tiny `dt` for stability; low `k` gives squishy ropes
+**What to do instead**: Use PBD - directly move particles to satisfy constraints
+```cpp
+// BAD: Requires tiny timesteps
+vec3 force = normalize(delta) * k * (distance - rest_length);
+
+// GOOD: PBD constraint (stable at any timestep)
+float error = distance - rest_length;
+vec3 correction = (error / (distance * (w1 + w2))) * delta;
+p1.position += w1 * correction;
+p2.position -= w2 * correction;
+```
+
+### Anti-Pattern: Euler Angles for Rotation
+**What it looks like**: `rotation = vec3(pitch, yaw, roll)` with sequential axis rotations
+**Why it's wrong**: Gimbal lock at 90° pitch; order-dependent; unstable under composition
+**What to do instead**: Use quaternions - 4 numbers, no gimbal lock, stable SLERP
+**How to detect**: Look for `euler`, `pitch/yaw/roll`, or 3x3 rotation matrices being composed repeatedly
+
+### Anti-Pattern: Synchronous Collision Detection
+**What it looks like**: Point-in-volume checks once per frame
+**Why it's wrong**: Fast-moving particles tunnel through obstacles between frames
+**What to do instead**: Continuous collision detection (CCD) with swept volumes or segment tests
+
+### Anti-Pattern: Over-Iteration
+**What it looks like**: `solver_iterations = 50` or higher
+**Why it's wrong**: Diminishing returns after 5-10 iterations; wastes CPU/GPU cycles
+**What to do instead**: Use 5-10 iterations with proper stiffness; if more needed, use XPBD compliance
+
+### Anti-Pattern: Single-Threaded Gauss-Seidel for Large Systems
+**What it looks like**: Gauss-Seidel on 1000+ constraints in a complex mesh
+**Why it's wrong**: Gauss-Seidel is inherently sequential; can't parallelize
+**What to do instead**: Use Jacobi solver for GPU parallelization (accumulate corrections, average)
+
+## Evolution Timeline
+
+### Pre-2006: Force-Based Physics
+- Mass-spring systems dominated
+- Stability required tiny timesteps
+- Stiff ropes = unstable simulations
+
+### 2006-2015: Position-Based Dynamics Era
+- Müller et al. (2006) introduced PBD
+- Unconditional stability revolutionized real-time physics
+- Gauss-Seidel became standard for game physics
+
+### 2016-2020: XPBD and Compliance
+- Extended PBD added compliance for soft constraints
+- Better control over stiffness vs. iteration count
+- GPU Jacobi solvers mature
+
+### 2021-2024: Modern Advances
+- **XPBD** now standard in Unreal/Unity
+- **ALEM** (2024 SIGGRAPH): Lagrangian-Eulerian modal analysis for cables
+- **BDEM** (2024): Bonded discrete element method with manifold optimization
+- Neural physics for learned dynamics
+
+### 2025+: Current Best Practices
+- XPBD with 5-10 iterations for real-time
+- Hybrid CPU/GPU pipelines
+- Learned corrections for complex materials
+- On-device physics for mobile/VR
+
+## Core Concepts
+
+### Position-Based Dynamics (PBD)
+
+**Why PBD beats force-based physics:**
+- ✅ Unconditionally stable (large timesteps OK)
 - ✅ Direct control over constraint satisfaction
 - ✅ No spring constants to tune
 - ✅ Predictable behavior
 
-**The Problem PBD Solves:**
+**PBD Loop:**
+1. **Predict**: Apply forces, compute predicted positions
+2. **Solve**: Iteratively project constraints (distance, bending, collision)
+3. **Update**: Derive velocity from position change
 
 ```cpp
-// Force-based approach (UNSTABLE):
-void update_spring(Particle& p1, Particle& p2, float k, float rest_length) {
-    vec3 delta = p2.position - p1.position;
-    float distance = length(delta);
-    float force_magnitude = k * (distance - rest_length); // Spring force
+void pbd_update(float dt) {
+    // Step 1: Predict
+    for (auto& p : particles) {
+        if (p.inverse_mass == 0.0f) continue;
+        p.velocity += gravity * dt;
+        p.predicted = p.position + p.velocity * dt;
+    }
 
-    vec3 force = normalize(delta) * force_magnitude;
-    p1.apply_force(force);
-    p2.apply_force(-force);
+    // Step 2: Solve constraints (5-10 iterations)
+    for (int i = 0; i < solver_iterations; ++i) {
+        solve_distance_constraints();
+        solve_bending_constraints();
+        solve_collisions();
+    }
 
-    // Problem: If k is large, requires tiny dt (unstable)
-    // If k is small, constraints are soft (squishy ropes)
+    // Step 3: Update
+    for (auto& p : particles) {
+        p.velocity = (p.predicted - p.position) / dt;
+        p.position = p.predicted;
+    }
 }
 ```
 
-**PBD Approach (STABLE):**
+### Distance Constraint
 
 ```cpp
-// Position-Based Dynamics constraint
-void solve_distance_constraint(Particle& p1, Particle& p2, float rest_length) {
-    vec3 delta = p2.position - p1.position;
-    float distance = length(delta);
+void solve_distance(Particle& p1, Particle& p2, float rest_length) {
+    vec3 delta = p2.predicted - p1.predicted;
+    float dist = length(delta);
+    if (dist < 1e-6f) return;
 
-    // How much do we need to move to satisfy constraint?
-    float constraint_error = distance - rest_length;
+    float error = dist - rest_length;
+    float w_sum = p1.inverse_mass + p2.inverse_mass;
+    if (w_sum < 1e-6f) return;
 
-    // Move both particles (weighted by inverse mass)
-    float w1 = 1.0f / p1.mass;
-    float w2 = 1.0f / p2.mass;
-    float total_weight = w1 + w2;
-
-    vec3 correction = (constraint_error / (distance * total_weight)) * delta;
-
-    p1.position += w1 * correction;
-    p2.position -= w2 * correction;
-
-    // Result: Constraint satisfied in one iteration (or close enough)
+    vec3 correction = (error / (dist * w_sum)) * delta;
+    p1.predicted += p1.inverse_mass * correction;
+    p2.predicted -= p2.inverse_mass * correction;
 }
 ```
 
-#### Complete PBD Rope Implementation
+### Solver Choice
 
-```cpp
-#include <vector>
-#include <glm/glm.hpp>
+| Solver | Parallelizable | Convergence | Use Case |
+|--------|---------------|-------------|----------|
+| **Gauss-Seidel** | No | Fast | Chains, ropes (sequential structure) |
+| **Jacobi** | Yes (GPU) | Slower | Large meshes, cloth, GPU physics |
 
-struct Particle {
-    glm::vec3 position;
-    glm::vec3 predicted_position;
-    glm::vec3 velocity;
-    float mass;
-    float inverse_mass;  // Precomputed 1/mass (or 0 for static)
+**Gauss-Seidel**: Updates positions immediately; next constraint sees updated values.
 
-    Particle(glm::vec3 pos, float m)
-        : position(pos), predicted_position(pos), velocity(0.0f), mass(m)
-    {
-        inverse_mass = (m > 0.0f) ? 1.0f / m : 0.0f;
-    }
-};
+**Jacobi**: Accumulates corrections; applies averaged result. Requires more iterations but GPU-parallelizable.
 
-class RopeSimulation {
-private:
-    std::vector<Particle> particles;
-    std::vector<std::pair<int, int>> distance_constraints;  // (index1, index2)
-    std::vector<float> rest_lengths;
+### Verlet Integration
 
-    float gravity = -9.81f;
-    float damping = 0.99f;
-    int solver_iterations = 5;  // More iterations = stiffer constraints
-
-public:
-    RopeSimulation(glm::vec3 start, glm::vec3 end, int num_particles) {
-        // Create rope particles
-        for (int i = 0; i < num_particles; ++i) {
-            float t = static_cast<float>(i) / (num_particles - 1);
-            glm::vec3 pos = glm::mix(start, end, t);
-
-            particles.emplace_back(pos, 1.0f);
-
-            // First particle is fixed (attached to collar)
-            if (i == 0) {
-                particles[i].inverse_mass = 0.0f;
-            }
-        }
-
-        // Create distance constraints
-        for (int i = 0; i < num_particles - 1; ++i) {
-            distance_constraints.emplace_back(i, i + 1);
-
-            float length = glm::length(
-                particles[i + 1].position - particles[i].position
-            );
-            rest_lengths.push_back(length);
-        }
-    }
-
-    void update(float dt) {
-        // Step 1: Predict new positions (explicit Euler)
-        for (auto& p : particles) {
-            if (p.inverse_mass == 0.0f) continue;  // Skip static particles
-
-            // Apply forces (gravity)
-            glm::vec3 acceleration(0.0f, gravity, 0.0f);
-
-            p.velocity += acceleration * dt;
-            p.velocity *= damping;  // Damping
-
-            // Predict position
-            p.predicted_position = p.position + p.velocity * dt;
-        }
-
-        // Step 2: Solve constraints (Gauss-Seidel)
-        for (int iter = 0; iter < solver_iterations; ++iter) {
-            solve_distance_constraints();
-            solve_collision_constraints();
-            solve_bending_constraints();
-        }
-
-        // Step 3: Update velocities and positions
-        for (auto& p : particles) {
-            if (p.inverse_mass == 0.0f) continue;
-
-            // Update velocity based on position change
-            p.velocity = (p.predicted_position - p.position) / dt;
-            p.position = p.predicted_position;
-        }
-    }
-
-    void solve_distance_constraints() {
-        for (size_t i = 0; i < distance_constraints.size(); ++i) {
-            int idx1 = distance_constraints[i].first;
-            int idx2 = distance_constraints[i].second;
-
-            Particle& p1 = particles[idx1];
-            Particle& p2 = particles[idx2];
-
-            glm::vec3 delta = p2.predicted_position - p1.predicted_position;
-            float distance = glm::length(delta);
-
-            if (distance < 1e-6f) continue;  // Avoid division by zero
-
-            float constraint_error = distance - rest_lengths[i];
-            float w_sum = p1.inverse_mass + p2.inverse_mass;
-
-            if (w_sum < 1e-6f) continue;  // Both static
-
-            glm::vec3 correction = (constraint_error / (distance * w_sum)) * delta;
-
-            p1.predicted_position += p1.inverse_mass * correction;
-            p2.predicted_position -= p2.inverse_mass * correction;
-        }
-    }
-
-    void solve_collision_constraints() {
-        // Ground plane collision
-        float ground_y = 0.0f;
-
-        for (auto& p : particles) {
-            if (p.predicted_position.y < ground_y) {
-                p.predicted_position.y = ground_y;
-
-                // Friction (simple)
-                p.velocity.y = 0.0f;
-                p.velocity.x *= 0.8f;
-                p.velocity.z *= 0.8f;
-            }
-        }
-    }
-
-    void solve_bending_constraints() {
-        // Prevent rope from bending too sharply
-        // Uses angle constraint between consecutive segments
-
-        for (size_t i = 1; i < particles.size() - 1; ++i) {
-            Particle& p_prev = particles[i - 1];
-            Particle& p_curr = particles[i];
-            Particle& p_next = particles[i + 1];
-
-            // Vectors of consecutive segments
-            glm::vec3 v1 = p_curr.predicted_position - p_prev.predicted_position;
-            glm::vec3 v2 = p_next.predicted_position - p_curr.predicted_position;
-
-            float len1 = glm::length(v1);
-            float len2 = glm::length(v2);
-
-            if (len1 < 1e-6f || len2 < 1e-6f) continue;
-
-            glm::vec3 n1 = v1 / len1;
-            glm::vec3 n2 = v2 / len2;
-
-            // Current angle
-            float cos_angle = glm::dot(n1, n2);
-
-            // Desired angle (0 = straight, -1 = folded)
-            float desired_cos = 0.5f;  // ~60 degrees max bend
-
-            if (cos_angle < desired_cos) {
-                // Too sharp, correct it
-                glm::vec3 axis = glm::cross(n1, n2);
-                float axis_len = glm::length(axis);
-
-                if (axis_len > 1e-6f) {
-                    axis /= axis_len;
-
-                    // Rotate to desired angle (simplified)
-                    float correction_strength = 0.1f;
-                    glm::vec3 correction = axis * correction_strength;
-
-                    p_curr.predicted_position += correction;
-                }
-            }
-        }
-    }
-
-    // Getters for rendering
-    const std::vector<Particle>& get_particles() const { return particles; }
-};
-```
-
-### 2. Verlet Integration
-
-**Why Verlet > Euler?**
-
-- ✅ Symplectic (conserves energy better)
+**Why Verlet > Euler:**
+- ✅ Symplectic (conserves energy)
 - ✅ Second-order accurate
-- ✅ No explicit velocity storage needed (position-only)
+- ✅ No explicit velocity storage needed
 - ✅ Time-reversible
 
-**Basic Verlet:**
-
 ```cpp
-void verlet_integrate(Particle& p, glm::vec3 acceleration, float dt) {
-    glm::vec3 new_position = 2.0f * p.position - p.prev_position +
-                             acceleration * dt * dt;
-
+void verlet_step(Particle& p, vec3 accel, float dt) {
+    vec3 new_pos = 2.0f * p.position - p.prev_position + accel * dt * dt;
     p.prev_position = p.position;
-    p.position = new_position;
+    p.position = new_pos;
+    // Velocity if needed: (position - prev_position) / dt
 }
 ```
 
-**Velocity Verlet (more practical):**
+### Quaternion Essentials
+
+**Why quaternions:**
+- ✅ No gimbal lock
+- ✅ Compact (4 floats vs 9 for matrix)
+- ✅ Smooth SLERP interpolation
+- ✅ Stable composition
+
+**Key operations:**
+- `q * q'` = compose rotations
+- `q * v * q*` = rotate vector
+- `normalize(q)` = after every operation
+- `slerp(q1, q2, t)` = smooth interpolation
+
+### Tangle Detection (Multi-Rope)
+
+For leash/cable tangling, use segment-segment distance:
 
 ```cpp
-struct VerletParticle {
-    glm::vec3 position;
-    glm::vec3 prev_position;
-    glm::vec3 acceleration;
+float segment_distance(vec3 p1, vec3 p2, vec3 q1, vec3 q2) {
+    vec3 u = p2 - p1, v = q2 - q1, w = p1 - q1;
+    float a = dot(u,u), b = dot(u,v), c = dot(v,v);
+    float d = dot(u,w), e = dot(v,w);
+    float denom = a*c - b*b;
 
-    void integrate(float dt) {
-        glm::vec3 new_position = position +
-                                 (position - prev_position) +
-                                 acceleration * dt * dt;
+    float s = clamp((b*e - c*d) / denom, 0, 1);
+    float t = clamp((a*e - b*d) / denom, 0, 1);
 
-        prev_position = position;
-        position = new_position;
+    return length((q1 + t*v) - (p1 + s*u));
+}
+```
 
-        // Velocity can be computed if needed:
-        // velocity = (position - prev_position) / dt;
+Check all segment pairs between ropes; if distance < rope_diameter, resolve collision.
+
+### Tangle Formation Physics (Crossings → Physical Constraints)
+
+**Critical insight**: Tangle DETECTION is not tangle PHYSICS. Detecting crossings for braid words is different from simulating the physical constraint that forms when ropes interlock.
+
+**When crossings become physical constraints:**
+1. Two rope segments cross (distance < rope_diameter)
+2. Tension exists on one or both ropes (pulling them apart)
+3. The crossing geometry prevents separation (wrap angle > threshold)
+
+**The key difference:**
+- **Detection only**: Ropes pass through each other, we just record the event
+- **Physical tangle**: Ropes cannot pass through; crossing creates a new constraint point
+
+#### TangleConstraint: Dynamic Constraint Creation
+
+When a physical tangle forms, create a **TangleConstraint** between the closest particles on each rope:
+
+```cpp
+class TangleConstraint {
+    Particle* p1;           // Closest particle on rope A
+    Particle* p2;           // Closest particle on rope B
+    float rest_distance;    // Distance at formation (typically rope_diameter)
+    float friction;         // Capstan friction coefficient
+    float wrap_angle;       // Accumulated wrap (affects friction)
+    bool is_locked;         // Has tightened past threshold
+
+    void solve() {
+        vec3 delta = p2->predicted - p1->predicted;
+        float dist = length(delta);
+
+        // Tangle constraint acts like distance constraint
+        // but with friction-dependent rest length
+        float effective_rest = is_locked ?
+            rest_distance * 0.5f :  // Tightened
+            rest_distance;          // Initial
+
+        if (dist < effective_rest) return; // Don't push apart
+
+        float error = dist - effective_rest;
+        float w_sum = p1->inverse_mass + p2->inverse_mass;
+
+        // Apply friction-scaled correction (Capstan effect)
+        float friction_factor = exp(friction * wrap_angle);
+        vec3 correction = (error / (dist * w_sum)) * delta;
+        correction *= min(friction_factor, 3.0f); // Cap for stability
+
+        p1->predicted += p1->inverse_mass * correction;
+        p2->predicted -= p2->inverse_mass * correction;
     }
 };
 ```
 
-### 3. Constraint Solvers
+#### Capstan Equation: Friction at Crossings
 
-#### Gauss-Seidel Solver (Sequential)
+The **Capstan equation** governs friction amplification at rope crossings:
 
-**Advantages:**
-- ✅ Fast convergence
-- ✅ Simple to implement
-- ✅ Works well for chains/ropes (sequential structure)
+```
+T₂ = T₁ × e^(μθ)
+```
 
-**Disadvantages:**
-- ❌ Not parallelizable
-- ❌ Order-dependent
+Where:
+- `T₁` = tension on one side
+- `T₂` = tension on other side (amplified by wrap)
+- `μ` = friction coefficient (0.3-0.8 for rope on rope)
+- `θ` = wrap angle in radians
+
+**Practical implication**: Even 90° of wrap (π/2) with μ=0.5 gives T₂ = 2.2 × T₁. A full 360° wrap gives T₂ = 23 × T₁. This is why knots tighten!
 
 ```cpp
-void gauss_seidel_solve(std::vector<Constraint>& constraints, int iterations) {
-    for (int iter = 0; iter < iterations; ++iter) {
-        for (auto& constraint : constraints) {
-            constraint.solve();  // Updates particles immediately
-        }
-    }
+float capstan_friction(float tension_in, float wrap_angle, float mu = 0.5f) {
+    return tension_in * exp(mu * wrap_angle);
 }
 ```
 
-#### Jacobi Solver (Parallel)
-
-**Advantages:**
-- ✅ Fully parallelizable (GPU-friendly)
-- ✅ Order-independent
-
-**Disadvantages:**
-- ❌ Slower convergence than Gauss-Seidel
-- ❌ May require more iterations
+#### Tangle Formation Detection
 
 ```cpp
-void jacobi_solve(std::vector<Constraint>& constraints,
-                  std::vector<Particle>& particles,
-                  int iterations)
-{
-    std::vector<glm::vec3> position_deltas(particles.size(), glm::vec3(0.0f));
-    std::vector<int> constraint_counts(particles.size(), 0);
-
-    for (int iter = 0; iter < iterations; ++iter) {
-        // Clear deltas
-        std::fill(position_deltas.begin(), position_deltas.end(), glm::vec3(0.0f));
-        std::fill(constraint_counts.begin(), constraint_counts.end(), 0);
-
-        // Compute corrections (parallel)
-        #pragma omp parallel for
-        for (size_t i = 0; i < constraints.size(); ++i) {
-            auto correction = constraints[i].compute_correction();
-
-            // Accumulate (atomic for thread safety)
-            #pragma omp atomic
-            position_deltas[correction.particle1_idx] += correction.delta1;
-            #pragma omp atomic
-            constraint_counts[correction.particle1_idx]++;
-
-            #pragma omp atomic
-            position_deltas[correction.particle2_idx] += correction.delta2;
-            #pragma omp atomic
-            constraint_counts[correction.particle2_idx]++;
-        }
-
-        // Apply averaged corrections
-        #pragma omp parallel for
-        for (size_t i = 0; i < particles.size(); ++i) {
-            if (constraint_counts[i] > 0) {
-                particles[i].position += position_deltas[i] /
-                    static_cast<float>(constraint_counts[i]);
-            }
-        }
-    }
-}
-```
-
-### 4. Quaternion Mathematics
-
-**Why Quaternions for Rotation?**
-
-- ✅ No gimbal lock (unlike Euler angles)
-- ✅ Compact (4 numbers vs 9 for matrix)
-- ✅ Smooth interpolation (SLERP)
-- ✅ Stable under repeated operations
-
-#### Quaternion Basics
-
-```cpp
-struct Quaternion {
-    float x, y, z, w;  // w is real part
-
-    // Identity quaternion (no rotation)
-    static Quaternion identity() {
-        return {0.0f, 0.0f, 0.0f, 1.0f};
-    }
-
-    // From axis-angle
-    static Quaternion from_axis_angle(glm::vec3 axis, float angle) {
-        float half_angle = angle * 0.5f;
-        float s = std::sin(half_angle);
-
-        return {
-            axis.x * s,
-            axis.y * s,
-            axis.z * s,
-            std::cos(half_angle)
-        };
-    }
-
-    // Multiply (compose rotations)
-    Quaternion operator*(const Quaternion& q) const {
-        return {
-            w * q.x + x * q.w + y * q.z - z * q.y,
-            w * q.y - x * q.z + y * q.w + z * q.x,
-            w * q.z + x * q.y - y * q.x + z * q.w,
-            w * q.w - x * q.x - y * q.y - z * q.z
-        };
-    }
-
-    // Rotate vector
-    glm::vec3 rotate(glm::vec3 v) const {
-        // q * v * q^(-1)
-        Quaternion v_quat = {v.x, v.y, v.z, 0.0f};
-        Quaternion result = (*this) * v_quat * conjugate();
-        return {result.x, result.y, result.z};
-    }
-
-    // Conjugate (inverse for unit quaternions)
-    Quaternion conjugate() const {
-        return {-x, -y, -z, w};
-    }
-
-    // Normalize
-    void normalize() {
-        float len = std::sqrt(x*x + y*y + z*z + w*w);
-        x /= len;
-        y /= len;
-        z /= len;
-        w /= len;
-    }
+struct TangleCandidate {
+    int rope_a_segment;
+    int rope_b_segment;
+    vec3 crossing_point;
+    float wrap_angle;
+    bool forms_physical_tangle;
 };
-```
 
-#### Dual Quaternions (Rotation + Translation)
+TangleCandidate check_tangle_formation(
+    Particle& a1, Particle& a2,  // Segment A
+    Particle& b1, Particle& b2,  // Segment B
+    float rope_diameter
+) {
+    // 1. Check segment-segment distance
+    auto [closest_a, closest_b, dist] = segment_closest_points(a1, a2, b1, b2);
 
-**Use Case:** Skinning, rigid body motion with single representation.
+    if (dist > rope_diameter) return {.forms_physical_tangle = false};
 
-```cpp
-struct DualQuaternion {
-    Quaternion real;     // Rotation
-    Quaternion dual;     // Translation (encoded)
+    // 2. Check if tension would tighten (not just touch and separate)
+    vec3 tension_a = (a2.predicted - a1.predicted).normalized();
+    vec3 tension_b = (b2.predicted - b1.predicted).normalized();
+    vec3 separation = (closest_b - closest_a).normalized();
 
-    static DualQuaternion from_rotation_translation(
-        Quaternion rotation, glm::vec3 translation)
-    {
-        // Dual part encodes translation
-        Quaternion t_quat = {translation.x, translation.y, translation.z, 0.0f};
-        Quaternion dual_part = (t_quat * rotation) * 0.5f;
+    // Dot products indicate if pulling would tighten
+    float pull_a = dot(tension_a, separation);
+    float pull_b = dot(tension_b, -separation);
 
-        return {rotation, dual_part};
-    }
+    bool would_tighten = (pull_a > 0.3f) || (pull_b > 0.3f);
 
-    // Transform point
-    glm::vec3 transform_point(glm::vec3 p) const {
-        // Extract translation
-        Quaternion t_quat = (dual * 2.0f) * real.conjugate();
-        glm::vec3 translation = {t_quat.x, t_quat.y, t_quat.z};
+    // 3. Compute wrap angle (how much rope curves around crossing)
+    float wrap_angle = acos(clamp(dot(tension_a, tension_b), -1.0f, 1.0f));
 
-        // Rotate then translate
-        return real.rotate(p) + translation;
-    }
-
-    // Blend dual quaternions (for skinning)
-    static DualQuaternion blend(
-        const std::vector<DualQuaternion>& dqs,
-        const std::vector<float>& weights)
-    {
-        DualQuaternion result = {{0,0,0,0}, {0,0,0,0}};
-
-        // Ensure consistent quaternion hemisphere
-        float sign = 1.0f;
-        for (size_t i = 0; i < dqs.size(); ++i) {
-            if (i > 0) {
-                // Flip if dot product is negative
-                float dot = dqs[i].real.w * dqs[0].real.w +
-                           dqs[i].real.x * dqs[0].real.x +
-                           dqs[i].real.y * dqs[0].real.y +
-                           dqs[i].real.z * dqs[0].real.z;
-                sign = (dot < 0.0f) ? -1.0f : 1.0f;
-            }
-
-            result.real.x += weights[i] * sign * dqs[i].real.x;
-            result.real.y += weights[i] * sign * dqs[i].real.y;
-            result.real.z += weights[i] * sign * dqs[i].real.z;
-            result.real.w += weights[i] * sign * dqs[i].real.w;
-
-            result.dual.x += weights[i] * sign * dqs[i].dual.x;
-            result.dual.y += weights[i] * sign * dqs[i].dual.y;
-            result.dual.z += weights[i] * sign * dqs[i].dual.z;
-            result.dual.w += weights[i] * sign * dqs[i].dual.w;
-        }
-
-        // Normalize
-        result.real.normalize();
-        result.dual.normalize();
-
-        return result;
-    }
-};
-```
-
-### 5. Advanced: ALEM Method (2024)
-
-**Arbitrary Lagrangian-Eulerian Modal (ALEM)** - State-of-the-art for cable dynamics.
-
-**Key Innovation:** Combines Lagrangian (particle-based) and Eulerian (grid-based) representations with modal analysis.
-
-**When to Use:**
-- Complex cable routing (robotics, industrial)
-- High-speed cable dynamics
-- Cables under extreme tension
-
-```cpp
-class ALEMCableSimulation {
-private:
-    struct Node {
-        glm::vec3 position;
-        glm::vec3 velocity;
-        float mass;
-        float arc_length;  // Position along cable (s-coordinate)
+    return {
+        .crossing_point = (closest_a + closest_b) * 0.5f,
+        .wrap_angle = wrap_angle,
+        .forms_physical_tangle = would_tighten && wrap_angle > 0.5f // ~30°
     };
-
-    std::vector<Node> nodes;
-
-    // Material properties
-    float youngs_modulus = 200e9f;  // Steel cable
-    float cable_radius = 0.01f;      // 1cm
-    float density = 7850.0f;         // kg/m^3
-
-public:
-    void update_alem(float dt) {
-        // Step 1: Lagrangian step (move nodes with material)
-        lagrangian_step(dt);
-
-        // Step 2: Eulerian step (remap to fixed arc-length grid)
-        eulerian_remap();
-
-        // Step 3: Modal analysis (extract dominant modes)
-        modal_decomposition();
-
-        // Step 4: Solve in modal space (much faster)
-        solve_modal_dynamics(dt);
-
-        // Step 5: Reconstruct physical coordinates
-        reconstruct_from_modes();
-    }
-
-private:
-    void lagrangian_step(float dt) {
-        // Move nodes according to forces
-        for (auto& node : nodes) {
-            // Tension force
-            glm::vec3 tension = compute_tension(node);
-
-            // Bending force
-            glm::vec3 bending = compute_bending(node);
-
-            // Gravity
-            glm::vec3 gravity_force = glm::vec3(0, -9.81f, 0) * node.mass;
-
-            glm::vec3 total_force = tension + bending + gravity_force;
-
-            // Semi-implicit Euler
-            node.velocity += (total_force / node.mass) * dt;
-            node.position += node.velocity * dt;
-        }
-    }
-
-    void eulerian_remap() {
-        // Remap nodes to uniform arc-length spacing
-        // (prevents bunching/stretching of Lagrangian nodes)
-
-        float total_length = compute_cable_length();
-        int num_nodes = nodes.size();
-
-        std::vector<Node> remapped(num_nodes);
-
-        for (int i = 0; i < num_nodes; ++i) {
-            float target_s = (i / (float)(num_nodes - 1)) * total_length;
-
-            // Interpolate position at target_s
-            remapped[i] = interpolate_at_arc_length(target_s);
-            remapped[i].arc_length = target_s;
-        }
-
-        nodes = remapped;
-    }
-
-    void modal_decomposition() {
-        // Decompose cable shape into vibration modes
-        // (Fourier-like basis for cable deformation)
-
-        // Simplified: project onto first N modes
-        // (Full implementation would use proper modal analysis)
-    }
-};
-```
-
-### 6. Three-Dog Leash Tangle Simulation
-
-**User's Specific Use Case:** Three dogs, three leashes, tangling behavior.
-
-```cpp
-class ThreeDogLeashSystem {
-private:
-    struct Dog {
-        glm::vec3 position;
-        glm::vec3 velocity;
-        int leash_id;
-    };
-
-    std::vector<Dog> dogs;
-    std::vector<RopeSimulation> leashes;
-    glm::vec3 handler_position;  // Where human holds leashes
-
-public:
-    ThreeDogLeashSystem() {
-        // Initialize three dogs
-        dogs.push_back({glm::vec3(-2, 0, 0), glm::vec3(0), 0});
-        dogs.push_back({glm::vec3(0, 0, 2), glm::vec3(0), 1});
-        dogs.push_back({glm::vec3(2, 0, 0), glm::vec3(0), 2});
-
-        handler_position = glm::vec3(0, 1.5f, 0);  // Hand height
-
-        // Create three leashes
-        for (int i = 0; i < 3; ++i) {
-            leashes.emplace_back(
-                handler_position,      // Start (hand)
-                dogs[i].position,      // End (collar)
-                20                     // 20 particles per leash
-            );
-        }
-    }
-
-    void update(float dt) {
-        // Update dog behavior (simple random walk)
-        for (auto& dog : dogs) {
-            // Random acceleration
-            glm::vec3 random_accel = glm::vec3(
-                random_range(-1.0f, 1.0f),
-                0.0f,
-                random_range(-1.0f, 1.0f)
-            );
-
-            dog.velocity += random_accel * dt;
-            dog.velocity *= 0.95f;  // Damping
-
-            dog.position += dog.velocity * dt;
-        }
-
-        // Update each leash
-        for (size_t i = 0; i < leashes.size(); ++i) {
-            // Pin start to handler
-            leashes[i].particles[0].position = handler_position;
-            leashes[i].particles[0].inverse_mass = 0.0f;  // Static
-
-            // Attach end to dog collar
-            int last_idx = leashes[i].particles.size() - 1;
-            leashes[i].particles[last_idx].position = dogs[i].position;
-            leashes[i].particles[last_idx].predicted_position = dogs[i].position;
-
-            leashes[i].update(dt);
-        }
-
-        // Critical: Detect and resolve leash-leash collisions (tangling!)
-        detect_leash_tangles();
-    }
-
-    void detect_leash_tangles() {
-        // Check for collisions between leash segments
-        for (size_t i = 0; i < leashes.size(); ++i) {
-            for (size_t j = i + 1; j < leashes.size(); ++j) {
-                // Check all segment pairs
-                check_leash_collision(leashes[i], leashes[j]);
-            }
-        }
-    }
-
-    void check_leash_collision(RopeSimulation& leash1, RopeSimulation& leash2) {
-        const auto& particles1 = leash1.get_particles();
-        const auto& particles2 = leash2.get_particles();
-
-        for (size_t i = 0; i < particles1.size() - 1; ++i) {
-            for (size_t j = 0; j < particles2.size() - 1; ++j) {
-                // Segment-segment distance
-                glm::vec3 p1 = particles1[i].position;
-                glm::vec3 p2 = particles1[i + 1].position;
-                glm::vec3 q1 = particles2[j].position;
-                glm::vec3 q2 = particles2[j + 1].position;
-
-                float distance = segment_segment_distance(p1, p2, q1, q2);
-
-                float collision_threshold = 0.05f;  // 5cm (leash diameter)
-
-                if (distance < collision_threshold) {
-                    // Resolve collision (push apart)
-                    resolve_segment_collision(
-                        leash1.particles[i], leash1.particles[i + 1],
-                        leash2.particles[j], leash2.particles[j + 1]
-                    );
-                }
-            }
-        }
-    }
-
-    float segment_segment_distance(glm::vec3 p1, glm::vec3 p2,
-                                    glm::vec3 q1, glm::vec3 q2) {
-        // Closest point between two line segments
-        glm::vec3 u = p2 - p1;
-        glm::vec3 v = q2 - q1;
-        glm::vec3 w = p1 - q1;
-
-        float a = glm::dot(u, u);
-        float b = glm::dot(u, v);
-        float c = glm::dot(v, v);
-        float d = glm::dot(u, w);
-        float e = glm::dot(v, w);
-
-        float denom = a * c - b * b;
-
-        float s, t;
-        if (denom < 1e-6f) {
-            s = 0.0f;
-            t = (b > c ? d / b : e / c);
-        } else {
-            s = (b * e - c * d) / denom;
-            t = (a * e - b * d) / denom;
-        }
-
-        s = glm::clamp(s, 0.0f, 1.0f);
-        t = glm::clamp(t, 0.0f, 1.0f);
-
-        glm::vec3 closest1 = p1 + s * u;
-        glm::vec3 closest2 = q1 + t * v;
-
-        return glm::length(closest2 - closest1);
-    }
-};
-```
-
-## Performance Benchmarks
-
-**PBD Rope (100 particles, 5 iterations):**
-- CPU: ~0.5ms per frame (single-threaded)
-- GPU: ~0.1ms per frame (parallelized)
-- Scales linearly with particle count
-
-**Verlet Integration:**
-- ~0.01ms per 1000 particles
-- Extremely efficient (position-only)
-
-**Constraint Solvers:**
-- Gauss-Seidel: 0.3ms for 100 constraints
-- Jacobi (GPU): 0.1ms for 100 constraints
-
-**Quaternion Operations:**
-- Rotation: ~10ns per operation
-- SLERP: ~50ns per interpolation
-
-**Three-Dog Leash System:**
-- 3 leashes × 20 particles = 60 particles
-- ~0.5ms for physics update
-- ~0.2ms for tangle detection
-- **Total: ~0.7ms per frame (well within 16ms budget for 60fps)**
-
-## Integration Example
-
-```cpp
-// main.cpp - Complete three-dog leash simulation
-
-#include "physics.h"
-#include "rendering.h"
-
-int main() {
-    // Initialize simulation
-    ThreeDogLeashSystem simulation;
-
-    // Rendering
-    Renderer renderer;
-    renderer.init();
-
-    // Main loop (60 FPS)
-    const float dt = 1.0f / 60.0f;
-
-    while (!should_quit()) {
-        // Update physics
-        simulation.update(dt);
-
-        // Render
-        renderer.clear();
-
-        // Draw leashes
-        for (const auto& leash : simulation.leashes) {
-            renderer.draw_rope(leash.get_particles());
-        }
-
-        // Draw dogs
-        for (const auto& dog : simulation.dogs) {
-            renderer.draw_dog(dog.position);
-        }
-
-        renderer.present();
-    }
-
-    return 0;
 }
 ```
 
-## References
+#### Tangle Lifecycle
 
-**Position-Based Dynamics:**
-- Müller et al. (2006): "Position Based Dynamics"
-- Macklin & Müller (2013): "Position Based Fluids"
+1. **Detection**: Segment distance < threshold
+2. **Formation**: Tension + geometry = physical constraint created
+3. **Tightening**: Under continued tension, rest_distance decreases (knot tightens)
+4. **Locking**: Past threshold, tangle becomes "locked" (much harder to undo)
+5. **Breaking**: Extreme force OR deliberate untangling action
 
-**Verlet Integration:**
-- Jakobsen (2001): "Advanced Character Physics" (GDC)
+```cpp
+void update_tangle(TangleConstraint& tangle, float dt) {
+    // Measure local tension
+    float tension = measure_rope_tension_at(tangle.p1) +
+                   measure_rope_tension_at(tangle.p2);
 
-**Constraint Solvers:**
-- Baraff (1996): "Linear-Time Dynamics using Lagrange Multipliers"
-- Bender et al. (2014): "Survey on Position-Based Simulation Methods"
+    // Tighten under tension
+    if (tension > TIGHTEN_THRESHOLD && !tangle.is_locked) {
+        tangle.rest_distance *= (1.0f - 0.1f * dt); // Gradual tightening
+        tangle.rest_distance = max(tangle.rest_distance, MIN_TANGLE_DISTANCE);
+    }
 
-**Quaternions:**
-- Shoemake (1985): "Animating Rotation with Quaternion Curves"
-- Kavan et al. (2008): "Geometric Skinning with Dual Quaternions"
+    // Lock if tightened enough
+    if (tangle.rest_distance < LOCK_THRESHOLD) {
+        tangle.is_locked = true;
+    }
 
-**Recent Advances (2024):**
-- ALEM Method (2024 SIGGRAPH): "Arbitrary Lagrangian-Eulerian Modal Analysis for Cable Dynamics"
-- BDEM with Manifold Optimization (2024): "Bonded Discrete Element Method for Rope Simulation"
+    // Update wrap angle based on local geometry
+    tangle.wrap_angle = compute_local_wrap_angle(tangle);
+}
+```
 
-## Best Practices
+### Anti-Patterns: Tangle Simulation
 
-### ✅ DO:
-- Use PBD for stability and control
-- Implement Gauss-Seidel for chains/ropes
-- Use Jacobi for GPU parallelization
-- Normalize quaternions after every operation
-- Use dual quaternions for skinning
-- Profile and optimize constraint solver iterations
-- Implement broad-phase collision detection
-- Use spatial hashing for large systems
+#### Anti-Pattern: Detection Without Physics
+**What it looks like**: Recording braid words but ropes pass through each other
+**Why it's wrong**: Braid tracking ≠ physical simulation; user sees ropes ghost through
+**What to do instead**: Create TangleConstraints when crossings form; resolve as constraints in PBD loop
 
-### ❌ DON'T:
-- Use force-based springs for stiff constraints
-- Ignore constraint ordering in Gauss-Seidel
-- Forget to handle degenerate cases (zero-length segments)
-- Use Euler angles for rotation (gimbal lock!)
-- Skip collision detection (leashes will pass through each other)
-- Over-constrain the system (causes instability)
-- Use too many solver iterations (diminishing returns after 5-10)
+#### Anti-Pattern: Treating All Crossings as Tangles
+**What it looks like**: Every segment intersection creates a constraint
+**Why it's wrong**: Brief touches aren't tangles; creates explosion of unnecessary constraints
+**What to do instead**: Check tension direction and wrap angle; only form tangle if would tighten
+
+#### Anti-Pattern: Capsule Collision for Tangle Physics
+**What it looks like**: Using thick capsule collision volumes around rope segments
+**Why it's wrong**: Causes instability ("violent explosions" per Starframe devs); tunneling issues
+**What to do instead**: Point-based collision with adaptive particle placement; or overlapping circular colliders
+
+#### Anti-Pattern: Ignoring Directional Friction
+**What it looks like**: Symmetric friction in all directions at crossing points
+**Why it's wrong**: Real rope friction is directional (Capstan effect); symmetric friction feels wrong
+**What to do instead**: Apply Capstan equation with wrap angle; or disable static friction entirely for simplicity
+
+#### Anti-Pattern: Immediate Lock on Contact
+**What it looks like**: `if (crossed) tangle.is_locked = true`
+**Why it's wrong**: Real tangles form gradually under tension; instant lock feels jarring
+**What to do instead**: Gradual tightening over time; lock only after rest_distance < threshold
+
+### Tangle Decision Tree
+
+**Should this crossing become a TangleConstraint?**
+1. Distance < rope_diameter? → Continue
+2. Already have a TangleConstraint for this pair? → Skip (update existing)
+3. Would tension tighten (not separate) the ropes? → Continue
+4. Wrap angle > 30°? → **Create TangleConstraint**
+5. Otherwise → Ignore (transient contact)
+
+**When to break a TangleConstraint?**
+1. Distance > 2× rest_distance for sustained period → Break
+2. External "untangle" action triggered → Break
+3. is_locked == true → Much harder to break (require specific manipulation)
+
+### Tangle Expert vs Novice Shibboleths
+
+| Topic | Novice | Expert |
+|-------|--------|--------|
+| **Crossing = tangle** | "Detected crossing, add constraint" | "Check tension direction + wrap angle first" |
+| **Friction model** | Symmetric Coulomb friction | Capstan equation (exponential with wrap) |
+| **Collision volumes** | Capsules around segments | Point-based or circular with overlap |
+| **Tightening** | Instant or none | Gradual under tension, lock at threshold |
+| **Constraint creation** | At detection time | At PBD loop step 7 (after position prediction) |
+
+## Performance Targets
+
+| System | Budget | Notes |
+|--------|--------|-------|
+| Single rope (100 particles) | &lt;0.5ms | 5 iterations sufficient |
+| Three-dog leash (60 particles) | &lt;0.7ms | Include tangle detection |
+| Cloth (1000 particles) | &lt;2ms | Use Jacobi on GPU |
+| Hair (10k strands) | &lt;5ms | LOD + GPU required |
+
+## Integrates With
+
+- **metal-shader-expert** - GPU compute shaders for Jacobi solver
+- **vr-avatar-engineer** - Real-time character physics in VR
+- **native-app-designer** - Visualization and debugging UI
+
+## Quick Decision Tree
+
+**Choosing constraint solver:**
+- Sequential structure (rope/chain)? → Gauss-Seidel
+- Large parallel system (cloth/hair)? → Jacobi (GPU)
+- Need soft constraints? → XPBD with compliance
+
+**Choosing integration:**
+- Position-only needed? → Basic Verlet
+- Need velocity for forces? → Velocity Verlet
+- High accuracy required? → RK4 (but PBD usually sufficient)
+
+**Rotation representation:**
+- 3D rotation? → Quaternion (never Euler)
+- Rotation + translation? → Dual quaternion
+- Skinning/blending? → Dual quaternion (no candy-wrapper)
+
+---
+
+**For complete implementations**: See `/references/implementations.md`
+
+**Remember**: Real-time physics is about stability and visual plausibility, not physical accuracy. PBD with 5-10 iterations at 60fps looks great and runs fast. Don't over-engineer.

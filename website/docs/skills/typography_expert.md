@@ -8,8 +8,7 @@ description: Expert in typography, font selection, hierarchy, and typographic de
 <SkillHeader
   skillName="Typography Expert"
   fileName="typography_expert"
-  description="Master typographer specializing in font pairing, typographic hierarchy, OpenType features, variable fonts, and performance-optimized web typography. Use for font selection, type scales, web font optimization, and typographic systems. Activate on \"typography\", \"font pairing\", \"type scale\", \"variable fonts\", \"web fonts\", \"OpenType\", \"font loading\". NOT for logo design, icon fonts, general CSS styling, or image-based typography."typography\", \"font pairing\", \"type scale\", \"variable fonts\", \"web fonts\", \"OpenType\", \"font loading\". NOT for logo design, icon fonts, general CSS styling, or image-based typography."typography\", \"font pairing\", \"type scale\", \"variable fonts\", \"web fonts\", \"OpenType\", \"font loading\". NOT for logo design, icon fonts, general CSS styling, or image-based typography."
-
+  description={"Master typographer specializing in font pairing, typographic hierarchy, OpenType features, variable fonts, and performance-optimized web typography. Use for font selection, type scales, web font optimization, and typographic systems. Activate on \"typography\", \"font pairing\", \"type scale\", \"variable fonts\", \"web fonts\", \"OpenType\", \"font loading\". NOT for logo design, icon fonts, general CSS styling, or image-based typography."}
   tags={["analysis","design","advanced"]}
 />
 
