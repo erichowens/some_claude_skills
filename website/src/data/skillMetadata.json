@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-29T03:48:27.379Z",
+  "generatedAt": "2025-11-29T04:21:27.786Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -16,7 +16,7 @@
     "adhd-design-expert": {
       "id": "adhd-design-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-25T18:43:58-08:00",
+      "updatedAt": "2025-11-28T19:48:25-08:00",
       "totalLines": 666,
       "totalFiles": 3,
       "skillMdSize": 6960,
@@ -197,11 +197,11 @@
       "id": "hr-network-analyst",
       "createdAt": null,
       "updatedAt": null,
-      "totalLines": 0,
-      "totalFiles": 0,
-      "skillMdSize": 0,
-      "skillMdLines": 0,
-      "hasReferences": false,
+      "totalLines": 1783,
+      "totalFiles": 3,
+      "skillMdSize": 22535,
+      "skillMdLines": 695,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -340,7 +340,7 @@
     "project-management-guru-adhd": {
       "id": "project-management-guru-adhd",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-25T18:43:58-08:00",
+      "updatedAt": "2025-11-28T19:48:25-08:00",
       "totalLines": 887,
       "totalFiles": 6,
       "skillMdSize": 6444,
@@ -413,11 +413,11 @@
       "id": "speech-pathology-ai",
       "createdAt": "2025-11-25T18:43:58-08:00",
       "updatedAt": "2025-11-25T18:43:58-08:00",
-      "totalLines": 1363,
-      "totalFiles": 1,
-      "skillMdSize": 44324,
-      "skillMdLines": 1363,
-      "hasReferences": false,
+      "totalLines": 1433,
+      "totalFiles": 5,
+      "skillMdSize": 7918,
+      "skillMdLines": 174,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -448,7 +448,7 @@
     "tech-entrepreneur-coach-adhd": {
       "id": "tech-entrepreneur-coach-adhd",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-25T18:43:58-08:00",
+      "updatedAt": "2025-11-28T19:48:25-08:00",
       "totalLines": 802,
       "totalFiles": 6,
       "skillMdSize": 6643,

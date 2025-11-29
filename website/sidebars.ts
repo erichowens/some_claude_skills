@@ -111,6 +111,7 @@ const sidebars: SidebarsConfig = {
         'skills/research_analyst',
         'skills/team_builder',
         'skills/competitive_cartographer',
+        'skills/hr_network_analyst',
       ],
     },
     {
