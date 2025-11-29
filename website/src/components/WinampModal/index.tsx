@@ -254,8 +254,8 @@ export default function WinampModal() {
                 {currentTrack.description}
               </div>
 
-              {/* AI Generation Credits */}
-              {currentTrackIndex < 7 && (
+              {/* AI Generation Credits - shown for AI-generated tracks (index 15+) */}
+              {currentTrackIndex >= 15 && (
                 <div className={styles.aiCredits}>
                   <span className={styles.creditIcon}>[AI]</span>
                   <span className={styles.creditText}>
