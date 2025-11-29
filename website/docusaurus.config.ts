@@ -83,8 +83,8 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    // Social card for link previews
+    image: 'img/og-image.png',
     colorMode: {
       defaultMode: 'light',
       disableSwitch: true,
