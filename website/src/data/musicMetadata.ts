@@ -18,7 +18,22 @@ export interface TrackMetadata {
 }
 
 export const MUSIC_LIBRARY: TrackMetadata[] = [
-  // Blank Banshee - MIDImorphosis (first!)
+  // Charli XCX & Troye Sivan - 1999 (Lo-Fi)
+  {
+    id: '1999-lofi',
+    title: '1999 (Lo-Fi)',
+    artist: 'Charli XCX & Troye Sivan',
+    album: 'PROGRAM.EXE',
+    year: 2018,
+    genre: 'Synth-Pop',
+    file: '/audio/1999-lofi.mp3',
+    coverArt: '/img/covers/1999-lofi.png',
+    duration: '02:52',
+    bpm: 105,
+    mood: 'Nostalgic, Euphoric',
+    description: 'Y2K nostalgia through a lo-fi haze'
+  },
+  // Blank Banshee - MIDImorphosis
   {
     id: 'bb-ovum',
     title: 'OVUM',
@@ -328,6 +343,91 @@ export const MUSIC_LIBRARY: TrackMetadata[] = [
     mood: 'Relaxed, Nostalgic',
     description: 'Smooth jazz echoing through empty corridors'
   },
+  // ElevenLabs AI-Generated Tracks (MP3)
+  {
+    id: 'nineties-nostalgia',
+    title: 'Nineties Nostalgia',
+    artist: 'CRYSTAL REWIND',
+    album: 'Y2K Dreams',
+    year: 1999,
+    genre: 'Synth-Pop',
+    file: '/audio/nineties-nostalgia.mp3',
+    coverArt: '/img/covers/nineties-nostalgia.png',
+    duration: '03:00',
+    bpm: 118,
+    mood: 'Euphoric, Carefree',
+    description: 'Bright shimmering synths and summer disco vibes'
+  },
+  {
+    id: 'midnight-mall',
+    title: 'Midnight Mall',
+    artist: 'PLAZA DREAMS',
+    album: 'After Hours',
+    year: 1991,
+    genre: 'Vaporwave',
+    file: '/audio/midnight-mall.mp3',
+    coverArt: '/img/covers/midnight-mall.png',
+    duration: '03:00',
+    bpm: 70,
+    mood: 'Hazy, Nostalgic',
+    description: 'VHS memories of empty corridors and distant saxophones'
+  },
+  {
+    id: 'neon-noir',
+    title: 'Neon Noir',
+    artist: 'MIDNIGHT RUNNER',
+    album: 'Dark Highway',
+    year: 1984,
+    genre: 'Synthwave',
+    file: '/audio/neon-noir.mp3',
+    coverArt: '/img/covers/neon-noir.png',
+    duration: '03:00',
+    bpm: 95,
+    mood: 'Dark, Cinematic',
+    description: 'Rain-soaked streets and ominous pulsing arpeggios'
+  },
+  {
+    id: 'tokyo-sunset',
+    title: 'Tokyo Sunset',
+    artist: 'PLASTIC LOVE',
+    album: 'City Pop Forever',
+    year: 1985,
+    genre: 'Future Funk',
+    file: '/audio/tokyo-sunset.mp3',
+    coverArt: '/img/covers/tokyo-sunset.png',
+    duration: '03:00',
+    bpm: 120,
+    mood: 'Energetic, Funky',
+    description: 'Disco strings and slap bass at golden hour'
+  },
+  {
+    id: 'coastal-haze',
+    title: 'Coastal Haze',
+    artist: 'TORO Y MOI 2',
+    album: 'Beach Memories',
+    year: 2011,
+    genre: 'Chillwave',
+    file: '/audio/coastal-haze.mp3',
+    coverArt: '/img/covers/coastal-haze.png',
+    duration: '03:00',
+    bpm: 80,
+    mood: 'Dreamy, Peaceful',
+    description: 'Reverb-drenched guitars through sunset fog'
+  },
+  {
+    id: 'sugar-glitch',
+    title: 'Sugar Glitch',
+    artist: 'CRYSTAL CASTLES 2.0',
+    album: 'Digital Overload',
+    year: 2023,
+    genre: 'Hyperpop',
+    file: '/audio/sugar-glitch.mp3',
+    coverArt: '/img/covers/sugar-glitch.png',
+    duration: '02:30',
+    bpm: 140,
+    mood: 'Chaotic, Energetic',
+    description: 'Maximum sensory overload with glitchy 808s'
+  },
 ];
 
 /**
@@ -358,6 +458,26 @@ export const GENRE_COLORS = {
     primary: '#00FF00',    // Green
     secondary: '#00FFFF',  // Cyan
     gradient: ['#00FF00', '#00FFFF', '#FF00FF']
+  },
+  'Synth-Pop': {
+    primary: '#FF69B4',    // Hot pink
+    secondary: '#87CEEB',  // Sky blue
+    gradient: ['#FF69B4', '#DDA0DD', '#87CEEB']
+  },
+  'Future Funk': {
+    primary: '#FF8C00',    // Orange
+    secondary: '#FF1493',  // Deep pink
+    gradient: ['#FF8C00', '#FFD700', '#FF1493']
+  },
+  'Chillwave': {
+    primary: '#98D8C8',    // Seafoam
+    secondary: '#F7DC6F',  // Warm yellow
+    gradient: ['#98D8C8', '#F5B7B1', '#F7DC6F']
+  },
+  'Hyperpop': {
+    primary: '#FF00FF',    // Magenta
+    secondary: '#00FFFF',  // Cyan
+    gradient: ['#FF00FF', '#00FF00', '#00FFFF']
   }
 };
 

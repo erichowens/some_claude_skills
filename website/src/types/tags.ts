@@ -37,6 +37,10 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'orchestration', label: 'Orchestration', type: 'skill-type', description: 'Coordinates multiple skills or agents' },
   { id: 'validation', label: 'Validation', type: 'skill-type', description: 'Checks and validates work' },
   { id: 'analysis', label: 'Analysis', type: 'skill-type', description: 'Deep analytical processing' },
+  { id: 'optimization', label: 'Optimization', type: 'skill-type', description: 'Improves and optimizes content or processes' },
+  { id: 'clustering', label: 'Clustering', type: 'skill-type', description: 'Groups and categorizes similar items' },
+  { id: 'curation', label: 'Curation', type: 'skill-type', description: 'Selects and organizes content' },
+  { id: 'indexing', label: 'Indexing', type: 'skill-type', description: 'Creates searchable indexes' },
 
   // Domain Tags (subject matter) - Blue
   { id: 'design', label: 'Design', type: 'domain', description: 'Visual and UX design' },
@@ -54,6 +58,14 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'health', label: 'Health', type: 'domain', description: 'Physical and mental wellness' },
   { id: 'entrepreneurship', label: 'Entrepreneurship', type: 'domain', description: 'Startups and business building' },
   { id: 'spatial', label: 'Spatial', type: 'domain', description: 'Interior design and space planning' },
+  { id: 'job-search', label: 'Job Search', type: 'domain', description: 'Job hunting and application strategy' },
+  { id: 'inspection', label: 'Inspection', type: 'domain', description: 'Infrastructure and property inspection' },
+  { id: 'thermal', label: 'Thermal', type: 'domain', description: 'Thermal imaging and analysis' },
+  { id: 'insurance', label: 'Insurance', type: 'domain', description: 'Insurance risk and claims' },
+  { id: 'temporal', label: 'Temporal', type: 'domain', description: 'Time-based analysis and events' },
+  { id: 'events', label: 'Events', type: 'domain', description: 'Event detection and tracking' },
+  { id: 'faces', label: 'Faces', type: 'domain', description: 'Face recognition and clustering' },
+  { id: 'duplicates', label: 'Duplicates', type: 'domain', description: 'Duplicate detection and deduplication' },
 
   // Output Format Tags - Green
   { id: 'code', label: 'Code', type: 'output', description: 'Generates code' },

@@ -7,3 +7,4 @@
 [submodule "erichowens_com"]
 	path = erichowens_com
 	url = https://github.com/erichowens/erichowens_com.git
+	ignore = all

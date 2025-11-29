@@ -6,13 +6,13 @@
   },
   "adhd-design-expert": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 3,
+    "folderCount": 1
   },
   "agent-creator": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
   },
   "automatic-stateful-prompt-improver": {
     "hasContent": true,
@@ -20,9 +20,9 @@
     "folderCount": 1
   },
   "bot-developer": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
   },
   "career-biographer": {
     "hasContent": true,
@@ -50,9 +50,9 @@
     "folderCount": 1
   },
   "cv-creator": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
   },
   "design-archivist": {
     "hasContent": true,
@@ -79,20 +79,30 @@
     "fileCount": 6,
     "folderCount": 1
   },
+  "hr-network-analyst": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
+  },
   "hrv-alexithymia-expert": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
   },
   "interior-design-expert": {
     "hasContent": true,
     "fileCount": 6,
     "folderCount": 1
   },
-  "jungian-psychologist": {
+  "job-application-optimizer": {
     "hasContent": false,
     "fileCount": 1,
     "folderCount": 0
+  },
+  "jungian-psychologist": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 1
   },
   "metal-shader-expert": {
     "hasContent": true,
@@ -110,9 +120,9 @@
     "folderCount": 0
   },
   "personal-finance-coach": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
   },
   "photo-composition-critic": {
     "hasContent": true,
@@ -130,9 +140,9 @@
     "folderCount": 1
   },
   "project-management-guru-adhd": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
   },
   "research-analyst": {
     "hasContent": false,
@@ -141,8 +151,8 @@
   },
   "site-reliability-engineer": {
     "hasContent": true,
-    "fileCount": 4,
-    "folderCount": 1
+    "fileCount": 7,
+    "folderCount": 2
   },
   "skill-coach": {
     "hasContent": true,
@@ -151,8 +161,8 @@
   },
   "skill-documentarian": {
     "hasContent": true,
-    "fileCount": 5,
-    "folderCount": 2
+    "fileCount": 10,
+    "folderCount": 3
   },
   "sound-engineer": {
     "hasContent": true,
@@ -160,9 +170,9 @@
     "folderCount": 1
   },
   "speech-pathology-ai": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 1
   },
   "swift-executor": {
     "hasContent": false,
@@ -176,8 +186,8 @@
   },
   "tech-entrepreneur-coach-adhd": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 6,
+    "folderCount": 1
   },
   "typography-expert": {
     "hasContent": true,
@@ -211,12 +221,12 @@
   },
   "windows-3-1-web-designer": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 5,
+    "folderCount": 1
   },
   "wisdom-accountability-coach": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 1
   }
 }

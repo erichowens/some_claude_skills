@@ -91,6 +91,11 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   const audioContextRef = useRef<AudioContext | null>(null);
   const progressAnimationRef = useRef<number | null>(null);
 
+  // MP3 playback refs
+  const audioElementRef = useRef<HTMLAudioElement | null>(null);
+  const audioSourceNodeRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const [isMP3Track, setIsMP3Track] = useState(false);
+
   // NEW: Audio processing chain refs
   const gainNodeRef = useRef<GainNode | null>(null);
   const compressorNodeRef = useRef<DynamicsCompressorNode | null>(null);
@@ -216,6 +221,10 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
       if (playerRef.current) {
         playerRef.current.stop();
       }
+      if (audioElementRef.current) {
+        audioElementRef.current.pause();
+        audioElementRef.current.src = '';
+      }
       if (audioContextRef.current) {
         audioContextRef.current.close();
       }
@@ -225,21 +234,89 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     };
   }, []);
 
+  // Sync volume to MP3 audio element (volume is controlled by GainNode, but we need to set audio element volume too)
+  useEffect(() => {
+    // For MP3, the volume is controlled by the GainNode in the audio chain,
+    // so we don't need to set audioElement.volume separately
+    // But we do need to make sure the audio element is not muted
+    if (audioElementRef.current) {
+      audioElementRef.current.volume = 1; // Full volume - GainNode handles actual volume
+    }
+  }, [isMP3Track]);
+
   const loadTrack = async (trackIndex: number) => {
-    if (!playerRef.current || !audioContextRef.current) return;
+    if (!audioContextRef.current) return;
 
     try {
       const track = MUSIC_LIBRARY[trackIndex];
-      const response = await fetch(track.file);
-      const arrayBuffer = await response.arrayBuffer();
-      const midiData = new Uint8Array(arrayBuffer);
+      const isMP3 = track.file.toLowerCase().endsWith('.mp3') ||
+                    track.file.toLowerCase().endsWith('.wav') ||
+                    track.file.toLowerCase().endsWith('.ogg');
 
-      playerRef.current.loadArrayBuffer(midiData);
+      setIsMP3Track(isMP3);
       setProgress(0);
 
-      // Preload acoustic piano (most common instrument)
-      await loadInstrument(0);  // Acoustic grand piano
-      await loadInstrument(33); // Acoustic bass
+      // Stop any existing playback
+      if (audioElementRef.current) {
+        audioElementRef.current.pause();
+        audioElementRef.current.src = '';
+      }
+      if (playerRef.current) {
+        playerRef.current.stop();
+      }
+
+      if (isMP3) {
+        console.log('[MusicPlayer] Loading MP3/audio file:', track.file);
+
+        // Create or reuse audio element
+        if (!audioElementRef.current) {
+          audioElementRef.current = new Audio();
+          audioElementRef.current.crossOrigin = 'anonymous';
+        }
+
+        // Set the source
+        audioElementRef.current.src = track.file;
+        audioElementRef.current.load();
+
+        // Connect to audio chain if not already connected
+        if (!audioSourceNodeRef.current && gainNodeRef.current) {
+          audioSourceNodeRef.current = audioContextRef.current.createMediaElementSource(audioElementRef.current);
+          audioSourceNodeRef.current.connect(gainNodeRef.current);
+          console.log('[MusicPlayer] MP3 audio connected to gain node');
+        }
+
+        // Set up event handlers
+        audioElementRef.current.onended = () => {
+          console.log('[MusicPlayer] MP3 track ended');
+          setIsPlaying(false);
+          setProgress(0);
+          // Auto-advance to next track
+          setCurrentTrackIndex((prev) => (prev + 1) % MUSIC_LIBRARY.length);
+        };
+
+        audioElementRef.current.onerror = (e) => {
+          console.error('[MusicPlayer] MP3 load error:', e);
+        };
+
+        audioElementRef.current.onloadeddata = () => {
+          console.log('[MusicPlayer] MP3 loaded successfully:', track.title);
+        };
+
+      } else {
+        // MIDI file - use existing logic
+        if (!playerRef.current) return;
+
+        console.log('[MusicPlayer] Loading MIDI file:', track.file);
+        const response = await fetch(track.file);
+        const arrayBuffer = await response.arrayBuffer();
+        const midiData = new Uint8Array(arrayBuffer);
+
+        playerRef.current.loadArrayBuffer(midiData);
+
+        // Preload acoustic piano (most common instrument)
+        await loadInstrument(0);  // Acoustic grand piano
+        await loadInstrument(33); // Acoustic bass
+      }
     } catch (error) {
       console.error('Failed to load track:', error);
     }
@@ -359,12 +436,12 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   }
 
   const play = async () => {
-    if (!playerRef.current || !audioContextRef.current) return;
+    if (!audioContextRef.current) return;
 
     console.log('[MusicPlayer] Play called, AudioContext state:', audioContextRef.current.state);
     console.log('[MusicPlayer] GainNode:', gainNodeRef.current);
     console.log('[MusicPlayer] AnalyserNode (from state):', analyserNode);
-    console.log('[MusicPlayer] Try window.__playTestTone() in console to test audio chain');
+    console.log('[MusicPlayer] isMP3Track:', isMP3Track);
 
     // Resume audio context if suspended - MUST await this!
     if (audioContextRef.current.state === 'suspended') {
@@ -372,30 +449,64 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
       console.log('[MusicPlayer] AudioContext resumed, new state:', audioContextRef.current.state);
     }
 
-    playerRef.current.play();
-    setIsPlaying(true);
-
-    // Update progress
-    const updateProgress = () => {
-      if (playerRef.current && isPlaying) {
-        const remaining = playerRef.current.getSongPercentRemaining() || 0;
-        setProgress(100 - remaining);
-
-        if (isPlaying) {
-          progressAnimationRef.current = requestAnimationFrame(updateProgress);
-        }
+    if (isMP3Track && audioElementRef.current) {
+      // MP3 playback
+      try {
+        await audioElementRef.current.play();
+        console.log('[MusicPlayer] MP3 playback started');
+      } catch (error) {
+        console.error('[MusicPlayer] MP3 play error:', error);
+        return;
       }
-    };
-    progressAnimationRef.current = requestAnimationFrame(updateProgress);
+      setIsPlaying(true);
+
+      // Update progress for MP3
+      const updateMP3Progress = () => {
+        if (audioElementRef.current && !audioElementRef.current.paused) {
+          const currentTime = audioElementRef.current.currentTime;
+          const duration = audioElementRef.current.duration || 1;
+          const progressPercent = (currentTime / duration) * 100;
+          setProgress(progressPercent);
+          progressAnimationRef.current = requestAnimationFrame(updateMP3Progress);
+        }
+      };
+      progressAnimationRef.current = requestAnimationFrame(updateMP3Progress);
+
+    } else if (playerRef.current) {
+      // MIDI playback
+      playerRef.current.play();
+      setIsPlaying(true);
+
+      // Update progress for MIDI
+      const updateMIDIProgress = () => {
+        if (playerRef.current && isPlaying) {
+          const remaining = playerRef.current.getSongPercentRemaining() || 0;
+          setProgress(100 - remaining);
+
+          if (isPlaying) {
+            progressAnimationRef.current = requestAnimationFrame(updateMIDIProgress);
+          }
+        }
+      };
+      progressAnimationRef.current = requestAnimationFrame(updateMIDIProgress);
+    }
   };
 
   const pause = () => {
-    if (!playerRef.current) return;
-    playerRef.current.pause();
-    setIsPlaying(false);
     if (progressAnimationRef.current) {
       cancelAnimationFrame(progressAnimationRef.current);
     }
+
+    if (isMP3Track && audioElementRef.current) {
+      // MP3 pause
+      audioElementRef.current.pause();
+      console.log('[MusicPlayer] MP3 paused');
+    } else if (playerRef.current) {
+      // MIDI pause
+      playerRef.current.pause();
+    }
+
+    setIsPlaying(false);
   };
 
   const togglePlayPause = () => {
@@ -479,13 +590,21 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
 
   // Seek to a specific percentage of the song (0-100)
   const seekToPercent = (percent: number) => {
-    if (!playerRef.current) return;
-
     const clamped = Math.max(0, Math.min(100, percent));
-    console.log('[MusicPlayer] Seeking to', clamped, '%');
+    console.log('[MusicPlayer] Seeking to', clamped, '%', 'isMP3:', isMP3Track);
 
-    // midi-player-js uses skipToPercent method
-    playerRef.current.skipToPercent(clamped);
+    if (isMP3Track && audioElementRef.current) {
+      // MP3 seek
+      const duration = audioElementRef.current.duration || 0;
+      if (duration > 0) {
+        audioElementRef.current.currentTime = (clamped / 100) * duration;
+        console.log('[MusicPlayer] MP3 seeked to', audioElementRef.current.currentTime, 'seconds');
+      }
+    } else if (playerRef.current) {
+      // MIDI seek using skipToPercent method
+      playerRef.current.skipToPercent(clamped);
+    }
+
     setProgress(clamped);
   };
 
