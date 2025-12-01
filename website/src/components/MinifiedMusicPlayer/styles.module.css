@@ -1,194 +1,798 @@
-.minifiedPlayer {
+/* ============================================
+   WINAMP WINDOWSHADE MODE - Win31 Aesthetic
+   Authentic Windows 3.1 beveled borders + Winamp styling
+   ============================================ */
+
+/* CSS Variables for Win31 palette */
+:root {
+  --win31-white: #ffffff;
+  --win31-black: #000000;
+  --win31-gray: #c0c0c0;
+  --win31-dark-gray: #808080;
+  --win31-light-gray: #dfdfdf;
+  --win31-navy: #000080;
+
+  /* Winamp-specific colors */
+  --winamp-bg: #232323;
+  --winamp-display-bg: #000000;
+  --winamp-display-text: #00ff00;
+  --winamp-vis-green: #00ff00;
+  --winamp-vis-yellow: #ffff00;
+  --winamp-vis-red: #ff0000;
+}
+
+/* Main Windowshade Container - Classic Winamp compact mode */
+.winampShade {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.6rem 1.2rem;
-  background: linear-gradient(135deg,
-    rgba(255, 71, 184, 0.15) 0%,
-    rgba(0, 255, 255, 0.15) 100%);
-  border: 2px solid rgba(255, 71, 184, 0.5);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 15px rgba(255, 71, 184, 0.3);
-  max-width: 420px;
-  font-family: 'Courier New', monospace;
+  gap: 4px;
+  height: 28px;
+  padding: 2px 4px;
+  background: var(--win31-gray);
+  font-family: 'VT323', 'Courier New', monospace;
+  user-select: none;
+  z-index: 100;
+
+  /* Classic Win31 outset bevel */
+  border: 2px solid;
+  border-color: var(--win31-white) var(--win31-black) var(--win31-black) var(--win31-white);
+  box-shadow:
+    inset 1px 1px 0 var(--win31-light-gray),
+    inset -1px -1px 0 var(--win31-dark-gray);
+
+  /* No rounded corners - sharp Win31 style */
+  border-radius: 0;
+
+  /* Smooth position transitions when not dragging */
+  transition: box-shadow 0.2s ease;
 }
 
-.minifiedPlayer:hover {
-  background: linear-gradient(135deg,
-    rgba(255, 71, 184, 0.25) 0%,
-    rgba(0, 255, 255, 0.25) 100%);
-  border-color: #ff47b8;
-  box-shadow: 0 0 15px rgba(255, 71, 184, 0.4);
-  transform: scale(1.02);
+/* Dragging state - elevated shadow */
+.winampShade.dragging {
+  cursor: grabbing;
+  box-shadow:
+    inset 1px 1px 0 var(--win31-light-gray),
+    inset -1px -1px 0 var(--win31-dark-gray),
+    4px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
-.visualizer {
+/* NULLSOFT Easter Egg Overlay */
+.nullsoftOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #000080 0%,
+    #0000aa 50%,
+    #000080 100%
+  );
+  z-index: 100;
+  animation: nullsoftFadeIn 0.3s ease-out;
+}
+
+.nullsoftText {
+  color: #ffcc00;
+  font-family: 'Arial Black', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow:
+    1px 1px 0 #ff8800,
+    2px 2px 0 #ff6600,
+    -1px -1px 0 #000;
+}
+
+.nullsoftSubtext {
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-top: 1px;
+}
+
+@keyframes nullsoftFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Title bar grip - classic Win31 drag handle */
+.titleGrip {
+  width: 8px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: move;
+}
+
+.gripLines {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gripLines span {
+  display: block;
+  width: 6px;
+  height: 2px;
+  background: var(--win31-dark-gray);
+  box-shadow: 1px 1px 0 var(--win31-white);
+}
+
+/* Mini Album Art - Tiny cover thumbnail */
+.miniArt {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+  overflow: hidden;
+}
+
+.miniArt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mini Visualizer - Classic Winamp green bars */
+.miniVis {
   display: flex;
   align-items: flex-end;
-  gap: 3px;
-  height: 32px;
+  gap: 1px;
+  height: 16px;
+  width: 24px;
+  padding: 2px;
+  background: var(--winamp-display-bg);
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
 }
 
-.bar {
-  width: 4px;
+/* Track Counter - LCD-style (01/29) */
+.trackCounter {
+  min-width: 32px;
+  height: 16px;
+  padding: 1px 3px;
+  background: var(--winamp-display-bg);
+  color: var(--winamp-display-text);
+  font-family: 'VT323', monospace;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+}
+
+.visBar {
+  width: 3px;
+  min-height: 2px;
   background: linear-gradient(
-    180deg,
-    #ff47b8 0%,
-    #00ffff 100%
+    to top,
+    var(--winamp-vis-green) 0%,
+    var(--winamp-vis-green) 60%,
+    var(--winamp-vis-yellow) 80%,
+    var(--winamp-vis-red) 100%
   );
-  border-radius: 2px;
-  min-height: 3px;
-  /* Height is now controlled by FFT data via inline styles */
-  box-shadow: 0 0 6px rgba(255, 71, 184, 0.6);
+  transition: height 50ms linear;
 }
 
-.barAnimated {
-  animation: miniSpectrum 0.8s ease-in-out infinite;
+/* Track Display - Classic LED-style scrolling text */
+.trackDisplay {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+  height: 16px;
+  padding: 1px 4px;
+  background: var(--winamp-display-bg);
+  cursor: pointer;
+  position: relative;
+
+  /* Inset border for display area */
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+
+  overflow: hidden;
 }
 
-@keyframes miniSpectrum {
-  0%, 100% {
-    height: 10px;
-    opacity: 0.7;
+.marqueeContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeText {
+  display: inline-block;
+  color: var(--winamp-display-text);
+  font-family: 'VT323', monospace;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-left: 100%;
+}
+
+.marqueeText.scrolling {
+  animation: marqueeScroll 12s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
   }
-  25% {
-    height: 24px;
-    opacity: 1;
-  }
-  50% {
-    height: 30px;
-    opacity: 1;
-  }
-  75% {
-    height: 18px;
-    opacity: 0.9;
+  100% {
+    transform: translateX(-100%);
   }
 }
 
-.bar:nth-child(1) { animation-delay: 0s; }
-.bar:nth-child(2) { animation-delay: 0.1s; }
-.bar:nth-child(3) { animation-delay: 0.2s; }
-.bar:nth-child(4) { animation-delay: 0.3s; }
-.bar:nth-child(5) { animation-delay: 0.4s; }
-.bar:nth-child(6) { animation-delay: 0.3s; }
-.bar:nth-child(7) { animation-delay: 0.2s; }
-.bar:nth-child(8) { animation-delay: 0.1s; }
+/* Time Display - Classic LCD style */
+.timeDisplay {
+  min-width: 36px;
+  height: 16px;
+  padding: 1px 4px;
+  background: var(--winamp-display-bg);
+  color: var(--winamp-display-text);
+  font-family: 'VT323', monospace;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 1px;
 
-.playButton {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid #ff47b8;
-  background: rgba(0, 0, 0, 0.3);
-  color: #ff47b8;
-  font-size: 1rem;
+  /* Inset border */
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+}
+
+/* Mode Buttons - Shuffle/Repeat */
+.modeButtons {
+  display: flex;
+  gap: 1px;
+}
+
+.modeBtn {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: var(--win31-gray);
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
+  opacity: 0.6;
+
+  /* Classic 3D button bevel */
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white),
+    inset -2px -2px 0 var(--win31-black),
+    inset 2px 2px 0 var(--win31-light-gray);
 }
 
-.playButton:hover {
-  background: rgba(255, 71, 184, 0.2);
-  border-color: #00ffff;
-  color: #00ffff;
-  transform: scale(1.1);
+.modeBtn:hover {
+  background: var(--win31-light-gray);
 }
 
-.playButton:active {
-  transform: scale(0.95);
+.modeBtn.active {
+  opacity: 1;
+  background: var(--win31-light-gray);
+  /* Pressed/active state - inverted bevel */
+  box-shadow:
+    inset 1px 1px 0 var(--win31-dark-gray),
+    inset -1px -1px 0 var(--win31-white),
+    inset 2px 2px 0 var(--win31-black),
+    inset -2px -2px 0 var(--win31-light-gray);
 }
 
-.trackInfo {
-  flex: 1;
-  min-width: 0;
+.modeBtn .btnIcon {
+  font-size: 9px;
+}
+
+/* Transport Buttons - Classic 3D Win31 buttons */
+.transportButtons {
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  gap: 1px;
 }
 
-.trackTitle {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #ff47b8;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 8px rgba(255, 71, 184, 0.4);
+.transportBtn {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: var(--win31-gray);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* Classic 3D button bevel */
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white),
+    inset -2px -2px 0 var(--win31-black),
+    inset 2px 2px 0 var(--win31-light-gray);
 }
 
-.trackArtist {
-  font-size: 0.75rem;
-  color: rgba(0, 255, 255, 0.9);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  letter-spacing: 1px;
-  text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+.transportBtn:hover {
+  background: var(--win31-light-gray);
 }
 
-.expandIcon {
-  font-size: 1.1rem;
-  color: rgba(255, 71, 184, 0.7);
+.transportBtn:active {
+  /* Pressed state - inverted bevel */
+  box-shadow:
+    inset 1px 1px 0 var(--win31-dark-gray),
+    inset -1px -1px 0 var(--win31-white),
+    inset 2px 2px 0 var(--win31-black),
+    inset -2px -2px 0 var(--win31-light-gray);
+}
+
+.btnIcon {
+  font-size: 8px;
+  color: var(--win31-black);
+  line-height: 1;
+}
+
+/* Seek Bar - Classic Winamp style */
+.seekBar {
+  width: 60px;
+  height: 8px;
+  background: var(--winamp-display-bg);
+  cursor: pointer;
+  position: relative;
+
+  /* Inset border */
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+}
+
+.seekFill {
+  height: 100%;
+  background: var(--winamp-vis-green);
+  transition: width 100ms linear;
+}
+
+.seekThumb {
+  position: absolute;
+  top: -2px;
+  width: 6px;
+  height: 12px;
+  margin-left: -3px;
+  background: var(--win31-gray);
+
+  /* 3D thumb bevel */
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white);
+}
+
+/* Volume Bar - Similar to Seek Bar but styled differently */
+.volumeBar {
+  width: 40px;
+  height: 8px;
+  background: var(--winamp-display-bg);
+  cursor: pointer;
+  position: relative;
+
+  /* Inset border */
+  border: 1px solid;
+  border-color: var(--win31-dark-gray) var(--win31-white) var(--win31-white) var(--win31-dark-gray);
+}
+
+.volumeFill {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--winamp-vis-green) 0%,
+    var(--winamp-vis-green) 50%,
+    var(--winamp-vis-yellow) 80%,
+    var(--winamp-vis-red) 100%
+  );
+  transition: width 50ms linear;
+}
+
+.volumeThumb {
+  position: absolute;
+  top: -2px;
+  width: 6px;
+  height: 12px;
+  margin-left: -3px;
+  background: var(--win31-gray);
+
+  /* 3D thumb bevel */
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white);
+}
+
+/* Expand Button - Classic Win31 button */
+.expandBtn {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: var(--win31-gray);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--win31-black);
+
+  /* Classic 3D button bevel */
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white),
+    inset -2px -2px 0 var(--win31-black),
+    inset 2px 2px 0 var(--win31-light-gray);
+}
+
+.expandBtn:hover {
+  background: var(--win31-light-gray);
+}
+
+.expandBtn:active {
+  box-shadow:
+    inset 1px 1px 0 var(--win31-dark-gray),
+    inset -1px -1px 0 var(--win31-white),
+    inset 2px 2px 0 var(--win31-black),
+    inset -2px -2px 0 var(--win31-light-gray);
+}
+
+/* ============================================
+   Skin Switcher
+   ============================================ */
+
+.skinSwitcher {
+  position: relative;
+}
+
+.skinBtn {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: var(--win31-gray);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Classic 3D button bevel */
+  box-shadow:
+    inset -1px -1px 0 var(--win31-dark-gray),
+    inset 1px 1px 0 var(--win31-white),
+    inset -2px -2px 0 var(--win31-black),
+    inset 2px 2px 0 var(--win31-light-gray);
+}
+
+.skinBtn:hover {
+  background: var(--win31-light-gray);
+}
+
+.skinMenu {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4px;
+  background: var(--win31-gray);
+  border: 2px solid;
+  border-color: var(--win31-white) var(--win31-black) var(--win31-black) var(--win31-white);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 200;
+  min-width: 80px;
+}
+
+.skinOption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  font-size: 11px;
+  color: var(--win31-black);
+  text-align: left;
+}
+
+.skinOption:hover {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+}
+
+.skinOption.activeSkin {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+}
+
+.skinSwatch {
+  width: 12px;
+  height: 12px;
+  border: 2px solid;
   flex-shrink: 0;
-  transition: color 0.2s ease;
 }
 
-.minifiedPlayer:hover .expandIcon {
-  color: #ff47b8;
+.skinName {
+  flex: 1;
 }
 
-/* Dark mode support */
-html[data-theme='dark'] .minifiedPlayer {
-  background: linear-gradient(135deg,
-    rgba(255, 71, 184, 0.2) 0%,
-    rgba(0, 255, 255, 0.2) 100%);
+/* ============================================
+   Skin Themes
+   ============================================ */
+
+/* Matrix Skin - Dark with green accent */
+.skin_matrix {
+  --win31-gray: #0d1117;
+  --win31-dark-gray: #161b22;
+  --win31-light-gray: #21262d;
+  --win31-white: #30363d;
+  --win31-black: #010409;
+  --winamp-display-bg: #010409;
+  --winamp-display-text: #00ff41;
+  --winamp-vis-green: #00ff41;
+  --winamp-vis-yellow: #39ff14;
+  --winamp-vis-red: #00ff41;
+  background: #0d1117;
 }
 
-html[data-theme='dark'] .minifiedPlayer:hover {
-  background: linear-gradient(135deg,
-    rgba(255, 71, 184, 0.3) 0%,
-    rgba(0, 255, 255, 0.3) 100%);
+.skin_matrix .btnIcon {
+  color: #00ff41;
 }
 
-/* Responsive - hide on small screens */
-@media (max-width: 996px) {
-  .minifiedPlayer {
-    max-width: 260px;
+/* Synthwave Skin - Purple/Pink neon */
+.skin_synthwave {
+  --win31-gray: #1a1a2e;
+  --win31-dark-gray: #16213e;
+  --win31-light-gray: #0f3460;
+  --win31-white: #e94560;
+  --win31-black: #0a0a15;
+  --winamp-display-bg: #0a0a15;
+  --winamp-display-text: #ff00ff;
+  --winamp-vis-green: #00ffff;
+  --winamp-vis-yellow: #ff00ff;
+  --winamp-vis-red: #ff0080;
+  background: #1a1a2e;
+}
+
+.skin_synthwave .btnIcon {
+  color: #ff00ff;
+}
+
+/* Ice Skin - Light blue/cyan */
+.skin_ice {
+  --win31-gray: #e0f7fa;
+  --win31-dark-gray: #b2ebf2;
+  --win31-light-gray: #e0f7fa;
+  --win31-white: #ffffff;
+  --win31-black: #00838f;
+  --winamp-display-bg: #004d40;
+  --winamp-display-text: #00bcd4;
+  --winamp-vis-green: #00bcd4;
+  --winamp-vis-yellow: #26c6da;
+  --winamp-vis-red: #00acc1;
+  background: #e0f7fa;
+}
+
+.skin_ice .btnIcon {
+  color: #00838f;
+}
+
+/* Amber Skin - Dark with orange/amber accent */
+.skin_amber {
+  --win31-gray: #2d2d2d;
+  --win31-dark-gray: #1a1a1a;
+  --win31-light-gray: #3d3d3d;
+  --win31-white: #4d4d4d;
+  --win31-black: #0a0a0a;
+  --winamp-display-bg: #0a0a0a;
+  --winamp-display-text: #ff9800;
+  --winamp-vis-green: #ffc107;
+  --winamp-vis-yellow: #ff9800;
+  --winamp-vis-red: #ff5722;
+  background: #2d2d2d;
+}
+
+.skin_amber .btnIcon {
+  color: #ff9800;
+}
+
+/* ============================================
+   Subtle CTAs - Gentle user guidance
+   ============================================ */
+
+/* Pulsing glow on play button when paused */
+.ctaGlow {
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow:
+      inset -1px -1px 0 var(--win31-dark-gray),
+      inset 1px 1px 0 var(--win31-white),
+      inset -2px -2px 0 var(--win31-black),
+      inset 2px 2px 0 var(--win31-light-gray),
+      0 0 8px rgba(0, 255, 0, 0.4);
+  }
+  50% {
+    box-shadow:
+      inset -1px -1px 0 var(--win31-dark-gray),
+      inset 1px 1px 0 var(--win31-white),
+      inset -2px -2px 0 var(--win31-black),
+      inset 2px 2px 0 var(--win31-light-gray),
+      0 0 12px rgba(0, 255, 0, 0.7);
+  }
+}
+
+/* CTA hint tooltip */
+.ctaHint {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  background: var(--win31-navy);
+  color: var(--winamp-display-text);
+  font-family: 'VT323', monospace;
+  font-size: 10px;
+  white-space: nowrap;
+  border: 1px solid;
+  border-color: var(--win31-white) var(--win31-black) var(--win31-black) var(--win31-white);
+  margin-bottom: 4px;
+  opacity: 0;
+  pointer-events: none;
+  animation: hintFadeIn 0.5s ease-out 2s forwards;
+  z-index: 10;
+}
+
+.ctaHint::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--win31-navy);
+}
+
+@keyframes hintFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hide hints after interaction */
+.winampShade:active .ctaHint,
+.winampShade.interacted .ctaHint {
+  display: none;
+}
+
+/* Expand button CTA - subtle bounce */
+.expandCta {
+  animation: expandBounce 3s ease-in-out infinite 3s;
+}
+
+@keyframes expandBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Track display click hint */
+.trackDisplay.clickable::after {
+  content: '▼ CLICK';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 6px;
+  color: rgba(0, 255, 0, 0.5);
+  animation: clickHintPulse 2s ease-in-out infinite 3s;
+  pointer-events: none;
+}
+
+@keyframes clickHintPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+  .winampShade {
+    gap: 2px;
+    padding: 2px;
   }
 
-  .trackInfo {
+  .trackDisplay {
+    min-width: 80px;
+    max-width: 120px;
+  }
+
+  .timeDisplay {
     display: none;
   }
 
-  .expandIcon {
-    font-size: 1rem;
+  .seekBar {
+    width: 40px;
+  }
+
+  .volumeBar {
+    width: 30px;
+  }
+
+  .trackCounter {
+    display: none;
   }
 }
 
 @media (max-width: 600px) {
-  .minifiedPlayer {
-    gap: 0.75rem;
-    padding: 0.5rem 0.8rem;
+  .modeButtons {
+    display: none;
   }
 
-  .visualizer {
-    gap: 2px;
-    height: 28px;
+  .miniArt {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleGrip {
+    display: none;
   }
 
-  .bar {
-    width: 3px;
+  .trackDisplay {
+    min-width: 60px;
+    max-width: 80px;
   }
 
-  .playButton {
-    width: 32px;
-    height: 32px;
+  .seekBar {
+    display: none;
   }
+
+  .volumeBar {
+    display: none;
+  }
+
+  .miniVis {
+    display: none;
+  }
+}
+
+/* ============================================
+   Dark Theme Override (keep Win31 feel)
+   ============================================ */
+
+html[data-theme='dark'] .winampShade {
+  background: var(--win31-gray);
 }

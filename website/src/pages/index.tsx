@@ -1,8 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import SkillQuickView from '../components/SkillQuickView';
 import KonamiEasterEgg from '../components/KonamiEasterEgg';
+import NewsletterSignup from '../components/NewsletterSignup';
 import type { Skill } from '../types/skill';
 import { ALL_SKILLS } from '../data/skills';
 import { useStarredSkills } from '../hooks/useStarredSkills';
@@ -56,7 +58,9 @@ export default function Home(): JSX.Element {
 
     // Track copy events
     if (id === 'install') {
-      track('Install Command Copied');
+      track('Install Command Copied', { method: 'git-clone' });
+    } else if (id === 'marketplace') {
+      track('Install Command Copied', { method: 'marketplace' });
     }
   }, [track]);
 
@@ -86,11 +90,72 @@ export default function Home(): JSX.Element {
   const installCommand = `git clone https://github.com/erichowens/some_claude_skills.git
 cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
 
+  // JSON-LD structured data for SEO
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: "Erich's Best Claude Skills",
+    description: `${ALL_SKILLS.length}+ production-ready AI skills for Claude Code. Expert agents that encode real domain expertise for ML, computer vision, audio, psychology, and developer tools.`,
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Cross-platform',
+    url: 'https://someclaudeskills.com',
+    author: {
+      '@type': 'Person',
+      name: 'Erich Owens',
+      url: 'https://linkedin.com/in/erich-owens-01a38446/',
+      jobTitle: 'ML Engineer',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Independent',
+      },
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    license: 'https://opensource.org/licenses/MIT',
+    codeRepository: 'https://github.com/erichowens/some_claude_skills',
+    programmingLanguage: ['TypeScript', 'Markdown'],
+    keywords: [
+      'Claude Code',
+      'AI skills',
+      'Claude skills',
+      'AI agents',
+      'prompt engineering',
+      'machine learning',
+      'computer vision',
+      'developer tools',
+    ],
+  };
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: "Erich's Best Claude Skills",
+    url: 'https://someclaudeskills.com',
+    logo: 'https://someclaudeskills.com/img/logo.svg',
+    sameAs: [
+      'https://github.com/erichowens/some_claude_skills',
+      'https://linkedin.com/in/erich-owens-01a38446/',
+    ],
+  };
+
   return (
     <Layout
       title={siteConfig.title}
-      description="Some neat Claude skills for specialized domains"
+      description={`${ALL_SKILLS.length}+ production-ready AI skills for Claude Code. Expert agents for ML, computer vision, audio, psychology, and developer tools.`}
     >
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(organizationJsonLd)}
+        </script>
+        <meta name="keywords" content="Claude Code, AI skills, Claude skills, AI agents, prompt engineering, machine learning, computer vision, developer tools, Anthropic Claude" />
+        <link rel="canonical" href="https://someclaudeskills.com/" />
+      </Head>
       <div className="skills-page-bg">
         <div className="skills-container skills-container--wide">
           {/* ═══════════════════════════════════════════════════════════════════
@@ -108,7 +173,7 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
                 </div>
               </div>
               <div className="install-hero__content">
-                <h1 className="install-hero__main-title">{ALL_SKILLS.length} Production-Ready Claude Skills</h1>
+                <h1 className="install-hero__main-title">Make Claude an Expert at Anything</h1>
                 <p className="install-hero__subtitle" style={{
                   fontSize: '16px',
                   color: '#666',
@@ -116,26 +181,180 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
                   marginBottom: '16px',
                   fontStyle: 'italic'
                 }}>
-                  Built by Erich Owens | Ex-Meta 12 years, 12 patents | MS Applied Math
+                  {ALL_SKILLS.length} free, open-source skills for Claude Code
                 </p>
 
                 <p className="install-hero__exposition" style={{ position: 'relative' }}>
-                  A collection of modular prompt extensions for Claude Code. Includes a <a href="/docs/guides/claude-skills-guide">guide for crafting great skills</a>, meta-skills like <strong>Career Biographer</strong> and <strong>Skill Coach</strong>, plus domain experts that have helped me on my own projects.
+                  Claude Code is an AI assistant made by Anthropic. It can read your files, run commands, and write code directly on your computer. Skills are instruction files that give Claude deep expertise in specific areas. Think of it as having a senior developer on retainer who can now selectively go get a master's degree in some new topic.
                 </p>
 
-                <div className="install-hero__code-block" style={{ position: 'relative' }}>
-                  {/* Oval sticker - positioned to right of code block */}
-                  <div className="install-hero__sticker">
-                    <span>GET ALL {ALL_SKILLS.length}!</span>
+                <p className="install-hero__exposition" style={{ position: 'relative' }}>
+                  This collection includes skills for <strong>ML engineers</strong> (computer vision, drone systems), <strong>designers</strong> (typography, color theory, UI), <strong>founders</strong> (career storytelling, competitive analysis), and <strong>personal growth</strong> (ADHD coaching, Jungian psychology). Each one was built for real projects I've worked on.
+                </p>
+
+                {/* PRIMARY: Marketplace Install */}
+                <div style={{
+                  background: 'linear-gradient(135deg, #0a2a0a 0%, #001a00 100%)',
+                  border: '3px solid var(--win31-lime)',
+                  padding: '20px',
+                  marginBottom: '16px',
+                  position: 'relative',
+                }}>
+                  {/* "Recommended" ribbon */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-1px',
+                    right: '20px',
+                    background: 'var(--win31-lime)',
+                    color: '#000',
+                    padding: '4px 12px',
+                    fontSize: '10px',
+                    fontWeight: 'bold',
+                    fontFamily: 'var(--font-code)',
+                  }}>
+                    RECOMMENDED
                   </div>
-                  <pre className="install-hero__code">{installCommand}</pre>
-                  <button
-                    className={`win31-btn-3d install-hero__copy-btn ${copied === 'install' ? 'install-hero__copy-btn--copied' : ''}`}
-                    onClick={() => copyToClipboard(installCommand, 'install')}
-                  >
-                    {copied === 'install' ? '✓ COPIED!' : 'COPY'}
-                  </button>
+
+                  <div style={{
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    color: 'var(--win31-lime)',
+                    marginBottom: '12px',
+                    fontFamily: 'var(--font-code)',
+                  }}>
+                    {'>'}_ Claude Code Marketplace
+                  </div>
+
+                  {/* Step 1 */}
+                  <div style={{ marginBottom: '12px' }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      marginBottom: '6px',
+                    }}>
+                      <span style={{
+                        background: 'var(--win31-lime)',
+                        color: '#000',
+                        padding: '2px 8px',
+                        fontSize: '10px',
+                        fontWeight: 'bold',
+                        fontFamily: 'var(--font-code)',
+                      }}>
+                        STEP 1
+                      </span>
+                      <span style={{ color: 'var(--win31-lime)', fontSize: '12px', fontFamily: 'var(--font-code)' }}>
+                        Add the marketplace (one time)
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <code style={{
+                        flex: 1,
+                        background: '#000',
+                        padding: '10px 12px',
+                        border: '2px solid var(--win31-lime)',
+                        color: 'var(--win31-lime)',
+                        fontSize: '13px',
+                        fontFamily: 'var(--font-code)',
+                        display: 'block',
+                      }}>
+                        /plugin marketplace add erichowens/some_claude_skills
+                      </code>
+                      <button
+                        className="win31-btn-3d"
+                        style={{
+                          background: copied === 'marketplace' ? 'var(--win31-lime)' : 'var(--win31-gray)',
+                          color: copied === 'marketplace' ? '#000' : 'inherit',
+                          fontWeight: 'bold',
+                        }}
+                        onClick={() => copyToClipboard('/plugin marketplace add erichowens/some_claude_skills', 'marketplace')}
+                      >
+                        {copied === 'marketplace' ? '✓' : 'COPY'}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      marginBottom: '6px',
+                    }}>
+                      <span style={{
+                        background: 'var(--win31-bright-yellow)',
+                        color: '#000',
+                        padding: '2px 8px',
+                        fontSize: '10px',
+                        fontWeight: 'bold',
+                        fontFamily: 'var(--font-code)',
+                      }}>
+                        STEP 2
+                      </span>
+                      <span style={{ color: 'var(--win31-bright-yellow)', fontSize: '12px', fontFamily: 'var(--font-code)' }}>
+                        Install any skill
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <code style={{
+                        flex: 1,
+                        background: '#000',
+                        padding: '10px 12px',
+                        border: '2px solid var(--win31-bright-yellow)',
+                        color: 'var(--win31-bright-yellow)',
+                        fontSize: '13px',
+                        fontFamily: 'var(--font-code)',
+                        display: 'block',
+                      }}>
+                        /plugin install skill-name@some-claude-skills
+                      </code>
+                    </div>
+                  </div>
+
+                  <div style={{
+                    marginTop: '12px',
+                    fontSize: '11px',
+                    color: '#888',
+                    fontFamily: 'var(--font-code)',
+                  }}>
+                    Browse skills below and click "Get" for exact install commands
+                  </div>
                 </div>
+
+                {/* SECONDARY: Git Clone (collapsed toggle) */}
+                <details style={{
+                  background: 'var(--win31-gray)',
+                  border: '2px solid #808080',
+                  marginBottom: '16px',
+                }}>
+                  <summary style={{
+                    padding: '10px 16px',
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    fontFamily: 'var(--font-code)',
+                    fontWeight: 'bold',
+                    color: '#333',
+                    listStyle: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}>
+                    <span style={{ fontSize: '10px' }}>▶</span>
+                    Alternative: Clone all {ALL_SKILLS.length} skills at once (git)
+                  </summary>
+                  <div style={{ padding: '12px 16px', paddingTop: 0 }}>
+                    <div className="install-hero__code-block" style={{ position: 'relative', marginTop: '8px' }}>
+                      <pre className="install-hero__code">{installCommand}</pre>
+                      <button
+                        className={`win31-btn-3d install-hero__copy-btn ${copied === 'install' ? 'install-hero__copy-btn--copied' : ''}`}
+                        onClick={() => copyToClipboard(installCommand, 'install')}
+                      >
+                        {copied === 'install' ? '✓ COPIED!' : 'COPY'}
+                      </button>
+                    </div>
+                  </div>
+                </details>
 
                 <div className="install-hero__badges">
                   <span className="install-hero__badge install-hero__badge--yellow">{ALL_SKILLS.length} Skills</span>
@@ -301,22 +520,25 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
             }}>
               <h2 style={{ marginTop: 0, fontSize: '20px', marginBottom: '16px' }}>Why This Exists</h2>
               <p style={{ marginBottom: '12px' }}>
-                After leaving Meta in August 2025, I've been building AI agents and automation tools full-time.
-                These skills are what I actually use—not toy examples, but production-grade prompts that have helped me
-                ship real projects across speech pathology AI, computer vision, Jungian psychology chatbots, HRV biometrics,
-                and developer tooling.
+                <strong>The problem:</strong> Every time you ask Claude for help with something specialized, you have to explain the context from scratch. "I'm building a photo app, and I need help with color theory..." Then you get generic advice that misses the nuances.
               </p>
               <p style={{ marginBottom: '12px' }}>
-                Most AI agent libraries are either too abstract or too simplified. This collection sits in the sweet spot:
-                <strong> high technical depth with personality</strong>. Each skill has domain expertise, knows when to
-                refuse bad ideas, and produces working code on the first try.
+                <strong>The solution:</strong> Skills pre-load Claude with deep expertise. When you activate the <em>Color Theory Expert</em> skill, Claude already knows about LAB color spaces, earth-mover distance for palette matching, warm/cool alternation—stuff that would take pages to explain.
+              </p>
+              <p style={{ marginBottom: '12px' }}>
+                Built by <a href="https://erichowens.com">Erich Owens</a>. These skills are what I actually use—not toy examples, but production-grade prompts for speech pathology AI, computer vision, psychology chatbots, and developer tooling.
               </p>
               <p style={{ marginBottom: 0 }}>
-                If you're an indie hacker, founder, or engineer building with Claude, you'll find something useful here.
+                <strong>Who is this for?</strong> Developers who use Claude Code. Founders building AI features. Anyone who's ever thought "I wish Claude just <em>knew</em> this stuff already."
                 MIT licensed. <a href="https://github.com/erichowens/some_claude_skills">Fork it, extend it, make it yours.</a>
               </p>
             </div>
           </div>
+
+          {/* ═══════════════════════════════════════════════════════════════════
+              NEWSLETTER SIGNUP
+              ═══════════════════════════════════════════════════════════════════ */}
+          <NewsletterSignup variant="inline" source="homepage" />
 
           {/* ═══════════════════════════════════════════════════════════════════
               FOOTER: Status Bar
