@@ -35,7 +35,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "automatic-stateful-prompt-improver": {
     "hasContent": true,
-    "fileCount": 6,
+    "fileCount": 10,
     "folderCount": 1
   },
   "bot-developer": {
@@ -53,6 +53,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 3,
     "folderCount": 1
   },
+  "code-necromancer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 3
+  },
   "collage-layout-expert": {
     "hasContent": true,
     "fileCount": 8,
@@ -65,8 +70,8 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "competitive-cartographer": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 1
+    "fileCount": 6,
+    "folderCount": 2
   },
   "cv-creator": {
     "hasContent": true,
@@ -108,6 +113,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 1
   },
+  "indie-monetization-strategist": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 1
+  },
   "interior-design-expert": {
     "hasContent": true,
     "fileCount": 6,
@@ -125,8 +135,8 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "metal-shader-expert": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 6,
+    "folderCount": 1
   },
   "native-app-designer": {
     "hasContent": true,
@@ -145,8 +155,8 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "photo-composition-critic": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 6,
+    "folderCount": 1
   },
   "photo-content-recognition-curation-expert": {
     "hasContent": true,
@@ -155,7 +165,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "physics-rendering-expert": {
     "hasContent": true,
-    "fileCount": 2,
+    "fileCount": 5,
     "folderCount": 1
   },
   "project-management-guru-adhd": {
@@ -168,6 +178,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 1,
     "folderCount": 0
   },
+  "seo-visibility-expert": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 1
+  },
   "site-reliability-engineer": {
     "hasContent": true,
     "fileCount": 7,
@@ -175,7 +190,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "skill-coach": {
     "hasContent": true,
-    "fileCount": 9,
+    "fileCount": 14,
     "folderCount": 19
   },
   "skill-documentarian": {
@@ -235,8 +250,8 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "web-design-expert": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 5,
+    "folderCount": 1
   },
   "windows-3-1-web-designer": {
     "hasContent": true,
@@ -258,6 +273,7 @@ export const skillsWithContent = [
   "bot-developer",
   "career-biographer",
   "clip-aware-embeddings",
+  "code-necromancer",
   "collage-layout-expert",
   "color-theory-palette-harmony-expert",
   "competitive-cartographer",
@@ -269,6 +285,7 @@ export const skillsWithContent = [
   "event-detection-temporal-intelligence-expert",
   "hr-network-analyst",
   "hrv-alexithymia-expert",
+  "indie-monetization-strategist",
   "interior-design-expert",
   "jungian-psychologist",
   "metal-shader-expert",
@@ -278,6 +295,7 @@ export const skillsWithContent = [
   "photo-content-recognition-curation-expert",
   "physics-rendering-expert",
   "project-management-guru-adhd",
+  "seo-visibility-expert",
   "site-reliability-engineer",
   "skill-coach",
   "skill-documentarian",

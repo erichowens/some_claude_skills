@@ -21,6 +21,10 @@ interface MusicPlayerContextType {
   isMinimized: boolean;
   isVisualizerFullScreen: boolean;
 
+  // Shuffle/Repeat state
+  isShuffle: boolean;
+  repeatMode: 'off' | 'all' | 'one';
+
   // Audio Analysis (NEW)
   analyserNode: AnalyserNode | null;
   audioContext: AudioContext | null;
@@ -28,6 +32,9 @@ interface MusicPlayerContextType {
 
   // EQ State (NEW)
   eqSettings: EQSettings;
+
+  // Track info
+  totalTracks: number;
 
   // Actions
   play: () => void;
@@ -39,6 +46,10 @@ interface MusicPlayerContextType {
   previousTrack: () => void;
   toggleMinimized: () => void;
   setMinimized: (minimized: boolean) => void;
+
+  // Shuffle/Repeat actions
+  toggleShuffle: () => void;
+  toggleRepeat: () => void;
 
   // EQ Actions (NEW)
   setEQ: (band: 'bass' | 'mid' | 'treble', value: number) => void;
@@ -78,6 +89,21 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   const [isVisualizerFullScreen, setVisualizerFullScreen] = useState(false);
   const [eqSettings, setEqSettings] = useState<EQSettings>(DEFAULT_EQ);
 
+  // Shuffle/Repeat state
+  const [isShuffle, setIsShuffle] = useState(false);
+  const [repeatMode, setRepeatMode] = useState<'off' | 'all' | 'one'>('off');
+  const shuffleHistoryRef = useRef<number[]>([]);
+
+  // Refs to access current values in callbacks (avoids stale closure issues)
+  const isShuffleRef = useRef(isShuffle);
+  const repeatModeRef = useRef(repeatMode);
+  const currentTrackIndexRef = useRef(currentTrackIndex);
+
+  // Keep refs in sync with state
+  useEffect(() => { isShuffleRef.current = isShuffle; }, [isShuffle]);
+  useEffect(() => { repeatModeRef.current = repeatMode; }, [repeatMode]);
+  useEffect(() => { currentTrackIndexRef.current = currentTrackIndex; }, [currentTrackIndex]);
+
   // NEW: State for audioContext and gainNode for Butterchurn integration
   const [audioContextState, setAudioContextState] = useState<AudioContext | null>(null);
   const [gainNodeState, setGainNodeState] = useState<GainNode | null>(null);
@@ -108,6 +134,68 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
   }>({ bass: null, mid: null, treble: null });
 
   const currentTrack = MUSIC_LIBRARY[currentTrackIndex] || null;
+
+  // Handle track end - uses refs for current state to avoid stale closures
+  const handleTrackEnd = () => {
+    console.log('[MusicPlayer] Track ended. Repeat:', repeatModeRef.current, 'Shuffle:', isShuffleRef.current);
+
+    if (repeatModeRef.current === 'one') {
+      // Repeat One: restart the same track
+      setProgress(0);
+      // Trigger play on next tick
+      setTimeout(() => {
+        if (isMP3Track && audioElementRef.current) {
+          audioElementRef.current.currentTime = 0;
+          audioElementRef.current.play().catch(console.error);
+        } else if (playerRef.current) {
+          playerRef.current.play();
+        }
+        setIsPlaying(true);
+      }, 50);
+    } else if (repeatModeRef.current === 'off') {
+      // No repeat: check if at end of playlist
+      const currentIdx = currentTrackIndexRef.current;
+      if (!isShuffleRef.current && currentIdx === MUSIC_LIBRARY.length - 1) {
+        // At end of playlist with no repeat - stop
+        console.log('[MusicPlayer] End of playlist, stopping');
+        return;
+      }
+      // Otherwise advance
+      advanceToNextTrack();
+    } else {
+      // Repeat All: always advance
+      advanceToNextTrack();
+    }
+  };
+
+  // Advance to next track (handles shuffle)
+  const advanceToNextTrack = () => {
+    const currentIdx = currentTrackIndexRef.current;
+    let nextIdx: number;
+
+    if (isShuffleRef.current) {
+      // Shuffle: random track avoiding recent history
+      const history = shuffleHistoryRef.current;
+      const historyLimit = Math.max(3, Math.floor(MUSIC_LIBRARY.length * 0.3));
+      const recentHistory = history.slice(-historyLimit);
+      const available = [];
+      for (let i = 0; i < MUSIC_LIBRARY.length; i++) {
+        if (!recentHistory.includes(i)) available.push(i);
+      }
+      if (available.length === 0) {
+        shuffleHistoryRef.current = [currentIdx];
+        for (let i = 0; i < MUSIC_LIBRARY.length; i++) {
+          if (i !== currentIdx) available.push(i);
+        }
+      }
+      nextIdx = available[Math.floor(Math.random() * available.length)];
+      shuffleHistoryRef.current.push(nextIdx);
+    } else {
+      nextIdx = (currentIdx + 1) % MUSIC_LIBRARY.length;
+    }
+
+    setCurrentTrackIndex(nextIdx);
+  };
 
   // Initialize player on mount
   useEffect(() => {
@@ -202,8 +290,8 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
         playerRef.current.on('endOfFile', () => {
           setIsPlaying(false);
           setProgress(0);
-          // Auto-advance to next track
-          setCurrentTrackIndex((prev) => (prev + 1) % MUSIC_LIBRARY.length);
+          // Auto-advance handled by handleTrackEnd
+          handleTrackEnd();
         });
 
         // Load first track
@@ -290,8 +378,8 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
           console.log('[MusicPlayer] MP3 track ended');
           setIsPlaying(false);
           setProgress(0);
-          // Auto-advance to next track
-          setCurrentTrackIndex((prev) => (prev + 1) % MUSIC_LIBRARY.length);
+          // Auto-advance handled by handleTrackEnd
+          handleTrackEnd();
         };
 
         audioElementRef.current.onerror = (e) => {
@@ -620,12 +708,97 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     }
   };
 
+  // Shuffle/Repeat toggle functions
+  const toggleShuffle = () => {
+    setIsShuffle(prev => {
+      const newValue = !prev;
+      if (newValue) {
+        // Starting shuffle - reset history to current track
+        shuffleHistoryRef.current = [currentTrackIndex];
+      } else {
+        // Ending shuffle - clear history
+        shuffleHistoryRef.current = [];
+      }
+      console.log('[MusicPlayer] Shuffle toggled:', newValue);
+      return newValue;
+    });
+  };
+
+  const toggleRepeat = () => {
+    setRepeatMode(prev => {
+      const modes: Array<'off' | 'all' | 'one'> = ['off', 'all', 'one'];
+      const currentIndex = modes.indexOf(prev);
+      const newMode = modes[(currentIndex + 1) % modes.length];
+      console.log('[MusicPlayer] Repeat mode changed:', newMode);
+      return newMode;
+    });
+  };
+
+  // Get next shuffled track (avoiding recently played)
+  const getNextShuffleTrack = (): number => {
+    const history = shuffleHistoryRef.current;
+    const availableTracks: number[] = [];
+
+    // Build list of tracks not in recent history (keep last ~30% of library in history)
+    const historyLimit = Math.max(3, Math.floor(MUSIC_LIBRARY.length * 0.3));
+    const recentHistory = history.slice(-historyLimit);
+
+    for (let i = 0; i < MUSIC_LIBRARY.length; i++) {
+      if (!recentHistory.includes(i)) {
+        availableTracks.push(i);
+      }
+    }
+
+    // If all tracks exhausted, reset and use any track except current
+    if (availableTracks.length === 0) {
+      shuffleHistoryRef.current = [currentTrackIndex];
+      for (let i = 0; i < MUSIC_LIBRARY.length; i++) {
+        if (i !== currentTrackIndex) {
+          availableTracks.push(i);
+        }
+      }
+    }
+
+    // Pick random from available
+    const randomIndex = Math.floor(Math.random() * availableTracks.length);
+    const nextIndex = availableTracks[randomIndex];
+
+    // Add to history
+    shuffleHistoryRef.current.push(nextIndex);
+
+    return nextIndex;
+  };
+
   const nextTrack = () => {
-    switchTrack((currentTrackIndex + 1) % MUSIC_LIBRARY.length);
+    let nextIndex: number;
+
+    if (repeatMode === 'one') {
+      // Repeat One: just restart current track
+      nextIndex = currentTrackIndex;
+    } else if (isShuffle) {
+      // Shuffle mode
+      nextIndex = getNextShuffleTrack();
+    } else {
+      // Normal sequential
+      nextIndex = (currentTrackIndex + 1) % MUSIC_LIBRARY.length;
+    }
+
+    switchTrack(nextIndex);
   };
 
   const previousTrack = () => {
-    switchTrack((currentTrackIndex - 1 + MUSIC_LIBRARY.length) % MUSIC_LIBRARY.length);
+    let prevIndex: number;
+
+    if (isShuffle && shuffleHistoryRef.current.length > 1) {
+      // In shuffle mode, go back through history
+      shuffleHistoryRef.current.pop(); // Remove current
+      prevIndex = shuffleHistoryRef.current[shuffleHistoryRef.current.length - 1] || currentTrackIndex;
+    } else {
+      // Normal sequential previous
+      prevIndex = (currentTrackIndex - 1 + MUSIC_LIBRARY.length) % MUSIC_LIBRARY.length;
+    }
+
+    switchTrack(prevIndex);
   };
 
   const toggleMinimized = () => {
@@ -643,6 +816,10 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     isMinimized,
     isVisualizerFullScreen,
 
+    // Shuffle/Repeat state
+    isShuffle,
+    repeatMode,
+
     // Audio Analysis (uses state so context updates when set)
     analyserNode,
     audioContext: audioContextState,
@@ -650,6 +827,9 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
 
     // EQ State (NEW)
     eqSettings,
+
+    // Track info
+    totalTracks: MUSIC_LIBRARY.length,
 
     // Actions
     play,
@@ -661,6 +841,10 @@ export function MusicPlayerProvider({ children }: MusicPlayerProviderProps) {
     previousTrack,
     toggleMinimized,
     setMinimized: setIsMinimized,
+
+    // Shuffle/Repeat actions
+    toggleShuffle,
+    toggleRepeat,
 
     // EQ Actions (NEW)
     setEQ,

@@ -1,3 +1,9 @@
+---
+name: job-application-optimizer
+description: "Strategic job application planning and Resume SEO optimization. Approaches applications like marketing campaigns with market research, opportunity qualification, and content optimization. Activate on 'optimize resume', 'tailor resume', 'ATS optimization', 'job fit score', 'should I apply'. NOT for initial career narratives (career-biographer), portfolio design (cv-creator), or market positioning (competitive-cartographer)."
+allowed-tools: Read,Write,Edit,WebSearch,WebFetch
+---
+
 # Job Application Optimizer
 
 Strategic job application planning and "Resume SEO" optimization. This skill teaches Claude to approach job applications like a marketing campaign - researching the market, qualifying opportunities, and optimizing content for maximum conversion.

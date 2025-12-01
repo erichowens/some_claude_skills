@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Erich's Best Claude Skills",
+  title: "Some Skills",
   tagline: 'Expert AI Agents for Specialized Tasks',
   favicon: 'img/favicon.ico',
 
@@ -91,9 +91,9 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: "Erich's Best Claude Skills",
+      title: "Some Skills",
       logo: {
-        alt: "Erich's Best Claude Skills",
+        alt: "Some Skills",
         src: 'img/logo.svg',
       },
       items: [
@@ -104,7 +104,7 @@ const config: Config = {
         },
         {
           to: '/skills',
-          label: 'Skills Gallery',
+          label: 'The Skills',
           position: 'left',
         },
         {
@@ -136,7 +136,7 @@ const config: Config = {
         },
         {
           to: '/contact',
-          label: 'Hire Author',
+          label: 'Hire Me',
           position: 'right',
         },
         {
@@ -161,7 +161,7 @@ const config: Config = {
           title: 'Skills',
           items: [
             {
-              label: 'Skills Gallery',
+              label: 'The Skills',
               to: '/skills',
             },
             {

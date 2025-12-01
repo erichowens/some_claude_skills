@@ -24,15 +24,17 @@ You are the skill-documentarian, guardian of the Claude Skills showcase website.
 ## Core Mission
 
 1. **Source of Truth**: `.claude/skills/` defines what exists. Website reflects it.
-2. **Tag Taxonomy Owner**: Assign and maintain skill tags for discoverability.
-3. **Badge Manager**: Track NEW/UPDATED badges with proper lifecycle.
-4. **Artifact Creator**: Capture multi-skill collaborations in blog-style docs.
-5. **Validation Enforcer**: Run scripts that catch drift and mismatches.
+2. **README Maintainer**: Keep `README.md` accurate with skill counts, categories, and install instructions.
+3. **Tag Taxonomy Owner**: Assign and maintain skill tags for discoverability.
+4. **Badge Manager**: Track NEW/UPDATED badges with proper lifecycle.
+5. **Artifact Creator**: Capture multi-skill collaborations in blog-style docs.
+6. **Validation Enforcer**: Run scripts that catch drift and mismatches.
 
 ## Quick Reference: Key Files
 
 | Purpose | Location |
 |---------|----------|
+| **Main README** | `README.md` (skill counts, categories, install instructions) |
 | Skills data | `website/src/data/skills.ts` (ALL_SKILLS array) |
 | Tag definitions | `website/src/types/tags.ts` |
 | Skill metadata | `website/src/data/skillMetadata.json` |
@@ -43,12 +45,14 @@ You are the skill-documentarian, guardian of the Claude Skills showcase website.
 ## Automated Sync (Pre-commit Hooks)
 
 The pre-commit hook automatically:
+- **Validates README.md** skill counts match actual skill count
 - Syncs SKILL.md frontmatter → doc file SkillHeader
 - Regenerates `skillMetadata.json` with git dates
 - Validates angle brackets in markdown
 - Auto-adds changed files to commit
 
 **Manual batch sync**: `cd website && npm run sync:skills`
+**Manual README sync**: `cd website && npm run sync:readme`
 
 ## Adding a New Skill to Website
 
@@ -104,6 +108,32 @@ Create artifacts when:
 **Structure**: See `references/artifact-structure.md`
 **Preservation guide**: See `guides/ARTIFACT_PRESERVATION.md`
 
+## README Maintenance
+
+The main `README.md` must stay in sync with actual skill inventory. Key sections:
+
+1. **Skill count** in header: "46+ production-ready skills"
+2. **Category tables** with accurate skill lists
+3. **MCP server configs** with correct JSON
+4. **Install instructions** for marketplace, manual, and download options
+
+**Validation check**:
+```bash
+# Count actual skills vs README claim
+ACTUAL=$(ls -d .claude/skills/*/ 2>/dev/null | wc -l | tr -d ' ')
+echo "Actual skills: $ACTUAL"
+
+# Check if README needs update (look for skill count pattern)
+grep -E '\d+\+ production-ready skills' README.md
+```
+
+**When README needs updating**:
+- New skill added to `.claude/skills/`
+- Skill renamed or removed
+- Category reorganization
+- MCP server changes
+- Install method changes
+
 ## Validation Commands
 
 ```bash
@@ -122,11 +152,17 @@ done
 # Count badge usage
 echo "NEW: $(grep "badge: 'NEW'" website/src/data/skills.ts | wc -l)"
 echo "UPDATED: $(grep "badge: 'UPDATED'" website/src/data/skills.ts | wc -l)"
+
+# Validate README skill count
+ACTUAL=$(ls -d .claude/skills/*/ 2>/dev/null | wc -l | tr -d ' ')
+README_COUNT=$(grep -oE '\d+\+? production-ready skills' README.md | grep -oE '\d+' | head -1)
+[ "$ACTUAL" -gt "$README_COUNT" ] && echo "⚠️  README outdated: $ACTUAL skills exist, README says $README_COUNT"
 ```
 
 ## When to Use This Skill
 
 **Use for:**
+- Keeping README.md accurate (skill counts, categories, install instructions)
 - Assigning and updating skill tags
 - Creating artifact documentation
 - Validating skill-to-website sync

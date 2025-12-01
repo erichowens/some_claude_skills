@@ -39,10 +39,10 @@ export default function HireAuthor(): JSX.Element {
                 marginBottom: '24px',
                 fontStyle: 'italic'
               }}>
-                Mathematical Problem-Solver Who Jumps Domains (NLP→CV→VR→Medical AI→Drones) and Ships Systems That Last Decades
+                Architect & Tool Builder Who Makes Complex Systems Legible
               </p>
               <p style={{ fontSize: '15px', color: '#666', maxWidth: '700px', margin: '0 auto 24px', lineHeight: '1.6' }}>
-                Where most engineers specialize, Erich generalizes through mathematics. Where most build features, Erich builds systems that last. Where most choose IC or management, Erich oscillates based on impact. The result: decade-lasting infrastructure across wildly different domains.
+                Mathematical and creative problem solver open to Senior IC or Leadership roles building transformative AI products at startups or big tech. I build systems that last and tools that explain them—so others can understand the problem and see how the solution works.
               </p>
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <a

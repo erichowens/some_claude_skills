@@ -28,7 +28,7 @@ export const MUSIC_LIBRARY: TrackMetadata[] = [
     genre: 'Synth-Pop',
     file: '/audio/1999-lofi.mp3',
     coverArt: '/img/covers/1999-lofi.png',
-    duration: '02:52',
+    duration: '03:03',
     bpm: 105,
     mood: 'Nostalgic, Euphoric',
     description: 'Y2K nostalgia through a lo-fi haze'

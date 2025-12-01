@@ -16,7 +16,7 @@
   },
   "automatic-stateful-prompt-improver": {
     "hasContent": true,
-    "fileCount": 6,
+    "fileCount": 10,
     "folderCount": 1
   },
   "bot-developer": {
@@ -34,6 +34,11 @@
     "fileCount": 3,
     "folderCount": 1
   },
+  "code-necromancer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 3
+  },
   "collage-layout-expert": {
     "hasContent": true,
     "fileCount": 8,
@@ -46,8 +51,8 @@
   },
   "competitive-cartographer": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 1
+    "fileCount": 6,
+    "folderCount": 2
   },
   "cv-creator": {
     "hasContent": true,
@@ -89,6 +94,11 @@
     "fileCount": 5,
     "folderCount": 1
   },
+  "indie-monetization-strategist": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 1
+  },
   "interior-design-expert": {
     "hasContent": true,
     "fileCount": 6,
@@ -106,8 +116,8 @@
   },
   "metal-shader-expert": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 6,
+    "folderCount": 1
   },
   "native-app-designer": {
     "hasContent": true,
@@ -126,8 +136,8 @@
   },
   "photo-composition-critic": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 6,
+    "folderCount": 1
   },
   "photo-content-recognition-curation-expert": {
     "hasContent": true,
@@ -136,7 +146,7 @@
   },
   "physics-rendering-expert": {
     "hasContent": true,
-    "fileCount": 2,
+    "fileCount": 5,
     "folderCount": 1
   },
   "project-management-guru-adhd": {
@@ -149,6 +159,11 @@
     "fileCount": 1,
     "folderCount": 0
   },
+  "seo-visibility-expert": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 1
+  },
   "site-reliability-engineer": {
     "hasContent": true,
     "fileCount": 7,
@@ -156,7 +171,7 @@
   },
   "skill-coach": {
     "hasContent": true,
-    "fileCount": 9,
+    "fileCount": 14,
     "folderCount": 19
   },
   "skill-documentarian": {
@@ -216,8 +231,8 @@
   },
   "web-design-expert": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 5,
+    "folderCount": 1
   },
   "windows-3-1-web-designer": {
     "hasContent": true,

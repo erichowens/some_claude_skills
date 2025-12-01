@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-01T22:24:27.962Z",
+  "generatedAt": "2025-12-01T22:26:55.237Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -257,10 +257,10 @@
       "id": "job-application-optimizer",
       "createdAt": "2025-11-29T00:40:23-08:00",
       "updatedAt": "2025-11-29T00:40:23-08:00",
-      "totalLines": 254,
+      "totalLines": 260,
       "totalFiles": 1,
-      "skillMdSize": 6659,
-      "skillMdLines": 254,
+      "skillMdSize": 7192,
+      "skillMdLines": 260,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -391,7 +391,7 @@
       "updatedAt": null,
       "totalLines": 400,
       "totalFiles": 1,
-      "skillMdSize": 11596,
+      "skillMdSize": 11622,
       "skillMdLines": 400,
       "hasReferences": true,
       "hasExamples": false,
@@ -412,7 +412,7 @@
     "skill-coach": {
       "id": "skill-coach",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-12-01T00:15:39-08:00",
+      "updatedAt": "2025-12-01T14:24:26-08:00",
       "totalLines": 4363,
       "totalFiles": 14,
       "skillMdSize": 6897,

@@ -3,101 +3,105 @@ sidebar_position: 1
 slug: /intro
 ---
 
-# Welcome to Claude Skills
+# What Are Claude Skills?
 
-**Expert AI agents that make Claude truly powerful. Skills that know more than you do.**
+**Turn Claude from a helpful assistant into a domain expert—instantly.**
 
-Claude Skills are specialized AI agents with deep domain expertise across design, engineering, research, health, and creative disciplines. Unlike one-off prompts, these skills provide consistent, expert-level capabilities you can deploy across all your projects.
+## First, Some Context
 
-## Choose Your Path
+### What is Claude?
 
-### Browse the Skills Gallery
+Claude is an AI assistant made by [Anthropic](https://anthropic.com). If you've used ChatGPT, it's similar—you can ask it questions, have conversations, get help with writing and coding. Many developers prefer Claude for its nuanced reasoning and ability to handle complex technical tasks.
 
-The best way to discover Claude Skills is to explore them visually. Each skill has a beautifully designed hero image and detailed documentation.
+### What is Claude Code?
 
-**[View Skills Gallery](/skills)** - Browse all 25 skills with hero images, search, and category filtering
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is a command-line tool that lets Claude work directly with your files and code. Instead of copying and pasting code back and forth, Claude can:
 
-### Get the Code
+- **Read your files** - Understand your entire codebase
+- **Write code** - Create new files, edit existing ones
+- **Run commands** - Execute tests, build projects, run scripts
+- **Search and navigate** - Find what it needs across thousands of files
 
-All skills are open source and available on GitHub. Clone, fork, or contribute.
+Think of it as having a senior developer who can actually touch your codebase, not just give advice.
 
-**[GitHub Repository](https://github.com/erichowens/some_claude_skills)** - Source code, installation instructions, and contribution guide
+### What are Skills?
 
-### Read the Documentation
+Skills are instruction files that give Claude deep expertise in specific areas.
 
-Learn how Claude Skills work, how to install them, and how to create your own.
+**Without a skill:** You ask Claude for help with color theory. You have to explain what you're building, what "warm/cool alternation" means, that you care about perceptual uniformity, what LAB color space is... and hope Claude pieces together something useful.
 
-**[Skills Guide](/docs/guides/claude-skills-guide)** - Complete guide to using and creating skills
+**With the Color Theory skill:** Claude already knows all of this. It understands earth-mover distance for palette optimization, knows when to use HSL vs LAB, and produces color systems that actually work. You just say "help me pick colors" and get expert-level output.
+
+Skills are like giving Claude a master's degree in a specific topic—the knowledge is just *there*.
 
 ---
 
-## What Are Claude Skills?
+## What's in This Collection?
 
-Claude Skills are custom AI agents that embody deep expertise in specific domains. Instead of telling Claude what to do, these skills teach Claude:
+These aren't toy examples. They're production-grade skills I built while working on real projects:
 
-- **How experts think** - Decision-making frameworks and mental models
-- **What experts know** - Domain knowledge and best practices
-- **How experts work** - Proven methodologies and workflows
-- **Why experts make certain choices** - The reasoning behind decisions
+| Who You Are | Skills You'll Like |
+|-------------|-------------------|
+| **ML Engineers** | Drone CV Expert, CLIP Embeddings, Photo Content Recognition |
+| **Designers** | Typography Expert, Color Theory, Design System Creator, Vaporwave UI |
+| **Founders** | Career Biographer, Competitive Cartographer, CV Creator |
+| **Developers** | Bot Developer, Metal Shader Expert, Sound Engineer |
+| **Anyone** | ADHD Design Expert, Jungian Psychologist, Personal Finance Coach |
 
-## Quick Installation
+Each skill includes:
+- **Domain expertise** - The actual knowledge, not generic advice
+- **Personality** - Knows when to push back on bad ideas
+- **Working code** - Produces results, not just explanations
 
-### Add Marketplace (Recommended)
+---
+
+## Quick Start
+
+### If You're New to Claude Code
+
+1. **Get Claude Code** - [Install instructions](https://docs.anthropic.com/en/docs/claude-code)
+2. **Come back here** - Once you're up and running
+
+### If You Already Use Claude Code
 
 ```bash
-# In Claude Code, add this marketplace:
-/plugin marketplace add erichowens/some_claude_skills
+# Clone all skills
+git clone https://github.com/erichowens/some_claude_skills.git
 
-# Then install any skill:
-/plugin install orchestrator@some-claude-skills
-
-# Or install all skills at once:
-/plugin install adhd-design-expert@some-claude-skills
-/plugin install metal-shader-expert@some-claude-skills
-# ... etc
-```
-
-### Manual Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/erichowens/some_claude_skills
-
-# Copy all skills to your personal Claude skills folder
+# Copy to your personal skills folder
 cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/
 
-# Or copy to a specific project
-cp -r some_claude_skills/.claude/skills/* /path/to/your/project/.claude/skills/
+# Now Claude knows all 49 skills
 ```
 
-## Skill Categories
+Or grab just the ones you want from the [Skills Gallery](/skills).
 
-| Category | Skills | Description |
-|----------|--------|-------------|
-| **Meta Skills** | Orchestrator, Agent Creator | Coordinate and create new skills |
-| **Design & Development** | 6 skills | UI/UX, design systems, typography |
-| **Specialized Technical** | 6 skills | Graphics, drones, VR, audio |
-| **Photo Intelligence** | 3 skills | Color, events, content recognition |
-| **Health & Personal Growth** | 6 skills | ADHD, coaching, speech therapy |
-| **Research & Strategy** | 2 skills | Analysis and team building |
+---
 
-## Featured Skills
+## How Skills Work
 
-### [Orchestrator](/docs/skills/orchestrator)
-The master coordinator that automatically delegates to specialist skills based on your needs. Start here if you're not sure which skill to use.
+Skills are markdown files that live in `.claude/skills/`. When you mention a skill or Claude detects it's relevant, the instructions get loaded into context.
 
-### [Agent Creator](/docs/skills/agent_creator)
-Meta-agent for creating new custom agents, skills, and MCP integrations. Use this to build your own specialized skills.
+A skill file typically includes:
+- **Who this expert is** - The persona and mindset
+- **What they know** - Domain knowledge, frameworks, best practices
+- **How they work** - Methodologies, decision-making processes
+- **What tools they use** - Specific libraries, commands, techniques
 
-### [Design System Creator](/docs/skills/design_system_creator)
-Builds comprehensive design systems with production-ready CSS, design tokens, and component libraries.
+Example: The `typography-expert` skill doesn't just know "use readable fonts." It knows about optical sizing, x-height ratios, combining typefaces, vertical rhythm, and the specific CSS properties to achieve each effect.
 
 ---
 
 ## Next Steps
 
-1. **[Browse Skills Gallery](/skills)** - Explore all 25 skills with beautiful hero images
-2. **[Read the Guide](/docs/guides/claude-skills-guide)** - Learn how skills work
-3. **[View on GitHub](https://github.com/erichowens/some_claude_skills)** - Get the source code
+- **[Browse Skills Gallery](/skills)** - See all 49+ skills with previews
+- **[Read the Full Guide](/docs/guides/claude-skills-guide)** - Learn to create your own
+- **[View on GitHub](https://github.com/erichowens/some_claude_skills)** - Source code and contributions
 
-Ready to make Claude an expert? Let's get started!
+---
+
+## About
+
+Built by [Erich Owens](https://erichowens.com).
+
+These skills are MIT licensed—fork them, modify them, make them yours.
