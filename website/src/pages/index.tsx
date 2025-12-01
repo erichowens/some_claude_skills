@@ -4,7 +4,6 @@ import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import SkillQuickView from '../components/SkillQuickView';
 import KonamiEasterEgg from '../components/KonamiEasterEgg';
-import NewsletterSignup from '../components/NewsletterSignup';
 import type { Skill } from '../types/skill';
 import { ALL_SKILLS } from '../data/skills';
 import { useStarredSkills } from '../hooks/useStarredSkills';
@@ -184,182 +183,198 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
                   {ALL_SKILLS.length} free, open-source skills for Claude Code
                 </p>
 
-                <p className="install-hero__exposition" style={{ position: 'relative' }}>
-                  Claude Code is an AI assistant made by Anthropic. It can read your files, run commands, and write code directly on your computer. Skills are instruction files that give Claude deep expertise in specific areas. Think of it as having a senior developer on retainer who can now selectively go get a master's degree in some new topic.
-                </p>
-
-                <p className="install-hero__exposition" style={{ position: 'relative' }}>
-                  This collection includes skills for <strong>ML engineers</strong> (computer vision, drone systems), <strong>designers</strong> (typography, color theory, UI), <strong>founders</strong> (career storytelling, competitive analysis), and <strong>personal growth</strong> (ADHD coaching, Jungian psychology). Each one was built for real projects I've worked on.
-                </p>
-
-                {/* PRIMARY: Marketplace Install */}
+                {/* Two-column layout: explainer left, install right */}
                 <div style={{
-                  background: 'linear-gradient(135deg, #0a2a0a 0%, #001a00 100%)',
-                  border: '3px solid var(--win31-lime)',
-                  padding: '20px',
-                  marginBottom: '16px',
-                  position: 'relative',
+                  display: 'flex',
+                  gap: '24px',
+                  alignItems: 'flex-start',
+                  flexWrap: 'wrap',
                 }}>
-                  {/* "Recommended" ribbon */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '-1px',
-                    right: '20px',
-                    background: 'var(--win31-lime)',
-                    color: '#000',
-                    padding: '4px 12px',
-                    fontSize: '10px',
-                    fontWeight: 'bold',
-                    fontFamily: 'var(--font-code)',
-                  }}>
-                    RECOMMENDED
+                  {/* Left column: explainer text */}
+                  <div style={{ flex: '1 1 300px', minWidth: '280px' }}>
+                    <p className="install-hero__exposition" style={{ position: 'relative', marginTop: 0 }}>
+                      Claude Code is an AI assistant made by Anthropic. It can read your files, run commands, and write code directly on your computer. Skills are instruction files that give Claude deep expertise in specific areas. Think of it as having a senior developer on retainer who can now selectively go get a master's degree in some new topic.
+                    </p>
+
+                    <p className="install-hero__exposition" style={{ position: 'relative' }}>
+                      This collection includes skills for <strong>ML engineers</strong> (computer vision, drone systems), <strong>designers</strong> (typography, color theory, UI), <strong>founders</strong> (career storytelling, competitive analysis), and <strong>personal growth</strong> (ADHD coaching, Jungian psychology). Each one was built for real projects I've worked on.
+                    </p>
+
+                    <div className="install-hero__badges">
+                      <span className="install-hero__badge install-hero__badge--yellow">{ALL_SKILLS.length} Skills</span>
+                      <span className="install-hero__badge install-hero__badge--lime">Open Source</span>
+                      <span className="install-hero__badge install-hero__badge--teal">MIT License</span>
+                    </div>
                   </div>
 
-                  <div style={{
-                    fontSize: '14px',
-                    fontWeight: 'bold',
-                    color: 'var(--win31-lime)',
-                    marginBottom: '12px',
-                    fontFamily: 'var(--font-code)',
-                  }}>
-                    {'>'}_ Claude Code Marketplace
-                  </div>
-
-                  {/* Step 1 */}
-                  <div style={{ marginBottom: '12px' }}>
+                  {/* Right column: install box */}
+                  <div style={{ flex: '1 1 340px', minWidth: '300px' }}>
+                    {/* PRIMARY: Marketplace Install */}
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      marginBottom: '6px',
+                      background: 'linear-gradient(135deg, #0a2a0a 0%, #001a00 100%)',
+                      border: '3px solid var(--win31-lime)',
+                      padding: '16px',
+                      marginBottom: '12px',
+                      position: 'relative',
                     }}>
-                      <span style={{
+                      {/* "Recommended" ribbon */}
+                      <div style={{
+                        position: 'absolute',
+                        top: '-1px',
+                        right: '16px',
                         background: 'var(--win31-lime)',
                         color: '#000',
-                        padding: '2px 8px',
-                        fontSize: '10px',
+                        padding: '3px 10px',
+                        fontSize: '9px',
                         fontWeight: 'bold',
                         fontFamily: 'var(--font-code)',
                       }}>
-                        STEP 1
-                      </span>
-                      <span style={{ color: 'var(--win31-lime)', fontSize: '12px', fontFamily: 'var(--font-code)' }}>
-                        Add the marketplace (one time)
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                      <code style={{
-                        flex: 1,
-                        background: '#000',
-                        padding: '10px 12px',
-                        border: '2px solid var(--win31-lime)',
+                        RECOMMENDED
+                      </div>
+
+                      <div style={{
+                        fontSize: '13px',
+                        fontWeight: 'bold',
                         color: 'var(--win31-lime)',
-                        fontSize: '13px',
+                        marginBottom: '10px',
                         fontFamily: 'var(--font-code)',
-                        display: 'block',
                       }}>
-                        /plugin marketplace add erichowens/some_claude_skills
-                      </code>
-                      <button
-                        className="win31-btn-3d"
-                        style={{
-                          background: copied === 'marketplace' ? 'var(--win31-lime)' : 'var(--win31-gray)',
-                          color: copied === 'marketplace' ? '#000' : 'inherit',
-                          fontWeight: 'bold',
-                        }}
-                        onClick={() => copyToClipboard('/plugin marketplace add erichowens/some_claude_skills', 'marketplace')}
-                      >
-                        {copied === 'marketplace' ? '✓' : 'COPY'}
-                      </button>
-                    </div>
-                  </div>
+                        {'>'}_ Claude Code Marketplace
+                      </div>
 
-                  {/* Step 2 */}
-                  <div>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      marginBottom: '6px',
-                    }}>
-                      <span style={{
-                        background: 'var(--win31-bright-yellow)',
-                        color: '#000',
-                        padding: '2px 8px',
+                      {/* Step 1 */}
+                      <div style={{ marginBottom: '10px' }}>
+                        <div style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          marginBottom: '4px',
+                        }}>
+                          <span style={{
+                            background: 'var(--win31-lime)',
+                            color: '#000',
+                            padding: '2px 6px',
+                            fontSize: '9px',
+                            fontWeight: 'bold',
+                            fontFamily: 'var(--font-code)',
+                          }}>
+                            STEP 1
+                          </span>
+                          <span style={{ color: 'var(--win31-lime)', fontSize: '11px', fontFamily: 'var(--font-code)' }}>
+                            Add the marketplace (one time)
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '6px' }}>
+                          <code style={{
+                            flex: 1,
+                            background: '#000',
+                            padding: '8px 10px',
+                            border: '2px solid var(--win31-lime)',
+                            color: 'var(--win31-lime)',
+                            fontSize: '11px',
+                            fontFamily: 'var(--font-code)',
+                            display: 'block',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            whiteSpace: 'nowrap',
+                          }}>
+                            /plugin marketplace add erichowens/some_claude_skills
+                          </code>
+                          <button
+                            className="win31-btn-3d"
+                            style={{
+                              background: copied === 'marketplace' ? 'var(--win31-lime)' : 'var(--win31-gray)',
+                              color: copied === 'marketplace' ? '#000' : 'inherit',
+                              fontWeight: 'bold',
+                              fontSize: '11px',
+                              padding: '6px 10px',
+                            }}
+                            onClick={() => copyToClipboard('/plugin marketplace add erichowens/some_claude_skills', 'marketplace')}
+                          >
+                            {copied === 'marketplace' ? '✓' : 'COPY'}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Step 2 */}
+                      <div>
+                        <div style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          marginBottom: '4px',
+                        }}>
+                          <span style={{
+                            background: 'var(--win31-bright-yellow)',
+                            color: '#000',
+                            padding: '2px 6px',
+                            fontSize: '9px',
+                            fontWeight: 'bold',
+                            fontFamily: 'var(--font-code)',
+                          }}>
+                            STEP 2
+                          </span>
+                          <span style={{ color: 'var(--win31-bright-yellow)', fontSize: '11px', fontFamily: 'var(--font-code)' }}>
+                            Install any skill
+                          </span>
+                        </div>
+                        <code style={{
+                          background: '#000',
+                          padding: '8px 10px',
+                          border: '2px solid var(--win31-bright-yellow)',
+                          color: 'var(--win31-bright-yellow)',
+                          fontSize: '11px',
+                          fontFamily: 'var(--font-code)',
+                          display: 'block',
+                        }}>
+                          /plugin install skill-name@some-claude-skills
+                        </code>
+                      </div>
+
+                      <div style={{
+                        marginTop: '10px',
                         fontSize: '10px',
+                        color: '#888',
+                        fontFamily: 'var(--font-code)',
+                      }}>
+                        Browse skills below and click "Get" for exact install commands
+                      </div>
+                    </div>
+
+                    {/* SECONDARY: Git Clone (collapsed toggle) */}
+                    <details style={{
+                      background: 'var(--win31-gray)',
+                      border: '2px solid #808080',
+                    }}>
+                      <summary style={{
+                        padding: '8px 12px',
+                        cursor: 'pointer',
+                        fontSize: '11px',
+                        fontFamily: 'var(--font-code)',
                         fontWeight: 'bold',
-                        fontFamily: 'var(--font-code)',
+                        color: '#333',
+                        listStyle: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
                       }}>
-                        STEP 2
-                      </span>
-                      <span style={{ color: 'var(--win31-bright-yellow)', fontSize: '12px', fontFamily: 'var(--font-code)' }}>
-                        Install any skill
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                      <code style={{
-                        flex: 1,
-                        background: '#000',
-                        padding: '10px 12px',
-                        border: '2px solid var(--win31-bright-yellow)',
-                        color: 'var(--win31-bright-yellow)',
-                        fontSize: '13px',
-                        fontFamily: 'var(--font-code)',
-                        display: 'block',
-                      }}>
-                        /plugin install skill-name@some-claude-skills
-                      </code>
-                    </div>
+                        <span style={{ fontSize: '9px' }}>▶</span>
+                        Alternative: Clone all {ALL_SKILLS.length} skills (git)
+                      </summary>
+                      <div style={{ padding: '10px 12px', paddingTop: 0 }}>
+                        <div className="install-hero__code-block" style={{ position: 'relative', marginTop: '6px' }}>
+                          <pre className="install-hero__code" style={{ fontSize: '10px', padding: '8px' }}>{installCommand}</pre>
+                          <button
+                            className={`win31-btn-3d install-hero__copy-btn ${copied === 'install' ? 'install-hero__copy-btn--copied' : ''}`}
+                            style={{ fontSize: '10px', padding: '4px 8px' }}
+                            onClick={() => copyToClipboard(installCommand, 'install')}
+                          >
+                            {copied === 'install' ? '✓ COPIED!' : 'COPY'}
+                          </button>
+                        </div>
+                      </div>
+                    </details>
                   </div>
-
-                  <div style={{
-                    marginTop: '12px',
-                    fontSize: '11px',
-                    color: '#888',
-                    fontFamily: 'var(--font-code)',
-                  }}>
-                    Browse skills below and click "Get" for exact install commands
-                  </div>
-                </div>
-
-                {/* SECONDARY: Git Clone (collapsed toggle) */}
-                <details style={{
-                  background: 'var(--win31-gray)',
-                  border: '2px solid #808080',
-                  marginBottom: '16px',
-                }}>
-                  <summary style={{
-                    padding: '10px 16px',
-                    cursor: 'pointer',
-                    fontSize: '13px',
-                    fontFamily: 'var(--font-code)',
-                    fontWeight: 'bold',
-                    color: '#333',
-                    listStyle: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}>
-                    <span style={{ fontSize: '10px' }}>▶</span>
-                    Alternative: Clone all {ALL_SKILLS.length} skills at once (git)
-                  </summary>
-                  <div style={{ padding: '12px 16px', paddingTop: 0 }}>
-                    <div className="install-hero__code-block" style={{ position: 'relative', marginTop: '8px' }}>
-                      <pre className="install-hero__code">{installCommand}</pre>
-                      <button
-                        className={`win31-btn-3d install-hero__copy-btn ${copied === 'install' ? 'install-hero__copy-btn--copied' : ''}`}
-                        onClick={() => copyToClipboard(installCommand, 'install')}
-                      >
-                        {copied === 'install' ? '✓ COPIED!' : 'COPY'}
-                      </button>
-                    </div>
-                  </div>
-                </details>
-
-                <div className="install-hero__badges">
-                  <span className="install-hero__badge install-hero__badge--yellow">{ALL_SKILLS.length} Skills</span>
-                  <span className="install-hero__badge install-hero__badge--lime">Open Source</span>
-                  <span className="install-hero__badge install-hero__badge--teal">MIT License</span>
                 </div>
               </div>
           </div>
@@ -535,10 +550,6 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
             </div>
           </div>
 
-          {/* ═══════════════════════════════════════════════════════════════════
-              NEWSLETTER SIGNUP
-              ═══════════════════════════════════════════════════════════════════ */}
-          <NewsletterSignup variant="inline" source="homepage" />
 
           {/* ═══════════════════════════════════════════════════════════════════
               FOOTER: Status Bar
