@@ -5,6 +5,25 @@ All notable changes to the photo-composition-critic skill will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2025-11-29
+
+### Changed
+- **SKILL.md restructured** for progressive disclosure (499 → ~132 lines)
+- Detailed content moved to reference files
+
+### Added
+- `references/composition-theory.md` - Rule of Thirds, Dynamic Symmetry, Arnheim, Gestalt
+- `references/color-theory.md` - LAB/CIECAM02, harmony, psychological effects
+- `references/ml-models.md` - AVA, NIMA, LAION-Aesthetics, VisualQuality-R1
+- `references/analysis-scripts.md` - Python implementations for edge detection, color extraction
+- Shibboleths table for expert vs novice detection
+- Anti-patterns section with visual diagnosis
+
+### Migration
+- No changes to frontmatter or activation triggers
+- Reference files provide deeper context when needed
+- Main SKILL.md now serves as index with quick reference
+
 ## [1.1.0] - 2025-11-26
 
 ### Changed

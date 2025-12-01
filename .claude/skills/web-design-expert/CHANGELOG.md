@@ -2,6 +2,24 @@
 
 All notable changes to the web-design-expert skill will be documented in this file.
 
+## [2.0.0] - 2025-11-29
+
+### Changed
+- **SKILL.md restructured** for progressive disclosure (461 → ~140 lines)
+- Design process streamlined into quick reference format
+
+### Added
+- `references/layout-systems.md` - Grid decision tree, spacing scale (8px base), breakpoints, mobile-first checklist
+- `references/color-accessibility.md` - Minimum viable palette, color psychology, dark mode guidelines, WCAG checklist
+- `references/tooling-integration.md` - 21st.dev MCP tools, Figma MCP integration, design-to-code workflow
+- Common anti-patterns with fixes (decoration over function, ignoring the fold, etc.)
+- Design trend evolution table (2019-2024+)
+
+### Migration
+- No changes to frontmatter or activation triggers
+- MCP tool documentation now in dedicated reference file
+- Main SKILL.md serves as design decision index
+
 ## [1.2.0] - 2025-11-26
 
 ### Added

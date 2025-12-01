@@ -2,6 +2,24 @@
 
 All notable changes to the skill-coach skill will be documented in this file.
 
+## [2.0.0] - 2025-11-29
+
+### Changed
+- **SKILL.md restructured** for progressive disclosure (471 → ~161 lines)
+- Content organized into quick reference format
+
+### Added
+- `references/anti-patterns.md` - 12 documented anti-patterns with fixes
+- `references/shibboleths.md` - 9 expert vs novice indicators
+- `references/validation-checklist.md` - 30+ validation criteria organized by category
+- Decision tree format for common scenarios
+- Integration guide with other skills
+
+### Migration
+- No changes to frontmatter or activation triggers
+- Validation checklist now available for systematic review
+- Anti-patterns guide helps avoid common mistakes
+
 ## [1.2.0] - 2025-11-26
 
 ### Added
