@@ -2,6 +2,26 @@
 
 All notable changes to the skill-coach skill will be documented in this file.
 
+## [2.1.0] - 2025-12-01
+
+### Added
+- **Self-Contained Skills** section (RECOMMENDED) - strongly advocates shipping working tools
+- `references/self-contained-tools.md` - Complete implementation patterns for:
+  - Working scripts (not templates)
+  - MCP server implementations
+  - Subagent definitions and orchestration
+- Decision tree: "What tools does my skill need?"
+- Anti-patterns: Phantom Tools, Template Soup, Dependency Hell, MCP Without Purpose
+- Self-contained checklist for skill authors
+
+### Changed
+- Skill structure now shows scripts/mcp-server/agents as **Strongly Recommended**
+- Philosophy shift: "Skills with working tools are immediately useful"
+
+### Why This Matters
+Skills that only provide instructions require users to implement everything themselves.
+Skills that ship working tools let users be productive immediately.
+
 ## [2.0.0] - 2025-11-29
 
 ### Changed

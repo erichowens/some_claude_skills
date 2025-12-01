@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-01T06:36:52.047Z",
+  "generatedAt": "2025-12-01T08:15:41.573Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -40,7 +40,7 @@
     "automatic-stateful-prompt-improver": {
       "id": "automatic-stateful-prompt-improver",
       "createdAt": "2025-11-28T16:43:50-08:00",
-      "updatedAt": "2025-11-28T16:43:50-08:00",
+      "updatedAt": "2025-11-30T22:36:49-08:00",
       "totalLines": 3101,
       "totalFiles": 10,
       "skillMdSize": 4741,
@@ -89,10 +89,10 @@
       "id": "code-necromancer",
       "createdAt": null,
       "updatedAt": null,
-      "totalLines": 351,
-      "totalFiles": 1,
-      "skillMdSize": 9608,
-      "skillMdLines": 351,
+      "totalLines": 1797,
+      "totalFiles": 7,
+      "skillMdSize": 10017,
+      "skillMdLines": 357,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -124,7 +124,7 @@
     "competitive-cartographer": {
       "id": "competitive-cartographer",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-25T18:43:58-08:00",
+      "updatedAt": "2025-11-30T22:36:49-08:00",
       "totalLines": 642,
       "totalFiles": 6,
       "skillMdSize": 4898,
@@ -280,7 +280,7 @@
     "metal-shader-expert": {
       "id": "metal-shader-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-28T16:43:50-08:00",
+      "updatedAt": "2025-11-30T22:36:49-08:00",
       "totalLines": 1011,
       "totalFiles": 6,
       "skillMdSize": 5118,
@@ -328,7 +328,7 @@
     "photo-composition-critic": {
       "id": "photo-composition-critic",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-26T20:09:33-08:00",
+      "updatedAt": "2025-11-30T22:36:49-08:00",
       "totalLines": 632,
       "totalFiles": 6,
       "skillMdSize": 5070,
@@ -352,7 +352,7 @@
     "physics-rendering-expert": {
       "id": "physics-rendering-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-28T16:43:50-08:00",
+      "updatedAt": "2025-11-30T22:36:49-08:00",
       "totalLines": 1090,
       "totalFiles": 5,
       "skillMdSize": 5385,
@@ -412,11 +412,11 @@
     "skill-coach": {
       "id": "skill-coach",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-26T14:33:01-08:00",
-      "totalLines": 3422,
-      "totalFiles": 12,
-      "skillMdSize": 5212,
-      "skillMdLines": 162,
+      "updatedAt": "2025-11-30T22:36:49-08:00",
+      "totalLines": 3876,
+      "totalFiles": 13,
+      "skillMdSize": 6897,
+      "skillMdLines": 214,
       "hasReferences": true,
       "hasExamples": true,
       "hasChangelog": true
@@ -556,7 +556,7 @@
     "web-design-expert": {
       "id": "web-design-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-11-26T14:33:01-08:00",
+      "updatedAt": "2025-11-30T22:36:49-08:00",
       "totalLines": 490,
       "totalFiles": 5,
       "skillMdSize": 5288,

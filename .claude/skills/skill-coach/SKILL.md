@@ -97,13 +97,64 @@ your-skill/
 └── SKILL.md           # Core instructions (max 500 lines)
 ```
 
-**Optional** (only if needed):
+**Strongly Recommended** (self-contained skills):
 ```
-├── scripts/           # Working code (not templates)
-├── references/        # Deep dives
-├── assets/            # Config files
-└── examples/          # Good/bad examples
+├── scripts/           # Working code - NOT templates
+├── mcp-server/        # Custom MCP if external APIs needed
+├── agents/            # Subagent definitions if orchestration needed
+├── references/        # Deep dives on domain knowledge
+└── CHANGELOG.md       # Version history
 ```
+
+## Self-Contained Skills (RECOMMENDED)
+
+**Skills with working tools are immediately useful. Skills with only instructions require manual implementation.**
+
+### Why Ship Tools?
+
+| Skill Type | User Experience |
+|------------|-----------------|
+| Instructions only | "Great advice, now I have to build it myself" |
+| With working tools | "I can use this RIGHT NOW" |
+
+### What to Include
+
+**Scripts** - Working code for the domain:
+```
+scripts/
+├── analyze.py       # Actually works, not a template
+├── validate.sh      # Pre-flight checks
+└── README.md        # How to run
+```
+
+**MCP Server** - When external APIs are needed:
+```
+mcp-server/
+├── server.py        # Ready to install
+├── package.json     # Dependencies
+└── README.md        # `npx @anthropic/create-mcp-server`
+```
+
+**Subagents** - When orchestration is needed:
+```
+agents/
+├── workflow.md      # Agent definition
+└── prompts/         # Agent system prompts
+```
+
+### Decision Tree: What Tools Does My Skill Need?
+
+```
+Does skill need external APIs (GitHub, Figma, databases)?
+├── YES → Build an MCP server
+└── NO → Does skill need multi-step orchestration?
+    ├── YES → Define subagents
+    └── NO → Does skill have repeatable operations?
+        ├── YES → Write scripts
+        └── NO → References only (rare)
+```
+
+See `references/self-contained-tools.md` for implementation patterns.
 
 ## Decision Trees
 
@@ -155,6 +206,7 @@ your-skill/
 | `references/anti-patterns.md` | Detailed anti-pattern examples with fixes |
 | `references/shibboleths.md` | Expert vs novice knowledge patterns |
 | `references/validation-checklist.md` | Complete review and testing guide |
+| `references/self-contained-tools.md` | Scripts, MCP servers, and subagent implementation patterns |
 
 ---
 
