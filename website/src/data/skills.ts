@@ -59,6 +59,9 @@ export const ALL_SKILLS: Skill[] = [
   // 💬 Conversational AI & Bots (1 skill)
   { id: 'bot-developer', title: 'Bot Developer', category: 'Conversational AI & Bots', path: '/docs/skills/bot_developer', description: getDesc('bot-developer', 'Production-grade bot development for Discord, Telegram, Slack with state machines, rate limiting, and moderation systems.'), tags: ['creation', 'automation', 'code', 'production-ready'], badge: 'NEW' },
 
+  // 📐 Documentation & Visualization (1 skill)
+  { id: 'diagramming-expert', title: 'Diagramming Expert', category: 'Documentation & Visualization', path: '/docs/skills/diagramming_expert', description: getDesc('diagramming-expert', 'Master of text-based visual communication using ASCII art, Unicode box-drawing, and structured diagram notation for systems, processes, and psychological structures.'), tags: ['analysis', 'design', 'visual', 'documentation', 'beginner-friendly'], badge: 'NEW' },
+
   // 🔬 Research & Strategy (4 skills)
   { id: 'research-analyst', title: 'Research Analyst', category: 'Research & Strategy', path: '/docs/skills/research_analyst', description: getDesc('research-analyst', 'Thorough landscape research, competitive analysis, and evidence-based recommendations.'), tags: ['research', 'analysis', 'document', 'strategy', 'beginner-friendly'] },
   { id: 'team-builder', title: 'Team Builder', category: 'Research & Strategy', path: '/docs/skills/team_builder', description: getDesc('team-builder', 'Designs high-performing team structures using organizational psychology.'), tags: ['analysis', 'strategy', 'psychology'] },

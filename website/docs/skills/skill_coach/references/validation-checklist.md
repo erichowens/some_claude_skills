@@ -1,7 +1,7 @@
 ---
 title: Skill Validation Checklist
 sidebar_label: Skill Validation Checklist
-sidebar_position: 6
+sidebar_position: 8
 ---
 # Skill Validation Checklist
 

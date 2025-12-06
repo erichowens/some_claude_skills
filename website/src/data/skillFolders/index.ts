@@ -88,6 +88,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 2,
     "folderCount": 0
   },
+  "diagramming-expert": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
   "drone-cv-expert": {
     "hasContent": true,
     "fileCount": 5,
@@ -130,7 +135,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "jungian-psychologist": {
     "hasContent": true,
-    "fileCount": 4,
+    "fileCount": 6,
     "folderCount": 1
   },
   "metal-shader-expert": {
@@ -190,7 +195,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "skill-coach": {
     "hasContent": true,
-    "fileCount": 14,
+    "fileCount": 17,
     "folderCount": 19
   },
   "skill-documentarian": {
@@ -280,6 +285,7 @@ export const skillsWithContent = [
   "cv-creator",
   "design-archivist",
   "design-system-creator",
+  "diagramming-expert",
   "drone-cv-expert",
   "drone-inspection-specialist",
   "event-detection-temporal-intelligence-expert",
