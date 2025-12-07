@@ -1,0 +1,27 @@
+{
+  "name": "@forge/ecosystem-state",
+  "version": "1.0.0",
+  "description": "MCP server exposing Founding Council ecosystem state",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node build/index.js",
+    "test": "node --test tests/"
+  },
+  "keywords": ["mcp", "claude", "ecosystem", "agents", "skills"],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
