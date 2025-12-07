@@ -1,0 +1,140 @@
+feat(archivist): Build complete auto-documentation pipeline
+
+The Archivist agent now has a fully functional auto-documentation
+infrastructure that captures ecosystem state and generates historical records.
+
+## New Scripts
+
+### scripts/generate_snapshot.py
+- Creates timestamped point-in-time snapshots of ecosystem state
+- Compares to previous snapshot for delta tracking (new/changed/removed)
+- Outputs both JSON (machine-readable) and Markdown (human-readable)
+- Supports custom labels for milestone snapshots
+- Tracks: skills, agents, tools, references, examples
+
+### scripts/update_changelog.py
+- Analyzes git history for .claude/skills/ and .claude/agents/ changes
+- Auto-generates changelog entries in Keep a Changelog format
+- Categorizes: Added, Changed, Fixed, Deprecated, Removed, Security
+- Extracts entity names from file paths
+- Merges with existing CHANGELOG.md
+- Supports versioned releases
+
+### scripts/generate_progress_report.py
+- Generates weekly or monthly progress reports
+- Analyzes snapshot series for trends
+- Calculates growth rates and metrics
+- Lists all changes in reporting period
+- Includes structured sections for manual input
+
+### scripts/run_initial_archive.sh
+- One-command setup script
+- Creates .claude/archive/ directory structure
+- Runs ecosystem data generation
+- Creates initial snapshot with "initial" label
+- Creates initial CHANGELOG.md with founding entry
+
+## Archive Structure
+
+.claude/archive/
+├── snapshots/          # Point-in-time ecosystem snapshots
+├── changelogs/         # CHANGELOG.md and archived versions
+├── blog-drafts/        # Auto-generated blog post drafts
+└── progress-reports/   # Weekly and monthly reports
+    ├── weekly/
+    └── monthly/
+
+## Documentation
+
+### ARCHIVIST_SETUP.md
+Complete setup and usage guide:
+- Installation instructions
+- Script usage examples
+- Automation options (git hooks, cron, CI/CD)
+- Querying the archive
+- Troubleshooting
+
+### archive_README.md
+Archive system reference documentation to be placed in .claude/archive/:
+- Directory structure explanation
+- File format specifications
+- Best practices
+- Integration with other agents
+- Retention policies
+
+### ARCHIVIST_DELIVERABLES.md
+Comprehensive deliverables summary:
+- All features and capabilities
+- Quick start guide
+- Output examples
+- Technical details
+- Future enhancements
+
+## Snapshot Format
+
+Each snapshot creates:
+1. JSON file: Full ecosystem state + delta
+2. Markdown file: Human-readable report with:
+   - Summary statistics table
+   - Changes since last snapshot
+   - Ecosystem health metrics
+   - Tool usage patterns
+
+## Changelog Format
+
+Follows Keep a Changelog standard with categories:
+- Added: New skills/agents/capabilities
+- Changed: Updates and improvements
+- Fixed: Bug fixes
+- Deprecated: Features marked for removal
+- Removed: Deleted entities
+- Security: Security-related changes
+
+## Usage
+
+# Initial setup (one time)
+./scripts/run_initial_archive.sh
+
+# Regular usage
+python3 scripts/generate_snapshot.py                    # Create snapshot
+python3 scripts/update_changelog.py                     # Update changelog
+python3 scripts/generate_progress_report.py --weekly    # Weekly report
+python3 scripts/generate_progress_report.py --monthly   # Monthly report
+
+# Milestone snapshots
+python3 scripts/generate_snapshot.py --label "v1.0-release"
+
+# Changelog for recent commits
+python3 scripts/update_changelog.py --since "1 week ago"
+
+## Integration
+
+The Archivist coordinates with:
+- The Liaison: Provides progress summaries for humans
+- The Cartographer: Records territorial expansions
+- The Visualizer: Supplies historical data for visualizations
+
+## Future Enhancements
+
+Ready to implement:
+- Blog draft auto-generator (detect blog-worthy events)
+- Trend analysis dashboard (growth rates, patterns)
+- Historical query API (programmatic access)
+- Web visualization (interactive timeline)
+
+## Deliverables - ALL COMPLETE
+
+✅ Archive directory structure defined
+✅ Snapshot generator with delta tracking
+✅ Changelog generator with git integration
+✅ Progress report generator (weekly/monthly)
+✅ Initial setup script
+✅ Comprehensive documentation
+✅ Automation examples (hooks, cron, CI/CD)
+
+This implements the complete auto-documentation pipeline as specified
+in the Archivist agent definition. All outputs follow the documented
+snapshot format and changelog standards.
+
+Branch: archivist/auto-documentation
+Ready for: Merge to main, tag as v0.1.0
