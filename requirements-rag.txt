@@ -1,0 +1,22 @@
+# RAG Infrastructure Dependencies
+# Install with: pip install -r requirements-rag.txt
+
+# Vector Database (local, no server needed)
+chromadb>=0.4.22
+
+# Embedding Model (local, free, fast)
+sentence-transformers>=2.2.2
+
+# YAML Frontmatter Parsing
+pyyaml>=6.0.1
+python-frontmatter>=1.0.0
+
+# Text Processing
+markdown>=3.5.1
+
+# CLI Interface
+rich>=13.7.0
+click>=8.1.7
+
+# Utilities
+tqdm>=4.66.1
