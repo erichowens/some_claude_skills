@@ -1,0 +1,575 @@
+/* Ecosystem Dashboard Styles */
+
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+/* Stats Panel */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  background: var(--win31-gray);
+}
+
+.statBox {
+  background: #fff;
+  border: 2px solid var(--win31-dark-gray);
+  padding: 16px;
+  box-shadow: inset -1px -1px 0 var(--win31-dark-gray);
+}
+
+.statLabel {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--win31-dark-gray);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.statSubtext {
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: #666;
+}
+
+/* Tool List */
+.toolList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toolItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toolName {
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-navy);
+}
+
+.toolBar {
+  position: relative;
+  height: 16px;
+  background: var(--win31-light-gray);
+  border: 1px solid var(--win31-dark-gray);
+}
+
+.toolBarFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--win31-navy), var(--win31-teal));
+  transition: width 0.3s ease;
+}
+
+.toolCount {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win31-black);
+}
+
+/* Domain Heatmap */
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.heatmapCell {
+  background: var(--win31-light-gray);
+  border: 2px solid var(--win31-dark-gray);
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.heatmapCell:hover {
+  transform: translateY(-2px);
+  border-color: var(--win31-navy);
+}
+
+.heatmapLabel {
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--win31-black);
+  margin-bottom: 4px;
+}
+
+.heatmapValue {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--win31-teal);
+}
+
+/* View Selector */
+.viewSelector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 8px;
+  background: var(--win31-gray);
+  border: 2px solid var(--win31-black);
+}
+
+.viewButton {
+  background: var(--win31-gray);
+  border: 2px outset var(--win31-white);
+  padding: 8px 16px;
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewButton:hover {
+  background: var(--win31-light-gray);
+}
+
+.viewButton.active {
+  background: var(--win31-navy);
+  color: var(--win31-white);
+  border-style: inset;
+}
+
+/* Main Content */
+.mainContent {
+  position: relative;
+}
+
+/* Knowledge Graph */
+.graphContainer {
+  position: relative;
+  background: #0f172a;
+  border: 3px solid var(--win31-black);
+  padding: 16px;
+}
+
+.graphCanvas {
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+}
+
+.graphLegend {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(192, 192, 192, 0.95);
+  border: 2px solid var(--win31-black);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+/* Agent Grid */
+.agentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.agentCard {
+  background: var(--win31-gray);
+  border: 2px outset var(--win31-white);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.agentCard:hover {
+  border-color: var(--win31-navy);
+  transform: translateY(-2px);
+}
+
+.agentCard.selected {
+  background: var(--win31-navy);
+  border-style: inset;
+}
+
+.agentCard.selected .agentName,
+.agentCard.selected .agentRole,
+.agentCard.selected .agentDescription {
+  color: var(--win31-white) !important;
+}
+
+.agentIcon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: 2px solid var(--win31-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;
+}
+
+.agentContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.agentName {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--win31-navy);
+  margin: 0 0 4px 0;
+}
+
+.agentRole {
+  font-family: var(--font-system);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-teal);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.agentDescription {
+  font-family: var(--font-code);
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.agentMeta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.metaBadge {
+  background: var(--win31-light-gray);
+  border: 1px solid var(--win31-dark-gray);
+  padding: 4px 8px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--win31-black);
+}
+
+/* Detail Panel */
+.detailPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: var(--win31-gray);
+  border-left: 3px solid var(--win31-black);
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.detailHeader {
+  background: var(--win31-navy);
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--win31-black);
+}
+
+.detailHeader h2 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  margin: 0;
+}
+
+.closeButton {
+  background: var(--win31-gray);
+  border: 2px outset var(--win31-white);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.closeButton:hover {
+  background: var(--win31-red);
+  color: white;
+}
+
+.detailContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.detailContent h3 {
+  font-family: var(--font-system);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--win31-teal);
+  margin: 0 0 8px 0;
+}
+
+.detailContent p {
+  font-family: var(--font-code);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.detailSection {
+  margin-bottom: 24px;
+}
+
+.detailSection h4 {
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--win31-dark-gray);
+  margin: 0 0 8px 0;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: var(--win31-light-gray);
+  border: 1px solid var(--win31-dark-gray);
+  padding: 4px 8px;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--win31-black);
+}
+
+.tagAgent {
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+  border-color: #4f46e5;
+}
+
+.tagAgent:hover {
+  background: #4f46e5;
+}
+
+.tagTrigger {
+  background: #10b981;
+  color: white;
+  border-color: #059669;
+  font-style: italic;
+}
+
+/* Skill Grid */
+.skillControls {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: var(--win31-gray);
+  border-bottom: 2px solid var(--win31-black);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 6px 12px;
+  font-family: var(--font-code);
+  font-size: 12px;
+  border: 2px inset var(--win31-gray);
+  background: white;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filterLabel input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.skillCount {
+  margin-left: auto;
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--win31-dark-gray);
+}
+
+.skillGridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  background: var(--win31-gray);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.skillCard {
+  background: white;
+  border: 2px solid var(--win31-dark-gray);
+  padding: 12px;
+  transition: all 0.2s;
+}
+
+.skillCard:hover {
+  border-color: var(--win31-teal);
+  transform: translateY(-2px);
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.skillName {
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--win31-navy);
+  margin: 0;
+  flex: 1;
+}
+
+.skillBadges {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.badge {
+  font-size: 12px;
+}
+
+.skillDescription {
+  font-family: var(--font-code);
+  font-size: 11px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.skillTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.toolTag {
+  background: var(--win31-light-gray);
+  border: 1px solid var(--win31-dark-gray);
+  padding: 2px 6px;
+  font-family: var(--font-code);
+  font-size: 9px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 12px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .viewSelector {
+    flex-direction: column;
+  }
+
+  .agentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailPanel {
+    width: 100%;
+  }
+
+  .skillGridContainer {
+    grid-template-columns: 1fr;
+  }
+}
