@@ -44,3 +44,6 @@ temp/
 
 # Private portfolio site (submodule)
 erichowens_com/
+
+# RAG Vector Database (can be rebuilt with scripts/build_embeddings.py)
+.chroma_db/
