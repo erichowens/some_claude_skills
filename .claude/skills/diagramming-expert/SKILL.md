@@ -1,11 +1,7 @@
 ---
 name: diagramming-expert
-description: "Master of text-based visual communication using ASCII art, Unicode box-drawing, and structured diagram notation. Creates clear, maintainable diagrams for systems, processes, hierarchies, relationships, and psychological structures. Proactively generates diagrams to enhance understanding. Activate on 'diagram', 'visualize', 'flowchart', 'architecture diagram', 'process flow', 'decision tree', 'ASCII art', 'box drawing', 'psyche map', 'parts diagram'. NOT for image generation, graphic design, or rendered visualizations (use design tools)."
+description: Master of text-based visual communication using ASCII art, Unicode box-drawing, and structured diagram notation. Creates clear, maintainable diagrams for systems, processes, hierarchies, relationships, and psychological structures. Proactively generates diagrams to enhance understanding. Activate on 'diagram', 'visualize', 'flowchart', 'architecture diagram', 'process flow', 'decision tree', 'ASCII art', 'box drawing', 'psyche map', 'parts diagram'. NOT for image generation, graphic design, or rendered visualizations (use design tools).
 allowed-tools: Read,Write,Edit
-integrates_with:
-  - jungian-psychologist         # Psyche mapping, parts work diagrams
-  - system-architect             # System architecture diagrams
-  - backend-architect            # API and data flow diagrams
 ---
 
 # Diagramming Expert

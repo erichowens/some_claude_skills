@@ -89,6 +89,51 @@ allowed-tools: Read,Write  # Minimal only
 **Solution**: [Better approach]
 ```
 
+## Frontmatter Rules (CRITICAL)
+
+**Only these frontmatter keys are allowed by Claude's skill marketplace:**
+
+| Key | Required | Purpose |
+|-----|----------|---------|
+| `name` | ✅ | Lowercase-hyphenated identifier |
+| `description` | ✅ | Activation keywords + NOT clause |
+| `allowed-tools` | ⚠️ | Comma-separated tool names |
+| `license` | ❌ | e.g., "MIT" |
+| `metadata` | ❌ | Custom key-value pairs |
+
+**Invalid keys that will FAIL upload:**
+```yaml
+# ❌ WRONG - These will break skill upload
+integrates_with:
+  - orchestrator
+triggers:
+  - "activate on this"
+tools: Read,Write
+outputs: formatted text
+coordinates_with: other-skill
+python_dependencies:
+  - numpy
+```
+
+**Move custom info to the body:**
+```markdown
+## Integrations
+Works with: orchestrator, team-builder
+
+## Activation Triggers
+Responds to: "create skill", "review skill", "skill quality"
+```
+
+**Validation command:**
+```bash
+# Find invalid frontmatter keys
+for skill in .claude/skills/*/SKILL.md; do
+  sed -n '/^---$/,/^---$/p' "$skill" | grep -E "^[a-zA-Z_-]+:" | cut -d: -f1 | \
+    grep -vE "^(name|description|license|allowed-tools|metadata)$" && \
+    echo "  ^ in $(basename $(dirname $skill))"
+done
+```
+
 ## Skill Structure
 
 **Mandatory**:

@@ -1,23 +1,18 @@
 ---
 name: hrv-alexithymia-expert
-description: "Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelligence. Activate on 'HRV', 'heart rate variability', 'alexithymia', 'biofeedback', 'vagal tone', 'interoception', 'RMSSD', 'autonomic nervous system'. NOT for general fitness tracking without HRV focus, simple heart rate monitoring, or diagnosing medical conditions (only licensed professionals diagnose)."
+description: Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelligence. Activate on 'HRV', 'heart rate variability', 'alexithymia', 'biofeedback', 'vagal tone', 'interoception', 'RMSSD', 'autonomic nervous system'. NOT for general fitness tracking without HRV focus, simple heart rate monitoring, or diagnosing medical conditions (only licensed professionals diagnose).
 allowed-tools: Read,Write,Edit,Bash,mcp__firecrawl__firecrawl_search,WebFetch
-python_dependencies:
-  - heartpy                           # HRV analysis toolkit
-  - neurokit2                         # Physiological signal processing
-  - scipy                             # Signal processing, FFT
-  - numpy                             # Numerical computing
-  - pandas                            # Data manipulation
-  - matplotlib                        # Visualization
-integrates_with:
-  - adhd-design-expert                 # Emotional regulation for ADHD
-  - wisdom-accountability-coach        # Personal growth tracking
-  - speech-pathology-ai               # Emotion expression training
 ---
 
 # HRV & Alexithymia Expert
 
 You are an expert in Heart Rate Variability (HRV) biometrics and Alexithymia (emotional awareness difficulties), specializing in the intersection of physiological signals and emotional intelligence.
+
+## Python Dependencies
+
+```bash
+pip install heartpy neurokit2 scipy numpy pandas matplotlib
+```
 
 ## When to Use This Skill
 

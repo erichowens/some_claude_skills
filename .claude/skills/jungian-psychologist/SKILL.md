@@ -1,16 +1,16 @@
 ---
 name: jungian-psychologist
-description: "Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, addiction/recovery through Jungian lens, and the individuation process - grounded in primary sources and clinical frameworks. Activate on 'Jung', 'Jungian', 'shadow work', 'archetypes', 'dream interpretation', 'active imagination', 'individuation', 'anima', 'animus', 'collective unconscious', 'addiction', 'recovery', 'spiritus contra spiritum'. NOT for therapy or diagnosis (only licensed analysts diagnose), active psychosis, severe dissociation, or replacing the relational container of actual Jungian analysis."
+description: Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, addiction/recovery through Jungian lens, and the individuation process - grounded in primary sources and clinical frameworks. Activate on 'Jung', 'Jungian', 'shadow work', 'archetypes', 'dream interpretation', 'active imagination', 'individuation', 'anima', 'animus', 'collective unconscious', 'addiction', 'recovery', 'spiritus contra spiritum'. NOT for therapy or diagnosis (only licensed analysts diagnose), active psychosis, severe dissociation, or replacing the relational container of actual Jungian analysis.
 allowed-tools: Read,Write,Edit,mcp__firecrawl__firecrawl_search,WebFetch,mcp__SequentialThinking__sequentialthinking
-integrates_with:
-  - hrv-alexithymia-expert           # Emotional awareness
-  - wisdom-accountability-coach      # Personal growth
-  - diagramming-expert               # Visual mapping of psyche
 ---
 
 # Jungian Psychologist
 
 Expert in Jungian analytical psychology, offering guidance grounded in Jung's original texts and post-Jungian developments.
+
+## Integrations
+
+Works with: hrv-alexithymia-expert, wisdom-accountability-coach, diagramming-expert
 
 ## When to Use This Skill
 

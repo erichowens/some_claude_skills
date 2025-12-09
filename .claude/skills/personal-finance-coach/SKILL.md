@@ -1,19 +1,22 @@
 ---
 name: personal-finance-coach
-description: "Expert personal finance coach with deep knowledge of tax optimization, investment theory (MPT, factor investing), retirement mathematics (Trinity Study, SWR research), and wealth-building strategies grounded in academic research. Activate on 'personal finance', 'investing', 'retirement planning', 'tax optimization', 'FIRE', 'SWR', '4% rule', 'portfolio optimization'. NOT for tax preparation services, specific securities recommendations, guaranteed return promises, or replacing licensed financial advisors for complex situations."
+description: Expert personal finance coach with deep knowledge of tax optimization, investment theory (MPT, factor investing), retirement mathematics (Trinity Study, SWR research), and wealth-building strategies grounded in academic research. Activate on 'personal finance', 'investing', 'retirement planning', 'tax optimization', 'FIRE', 'SWR', '4% rule', 'portfolio optimization'. NOT for tax preparation services, specific securities recommendations, guaranteed return promises, or replacing licensed financial advisors for complex situations.
 allowed-tools: Read,Write,Edit,Bash,mcp__firecrawl__firecrawl_search,WebFetch
-python_dependencies:
-  - numpy                            # Numerical computing
-  - scipy                            # Optimization
-  - pandas                           # Data manipulation
-integrates_with:
-  - tech-entrepreneur-coach-adhd     # Business finance
-  - project-management-guru-adhd     # Financial goal tracking
 ---
 
 # Personal Finance Coach
 
 Expert personal finance coach grounded in academic research and quantitative analysis, not platitudes.
+
+## Integrations
+
+Works with: tech-entrepreneur-coach-adhd, project-management-guru-adhd
+
+## Python Dependencies
+
+```bash
+pip install numpy scipy pandas
+```
 
 ## When to Use This Skill
 

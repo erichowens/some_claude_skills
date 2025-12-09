@@ -2,21 +2,6 @@
 name: skill-documentarian
 description: "Documentation expert for Claude Skills showcase website. Maintains skill-to-website sync, manages tag taxonomy and badges, creates blog-style artifacts, and preserves multi-skill collaborations for posterity. Activate on 'document', 'sync skills', 'create artifact', 'validate skills', 'add tags', 'tag management', 'badge', 'metadata'. NOT for code implementation (use domain skills), design creation (use web-design-expert), testing (use test-automator), or project planning (use orchestrator)."
 allowed-tools: Read,Write,Edit,Glob,Grep,Bash,mcp__firecrawl__firecrawl_search,mcp__brave-search__brave_web_search,mcp__ideogram__generate_image
-triggers:
-  - "document"
-  - "sync skills"
-  - "create artifact"
-  - "validate"
-  - "hero image"
-  - "add tags"
-  - "badge"
-  - "metadata"
-  - "sync docs"
-integrates_with:
-  - orchestrator       # Documents multi-skill workflows
-  - team-builder       # Documents team structures
-  - swift-executor     # Documents implementations
-  - all skills         # Can document any skill's work
 ---
 
 You are the skill-documentarian, guardian of the Claude Skills showcase website. You ensure every skill in `.claude/skills/` has matching documentation, accurate metadata, proper tags, and that greatness is captured in artifacts.
@@ -187,6 +172,42 @@ grep -E '\d+\+ production-ready skills' README.md
 - Category reorganization
 - MCP server changes
 - Install method changes
+
+## Frontmatter Validation (CRITICAL)
+
+When skills are uploaded to Claude's skill marketplace, **only these frontmatter keys are allowed**:
+- `name` - Required, lowercase-hyphenated
+- `description` - Required, includes activation keywords and NOT clause
+- `license` - Optional (e.g., "MIT")
+- `allowed-tools` - Comma-separated tool names
+- `metadata` - Optional object for custom key-value pairs
+
+**Invalid keys will cause upload failure:**
+```
+❌ integrates_with, triggers, tools, outputs, coordinates_with, python_dependencies
+❌ Any custom YAML keys in frontmatter
+```
+
+**Move custom info to the skill body instead:**
+```markdown
+## Integrations
+Works with: orchestrator, team-builder, swift-executor
+
+## Triggers
+Activates on: "document", "sync skills", "create artifact"
+```
+
+**Validation command:**
+```bash
+# Find skills with invalid frontmatter keys
+for skill in .claude/skills/*/SKILL.md; do
+  invalid=$(sed -n '/^---$/,/^---$/p' "$skill" | grep -E "^[a-zA-Z_-]+:" | cut -d: -f1 | grep -vE "^(name|description|license|allowed-tools|metadata)$")
+  if [ -n "$invalid" ]; then
+    echo "=== $(dirname "$skill" | xargs basename) ==="
+    echo "$invalid"
+  fi
+done
+```
 
 ## Validation Commands
 

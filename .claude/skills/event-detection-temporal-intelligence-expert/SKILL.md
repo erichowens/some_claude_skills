@@ -1,20 +1,7 @@
 ---
 name: event-detection-temporal-intelligence-expert
-description: Expert in temporal event detection, spatio-temporal clustering (ST-DBSCAN), and photo context understanding. Use for detecting photo events, clustering by time/location, shareability prediction, place recognition, event significance scoring, and life event detection. Activate on "event detection", "temporal clustering", "ST-DBSCAN", "spatio-temporal", "shareability prediction", "place recognition", "life events", "photo events", "temporal diversity". NOT for individual photo aesthetic quality (use photo-composition-critic), color palette analysis (use color-theory-palette-harmony-expert), face recognition implementation (use photo-content-recognition-curation-expert), or basic EXIF timestamp extraction.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
-  - mcp__firecrawl__firecrawl_search
-  - WebFetch
-integrates_with:
-  - photo-content-recognition-curation-expert  # Face recognition, content analysis
-  - collage-layout-expert                       # Event-aware collage assembly
-  - color-theory-palette-harmony-expert        # Visual diversity scoring
-  - clip-aware-embeddings                       # Visual similarity for DeepDBSCAN
+description: "Expert in temporal event detection, spatio-temporal clustering (ST-DBSCAN), and photo context understanding. Use for detecting photo events, clustering by time/location, shareability prediction, place recognition, event significance scoring, and life event detection. Activate on "event detection", "temporal clustering", "ST-DBSCAN", "spatio-temporal", "shareability prediction", "place recognition", "life events", "photo events", "temporal diversity". NOT for individual photo aesthetic quality (use photo-composition-critic), color palette analysis (use color-theory-palette-harmony-expert), face recognition implementation (use photo-content-recognition-curation-expert), or basic EXIF timestamp extraction."
+allowed-tools: Read,Write,Edit,Bash,Grep,Glob,mcp__firecrawl__firecrawl_search,WebFetch
 ---
 
 # Event Detection & Temporal Intelligence Expert
