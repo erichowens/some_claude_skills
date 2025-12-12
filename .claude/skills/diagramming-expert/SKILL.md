@@ -1,35 +1,12 @@
 ---
 name: diagramming-expert
-description: Master of text-based visual communication using ASCII art, Unicode box-drawing, and structured diagram notation. Creates clear, maintainable diagrams for systems, processes, hierarchies, relationships, and psychological structures. Proactively generates diagrams to enhance understanding. Activate on 'diagram', 'visualize', 'flowchart', 'architecture diagram', 'process flow', 'decision tree', 'ASCII art', 'box drawing', 'psyche map', 'parts diagram'. NOT for image generation, graphic design, or rendered visualizations (use design tools).
+description: "Master of text-based visual communication using ASCII art, Unicode box-drawing, and structured diagram notation. Creates clear, maintainable diagrams for systems, processes, hierarchies, relationships, and psychological structures. Proactively generates diagrams to enhance understanding. Activate on visualization needs, system architecture, process flows, psychological mapping, or when complex concepts would benefit from visual representation. NOT for photo editing, vector graphics, or GUI-based design tools."
 allowed-tools: Read,Write,Edit
 ---
 
 # Diagramming Expert
 
 Master of text-based visual communication. Proactively creates diagrams to enhance understanding of complex concepts, systems, processes, and relationships.
-
-## When to Use
-
-✅ **Use for:**
-- System architecture and component diagrams
-- Process flows and state machines
-- Decision trees and conditional logic
-- Hierarchical structures (org charts, taxonomies)
-- Psychological structures (psyche maps, parts work, shadow diagrams)
-- Data relationships and entity models
-- Feedback loops and causal systems
-- Before/after comparisons
-- Timelines and sequences
-- Any concept that would be clearer with a visual
-
-## When NOT to Use
-
-❌ **NOT for:**
-- Image generation or graphic design (use Stability AI, Ideogram, etc.)
-- Rendered visualizations (use charting libraries)
-- Complex infographics (use design tools)
-- Photo editing or manipulation
-- Video or animation creation
 
 ## Core Philosophy
 
@@ -41,9 +18,9 @@ Diagrams should:
 3. **Be maintainable** — easy to update as understanding evolves
 4. **Work everywhere** — monospace text renders universally
 
-## When to Create Diagrams (Proactively)
+## When to Use This Skill
 
-**Always diagram:**
+**Use for:**
 - System architectures and component relationships
 - Process flows and state transitions
 - Hierarchical structures (org charts, taxonomies)
@@ -53,6 +30,12 @@ Diagrams should:
 - Feedback loops and causal systems
 - Before/after comparisons
 - Timelines and sequences
+
+**NOT for:**
+- Photo editing or image manipulation
+- Vector graphics or GUI-based design tools
+- Pixel-perfect mockups (use design tools)
+- Complex 3D visualizations
 
 **Ask yourself:** "Would this be clearer with a picture?"
 If yes → diagram it.
@@ -87,7 +70,7 @@ BOXES:           ARROWS:          CONNECTORS:
 ├─┼─┤  ╠═╬═╣    ⟶  ⟵  ⟷         ┼  ╋  ╬
 │ │ │  ║ ║ ║    ⇒  ⇐  ⇔
 └─┴─┘  ╚═╩═╝    ──►  ◄──        EMPHASIS:
-                               ═══  ━━━
+                                ═══  ━━━
 ROUNDED:        BULLETS:         ═══  ━━━
 ╭───╮           •  ○  ●
 │   │           ├──  └──        DASHED:
@@ -251,6 +234,13 @@ SIZE HIERARCHY:
 ✓ GOOD: Break into focused diagrams
 "Overview Diagram" + "Detail Diagram A" + "Detail Diagram B"
 ```
+
+## Skill Integrations
+
+Works with:
+- **jungian-psychologist**: Psyche mapping, parts work diagrams
+- **system-architect**: System architecture diagrams
+- **backend-architect**: API and data flow diagrams
 
 ## Jungian Psychology Diagrams
 

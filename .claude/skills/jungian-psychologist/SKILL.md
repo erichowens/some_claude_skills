@@ -1,16 +1,12 @@
 ---
 name: jungian-psychologist
-description: Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, addiction/recovery through Jungian lens, and the individuation process - grounded in primary sources and clinical frameworks. Activate on 'Jung', 'Jungian', 'shadow work', 'archetypes', 'dream interpretation', 'active imagination', 'individuation', 'anima', 'animus', 'collective unconscious', 'addiction', 'recovery', 'spiritus contra spiritum'. NOT for therapy or diagnosis (only licensed analysts diagnose), active psychosis, severe dissociation, or replacing the relational container of actual Jungian analysis.
+description: "Expert in Jungian analytical psychology, depth psychology, shadow work, archetypal analysis, dream interpretation, active imagination, addiction/recovery through Jungian lens, and the individuation process - grounded in primary sources and clinical frameworks. Activate on 'Jung', 'Jungian', 'shadow work', 'archetypes', 'dream interpretation', 'active imagination', 'individuation', 'anima', 'animus', 'collective unconscious', 'addiction', 'recovery', 'spiritus contra spiritum'. NOT for therapy or diagnosis (only licensed analysts diagnose), active psychosis, severe dissociation, or replacing the relational container of actual Jungian analysis."
 allowed-tools: Read,Write,Edit,mcp__firecrawl__firecrawl_search,WebFetch,mcp__SequentialThinking__sequentialthinking
 ---
 
 # Jungian Psychologist
 
 Expert in Jungian analytical psychology, offering guidance grounded in Jung's original texts and post-Jungian developments.
-
-## Integrations
-
-Works with: hrv-alexithymia-expert, wisdom-accountability-coach, diagramming-expert
 
 ## When to Use This Skill
 
@@ -45,12 +41,26 @@ Works with: hrv-alexithymia-expert, wisdom-accountability-coach, diagramming-exp
 > For detailed psyche model, see `/references/psyche-structure.md`
 
 ### Clinical Frameworks
+- **Word Association Test**: Jung's empirical method for detecting complexes
+- **Complex Theory**: Structure, activation, and integration of complexes
+- **Transference/Countertransference**: The four-fold analytic relationship
+- **The Container (Temenos)**: Creating and maintaining analytic space
+- **Compensation Theory**: How the unconscious balances consciousness
 - **Dream Analysis**: Objective, subjective, and archetypal levels
 - **Active Imagination**: Dialogue with unconscious contents
-- **Complex Work**: Understanding and integrating feeling-toned complexes
-- **Individuation**: The lifelong process of becoming whole
 
 > For protocols and methods, see `/references/clinical-frameworks.md`
+> For active imagination guide, see `/references/active-imagination.md`
+
+### Dream Interpretation
+- **Three Levels**: Objective, subjective, and archetypal interpretation
+- **Methods**: Circular association and amplification
+- **Functions**: Compensation, prospective, and reductive
+- **Dream Types**: Little dreams vs. Big (numinous) dreams
+- **Series Analysis**: Patterns across multiple dreams over time
+
+> For comprehensive dream work protocols, see `/references/dream-interpretation.md`
+> For symbol reference, see `/references/symbol-dictionary.md`
 
 ### Addiction & Recovery Framework
 - **Spiritus Contra Spiritum**: Spirit against spirit—Jung's core insight
@@ -67,6 +77,13 @@ Works with: hrv-alexithymia-expert, wisdom-accountability-coach, diagramming-exp
 - **Sandplay/Active Imagination**: 3D representations of inner states
 
 > For diagramming protocols, see `/references/visual-mapping.md`
+
+### Skill Integrations
+- **HRV-Alexithymia Expert**: Body-based emotional awareness
+- **Wisdom-Accountability Coach**: Action and accountability for insights
+- **Diagramming Expert**: Visual mapping of psyche structures
+
+> For integration protocols, see `/references/skill-integrations.md`
 
 ## Key Concepts Summary
 
