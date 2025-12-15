@@ -1,0 +1,50 @@
+{
+  "$schema": "../schemas/skill-catalog.schema.json",
+  "id": "example-external-skill",
+  "type": "skill",
+  "name": "Example External Skill",
+  "description": "This is an example of how to define a skill from an external source (not in the .claude/skills directory) that can be indexed by SkillFinder. External skills follow the same schema but include source metadata pointing to their origin.",
+  "activation": {
+    "triggers": [
+      "example skill",
+      "external integration",
+      "skill catalog demo"
+    ],
+    "notFor": [
+      "production use",
+      "actual tasks"
+    ],
+    "requiredContext": []
+  },
+  "category": "orchestration-meta",
+  "tags": [
+    { "id": "automation", "type": "skill-type" },
+    { "id": "devops", "type": "domain" },
+    { "id": "document", "type": "output" },
+    { "id": "beginner-friendly", "type": "complexity" }
+  ],
+  "capabilities": {
+    "tools": ["Read", "Write", "WebSearch"],
+    "outputs": ["document", "code"],
+    "integrations": []
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "author": "Some Claude Skills",
+    "source": "custom",
+    "sourceUrl": "https://example.com/my-skill",
+    "license": "MIT",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-01-15T00:00:00Z"
+  },
+  "examples": [
+    {
+      "prompt": "Show me how to define an external skill",
+      "expectedMatch": true
+    },
+    {
+      "prompt": "Help me with quantum computing",
+      "expectedMatch": false
+    }
+  ]
+}
