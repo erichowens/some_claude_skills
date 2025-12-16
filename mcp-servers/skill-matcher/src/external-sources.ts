@@ -403,8 +403,27 @@ export class ExternalQueryService {
     }
   }
 
+  private async fetchWithTimeout(
+    url: string,
+    options: RequestInit = {},
+    timeoutMs: number = 10000
+  ): Promise<Response> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const response = await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      });
+      return response;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  }
+
   private async fetchText(url: string): Promise<string> {
-    const response = await fetch(url);
+    const response = await this.fetchWithTimeout(url);
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
@@ -415,7 +434,7 @@ export class ExternalQueryService {
     url: string,
     headers?: Record<string, string>
   ): Promise<unknown> {
-    const response = await fetch(url, {
+    const response = await this.fetchWithTimeout(url, {
       headers: {
         'Content-Type': 'application/json',
         ...headers,

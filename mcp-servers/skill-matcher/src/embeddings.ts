@@ -27,6 +27,14 @@ export interface EmbeddingConfig {
   apiKey?: string;
   modelId?: string;
   dimensions?: number;
+  cache?: EmbeddingCacheInterface;
+}
+
+// Cache interface to avoid circular dependency
+export interface EmbeddingCacheInterface {
+  get(text: string): number[] | null;
+  set(text: string, vector: number[]): void;
+  has(text: string): boolean;
 }
 
 // ============================================================================
@@ -142,19 +150,25 @@ export function cosineSimilarity(a: number[], b: number[]): number {
 export function prepareTextForEmbedding(
   name: string,
   description: string,
-  triggers: string[],
-  notFor: string[],
-  tags?: Array<{ id: string; type: string }>
+  triggers: string[] = [],
+  notFor: string[] = [],
+  tags?: Array<{ id: string; name?: string; type?: string }>
 ): string {
   const parts = [
-    `Skill: ${name}`,
-    `Description: ${description}`,
-    `Triggers: ${triggers.join(', ')}`,
-    `Not for: ${notFor.join(', ')}`,
+    `skill: ${name.toLowerCase()}`,
+    `description: ${description.toLowerCase()}`,
   ];
 
+  if (triggers.length > 0) {
+    parts.push(`triggers: ${triggers.join(', ').toLowerCase()}`);
+  }
+
+  if (notFor.length > 0) {
+    parts.push(`not for: ${notFor.join(', ').toLowerCase()}`);
+  }
+
   if (tags && tags.length > 0) {
-    parts.push(`Tags: ${tags.map(t => t.id).join(', ')}`);
+    parts.push(`tags: ${tags.map(t => t.id).join(', ').toLowerCase()}`);
   }
 
   return parts.join('\n');
@@ -171,12 +185,16 @@ export class EmbeddingService {
   private modelId: string;
   private dimensions: number;
   private isInitialized: boolean = false;
+  private cache?: EmbeddingCacheInterface;
+  private cacheHits: number = 0;
+  private cacheMisses: number = 0;
 
   constructor(config: EmbeddingConfig) {
     this.provider = config.provider;
     this.apiKey = config.apiKey;
     this.modelId = config.modelId || this.getDefaultModel();
     this.dimensions = config.dimensions || this.getDefaultDimensions();
+    this.cache = config.cache;
   }
 
   private getDefaultModel(): string {
@@ -216,17 +234,43 @@ export class EmbeddingService {
       await this.initialize();
     }
 
+    // Check cache first
+    if (this.cache) {
+      const cached = this.cache.get(text);
+      if (cached) {
+        this.cacheHits++;
+        return {
+          vector: cached,
+          model: this.modelId,
+          dimensions: this.dimensions,
+        };
+      }
+      this.cacheMisses++;
+    }
+
+    let result: EmbeddingResult;
+
     switch (this.provider) {
       case 'local-tfidf':
       case 'local-minilm':
-        return this.embedLocal(text);
+        result = this.embedLocal(text);
+        break;
       case 'openai':
-        return this.embedOpenAI(text);
+        result = await this.embedOpenAI(text);
+        break;
       case 'voyage':
-        return this.embedVoyage(text);
+        result = await this.embedVoyage(text);
+        break;
       default:
-        return this.embedLocal(text);
+        result = this.embedLocal(text);
     }
+
+    // Store in cache
+    if (this.cache) {
+      this.cache.set(text, result.vector);
+    }
+
+    return result;
   }
 
   private embedLocal(text: string): EmbeddingResult {
@@ -265,7 +309,7 @@ export class EmbeddingService {
         throw new Error(`OpenAI API error: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data = await response.json() as { data: Array<{ embedding: number[] }> };
       return {
         vector: data.data[0].embedding,
         model: this.modelId,
@@ -300,7 +344,7 @@ export class EmbeddingService {
         throw new Error(`Voyage API error: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data = await response.json() as { data: Array<{ embedding: number[] }> };
       return {
         vector: data.data[0].embedding,
         model: this.modelId,
@@ -312,11 +356,22 @@ export class EmbeddingService {
     }
   }
 
-  getModelInfo(): { model: string; dimensions: number } {
-    return {
+  getModelInfo(): { model: string; dimensions: number; cacheStats?: { hits: number; misses: number; hitRate: number } } {
+    const info: { model: string; dimensions: number; cacheStats?: { hits: number; misses: number; hitRate: number } } = {
       model: this.modelId,
       dimensions: this.dimensions,
     };
+
+    if (this.cache) {
+      const total = this.cacheHits + this.cacheMisses;
+      info.cacheStats = {
+        hits: this.cacheHits,
+        misses: this.cacheMisses,
+        hitRate: total > 0 ? this.cacheHits / total : 0,
+      };
+    }
+
+    return info;
   }
 }
 
@@ -324,7 +379,7 @@ export class EmbeddingService {
 // Keyword Matching (Fallback / Hybrid)
 // ============================================================================
 
-export function keywordMatch(query: string, triggers: string[], notFor: string[]): number {
+export function keywordMatch(query: string, triggers: string[], notFor: string[] = []): number {
   const queryLower = query.toLowerCase();
   const queryTokens = new Set(
     queryLower

@@ -27,9 +27,21 @@ import {
   ListToolsRequestSchema,
   ListResourcesRequestSchema,
   ReadResourceRequestSchema,
+  ErrorCode,
+  McpError,
 } from '@modelcontextprotocol/sdk/types.js';
+import { z } from 'zod';
 import * as path from 'path';
 import * as fs from 'fs/promises';
+
+import {
+  MatchSkillsInputSchema,
+  SearchExternalInputSchema,
+  AnalyzeGapInputSchema,
+  GetSkillInputSchema,
+  ListSkillsInputSchema,
+  BuildIndexInputSchema,
+} from './validation.js';
 
 import type {
   SkillCatalogEntry,
@@ -55,6 +67,30 @@ import {
   DEFAULT_QUERY_OPTIONS,
   ALL_SOURCES,
 } from './external-sources.js';
+
+// ============================================================================
+// Error Codes
+// ============================================================================
+
+const ERROR_CODES = {
+  SKILL_NOT_FOUND: 'SKILL_NOT_FOUND',
+  VALIDATION_ERROR: 'VALIDATION_ERROR',
+  INDEX_NOT_INITIALIZED: 'INDEX_NOT_INITIALIZED',
+  EXTERNAL_QUERY_FAILED: 'EXTERNAL_QUERY_FAILED',
+  UNKNOWN_TOOL: 'UNKNOWN_TOOL',
+  UNKNOWN_RESOURCE: 'UNKNOWN_RESOURCE',
+  INTERNAL_ERROR: 'INTERNAL_ERROR',
+} as const;
+
+// ============================================================================
+// Server Metadata
+// ============================================================================
+
+const SERVER_INFO = {
+  name: 'skill-matcher',
+  version: '1.1.0',
+  startTime: Date.now(),
+};
 
 // ============================================================================
 // Configuration
@@ -229,8 +265,8 @@ function generateReasoning(
 
 const server = new Server(
   {
-    name: 'skill-matcher',
-    version: '1.0.0',
+    name: SERVER_INFO.name,
+    version: SERVER_INFO.version,
   },
   {
     capabilities: {
@@ -363,6 +399,16 @@ Returns detailed recommendations for creating a new skill:
         },
       },
     },
+    {
+      name: 'health_check',
+      description: `Check server health and operational status.
+Returns server uptime, initialization status, skill count, and memory usage.
+Use for monitoring and debugging.`,
+      inputSchema: {
+        type: 'object',
+        properties: {},
+      },
+    },
   ],
 }));
 
@@ -372,148 +418,114 @@ Returns detailed recommendations for creating a new skill:
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
+  const startTime = Date.now();
 
   try {
+    let result: unknown;
+
     switch (name) {
       case 'match_skills': {
-        const { prompt, maxResults, includeGapAnalysis } = args as {
-          prompt: string;
-          maxResults?: number;
-          includeGapAnalysis?: boolean;
-        };
+        const validated = MatchSkillsInputSchema.parse(args);
 
         const response = await matchSkills(
-          prompt,
-          maxResults || config.maxResults,
-          includeGapAnalysis !== false
+          validated.prompt,
+          validated.maxResults ?? config.maxResults,
+          validated.includeGapAnalysis ?? true
         );
 
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify(response, null, 2),
-            },
-          ],
-        };
+        result = response;
+        break;
       }
 
       case 'search_external': {
-        const { query, sources, maxResults } = args as {
-          query: string;
-          sources?: string[];
-          maxResults?: number;
-        };
+        const validated = SearchExternalInputSchema.parse(args);
 
         await initialize();
 
-        const suggestions = await externalService.query(query, {
-          sources: (sources as typeof ALL_SOURCES[number][]) || DEFAULT_QUERY_OPTIONS.sources,
-          maxResults: maxResults || DEFAULT_QUERY_OPTIONS.maxResults,
+        const suggestions = await externalService.query(validated.query, {
+          sources: (validated.sources as typeof ALL_SOURCES[number][]) || DEFAULT_QUERY_OPTIONS.sources,
+          maxResults: validated.maxResults || DEFAULT_QUERY_OPTIONS.maxResults,
           minRelevance: DEFAULT_QUERY_OPTIONS.minRelevance,
         });
 
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                query,
-                results: suggestions,
-                sources: sources || DEFAULT_QUERY_OPTIONS.sources,
-                timestamp: new Date().toISOString(),
-              }, null, 2),
-            },
-          ],
+        result = {
+          query: validated.query,
+          results: suggestions,
+          sources: validated.sources || DEFAULT_QUERY_OPTIONS.sources,
+          timestamp: new Date().toISOString(),
         };
+        break;
       }
 
       case 'analyze_gap': {
-        const { prompt } = args as { prompt: string };
+        const validated = AnalyzeGapInputSchema.parse(args);
 
         await initialize();
 
         // Get low-scoring matches for context
-        const matchResponse = await matchSkills(prompt, 5, false);
-        const gapAnalysis = analyzeGap(prompt, skillIndex, matchResponse.matches);
+        const matchResponse = await matchSkills(validated.prompt, 5, false);
+        const gapAnalysis = analyzeGap(validated.prompt, skillIndex, matchResponse.matches);
 
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                prompt,
-                analysis: gapAnalysis,
-                nearestSkills: matchResponse.matches.slice(0, 3).map(m => ({
-                  id: m.skill.id,
-                  name: m.skill.name,
-                  score: m.score,
-                })),
-              }, null, 2),
-            },
-          ],
+        result = {
+          prompt: validated.prompt,
+          analysis: gapAnalysis,
+          nearestSkills: matchResponse.matches.slice(0, 3).map(m => ({
+            id: m.skill.id,
+            name: m.skill.name,
+            score: m.score,
+          })),
         };
+        break;
       }
 
       case 'get_skill': {
-        const { id } = args as { id: string };
+        const validated = GetSkillInputSchema.parse(args);
 
         await initialize();
 
-        const skill = skillIndex.find(s => s.id === id);
+        const skill = skillIndex.find(s => s.id === validated.id);
         if (!skill) {
-          return {
-            content: [{ type: 'text', text: `Skill '${id}' not found` }],
-            isError: true,
-          };
+          throw new McpError(
+            ErrorCode.InvalidRequest,
+            `Skill '${validated.id}' not found`,
+            { code: ERROR_CODES.SKILL_NOT_FOUND }
+          );
         }
 
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify(skill, null, 2),
-            },
-          ],
-        };
+        result = skill;
+        break;
       }
 
       case 'list_skills': {
-        const { category, type } = args as { category?: string; type?: string };
+        const validated = ListSkillsInputSchema.parse(args);
 
         await initialize();
 
         let filtered = skillIndex;
 
-        if (category) {
-          filtered = filtered.filter(s => s.category === category);
+        if (validated.category) {
+          filtered = filtered.filter(s => s.category === validated.category);
         }
 
-        if (type && type !== 'all') {
-          filtered = filtered.filter(s => s.type === type);
+        if (validated.type && validated.type !== 'all') {
+          filtered = filtered.filter(s => s.type === validated.type);
         }
 
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                total: filtered.length,
-                skills: filtered.map(s => ({
-                  id: s.id,
-                  name: s.name,
-                  type: s.type,
-                  category: s.category,
-                  description: s.description.slice(0, 150) + (s.description.length > 150 ? '...' : ''),
-                })),
-              }, null, 2),
-            },
-          ],
+        result = {
+          total: filtered.length,
+          skills: filtered.map(s => ({
+            id: s.id,
+            name: s.name,
+            type: s.type,
+            category: s.category,
+            description: s.description.slice(0, 150) + (s.description.length > 150 ? '...' : ''),
+          })),
         };
+        break;
       }
 
       case 'build_index': {
-        const { force } = args as { force?: boolean };
+        const validated = BuildIndexInputSchema.parse(args);
 
         // Reset and rebuild
         isInitialized = false;
@@ -521,37 +533,77 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         await initialize();
 
-        return {
-          content: [
-            {
-              type: 'text',
-              text: JSON.stringify({
-                success: true,
-                skillCount: skillIndex.length,
-                embeddingsGenerated: skillEmbeddings.size,
-                timestamp: new Date().toISOString(),
-              }, null, 2),
-            },
-          ],
+        result = {
+          success: true,
+          skillCount: skillIndex.length,
+          embeddingsGenerated: skillEmbeddings.size,
+          timestamp: new Date().toISOString(),
         };
+        break;
+      }
+
+      case 'health_check': {
+        const memoryUsage = process.memoryUsage();
+        result = {
+          status: 'healthy',
+          version: SERVER_INFO.version,
+          uptime: Math.floor((Date.now() - SERVER_INFO.startTime) / 1000),
+          initialized: isInitialized,
+          skillCount: skillIndex.length,
+          embeddingCount: skillEmbeddings.size,
+          memory: {
+            heapUsed: Math.floor(memoryUsage.heapUsed / 1024 / 1024),
+            heapTotal: Math.floor(memoryUsage.heapTotal / 1024 / 1024),
+            rss: Math.floor(memoryUsage.rss / 1024 / 1024),
+          },
+          timestamp: new Date().toISOString(),
+        };
+        break;
       }
 
       default:
-        return {
-          content: [{ type: 'text', text: `Unknown tool: ${name}` }],
-          isError: true,
-        };
+        throw new McpError(
+          ErrorCode.MethodNotFound,
+          `Unknown tool: ${name}`,
+          { code: ERROR_CODES.UNKNOWN_TOOL }
+        );
     }
-  } catch (error) {
+
+    const duration = Date.now() - startTime;
+    console.error(`Tool ${name} completed in ${duration}ms`);
+
     return {
       content: [
         {
           type: 'text',
-          text: `Error: ${error instanceof Error ? error.message : String(error)}`,
+          text: typeof result === 'string' ? result : JSON.stringify(result, null, 2),
         },
       ],
-      isError: true,
     };
+  } catch (error) {
+    const duration = Date.now() - startTime;
+    console.error(`Tool ${name} failed after ${duration}ms:`, error);
+
+    // Handle Zod validation errors
+    if (error instanceof z.ZodError) {
+      throw new McpError(
+        ErrorCode.InvalidParams,
+        `Validation error: ${error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', ')}`,
+        { code: ERROR_CODES.VALIDATION_ERROR, details: error.errors }
+      );
+    }
+
+    // Re-throw MCP errors
+    if (error instanceof McpError) {
+      throw error;
+    }
+
+    // Wrap unknown errors
+    throw new McpError(
+      ErrorCode.InternalError,
+      error instanceof Error ? error.message : 'Unknown error occurred',
+      { code: ERROR_CODES.INTERNAL_ERROR }
+    );
   }
 });
 
@@ -660,13 +712,56 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
 });
 
 // ============================================================================
+// Graceful Shutdown
+// ============================================================================
+
+let isShuttingDown = false;
+
+function shutdown(signal: string): void {
+  if (isShuttingDown) return;
+  isShuttingDown = true;
+
+  console.error(`\nReceived ${signal}, shutting down gracefully...`);
+
+  // Log final stats
+  console.error(`Final stats: ${skillIndex.length} skills indexed, ${skillEmbeddings.size} embeddings cached`);
+  console.error(`Uptime: ${Math.floor((Date.now() - SERVER_INFO.startTime) / 1000)}s`);
+
+  // Allow pending operations to complete (give 5 seconds)
+  setTimeout(() => {
+    console.error('Shutdown complete');
+    process.exit(0);
+  }, 100);
+}
+
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('SIGHUP', () => shutdown('SIGHUP'));
+
+// Handle uncaught errors
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught exception:', error);
+  shutdown('uncaughtException');
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled rejection:', reason);
+});
+
+// ============================================================================
 // Start Server
 // ============================================================================
 
 async function main() {
+  console.error(`Starting ${SERVER_INFO.name} v${SERVER_INFO.version}...`);
+
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Skill Matcher MCP Server running on stdio');
+
+  console.error(`${SERVER_INFO.name} running on stdio`);
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  console.error('Fatal error:', error);
+  process.exit(1);
+});
