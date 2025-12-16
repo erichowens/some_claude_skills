@@ -1,7 +1,7 @@
 ---
 title: Visual Mapping Methods for Jungian Work
 sidebar_label: Visual Mapping Methods for ...
-sidebar_position: 4
+sidebar_position: 8
 ---
 # Visual Mapping Methods for Jungian Work
 

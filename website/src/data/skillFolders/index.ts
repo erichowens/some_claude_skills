@@ -19,9 +19,9 @@ export interface FileNode {
 // Skill folder index
 export const skillFolderIndex: SkillFolderIndex = {
   "2000s-visualization-expert": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
   },
   "adhd-design-expert": {
     "hasContent": true,
@@ -32,6 +32,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 1
+  },
+  "api-architect": {
+    "hasContent": true,
+    "fileCount": 8,
+    "folderCount": 2
   },
   "automatic-stateful-prompt-improver": {
     "hasContent": true,
@@ -48,6 +53,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 2,
     "folderCount": 1
   },
+  "claude-ecosystem-promoter": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
   "clip-aware-embeddings": {
     "hasContent": true,
     "fileCount": 3,
@@ -55,12 +65,12 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "code-necromancer": {
     "hasContent": true,
-    "fileCount": 7,
+    "fileCount": 12,
     "folderCount": 3
   },
   "collage-layout-expert": {
     "hasContent": true,
-    "fileCount": 8,
+    "fileCount": 11,
     "folderCount": 1
   },
   "color-theory-palette-harmony-expert": {
@@ -78,15 +88,25 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 1
   },
+  "data-pipeline-engineer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
+  },
   "design-archivist": {
     "hasContent": true,
-    "fileCount": 4,
+    "fileCount": 5,
     "folderCount": 2
   },
   "design-system-creator": {
     "hasContent": true,
-    "fileCount": 2,
-    "folderCount": 0
+    "fileCount": 5,
+    "folderCount": 1
+  },
+  "devops-automator": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
   },
   "diagramming-expert": {
     "hasContent": true,
@@ -120,7 +140,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "indie-monetization-strategist": {
     "hasContent": true,
-    "fileCount": 1,
+    "fileCount": 5,
     "folderCount": 1
   },
   "interior-design-expert": {
@@ -135,8 +155,8 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "jungian-psychologist": {
     "hasContent": true,
-    "fileCount": 6,
-    "folderCount": 1
+    "fileCount": 14,
+    "folderCount": 2
   },
   "liaison": {
     "hasContent": false,
@@ -183,6 +203,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 1
   },
+  "refactoring-surgeon": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
+  },
   "research-analyst": {
     "hasContent": false,
     "fileCount": 1,
@@ -195,7 +220,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "seo-visibility-expert": {
     "hasContent": true,
-    "fileCount": 1,
+    "fileCount": 5,
     "folderCount": 1
   },
   "site-reliability-engineer": {
@@ -237,6 +262,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 6,
     "folderCount": 1
+  },
+  "technical-writer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
   },
   "test-automation-expert": {
     "hasContent": true,
@@ -287,19 +317,24 @@ export const skillFolderIndex: SkillFolderIndex = {
 
 // Skills with rich content (more than just SKILL.md)
 export const skillsWithContent = [
+  "2000s-visualization-expert",
   "adhd-design-expert",
   "agent-creator",
+  "api-architect",
   "automatic-stateful-prompt-improver",
   "bot-developer",
   "career-biographer",
+  "claude-ecosystem-promoter",
   "clip-aware-embeddings",
   "code-necromancer",
   "collage-layout-expert",
   "color-theory-palette-harmony-expert",
   "competitive-cartographer",
   "cv-creator",
+  "data-pipeline-engineer",
   "design-archivist",
   "design-system-creator",
+  "devops-automator",
   "diagramming-expert",
   "drone-cv-expert",
   "drone-inspection-specialist",
@@ -316,6 +351,7 @@ export const skillsWithContent = [
   "photo-content-recognition-curation-expert",
   "physics-rendering-expert",
   "project-management-guru-adhd",
+  "refactoring-surgeon",
   "security-auditor",
   "seo-visibility-expert",
   "site-reliability-engineer",
@@ -324,6 +360,7 @@ export const skillsWithContent = [
   "sound-engineer",
   "speech-pathology-ai",
   "tech-entrepreneur-coach-adhd",
+  "technical-writer",
   "test-automation-expert",
   "typography-expert",
   "vaporwave-glassomorphic-ui-designer",

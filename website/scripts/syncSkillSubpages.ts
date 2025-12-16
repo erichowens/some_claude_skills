@@ -76,6 +76,12 @@ function escapeAngleBrackets(content: string): string {
     // Escape > followed by digits (e.g., >30, >100ms) which MDX interprets as JSX
     escapedLine = escapedLine.replace(/>(\d)/g, '\\>$1');
 
+    // Escape curly braces that look like placeholders (e.g., {Customer Name}, {first_name})
+    // MDX interprets these as JSX expressions. Escape { not followed by valid JS identifier start
+    // Pattern: { followed by space, uppercase (likely placeholder), or followed by text with spaces
+    escapedLine = escapedLine.replace(/\{([A-Z][^}]*)\}/g, '\\{$1\\}'); // {Customer Name}
+    escapedLine = escapedLine.replace(/\{([a-z_][^}]*[ ][^}]*)\}/g, '\\{$1\\}'); // {first name} with space
+
     result.push(escapedLine);
   }
 

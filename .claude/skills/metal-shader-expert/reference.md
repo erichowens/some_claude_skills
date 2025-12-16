@@ -282,7 +282,7 @@ float calculate_blur_fast(texture2d<float> tex, sampler s, float2 uv) {
 
 ### Essential Debug Tools Checklist
 
-- [ ] **Shader Hot Reload**: Edit shader, see changes in <1 second
+- [ ] **Shader Hot Reload**: Edit shader, see changes in &lt;1 second
 - [ ] **Value Inspector**: Click any pixel, see all shader variables
 - [ ] **Heat Maps**: Visualize complexity, overdraw, bandwidth
 - [ ] **Wireframe Toggle**: See geometry structure

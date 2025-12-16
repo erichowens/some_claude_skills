@@ -1,32 +1,38 @@
 ---
 name: seo-visibility-expert
+version: 2.0.0
 description: "Comprehensive SEO, discoverability, and AI crawler optimization for web projects. Use for technical SEO audits, llms.txt/robots.txt setup, schema markup, social launch strategies (Product Hunt, HN, Reddit), and Answer Engine Optimization (AEO). Activate on 'SEO', 'discoverability', 'llms.txt', 'robots.txt', 'Product Hunt', 'launch strategy', 'get traffic', 'be found', 'search ranking'. NOT for paid advertising, PPC campaigns, or social media content creation (use marketing skills)."
 allowed-tools: Read,Write,Edit,Bash,Glob,Grep,WebFetch,WebSearch
 ---
 
 # SEO & Visibility Expert
 
-Get your web projects discovered by both traditional search engines AND AI systems. This skill covers the full spectrum from technical SEO to social launch strategies.
+Get your web projects discovered by both traditional search engines AND AI systems.
+
+## Quick Start
+
+1. **Create llms.txt** at site root → AI crawlers find your content
+2. **Add JSON-LD schema** → Rich snippets in search results
+3. **Verify robots.txt** → Allow good bots, block bad ones
+4. **Generate sitemap.xml** → Help crawlers index everything
+5. **Check Core Web Vitals** → PageSpeed Insights score &gt;90
+6. **Add Open Graph tags** → Beautiful social previews
 
 ## When to Use
 
 **Use for:**
 - Technical SEO audits and fixes
-- Setting up llms.txt for AI crawlers
-- Configuring robots.txt for modern era
+- llms.txt for AI crawlers
 - Schema.org/JSON-LD structured data
 - Launch strategies (Product Hunt, HN, Reddit)
-- Answer Engine Optimization (AEO)
 - Core Web Vitals optimization
-- Sitemap generation
 
 **NOT for:**
 - Paid advertising/PPC campaigns
 - Social media content creation
 - Email marketing campaigns
-- Brand strategy/naming
 
-## The Modern Discovery Stack (2024+)
+## The Modern Discovery Stack
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -44,18 +50,6 @@ Get your web projects discovered by both traditional search engines AND AI syste
 └─────────────────────────────────────────────┘
 ```
 
-## Quick Wins Checklist
-
-**Immediate actions for any web project:**
-
-1. **Create llms.txt** at site root → AI crawlers find your content
-2. **Add JSON-LD schema** → Rich snippets in search results
-3. **Verify robots.txt** → Allow good bots, block bad ones
-4. **Generate sitemap.xml** → Help crawlers index everything
-5. **Check Core Web Vitals** → PageSpeed Insights score &gt;90
-6. **Add Open Graph tags** → Beautiful social previews
-7. **Create humans.txt** → Credit your team, signal legitimacy
-
 ## Technical SEO Essentials
 
 ### Metadata Must-Haves
@@ -68,89 +62,18 @@ Get your web projects discovered by both traditional search engines AND AI syste
 
 <!-- Open Graph for social -->
 <meta property="og:title" content="Title for social shares">
-<meta property="og:description" content="Description for social">
 <meta property="og:image" content="https://yoursite.com/og-image.png">
-<meta property="og:type" content="website">
-
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Title">
-<meta name="twitter:description" content="Description">
-<meta name="twitter:image" content="https://yoursite.com/twitter-card.png">
 ```
 
-### URL Structure
-
-```
-✅ Good URLs:
-/blog/seo-guide-2024
-/tools/sitemap-generator
-/pricing
-
-❌ Bad URLs:
-/blog?id=123&cat=seo
-/tools/tool.php?name=sitemap
-/p/12345
-```
-
-**Rules:**
+### URL Rules
 - Lowercase, hyphen-separated
 - Include primary keyword
 - Keep under 60 characters
 - No query parameters for content pages
-- Use trailing slashes consistently
-
-### JSON-LD Schema Examples
-
-**For a software tool:**
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Your Tool Name",
-  "description": "What it does",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-```
-
-**For educational content:**
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "LearningResource",
-  "name": "Course/Tutorial Name",
-  "description": "What you'll learn",
-  "educationalLevel": "Beginner/Intermediate/Advanced",
-  "learningResourceType": "Tutorial"
-}
-```
-
-**For organization/brand:**
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Your Brand",
-  "url": "https://yoursite.com",
-  "logo": "https://yoursite.com/logo.png",
-  "sameAs": [
-    "https://twitter.com/yourbrand",
-    "https://github.com/yourbrand"
-  ]
-}
-```
 
 ## AI Crawler Optimization (AEO)
 
-### llms.txt Setup
-
-Create `/llms.txt` at your site root:
+### llms.txt Quick Template
 
 ```markdown
 # Your Site Name
@@ -158,242 +81,116 @@ Create `/llms.txt` at your site root:
 > Brief tagline describing what you do
 
 ## Overview
-2-3 sentences explaining your product/service for AI systems.
+2-3 sentences for AI systems.
 
 ## Key Features
 - Feature 1: Description
 - Feature 2: Description
-- Feature 3: Description
 
 ## Documentation
 - [Getting Started](/docs/getting-started)
 - [API Reference](/docs/api)
-- [Examples](/examples)
-
-## Links
-- Website: https://yoursite.com
-- GitHub: https://github.com/you/repo
-- Documentation: https://docs.yoursite.com
 ```
-
-**Anti-pattern**: Don't stuff llms.txt with marketing fluff. AI systems want factual, structured information.
 
 ### robots.txt for AI Era
 
 ```
-# Traditional crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
 # AI Crawlers - Allow them!
 User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Claude-Web
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
 User-agent: PerplexityBot
 Allow: /
-
-# Block bad actors
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
 
 # Sitemaps
 Sitemap: https://yoursite.com/sitemap.xml
 ```
 
-**Decision tree for AI crawlers:**
-- Want AI systems to reference your content? → Allow GPTBot, Claude-Web, etc.
-- Have proprietary content you want protected? → Disallow specific paths
-- Training data concerns? → Disallow Google-Extended (used for Gemini training)
+**Decision tree:**
+- Want AI to reference your content? → Allow GPTBot, Claude-Web
+- Training data concerns? → Disallow Google-Extended
 
-## Social Launch Strategies
+## Social Launch Quick Guide
 
-### Product Hunt Launch
-
-**Timing is critical:**
-- Launch at **12:01 AM PST** (exactly)
+### Product Hunt
+- Launch at **12:01 AM PST** exactly
 - Best days: Tuesday, Wednesday, Thursday
-- Avoid: Mondays (competition), Fridays (low engagement)
+- Never ask for upvotes directly → "Would love your feedback!"
+- See `references/launch-checklists.md` for full checklist
 
-**Pre-launch checklist:**
-1. Build hunter network 2-4 weeks before
-2. Prepare all assets (logo, screenshots, video)
-3. Write compelling tagline (under 60 chars)
-4. Create launch day communication plan
-5. Line up first 10-20 supporters for immediate upvotes
+### Hacker News
+- Post 6-8 AM PST, Tuesday-Thursday
+- Title: `Show HN: [Tool] – [Plain English description]`
+- Be technical, humble, genuine
+- Respond to every comment
 
-**Launch day strategy:**
-```
-12:01 AM PST - Go live, personal upvote
-12:05 AM - Notify inner circle (10-20 people)
-6:00 AM - Second wave notifications
-12:00 PM - Engage with all comments
-3:00 PM - Third wave push
-6:00 PM - Final push for top 5
-```
+### Reddit
+- Participate before promoting (90/10 rule)
+- Find niche subreddits for your domain
+- r/SideProject, r/webdev, r/InternetIsBeautiful
 
-**Anti-pattern**: Don't ask for upvotes directly. Say "We launched on Product Hunt - would love your feedback!" Asking for upvotes violates PH guidelines.
+## Core Web Vitals Targets
 
-### Hacker News Strategy
-
-**What works:**
-- Show HN posts for new projects
-- Technical deep-dives, not marketing
-- Genuine problems you solved
-- Be in comments, respond to everything
-
-**Title formulas that work:**
-```
-Show HN: [Tool Name] – [What it does in plain English]
-Show HN: I built [X] to solve [specific problem]
-[Interesting technical finding] (with data)
-```
-
-**Timing:**
-- Post between 6-8 AM PST for US audience
-- Tuesday-Thursday best
-- Avoid weekends for serious content
-
-**Anti-pattern**: Never use marketing language. HN readers detect and punish it instantly. Be technical, humble, and genuine.
-
-### Reddit Strategy
-
-**Find your subreddits:**
-- r/SideProject - for launches
-- r/webdev, r/programming - technical content
-- Niche subreddits for your specific domain
-- r/InternetIsBeautiful - for beautiful/useful tools
-
-**Rules:**
-1. Participate in community BEFORE promoting
-2. 90/10 rule: 90% helpful content, 10% self-promotion
-3. Don't cross-post same content everywhere
-4. Provide genuine value in comments
-
-## Core Web Vitals
-
-**Target scores:**
 | Metric | Good | Needs Work | Poor |
 |--------|------|------------|------|
 | LCP (Largest Contentful Paint) | &lt;2.5s | 2.5-4s | &gt;4s |
 | INP (Interaction to Next Paint) | &lt;200ms | 200-500ms | &gt;500ms |
 | CLS (Cumulative Layout Shift) | &lt;0.1 | 0.1-0.25 | &gt;0.25 |
 
-**Quick fixes:**
-- LCP: Optimize images, preload critical assets
-- INP: Minimize JavaScript, use web workers
-- CLS: Set explicit dimensions on images/embeds
+**Quick fixes:** Optimize images (LCP), minimize JS (INP), set explicit dimensions (CLS)
 
-## Common Anti-Patterns
+## Anti-Patterns
 
-### The "Build It and They Will Come" Fallacy
-**Symptom**: Great product, zero traffic
-**Problem**: No discovery strategy
-**Solution**: Spend 50% of time on marketing/distribution. Cory Zue's rule: "If you're not embarrassed by how much you're promoting, you're not promoting enough."
+### 1. "Build It and They Will Come"
+**Symptom:** Great product, zero traffic
+**Fix:** Spend 50% of time on marketing/distribution
 
-### Keyword Stuffing (2024 Edition)
-**Symptom**: Unnatural repetition of keywords
-**Problem**: Search engines and AI systems detect and penalize this
-**Solution**: Write for humans first. Use keywords naturally. Focus on answering questions comprehensively.
+### 2. Ignoring AI Crawlers
+**Symptom:** No llms.txt, blocking AI user agents
+**Fix:** Create llms.txt, allow AI crawlers in robots.txt
 
-### Ignoring AI Crawlers
-**Symptom**: No llms.txt, blocking AI user agents
-**Problem**: Missing the shift to AI-first search
-**Solution**: Create llms.txt, allow AI crawlers in robots.txt, structure content for extraction
+### 3. Keyword Stuffing
+**Symptom:** Unnatural keyword repetition
+**Fix:** Write for humans first, keywords naturally
 
-### Launch and Abandon
-**Symptom**: Big launch, then silence
-**Problem**: Sustainable growth requires consistent presence
-**Solution**: Build in public, regular updates, engage communities consistently
+### 4. Launch and Abandon
+**Symptom:** Big launch, then silence
+**Fix:** Build in public, regular updates, consistent presence
 
-## Framework-Specific Implementation
+### 5. No Schema Markup
+**Symptom:** Plain search results, no rich snippets
+**Fix:** Add JSON-LD for your content type (see references)
 
-### Next.js / React
+### 6. Ignoring Mobile
+**Symptom:** Desktop-only testing
+**Fix:** Mobile-first indexing is default. Test on devices.
 
-```typescript
-// app/layout.tsx or pages/_app.tsx
-export const metadata = {
-  title: {
-    default: 'Site Name',
-    template: '%s | Site Name',
-  },
-  description: 'Site description',
-  openGraph: {
-    title: 'Site Name',
-    description: 'Description',
-    url: 'https://yoursite.com',
-    siteName: 'Site Name',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Site Name',
-    description: 'Description',
-    images: ['/twitter-card.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
-```
-
-### Docusaurus
-
-```javascript
-// docusaurus.config.js
-module.exports = {
-  themeConfig: {
-    metadata: [
-      { name: 'keywords', content: 'keyword1, keyword2' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-    ],
-    image: 'img/og-image.png',
-  },
-};
-```
-
-## Measurement & Iteration
+## Measurement
 
 **Free tools:**
 - Google Search Console - Search performance
-- Google Analytics 4 - Traffic sources
 - PageSpeed Insights - Core Web Vitals
-- Ahrefs Webmaster Tools - Backlinks (free tier)
+- Schema Validator - Structured data testing
 
-**Track these metrics:**
+**Track these:**
 1. Organic search impressions/clicks
 2. Referral traffic from social launches
-3. Direct traffic (brand awareness)
-4. Core Web Vitals scores
-5. AI citation tracking (search for your brand in ChatGPT, Claude)
+3. Core Web Vitals scores
+4. AI citations (search your brand in ChatGPT/Claude)
 
 ## Reference Files
 
 | File | Contents |
 |------|----------|
-| `references/llms-txt-examples.md` | Full llms.txt examples for different site types |
-| `references/schema-templates.md` | JSON-LD templates for various content types |
-| `references/launch-checklists.md` | Detailed checklists for PH, HN, Reddit launches |
+| `references/llms-txt-examples.md` | Full llms.txt examples for SaaS, docs, OSS, blogs |
+| `references/schema-templates.md` | JSON-LD templates for all content types |
+| `references/launch-checklists.md` | Detailed checklists for PH, HN, Reddit |
 
 ---
 
-**This skill guides**: Technical SEO | AI Crawler Optimization | Social Launch Strategy | Core Web Vitals | Schema Markup | llms.txt Setup
+**Covers:** Technical SEO | AI Crawler Optimization | Social Launch Strategy | Core Web Vitals | Schema Markup
+
+**Use with:** content-marketer (content strategy) | web-design-expert (landing pages) | indie-monetization-strategist (conversion)

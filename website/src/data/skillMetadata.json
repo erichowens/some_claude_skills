@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-16T06:11:57.831Z",
+  "generatedAt": "2025-12-16T06:26:44.217Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -87,8 +87,8 @@
     },
     "claude-ecosystem-promoter": {
       "id": "claude-ecosystem-promoter",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-15T22:11:55-08:00",
+      "updatedAt": "2025-12-15T22:11:55-08:00",
       "totalLines": 1562,
       "totalFiles": 5,
       "skillMdSize": 8112,
@@ -127,7 +127,7 @@
       "updatedAt": "2025-11-28T16:43:50-08:00",
       "totalLines": 2554,
       "totalFiles": 11,
-      "skillMdSize": 6882,
+      "skillMdSize": 6888,
       "skillMdLines": 144,
       "hasReferences": true,
       "hasExamples": false,
@@ -187,7 +187,7 @@
       "updatedAt": "2025-11-25T18:43:58-08:00",
       "totalLines": 631,
       "totalFiles": 5,
-      "skillMdSize": 6239,
+      "skillMdSize": 6242,
       "skillMdLines": 173,
       "hasReferences": true,
       "hasExamples": false,
@@ -487,7 +487,7 @@
       "updatedAt": "2025-12-01T14:27:02-08:00",
       "totalLines": 1374,
       "totalFiles": 5,
-      "skillMdSize": 6405,
+      "skillMdSize": 6426,
       "skillMdLines": 197,
       "hasReferences": true,
       "hasExamples": false,

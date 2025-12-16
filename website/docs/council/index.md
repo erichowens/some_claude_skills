@@ -37,24 +37,54 @@ Point-in-time captures of the entire ecosystem state. Metrics, agent status, not
 ### [Council Decisions](./decisions)
 Major decisions made by or with the Council. Includes recommendations, approvals, and the reasoning behind pivotal choices.
 
+## Epoch Progress
+
+### Current: Epoch 3 - Visibility First
+
+| Status | Target | Progress |
+|--------|--------|----------|
+| 🟡 | 3 interactive components | 0/3 |
+| 🟡 | 2 council pages | 2/2 ✅ |
+| 🟡 | 3 intel reports | 1/3 |
+| 🟡 | 4 forge tools | 3/4 |
+| 🟡 | 1 RAG-powered feature | 0/1 |
+
+### Completed: Epoch 2 - Documentation & RAG
+
+| Target | Result |
+|--------|--------|
+| 53/53 skill docs | ✅ 100% |
+| RAG infrastructure | ✅ 1,371 chunks |
+| Forge tools | ⚠️ 75% (3/4) |
+| Intel reports | ⚠️ 33% (1/3) |
+| Website components | ❌ 0% |
+
+**Velocity**: 70% of targets achieved
+
 ## Timeline
 
 ```
-2025-12-06  ████████████████████████████████████████████
+2025-12-06  ████████████████████████████████████████████  EPOCH 1
             │ Founding Council Established (9 agents)
             │ First Liaison Briefing
             │ The Forge Recommendation (Approved)
             │
-2025-12-09  ████████████████████████████████████████████
+2025-12-09  ████████████████████████████████████████████  EPOCH 2
             │ Archive System Initialized
-            │ Worktree Parallelization Experiment
-            │ Documentation Gap Closure (+3 pages)
-            │ Archivist Activated
+            │ RAG Infrastructure Built (Weaver)
+            │ 100% Documentation Coverage
+            │ Forge Tools: validator, analyzer, benchmark
+            │ HuggingFace Intel Report (Scout)
             │
-   Future   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-            │ RAG Infrastructure (Weaver)
-            │ External Monitoring (Scout)
-            │ Knowledge Graph (Cartographer)
+2025-12-10  ████████████████████████████████████████████  EPOCH 3
+            │ Epoch 3 Proposal: Visibility First
+            │ Council Unanimous Approval
+            │ Focus: Interactive components, dashboards
+            │
+   Next     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+            │ D3.js Capability Graph (Visualizer)
+            │ RAG-Powered Skill Search (Weaver)
+            │ Ecosystem Dashboard (Visualizer)
 ```
 
 ## Reading the Archives

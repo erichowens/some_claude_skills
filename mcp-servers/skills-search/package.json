@@ -1,0 +1,30 @@
+{
+  "name": "skills-search-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for semantic search over Claude Skills using RAG",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "skills-search-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "generate-embeddings": "npx ts-node src/generate-embeddings.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "openai": "^4.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "keywords": ["mcp", "claude", "skills", "rag", "semantic-search"],
+  "author": "Erich Owens",
+  "license": "MIT"
+}

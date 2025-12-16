@@ -49,6 +49,7 @@ interface EcosystemDashboardProps {
 export default function EcosystemDashboard({ data }: EcosystemDashboardProps): JSX.Element {
   const [selectedView, setSelectedView] = useState<'graph' | 'agents' | 'skills'>('graph');
   const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null);
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
   // Calculate domain coverage heatmap data
   const domainCoverage = useMemo(() => {
@@ -119,8 +120,19 @@ export default function EcosystemDashboard({ data }: EcosystemDashboardProps): J
             nodes={data.capability_graph.nodes}
             edges={data.capability_graph.edges}
             onNodeClick={(nodeId) => {
+              // Handle agent clicks
               const agent = data.agents.find(a => `agent:${a.name}` === nodeId);
-              if (agent) setSelectedAgent(agent);
+              if (agent) {
+                setSelectedSkill(null);
+                setSelectedAgent(agent);
+                return;
+              }
+              // Handle skill clicks
+              const skill = data.skills.find(s => `skill:${s.name}` === nodeId);
+              if (skill) {
+                setSelectedAgent(null);
+                setSelectedSkill(skill);
+              }
             }}
           />
         )}
@@ -195,6 +207,72 @@ export default function EcosystemDashboard({ data }: EcosystemDashboardProps): J
                   </span>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Skill Detail Panel (slides in from right when selected) */}
+      {selectedSkill && (
+        <div className={styles.detailPanel}>
+          <div className={styles.detailHeader} style={{ background: '#10b981' }}>
+            <h2>{selectedSkill.name}</h2>
+            <button
+              className={styles.closeButton}
+              onClick={() => setSelectedSkill(null)}
+            >
+              ✕
+            </button>
+          </div>
+          <div className={styles.detailContent}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+              {selectedSkill.has_examples && (
+                <span className={`${styles.tag} ${styles.tagTrigger}`}>Has Examples</span>
+              )}
+              {selectedSkill.has_references && (
+                <span className={styles.tag}>Has References</span>
+              )}
+            </div>
+
+            <p>{selectedSkill.description}</p>
+
+            <div className={styles.detailSection}>
+              <h4>Tools ({selectedSkill.tools.length})</h4>
+              <div className={styles.tagList}>
+                {selectedSkill.tools.map(tool => (
+                  <span key={tool} className={styles.tag}>{tool}</span>
+                ))}
+              </div>
+            </div>
+
+            {selectedSkill.category && (
+              <div className={styles.detailSection}>
+                <h4>Category</h4>
+                <span className={`${styles.tag} ${styles.tagAgent}`}>
+                  {selectedSkill.category}
+                </span>
+              </div>
+            )}
+
+            <div className={styles.detailSection}>
+              <h4>View Full Documentation</h4>
+              <a
+                href={`/docs/skills/${selectedSkill.name.replace(/-/g, '_')}`}
+                style={{
+                  display: 'inline-block',
+                  marginTop: '8px',
+                  padding: '8px 16px',
+                  background: '#10b981',
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontFamily: 'var(--font-system)',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  border: '2px solid #059669'
+                }}
+              >
+                Open Skill Page →
+              </a>
             </div>
           </div>
         </div>

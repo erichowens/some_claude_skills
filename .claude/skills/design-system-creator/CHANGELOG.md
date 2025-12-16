@@ -2,6 +2,24 @@
 
 All notable changes to the design-system-creator skill will be documented in this file.
 
+## [2.0.0] - 2024-12-14
+
+### Changed
+- **BREAKING**: Restructured skill following progressive disclosure pattern
+- Reduced SKILL.md from 359 lines to ~175 lines for faster loading
+- Extracted detailed content to reference files
+
+### Added
+- `references/token-architecture.md` - Three-tier token system, dark mode, multi-brand
+- `references/css-organization.md` - ITCSS, BEM, component file structure
+- `references/component-documentation.md` - Component doc templates, quick reference cards
+
+### Improved
+- Clearer activation triggers and boundary definitions
+- Expanded anti-patterns section (5 → 6 items)
+- Better MCP integration documentation
+- Streamlined working process description
+
 ## [1.1.0] - 2025-11-26
 
 ### Added

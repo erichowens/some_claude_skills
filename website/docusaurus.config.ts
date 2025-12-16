@@ -124,10 +124,9 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: '/agents',
-          label: 'Agents++',
+          to: '/ecosystem',
+          label: 'Ecosystem',
           position: 'left',
-          className: 'beta-nav-item',
         },
         {
           to: '/favorites',
@@ -171,8 +170,8 @@ const config: Config = {
               to: '/skills',
             },
             {
-              label: 'Agents++',
-              to: '/agents',
+              label: 'Ecosystem',
+              to: '/ecosystem',
             },
             {
               label: 'Examples',

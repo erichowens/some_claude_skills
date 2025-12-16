@@ -1,7 +1,7 @@
 ---
 title: "David Hockney's Joiners Technique (1982-1985)"
 sidebar_label: "David Hockney's Joiners Tec..."
-sidebar_position: 3
+sidebar_position: 6
 ---
 # David Hockney's Joiners Technique (1982-1985)
 

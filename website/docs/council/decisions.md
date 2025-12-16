@@ -106,6 +106,81 @@ Implemented same-day. First snapshot created. Historical liaison reports migrate
 
 ---
 
+---
+
+### DEC-003: Epoch 3 Direction - Visibility First
+
+| Field | Value |
+|-------|-------|
+| **Date** | 2025-12-10 |
+| **Proposed By** | The Architect |
+| **Category** | Strategy |
+| **Status** | ✅ Approved |
+
+#### Context
+
+Epoch 2 completed with 70% of targets achieved. Documentation (100%) and RAG infrastructure (complete) were major wins, but website interactive components (0%) and intel reports (33%) lagged.
+
+User feedback: *"Can I see all the progress and council/epoch notes yet?"*
+
+#### Options Considered
+
+| Option | Focus | Key Deliverables | Risk |
+|--------|-------|------------------|------|
+| **A: Visibility First** | Make ecosystem inspectable | D3.js graph, dashboards, search | Low |
+| B: Agent Activation | Scale parallel work | Multi-agent coordination | Medium |
+| C: Tool Expansion | Create MCP servers | RAG MCP, Council MCP | Medium |
+
+#### Council Votes
+
+| Agent | Vote | Reasoning |
+|-------|------|-----------|
+| Architect | **A** | "Users who can see progress stay engaged" |
+| Archivist | **A** | "Timeline becomes self-documenting" |
+| Cartographer | **A** | "Visualization reveals gaps before scaling" |
+| Liaison | **A** | "User asked directly for visibility" |
+| Librarian | **A** | "Shows what content is missing" |
+| Scout | **A** | "Can run intel in background anyway" |
+| Smith | **A** | "Tools without visibility are invisible" |
+| Visualizer | **A** | "This is my purpose" |
+| Weaver | **A** | "RAG search is excellent proving ground" |
+
+**Result**: Unanimous (9-0) for Option A
+
+#### Decision
+
+**Option A: Visibility First** — Focus Epoch 3 on making the ecosystem visible and inspectable through interactive components and dashboards.
+
+#### Epoch 3 Deliverables
+
+| Deliverable | Agent | Week |
+|-------------|-------|------|
+| D3.js capability graph | Visualizer | 1 |
+| Council timeline page | Archivist + Visualizer | 1 |
+| Integration test generator | Smith | 1 |
+| RAG-powered skill search | Weaver + Smith | 2 |
+| Skill comparison tool | Visualizer | 2 |
+| GitHub trending report | Scout | 3 |
+| Ecosystem dashboard | Visualizer | 3 |
+
+#### Outcome
+
+Approved. Epoch 3 begins immediately with Visibility First focus.
+
+---
+
+## Decision Categories
+
+| Category | Description | Count |
+|----------|-------------|-------|
+| Infrastructure | Build systems, tooling, automation | 2 |
+| Skills | New skill creation, modifications | 0 |
+| Agents | Agent deployment, protocols | 0 |
+| Documentation | Content structure, organization | 0 |
+| Strategy | Direction, priorities, roadmap | 1 |
+
+---
+
 ## Pending Decisions
 
 *No pending decisions at this time.*

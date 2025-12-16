@@ -232,7 +232,7 @@ class PropertyAssessmentSystem:
 - **Altitude**: 30-50m for roof inspection, 100m+ for fire monitoring
 - **Speed**: 3-5 m/s for sharp images
 - **Lighting**: Early morning or late afternoon for best shadows
-- **Weather**: Avoid wind >15mph, no rain
+- **Weather**: Avoid wind &gt;15mph, no rain
 
 ### Data Quality
 - **Resolution**: Minimum 2cm/pixel for damage detection

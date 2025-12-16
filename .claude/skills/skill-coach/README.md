@@ -63,7 +63,7 @@ skill-coach/
 
 Skills load in three phases:
 - **Phase 1 (~100 tokens)**: Metadata - "Should I activate?"
-- **Phase 2 (<5k tokens)**: Instructions - "How do I do this?"
+- **Phase 2 (&lt;5k tokens)**: Instructions - "How do I do this?"
 - **Phase 3 (as needed)**: Details - "Show me more"
 
 ### 2. The Shibboleths
@@ -145,7 +145,7 @@ Apply these immediately to existing skills:
 
 1. **Add NOT clause** to description → Prevents false activation
 2. **Add 1-2 anti-patterns** → Prevents common mistakes
-3. **Check line count** (`wc -l`) → Should be <500
+3. **Check line count** (`wc -l`) → Should be &lt;500
 4. **Remove dead files** → Delete unreferenced scripts/references
 5. **Test activation** → Ask questions that should/shouldn't trigger it
 
@@ -284,7 +284,7 @@ python scripts/validate_skill.py your-skill/
 Checks:
 - Required files and structure
 - Description quality
-- Line count (<500)
+- Line count (&lt;500)
 - Progressive disclosure
 - Anti-patterns section
 - allowed-tools scope

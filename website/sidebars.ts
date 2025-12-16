@@ -64,7 +64,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         skillFolder('web_design_expert'),
-        skillDoc('design_system_creator'),
+        skillFolder('design_system_creator'),
         skillFolder('native_app_designer'),
         skillFolder('vaporwave_glassomorphic_ui_designer'),
         skillFolder('windows_3_1_web_designer'),
@@ -83,7 +83,7 @@ const sidebars: SidebarsConfig = {
         skillDoc('vr_avatar_engineer'),
         skillFolder('physics_rendering_expert'),
         skillFolder('collage_layout_expert'),
-        skillDoc('2000s_visualization_expert'),
+        skillFolder('2000s_visualization_expert'),
       ],
     },
     {
@@ -133,8 +133,8 @@ const sidebars: SidebarsConfig = {
         skillDoc('team_builder'),
         skillFolder('competitive_cartographer'),
         skillFolder('hr_network_analyst'),
-        skillDoc('indie_monetization_strategist'),
-        skillDoc('seo_visibility_expert'),
+        skillFolder('indie_monetization_strategist'),
+        skillFolder('seo_visibility_expert'),
       ],
     },
     {
