@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2025-12-15T05:40:39.552Z",
+  "generatedAt": "2025-12-16T06:11:57.831Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
       "createdAt": "2025-11-28T16:43:50-08:00",
       "updatedAt": "2025-11-28T16:43:50-08:00",
-      "totalLines": 1225,
-      "totalFiles": 4,
-      "skillMdSize": 10585,
-      "skillMdLines": 361,
+      "totalLines": 1054,
+      "totalFiles": 5,
+      "skillMdSize": 5651,
+      "skillMdLines": 158,
       "hasReferences": true,
       "hasExamples": false,
-      "hasChangelog": false
+      "hasChangelog": true
     },
     "adhd-design-expert": {
       "id": "adhd-design-expert",
@@ -39,8 +39,8 @@
     },
     "api-architect": {
       "id": "api-architect",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-14T21:40:37-08:00",
+      "updatedAt": "2025-12-14T21:40:37-08:00",
       "totalLines": 799,
       "totalFiles": 8,
       "skillMdSize": 5360,
@@ -85,6 +85,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "claude-ecosystem-promoter": {
+      "id": "claude-ecosystem-promoter",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1562,
+      "totalFiles": 5,
+      "skillMdSize": 8112,
+      "skillMdLines": 270,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "clip-aware-embeddings": {
       "id": "clip-aware-embeddings",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -101,22 +113,22 @@
       "id": "code-necromancer",
       "createdAt": "2025-12-01T14:26:53-08:00",
       "updatedAt": "2025-12-01T14:26:53-08:00",
-      "totalLines": 1797,
-      "totalFiles": 7,
-      "skillMdSize": 10017,
-      "skillMdLines": 357,
+      "totalLines": 2718,
+      "totalFiles": 12,
+      "skillMdSize": 6108,
+      "skillMdLines": 160,
       "hasReferences": true,
       "hasExamples": false,
-      "hasChangelog": false
+      "hasChangelog": true
     },
     "collage-layout-expert": {
       "id": "collage-layout-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
       "updatedAt": "2025-11-28T16:43:50-08:00",
-      "totalLines": 2778,
+      "totalLines": 2554,
       "totalFiles": 11,
-      "skillMdSize": 13078,
-      "skillMdLines": 368,
+      "skillMdSize": 6882,
+      "skillMdLines": 144,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": true
@@ -159,8 +171,8 @@
     },
     "data-pipeline-engineer": {
       "id": "data-pipeline-engineer",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-14T21:40:37-08:00",
+      "updatedAt": "2025-12-14T21:40:37-08:00",
       "totalLines": 860,
       "totalFiles": 7,
       "skillMdSize": 5656,
@@ -185,18 +197,18 @@
       "id": "design-system-creator",
       "createdAt": "2025-11-25T18:43:58-08:00",
       "updatedAt": "2025-11-26T14:33:01-08:00",
-      "totalLines": 405,
-      "totalFiles": 2,
-      "skillMdSize": 11614,
-      "skillMdLines": 360,
+      "totalLines": 1074,
+      "totalFiles": 5,
+      "skillMdSize": 6480,
+      "skillMdLines": 170,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": true
     },
     "devops-automator": {
       "id": "devops-automator",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-14T21:40:37-08:00",
+      "updatedAt": "2025-12-14T21:40:37-08:00",
       "totalLines": 794,
       "totalFiles": 7,
       "skillMdSize": 6890,
@@ -435,8 +447,8 @@
     },
     "refactoring-surgeon": {
       "id": "refactoring-surgeon",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-14T21:40:37-08:00",
+      "updatedAt": "2025-12-14T21:40:37-08:00",
       "totalLines": 1663,
       "totalFiles": 7,
       "skillMdSize": 7026,
@@ -579,8 +591,8 @@
     },
     "technical-writer": {
       "id": "technical-writer",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-14T21:40:37-08:00",
+      "updatedAt": "2025-12-14T21:40:37-08:00",
       "totalLines": 1323,
       "totalFiles": 7,
       "skillMdSize": 5547,
