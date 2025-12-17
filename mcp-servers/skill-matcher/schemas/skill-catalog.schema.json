@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://someclaudeskills.com/schemas/skill-catalog.schema.json",
+  "title": "Skill Catalog Entry",
+  "description": "Formalized schema for indexable Claude skills, agents, and MCPs",
+  "type": "object",
+  "required": ["id", "type", "name", "description", "activation"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique kebab-case identifier"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["skill", "agent", "mcp", "subagent"],
+      "description": "Type of capability"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable display name"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 500,
+      "description": "Comprehensive description for semantic matching"
+    },
+    "activation": {
+      "type": "object",
+      "required": ["triggers", "notFor"],
+      "properties": {
+        "triggers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 3,
+          "description": "Keywords and phrases that should activate this skill"
+        },
+        "notFor": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Explicit anti-patterns - when NOT to use this skill"
+        },
+        "requiredContext": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Required context keys (e.g., 'mcp:prompt-learning')"
+        }
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "orchestration-meta",
+        "visual-design-ui",
+        "graphics-3d-simulation",
+        "audio-sound-design",
+        "computer-vision-image-ai",
+        "autonomous-systems-robotics",
+        "conversational-ai-bots",
+        "research-strategy",
+        "coaching-personal-development",
+        "devops-site-reliability",
+        "business-monetization",
+        "documentation-visualization"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["skill-type", "domain", "output", "complexity", "integration"]
+          }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "tools": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "MCP tools this skill can use"
+        },
+        "outputs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Types of artifacts this skill produces"
+        },
+        "integrations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "External services this skill integrates with"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string" },
+        "author": { "type": "string" },
+        "source": {
+          "type": "string",
+          "enum": ["local", "someclaudeskills", "mcp-registry", "github", "custom"],
+          "description": "Where this skill definition originates"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "license": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "embedding": {
+      "type": "object",
+      "description": "Pre-computed embedding for fast semantic search",
+      "properties": {
+        "model": {
+          "type": "string",
+          "description": "Embedding model used (e.g., 'text-embedding-3-small')"
+        },
+        "dimensions": {
+          "type": "integer",
+          "description": "Vector dimensions"
+        },
+        "vector": {
+          "type": "array",
+          "items": { "type": "number" },
+          "description": "The embedding vector"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["prompt", "expectedMatch"],
+        "properties": {
+          "prompt": { "type": "string" },
+          "expectedMatch": { "type": "boolean" }
+        }
+      },
+      "description": "Test cases for validation"
+    }
+  }
+}
