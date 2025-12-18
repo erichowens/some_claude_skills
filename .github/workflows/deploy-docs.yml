@@ -41,6 +41,9 @@ jobs:
         run: |
           cd website
           npm run build
+        env:
+          PLAUSIBLE_API_KEY: ${{ secrets.PLAUSIBLE_API_KEY }}
+          PLAUSIBLE_SITE_ID: someclaudeskills.com
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
