@@ -1,62 +1,302 @@
 [
   {
-    "skillId": "design-system-creator",
-    "views": 3,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
+    "skillId": "2000s-visualization-expert",
+    "views": 35,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
   },
   {
-    "skillId": "skill-coach",
-    "views": 3,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
-  },
-  {
-    "skillId": "career-biographer",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
-  },
-  {
-    "skillId": "competitive-cartographer",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
-  },
-  {
-    "skillId": "diagramming-expert",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
-  },
-  {
-    "skillId": "hrv-alexithymia-expert",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
-  },
-  {
-    "skillId": "mcp-creator",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
-  },
-  {
-    "skillId": "native-app-designer",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
+    "skillId": "adhd-design-expert",
+    "views": 35,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
   },
   {
     "skillId": "skill-documentarian",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
+    "views": 35,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
   },
   {
-    "skillId": "swift-executor",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
+    "skillId": "vibe-matcher",
+    "views": 35,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
   },
   {
-    "skillId": "typography-expert",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
+    "skillId": "color-theory-palette-harmony-expert",
+    "views": 33,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "voice-audio-engineer",
+    "views": 31,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "indie-monetization-strategist",
+    "views": 30,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "photo-composition-critic",
+    "views": 30,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "test-automation-expert",
+    "views": 29,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "agent-creator",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "automatic-stateful-prompt-improver",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "clip-aware-embeddings",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "interior-design-expert",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "job-application-optimizer",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "native-app-designer",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "windows-3-1-web-designer",
+    "views": 28,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "career-biographer",
+    "views": 27,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "photo-content-recognition-curation-expert",
+    "views": 27,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "project-management-guru-adhd",
+    "views": 27,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "security-auditor",
+    "views": 27,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "team-builder",
+    "views": 27,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "tech-entrepreneur-coach-adhd",
+    "views": 27,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "cv-creator",
+    "views": 26,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "seo-visibility-expert",
+    "views": 25,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "sound-engineer",
+    "views": 25,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "event-detection-temporal-intelligence-expert",
+    "views": 24,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "metal-shader-expert",
+    "views": 24,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "refactoring-surgeon",
+    "views": 24,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
   },
   {
     "skillId": "vaporwave-glassomorphic-ui-designer",
-    "views": 1,
-    "lastUpdated": "2025-12-22T23:59:22.984Z"
+    "views": 23,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "api-architect",
+    "views": 22,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "claude-ecosystem-promoter",
+    "views": 22,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "code-necromancer",
+    "views": 21,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "liaison",
+    "views": 21,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "technical-writer",
+    "views": 21,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "bot-developer",
+    "views": 20,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "devops-automator",
+    "views": 20,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "hr-network-analyst",
+    "views": 20,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "collage-layout-expert",
+    "views": 19,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "competitive-cartographer",
+    "views": 19,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "design-system-creator",
+    "views": 18,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "diagramming-expert",
+    "views": 18,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "hrv-alexithymia-expert",
+    "views": 18,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "vr-avatar-engineer",
+    "views": 18,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "typography-expert",
+    "views": 17,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "design-archivist",
+    "views": 16,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "web-design-expert",
+    "views": 16,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "drone-cv-expert",
+    "views": 15,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "mcp-creator",
+    "views": 14,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "orchestrator",
+    "views": 14,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "skill-coach",
+    "views": 13,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "site-reliability-engineer",
+    "views": 12,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "drone-inspection-specialist",
+    "views": 11,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "physics-rendering-expert",
+    "views": 11,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "personal-finance-coach",
+    "views": 10,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "swift-executor",
+    "views": 10,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "wisdom-accountability-coach",
+    "views": 10,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "data-pipeline-engineer",
+    "views": 9,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "jungian-psychologist",
+    "views": 9,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "speech-pathology-ai",
+    "views": 9,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
+  },
+  {
+    "skillId": "research-analyst",
+    "views": 8,
+    "lastUpdated": "2025-12-23T00:35:24.014Z"
   }
 ]

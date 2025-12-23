@@ -20,13 +20,47 @@ interface SkillStats {
   lastUpdated: string;
 }
 
+interface SkillMetadata {
+  generatedAt: string;
+  skills: Record<string, { id: string }>;
+}
+
+// Simple hash function for consistent "random" baseline per skill
+function hashCode(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return Math.abs(hash);
+}
+
+// Generate a consistent baseline for a skill (8-35 views)
+function getBaseline(skillId: string): number {
+  const hash = hashCode(skillId);
+  return 8 + (hash % 28); // Range: 8-35
+}
+
+function getAllSkillIds(): string[] {
+  const metadataPath = path.join(__dirname, '../src/data/skillMetadata.json');
+  try {
+    const data: SkillMetadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+    return Object.keys(data.skills);
+  } catch (error) {
+    console.warn('⚠️  Could not read skill metadata, using empty list');
+    return [];
+  }
+}
+
 async function fetchPlausibleStats() {
   const apiKey = process.env.PLAUSIBLE_API_KEY;
   const siteId = process.env.PLAUSIBLE_SITE_ID || 'someclaudeskills.com';
+  const allSkillIds = getAllSkillIds();
 
   if (!apiKey) {
-    console.warn('⚠️  PLAUSIBLE_API_KEY not found. Using mock data.');
-    return generateMockStats();
+    console.warn('⚠️  PLAUSIBLE_API_KEY not found. Using baseline data.');
+    return generateBaselineStats(allSkillIds);
   }
 
   try {
@@ -52,48 +86,44 @@ async function fetchPlausibleStats() {
 
     const data: PlausibleBreakdownResponse = await response.json();
 
-    // Convert to our format
-    const stats: SkillStats[] = data.results.map(result => ({
-      skillId: result.skill,
-      views: result.visitors,
-      lastUpdated: new Date().toISOString(),
+    // Build a map of real views
+    const realViews = new Map<string, number>();
+    for (const result of data.results) {
+      realViews.set(result.skill, result.visitors);
+    }
+
+    console.log(`✅ Fetched real stats for ${realViews.size} skills`);
+
+    // Generate stats for ALL skills: baseline + real views
+    const now = new Date().toISOString();
+    const stats: SkillStats[] = allSkillIds.map(skillId => ({
+      skillId,
+      views: getBaseline(skillId) + (realViews.get(skillId) || 0),
+      lastUpdated: now,
     }));
 
-    console.log(`✅ Fetched stats for ${stats.length} skills`);
+    // Sort by views descending for nicer output
+    stats.sort((a, b) => b.views - a.views);
 
-    // If no stats yet, use mock data for better UX
-    if (stats.length === 0) {
-      console.log('⚠️  No stats available yet, using mock data');
-      return generateMockStats();
-    }
+    console.log(`📈 Generated stats for ${stats.length} skills (baseline + real)`);
 
     return stats;
 
   } catch (error) {
     console.error('❌ Error fetching Plausible stats:', error);
-    console.warn('⚠️  Falling back to mock data');
-    return generateMockStats();
+    console.warn('⚠️  Falling back to baseline data');
+    return generateBaselineStats(allSkillIds);
   }
 }
 
-function generateMockStats(): SkillStats[] {
-  console.log('🎲 Generating mock stats...');
+function generateBaselineStats(skillIds: string[]): SkillStats[] {
+  console.log('🎲 Generating baseline stats...');
 
-  const skillIds = [
-    'orchestrator', 'agent-creator', 'skill-coach', 'metal-shader-expert',
-    'vr-avatar-engineer', 'drone-cv-expert', 'collage-layout-expert',
-    'adhd-design-expert', 'sound-engineer', 'web-design-expert',
-    'design-system-creator', 'native-app-designer', 'vaporwave-glassomorphic-ui-designer',
-    'bot-developer', 'career-biographer', 'research-analyst', 'team-builder',
-    'competitive-cartographer', 'design-archivist', 'interior-design-expert',
-    'jungian-psychologist', 'personal-finance-coach', 'photo-composition-critic',
-    'voice-audio-engineer', 'skill-documentarian', 'swift-executor', 'vibe-matcher',
-  ];
-
+  const now = new Date().toISOString();
   return skillIds.map(skillId => ({
     skillId,
-    views: Math.floor(Math.random() * 490) + 10, // Random 10-500
-    lastUpdated: new Date().toISOString(),
+    views: getBaseline(skillId),
+    lastUpdated: now,
   }));
 }
 
