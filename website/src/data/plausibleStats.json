@@ -1,38 +1,62 @@
 [
   {
-    "views": 2,
-    "lastUpdated": "2025-12-16T06:37:35.817Z"
+    "skillId": "design-system-creator",
+    "views": 3,
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
-    "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "skillId": "skill-coach",
+    "views": 3,
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "career-biographer",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "competitive-cartographer",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "diagramming-expert",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "hrv-alexithymia-expert",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "mcp-creator",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "native-app-designer",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   },
   {
+    "skillId": "skill-documentarian",
     "views": 1,
-    "lastUpdated": "2025-12-16T06:37:35.818Z"
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
+  },
+  {
+    "skillId": "swift-executor",
+    "views": 1,
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
+  },
+  {
+    "skillId": "typography-expert",
+    "views": 1,
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
+  },
+  {
+    "skillId": "vaporwave-glassomorphic-ui-designer",
+    "views": 1,
+    "lastUpdated": "2025-12-22T23:59:22.984Z"
   }
 ]

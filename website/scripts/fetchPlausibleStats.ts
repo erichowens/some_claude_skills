@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 interface PlausibleBreakdownResult {
-  dimension: string;
+  skill: string;  // The property name from event:props:skill becomes the key
   visitors: number;
 }
 
@@ -54,7 +54,7 @@ async function fetchPlausibleStats() {
 
     // Convert to our format
     const stats: SkillStats[] = data.results.map(result => ({
-      skillId: result.dimension,
+      skillId: result.skill,
       views: result.visitors,
       lastUpdated: new Date().toISOString(),
     }));
