@@ -967,10 +967,39 @@ html:not([data-theme='dark']) .skill-references-back:hover {
     transition: transform 0.2s ease-out !important;
   }
 
-  /* Make hamburger toggle more responsive */
+  /* Transform hamburger into Windows 3.1 style "Menu" button */
   .navbar__toggle {
     cursor: pointer;
-    padding: 8px;
+    padding: 4px 12px !important;
+    background: var(--win31-silver, #c0c0c0) !important;
+    border: 2px outset var(--win31-silver, #c0c0c0) !important;
+    border-radius: 0 !important;
+    font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    color: var(--win31-navy, #000080) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 1px 1px 0 #000 !important;
+  }
+
+  .navbar__toggle:hover {
+    background: var(--win31-light-silver, #dfdfdf) !important;
+  }
+
+  .navbar__toggle:active {
+    border-style: inset !important;
+    box-shadow: none !important;
+  }
+
+  /* Hide the hamburger icon bars and show "Menu" text */
+  .navbar__toggle svg {
+    display: none !important;
+  }
+
+  .navbar__toggle::before {
+    content: '☰ Menu' !important;
+    display: inline !important;
   }
 
   /* Ensure clean close animation */
