@@ -221,6 +221,60 @@ Users report that skills can:
 3. **Version Control**: Track skill evolution
 4. **Manage Access**: Control which skills are enabled
 
+## Contributing Your Skills
+
+We've built a comprehensive skill submission system to make it easy for anyone to contribute skills to the community.
+
+### Three Ways to Submit
+
+1. **Web Form (Easiest)**
+   - Visit [someclaudeskills.com/submit-skill](https://someclaudeskills.com/submit-skill)
+   - Fill out the form with your skill details
+   - Your submission creates a GitHub Issue for review
+   - Once approved, your skill is added to the collection
+
+2. **GitHub Issue**
+   - Create a new issue with the `skill-submission` label
+   - Include your SKILL.md content in a YAML code block
+   - A GitHub Action automatically processes valid submissions
+
+3. **Pull Request**
+   - Fork the repository
+   - Create your skill in `.claude/skills/your-skill-name/SKILL.md`
+   - Run validation: `cd website && npm run skills:validate`
+   - Submit a pull request
+
+### Skill Requirements
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| `name` | Lowercase kebab-case ID (3-50 chars) | `my-awesome-skill` |
+| `description` | Full description (50-500 chars) | `Comprehensive skill for...` |
+| `category` | One of the valid categories | `Design & Creative` |
+| `tags` | 1-10 relevant tags | `[design, ui, frontend]` |
+| `allowed-tools` | Comma-separated tool list | `Read, Write, Edit, Bash` |
+
+### Valid Categories
+
+- AI & Machine Learning
+- Code Quality & Testing
+- Content & Writing
+- Data & Analytics
+- Design & Creative
+- DevOps & Site Reliability
+- Business & Monetization
+- Research & Analysis
+- Productivity & Meta
+- Lifestyle & Personal
+
+### What Makes a Great Skill?
+
+1. **Clear Purpose**: Solves a specific, well-defined problem
+2. **Comprehensive Instructions**: Detailed enough for Claude to act autonomously
+3. **Examples**: Include sample inputs/outputs when helpful
+4. **Appropriate Tools**: Only request the tools actually needed
+5. **Tested**: Verify your skill works before submitting
+
 ## Resources
 
 ### Official Documentation
