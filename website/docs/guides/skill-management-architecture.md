@@ -183,68 +183,86 @@ npm run skills:watch
 
 ### 4. Batch Processing CLI
 
-**File:** `scripts/process-submissions.ts`
+**File:** `scripts/batch-process-submissions.ts`
 
 **Purpose:** Convert approved submissions to skills
 
 **Features:**
-- Fetch issues labeled `skill-submission` + `approved`
-- Generate SKILL.md scaffold
+- Fetch issues labeled `skill-submission`
+- Validate submission format
+- Generate SKILL.md files
 - Create skill folder structure
-- Open in editor for refinement
-- Mark issue as `implemented` when done
+- Mark issues as `processed` when done
 
 **Usage:**
 ```bash
 # List pending submissions
-npm run skills:submissions list
+npm run submissions:list
 
-# Process approved submissions
-npm run skills:submissions process
+# Validate a specific submission
+npm run submissions:validate 42
 
-# Process specific submission
-npm run skills:submissions process --issue 123
+# Create skill from submission (with dry-run)
+npm run submissions:create 42 -- --dry-run
+
+# Process all pending submissions
+npm run submissions:process-all -- --dry-run
 ```
 
 ### 5. Remote Skill Registry
 
-**File:** `scripts/lib/remote-skills.ts`
+**File:** `scripts/skill-registry.ts` and `scripts/lib/remote-registry.ts`
 
-**Purpose:** Fetch and integrate external skills
+**Purpose:** Import, export, and discover skills from external sources
 
 **Features:**
-- Parse skill-sources.yaml
-- Clone/fetch remote repos (cached)
-- Validate remote SKILL.md files
-- Merge into local skill registry
-- Handle conflicts and versioning
+- Search the skill registry for skills
+- Import skills from GitHub URLs or raw URLs
+- Validate remote skills before importing
+- Publish local skills to registry.json
+- List all skills in the remote registry
+
+**Usage:**
+```bash
+# Search for skills
+npm run registry:search "machine learning"
+
+# Import a skill from GitHub
+npm run registry:import https://github.com/user/repo/blob/main/.claude/skills/my-skill/SKILL.md
+
+# Validate a remote skill without importing
+npm run registry:validate https://github.com/user/repo/blob/main/.claude/skills/my-skill/SKILL.md
+
+# Publish local skills to registry.json
+npm run registry:publish
+
+# List all skills in the remote registry
+npm run registry:list
+```
 
 ## File Structure
 
 ```
 website/
 ├── scripts/
-│   ├── generate-skills.ts      # Main generation script
-│   ├── process-submissions.ts  # Submission processing CLI
-│   ├── validate-skills.ts      # Validation script
+│   ├── generate-skills.ts           # Main generation script
+│   ├── batch-process-submissions.ts # Batch CLI for submissions
+│   ├── process-skill-submission.ts  # GitHub Action processor
+│   ├── skill-registry.ts            # Registry CLI
 │   └── lib/
-│       ├── skill-parser.ts     # SKILL.md parser
-│       ├── skill-generator.ts  # skills.ts generator
-│       ├── doc-generator.ts    # docs/skills/ generator
-│       ├── github-issues.ts    # GitHub API integration
-│       ├── remote-skills.ts    # Remote skill fetcher
-│       └── types.ts            # Shared types
+│       ├── skill-parser.ts          # SKILL.md parser
+│       ├── remote-registry.ts       # Remote skill registry
+│       └── types.ts                 # Shared types
 ├── src/
 │   ├── data/
-│   │   └── skills.ts           # AUTO-GENERATED (do not edit)
+│   │   └── skills.ts                # AUTO-GENERATED (do not edit)
 │   └── pages/
-│       └── submit-skill.tsx    # Submission form page
+│       └── submit-skill.tsx         # Submission form page
 ├── docs/
-│   └── skills/                 # AUTO-GENERATED docs
-├── skill-sources.yaml          # Remote skill registry
+│   └── skills/                      # AUTO-GENERATED docs
 └── .github/
-    └── ISSUE_TEMPLATE/
-        └── skill-submission.yml # Issue template
+    └── workflows/
+        └── process-skill-submission.yml # GitHub Action workflow
 ```
 
 ## Schema Definitions
@@ -324,12 +342,26 @@ const SKILL_CATEGORIES = {
 ```json
 {
   "scripts": {
+    // Skill generation
     "skills:generate": "tsx scripts/generate-skills.ts",
     "skills:validate": "tsx scripts/generate-skills.ts --validate-only",
     "skills:watch": "tsx scripts/generate-skills.ts --watch",
-    "skills:submissions": "tsx scripts/process-submissions.ts",
-    "prebuild": "npm run skills:generate",
-    "prestart": "npm run skills:generate"
+
+    // Submission processing
+    "submissions:list": "tsx scripts/batch-process-submissions.ts list",
+    "submissions:validate": "tsx scripts/batch-process-submissions.ts validate",
+    "submissions:create": "tsx scripts/batch-process-submissions.ts create",
+    "submissions:process-all": "tsx scripts/batch-process-submissions.ts process-all",
+
+    // Remote registry
+    "registry:search": "tsx scripts/skill-registry.ts search",
+    "registry:import": "tsx scripts/skill-registry.ts import",
+    "registry:validate": "tsx scripts/skill-registry.ts validate",
+    "registry:publish": "tsx scripts/skill-registry.ts publish",
+    "registry:list": "tsx scripts/skill-registry.ts list-remote",
+
+    // Build hooks
+    "prebuild": "npm run validate:all && npm run skills:generate"
   }
 }
 ```

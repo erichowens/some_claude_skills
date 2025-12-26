@@ -28,7 +28,15 @@
     "skills:generate": "tsx scripts/generate-skills.ts",
     "skills:validate": "tsx scripts/generate-skills.ts --validate-only",
     "skills:watch": "tsx scripts/generate-skills.ts --watch",
-    "skills:submissions": "tsx scripts/process-submissions.ts"
+    "submissions:list": "tsx scripts/batch-process-submissions.ts list",
+    "submissions:validate": "tsx scripts/batch-process-submissions.ts validate",
+    "submissions:create": "tsx scripts/batch-process-submissions.ts create",
+    "submissions:process-all": "tsx scripts/batch-process-submissions.ts process-all",
+    "registry:search": "tsx scripts/skill-registry.ts search",
+    "registry:import": "tsx scripts/skill-registry.ts import",
+    "registry:validate": "tsx scripts/skill-registry.ts validate",
+    "registry:publish": "tsx scripts/skill-registry.ts publish",
+    "registry:list": "tsx scripts/skill-registry.ts list-remote"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
