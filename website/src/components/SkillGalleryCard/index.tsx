@@ -5,6 +5,20 @@ import { shareSkill } from '../../hooks/useStarredSkills';
 import { TagList } from '../TagBadge';
 import '../../css/skills-gallery.css';
 
+/**
+ * Clean description for card display by removing "Activate on..." and "NOT for..." clauses
+ * These are useful for Claude but ugly on preview cards
+ */
+function cleanDescriptionForCard(description: string): string {
+  // Remove "Activate on..." clause and everything after
+  let cleaned = description.split(/\s*Activate on[:\s]/i)[0];
+  // Also remove "NOT for..." if it appears before "Activate on"
+  cleaned = cleaned.split(/\s*NOT for[:\s]/i)[0];
+  // Remove trailing periods and whitespace
+  cleaned = cleaned.replace(/[\s.]+$/, '');
+  return cleaned;
+}
+
 interface SkillGalleryCardProps {
   skill: Skill;
   onClick?: (skill: Skill) => void;
@@ -107,7 +121,7 @@ export default function SkillGalleryCard({
       </div>
       <div className={contentClass}>
         <h3 className={titleClass}>{skill.title}</h3>
-        <p className={descriptionClass}>{skill.description}</p>
+        <p className={descriptionClass}>{cleanDescriptionForCard(skill.description)}</p>
         {/* Tags */}
         {skill.tags && skill.tags.length > 0 && (
           <div className="skill-card__tags">
