@@ -1,0 +1,43 @@
+{
+  "name": "@someclaudeskills/plant-database",
+  "version": "1.0.0",
+  "description": "MCP server for plant information, USDA hardiness zones, and landscaping recommendations",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "plant-database": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "plants",
+    "gardening",
+    "landscaping",
+    "usda-zones",
+    "native-plants"
+  ],
+  "author": "Some Claude Skills",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
