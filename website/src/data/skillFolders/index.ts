@@ -73,6 +73,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 12,
     "folderCount": 3
   },
+  "code-review-checklist": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "collage-layout-expert": {
     "hasContent": true,
     "fileCount": 11,

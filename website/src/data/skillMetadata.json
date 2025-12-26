@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-26T20:51:50.541Z",
+  "generatedAt": "2025-12-26T23:13:37.038Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -132,6 +132,18 @@
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": true
+    },
+    "code-review-checklist": {
+      "id": "code-review-checklist",
+      "createdAt": "2025-12-26T15:13:20-08:00",
+      "updatedAt": "2025-12-26T15:13:20-08:00",
+      "totalLines": 64,
+      "totalFiles": 1,
+      "skillMdSize": 2093,
+      "skillMdLines": 64,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
     },
     "collage-layout-expert": {
       "id": "collage-layout-expert",
@@ -579,8 +591,8 @@
     },
     "recovery-app-legal-terms": {
       "id": "recovery-app-legal-terms",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T12:51:47-08:00",
+      "updatedAt": "2025-12-26T12:51:47-08:00",
       "totalLines": 1189,
       "totalFiles": 5,
       "skillMdSize": 6585,
@@ -591,8 +603,8 @@
     },
     "recovery-community-moderator": {
       "id": "recovery-community-moderator",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T12:51:47-08:00",
+      "updatedAt": "2025-12-26T12:51:47-08:00",
       "totalLines": 738,
       "totalFiles": 4,
       "skillMdSize": 4906,
