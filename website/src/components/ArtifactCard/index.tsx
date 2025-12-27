@@ -76,7 +76,7 @@ export default function ArtifactCard({ artifact }: ArtifactCardProps): JSX.Eleme
         })}
       </div>
 
-      {artifact.outcome.metrics && artifact.outcome.metrics.length > 0 && (
+      {artifact.outcome?.metrics && artifact.outcome.metrics.length > 0 && (
         <div className={styles.metrics}>
           {artifact.outcome.metrics.slice(0, 3).map((metric, index) => (
             <div key={index} className={styles.metric}>

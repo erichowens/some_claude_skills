@@ -7,21 +7,27 @@ const fs = require('fs');
 const path = require('path');
 
 // Valid tags from tags.ts (kept in sync manually)
+// Run: grep "id: '" website/src/types/tags.ts | sed "s/.*id: '\([^']*\)'.*/'\1',/" | sort
 const VALID_TAGS = new Set([
-  // Skill Type
+  // Skill Type (what it does) - purple
   'research', 'creation', 'coaching', 'automation', 'orchestration',
-  'validation', 'analysis', 'optimization', 'clustering', 'curation', 'indexing',
-  // Domain
+  'validation', 'analysis', 'optimization', 'clustering', 'curation',
+  'indexing', 'refactoring', 'testing', 'moderation', 'coordination',
+  // Domain (subject matter) - blue
   'design', 'audio', '3d', 'cv', 'ml', 'psychology', 'finance', 'career',
-  'accessibility', 'devops', 'robotics', 'photography', 'health',
-  'entrepreneurship', 'spatial', 'job-search', 'inspection', 'thermal',
-  'insurance', 'temporal', 'events', 'faces', 'duplicates',
-  // Output
-  'code', 'document', 'visual', 'data', 'strategy',
-  // Complexity
+  'accessibility', 'adhd', 'devops', 'robotics', 'photography', 'health',
+  'recovery', 'entrepreneurship', 'spatial', 'job-search', 'inspection',
+  'thermal', 'insurance', 'temporal', 'events', 'faces', 'duplicates',
+  'web', 'api', 'security', 'documentation', 'legal', 'relationships',
+  'grief', 'vr', 'landscaping', 'color', 'typography', 'shaders',
+  'physics', 'bots', 'agents', 'prompts',
+  // Output (what it produces) - green
+  'code', 'document', 'visual', 'data', 'strategy', 'diagrams', 'templates',
+  // Complexity - orange
   'beginner-friendly', 'advanced', 'production-ready',
-  // Integration
-  'mcp', 'elevenlabs', 'figma', 'stability-ai',
+  // Integration (external tools) - pink
+  'mcp', 'elevenlabs', 'figma', 'stability-ai', 'playwright', 'jest',
+  'docusaurus', 'swiftui', 'react', 'discord', 'slack', 'telegram',
 ]);
 
 const MIN_TAGS = 2;
@@ -65,10 +71,16 @@ function validateSkillTags(skillPath) {
     warnings.push(`${tags.length} tags - maximum recommended is ${MAX_TAGS}`);
   }
 
-  // Check for invalid tags
-  const invalidTags = tags.filter(tag => !VALID_TAGS.has(tag));
-  if (invalidTags.length > 0) {
-    errors.push(`Invalid tags: ${invalidTags.join(', ')}`);
+  // Check for unknown tags (warn, don't error - we allow custom tags)
+  const unknownTags = tags.filter(tag => !VALID_TAGS.has(tag));
+  if (unknownTags.length > 0) {
+    warnings.push(`Unknown tags (will display blue): ${unknownTags.join(', ')}`);
+  }
+
+  // Check for known tags (at least 1 from taxonomy is recommended)
+  const knownTags = tags.filter(tag => VALID_TAGS.has(tag));
+  if (knownTags.length === 0) {
+    warnings.push('No tags from official taxonomy - consider adding standard tags for discoverability');
   }
 
   return { skillName, errors, warnings, tags };

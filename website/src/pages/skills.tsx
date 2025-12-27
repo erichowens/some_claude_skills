@@ -111,6 +111,25 @@ export default function SkillsGallery(): JSX.Element {
 
   const tagsByType = getTagsByType();
 
+  // Calculate tag counts from actual skills
+  const tagCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    ALL_SKILLS.forEach(skill => {
+      skill.tags?.forEach(tag => {
+        counts[tag] = (counts[tag] || 0) + 1;
+      });
+    });
+    return counts;
+  }, []);
+
+  // Get popular tags (used by 3+ skills, sorted by usage)
+  const popularTags = useMemo(() => {
+    return ALL_TAGS
+      .filter(tag => (tagCounts[tag.id] || 0) >= 2)
+      .sort((a, b) => (tagCounts[b.id] || 0) - (tagCounts[a.id] || 0))
+      .slice(0, 12);
+  }, [tagCounts]);
+
   // Calculate category counts
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { all: ALL_SKILLS.length };
@@ -172,6 +191,85 @@ export default function SkillsGallery(): JSX.Element {
             </div>
           </div>
 
+          {/* Popular Tags - Always Visible */}
+          <div style={{
+            marginBottom: '16px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '8px',
+            alignItems: 'center',
+            padding: '12px 16px',
+            background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+            borderRadius: '8px',
+            border: '1px solid #dee2e6',
+          }}>
+            <span className="win31-font" style={{
+              fontSize: '12px',
+              color: '#495057',
+              fontWeight: 'bold',
+              marginRight: '4px',
+            }}>
+              Popular:
+            </span>
+            {popularTags.map((tag) => {
+              const isSelected = selectedTags.includes(tag.id);
+              const colors = TAG_TYPE_COLORS[tag.type];
+              const count = tagCounts[tag.id] || 0;
+              return (
+                <button
+                  key={tag.id}
+                  onClick={() => handleTagToggle(tag.id)}
+                  title={`${tag.description} (${count} skills)`}
+                  className="win31-font"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    backgroundColor: isSelected ? colors.text : colors.bg,
+                    color: isSelected ? '#fff' : colors.text,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: '16px',
+                    padding: '5px 12px',
+                    fontSize: '12px',
+                    fontWeight: isSelected ? 600 : 500,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                    boxShadow: isSelected ? '0 2px 4px rgba(0,0,0,0.15)' : 'none',
+                  }}
+                >
+                  {tag.label}
+                  <span style={{
+                    fontSize: '10px',
+                    opacity: 0.8,
+                    marginLeft: '2px',
+                  }}>
+                    ({count})
+                  </span>
+                </button>
+              );
+            })}
+            <button
+              onClick={() => setShowTagFilter(!showTagFilter)}
+              className="win31-font"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                backgroundColor: showTagFilter ? '#6c757d' : '#fff',
+                color: showTagFilter ? '#fff' : '#495057',
+                border: '1px solid #adb5bd',
+                borderRadius: '16px',
+                padding: '5px 12px',
+                fontSize: '12px',
+                fontWeight: 500,
+                cursor: 'pointer',
+                marginLeft: '8px',
+              }}
+            >
+              {showTagFilter ? '− Less' : '+ More Tags'}
+            </button>
+          </div>
+
           {/* Category Filter */}
           <div className="category-filter">
             {/* View Mode Toggle */}
@@ -219,20 +317,6 @@ export default function SkillsGallery(): JSX.Element {
               }}
             >
               ★ Starred ({getStarredCount()})
-            </button>
-            {/* Tag Filter Toggle */}
-            <button
-              onClick={() => setShowTagFilter(!showTagFilter)}
-              className="win31-push-button"
-              style={{
-                fontSize: '14px',
-                padding: '10px 20px',
-                background: selectedTags.length > 0 ? 'var(--win31-lime)' : 'var(--win31-gray)',
-                color: 'black',
-                fontWeight: selectedTags.length > 0 ? 'bold' : 'normal',
-              }}
-            >
-              🏷️ Tags {selectedTags.length > 0 && `(${selectedTags.length})`}
             </button>
             {SKILL_CATEGORIES.map((category) => (
               <button
@@ -292,14 +376,17 @@ export default function SkillsGallery(): JSX.Element {
                     {tagsByType[type].map((tag) => {
                       const isSelected = selectedTags.includes(tag.id);
                       const colors = TAG_TYPE_COLORS[type];
+                      const count = tagCounts[tag.id] || 0;
                       return (
                         <button
                           key={tag.id}
                           onClick={() => handleTagToggle(tag.id)}
-                          title={tag.description}
+                          title={`${tag.description} (${count} skills)`}
                           className="win31-font"
                           style={{
-                            display: 'inline-block',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '3px',
                             backgroundColor: isSelected ? colors.text : colors.bg,
                             color: isSelected ? '#fff' : colors.text,
                             border: `1px solid ${colors.border}`,
@@ -309,9 +396,15 @@ export default function SkillsGallery(): JSX.Element {
                             fontWeight: isSelected ? 600 : 500,
                             cursor: 'pointer',
                             transition: 'all 0.15s ease',
+                            opacity: count === 0 ? 0.5 : 1,
                           }}
                         >
                           {tag.label}
+                          {count > 0 && (
+                            <span style={{ fontSize: '10px', opacity: 0.75 }}>
+                              ({count})
+                            </span>
+                          )}
                         </button>
                       );
                     })}

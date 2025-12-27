@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-27T00:36:07.872Z",
+  "generatedAt": "2025-12-27T00:43:37.286Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -592,7 +592,7 @@
     "recovery-app-legal-terms": {
       "id": "recovery-app-legal-terms",
       "createdAt": "2025-12-26T12:51:47-08:00",
-      "updatedAt": "2025-12-26T12:51:47-08:00",
+      "updatedAt": "2025-12-26T16:36:01-08:00",
       "totalLines": 1202,
       "totalFiles": 5,
       "skillMdSize": 7211,
@@ -604,7 +604,7 @@
     "recovery-community-moderator": {
       "id": "recovery-community-moderator",
       "createdAt": "2025-12-26T12:51:47-08:00",
-      "updatedAt": "2025-12-26T12:51:47-08:00",
+      "updatedAt": "2025-12-26T16:36:01-08:00",
       "totalLines": 751,
       "totalFiles": 4,
       "skillMdSize": 5538,

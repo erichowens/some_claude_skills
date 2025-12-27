@@ -27,7 +27,7 @@ export const TAG_TYPE_COLORS: Record<TagType, { bg: string; text: string; border
   'integration': { bg: '#fce7f3', text: '#be185d', border: '#f9a8d4' },  // Pink
 };
 
-// All available tags
+// All available tags - expanded taxonomy for rich discoverability
 export const ALL_TAGS: TagDefinition[] = [
   // Skill Type Tags (what it does) - Purple
   { id: 'research', label: 'Research', type: 'skill-type', description: 'Investigates and analyzes information' },
@@ -41,6 +41,10 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'clustering', label: 'Clustering', type: 'skill-type', description: 'Groups and categorizes similar items' },
   { id: 'curation', label: 'Curation', type: 'skill-type', description: 'Selects and organizes content' },
   { id: 'indexing', label: 'Indexing', type: 'skill-type', description: 'Creates searchable indexes' },
+  { id: 'refactoring', label: 'Refactoring', type: 'skill-type', description: 'Restructures and improves code' },
+  { id: 'testing', label: 'Testing', type: 'skill-type', description: 'Validates through testing' },
+  { id: 'moderation', label: 'Moderation', type: 'skill-type', description: 'Content moderation and safety' },
+  { id: 'coordination', label: 'Coordination', type: 'skill-type', description: 'Coordinates people or processes' },
 
   // Domain Tags (subject matter) - Blue
   { id: 'design', label: 'Design', type: 'domain', description: 'Visual and UX design' },
@@ -52,10 +56,12 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'finance', label: 'Finance', type: 'domain', description: 'Money and investing' },
   { id: 'career', label: 'Career', type: 'domain', description: 'Job and professional growth' },
   { id: 'accessibility', label: 'Accessibility', type: 'domain', description: 'ADHD and disability-focused' },
+  { id: 'adhd', label: 'ADHD', type: 'domain', description: 'ADHD-focused tools and workflows' },
   { id: 'devops', label: 'DevOps', type: 'domain', description: 'Deployment and reliability' },
   { id: 'robotics', label: 'Robotics', type: 'domain', description: 'Drones and autonomous systems' },
   { id: 'photography', label: 'Photography', type: 'domain', description: 'Photo composition and curation' },
   { id: 'health', label: 'Health', type: 'domain', description: 'Physical and mental wellness' },
+  { id: 'recovery', label: 'Recovery', type: 'domain', description: 'Addiction recovery and sobriety' },
   { id: 'entrepreneurship', label: 'Entrepreneurship', type: 'domain', description: 'Startups and business building' },
   { id: 'spatial', label: 'Spatial', type: 'domain', description: 'Interior design and space planning' },
   { id: 'job-search', label: 'Job Search', type: 'domain', description: 'Job hunting and application strategy' },
@@ -66,6 +72,22 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'events', label: 'Events', type: 'domain', description: 'Event detection and tracking' },
   { id: 'faces', label: 'Faces', type: 'domain', description: 'Face recognition and clustering' },
   { id: 'duplicates', label: 'Duplicates', type: 'domain', description: 'Duplicate detection and deduplication' },
+  { id: 'web', label: 'Web', type: 'domain', description: 'Web development and design' },
+  { id: 'api', label: 'API', type: 'domain', description: 'API design and integration' },
+  { id: 'security', label: 'Security', type: 'domain', description: 'Security and vulnerability analysis' },
+  { id: 'documentation', label: 'Documentation', type: 'domain', description: 'Technical writing and docs' },
+  { id: 'legal', label: 'Legal', type: 'domain', description: 'Legal documents and compliance' },
+  { id: 'relationships', label: 'Relationships', type: 'domain', description: 'Personal and professional relationships' },
+  { id: 'grief', label: 'Grief', type: 'domain', description: 'Grief and bereavement support' },
+  { id: 'vr', label: 'VR', type: 'domain', description: 'Virtual reality and immersive tech' },
+  { id: 'landscaping', label: 'Landscaping', type: 'domain', description: 'Outdoor and garden design' },
+  { id: 'color', label: 'Color', type: 'domain', description: 'Color theory and palettes' },
+  { id: 'typography', label: 'Typography', type: 'domain', description: 'Fonts and type design' },
+  { id: 'shaders', label: 'Shaders', type: 'domain', description: 'GPU shaders and graphics programming' },
+  { id: 'physics', label: 'Physics', type: 'domain', description: 'Physics simulation' },
+  { id: 'bots', label: 'Bots', type: 'domain', description: 'Chat and automation bots' },
+  { id: 'agents', label: 'Agents', type: 'domain', description: 'AI agents and autonomous systems' },
+  { id: 'prompts', label: 'Prompts', type: 'domain', description: 'Prompt engineering' },
 
   // Output Format Tags - Green
   { id: 'code', label: 'Code', type: 'output', description: 'Generates code' },
@@ -73,6 +95,8 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'visual', label: 'Visual', type: 'output', description: 'Creates images or designs' },
   { id: 'data', label: 'Data', type: 'output', description: 'Produces structured data' },
   { id: 'strategy', label: 'Strategy', type: 'output', description: 'Produces strategic plans' },
+  { id: 'diagrams', label: 'Diagrams', type: 'output', description: 'Creates diagrams and visualizations' },
+  { id: 'templates', label: 'Templates', type: 'output', description: 'Provides templates and patterns' },
 
   // Complexity Tags - Orange
   { id: 'beginner-friendly', label: 'Beginner Friendly', type: 'complexity', description: 'Easy to use, no special knowledge needed' },
@@ -84,6 +108,14 @@ export const ALL_TAGS: TagDefinition[] = [
   { id: 'elevenlabs', label: 'ElevenLabs', type: 'integration', description: 'ElevenLabs audio integration' },
   { id: 'figma', label: 'Figma', type: 'integration', description: 'Figma design integration' },
   { id: 'stability-ai', label: 'Stability AI', type: 'integration', description: 'Stability AI image generation' },
+  { id: 'playwright', label: 'Playwright', type: 'integration', description: 'Playwright browser automation' },
+  { id: 'jest', label: 'Jest', type: 'integration', description: 'Jest testing framework' },
+  { id: 'docusaurus', label: 'Docusaurus', type: 'integration', description: 'Docusaurus documentation' },
+  { id: 'swiftui', label: 'SwiftUI', type: 'integration', description: 'SwiftUI for iOS/macOS' },
+  { id: 'react', label: 'React', type: 'integration', description: 'React framework' },
+  { id: 'discord', label: 'Discord', type: 'integration', description: 'Discord platform' },
+  { id: 'slack', label: 'Slack', type: 'integration', description: 'Slack platform' },
+  { id: 'telegram', label: 'Telegram', type: 'integration', description: 'Telegram platform' },
 ];
 
 // Quick lookup map

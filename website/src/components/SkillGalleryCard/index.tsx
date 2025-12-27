@@ -125,7 +125,7 @@ export default function SkillGalleryCard({
         {/* Tags */}
         {skill.tags && skill.tags.length > 0 && (
           <div className="skill-card__tags">
-            <TagList tags={skill.tags} maxTags={4} size="sm" />
+            <TagList tags={skill.tags} maxTags={6} size="sm" />
           </div>
         )}
         {variant === 'default' && (
