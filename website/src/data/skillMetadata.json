@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-27T01:21:06.538Z",
+  "generatedAt": "2025-12-27T03:13:29.944Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -37,6 +37,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "admin-dashboard": {
+      "id": "admin-dashboard",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 284,
+      "totalFiles": 1,
+      "skillMdSize": 7484,
+      "skillMdLines": 284,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "agent-creator": {
       "id": "agent-creator",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -51,8 +63,8 @@
     },
     "ai-video-production-master": {
       "id": "ai-video-production-master",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T17:21:02-08:00",
+      "updatedAt": "2025-12-26T17:21:02-08:00",
       "totalLines": 2829,
       "totalFiles": 8,
       "skillMdSize": 4557,
@@ -105,6 +117,18 @@
       "totalFiles": 2,
       "skillMdSize": 10047,
       "skillMdLines": 269,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "chatbot-analytics": {
+      "id": "chatbot-analytics",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 333,
+      "totalFiles": 1,
+      "skillMdSize": 9487,
+      "skillMdLines": 333,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -193,6 +217,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "crisis-response-protocol": {
+      "id": "crisis-response-protocol",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 433,
+      "totalFiles": 1,
+      "skillMdSize": 11850,
+      "skillMdLines": 433,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "cv-creator": {
       "id": "cv-creator",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -277,6 +313,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "drizzle-migrations": {
+      "id": "drizzle-migrations",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 400,
+      "totalFiles": 1,
+      "skillMdSize": 9308,
+      "skillMdLines": 400,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "drone-cv-expert": {
       "id": "drone-cv-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -300,6 +348,18 @@
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": true
+    },
+    "email-composer": {
+      "id": "email-composer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 324,
+      "totalFiles": 1,
+      "skillMdSize": 6931,
+      "skillMdLines": 324,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
     },
     "event-detection-temporal-intelligence-expert": {
       "id": "event-detection-temporal-intelligence-expert",
@@ -325,6 +385,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "feature-manifest": {
+      "id": "feature-manifest",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 151,
+      "totalFiles": 1,
+      "skillMdSize": 3743,
+      "skillMdLines": 151,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "grief-companion": {
       "id": "grief-companion",
       "createdAt": "2025-12-25T22:46:49-08:00",
@@ -334,6 +406,18 @@
       "skillMdSize": 9157,
       "skillMdLines": 249,
       "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "hipaa-compliance": {
+      "id": "hipaa-compliance",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 220,
+      "totalFiles": 1,
+      "skillMdSize": 5439,
+      "skillMdLines": 220,
+      "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -613,6 +697,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "recovery-coach-patterns": {
+      "id": "recovery-coach-patterns",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 375,
+      "totalFiles": 1,
+      "skillMdSize": 9345,
+      "skillMdLines": 375,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "recovery-community-moderator": {
       "id": "recovery-community-moderator",
       "createdAt": "2025-12-26T12:51:47-08:00",
@@ -645,6 +741,18 @@
       "totalFiles": 1,
       "skillMdSize": 7289,
       "skillMdLines": 210,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "rest-api-design": {
+      "id": "rest-api-design",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 493,
+      "totalFiles": 1,
+      "skillMdSize": 11437,
+      "skillMdLines": 493,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -696,6 +804,18 @@
       "hasReferences": true,
       "hasExamples": true,
       "hasChangelog": true
+    },
+    "skill-creator": {
+      "id": "skill-creator",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 899,
+      "totalFiles": 5,
+      "skillMdSize": 11687,
+      "skillMdLines": 217,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
     },
     "skill-documentarian": {
       "id": "skill-documentarian",
@@ -841,6 +961,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "vercel-deployment": {
+      "id": "vercel-deployment",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 453,
+      "totalFiles": 1,
+      "skillMdSize": 8895,
+      "skillMdLines": 453,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "vibe-matcher": {
       "id": "vibe-matcher",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -849,6 +981,18 @@
       "totalFiles": 2,
       "skillMdSize": 12649,
       "skillMdLines": 309,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "vitest-testing-patterns": {
+      "id": "vitest-testing-patterns",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 378,
+      "totalFiles": 1,
+      "skillMdSize": 9111,
+      "skillMdLines": 378,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false

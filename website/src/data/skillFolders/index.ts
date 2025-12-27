@@ -33,10 +33,20 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 3,
     "folderCount": 1
   },
+  "admin-dashboard": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "agent-creator": {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 1
+  },
+  "ai-video-production-master": {
+    "hasContent": true,
+    "fileCount": 8,
+    "folderCount": 4
   },
   "api-architect": {
     "hasContent": true,
@@ -57,6 +67,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 2,
     "folderCount": 1
+  },
+  "chatbot-analytics": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "claude-ecosystem-promoter": {
     "hasContent": true,
@@ -93,6 +108,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 2
   },
+  "crisis-response-protocol": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "cv-creator": {
     "hasContent": true,
     "fileCount": 5,
@@ -128,6 +148,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 2,
     "folderCount": 1
   },
+  "drizzle-migrations": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "drone-cv-expert": {
     "hasContent": true,
     "fileCount": 5,
@@ -137,6 +162,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 7,
     "folderCount": 1
+  },
+  "email-composer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "event-detection-temporal-intelligence-expert": {
     "hasContent": true,
@@ -148,10 +178,20 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 2,
     "folderCount": 1
   },
+  "feature-manifest": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "grief-companion": {
     "hasContent": true,
     "fileCount": 3,
     "folderCount": 1
+  },
+  "hipaa-compliance": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "hr-network-analyst": {
     "hasContent": true,
@@ -268,6 +308,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 2
   },
+  "recovery-coach-patterns": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "recovery-community-moderator": {
     "hasContent": true,
     "fileCount": 4,
@@ -279,6 +324,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "folderCount": 2
   },
   "research-analyst": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "rest-api-design": {
     "hasContent": false,
     "fileCount": 1,
     "folderCount": 0
@@ -302,6 +352,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 17,
     "folderCount": 19
+  },
+  "skill-creator": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
   },
   "skill-documentarian": {
     "hasContent": true,
@@ -363,10 +418,20 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 1
   },
+  "vercel-deployment": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "vibe-matcher": {
     "hasContent": true,
     "fileCount": 2,
     "folderCount": 1
+  },
+  "vitest-testing-patterns": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "voice-audio-engineer": {
     "hasContent": true,
@@ -411,6 +476,7 @@ export const skillsWithContent = [
   "adhd-daily-planner",
   "adhd-design-expert",
   "agent-creator",
+  "ai-video-production-master",
   "api-architect",
   "automatic-stateful-prompt-improver",
   "bot-developer",
@@ -458,6 +524,7 @@ export const skillsWithContent = [
   "seo-visibility-expert",
   "site-reliability-engineer",
   "skill-coach",
+  "skill-creator",
   "skill-documentarian",
   "skill-logger",
   "sober-addict-protector",
