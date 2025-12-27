@@ -1,7 +1,7 @@
 ---
 title: Color Arrangement Patterns
 sidebar_label: Color Arrangement Patterns
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Color Arrangement Patterns
 

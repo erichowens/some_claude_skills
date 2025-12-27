@@ -1,6 +1,6 @@
 ---
 title: 3D Gaussian Splatting Pipeline for Weddings
-sidebar_label: 3D Gaussian Splatting Pipeline...
+sidebar_label: 3D Gaussian Splatting Pipel...
 sidebar_position: 2
 ---
 # 3D Gaussian Splatting Pipeline for Weddings
@@ -48,7 +48,7 @@ def extract_frames(video_path: str, output_dir: str, fps: float = 2.0):
             # Check for blur before saving
             laplacian_var = cv2.Laplacian(frame, cv2.CV_64F).var()
             if laplacian_var > 100:  # Reject blurry frames
-                cv2.imwrite(f"{output_dir}/frame_{saved_count:06d}.jpg", frame)
+                cv2.imwrite(f"\{output_dir\}/frame_{saved_count:06d}.jpg", frame)
                 saved_count += 1
 
         frame_count += 1
@@ -100,7 +100,7 @@ def organize_wedding_photos(source_dir: str, output_dir: str):
                 'resolution': img.size
             })
         except Exception as e:
-            print(f"Skipping {img_path}: {e}")
+            print(f"Skipping \{img_path\}: \{e\}")
 
     # Sort by timestamp
     photos.sort(key=lambda x: x['timestamp'] or datetime.min)
@@ -223,9 +223,9 @@ def merge_reconstructions(spaces: list, output_path: str):
 
     for i, space in enumerate(spaces):
         navigation['spaces'].append({
-            'id': f'space_{i}',
+            'id': f'space_\{i\}',
             'name': space['name'],  # e.g., "ceremony", "reception"
-            'model_path': f'{output_path}/space_{i}',
+            'model_path': f'\{output_path\}/space_\{i\}',
             'entry_point': space.get('entry_camera'),  # Best starting view
             'thumbnail': space.get('thumbnail')
         })
@@ -376,14 +376,14 @@ def train_wedding_scene(
 
         # Logging
         if iteration % 1000 == 0:
-            print(f"Iteration {iteration}: Loss = {loss.item():.6f}")
+            print(f"Iteration \{iteration\}: Loss = {loss.item():.6f}")
 
         # Save checkpoint
         if iteration % 10000 == 0:
-            torch.save(gaussians.capture(), f"{output_path}/checkpoint_{iteration}.pth")
+            torch.save(gaussians.capture(), f"\{output_path\}/checkpoint_\{iteration\}.pth")
 
     # Final save
-    gaussians.save_ply(f"{output_path}/point_cloud.ply")
+    gaussians.save_ply(f"\{output_path\}/point_cloud.ply")
 
     return output_path
 ```
@@ -450,12 +450,12 @@ export function WeddingViewer({ spaces, moments, onMomentClick }: WeddingViewerP
   }, [currentSpace, spaces, moments]);
 
   return (
-    <div ref={containerRef} className="wedding-viewer">
+    <div ref=\{containerRef\} className="wedding-viewer">
       {loading && <LoadingOverlay theme={spaces[currentSpace].theme} />}
       <SpaceNavigator
-        spaces={spaces}
-        current={currentSpace}
-        onChange={setCurrentSpace}
+        spaces=\{spaces\}
+        current=\{currentSpace\}
+        onChange=\{setCurrentSpace\}
       />
     </div>
   );
@@ -482,7 +482,7 @@ export function WeddingViewer({ spaces, moments, onMomentClick }: WeddingViewerP
    - Solution: Increase opacity pruning, reduce learning rate
 
 3. **Blurry reconstruction**: Motion blur in source images
-   - Solution: Filter frames with Laplacian variance < 100
+   - Solution: Filter frames with Laplacian variance \< 100
 
 4. **Memory errors**: Too many gaussians
    - Solution: Reduce densification, increase pruning

@@ -1,7 +1,7 @@
 ---
 title: Pet Memorial Project Ideas
 sidebar_label: Pet Memorial Project Ideas
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Pet Memorial Project Ideas
 

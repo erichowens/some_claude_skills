@@ -1,7 +1,7 @@
 ---
 title: Interior Design Style Guide
 sidebar_label: Interior Design Style Guide
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Interior Design Style Guide
 

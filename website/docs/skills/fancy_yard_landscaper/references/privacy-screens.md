@@ -1,7 +1,7 @@
 ---
 title: Privacy Screen Plant Guide
 sidebar_label: Privacy Screen Plant Guide
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Privacy Screen Plant Guide
 

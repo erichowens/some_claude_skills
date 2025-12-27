@@ -1,7 +1,7 @@
 ---
 title: Diagram Patterns Library
 sidebar_label: Diagram Patterns Library
-sidebar_position: 2
+sidebar_position: 3
 ---
 # Diagram Patterns Library
 

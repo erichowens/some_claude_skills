@@ -1,7 +1,7 @@
 ---
 title: Animations & Micro-Interactions
-sidebar_label: Animations & Micro-Interaction...
-sidebar_position: 2
+sidebar_label: Animations & Micro-Interact...
+sidebar_position: 1
 ---
 # Animations & Micro-Interactions
 

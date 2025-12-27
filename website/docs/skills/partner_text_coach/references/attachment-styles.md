@@ -1,7 +1,7 @@
 ---
 title: Attachment Styles in Relationships
-sidebar_label: Attachment Styles in Relations...
-sidebar_position: 2
+sidebar_label: Attachment Styles in Relati...
+sidebar_position: 1
 ---
 # Attachment Styles in Relationships
 

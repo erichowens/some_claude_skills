@@ -1,7 +1,7 @@
 ---
 title: SwiftUI Design Patterns
 sidebar_label: SwiftUI Design Patterns
-sidebar_position: 2
+sidebar_position: 3
 ---
 # SwiftUI Design Patterns
 

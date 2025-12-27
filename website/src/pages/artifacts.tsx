@@ -19,6 +19,8 @@ import weddingTimeCapsuleArtifact from '@site/src/data/artifacts/single-skill/we
 import relationshipLabArtifact from '@site/src/data/artifacts/single-skill/partner-text-coach/001-relationship-lab/artifact.json';
 import yardTransformationArtifact from '@site/src/data/artifacts/single-skill/fancy-yard-landscaper/001-yard-transformation/artifact.json';
 import colorConfidenceArtifact from '@site/src/data/artifacts/single-skill/maximalist-wall-decorator/001-color-confidence/artifact.json';
+import cvCreatorProductionArtifact from '@site/src/data/artifacts/multi-skill/cv-creator-production/artifact.json';
+import soundEngineerWinampUpgradeArtifact from '@site/src/data/artifacts/multi-skill/sound-engineer-winamp-upgrade/artifact.json';
 
 const ARTIFACTS: Artifact[] = [
   promptLearningMcpArtifact as Artifact,
@@ -33,6 +35,8 @@ const ARTIFACTS: Artifact[] = [
   relationshipLabArtifact as Artifact,
   yardTransformationArtifact as Artifact,
   colorConfidenceArtifact as Artifact,
+  cvCreatorProductionArtifact as Artifact,
+  soundEngineerWinampUpgradeArtifact as Artifact,
 ];
 
 const CATEGORIES: { value: ArtifactCategory | 'all'; label: string; icon: string }[] = [
@@ -70,6 +74,11 @@ export default function Artifacts(): JSX.Element {
         artifact.skills.some(s => s.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
       return matchesCategory && matchesType && matchesSearch;
+    }).sort((a, b) => {
+      // Sort by creation date descending (newest first)
+      const dateA = new Date(a.createdAt || a.created || '2025-01-01');
+      const dateB = new Date(b.createdAt || b.created || '2025-01-01');
+      return dateB.getTime() - dateA.getTime();
     });
   }, [selectedCategory, selectedType, searchQuery]);
 

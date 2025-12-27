@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-26T23:56:25.813Z",
+  "generatedAt": "2025-12-27T00:36:07.872Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -593,10 +593,10 @@
       "id": "recovery-app-legal-terms",
       "createdAt": "2025-12-26T12:51:47-08:00",
       "updatedAt": "2025-12-26T12:51:47-08:00",
-      "totalLines": 1189,
+      "totalLines": 1202,
       "totalFiles": 5,
-      "skillMdSize": 6585,
-      "skillMdLines": 204,
+      "skillMdSize": 7211,
+      "skillMdLines": 217,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -605,10 +605,10 @@
       "id": "recovery-community-moderator",
       "createdAt": "2025-12-26T12:51:47-08:00",
       "updatedAt": "2025-12-26T12:51:47-08:00",
-      "totalLines": 738,
+      "totalLines": 751,
       "totalFiles": 4,
-      "skillMdSize": 4906,
-      "skillMdLines": 138,
+      "skillMdSize": 5538,
+      "skillMdLines": 151,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -652,7 +652,7 @@
     "seo-visibility-expert": {
       "id": "seo-visibility-expert",
       "createdAt": "2025-12-01T14:26:53-08:00",
-      "updatedAt": "2025-12-26T08:40:43-08:00",
+      "updatedAt": "2025-12-26T15:56:22-08:00",
       "totalLines": 1385,
       "totalFiles": 5,
       "skillMdSize": 6669,
@@ -688,7 +688,7 @@
     "skill-documentarian": {
       "id": "skill-documentarian",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-12-26T08:40:43-08:00",
+      "updatedAt": "2025-12-26T15:56:22-08:00",
       "totalLines": 2194,
       "totalFiles": 10,
       "skillMdSize": 15842,
@@ -784,7 +784,7 @@
     "technical-writer": {
       "id": "technical-writer",
       "createdAt": "2025-12-14T21:40:37-08:00",
-      "updatedAt": "2025-12-26T08:40:43-08:00",
+      "updatedAt": "2025-12-26T15:56:22-08:00",
       "totalLines": 1334,
       "totalFiles": 7,
       "skillMdSize": 5778,

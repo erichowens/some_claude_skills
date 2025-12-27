@@ -1,7 +1,7 @@
 ---
 title: Photo Indexing Pipeline Reference
-sidebar_label: Photo Indexing Pipeline Refere...
-sidebar_position: 2
+sidebar_label: Photo Indexing Pipeline Ref...
+sidebar_position: 4
 ---
 # Photo Indexing Pipeline Reference
 
@@ -252,15 +252,15 @@ def curate_photos_for_collage(photo_library_path, target_count=100):
 
 | Operation | 10K Photos |
 |-----------|-----------|
-| Perceptual hashing | < 2 minutes |
-| CLIP embeddings | < 3 minutes (GPU) |
-| Face detection | < 4 minutes |
-| Color palettes | < 1 minute |
-| Aesthetic scoring | < 2 minutes (GPU) |
-| Face clustering | < 30 seconds |
-| Duplicate detection | < 20 seconds |
+| Perceptual hashing | \< 2 minutes |
+| CLIP embeddings | \< 3 minutes (GPU) |
+| Face detection | \< 4 minutes |
+| Color palettes | \< 1 minute |
+| Aesthetic scoring | \< 2 minutes (GPU) |
+| Face clustering | \< 30 seconds |
+| Duplicate detection | \< 20 seconds |
 | **Total (first run)** | **~13 minutes** |
-| **Incremental updates** | **< 1 minute** |
+| **Incremental updates** | **\< 1 minute** |
 
 ---
 

@@ -1,3 +1,16 @@
+---
+name: recovery-app-legal-terms
+description: Generate legally-sound terms of service, privacy policies, and medical disclaimers for recovery and wellness applications. Expert in HIPAA, GDPR, CCPA compliance. Activate on 'terms of service', 'privacy policy', 'legal terms', 'medical disclaimer', 'HIPAA', 'user agreement'. NOT for contract negotiation (use attorney), app development (use domain skills), or moderation (use recovery-community-moderator).
+category: Business & Monetization
+tags:
+  - document
+  - strategy
+  - health
+  - production-ready
+  - beginner-friendly
+allowed-tools: Read, Write, Edit, WebSearch
+---
+
 # Recovery App Legal Terms
 
 Generate legally-sound terms of service, privacy policies, and medical disclaimers for recovery and wellness applications. Based on analysis of I Am Sober, Sober Grid, and other recovery apps.

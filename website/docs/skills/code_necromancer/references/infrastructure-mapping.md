@@ -1,7 +1,7 @@
 ---
 title: Infrastructure Mapping
 sidebar_label: Infrastructure Mapping
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Infrastructure Mapping
 
@@ -132,7 +132,7 @@ def compose_to_mermaid(compose_file):
             deps = list(deps.keys())
 
         for dep in deps:
-            lines.append(f'  {name}-->{dep}')
+            lines.append(f'  \{name\}-->\{dep\}')
 
     return '\n'.join(lines)
 ```
