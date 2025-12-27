@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-27T03:13:29.944Z",
+  "generatedAt": "2025-12-27T03:34:59.895Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -39,8 +39,8 @@
     },
     "admin-dashboard": {
       "id": "admin-dashboard",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 284,
       "totalFiles": 1,
       "skillMdSize": 7484,
@@ -123,8 +123,8 @@
     },
     "chatbot-analytics": {
       "id": "chatbot-analytics",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 333,
       "totalFiles": 1,
       "skillMdSize": 9487,
@@ -219,8 +219,8 @@
     },
     "crisis-response-protocol": {
       "id": "crisis-response-protocol",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 433,
       "totalFiles": 1,
       "skillMdSize": 11850,
@@ -315,8 +315,8 @@
     },
     "drizzle-migrations": {
       "id": "drizzle-migrations",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 400,
       "totalFiles": 1,
       "skillMdSize": 9308,
@@ -351,8 +351,8 @@
     },
     "email-composer": {
       "id": "email-composer",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 324,
       "totalFiles": 1,
       "skillMdSize": 6931,
@@ -387,8 +387,8 @@
     },
     "feature-manifest": {
       "id": "feature-manifest",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 151,
       "totalFiles": 1,
       "skillMdSize": 3743,
@@ -411,8 +411,8 @@
     },
     "hipaa-compliance": {
       "id": "hipaa-compliance",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 220,
       "totalFiles": 1,
       "skillMdSize": 5439,
@@ -699,8 +699,8 @@
     },
     "recovery-coach-patterns": {
       "id": "recovery-coach-patterns",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 375,
       "totalFiles": 1,
       "skillMdSize": 9345,
@@ -747,8 +747,8 @@
     },
     "rest-api-design": {
       "id": "rest-api-design",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 493,
       "totalFiles": 1,
       "skillMdSize": 11437,
@@ -807,8 +807,8 @@
     },
     "skill-creator": {
       "id": "skill-creator",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 899,
       "totalFiles": 5,
       "skillMdSize": 11687,
@@ -963,8 +963,8 @@
     },
     "vercel-deployment": {
       "id": "vercel-deployment",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 453,
       "totalFiles": 1,
       "skillMdSize": 8895,
@@ -987,8 +987,8 @@
     },
     "vitest-testing-patterns": {
       "id": "vitest-testing-patterns",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2025-12-26T19:13:25-08:00",
+      "updatedAt": "2025-12-26T19:13:25-08:00",
       "totalLines": 378,
       "totalFiles": 1,
       "skillMdSize": 9111,

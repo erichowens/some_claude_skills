@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import SkillQuickView from '../components/SkillQuickView';
 import KonamiEasterEgg from '../components/KonamiEasterEgg';
+import ChangelogPreview from '../components/ChangelogPreview';
 import type { Skill } from '../types/skill';
 import { ALL_SKILLS } from '../data/skills';
 import { useStarredSkills } from '../hooks/useStarredSkills';
@@ -550,6 +551,10 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
             </div>
           </div>
 
+          {/* ═══════════════════════════════════════════════════════════════════
+              RECENT UPDATES
+              ═══════════════════════════════════════════════════════════════════ */}
+          <ChangelogPreview />
 
           {/* ═══════════════════════════════════════════════════════════════════
               FOOTER: Status Bar
