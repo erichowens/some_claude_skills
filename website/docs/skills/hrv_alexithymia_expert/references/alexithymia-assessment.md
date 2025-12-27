@@ -1,7 +1,7 @@
 ---
 title: Alexithymia Assessment & Understanding
-sidebar_label: Alexithymia Assessment & Un...
-sidebar_position: 1
+sidebar_label: Alexithymia Assessment & Under...
+sidebar_position: 2
 ---
 # Alexithymia Assessment & Understanding
 
@@ -38,7 +38,7 @@ sidebar_position: 1
 ### Toronto Alexithymia Scale (TAS-20)
 
 20 questions, 5-point Likert scale:
-- Score \< 51: Non-alexithymia
+- Score < 51: Non-alexithymia
 - Score 52-60: Possible alexithymia
 - Score > 61: Alexithymia
 

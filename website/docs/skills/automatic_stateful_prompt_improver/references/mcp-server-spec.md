@@ -1,7 +1,7 @@
 ---
 title: "MCP Server Specification: Prompt Learning Server"
-sidebar_label: "MCP Server Specification: P..."
-sidebar_position: 6
+sidebar_label: "MCP Server Spec"
+sidebar_position: 2
 ---
 # MCP Server Specification: Prompt Learning Server
 
@@ -339,7 +339,7 @@ class PromptLearningServer {
         case "get_analytics":
           return await this.getAnalytics(args);
         default:
-          throw new Error(`Unknown tool: $\{name\}`);
+          throw new Error(`Unknown tool: ${name}`);
       }
     });
   }

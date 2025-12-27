@@ -1,6 +1,6 @@
 ---
 title: Physics Implementation Reference
-sidebar_label: Physics Implementation Refe...
+sidebar_label: Physics Implementation Referen...
 sidebar_position: 2
 ---
 # Physics Implementation Reference
@@ -596,7 +596,7 @@ class TangleManager {
     _makePairKey(pA, pB) {
         const idA = pA.id ?? pA;
         const idB = pB.id ?? pB;
-        return idA < idB ? `$\{idA\}-$\{idB\}` : `$\{idB\}-$\{idA\}`;
+        return idA < idB ? `${idA}-${idB}` : `${idB}-${idA}`;
     }
 
     /**

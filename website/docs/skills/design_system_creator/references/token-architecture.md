@@ -1,7 +1,7 @@
 ---
 title: Design Token Architecture
 sidebar_label: Design Token Architecture
-sidebar_position: 3
+sidebar_position: 2
 ---
 # Design Token Architecture
 
@@ -228,7 +228,7 @@ Use modular scale (1.25 ratio is common):
 
 ### Naming Pattern
 ```
---\{category\}-\{property\}-\{variant\}
+--{category}-{property}-{variant}
 
 Examples:
 --color-primary-hover

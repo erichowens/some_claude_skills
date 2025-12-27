@@ -1,7 +1,7 @@
 ---
 title: ST-DBSCAN Implementation Reference
-sidebar_label: ST-DBSCAN Implementation Re...
-sidebar_position: 3
+sidebar_label: ST-DBSCAN Implementation Refer...
+sidebar_position: 2
 ---
 # ST-DBSCAN Implementation Reference
 
@@ -200,7 +200,7 @@ def expand_st_cluster(photos, labels, point_idx, neighbors, cluster_id,
     labels[point_idx] = cluster_id
 
     queue = list(neighbors)
-    processed = \{point_idx\}
+    processed = {point_idx}
 
     while queue:
         current_idx = queue.pop(0)

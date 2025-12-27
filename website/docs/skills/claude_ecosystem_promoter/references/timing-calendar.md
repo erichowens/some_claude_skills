@@ -1,7 +1,7 @@
 ---
 title: Optimal Timing Calendar for Promotion
-sidebar_label: Optimal Timing Calendar for...
-sidebar_position: 4
+sidebar_label: Optimal Timing Calendar for Pr...
+sidebar_position: 2
 ---
 # Optimal Timing Calendar for Promotion
 
@@ -242,11 +242,11 @@ For maximum reach, stagger announcements:
 
 | Platform | Target Response Time |
 |----------|---------------------|
-| Reddit comments | \< 30 minutes (first 4 hours) |
-| Twitter replies | \< 15 minutes (launch day) |
-| GitHub issues | \< 4 hours |
-| Discord questions | \< 1 hour |
-| Email inquiries | \< 24 hours |
+| Reddit comments | < 30 minutes (first 4 hours) |
+| Twitter replies | < 15 minutes (launch day) |
+| GitHub issues | < 4 hours |
+| Discord questions | < 1 hour |
+| Email inquiries | < 24 hours |
 
 **Critical**: First 4 hours after posting determine success. Be fully available.
 
