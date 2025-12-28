@@ -134,7 +134,26 @@ Examples: `career-biographer-hero.png`, `agent-creator-hero.png`
 
 ---
 
-## Generation Prompts
+## Generation Methods
+
+### Recommended: Local Qwen Image (2025+)
+
+To avoid cloud quota limits, use local generation:
+
+```bash
+# Setup (one-time)
+cd /tmp/qwen-image-macos
+source .venv/bin/activate
+
+# Generate image
+python qwen.py generate "PROMPT" --ultra-fast --size 1024x576
+# Output: ~/qwen-images/image-YYYYMMDD-HHMMSS.png
+```
+
+### Legacy: Cloud AI Generators (Ideogram, etc.)
+
+> **Note**: Cloud generators have quota limits. For batch generation, prefer local Qwen Image.
+> See `/docs/historical/IDEOGRAM_USAGE_PATTERNS.md` for preserved Ideogram patterns.
 
 When using AI image generators (Midjourney, DALL-E, Ideogram), use this base prompt structure:
 
