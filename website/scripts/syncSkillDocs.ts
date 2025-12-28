@@ -63,12 +63,48 @@ function getDocFilename(skillId: string): string {
   return skillId.replace(/-/g, '_') + '.md';
 }
 
-function updateDocFile(skillId: string, frontmatter: SkillFrontmatter): { updated: boolean; reason?: string } {
+function createDocFile(skillId: string, skillMdPath: string): { created: boolean; reason?: string } {
   const docFilename = getDocFilename(skillId);
   const docPath = path.join(DOCS_DIR, docFilename);
 
+  // Read the SKILL.md content
+  const content = fs.readFileSync(skillMdPath, 'utf-8');
+
+  // Transform YAML array tools to comma-separated format for Docusaurus frontmatter
+  // Convert:
+  //   allowed-tools:
+  //     - Read
+  //     - Write
+  // To:
+  //   allowed-tools: Read,Write,Edit
+  const transformedContent = content.replace(
+    /^(allowed-tools:)\n((?:\s+-\s+.+\n?)+)/m,
+    (match, prefix, toolsBlock) => {
+      const tools = toolsBlock
+        .split('\n')
+        .map((line: string) => line.replace(/^\s+-\s+/, '').trim())
+        .filter(Boolean)
+        .join(',');
+      return `${prefix} ${tools}\n`;
+    }
+  );
+
+  // Ensure the docs/skills directory exists
+  if (!fs.existsSync(DOCS_DIR)) {
+    fs.mkdirSync(DOCS_DIR, { recursive: true });
+  }
+
+  fs.writeFileSync(docPath, transformedContent);
+  return { created: true };
+}
+
+function updateDocFile(skillId: string, frontmatter: SkillFrontmatter, skillMdPath: string): { updated: boolean; created?: boolean; reason?: string } {
+  const docFilename = getDocFilename(skillId);
+  const docPath = path.join(DOCS_DIR, docFilename);
+
+  // If doc file doesn't exist, create it from SKILL.md
   if (!fs.existsSync(docPath)) {
-    return { updated: false, reason: 'Doc file does not exist' };
+    return createDocFile(skillId, skillMdPath);
   }
 
   let content = fs.readFileSync(docPath, 'utf-8');
@@ -141,13 +177,14 @@ function main() {
       continue;
     }
 
-    const result = updateDocFile(skillId, frontmatter);
+    const result = updateDocFile(skillId, frontmatter, skillMdPath);
 
-    if (result.updated) {
+    if (result.created) {
+      console.log(`🆕 ${skillId}: Created doc file`);
+      syncedCount++;
+    } else if (result.updated) {
       console.log(`✅ ${skillId}: Synced`);
       syncedCount++;
-    } else if (result.reason === 'Doc file does not exist') {
-      issues.push(`${skillId}: No doc file at website/docs/skills/${getDocFilename(skillId)}`);
     } else {
       skippedCount++;
     }
