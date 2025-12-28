@@ -15,6 +15,21 @@ tags:
 
 This skill helps you write effective tests using Vitest and React Testing Library following project conventions.
 
+## When to Use
+
+✅ **USE this skill for:**
+- Writing unit tests for utilities and functions
+- Creating component tests with React Testing Library
+- Setting up mocks for API calls, databases, or external services
+- Integration testing patterns
+- Understanding test coverage and CI setup
+
+❌ **DO NOT use for:**
+- Jest-specific patterns → similar but check Jest docs for differences
+- End-to-end testing → use Playwright or Cypress skills
+- Performance testing → use dedicated performance tools
+- API contract testing → use OpenAPI/Pact patterns
+
 ## Test Infrastructure
 
 **Configuration**: `vitest.config.ts`

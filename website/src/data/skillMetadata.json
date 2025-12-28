@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-27T03:34:59.895Z",
+  "generatedAt": "2025-12-28T09:43:07.957Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -157,6 +157,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "cloudflare-worker-dev": {
+      "id": "cloudflare-worker-dev",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 519,
+      "totalFiles": 1,
+      "skillMdSize": 12925,
+      "skillMdLines": 519,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "code-necromancer": {
       "id": "code-necromancer",
       "createdAt": "2025-12-01T14:26:53-08:00",
@@ -221,10 +233,10 @@
       "id": "crisis-response-protocol",
       "createdAt": "2025-12-26T19:13:25-08:00",
       "updatedAt": "2025-12-26T19:13:25-08:00",
-      "totalLines": 433,
+      "totalLines": 448,
       "totalFiles": 1,
-      "skillMdSize": 11850,
-      "skillMdLines": 433,
+      "skillMdSize": 12485,
+      "skillMdLines": 448,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -317,10 +329,10 @@
       "id": "drizzle-migrations",
       "createdAt": "2025-12-26T19:13:25-08:00",
       "updatedAt": "2025-12-26T19:13:25-08:00",
-      "totalLines": 400,
+      "totalLines": 415,
       "totalFiles": 1,
-      "skillMdSize": 9308,
-      "skillMdLines": 400,
+      "skillMdSize": 9830,
+      "skillMdLines": 415,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -394,6 +406,18 @@
       "skillMdSize": 3743,
       "skillMdLines": 151,
       "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "fullstack-debugger": {
+      "id": "fullstack-debugger",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1507,
+      "totalFiles": 7,
+      "skillMdSize": 15418,
+      "skillMdLines": 531,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -553,6 +577,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "mobile-ux-optimizer": {
+      "id": "mobile-ux-optimizer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 770,
+      "totalFiles": 3,
+      "skillMdSize": 10423,
+      "skillMdLines": 412,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "modern-drug-rehab-computer": {
       "id": "modern-drug-rehab-computer",
       "createdAt": "2025-12-25T22:46:49-08:00",
@@ -685,6 +721,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "pwa-expert": {
+      "id": "pwa-expert",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1130,
+      "totalFiles": 7,
+      "skillMdSize": 9570,
+      "skillMdLines": 319,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "recovery-app-legal-terms": {
       "id": "recovery-app-legal-terms",
       "createdAt": "2025-12-26T12:51:47-08:00",
@@ -701,10 +749,10 @@
       "id": "recovery-coach-patterns",
       "createdAt": "2025-12-26T19:13:25-08:00",
       "updatedAt": "2025-12-26T19:13:25-08:00",
-      "totalLines": 375,
+      "totalLines": 390,
       "totalFiles": 1,
-      "skillMdSize": 9345,
-      "skillMdLines": 375,
+      "skillMdSize": 9929,
+      "skillMdLines": 390,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -713,11 +761,23 @@
       "id": "recovery-community-moderator",
       "createdAt": "2025-12-26T12:51:47-08:00",
       "updatedAt": "2025-12-26T16:36:01-08:00",
-      "totalLines": 751,
+      "totalLines": 766,
       "totalFiles": 4,
-      "skillMdSize": 5538,
-      "skillMdLines": 151,
+      "skillMdSize": 6147,
+      "skillMdLines": 166,
       "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "recovery-social-features": {
+      "id": "recovery-social-features",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1468,
+      "totalFiles": 7,
+      "skillMdSize": 9839,
+      "skillMdLines": 327,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -749,10 +809,10 @@
       "id": "rest-api-design",
       "createdAt": "2025-12-26T19:13:25-08:00",
       "updatedAt": "2025-12-26T19:13:25-08:00",
-      "totalLines": 493,
+      "totalLines": 508,
       "totalFiles": 1,
-      "skillMdSize": 11437,
-      "skillMdLines": 493,
+      "skillMdSize": 11946,
+      "skillMdLines": 508,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
@@ -877,6 +937,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "supabase-admin": {
+      "id": "supabase-admin",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 906,
+      "totalFiles": 3,
+      "skillMdSize": 6943,
+      "skillMdLines": 270,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "swift-executor": {
       "id": "swift-executor",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -989,10 +1061,10 @@
       "id": "vitest-testing-patterns",
       "createdAt": "2025-12-26T19:13:25-08:00",
       "updatedAt": "2025-12-26T19:13:25-08:00",
-      "totalLines": 378,
+      "totalLines": 393,
       "totalFiles": 1,
-      "skillMdSize": 9111,
-      "skillMdLines": 378,
+      "skillMdSize": 9666,
+      "skillMdLines": 393,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false

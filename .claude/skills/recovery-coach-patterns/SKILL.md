@@ -13,6 +13,21 @@ tags:
 
 This skill helps you follow the established patterns and conventions in the Recovery Coach codebase.
 
+## When to Use
+
+✅ **USE this skill for:**
+- Writing new components, pages, or API routes in Recovery Coach
+- Following established code organization patterns
+- Implementing database queries with Drizzle ORM
+- Understanding project architecture and conventions
+- Styling components to match the design system
+
+❌ **DO NOT use for:**
+- Crisis intervention implementation → use `crisis-response-protocol`
+- General Next.js questions → use Next.js docs
+- AI/LLM integration patterns → use `modern-drug-rehab-computer`
+- Content moderation → use `recovery-community-moderator`
+
 ## Project Structure
 
 ```
