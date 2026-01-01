@@ -629,4 +629,21 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
-main().catch(console.error);
+// Export for testing
+export {
+  app,
+  initialize,
+  matchSkills,
+  generateReasoning,
+  rateLimiter,
+  apiKeyAuth,
+  errorHandler,
+  SERVER_INFO,
+  skillIndex,
+  isInitialized,
+};
+
+// Only start server when run directly (not during tests)
+if (process.env.NODE_ENV !== 'test') {
+  main().catch(console.error);
+}
