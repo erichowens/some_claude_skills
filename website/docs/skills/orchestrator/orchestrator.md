@@ -9,6 +9,12 @@ Master coordinator that delegates to specialist skills, synthesizes outputs, AND
 
 ---
 
+## Allowed Tools
+
+```
+Read, Write, Edit, Bash, Grep, Glob, Task
+```
+
 ## Tags
 
 `coordination` `multi-skill` `delegation` `synthesis` `workflow`

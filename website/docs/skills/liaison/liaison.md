@@ -9,6 +9,12 @@ Human interface agent that translates ecosystem activity into clear, actionable 
 
 ---
 
+## Allowed Tools
+
+```
+Read, Bash, Grep, Glob
+```
+
 ## Tags
 
 `communication` `briefings` `coordination` `human-interface` `reporting`

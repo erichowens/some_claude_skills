@@ -1,6 +1,11 @@
 ---
 name: liaison
 description: Human interface agent that translates ecosystem activity into clear, actionable communication. Creates status briefings, decision requests, celebration reports, concern alerts, and opportunity summaries. Use for 'status update', 'brief me', 'what's happening', 'summarize progress', or when complex multi-agent work needs human-readable reporting.
+allowed-tools:
+  - Read
+  - Bash
+  - Grep
+  - Glob
 category: Productivity & Meta
 tags:
   - communication

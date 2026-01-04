@@ -9,6 +9,12 @@ Conducts thorough landscape research, competitive analysis, best practices evalu
 
 ---
 
+## Allowed Tools
+
+```
+Read, Grep, Glob, WebSearch, WebFetch
+```
+
 ## Tags
 
 `research` `analysis` `landscape` `competitive` `evidence-based`

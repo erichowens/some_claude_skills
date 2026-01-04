@@ -9,6 +9,12 @@ Designs high-performing team structures using organizational psychology AND crea
 
 ---
 
+## Allowed Tools
+
+```
+Read, Write, Edit, Bash, Grep, Glob
+```
+
 ## Tags
 
 `teams` `composition` `roles` `collaboration` `skills`

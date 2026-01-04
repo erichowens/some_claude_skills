@@ -9,6 +9,12 @@ Rapid task execution without hesitation or deterrence. Expert in overcoming bloc
 
 ---
 
+## Allowed Tools
+
+```
+Read, Write, Edit, Bash, Grep, Glob
+```
+
 ## Tags
 
 `execution` `urgency` `decisiveness` `momentum` `blockers`
