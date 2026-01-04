@@ -1,7 +1,7 @@
 ---
 title: Self-Contained Tools
 sidebar_label: Self-Contained Tools
-sidebar_position: 4
+sidebar_position: 2
 ---
 # Self-Contained Tools
 
@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
     result = analyze_composition(sys.argv[1])
     for metric, score in result.items():
-        print(f"\{metric\}: {score:.2f}")
+        print(f"{metric}: {score:.2f}")
 ```
 
 ### Example: Validation Script
@@ -185,7 +185,7 @@ server.setRequestHandler("tools/call", async (request) => {
     return { content: [{ type: "text", text: JSON.stringify(result) }] };
   }
 
-  throw new Error(`Unknown tool: $\{name\}`);
+  throw new Error(`Unknown tool: ${name}`);
 });
 
 // Start server

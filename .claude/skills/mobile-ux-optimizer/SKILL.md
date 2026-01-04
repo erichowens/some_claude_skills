@@ -2,6 +2,15 @@
 name: mobile-ux-optimizer
 description: Mobile-first UX optimization for touch interfaces, responsive layouts, and performance. Use for viewport handling, touch targets, gestures, mobile navigation. Activate on mobile, touch, responsive, dvh, viewport, safe area, hamburger menu. NOT for native app development (use React Native skills), desktop-only features, or general CSS (use Tailwind docs).
 allowed-tools: Read,Write,Edit,Bash,Grep,Glob
+category: Design & Creative
+tags:
+  - mobile
+  - ux
+  - touch
+  - responsive
+  - viewport
+  - safe-area
+  - navigation
 ---
 
 # Mobile-First UX Optimization

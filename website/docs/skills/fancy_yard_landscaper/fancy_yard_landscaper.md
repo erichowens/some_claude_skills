@@ -12,7 +12,7 @@ Expert landscape designer transforming yards through photo mapping, 3D visualiza
 ## Allowed Tools
 
 ```
-Read, Write, Edit, Bash, WebFetch, mcp__stability-ai__stability-ai-generate-image, mcp__ideogram__generate_image
+Read, Write, Edit, Bash, WebFetch, mcp__stability-ai__stability-ai-generate-image
 ```
 
 ## Tags

@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import skillMetadata from '../data/skillMetadata.json';
 import '../css/win31.css';
+import '../css/backsplash.css';
 
 // Agent metadata
 interface AgentMeta {
@@ -160,7 +161,7 @@ export default function EcosystemPage(): JSX.Element {
         <meta name="keywords" content="skills, timeline, council, documentation, ecosystem" />
       </Head>
 
-      <div style={{
+      <div className="page-backsplash page-backsplash--ecosystem page-backsplash--medium" style={{
         background: '#0f172a',
         minHeight: '100vh',
         paddingTop: '60px'

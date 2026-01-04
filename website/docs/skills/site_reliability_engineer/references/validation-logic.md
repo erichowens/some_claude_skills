@@ -107,7 +107,7 @@ function validateBrackets(filePath) {
 }
 ```
 
-**Fix Pattern**: Replace `\<` with `&lt;` and `>` with `&gt;`
+**Fix Pattern**: Replace `<` with `&lt;` and `>` with `&gt;`
 
 ## SkillHeader Prop Validation
 
@@ -138,10 +138,10 @@ function validateSkillHeader(filePath) {
 
   // Check for deprecated props
   ['difficulty', 'category', 'tags'].forEach(prop => {
-    if (headerText.includes(`$\{prop\}=`)) {
+    if (headerText.includes(`${prop}=`)) {
       errors.push({
         line: lineNum,
-        issue: `Uses deprecated "$\{prop\}" prop`,
+        issue: `Uses deprecated "${prop}" prop`,
         fix: 'Remove - only use: skillName, fileName, description'
       });
     }

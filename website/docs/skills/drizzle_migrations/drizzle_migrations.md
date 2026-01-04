@@ -23,6 +23,21 @@ Read, Write, Edit, Bash(npm:*, npx:*)
 
 This skill helps you manage database schema changes using Drizzle ORM with SQLite.
 
+## When to Use
+
+✅ **USE this skill for:**
+- Adding new tables or modifying existing columns
+- Generating and running database migrations
+- Drizzle-specific query patterns and relations
+- SQLite schema best practices with Drizzle
+- Setting up Drizzle configuration
+
+❌ **DO NOT use for:**
+- Supabase/PostgreSQL → use `supabase-admin` skill
+- Raw SQL without Drizzle → use standard SQL resources
+- Prisma ORM → different syntax and patterns
+- General database design theory → use database architecture resources
+
 ## Project Setup
 
 **Configuration**: `drizzle.config.ts`

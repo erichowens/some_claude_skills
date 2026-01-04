@@ -83,6 +83,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 3,
     "folderCount": 1
   },
+  "cloudflare-worker-dev": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 2
+  },
   "code-necromancer": {
     "hasContent": true,
     "fileCount": 12,
@@ -183,6 +188,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 1,
     "folderCount": 0
   },
+  "fullstack-debugger": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
+  },
   "grief-companion": {
     "hasContent": true,
     "fileCount": 3,
@@ -248,6 +258,16 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 1
   },
+  "mobile-ux-optimizer": {
+    "hasContent": true,
+    "fileCount": 3,
+    "folderCount": 1
+  },
+  "modern-auth-2026": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "modern-drug-rehab-computer": {
     "hasContent": true,
     "fileCount": 3,
@@ -303,10 +323,20 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 1
   },
+  "pwa-expert": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
+  },
   "recovery-app-legal-terms": {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 2
+  },
+  "recovery-app-onboarding": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 3
   },
   "recovery-coach-patterns": {
     "hasContent": false,
@@ -317,6 +347,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 4,
     "folderCount": 2
+  },
+  "recovery-social-features": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
   },
   "refactoring-surgeon": {
     "hasContent": true,
@@ -383,6 +418,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 1
   },
+  "supabase-admin": {
+    "hasContent": true,
+    "fileCount": 3,
+    "folderCount": 2
+  },
   "swift-executor": {
     "hasContent": false,
     "fileCount": 1,
@@ -411,6 +451,11 @@ export const skillFolderIndex: SkillFolderIndex = {
   "typography-expert": {
     "hasContent": true,
     "fileCount": 2,
+    "folderCount": 0
+  },
+  "ux-friction-analyzer": {
+    "hasContent": false,
+    "fileCount": 1,
     "folderCount": 0
   },
   "vaporwave-glassomorphic-ui-designer": {
@@ -483,6 +528,7 @@ export const skillsWithContent = [
   "career-biographer",
   "claude-ecosystem-promoter",
   "clip-aware-embeddings",
+  "cloudflare-worker-dev",
   "code-necromancer",
   "collage-layout-expert",
   "color-theory-palette-harmony-expert",
@@ -498,6 +544,7 @@ export const skillsWithContent = [
   "drone-inspection-specialist",
   "event-detection-temporal-intelligence-expert",
   "fancy-yard-landscaper",
+  "fullstack-debugger",
   "grief-companion",
   "hr-network-analyst",
   "hrv-alexithymia-expert",
@@ -507,6 +554,7 @@ export const skillsWithContent = [
   "maximalist-wall-decorator",
   "mcp-creator",
   "metal-shader-expert",
+  "mobile-ux-optimizer",
   "modern-drug-rehab-computer",
   "native-app-designer",
   "panic-room-finder",
@@ -517,8 +565,11 @@ export const skillsWithContent = [
   "photo-content-recognition-curation-expert",
   "physics-rendering-expert",
   "project-management-guru-adhd",
+  "pwa-expert",
   "recovery-app-legal-terms",
+  "recovery-app-onboarding",
   "recovery-community-moderator",
+  "recovery-social-features",
   "refactoring-surgeon",
   "security-auditor",
   "seo-visibility-expert",
@@ -530,6 +581,7 @@ export const skillsWithContent = [
   "sober-addict-protector",
   "sound-engineer",
   "speech-pathology-ai",
+  "supabase-admin",
   "tech-entrepreneur-coach-adhd",
   "technical-writer",
   "test-automation-expert",

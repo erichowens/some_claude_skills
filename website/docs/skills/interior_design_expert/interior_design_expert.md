@@ -12,7 +12,7 @@ Expert interior designer with deep knowledge of space planning, color theory (Mu
 ## Allowed Tools
 
 ```
-Read, Write, Edit, mcp__stability-ai__stability-ai-generate-image, mcp__ideogram__generate_image
+Read, Write, Edit, mcp__stability-ai__stability-ai-generate-image
 ```
 
 ## Tags

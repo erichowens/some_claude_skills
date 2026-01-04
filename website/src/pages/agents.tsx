@@ -6,6 +6,7 @@ import { AGENT_ROLES } from '../types/agent';
 import { ALL_AGENTS, getAgentsByRole, getEcosystemStats, getCoordinationGraph } from '../data/agents';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
+import '../css/backsplash.css';
 import './agents.module.css';
 
 /**
@@ -48,7 +49,7 @@ export default function AgentsDashboard(): JSX.Element {
       title="Agents++ | The Founding Council"
       description="Meet the meta-orchestrating agents that power the self-expanding skill ecosystem"
     >
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--agents page-backsplash--medium">
         <div className="skills-container">
           {/* Header */}
           <div className="win31-panel-box">

@@ -12,6 +12,7 @@ import { useKonamiCode } from '../hooks/useKonamiCode';
 import { usePlausibleTracking, useTimeTracking, useScrollTracking, useSkillNavigationTracking } from '../hooks/usePlausibleTracking';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
+import '../css/backsplash.css';
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
@@ -156,7 +157,7 @@ cp -r some_claude_skills/.claude/skills/* ~/.claude/skills/`;
         <meta name="keywords" content="Claude Code, AI skills, Claude skills, AI agents, prompt engineering, machine learning, computer vision, developer tools, Anthropic Claude" />
         <link rel="canonical" href="https://someclaudeskills.com/" />
       </Head>
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--homepage page-backsplash--medium">
         <div className="skills-container skills-container--wide">
           {/* ═══════════════════════════════════════════════════════════════════
               INSTALL HERO

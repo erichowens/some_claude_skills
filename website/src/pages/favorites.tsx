@@ -7,6 +7,7 @@ import { ALL_SKILLS } from '../data/skills';
 import { useStarredSkills } from '../hooks/useStarredSkills';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
+import '../css/backsplash.css';
 
 export default function FavoritesPage(): JSX.Element {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
@@ -22,7 +23,7 @@ export default function FavoritesPage(): JSX.Element {
       title="Favorites"
       description="Your starred Claude Skills"
     >
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--favorites page-backsplash--medium">
         <div className="skills-container">
           {/* Header */}
           <div className="win31-panel-box">

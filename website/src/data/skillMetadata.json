@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-28T10:53:27.064Z",
+  "generatedAt": "2026-01-03T16:51:27.023Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -64,7 +64,7 @@
     "ai-video-production-master": {
       "id": "ai-video-production-master",
       "createdAt": "2025-12-26T17:21:02-08:00",
-      "updatedAt": "2025-12-26T17:21:02-08:00",
+      "updatedAt": "2025-12-28T02:53:23-08:00",
       "totalLines": 2872,
       "totalFiles": 8,
       "skillMdSize": 6918,
@@ -161,10 +161,10 @@
       "id": "cloudflare-worker-dev",
       "createdAt": "2025-12-28T01:43:03-08:00",
       "updatedAt": "2025-12-28T01:43:03-08:00",
-      "totalLines": 519,
+      "totalLines": 513,
       "totalFiles": 1,
-      "skillMdSize": 12925,
-      "skillMdLines": 519,
+      "skillMdSize": 12901,
+      "skillMdLines": 513,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -388,7 +388,7 @@
     "fancy-yard-landscaper": {
       "id": "fancy-yard-landscaper",
       "createdAt": "2025-12-25T22:46:49-08:00",
-      "updatedAt": "2025-12-26T08:40:43-08:00",
+      "updatedAt": "2025-12-28T02:53:23-08:00",
       "totalLines": 798,
       "totalFiles": 2,
       "skillMdSize": 14223,
@@ -484,7 +484,7 @@
     "interior-design-expert": {
       "id": "interior-design-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-12-26T08:40:43-08:00",
+      "updatedAt": "2025-12-28T02:53:23-08:00",
       "totalLines": 897,
       "totalFiles": 6,
       "skillMdSize": 7812,
@@ -544,7 +544,7 @@
     "maximalist-wall-decorator": {
       "id": "maximalist-wall-decorator",
       "createdAt": "2025-12-25T22:46:49-08:00",
-      "updatedAt": "2025-12-26T08:40:43-08:00",
+      "updatedAt": "2025-12-28T02:53:23-08:00",
       "totalLines": 870,
       "totalFiles": 2,
       "skillMdSize": 16724,
@@ -586,6 +586,18 @@
       "skillMdSize": 10423,
       "skillMdLines": 412,
       "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "modern-auth-2026": {
+      "id": "modern-auth-2026",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 929,
+      "totalFiles": 1,
+      "skillMdSize": 27483,
+      "skillMdLines": 929,
+      "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -745,6 +757,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "recovery-app-onboarding": {
+      "id": "recovery-app-onboarding",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 651,
+      "totalFiles": 4,
+      "skillMdSize": 15499,
+      "skillMdLines": 571,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "recovery-coach-patterns": {
       "id": "recovery-coach-patterns",
       "createdAt": "2025-12-26T19:13:25-08:00",
@@ -880,7 +904,7 @@
     "skill-documentarian": {
       "id": "skill-documentarian",
       "createdAt": "2025-11-25T18:43:58-08:00",
-      "updatedAt": "2025-12-26T15:56:22-08:00",
+      "updatedAt": "2025-12-28T02:53:23-08:00",
       "totalLines": 2194,
       "totalFiles": 10,
       "skillMdSize": 15812,
@@ -1020,6 +1044,18 @@
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": true
+    },
+    "ux-friction-analyzer": {
+      "id": "ux-friction-analyzer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 419,
+      "totalFiles": 1,
+      "skillMdSize": 16247,
+      "skillMdLines": 419,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
     },
     "vaporwave-glassomorphic-ui-designer": {
       "id": "vaporwave-glassomorphic-ui-designer",

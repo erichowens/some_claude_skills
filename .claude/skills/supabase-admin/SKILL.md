@@ -9,6 +9,15 @@ allowed-tools:
   - Grep
   - Glob
   - mcp__supabase__*
+category: DevOps & Site Reliability
+tags:
+  - supabase
+  - rls
+  - database
+  - postgres
+  - migration
+  - schema
+  - security
 ---
 
 # Supabase Administration Expert

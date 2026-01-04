@@ -1,7 +1,7 @@
 ---
 title: Therapy Intervention Strategies
-sidebar_label: Therapy Intervention Strate...
-sidebar_position: 4
+sidebar_label: Therapy Intervention Strategie...
+sidebar_position: 2
 ---
 # Therapy Intervention Strategies
 
@@ -189,8 +189,8 @@ class AACDevice {
             category,
             symbols: this.vocabulary.fringe[category].map(word => ({
                 word,
-                symbol: `symbols/$\{word\}.png`,
-                audio: `audio/$\{word\}.mp3`
+                symbol: `symbols/${word}.png`,
+                audio: `audio/${word}.mp3`
             }))
         };
     }

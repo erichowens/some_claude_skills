@@ -23,6 +23,21 @@ Read, Write, Edit
 
 This skill helps you implement safe crisis intervention features for the AI coaching system, following mental health best practices.
 
+## When to Use
+
+✅ **USE this skill for:**
+- Implementing crisis detection in recovery/mental health apps
+- Building safety planning features
+- Integrating hotline and emergency resource displays
+- Designing risk assessment interfaces
+- Creating escalation protocols for AI chat systems
+
+❌ **DO NOT use for:**
+- **Responding to an actual crisis yourself** → Call 988 or emergency services
+- General mental health content → use `sober-addict-protector` or `recovery-coach-patterns`
+- Medical advice or diagnosis → Always defer to licensed professionals
+- Replacing human crisis counselors → AI should augment, never replace
+
 ## Critical Safety Principle
 
 > **AI should NEVER be the sole responder in acute crisis situations.**

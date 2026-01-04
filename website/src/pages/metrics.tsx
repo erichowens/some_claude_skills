@@ -5,6 +5,7 @@ import { ALL_SKILLS } from '../data/skills';
 import ecosystemData from '../data/ecosystem-state.json';
 import skillMetadata from '../data/skillMetadata.json';
 import '../css/win31.css';
+import '../css/backsplash.css';
 
 interface SkillMetadataEntry {
   id: string;
@@ -74,7 +75,7 @@ export default function MetricsPage(): JSX.Element {
         <meta name="keywords" content="metrics, statistics, Claude skills, ecosystem growth, code metrics" />
       </Head>
 
-      <div style={{
+      <div className="page-backsplash page-backsplash--metrics page-backsplash--medium" style={{
         background: '#0f172a',
         minHeight: '100vh',
         paddingTop: '60px'

@@ -8,6 +8,15 @@ allowed-tools:
   - Bash
   - Grep
   - Glob
+category: Lifestyle & Personal
+tags:
+  - recovery
+  - social
+  - privacy
+  - sponsor
+  - groups
+  - messaging
+  - peer-support
 ---
 
 # Recovery-Focused Social Features

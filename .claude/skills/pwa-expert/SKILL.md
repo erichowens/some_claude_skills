@@ -8,6 +8,15 @@ allowed-tools:
   - Bash
   - Grep
   - Glob
+category: Design & Creative
+tags:
+  - pwa
+  - service-worker
+  - offline
+  - caching
+  - installable
+  - workbox
+  - manifest
 ---
 
 # Progressive Web App Expert

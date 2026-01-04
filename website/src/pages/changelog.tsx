@@ -118,7 +118,7 @@ export default function Changelog(): JSX.Element {
       <Head>
         <meta name="robots" content="noindex" />
       </Head>
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--changelog page-backsplash--medium">
         <div className="skills-container" style={{ maxWidth: '900px', margin: '0 auto', padding: '24px' }}>
           {/* Header */}
           <div className="win31-window" style={{ marginBottom: '24px' }}>

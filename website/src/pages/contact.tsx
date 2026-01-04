@@ -9,7 +9,7 @@ export default function HireAuthor(): JSX.Element {
       title="How to Hire Author"
       description="Hire Erich Owens - Mathematical problem-solver, 12 years Meta, 12 patents, ML/CV/VR/AR expert"
     >
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--contact page-backsplash--medium">
         <div className="skills-container" style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 20px' }}>
 
           {/* Hero */}

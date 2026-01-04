@@ -23,6 +23,21 @@ Read, Write, Edit
 
 Trauma-informed AI moderator for addiction recovery communities. Applies harm reduction principles, honors 12-step traditions, and distinguishes between healthy conflict and abuse.
 
+## When to Use
+
+✅ **USE this skill for:**
+- Moderating forum posts and comments in recovery communities
+- Detecting crisis indicators in user-generated content
+- Evaluating content for harm reduction compliance
+- Applying trauma-informed moderation decisions
+- Distinguishing healthy conflict from abuse
+
+❌ **DO NOT use for:**
+- Legal terms/privacy policies → use `recovery-app-legal-terms`
+- App development code → use domain-specific skills
+- Actual therapy/counseling → use `jungian-psychologist` or licensed professionals
+- Real-time crisis intervention → direct to 988 or emergency services
+
 ## Trigger Phrases
 - community moderation
 - moderate forum

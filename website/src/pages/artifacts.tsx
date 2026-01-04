@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import ArtifactCard from '@site/src/components/ArtifactCard';
 import { Artifact, ArtifactType, ArtifactCategory } from '@site/src/types/artifact';
 import styles from './artifacts.module.css';
+import '../css/backsplash.css';
 
 // Import all artifacts
 // Note: In production, this would dynamically load from the artifacts directory
@@ -95,7 +96,7 @@ export default function Artifacts(): JSX.Element {
       title="Examples"
       description="Explore real-world demonstrations of Claude Skills in action"
     >
-      <div className={styles.artifactsPage}>
+      <div className={`${styles.artifactsPage} page-backsplash page-backsplash--artifacts page-backsplash--medium`}>
         <div className={styles.hero}>
           <div className="container">
             <h1 className={styles.heroTitle} style={{ position: 'relative' }}>

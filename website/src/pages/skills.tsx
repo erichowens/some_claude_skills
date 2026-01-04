@@ -12,6 +12,7 @@ import { ALL_TAGS, getTagsByType, TAG_TYPE_LABELS, TAG_TYPE_COLORS, type TagType
 import { useStarredSkills } from '../hooks/useStarredSkills';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
+import '../css/backsplash.css';
 
 type ViewMode = 'cards' | 'list';
 
@@ -166,7 +167,7 @@ export default function SkillsGallery(): JSX.Element {
         <meta name="keywords" content="Claude Code skills, AI agents, machine learning, computer vision, audio design, web development, developer tools" />
         <link rel="canonical" href="https://someclaudeskills.com/skills" />
       </Head>
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--skills page-backsplash--medium">
         <div className="skills-container">
           {/* Header */}
           <div className="win31-panel-box">

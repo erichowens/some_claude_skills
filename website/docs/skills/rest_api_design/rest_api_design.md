@@ -23,6 +23,21 @@ Read, Write, Edit, Bash(npm:*, npx:*)
 
 This skill helps you design and implement REST API endpoints following project patterns with Zod validation and OpenAPI documentation.
 
+## When to Use
+
+✅ **USE this skill for:**
+- Creating new REST API endpoints with Next.js App Router
+- Designing request/response schemas with Zod
+- Implementing proper error handling and status codes
+- Adding rate limiting and authentication
+- Generating OpenAPI documentation
+
+❌ **DO NOT use for:**
+- GraphQL APIs → different paradigm entirely
+- Cloudflare Workers → use `cloudflare-worker-dev` skill
+- Supabase Edge Functions → use Supabase docs
+- WebSocket/real-time APIs → different patterns
+
 ## API Route Structure
 
 ```

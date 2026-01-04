@@ -12,7 +12,7 @@ Documentation expert for Claude Skills showcase website. Maintains skill-to-webs
 ## Allowed Tools
 
 ```
-Read, Write, Edit, Glob, Grep, Bash, mcp__firecrawl__firecrawl_search, mcp__brave-search__brave_web_search, mcp__ideogram__generate_image
+Read, Write, Edit, Glob, Grep, Bash, mcp__firecrawl__firecrawl_search, mcp__brave-search__brave_web_search
 ```
 
 ## Tags

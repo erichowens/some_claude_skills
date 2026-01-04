@@ -7,6 +7,7 @@ import { MCP_CATEGORIES } from '../types/mcp';
 import { ALL_MCPS, searchMcps, filterMcpsByCategory } from '../data/mcps';
 import '../css/win31.css';
 import '../css/skills-gallery.css';
+import '../css/backsplash.css';
 
 export default function McpsGallery(): JSX.Element {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -39,7 +40,7 @@ export default function McpsGallery(): JSX.Element {
       title="MCP Gallery"
       description="Browse Model Context Protocol servers that extend Claude's capabilities"
     >
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--mcps page-backsplash--medium">
         <div className="skills-container">
           {/* Header */}
           <div className="win31-panel-box">

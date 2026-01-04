@@ -64,6 +64,11 @@
     "fileCount": 3,
     "folderCount": 1
   },
+  "cloudflare-worker-dev": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 2
+  },
   "code-necromancer": {
     "hasContent": true,
     "fileCount": 12,
@@ -164,6 +169,11 @@
     "fileCount": 1,
     "folderCount": 0
   },
+  "fullstack-debugger": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
+  },
   "grief-companion": {
     "hasContent": true,
     "fileCount": 3,
@@ -229,6 +239,16 @@
     "fileCount": 6,
     "folderCount": 1
   },
+  "mobile-ux-optimizer": {
+    "hasContent": true,
+    "fileCount": 3,
+    "folderCount": 1
+  },
+  "modern-auth-2026": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "modern-drug-rehab-computer": {
     "hasContent": true,
     "fileCount": 3,
@@ -284,10 +304,20 @@
     "fileCount": 6,
     "folderCount": 1
   },
+  "pwa-expert": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
+  },
   "recovery-app-legal-terms": {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 2
+  },
+  "recovery-app-onboarding": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 3
   },
   "recovery-coach-patterns": {
     "hasContent": false,
@@ -298,6 +328,11 @@
     "hasContent": true,
     "fileCount": 4,
     "folderCount": 2
+  },
+  "recovery-social-features": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
   },
   "refactoring-surgeon": {
     "hasContent": true,
@@ -364,6 +399,11 @@
     "fileCount": 6,
     "folderCount": 1
   },
+  "supabase-admin": {
+    "hasContent": true,
+    "fileCount": 3,
+    "folderCount": 2
+  },
   "swift-executor": {
     "hasContent": false,
     "fileCount": 1,
@@ -392,6 +432,11 @@
   "typography-expert": {
     "hasContent": true,
     "fileCount": 2,
+    "folderCount": 0
+  },
+  "ux-friction-analyzer": {
+    "hasContent": false,
+    "fileCount": 1,
     "folderCount": 0
   },
   "vaporwave-glassomorphic-ui-designer": {

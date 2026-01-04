@@ -12,7 +12,7 @@ Expert in maximalist interior wall decoration including bold color choices, free
 ## Allowed Tools
 
 ```
-Read, Write, Edit, mcp__stability-ai__stability-ai-generate-image, mcp__ideogram__generate_image, WebFetch
+Read, Write, Edit, mcp__stability-ai__stability-ai-generate-image, WebFetch
 ```
 
 ## Tags

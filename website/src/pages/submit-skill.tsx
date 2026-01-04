@@ -261,7 +261,7 @@ _Add any additional context, examples, or references here._
         title="Skill Submitted"
         description="Thank you for submitting a skill idea"
       >
-        <div className="skills-page-bg">
+        <div className="skills-page-bg page-backsplash page-backsplash--submit-skill page-backsplash--medium">
           <div className="skills-container" style={{ maxWidth: '700px', margin: '0 auto', padding: '40px 20px' }}>
             <div className="win31-window">
               <div className="win31-titlebar">
@@ -320,7 +320,7 @@ _Add any additional context, examples, or references here._
       title="Submit a Skill"
       description="Submit your Claude skill idea to the community collection"
     >
-      <div className="skills-page-bg">
+      <div className="skills-page-bg page-backsplash page-backsplash--submit-skill page-backsplash--medium">
         <div className="skills-container" style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
 
           {/* Header */}
