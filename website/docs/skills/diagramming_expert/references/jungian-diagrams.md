@@ -107,43 +107,43 @@ Specialized visual patterns for depth psychology work.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                         THE SHADOW                                     │
+│                           THE SHADOW                                   │
 │                                                                        │
 │   "Where there is light, there is shadow" — Jung                       │
 │                                                                        │
-├──────────────────────────────┬─────────────────────────────────────────┤
-│                              │                                         │
-│    DARK SHADOW               │         GOLDEN SHADOW                   │
-│    (Rejected Negative)       │         (Rejected Positive)             │
-│                              │                                         │
-│    ┌─────────────────────┐   │   ┌─────────────────────┐               │
-│    │ • Rage              │   │   │ • Creativity        │               │
-│    │ • Greed             │   │   │ • Power             │               │
-│    │ • Selfishness       │   │   │ • Beauty            │               │
-│    │ • Weakness          │   │   │ • Intelligence      │               │
-│    │ • Sexual impulses   │   │   │ • Leadership        │               │
-│    │ • Aggression        │   │   │ • Authenticity      │               │
-│    │ • Fear              │   │   │ • Spontaneity       │               │
-│    └─────────────────────┘   │   └─────────────────────┘               │
-│                              │                                         │
-│    "I am NOT that kind       │    "Who am I to be                      │
-│     of person"               │    brilliant/talented?"                 │
-│                              │                                         │
-├──────────────────────────────┼─────────────────────────────────────────┤
-│                              │                                         │
-│    UNLIVED LIFE              │         COLLECTIVE SHADOW               │
-│                              │                                         │
-│    ┌─────────────────────┐   │   ┌─────────────────────┐               │
-│    │ • Roads not taken   │   │   │ • Cultural denied   │               │
-│    │ • Dreams abandoned  │   │   │ • Historical trauma │               │
-│    │ • Potential denied  │   │   │ • Systemic injustice│               │
-│    │ • "What if I had..."│   │   │ • Group projection  │               │
-│    └─────────────────────┘   │   └─────────────────────┘               │
-│                              │                                         │
-│    Accumulates as            │   "Nice" cultures have                  │
-│    resentment & regret       │   the most brutal shadows               │
-│                              │                                         │
-└──────────────────────────────┴─────────────────────────────────────────┘
+├───────────────────────────────────┬────────────────────────────────────┤
+│                                   │                                    │
+│    DARK SHADOW                    │    GOLDEN SHADOW                   │
+│    (Rejected Negative)            │    (Rejected Positive)             │
+│                                   │                                    │
+│    ┌─────────────────────┐        │    ┌─────────────────────┐         │
+│    │ • Rage              │        │    │ • Creativity        │         │
+│    │ • Greed             │        │    │ • Power             │         │
+│    │ • Selfishness       │        │    │ • Beauty            │         │
+│    │ • Weakness          │        │    │ • Intelligence      │         │
+│    │ • Sexual impulses   │        │    │ • Leadership        │         │
+│    │ • Aggression        │        │    │ • Authenticity      │         │
+│    │ • Fear              │        │    │ • Spontaneity       │         │
+│    └─────────────────────┘        │    └─────────────────────┘         │
+│                                   │                                    │
+│    "I am NOT that kind            │    "Who am I to be                 │
+│     of person"                    │    brilliant/talented?"            │
+│                                   │                                    │
+├───────────────────────────────────┼────────────────────────────────────┤
+│                                   │                                    │
+│    UNLIVED LIFE                   │    COLLECTIVE SHADOW               │
+│                                   │                                    │
+│    ┌─────────────────────┐        │    ┌─────────────────────┐         │
+│    │ • Roads not taken   │        │    │ • Cultural denied   │         │
+│    │ • Dreams abandoned  │        │    │ • Historical trauma │         │
+│    │ • Potential denied  │        │    │ • Systemic injustice│         │
+│    │ • "What if I had..."│        │    │ • Group projection  │         │
+│    └─────────────────────┘        │    └─────────────────────┘         │
+│                                   │                                    │
+│    Accumulates as                 │    "Nice" cultures have            │
+│    resentment & regret            │    the most brutal shadows         │
+│                                   │                                    │
+└───────────────────────────────────┴────────────────────────────────────┘
 ```
 
 ### Shadow Recognition Pattern
@@ -197,33 +197,31 @@ OTHER MARKERS:
 ```
 ANIMA DEVELOPMENT STAGES (in male psyche)
 ════════════════════════════════════════════════════════════════════════
-
-    EVE                HELEN              MARY               SOPHIA
-     │                   │                  │                   │
-     ▼                   ▼                  ▼                   ▼
-┌──────────┐        ┌─────────┐        ┌─────────┐        ┌──────────┐
-│Biological│        │Romantic │        │Spiritual│        │ Wisdom   │
-│ Woman    │        │  Ideal  │        │ Mother  │        │  Guide   │
-│          │        │         │        │         │        │          │
-│ Object   │───────►│  Muse   │───────►│ Mediator│───────►│Integrated│
-│ of       │        │         │        │         │        │ Soul     │
-│ Desire   │        │         │        │         │        │          │
-└──────────┘        └─────────┘        └─────────┘        └──────────┘
+      EVE              HELEN              MARY             SOPHIA
+       │                 │                  │                 │
+       ▼                 ▼                  ▼                 ▼
+┌────────────┐     ┌────────────┐     ┌────────────┐     ┌────────────┐
+│ Biological │     │  Romantic  │     │  Spiritual │     │   Wisdom   │
+│   Woman    │     │   Ideal    │     │   Mother   │     │   Guide    │
+│            │     │            │     │            │     │            │
+│  Object    │────►│   Muse     │────►│  Mediator  │────►│ Integrated │
+│    of      │     │            │     │            │     │    Soul    │
+│  Desire    │     │            │     │            │     │            │
+└────────────┘     └────────────┘     └────────────┘     └────────────┘
 
          ANIMUS DEVELOPMENT STAGES (in female psyche)
-═════════════════════════════════════════════════════════════════════
-
-  PHYSICAL          ROMANTIC           WORD             MEANING
-   POWER              MAN             (Logos)           (Spirit)
-     │                  │                │                  │
-     ▼                  ▼                ▼                  ▼
-┌─────────┐        ┌─────────┐        ┌──────────┐        ┌──────────┐
-│ Athlete │        │ Romantic│        │ Teacher  │        │  Wise    │
-│ Warrior │        │  Hero   │        │ Minister │        │  Guide   │
-│         │        │         │        │          │        │          │
-│ Strength│───────►│ Action  │───────►│Conviction│──────► │Integrated│
-│ & Power │        │ & Deed  │        │ & Ideas  │        │ Spirit   │
-└─────────┘        └─────────┘        └──────────┘        └──────────┘
+════════════════════════════════════════════════════════════════════════
+   PHYSICAL          ROMANTIC            WORD            MEANING
+    POWER              MAN              (Logos)          (Spirit)
+       │                 │                 │                 │
+       ▼                 ▼                 ▼                 ▼
+┌────────────┐     ┌────────────┐     ┌────────────┐     ┌────────────┐
+│  Athlete   │     │  Romantic  │     │  Teacher   │     │    Wise    │
+│  Warrior   │     │    Hero    │     │  Minister  │     │   Guide    │
+│            │     │            │     │            │     │            │
+│ Strength   │────►│   Action   │────►│ Conviction │────►│ Integrated │
+│  & Power   │     │   & Deed   │     │  & Ideas   │     │   Spirit   │
+└────────────┘     └────────────┘     └────────────┘     └────────────┘
 ```
 
 ### Contemporary Model
@@ -467,9 +465,8 @@ WHEN A COMPLEX IS ACTIVATED
 ### Basic Parts Map
 
 ```
-                        PARTS WORK MAP
+                       PARTS WORK MAP
 ═══════════════════════════════════════════════════════════════════════════
-
                          ┌─────────────────┐
                          │                 │
                          │   WISE SELF     │
@@ -483,29 +480,29 @@ WHEN A COMPLEX IS ACTIVATED
         ┌─────────────────────────┼─────────────────────────┐
         │                         │                         │
         ▼                         ▼                         ▼
-┌───────────────┐         ┌────────────────┐         ┌─────────────────┐
-│               │         │                │         │                 │
-│   PROTECTOR   │◄───────►│   WOUNDED      │◄───────►│   MANAGER       │
-│               │ guards  │    CHILD       │ controls│                 │
-│ • Anger       │         │                │         │ • Perfectionism │
-│ • Walls       │         │ • Vulnerability│         │ • Productivity  │
-│ • Deflection  │         │ • Pain         │         │ • Hypervigilance│
-│               │         │ • Needs        │         │                 │
-└───────────────┘         └────────────────┘         └─────────────────┘
+┌─────────────────┐       ┌─────────────────┐       ┌─────────────────┐
+│                 │       │                 │       │                 │
+│   PROTECTOR     │◄─────►│    WOUNDED      │◄─────►│    MANAGER      │
+│                 │ guards│     CHILD       │control│                 │
+│ • Anger         │       │                 │       │ • Perfectionism │
+│ • Walls         │       │ • Vulnerability │       │ • Productivity  │
+│ • Deflection    │       │ • Pain          │       │ • Hypervigiltic │
+│                 │       │ • Needs         │       │                 │
+└─────────────────┘       └─────────────────┘       └─────────────────┘
         │                                                   │
         │                                                   │
         └───────────────────────┬───────────────────────────┘
                                 │
                                 ▼
-                         ┌───────────────┐
-                         │               │
-                         │    CRITIC     │
-                         │               │
-                         │ • Harsh voice │
-                         │ • Shame       │
-                         │ • "Not enough"│
-                         │               │
-                         └───────────────┘
+                         ┌─────────────────┐
+                         │                 │
+                         │     CRITIC      │
+                         │                 │
+                         │ • Harsh voice   │
+                         │ • Shame         │
+                         │ • "Not enough"  │
+                         │                 │
+                         └─────────────────┘
 ```
 
 ### Addiction Parts System
@@ -565,21 +562,19 @@ RECOVERY: Build relationship between WISE SELF and all parts.
 ### Basic Mandala Structure
 
 ```
-                    MANDALA: SYMBOL OF WHOLENESS
+                      MANDALA: SYMBOL OF WHOLENESS
 ═══════════════════════════════════════════════════════════════════════════
-
-                         ┌─────────────────┐
-                        ╱                   ╲
-                       ╱    ┌─────────┐      ╲
-                      ╱     │         │       ╲
-                     │      │  CENTER │        │
-                     │      │  (Self) │        │
-                     │      │         │        │
-                     │      └─────────┘        │
+                        ┌───────────────────┐
+                       ╱                     ╲
+                      ╱     ┌───────────┐     ╲
+                     ╱      │           │      ╲
+                    │       │  CENTER   │       │
+                    │       │  (Self)   │       │
+                    │       │           │       │
+                     ╲      └───────────┘      ╱
                       ╲                       ╱
                        ╲                     ╱
-                        ╲                   ╱
-                         └─────────────────┘
+                        └───────────────────┘
 
     The mandala represents:
     • Wholeness and integration
