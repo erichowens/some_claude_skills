@@ -1,7 +1,7 @@
 ---
 title: Safety & Moderation
 sidebar_label: Safety & Moderation
-sidebar_position: 2
+sidebar_position: 5
 ---
 # Safety & Moderation
 
@@ -77,8 +77,8 @@ export function useBlocking() {
       .from('friendships')
       .select('id')
       .or(`
-        and(requester_id.eq.${currentUser},addressee_id.eq.${userId},status.eq.blocked),
-        and(requester_id.eq.${userId},addressee_id.eq.${currentUser},status.eq.blocked)
+        and(requester_id.eq.$\{currentUser\},addressee_id.eq.$\{userId\},status.eq.blocked),
+        and(requester_id.eq.$\{userId\},addressee_id.eq.$\{currentUser\},status.eq.blocked)
       `)
       .limit(1);
 

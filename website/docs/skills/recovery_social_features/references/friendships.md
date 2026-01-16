@@ -67,7 +67,7 @@ export function useFriendships() {
         requester:profiles!requester_id(id, display_name, avatar_icon),
         addressee:profiles!addressee_id(id, display_name, avatar_icon)
       `)
-      .or(`requester_id.eq.${userId},addressee_id.eq.${userId}`);
+      .or(`requester_id.eq.$\{userId\},addressee_id.eq.$\{userId\}`);
 
     if (!data) return;
 

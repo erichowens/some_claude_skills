@@ -1,0 +1,50 @@
+# Code Review Suite
+# For development teams maintaining code quality
+
+name: code-review-suite
+title: Code Review Suite
+description: >
+  Comprehensive code review covering security vulnerabilities, performance
+  issues, style consistency, and documentation gaps. Perfect for team PRs.
+
+audience: teams
+difficulty: intermediate
+
+skills:
+  - id: security-auditor
+    role: Scans for OWASP vulnerabilities and security anti-patterns
+  - id: refactoring-surgeon
+    role: Identifies code smells and suggests clean refactors
+  - id: test-automation-expert
+    role: Reviews test coverage and suggests missing test cases
+  - id: technical-writer
+    role: Checks documentation quality and suggests improvements
+  - id: vitest-testing-patterns
+    role: Applies modern testing patterns for JavaScript/TypeScript
+    optional: true
+
+install_command: claude "/install @some-claude-skills/code-review-suite"
+
+estimated_cost:
+  tokens: 50000
+  usd: 0.75
+
+use_cases:
+  - "Review a PR for security and performance issues"
+  - "Audit codebase before a major release"
+  - "Onboard new team members with code quality standards"
+  - "Generate comprehensive code review checklists"
+
+tags:
+  - code-review
+  - security
+  - testing
+  - teams
+  - featured
+
+hero_image: /img/bundles/code-review-suite-hero.png
+featured: true
+
+related_bundles:
+  - startup-mvp-kit
+  - documentation-powerhouse

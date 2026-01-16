@@ -123,7 +123,7 @@ Made it production-ready:
 - Size: 111 KB
 - Format: PDF 1.4, 2 pages
 - ATS Score: 95/100 ✅
-- Generation time: <5 seconds
+- Generation time: &lt;5 seconds
 
 **Portfolio Website** (`portfolio/index.html`):
 - Size: 31 KB (complete website)
@@ -163,10 +163,10 @@ Files Created: 17
 
 ### Performance
 
-- **PDF Generation**: <5 seconds (Puppeteer + Chrome)
-- **Portfolio Generation**: <1 second (template rendering)
-- **Total Pipeline**: <10 seconds (end-to-end)
-- **ATS Validation**: <100ms (pattern matching)
+- **PDF Generation**: &lt;5 seconds (Puppeteer + Chrome)
+- **Portfolio Generation**: &lt;1 second (template rendering)
+- **Total Pipeline**: &lt;10 seconds (end-to-end)
+- **ATS Validation**: &lt;100ms (pattern matching)
 
 ## Key Learnings
 
@@ -248,7 +248,7 @@ Embedded CSS/JS in portfolio.html:
 ## What This Enables
 
 ### For Job Seekers
-- Transform career data into professional materials in <1 minute
+- Transform career data into professional materials in &lt;1 minute
 - ATS-optimized resumes that pass automated screening
 - Deploy-ready portfolios (no coding required)
 - Strategic positioning applied automatically
@@ -298,6 +298,6 @@ The future of software development isn't replacing developers with AI—it's aug
 **Created**: November 25, 2025
 **Skills Used**: 8 (system-architect, typescript-developer, document-generator, template-designer, ats-expert, data-transformation-specialist, technical-writer, devops-engineer)
 **Phases**: 9 (research → architecture → implementation → templates → PDF → portfolio → validation → docs → production)
-**Outcome**: Production-ready TypeScript application (~2,000 LOC) generating ATS-optimized resumes (95/100) and deploy-ready portfolios in <10 seconds
+**Outcome**: Production-ready TypeScript application (~2,000 LOC) generating ATS-optimized resumes (95/100) and deploy-ready portfolios in &lt;10 seconds
 
 **Status**: ✅ Live at https://github.com/erichowens/cv-creator

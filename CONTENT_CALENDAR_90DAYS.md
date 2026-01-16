@@ -313,7 +313,7 @@ Quick reference for what to publish each week. Detailed strategy: See `CONTENT_S
 2. **Review weekly:** Check what's due this week on Monday
 3. **Plan ahead:** Record/write 2 weeks in advance when possible (batch work)
 4. **Track progress:** Check [ ] boxes as you publish
-5. **Adjust:** If something isn't working (video gets <50% retention), adjust next week's plan
+5. **Adjust:** If something isn't working (video gets &lt;50% retention), adjust next week's plan
 6. **Celebrate:** At end of each week, note what worked and didn't
 7. **Monthly review:** Last day of month, review full calendar and metrics
 

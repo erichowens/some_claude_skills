@@ -38,7 +38,7 @@ python scripts/skill_tester.py /path/to/your-skill/
 
 Skills load in three phases:
 - **Phase 1 (~100 tokens)**: Metadata (name, description) - "Should I activate?"
-- **Phase 2 (<5k tokens)**: Main instructions in SKILL.md - "How do I do this?"
+- **Phase 2 (&lt;5k tokens)**: Main instructions in SKILL.md - "How do I do this?"
 - **Phase 3 (as needed)**: Scripts, references, assets - "Show me the details"
 
 **Critical**: Keep SKILL.md under 500 lines. Split details into `/references`.
@@ -97,7 +97,7 @@ Technology evolves. Capture what changed and when:
 
 ```
 your-skill/
-├── SKILL.md           # Core instructions (<500 lines)
+├── SKILL.md           # Core instructions (&lt;500 lines)
 ├── LICENSE.txt        # If applicable
 └── scripts/           # Executable code
     ├── validate.py    # Pre-flight validation
@@ -449,9 +449,9 @@ Explicitly call them out:
 
 Good skills have:
 - Activation rate: 90%+ when appropriate
-- False positive rate: <5%
+- False positive rate: &lt;5%
 - Error prevention: Measurable reduction in common mistakes
-- Token efficiency: <5k tokens for typical invocation
+- Token efficiency: &lt;5k tokens for typical invocation
 
 ## Version History
 

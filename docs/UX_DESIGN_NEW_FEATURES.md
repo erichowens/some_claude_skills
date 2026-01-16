@@ -1326,7 +1326,7 @@ Homepage (/)
 **Breakpoints:**
 - Desktop: 1200px+ (3 columns)
 - Tablet: 768-1199px (2 columns)
-- Mobile: <768px (1 column, stacked)
+- Mobile: &lt;768px (1 column, stacked)
 
 **Touch Targets:**
 - Minimum 44x44px (iOS guideline)

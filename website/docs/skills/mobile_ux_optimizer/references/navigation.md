@@ -32,19 +32,19 @@ export function BottomNav() {
     <nav className="fixed bottom-0 left-0 right-0 bg-leather-900 border-t border-leather-700 pb-safe">
       <div className="flex justify-around">
         {navItems.map(({ href, icon: Icon, label }) => {
-          const isActive = pathname === href || pathname.startsWith(`${href}/`);
+          const isActive = pathname === href || pathname.startsWith(`$\{href\}/`);
           return (
             <Link
-              key={href}
-              href={href}
+              key=\{href\}
+              href=\{href\}
               className={`
                 flex flex-col items-center py-2 px-3 min-h-[56px] min-w-[64px]
                 ${isActive ? 'text-ember-400' : 'text-leather-400'}
               `}
             >
               <Icon className="w-6 h-6" />
-              <span className="text-xs mt-1">{label}</span>
-            
+              <span className="text-xs mt-1">\{label\}</span>
+            </Link>
           );
         })}
       </div>
@@ -105,7 +105,7 @@ export function Drawer({ isOpen, onClose, children }: DrawerProps) {
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
+        onClick=\{onClose\}
         aria-hidden="true"
       />
 
@@ -118,7 +118,7 @@ export function Drawer({ isOpen, onClose, children }: DrawerProps) {
         aria-modal="true"
       >
         <div className="h-full overflow-y-auto pt-safe pb-safe">
-          {children}
+          \{children\}
         </div>
       </div>
     </div>,

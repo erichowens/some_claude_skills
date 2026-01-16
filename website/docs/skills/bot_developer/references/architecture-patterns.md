@@ -1,7 +1,7 @@
 ---
 title: Architecture Patterns
 sidebar_label: Architecture Patterns
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Architecture Patterns
 
@@ -88,7 +88,7 @@ class ConversationStateMachine:
         key = (self.state, event)
 
         if key not in self._transitions:
-            return f"Cannot {event} from state {self.state.name}"
+            return f"Cannot \{event\} from state {self.state.name}"
 
         to_state, handler = self._transitions[key]
 

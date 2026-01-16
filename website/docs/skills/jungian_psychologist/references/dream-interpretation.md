@@ -1,7 +1,7 @@
 ---
 title: Dream Interpretation in Jungian Psychology
-sidebar_label: Dream Interpretation in Jungia...
-sidebar_position: 2
+sidebar_label: Dream Interpretation in Jun...
+sidebar_position: 4
 ---
 # Dream Interpretation in Jungian Psychology
 

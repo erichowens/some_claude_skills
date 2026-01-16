@@ -1,7 +1,7 @@
 ---
 title: PWA Update Flow
 sidebar_label: PWA Update Flow
-sidebar_position: 2
+sidebar_position: 6
 ---
 # PWA Update Flow
 
@@ -66,7 +66,7 @@ export function UpdateBanner() {
         A new version is ready. Reload to get the latest features.
       </p>
       <button
-        onClick={applyUpdate}
+        onClick=\{applyUpdate\}
         className="w-full py-2 bg-white text-ember-600 rounded font-medium
                    hover:bg-gray-100 transition-colors"
       >

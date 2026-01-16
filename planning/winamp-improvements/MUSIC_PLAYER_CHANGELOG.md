@@ -495,10 +495,10 @@ Component Bundle: ~200 KB (minified)
 ```
 
 ### Runtime Performance
-- MIDI playback: <5% CPU usage
+- MIDI playback: &lt;5% CPU usage
 - 60fps visualizer animation
-- Skin switching: <100ms
-- Track loading: <500ms
+- Skin switching: &lt;100ms
+- Track loading: &lt;500ms
 
 ---
 

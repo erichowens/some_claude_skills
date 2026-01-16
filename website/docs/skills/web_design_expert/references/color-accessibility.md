@@ -1,7 +1,7 @@
 ---
 title: Color & Accessibility
 sidebar_label: Color & Accessibility
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Color & Accessibility
 

@@ -1,0 +1,50 @@
+# Startup MVP Kit
+# For entrepreneurs building their first web application
+
+name: startup-mvp-kit
+title: Startup MVP Kit
+description: >
+  Everything you need to go from idea to deployed MVP. Covers UI design,
+  API architecture, database setup, and deployment automation.
+
+audience: entrepreneurs
+difficulty: intermediate
+
+skills:
+  - id: web-design-expert
+    role: Creates responsive UI components and landing pages
+  - id: api-architect
+    role: Designs REST/GraphQL APIs with proper authentication
+  - id: drizzle-migrations
+    role: Manages database schema with type-safe migrations
+  - id: vercel-deployment
+    role: Deploys with CI/CD, preview URLs, and custom domains
+  - id: modern-auth-2026
+    role: Implements secure OAuth, JWT, and session management
+    optional: true
+
+install_command: claude "/install @some-claude-skills/startup-mvp-kit"
+
+estimated_cost:
+  tokens: 75000
+  usd: 1.13
+
+use_cases:
+  - "Build a SaaS landing page with waitlist signup"
+  - "Create a REST API with user authentication"
+  - "Deploy a Next.js app with database to Vercel"
+  - "Set up CI/CD pipeline with preview environments"
+
+tags:
+  - startup
+  - web-development
+  - full-stack
+  - deployment
+  - featured
+
+hero_image: /img/bundles/startup-mvp-kit-hero.png
+featured: true
+
+related_bundles:
+  - code-review-suite
+  - documentation-powerhouse

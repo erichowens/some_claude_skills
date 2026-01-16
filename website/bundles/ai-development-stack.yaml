@@ -1,0 +1,51 @@
+# AI Development Stack
+# For ML engineers and AI application developers
+
+name: ai-development-stack
+title: AI Development Stack
+description: >
+  Build production-ready AI applications with RAG systems, prompt engineering,
+  and LLM orchestration. From embeddings to deployment.
+
+audience: ml-engineers
+difficulty: advanced
+
+skills:
+  - id: ai-engineer
+    role: Builds RAG pipelines and LLM applications
+  - id: prompt-engineer
+    role: Crafts effective prompts and prompt chains
+  - id: mcp-creator
+    role: Creates Model Context Protocol servers
+  - id: agent-creator
+    role: Designs and builds AI agents
+  - id: clip-aware-embeddings
+    role: Implements semantic image-text matching
+    optional: true
+
+install_command: claude "/install @some-claude-skills/ai-development-stack"
+
+estimated_cost:
+  tokens: 100000
+  usd: 1.50
+
+use_cases:
+  - "Build a RAG-powered customer support bot"
+  - "Create an MCP server for your internal tools"
+  - "Design multi-agent orchestration systems"
+  - "Optimize prompts for production reliability"
+
+tags:
+  - ai
+  - llm
+  - rag
+  - mcp
+  - agents
+  - featured
+
+hero_image: /img/bundles/ai-development-stack-hero.png
+featured: true
+
+related_bundles:
+  - documentation-powerhouse
+  - startup-mvp-kit

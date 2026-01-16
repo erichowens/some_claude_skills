@@ -1,7 +1,7 @@
 ---
 title: Pre-Calculated Safe Color Pairs
-sidebar_label: Pre-Calculated Safe Color Pair...
-sidebar_position: 2
+sidebar_label: Pre-Calculated Safe Color P...
+sidebar_position: 1
 ---
 # Pre-Calculated Safe Color Pairs
 

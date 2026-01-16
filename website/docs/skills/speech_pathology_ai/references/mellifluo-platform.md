@@ -1,7 +1,7 @@
 ---
 title: mellifluo.us Platform Integration
-sidebar_label: mellifluo.us Platform Integrat...
-sidebar_position: 2
+sidebar_label: mellifluo.us Platform Integ...
+sidebar_position: 3
 ---
 # mellifluo.us Platform Integration
 
@@ -190,13 +190,13 @@ class AdaptivePracticeEngine:
             return {
                 'type': 'isolation',
                 'phoneme': phoneme,
-                'prompt': f"Say the /{phoneme}/ sound 5 times",
+                'prompt': f"Say the /\{phoneme\}/ sound 5 times",
                 'trials': 5,
                 'visual_cue': self._get_visual_cue(phoneme),
-                'model_audio': f'models/{phoneme}_correct.mp3'
+                'model_audio': f'models/\{phoneme\}_correct.mp3'
             }
         elif context_level == 'syllable':
-            syllables = [f"{phoneme}a", f"{phoneme}i", f"{phoneme}u"]
+            syllables = [f"\{phoneme\}a", f"\{phoneme\}i", f"\{phoneme\}u"]
             return {
                 'type': 'syllable',
                 'phoneme': phoneme,
@@ -214,7 +214,7 @@ class AdaptivePracticeEngine:
                 'prompt': "Say each word clearly",
                 'trials': 1,
                 'visual_cue': 'picture',
-                'pictures': [f'images/{word}.png' for word in words]
+                'pictures': [f'images/\{word\}.png' for word in words]
             }
         else:  # sentence
             sentences = self._get_sentences(phoneme)
@@ -306,7 +306,7 @@ class ClinicalDashboard:
 ## Performance Benchmarks
 
 **mellifluo.us Production Targets:**
-- **Latency**: < 200ms end-to-end (audio → feedback)
+- **Latency**: \< 200ms end-to-end (audio → feedback)
 - **Accuracy**: 94.2% agreement with human SLP (PERCEPT-R)
 - **Uptime**: 99.9% availability
 - **Scalability**: 10,000+ concurrent users

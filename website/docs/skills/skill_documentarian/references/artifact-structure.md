@@ -1,7 +1,7 @@
 ---
 title: Artifact Structure Reference
 sidebar_label: Artifact Structure Reference
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Artifact Structure Reference
 
@@ -18,7 +18,7 @@ Complete reference for creating and structuring artifacts.
 ## Directory Structure
 
 ```
-website/src/data/artifacts/{type}/{skill-name}/{artifact-id}/
+website/src/data/artifacts/\{type\}/{skill-name}/{artifact-id}/
 ├── artifact.json          # REQUIRED: Metadata
 ├── README.md             # REQUIRED: Blog-style narrative
 ├── transcript.md         # OPTIONAL: Implementation log

@@ -1,0 +1,290 @@
+{
+  "task": "Build me a landing page for a SaaS product",
+  "decomposition": {
+    "originalTask": "Build me a landing page for a SaaS product",
+    "subtasks": [
+      {
+        "id": "brand-visual-identity",
+        "description": "Create brand identity, color palette, typography system, and visual design direction for the landing page",
+        "prompt": "Create a comprehensive brand identity and visual design system for a SaaS landing page. Include: 1) Color palette (primary, secondary, accent, neutral colors with hex codes), 2) Typography system (heading and body font recommendations with scale), 3) Visual style direction (modern, minimal, bold, etc.), 4) Key UI patterns (buttons, cards, sections), 5) Mood board inspiration. Make it conversion-optimized and trust-building.",
+        "dependencies": [],
+        "requiredCapabilities": [
+          "design",
+          "brand-identity",
+          "color-theory",
+          "typography"
+        ]
+      },
+      {
+        "id": "landing-page-copy",
+        "description": "Write compelling, conversion-focused copy for all landing page sections",
+        "prompt": "Write conversion-optimized copy for a SaaS landing page including: 1) Hero headline and subheadline, 2) Value proposition (3-4 key benefits), 3) Feature descriptions (3-5 features with titles and descriptions), 4) Social proof section (testimonial templates), 5) Pricing section copy, 6) FAQ (5-7 common questions), 7) CTA copy (multiple variations). Focus on clarity, benefits over features, and addressing customer pain points.",
+        "dependencies": [],
+        "requiredCapabilities": [
+          "copywriting",
+          "marketing",
+          "conversion-optimization"
+        ]
+      },
+      {
+        "id": "page-structure-design",
+        "description": "Design the complete landing page layout with sections, hierarchy, and responsive behavior",
+        "prompt": "Design a complete SaaS landing page structure with: 1) Section layout (Hero, Features, Benefits, Social Proof, Pricing, FAQ, CTA), 2) Responsive breakpoints and mobile-first considerations, 3) Visual hierarchy and spacing system, 4) Interactive elements (animations, hover states, scroll effects), 5) Conversion funnel optimization (CTA placement, form design). Use modern 2025 design trends including glassmorphism, subtle gradients, and generous white space.",
+        "dependencies": [
+          "brand-visual-identity"
+        ],
+        "requiredCapabilities": [
+          "web-design",
+          "ux-design",
+          "responsive-design",
+          "conversion-optimization"
+        ]
+      },
+      {
+        "id": "landing-page-implementation",
+        "description": "Implement the landing page with Next.js, React, TypeScript, and Tailwind CSS",
+        "prompt": "Build a production-ready SaaS landing page using Next.js 14+ (App Router), React, TypeScript, and Tailwind CSS. Include: 1) Fully responsive layout matching the design system, 2) Smooth scroll animations (Framer Motion or similar), 3) Contact/waitlist form with validation, 4) Performance optimizations (image optimization, lazy loading), 5) Accessibility (semantic HTML, ARIA labels, keyboard navigation), 6) SEO meta tags and Open Graph tags. Use the brand identity from subtask 'brand-visual-identity' and copy from 'landing-page-copy'. Create reusable components (Hero, Feature, Testimonial, Pricing, FAQ, CTA sections).",
+        "dependencies": [
+          "page-structure-design",
+          "landing-page-copy"
+        ],
+        "requiredCapabilities": [
+          "nextjs",
+          "react",
+          "typescript",
+          "tailwind",
+          "frontend-development",
+          "accessibility"
+        ]
+      },
+      {
+        "id": "seo-performance-optimization",
+        "description": "Optimize for SEO, performance, and discoverability",
+        "prompt": "Optimize the landing page for SEO and performance: 1) Add comprehensive meta tags (title, description, keywords, Open Graph, Twitter Cards), 2) Create robots.txt and sitemap.xml, 3) Implement structured data (JSON-LD for Organization, Product, FAQPage), 4) Optimize Core Web Vitals (LCP, FID, CLS), 5) Add analytics setup guide (Google Analytics 4, Plausible, or similar), 6) Create llms.txt for AI discoverability, 7) Performance audit checklist (image optimization, code splitting, caching). Provide deployment-ready configuration.",
+        "dependencies": [
+          "landing-page-implementation"
+        ],
+        "requiredCapabilities": [
+          "seo",
+          "performance-optimization",
+          "web-vitals",
+          "analytics"
+        ]
+      }
+    ],
+    "strategy": "Decompose landing page creation into design system, content strategy, implementation, and optimization phases. Start with visual design and copywriting in parallel, then implement with modern web stack, and finish with SEO/performance optimization.",
+    "complexity": 6,
+    "outputs": [
+      {
+        "name": "brand-identity",
+        "from": "brand-visual-identity"
+      },
+      {
+        "name": "marketing-copy",
+        "from": "landing-page-copy"
+      },
+      {
+        "name": "design-specs",
+        "from": "page-structure-design"
+      },
+      {
+        "name": "landing-page-code",
+        "from": "landing-page-implementation"
+      },
+      {
+        "name": "seo-config",
+        "from": "seo-performance-optimization"
+      }
+    ]
+  },
+  "matches": [
+    {
+      "subtaskId": "brand-visual-identity",
+      "skillId": "web-design-expert",
+      "confidence": 0.33396226415094343,
+      "reasoning": "1 capability matches, category match"
+    },
+    {
+      "subtaskId": "landing-page-copy",
+      "skillId": "technical-writer",
+      "confidence": 0.20652173913043478,
+      "reasoning": "category match"
+    },
+    {
+      "subtaskId": "page-structure-design",
+      "skillId": "mobile-ux-optimizer",
+      "confidence": 0.3066666666666667,
+      "reasoning": "1 capability matches, category match"
+    },
+    {
+      "subtaskId": "landing-page-implementation",
+      "skillId": "ai-engineer",
+      "confidence": 0.23333333333333334,
+      "reasoning": "0.5 capability matches, category match"
+    },
+    {
+      "subtaskId": "seo-performance-optimization",
+      "skillId": "chatbot-analytics",
+      "confidence": 0.30000000000000004,
+      "reasoning": "1 capability matches, category match"
+    }
+  ],
+  "dag": {
+    "id": "dag-1768438992500-8ng4ic829",
+    "name": "task-1768438992500",
+    "nodes": [
+      {
+        "id": "brand-visual-identity",
+        "type": "skill",
+        "skillId": "web-design-expert",
+        "dependencies": []
+      },
+      {
+        "id": "landing-page-copy",
+        "type": "skill",
+        "skillId": "technical-writer",
+        "dependencies": []
+      },
+      {
+        "id": "page-structure-design",
+        "type": "skill",
+        "skillId": "mobile-ux-optimizer",
+        "dependencies": [
+          "brand-visual-identity"
+        ]
+      },
+      {
+        "id": "landing-page-implementation",
+        "type": "skill",
+        "skillId": "ai-engineer",
+        "dependencies": [
+          "page-structure-design",
+          "landing-page-copy"
+        ]
+      },
+      {
+        "id": "seo-performance-optimization",
+        "type": "skill",
+        "skillId": "chatbot-analytics",
+        "dependencies": [
+          "landing-page-implementation"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "from": "brand-visual-identity",
+        "to": [
+          "page-structure-design"
+        ]
+      },
+      {
+        "from": "landing-page-copy",
+        "to": [
+          "landing-page-implementation"
+        ]
+      },
+      {
+        "from": "page-structure-design",
+        "to": [
+          "landing-page-implementation"
+        ]
+      },
+      {
+        "from": "landing-page-implementation",
+        "to": [
+          "seo-performance-optimization"
+        ]
+      },
+      {
+        "from": "seo-performance-optimization",
+        "to": []
+      }
+    ]
+  },
+  "plan": {
+    "dagId": "dag-1768438992500-8ng4ic829",
+    "dagName": "task-1768438992500",
+    "totalNodes": 5,
+    "totalWaves": 4,
+    "waves": [
+      {
+        "waveNumber": 0,
+        "nodeIds": [
+          "brand-visual-identity",
+          "landing-page-copy"
+        ],
+        "taskCalls": {
+          "brand-visual-identity": {
+            "description": "Execute web-design-expert",
+            "prompt": "## Task: brand-visual-identity\n\nExecute the web-design-expert skill.\n\n## Output Format\nReturn your result as valid JSON with the following structure:\n```json\n{\n  \"output\": \"/* your result data */\",\n  \"confidence\": 0.95\n}\n```",
+            "subagent_type": "general-purpose",
+            "model": "haiku",
+            "max_turns": 10,
+            "run_in_background": false
+          },
+          "landing-page-copy": {
+            "description": "Execute technical-writer",
+            "prompt": "## Task: landing-page-copy\n\nExecute the technical-writer skill.\n\n## Output Format\nReturn your result as valid JSON with the following structure:\n```json\n{\n  \"output\": \"/* your result data */\",\n  \"confidence\": 0.95\n}\n```",
+            "subagent_type": "general-purpose",
+            "model": "haiku",
+            "max_turns": 10,
+            "run_in_background": false
+          }
+        },
+        "parallelizable": true
+      },
+      {
+        "waveNumber": 1,
+        "nodeIds": [
+          "page-structure-design"
+        ],
+        "taskCalls": {
+          "page-structure-design": {
+            "description": "Execute mobile-ux-optimizer",
+            "prompt": "## Task: page-structure-design\n\nExecute the mobile-ux-optimizer skill.\n\n## Results from Dependencies\n## Output Format\nReturn your result as valid JSON with the following structure:\n```json\n{\n  \"output\": \"/* your result data */\",\n  \"confidence\": 0.95\n}\n```",
+            "subagent_type": "general-purpose",
+            "model": "sonnet",
+            "max_turns": 10,
+            "run_in_background": false
+          }
+        },
+        "parallelizable": false
+      },
+      {
+        "waveNumber": 2,
+        "nodeIds": [
+          "landing-page-implementation"
+        ],
+        "taskCalls": {
+          "landing-page-implementation": {
+            "description": "Execute ai-engineer",
+            "prompt": "## Task: landing-page-implementation\n\nExecute the ai-engineer skill.\n\n## Results from Dependencies\n## Output Format\nReturn your result as valid JSON with the following structure:\n```json\n{\n  \"output\": \"/* your result data */\",\n  \"confidence\": 0.95\n}\n```",
+            "subagent_type": "general-purpose",
+            "model": "sonnet",
+            "max_turns": 10,
+            "run_in_background": false
+          }
+        },
+        "parallelizable": false
+      },
+      {
+        "waveNumber": 3,
+        "nodeIds": [
+          "seo-performance-optimization"
+        ],
+        "taskCalls": {
+          "seo-performance-optimization": {
+            "description": "Execute chatbot-analytics",
+            "prompt": "## Task: seo-performance-optimization\n\nExecute the chatbot-analytics skill.\n\n## Results from Dependencies\n## Output Format\nReturn your result as valid JSON with the following structure:\n```json\n{\n  \"output\": \"/* your result data */\",\n  \"confidence\": 0.95\n}\n```",
+            "subagent_type": "general-purpose",
+            "model": "sonnet",
+            "max_turns": 10,
+            "run_in_background": false
+          }
+        },
+        "parallelizable": false
+      }
+    ]
+  }
+}

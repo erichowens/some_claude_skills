@@ -371,7 +371,7 @@ Before shipping any feature, verify:
 - [ ] Do buttons have labels, not just icons?
 
 ### Flow Preservation
-- [ ] Does any action block the UI for >2 seconds?
+- [ ] Does any action block the UI for &gt;2 seconds?
 - [ ] Can long operations run in background?
 - [ ] Is there a clear "done" state?
 

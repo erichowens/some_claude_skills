@@ -1,7 +1,7 @@
 ---
 title: Skill Composition Patterns
 sidebar_label: Skill Composition Patterns
-sidebar_position: 2
+sidebar_position: 6
 ---
 # Skill Composition Patterns
 

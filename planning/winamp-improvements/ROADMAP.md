@@ -757,7 +757,7 @@ export default function VUMeter() {
         <span>-30</span>
         <span>-12</span>
         <span>-6</span>
-        <span>0 dB</span>
+        <span&gt;0 dB</span>
       </div>
       <div className={styles.vuBar}>
         <div

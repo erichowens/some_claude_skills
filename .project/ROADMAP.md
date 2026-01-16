@@ -90,11 +90,11 @@
 
 | Metric | Current | Target (Phase 1) | Target (Launch) |
 |--------|---------|------------------|-----------------|
-| Bounce rate | Unknown | <60% | <40% |
-| Avg. session duration | Unknown | >2 min | >4 min |
+| Bounce rate | Unknown | &lt;60% | &lt;40% |
+| Avg. session duration | Unknown | &gt;2 min | &gt;4 min |
 | Skills installed (estimated) | Unknown | +20% | +100% |
-| Tutorial completion rate | N/A | >50% | >70% |
-| Return visitor rate | Unknown | >20% | >35% |
+| Tutorial completion rate | N/A | &gt;50% | &gt;70% |
+| Return visitor rate | Unknown | &gt;20% | &gt;35% |
 
 ---
 

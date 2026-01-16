@@ -1,7 +1,7 @@
 ---
 title: Safe Messaging
 sidebar_label: Safe Messaging
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Safe Messaging
 
@@ -63,14 +63,14 @@ export function useMessages(conversationId: string) {
 
     // Real-time subscription
     const subscription = supabase
-      .channel(`messages:${conversationId}`)
+      .channel(`messages:$\{conversationId\}`)
       .on(
         'postgres_changes',
         {
           event: 'INSERT',
           schema: 'public',
           table: 'messages',
-          filter: `conversation_id=eq.${conversationId}`,
+          filter: `conversation_id=eq.$\{conversationId\}`,
         },
         async (payload) => {
           const userId = (await supabase.auth.getUser()).data.user?.id;
@@ -178,13 +178,13 @@ export function MessageInput({ onSend, placeholder = "Type a message..." }: Prop
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <form onSubmit=\{handleSubmit\} className="flex gap-2">
         <input
-          ref={inputRef}
+          ref=\{inputRef\}
           type="text"
-          value={value}
-          onChange={handleChange}
-          placeholder={placeholder}
+          value=\{value\}
+          onChange=\{handleChange\}
+          placeholder=\{placeholder\}
           className="flex-1 px-4 py-3 bg-leather-800 rounded"
         />
         <button

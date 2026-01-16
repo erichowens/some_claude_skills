@@ -1,6 +1,6 @@
 # Claude Skills Collection
 
-**48+ production-ready skills** and **2 MCP servers** for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+**135+ production-ready skills** and **2 MCP servers** for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
 Built by [Erich Owens](https://www.erichowens.com) — Ex-Meta ML Engineer (12 years), 12 patents, MS Applied Math.
 

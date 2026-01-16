@@ -22,7 +22,7 @@
 
 ## What's Tested
 
-### Unit Tests (61 total, <300ms)
+### Unit Tests (61 total, &lt;300ms)
 **Optimizer (21 tests)**
 - Pattern matching: add_structure, add_chain_of_thought, add_constraints, add_output_format
 - Convergence detection with score arrays

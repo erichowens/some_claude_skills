@@ -70,6 +70,12 @@
   background-image: url('/img/backsplash/mcps-backsplash.webp');
 }
 
+/* TODO: Add bundles-backsplash.webp when available
+.page-backsplash--bundles::before {
+  background-image: url('/img/backsplash/bundles-backsplash.webp');
+}
+*/
+
 .page-backsplash--metrics::before {
   background-image: url('/img/backsplash/metrics-backsplash.webp');
 }

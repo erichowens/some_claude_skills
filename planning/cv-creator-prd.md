@@ -27,7 +27,7 @@ The **CV Creator** is a specialized AI skill that transforms structured career d
 
 - **Primary**: 85%+ of generated resumes achieve ATS score ≥85/100
 - **Secondary**: 90%+ keyword coverage for job-specific variants
-- **Tertiary**: <30 second review time by recruiters (human readability)
+- **Tertiary**: &lt;30 second review time by recruiters (human readability)
 
 ## Problem Statement
 
@@ -287,7 +287,7 @@ Acceptance Criteria:
 
 **NFR-3.1**: Resume generation SHALL require ≤3 user inputs (CareerProfile, Strategy, TargetRole)
 **NFR-3.2**: Error messages SHALL be specific and actionable
-**NFR-3.3**: Generated resumes SHALL be scannable by recruiters in <30 seconds
+**NFR-3.3**: Generated resumes SHALL be scannable by recruiters in &lt;30 seconds
 **NFR-3.4**: ATS recommendations SHALL be prioritized by impact (high/medium/low)
 
 ### NFR-4: Reliability
@@ -495,7 +495,7 @@ Output:
 - **User Satisfaction**: ≥4.5/5 star rating for generated resumes
 
 **Quality Metrics:**
-- **ATS Parsing Error Rate**: <1% of resumes have parsing errors
+- **ATS Parsing Error Rate**: &lt;1% of resumes have parsing errors
 - **Format Compliance**: 100% of templates pass ATS validation
 - **Content Accuracy**: 0% data loss from CareerProfile → Resume
 
@@ -509,7 +509,7 @@ Output:
 ### Business Impact Metrics
 
 - **Resume → Interview Conversion Rate**: Track user outcomes (via surveys)
-- **Time to Generate Resume**: <10 seconds per resume
+- **Time to Generate Resume**: &lt;10 seconds per resume
 - **Resumes Generated per Week**: Growth indicator
 
 ## Risks & Mitigation

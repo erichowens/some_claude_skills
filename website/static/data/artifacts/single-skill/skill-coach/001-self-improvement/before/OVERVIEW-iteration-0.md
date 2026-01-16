@@ -63,7 +63,7 @@ This is the knowledge gap that separates "it compiles" from "it's correct."
 - Checks structure (YAML, required fields)
 - Validates description quality
 - Ensures progressive disclosure
-- Checks line count (<500)
+- Checks line count (&lt;500)
 - Verifies allowed-tools scope
 
 **Domain-specific validation** (`examples/.../validate_clip_usage.py`):

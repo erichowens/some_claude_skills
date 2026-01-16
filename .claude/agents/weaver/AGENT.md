@@ -255,10 +255,10 @@ async def enhanced_agent(query, knowledge_base):
 
 | Metric | Target | Actual |
 |--------|--------|--------|
-| Precision@5 | >0.8 | X |
-| Recall@5 | >0.7 | X |
-| MRR | >0.6 | X |
-| Latency | <200ms | Xms |
+| Precision@5 | &gt;0.8 | X |
+| Recall@5 | &gt;0.7 | X |
+| MRR | &gt;0.6 | X |
+| Latency | &lt;200ms | Xms |
 ```
 
 ---

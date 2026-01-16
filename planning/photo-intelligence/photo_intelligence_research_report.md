@@ -2021,7 +2021,7 @@ Tested on standard CV tasks (COCO, ImageNet):
 - GPT-4V: ~5-10 sec (API latency)
 
 **Aesthetic Assessment:**
-- BRISQUE: <100ms (CPU)
+- BRISQUE: &lt;100ms (CPU)
 - NIMA: ~200-500ms (GPU)
 - MANIQA: ~300-700ms (GPU)
 - VisualQuality-R1: ~2-5 sec (reasoning generation)
@@ -2339,9 +2339,9 @@ class PhotoIntelligenceSystem:
 ### 14.4 Evaluation Criteria
 
 **Quantitative:**
-- Aesthetic SRCC on AVA test set: Target >0.85
-- Captioning CIDEr on COCO: Target >120
-- Composition accuracy on CADB: Target >80%
+- Aesthetic SRCC on AVA test set: Target &gt;0.85
+- Captioning CIDEr on COCO: Target &gt;120
+- Composition accuracy on CADB: Target &gt;80%
 
 **Qualitative:**
 - Professional photographer validation

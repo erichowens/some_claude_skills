@@ -1,0 +1,126 @@
+{
+  "task": "Build a modern web application with the following features:\n1. User authentication with JWT tokens\n2. PostgreSQL database with migrations\n3. RESTful API endpoints\n4. React frontend with responsive design\n5. Comprehensive test suite\n6. CI/CD pipeline for deployment",
+  "timestamp": "2026-01-15T10:13:13.229Z",
+  "decomposition": {
+    "strategy": "Decompose into backend infrastructure (auth + database + API), frontend UI, testing, and deployment layers. Sequential setup (database → auth → API → frontend) with parallel testing and deployment configuration at the end.",
+    "complexity": 8,
+    "subtasks": 7,
+    "time_ms": 29014
+  },
+  "matching": {
+    "strategy": "hybrid",
+    "total_matches": 7,
+    "average_confidence": 0.5279345577781258,
+    "high_confidence": 0,
+    "medium_confidence": 6,
+    "low_confidence": 1
+  },
+  "execution": {
+    "total_waves": 7,
+    "total_nodes": 7,
+    "parallel_waves": 0,
+    "sequential_waves": 7,
+    "max_parallelism": 1,
+    "theoretical_speedup": 1
+  },
+  "dag": {
+    "id": "dag-1768471993226-5ljs4f56b",
+    "nodes": 7,
+    "edges": 7
+  },
+  "matches": [
+    {
+      "subtask_id": "setup-database",
+      "skill_id": "drizzle-migrations",
+      "confidence": 0.6476599911288665,
+      "reasoning": "Hybrid match (keyword: 0.45, semantic: 0.78)"
+    },
+    {
+      "subtask_id": "implement-auth",
+      "skill_id": "modern-auth-2026",
+      "confidence": 0.381098671183003,
+      "reasoning": "Hybrid match (keyword: 0.17, semantic: 0.52)"
+    },
+    {
+      "subtask_id": "build-api",
+      "skill_id": "rest-api-design",
+      "confidence": 0.5024469564704799,
+      "reasoning": "Hybrid match (keyword: 0.27, semantic: 0.65)"
+    },
+    {
+      "subtask_id": "create-frontend",
+      "skill_id": "mobile-ux-optimizer",
+      "confidence": 0.46452970062032567,
+      "reasoning": "Hybrid match (keyword: 0.28, semantic: 0.59)"
+    },
+    {
+      "subtask_id": "write-tests",
+      "skill_id": "test-automation-expert",
+      "confidence": 0.6335531503797562,
+      "reasoning": "Hybrid match (keyword: 0.50, semantic: 0.72)"
+    },
+    {
+      "subtask_id": "setup-cicd",
+      "skill_id": "devops-automator",
+      "confidence": 0.49297702303679936,
+      "reasoning": "Hybrid match (keyword: 0.34, semantic: 0.59)"
+    },
+    {
+      "subtask_id": "create-documentation",
+      "skill_id": "technical-writer",
+      "confidence": 0.57327641162765,
+      "reasoning": "Hybrid match (keyword: 0.41, semantic: 0.68)"
+    }
+  ],
+  "waves": [
+    {
+      "wave_number": 1,
+      "node_ids": [
+        "setup-database"
+      ],
+      "parallelizable": false
+    },
+    {
+      "wave_number": 2,
+      "node_ids": [
+        "implement-auth"
+      ],
+      "parallelizable": false
+    },
+    {
+      "wave_number": 3,
+      "node_ids": [
+        "build-api"
+      ],
+      "parallelizable": false
+    },
+    {
+      "wave_number": 4,
+      "node_ids": [
+        "create-frontend"
+      ],
+      "parallelizable": false
+    },
+    {
+      "wave_number": 5,
+      "node_ids": [
+        "write-tests"
+      ],
+      "parallelizable": false
+    },
+    {
+      "wave_number": 6,
+      "node_ids": [
+        "setup-cicd"
+      ],
+      "parallelizable": false
+    },
+    {
+      "wave_number": 7,
+      "node_ids": [
+        "create-documentation"
+      ],
+      "parallelizable": false
+    }
+  ]
+}

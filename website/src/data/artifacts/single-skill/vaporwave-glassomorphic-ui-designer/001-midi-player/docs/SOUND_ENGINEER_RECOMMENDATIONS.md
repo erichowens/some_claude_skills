@@ -647,7 +647,7 @@ useEffect(() => {
 - **Current:** ~2-3%
 - **With FFT:** ~3-4%
 - **With Full Effects:** ~5-8%
-- **Target:** <10% (acceptable for music player)
+- **Target:** &lt;10% (acceptable for music player)
 
 ### Memory Usage
 - **Reverb IR:** ~1-2 MB (one-time load)
@@ -657,7 +657,7 @@ useEffect(() => {
 ### Latency
 - **Current:** ~50ms (soundfont latency)
 - **With Effects:** ~70-100ms (reverb adds latency)
-- **Still Acceptable:** <150ms is imperceptible
+- **Still Acceptable:** &lt;150ms is imperceptible
 
 ---
 
@@ -672,7 +672,7 @@ useEffect(() => {
 
 ### Technical Achievements
 - ✅ Real-time FFT analysis at 60fps
-- ✅ Multi-effect audio chain (<10% CPU)
+- ✅ Multi-effect audio chain (&lt;10% CPU)
 - ✅ Web Audio API best practices
 - ✅ Persistent user preferences
 - ✅ Professional audio quality

@@ -43,6 +43,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 1
   },
+  "ai-engineer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "ai-video-production-master": {
     "hasContent": true,
     "fileCount": 8,
@@ -103,6 +108,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 11,
     "folderCount": 1
   },
+  "color-contrast-auditor": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
   "color-theory-palette-harmony-expert": {
     "hasContent": true,
     "fileCount": 8,
@@ -123,10 +133,130 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 1
   },
+  "dag-capability-ranker": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-confidence-scorer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-context-bridger": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-convergence-monitor": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-dependency-resolver": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-dynamic-replanner": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-execution-tracer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-failure-analyzer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-feedback-synthesizer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-graph-builder": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-hallucination-detector": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-isolation-manager": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-iteration-detector": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-output-validator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-parallel-executor": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-pattern-learner": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-performance-profiler": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-permission-validator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-result-aggregator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-scope-enforcer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-semantic-matcher": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-skill-registry": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-task-scheduler": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "data-pipeline-engineer": {
     "hasContent": true,
     "fileCount": 7,
     "folderCount": 2
+  },
+  "data-viz-2025": {
+    "hasContent": true,
+    "fileCount": 10,
+    "folderCount": 3
   },
   "design-archivist": {
     "hasContent": true,
@@ -198,6 +328,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 3,
     "folderCount": 1
   },
+  "hand-drawn-infographic-creator": {
+    "hasContent": true,
+    "fileCount": 9,
+    "folderCount": 1
+  },
   "hipaa-compliance": {
     "hasContent": false,
     "fileCount": 1,
@@ -237,6 +372,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": false,
     "fileCount": 1,
     "folderCount": 0
+  },
+  "large-scale-map-visualization": {
+    "hasContent": true,
+    "fileCount": 1,
+    "folderCount": 1
   },
   "liaison": {
     "hasContent": false,
@@ -322,6 +462,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 6,
     "folderCount": 1
+  },
+  "prompt-engineer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "pwa-expert": {
     "hasContent": true,
@@ -531,10 +676,12 @@ export const skillsWithContent = [
   "cloudflare-worker-dev",
   "code-necromancer",
   "collage-layout-expert",
+  "color-contrast-auditor",
   "color-theory-palette-harmony-expert",
   "competitive-cartographer",
   "cv-creator",
   "data-pipeline-engineer",
+  "data-viz-2025",
   "design-archivist",
   "design-system-creator",
   "devops-automator",
@@ -546,11 +693,13 @@ export const skillsWithContent = [
   "fancy-yard-landscaper",
   "fullstack-debugger",
   "grief-companion",
+  "hand-drawn-infographic-creator",
   "hr-network-analyst",
   "hrv-alexithymia-expert",
   "indie-monetization-strategist",
   "interior-design-expert",
   "jungian-psychologist",
+  "large-scale-map-visualization",
   "maximalist-wall-decorator",
   "mcp-creator",
   "metal-shader-expert",

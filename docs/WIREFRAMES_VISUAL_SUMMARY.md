@@ -520,7 +520,7 @@ Title Bars:
 ## Responsive Breakpoints
 
 ```
-Desktop (≥1200px):        Tablet (768-1199px):     Mobile (<768px):
+Desktop (≥1200px):        Tablet (768-1199px):     Mobile (&lt;768px):
 ┌───┬───┬───┐            ┌─────┬─────┐            ┌──────────┐
 │   │   │   │            │     │     │            │          │
 │ 1 │ 2 │ 3 │            │  1  │  2  │            │    1     │

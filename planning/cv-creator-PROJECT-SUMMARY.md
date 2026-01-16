@@ -62,7 +62,7 @@
 **Success Metrics Defined:**
 - Primary: 85%+ resumes achieve ATS score ≥85/100
 - Secondary: 90%+ keyword coverage for job-specific variants
-- Tertiary: <30 second recruiter scan time
+- Tertiary: &lt;30 second recruiter scan time
 
 ### 4. Visual Design System ✅
 
@@ -449,7 +449,7 @@ Expected:
 
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
-| ATS Parsing Error Rate | <1% | Test with ATS simulators |
+| ATS Parsing Error Rate | &lt;1% | Test with ATS simulators |
 | Format Compliance | 100% | Automated format validation |
 | Content Accuracy | 0% data loss | CareerProfile → Resume comparison |
 

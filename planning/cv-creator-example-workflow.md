@@ -122,7 +122,7 @@ This document demonstrates a complete end-to-end workflow showing how the **care
       "description": "Built Kafka-based event processing system",
       "technologies": ["Kafka", "Python", "Redis", "PostgreSQL"],
       "impact": "1B+ events processed daily with sub-second latency",
-      "metrics": ["1B+ daily events", "<1s latency", "99.9% uptime"]
+      "metrics": ["1B+ daily events", "&lt;1s latency", "99.9% uptime"]
     }
   ],
 

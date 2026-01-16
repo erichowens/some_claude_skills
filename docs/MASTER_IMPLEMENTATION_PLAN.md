@@ -30,7 +30,7 @@ This plan synthesizes recommendations from 6 specialized AI agents to transform 
 | Competitor | Strengths | Weaknesses | Our Attack Vector |
 |------------|-----------|------------|-------------------|
 | **MCP Registry** | 10K+ servers, official | No curation, overwhelming | "We read all 10,000 so you don't have to" |
-| **GPT Store** | 159K GPTs, massive scale | 95% get <500 installs | Small catalog, everything discoverable |
+| **GPT Store** | 159K GPTs, massive scale | 95% get &lt;500 installs | Small catalog, everything discoverable |
 | **Claude Market** | Hand-curated | GitHub-only, no web UI | Beautiful web experience + SEO |
 | **Cursor Directory** | Community-driven | Different tool, sparse | Focus on Claude Code specifically |
 | **Awesome Lists** | Trusted format | Text-only, no multimedia | Video tutorials + interactive demos |
@@ -63,7 +63,7 @@ Week 9+:   CERTIFIED SKILLS ────────────── Authority
 
 ### Feature 1: Onboarding Flow (Week 1-2)
 
-**Goal**: First-time visitors understand value in <30 seconds
+**Goal**: First-time visitors understand value in &lt;30 seconds
 
 **Win31 Design Pattern**: Setup Wizard with sidebar progress
 ```
@@ -234,7 +234,7 @@ Week 9+:   CERTIFIED SKILLS ────────────── Authority
 - YouTube hosting (free, CDN, analytics)
 - Custom `Win31VideoPlayer` component with chapter timestamps
 - Video gallery page with filtering
-- **Success metric**: 70%+ completion rate on <3 min videos
+- **Success metric**: 70%+ completion rate on &lt;3 min videos
 
 ### Feature 5: Certified Skills Program (Week 9+)
 

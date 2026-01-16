@@ -1,0 +1,46 @@
+/**
+ * DAGNode Component Styles
+ * Win31 aesthetic for DAG visualization nodes
+ */
+
+.nodeGroup {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.nodeGroup:hover {
+  transform: translateY(-2px);
+}
+
+.nodeBody {
+  transition: all 0.15s ease;
+}
+
+.nodeGroup:hover .nodeBody {
+  filter: brightness(1.05);
+}
+
+.runningIndicator {
+  pointer-events: none;
+}
+
+/* Status-specific node styles */
+.pending .nodeBody {
+  opacity: 0.7;
+}
+
+.ready .nodeBody {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.running .nodeBody {
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+
+.completed .nodeBody {
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+}
+
+.failed .nodeBody {
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}

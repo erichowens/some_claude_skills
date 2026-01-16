@@ -1,6 +1,6 @@
 ---
 title: Social Features Schema Patterns
-sidebar_label: Social Features Schema Pattern...
+sidebar_label: Social Features Schema Patt...
 sidebar_position: 2
 ---
 # Social Features Schema Patterns
@@ -385,7 +385,7 @@ const subscription = supabase
       event: 'INSERT',
       schema: 'public',
       table: 'messages',
-      filter: `conversation_id=eq.${conversationId}`
+      filter: `conversation_id=eq.$\{conversationId\}`
     },
     (payload) => {
       addMessage(payload.new);
@@ -402,7 +402,7 @@ const friendRequests = supabase
       event: 'INSERT',
       schema: 'public',
       table: 'friendships',
-      filter: `addressee_id=eq.${userId}`
+      filter: `addressee_id=eq.$\{userId\}`
     },
     (payload) => {
       showNotification('New friend request!');

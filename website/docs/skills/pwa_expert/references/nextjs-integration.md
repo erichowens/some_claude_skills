@@ -1,7 +1,7 @@
 ---
 title: Next.js PWA Integration
 sidebar_label: Next.js PWA Integration
-sidebar_position: 2
+sidebar_position: 3
 ---
 # Next.js PWA Integration
 

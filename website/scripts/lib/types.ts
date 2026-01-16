@@ -195,6 +195,10 @@ export const SKILL_CATEGORIES: Record<string, CategoryDefinition> = {
     icon: '🏠',
     description: 'Personal development, wellness, and life skills',
   },
+  'DAG Framework': {
+    icon: '📦',
+    description: 'DAG orchestration, execution, and skill coordination framework',
+  },
 };
 
 // =============================================================================

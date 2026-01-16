@@ -1,0 +1,168 @@
+/**
+ * BundleCard Styles
+ *
+ * Windows 3.1 aesthetic for skill bundle cards
+ */
+
+.bundle-card {
+  background: var(--win31-gray);
+  border: 4px solid var(--win31-black);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bundle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.bundle-card--featured {
+  border-color: var(--win31-navy);
+  box-shadow: 8px 8px 0 rgba(0, 0, 128, 0.4);
+}
+
+.bundle-card--featured:hover {
+  box-shadow: 12px 12px 0 rgba(0, 0, 128, 0.5);
+}
+
+/* Header */
+.bundle-card__header {
+  background: linear-gradient(90deg, var(--win31-navy), var(--win31-blue));
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bundle-card__audience-icon {
+  font-size: 20px;
+}
+
+.bundle-card__badges {
+  display: flex;
+  gap: 6px;
+}
+
+.bundle-card__badge {
+  font-size: 10px;
+  font-family: var(--font-code);
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  font-weight: 600;
+}
+
+.bundle-card__badge--featured {
+  background: var(--win31-yellow);
+  color: #000;
+  border-color: #000;
+}
+
+/* Content */
+.bundle-card__content {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bundle-card__title {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--win31-black);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.bundle-card__description {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+  flex: 1;
+  /* Clamp to 3 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bundle-card__skill-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--font-code);
+  color: var(--win31-navy);
+  margin-bottom: 8px;
+}
+
+.bundle-card__skill-count-icon {
+  font-size: 14px;
+}
+
+.bundle-card__cost {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-family: var(--font-code);
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+.bundle-card__cost-label {
+  color: #666;
+}
+
+.bundle-card__cost-value {
+  color: #060;
+  font-weight: 600;
+}
+
+.bundle-card__tags {
+  margin-top: auto;
+}
+
+/* Install hint */
+.bundle-card__install-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--win31-navy);
+  color: white;
+  text-align: center;
+  padding: 6px;
+  font-size: 11px;
+  font-family: var(--font-code);
+  transform: translateY(100%);
+  transition: transform 150ms ease-out;
+}
+
+.bundle-card:hover .bundle-card__install-hint {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bundle-card {
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .bundle-card__title {
+    font-size: 14px;
+  }
+
+  .bundle-card__description {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+}

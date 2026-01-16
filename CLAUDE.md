@@ -39,6 +39,7 @@ All project tracking lives in `.project/`:
 | Task List | `docs/SEQUENTIAL_TASK_LIST.md` | Detailed implementation tasks |
 | UX Analysis | `docs/UX_DEEP_ANALYSIS.md` | Gestalt + Markov chain analysis |
 | Go-to-Market | `docs/GO_TO_MARKET_STRATEGY.md` | Launch strategy |
+| User Personas | `docs/USER_PERSONAS.md` | 10 target audience profiles for design decisions |
 
 ---
 
@@ -65,7 +66,70 @@ npm run generate:zips      # Generate skill zip files
 
 # Deployment
 npm run deploy             # Deploy to GitHub Pages
+
+# Skills Syncing
+npm run sync:user-skills   # Sync project skills to user-level (manual)
+# Auto-runs on: git checkout, git pull, git merge
 ```
+
+---
+
+## Skill Syncing System
+
+**Architecture**: Project skills are the **source of truth** (version controlled), symlinked to user-level for global availability.
+
+### How It Works
+
+1. **Project Skills** (`/coding/some_claude_skills/.claude/skills/`)
+   - Version controlled in git
+   - Source of truth for all skills
+   - 143 skills maintained here
+
+2. **User Skills** (`~/.claude/skills/`)
+   - Symlinks to project skills
+   - Available globally in all Claude Code sessions
+   - Auto-updated via git hooks
+
+### Automatic Sync
+
+Runs automatically on:
+- `git checkout` (switching branches)
+- `git pull` (pulling changes)
+- `git merge` (merging branches)
+
+### Manual Sync
+
+```bash
+# From anywhere
+npm run sync:user-skills
+
+# Or directly
+./scripts/sync-skills.sh
+```
+
+### What It Does
+
+1. **Migrates** any skills from user-level to project (one-time)
+2. **Removes** stale symlinks from user-level
+3. **Creates** fresh symlinks for all project skills
+
+### Verifying
+
+```bash
+# Check skill counts
+ls -1 .claude/skills/ | wc -l        # Project skills
+ls -1 ~/.claude/skills/ | wc -l      # User symlinks (should match)
+
+# Check a specific skill is symlinked
+ls -la ~/.claude/skills/computer-vision-pipeline
+```
+
+**Benefits**:
+- ✅ Skills version controlled with project
+- ✅ Available globally across all projects
+- ✅ One source of truth
+- ✅ No manual copying needed
+- ✅ Auto-sync on git operations
 
 ---
 
@@ -274,5 +338,6 @@ lsof -i :3000 | grep LISTEN | awk '{print $2}' | xargs kill -9
 - [Master Implementation Plan](docs/MASTER_IMPLEMENTATION_PLAN.md)
 - [Sequential Task List](docs/SEQUENTIAL_TASK_LIST.md)
 - [UX Deep Analysis](docs/UX_DEEP_ANALYSIS.md)
+- [User Personas](docs/USER_PERSONAS.md)
 - [Project Roadmap](.project/ROADMAP.md)
 - [Progress Log](.project/PROGRESS.md)

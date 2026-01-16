@@ -1,0 +1,50 @@
+# Documentation Powerhouse
+# For technical writers and documentation teams
+
+name: documentation-powerhouse
+title: Documentation Powerhouse
+description: >
+  Create comprehensive technical documentation from READMEs to API references.
+  Includes diagram generation, style guides, and accessibility checks.
+
+audience: technical-writers
+difficulty: beginner
+
+skills:
+  - id: technical-writer
+    role: Writes clear, structured technical documentation
+  - id: diagramming-expert
+    role: Creates architecture diagrams, flowcharts, and ERDs
+  - id: docusaurus-expert
+    role: Builds documentation sites with Docusaurus
+  - id: seo-visibility-expert
+    role: Optimizes docs for search engine discoverability
+  - id: research-analyst
+    role: Researches topics for comprehensive coverage
+    optional: true
+
+install_command: claude "/install @some-claude-skills/documentation-powerhouse"
+
+estimated_cost:
+  tokens: 40000
+  usd: 0.60
+
+use_cases:
+  - "Generate API documentation from code"
+  - "Create getting started guides and tutorials"
+  - "Build a complete documentation site"
+  - "Audit existing docs for clarity and completeness"
+
+tags:
+  - documentation
+  - technical-writing
+  - api-docs
+  - diagrams
+  - featured
+
+hero_image: /img/bundles/documentation-powerhouse-hero.png
+featured: true
+
+related_bundles:
+  - code-review-suite
+  - ai-development-stack

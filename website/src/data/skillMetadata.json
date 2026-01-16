@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-04T18:48:47.715Z",
+  "generatedAt": "2026-01-16T04:08:58.451Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -61,6 +61,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "ai-engineer": {
+      "id": "ai-engineer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 259,
+      "totalFiles": 1,
+      "skillMdSize": 8007,
+      "skillMdLines": 259,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "ai-video-production-master": {
       "id": "ai-video-production-master",
       "createdAt": "2025-12-26T17:21:02-08:00",
@@ -96,6 +108,18 @@
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": true
+    },
+    "background-job-orchestrator": {
+      "id": "background-job-orchestrator",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1098,
+      "totalFiles": 4,
+      "skillMdSize": 12531,
+      "skillMdLines": 491,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
     },
     "bot-developer": {
       "id": "bot-developer",
@@ -208,7 +232,7 @@
     "color-contrast-auditor": {
       "id": "color-contrast-auditor",
       "createdAt": "2026-01-04T07:08:39-08:00",
-      "updatedAt": "2026-01-04T07:08:39-08:00",
+      "updatedAt": "2026-01-04T10:48:44-08:00",
       "totalLines": 687,
       "totalFiles": 2,
       "skillMdSize": 11475,
@@ -241,6 +265,30 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "computer-vision-pipeline": {
+      "id": "computer-vision-pipeline",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 3122,
+      "totalFiles": 6,
+      "skillMdSize": 15506,
+      "skillMdLines": 584,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "crisis-detection-intervention-ai": {
+      "id": "crisis-detection-intervention-ai",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2644,
+      "totalFiles": 6,
+      "skillMdSize": 14788,
+      "skillMdLines": 553,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "crisis-response-protocol": {
       "id": "crisis-response-protocol",
       "createdAt": "2025-12-26T19:13:25-08:00",
@@ -265,6 +313,294 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "dag-capability-ranker": {
+      "id": "dag-capability-ranker",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 397,
+      "totalFiles": 1,
+      "skillMdSize": 10217,
+      "skillMdLines": 397,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-confidence-scorer": {
+      "id": "dag-confidence-scorer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 505,
+      "totalFiles": 1,
+      "skillMdSize": 13678,
+      "skillMdLines": 505,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-context-bridger": {
+      "id": "dag-context-bridger",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 352,
+      "totalFiles": 1,
+      "skillMdSize": 8527,
+      "skillMdLines": 352,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-convergence-monitor": {
+      "id": "dag-convergence-monitor",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 531,
+      "totalFiles": 1,
+      "skillMdSize": 14852,
+      "skillMdLines": 531,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-dependency-resolver": {
+      "id": "dag-dependency-resolver",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 298,
+      "totalFiles": 1,
+      "skillMdSize": 7769,
+      "skillMdLines": 298,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-dynamic-replanner": {
+      "id": "dag-dynamic-replanner",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 406,
+      "totalFiles": 1,
+      "skillMdSize": 9859,
+      "skillMdLines": 406,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-execution-tracer": {
+      "id": "dag-execution-tracer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 556,
+      "totalFiles": 1,
+      "skillMdSize": 13994,
+      "skillMdLines": 556,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-executor": {
+      "id": "dag-executor",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 271,
+      "totalFiles": 1,
+      "skillMdSize": 7754,
+      "skillMdLines": 271,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-failure-analyzer": {
+      "id": "dag-failure-analyzer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 726,
+      "totalFiles": 1,
+      "skillMdSize": 20231,
+      "skillMdLines": 726,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-feedback-synthesizer": {
+      "id": "dag-feedback-synthesizer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 548,
+      "totalFiles": 1,
+      "skillMdSize": 16317,
+      "skillMdLines": 548,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-graph-builder": {
+      "id": "dag-graph-builder",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 231,
+      "totalFiles": 1,
+      "skillMdSize": 6626,
+      "skillMdLines": 231,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-hallucination-detector": {
+      "id": "dag-hallucination-detector",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 601,
+      "totalFiles": 1,
+      "skillMdSize": 16120,
+      "skillMdLines": 601,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-isolation-manager": {
+      "id": "dag-isolation-manager",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 445,
+      "totalFiles": 1,
+      "skillMdSize": 10562,
+      "skillMdLines": 445,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-iteration-detector": {
+      "id": "dag-iteration-detector",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 470,
+      "totalFiles": 1,
+      "skillMdSize": 13687,
+      "skillMdLines": 470,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-output-validator": {
+      "id": "dag-output-validator",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 557,
+      "totalFiles": 1,
+      "skillMdSize": 14572,
+      "skillMdLines": 557,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-parallel-executor": {
+      "id": "dag-parallel-executor",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 376,
+      "totalFiles": 1,
+      "skillMdSize": 8932,
+      "skillMdLines": 376,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-pattern-learner": {
+      "id": "dag-pattern-learner",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 712,
+      "totalFiles": 1,
+      "skillMdSize": 21715,
+      "skillMdLines": 712,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-performance-profiler": {
+      "id": "dag-performance-profiler",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 586,
+      "totalFiles": 1,
+      "skillMdSize": 17386,
+      "skillMdLines": 586,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-permission-validator": {
+      "id": "dag-permission-validator",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 444,
+      "totalFiles": 1,
+      "skillMdSize": 11665,
+      "skillMdLines": 444,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-result-aggregator": {
+      "id": "dag-result-aggregator",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 376,
+      "totalFiles": 1,
+      "skillMdSize": 8487,
+      "skillMdLines": 376,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-scope-enforcer": {
+      "id": "dag-scope-enforcer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 420,
+      "totalFiles": 1,
+      "skillMdSize": 10749,
+      "skillMdLines": 420,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-semantic-matcher": {
+      "id": "dag-semantic-matcher",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 394,
+      "totalFiles": 1,
+      "skillMdSize": 10415,
+      "skillMdLines": 394,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-skill-registry": {
+      "id": "dag-skill-registry",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 385,
+      "totalFiles": 1,
+      "skillMdSize": 9210,
+      "skillMdLines": 385,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "dag-task-scheduler": {
+      "id": "dag-task-scheduler",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 320,
+      "totalFiles": 1,
+      "skillMdSize": 7954,
+      "skillMdLines": 320,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "data-pipeline-engineer": {
       "id": "data-pipeline-engineer",
       "createdAt": "2025-12-14T21:40:37-08:00",
@@ -276,6 +612,18 @@
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": true
+    },
+    "data-viz-2025": {
+      "id": "data-viz-2025",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 4754,
+      "totalFiles": 10,
+      "skillMdSize": 16641,
+      "skillMdLines": 507,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
     },
     "design-archivist": {
       "id": "design-archivist",
@@ -333,6 +681,18 @@
       "totalFiles": 2,
       "skillMdSize": 11111,
       "skillMdLines": 318,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "document-generation-pdf": {
+      "id": "document-generation-pdf",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 3370,
+      "totalFiles": 6,
+      "skillMdSize": 13043,
+      "skillMdLines": 484,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -421,6 +781,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "form-validation-architect": {
+      "id": "form-validation-architect",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 3184,
+      "totalFiles": 9,
+      "skillMdSize": 14646,
+      "skillMdLines": 569,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "fullstack-debugger": {
       "id": "fullstack-debugger",
       "createdAt": "2025-12-28T01:43:03-08:00",
@@ -433,6 +805,30 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "geospatial-data-pipeline": {
+      "id": "geospatial-data-pipeline",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2880,
+      "totalFiles": 6,
+      "skillMdSize": 11264,
+      "skillMdLines": 389,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "github-actions-pipeline-builder": {
+      "id": "github-actions-pipeline-builder",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1626,
+      "totalFiles": 5,
+      "skillMdSize": 10758,
+      "skillMdLines": 456,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "grief-companion": {
       "id": "grief-companion",
       "createdAt": "2025-12-25T22:46:49-08:00",
@@ -441,6 +837,18 @@
       "totalFiles": 3,
       "skillMdSize": 9157,
       "skillMdLines": 249,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "hand-drawn-infographic-creator": {
+      "id": "hand-drawn-infographic-creator",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 5868,
+      "totalFiles": 9,
+      "skillMdSize": 35466,
+      "skillMdLines": 981,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -541,6 +949,18 @@
       "hasExamples": false,
       "hasChangelog": false
     },
+    "large-scale-map-visualization": {
+      "id": "large-scale-map-visualization",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 552,
+      "totalFiles": 1,
+      "skillMdSize": 16903,
+      "skillMdLines": 552,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "liaison": {
       "id": "liaison",
       "createdAt": "2025-12-06T21:09:05-08:00",
@@ -550,6 +970,18 @@
       "skillMdSize": 5505,
       "skillMdLines": 264,
       "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "llm-streaming-response-handler": {
+      "id": "llm-streaming-response-handler",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2345,
+      "totalFiles": 6,
+      "skillMdSize": 13254,
+      "skillMdLines": 515,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -733,6 +1165,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "product-appeal-analyzer": {
+      "id": "product-appeal-analyzer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 1437,
+      "totalFiles": 7,
+      "skillMdSize": 9417,
+      "skillMdLines": 276,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": true
+    },
     "project-management-guru-adhd": {
       "id": "project-management-guru-adhd",
       "createdAt": "2025-11-25T18:43:58-08:00",
@@ -745,6 +1189,18 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "prompt-engineer": {
+      "id": "prompt-engineer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 196,
+      "totalFiles": 1,
+      "skillMdSize": 5878,
+      "skillMdLines": 196,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
     "pwa-expert": {
       "id": "pwa-expert",
       "createdAt": "2025-12-28T01:43:03-08:00",
@@ -753,6 +1209,42 @@
       "totalFiles": 7,
       "skillMdSize": 9696,
       "skillMdLines": 328,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "react-performance-optimizer": {
+      "id": "react-performance-optimizer",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2856,
+      "totalFiles": 6,
+      "skillMdSize": 10728,
+      "skillMdLines": 429,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "reactive-dashboard-performance": {
+      "id": "reactive-dashboard-performance",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 8,
+      "totalFiles": 1,
+      "skillMdSize": 0,
+      "skillMdLines": 0,
+      "hasReferences": false,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "real-time-collaboration-engine": {
+      "id": "real-time-collaboration-engine",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2974,
+      "totalFiles": 6,
+      "skillMdSize": 13767,
+      "skillMdLines": 545,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -889,12 +1381,24 @@
       "hasExamples": false,
       "hasChangelog": true
     },
+    "skill-architect": {
+      "id": "skill-architect",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2429,
+      "totalFiles": 7,
+      "skillMdSize": 18147,
+      "skillMdLines": 637,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": true
+    },
     "skill-coach": {
       "id": "skill-coach",
       "createdAt": "2025-11-25T18:43:58-08:00",
       "updatedAt": "2025-12-26T08:40:43-08:00",
-      "totalLines": 5157,
-      "totalFiles": 17,
+      "totalLines": 5177,
+      "totalFiles": 18,
       "skillMdSize": 10345,
       "skillMdLines": 306,
       "hasReferences": true,
@@ -905,8 +1409,8 @@
       "id": "skill-creator",
       "createdAt": "2025-12-26T19:13:25-08:00",
       "updatedAt": "2025-12-26T19:13:25-08:00",
-      "totalLines": 899,
-      "totalFiles": 5,
+      "totalLines": 919,
+      "totalFiles": 6,
       "skillMdSize": 11687,
       "skillMdLines": 217,
       "hasReferences": false,
@@ -945,6 +1449,18 @@
       "totalFiles": 2,
       "skillMdSize": 14630,
       "skillMdLines": 423,
+      "hasReferences": true,
+      "hasExamples": false,
+      "hasChangelog": false
+    },
+    "sobriety-tools-guardian": {
+      "id": "sobriety-tools-guardian",
+      "createdAt": null,
+      "updatedAt": null,
+      "totalLines": 2346,
+      "totalFiles": 7,
+      "skillMdSize": 8766,
+      "skillMdLines": 270,
       "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
@@ -1063,7 +1579,7 @@
       "updatedAt": "2026-01-03T22:46:05-08:00",
       "totalLines": 419,
       "totalFiles": 1,
-      "skillMdSize": 16247,
+      "skillMdSize": 16250,
       "skillMdLines": 419,
       "hasReferences": false,
       "hasExamples": false,

@@ -217,7 +217,7 @@ MOBILE TOUCH TARGETS
 ━━━━━━━━━━━━━━━━━━━━
 Minimum recommended: 44x44px
 
-✓ Navigation windows: >200px (excellent)
+✓ Navigation windows: &gt;200px (excellent)
 ✓ Category filter buttons: ~44px height (acceptable)
 ⚠ Marquee [Doc]/[Get] buttons: ~40px (borderline)
 ⚠ Tag filter pills: ~28px height (too small for touch)

@@ -59,7 +59,7 @@ skill-coach/
 
 Skills load in three phases:
 - **Phase 1 (~100 tokens)**: Metadata - "Should I activate?"
-- **Phase 2 (<5k tokens)**: Instructions - "How do I do this?"
+- **Phase 2 (&lt;5k tokens)**: Instructions - "How do I do this?"
 - **Phase 3 (as needed)**: Details - "Show me more"
 
 ### 2. The Shibboleths
@@ -262,7 +262,7 @@ python scripts/validate_skill.py your-skill/
 Checks:
 - Required files and structure
 - Description quality
-- Line count (<500)
+- Line count (&lt;500)
 - Progressive disclosure
 - Anti-patterns section
 - allowed-tools scope

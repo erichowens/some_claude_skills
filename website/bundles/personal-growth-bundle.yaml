@@ -1,0 +1,49 @@
+# Personal Growth Bundle
+# For newcomers exploring what Claude Code can do
+
+name: personal-growth-bundle
+title: Personal Growth Bundle
+description: >
+  Discover how Claude Code can help with career development, personal projects,
+  and learning. A gentle introduction with immediately useful skills.
+
+audience: newcomers
+difficulty: beginner
+
+skills:
+  - id: career-biographer
+    role: Documents your career journey and achievements
+  - id: cv-creator
+    role: Creates ATS-optimized resumes and portfolios
+  - id: job-application-optimizer
+    role: Tailors applications to specific job postings
+  - id: digital-estate-planner
+    role: Organizes digital life and important accounts
+  - id: personal-finance-coach
+    role: Helps with budgeting and financial planning
+    optional: true
+
+install_command: claude "/install @some-claude-skills/personal-growth-bundle"
+
+estimated_cost:
+  tokens: 30000
+  usd: 0.45
+
+use_cases:
+  - "Create a professional resume from scratch"
+  - "Document your career story for interviews"
+  - "Organize passwords and important accounts"
+  - "Optimize job applications for specific roles"
+
+tags:
+  - career
+  - productivity
+  - beginner
+  - personal
+
+hero_image: /img/bundles/personal-growth-bundle-hero.png
+featured: false
+
+related_bundles:
+  - startup-mvp-kit
+  - documentation-powerhouse

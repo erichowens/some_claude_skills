@@ -664,7 +664,7 @@ Claude Code/Skills is an emerging category. Google isn't fully indexing it yet. 
 □ Author bio with credentials
 □ CTA button at end (not just text)
 □ Mobile-responsive (test on phone)
-□ Core Web Vitals optimized (<1.5s LCP, <0.1s CLS, <300ms FID)
+□ Core Web Vitals optimized (&lt;1.5s LCP, &lt;0.1s CLS, &lt;300ms FID)
 ```
 
 ---
@@ -967,9 +967,9 @@ Engagement Rate: ___ % → 5%+ (likes/comments/shares)
 ```
 
 **Action thresholds:**
-- If video gets <50% average view duration: Too long or unclear title
-- If video gets <2% CTR: Update thumbnail or title
-- If skill video gets <100 views: Reformat and repost as Shorts
+- If video gets &lt;50% average view duration: Too long or unclear title
+- If video gets &lt;2% CTR: Update thumbnail or title
+- If skill video gets &lt;100 views: Reformat and repost as Shorts
 
 ---
 
@@ -982,7 +982,7 @@ Keyword Rankings: Track top 20 target keywords
   Goal: 3 keywords in top 3
 Blog Post Performance:
   - Avg time on page: ___ → 3+ minutes
-  - Bounce rate: ___ % → <40%
+  - Bounce rate: ___ % → &lt;40%
   - Internal clicks: ___ → avg 2+ per session
 Conversion Rate (to YouTube/Discord/Email): ___ % → 5%+
 ```
@@ -1016,7 +1016,7 @@ Discord:
 Subscribers: ___ → 500
 Open Rate: ___ % → 20%+
 Click-Through Rate: ___ % → 5%+
-Unsubscribe Rate: ___ % → <0.5%
+Unsubscribe Rate: ___ % → &lt;0.5%
 ```
 
 ---

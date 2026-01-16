@@ -1,7 +1,7 @@
 ---
 title: Custom Shaders for Unique Effects
-sidebar_label: Custom Shaders for Unique Effe...
-sidebar_position: 2
+sidebar_label: Custom Shaders for Unique E...
+sidebar_position: 1
 ---
 # Custom Shaders for Unique Effects
 
@@ -167,7 +167,7 @@ float particle = smoothstep(0.02, 0.0, length(uv - particlePos));
 - **Xcode Metal Debugger**: iOS shader debugging
 
 ### Performance Tips
-- Keep shaders simple for mobile (< 50 instructions)
+- Keep shaders simple for mobile (\< 50 instructions)
 - Avoid branching in fragment shaders
 - Precompute values in vertex shader when possible
 - Use texture lookups sparingly

@@ -65,6 +65,7 @@ export interface Skill {
   tags: string[];
   badge?: 'NEW' | 'HOT' | 'ADVANCED' | 'EXPERIMENTAL';
   pairsWith?: SkillPairing[];
+  heroImage?: string;
 }
 
 export interface CategoryConfig {
@@ -206,7 +207,19 @@ function buildSkillEntry(skill: ParsedSkill): string {
     pairsWithStr = `, pairsWith: [${pairs}]`;
   }
 
-  return `  { id: '${skill.id}', title: '${escapeString(skill.title)}', category: '${skill.category}', path: '${skill.urlPath}', description: getDesc('${skill.id}', '${escapedDesc}'), tags: [${tags}]${badge}${pairsWithStr} },`;
+  // Check for hero image
+  let heroImageStr = '';
+  const staticDir = path.resolve(__dirname, '../../static/img/skills');
+  const possibleExtensions = ['.png', '.webp', '.jpg', '.jpeg'];
+  for (const ext of possibleExtensions) {
+    const heroImagePath = path.join(staticDir, `${skill.id}-hero${ext}`);
+    if (fs.existsSync(heroImagePath)) {
+      heroImageStr = `, heroImage: '/img/skills/${skill.id}-hero${ext}'`;
+      break;
+    }
+  }
+
+  return `  { id: '${skill.id}', title: '${escapeString(skill.title)}', category: '${skill.category}', path: '${skill.urlPath}', description: getDesc('${skill.id}', '${escapedDesc}'), tags: [${tags}]${badge}${pairsWithStr}${heroImageStr} },`;
 }
 
 function buildCategoryConfig(): string {

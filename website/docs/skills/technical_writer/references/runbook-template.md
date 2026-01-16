@@ -1,7 +1,7 @@
 ---
 title: Runbook Template Reference
 sidebar_label: Runbook Template Reference
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Runbook Template Reference
 # Operational procedure for incident response

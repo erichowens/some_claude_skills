@@ -110,7 +110,7 @@ export function InstallPrompt() {
           Not now
         </button>
         <button
-          onClick={install}
+          onClick=\{install\}
           className="flex-1 px-4 py-2 bg-ember-500 hover:bg-ember-600
                      text-white rounded-lg font-medium"
         >

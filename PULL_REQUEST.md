@@ -379,7 +379,7 @@ Hero images for each skill show AI-generated visuals representing the skill's do
 
 - Homepage: ~2.5s
 - Skill page: ~2.8s (includes hero image)
-- Search/navigation: <100ms (client-side)
+- Search/navigation: &lt;100ms (client-side)
 
 ### Optimizations Applied
 

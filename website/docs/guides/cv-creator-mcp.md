@@ -106,7 +106,7 @@ const atsScore = await score_ats({
 
 // Returns:
 // - overall: 85 (0-100)
-// - passed: true (>75 typically passes)
+// - passed: true (&gt;75 typically passes)
 // - sections: { formatting, structure, content, keywords }
 // - keywordAnalysis: { density, overOptimized, underOptimized }
 // - quickWins: ["Add missing keyword X to summary"]

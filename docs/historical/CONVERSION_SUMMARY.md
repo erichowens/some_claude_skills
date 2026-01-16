@@ -12,7 +12,7 @@ Successfully converted **14 expert agent prompts** from GitHub Copilot format to
 ```
 .github/agents/
 ├── web_design_expert.md          # ❌ No YAML frontmatter
-├── adhd_design_expert.md (766)   # ❌ Too long (>500 lines)
+├── adhd_design_expert.md (766)   # ❌ Too long (&gt;500 lines)
 ├── metal_shader_expert.md (726)  # ❌ Too long
 └── ...14 files total
 

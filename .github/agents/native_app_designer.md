@@ -479,7 +479,7 @@ struct OnboardingView: View {
             VStack {
                 // Content
                 TabView(selection: $currentPage) {
-                    ForEach(0..<3) { index in
+                    ForEach(0..&lt;3) { index in
                         OnboardingPage(index: index)
                             .tag(index)
                     }
@@ -488,7 +488,7 @@ struct OnboardingView: View {
                 
                 // Custom page indicator with personality
                 HStack(spacing: 8) {
-                    ForEach(0..<3) { index in
+                    ForEach(0..&lt;3) { index in
                         Capsule()
                             .fill(currentPage == index ? Color.white : Color.white.opacity(0.3))
                             .frame(

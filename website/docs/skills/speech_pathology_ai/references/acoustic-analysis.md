@@ -1,7 +1,7 @@
 ---
 title: Acoustic Analysis for Speech Pathology
-sidebar_label: Acoustic Analysis for Speech P...
-sidebar_position: 2
+sidebar_label: Acoustic Analysis for Speec...
+sidebar_position: 1
 ---
 # Acoustic Analysis for Speech Pathology
 
@@ -265,7 +265,7 @@ class VocalTractVisualizer {
 
     animateTongue(frontPos, height) {
         // Morph tongue shape to target position
-        console.log(`Animating tongue to front: ${frontPos}, height: ${height}`);
+        console.log(`Animating tongue to front: $\{frontPos\}, height: $\{height\}`);
     }
 
     animateLips(rounding, opening) {

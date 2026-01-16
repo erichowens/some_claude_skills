@@ -1,7 +1,7 @@
 ---
 title: Gesture Hooks
 sidebar_label: Gesture Hooks
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Gesture Hooks
 
@@ -70,8 +70,8 @@ function ImageGallery({ images, currentIndex, setCurrentIndex }) {
 
   return (
     <div
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      onTouchStart=\{handleTouchStart\}
+      onTouchEnd=\{handleTouchEnd\}
     >
       <img src={images[currentIndex]} alt="" />
     </div>
@@ -154,7 +154,7 @@ function RefreshableList({ items, onRefresh }) {
 
   return (
     <div
-      ref={containerRef}
+      ref=\{containerRef\}
       {...handlers}
       className="h-full overflow-y-auto"
     >
@@ -169,14 +169,14 @@ function RefreshableList({ items, onRefresh }) {
           <ArrowDown
             className="w-6 h-6 transition-transform"
             style={{
-              transform: `rotate(${Math.min(pullDistance / threshold, 1) * 180}deg)`
+              transform: `rotate($\{Math.min(pullDistance / threshold, 1) * 180\}deg)`
             }}
           />
         )}
       </div>
 
       {/* Content */}
-      {items.map(item => <ItemCard key={item.id} item={item} />)}
+      {items.map(item => <ItemCard key={item.id} item=\{item\} />)}
     </div>
   );
 }

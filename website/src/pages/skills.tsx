@@ -192,7 +192,7 @@ export default function SkillsGallery(): JSX.Element {
             </div>
           </div>
 
-          {/* Popular Tags - Always Visible */}
+          {/* Popular Tags - Quick filtering by most-used tags */}
           <div style={{
             marginBottom: '16px',
             display: 'flex',
@@ -209,8 +209,8 @@ export default function SkillsGallery(): JSX.Element {
               color: '#495057',
               fontWeight: 'bold',
               marginRight: '4px',
-            }}>
-              Popular:
+            }} title="Quick access to frequently used tags">
+              Quick Filter:
             </span>
             {popularTags.map((tag) => {
               const isSelected = selectedTags.includes(tag.id);
@@ -271,8 +271,8 @@ export default function SkillsGallery(): JSX.Element {
             </button>
           </div>
 
-          {/* Category Filter */}
-          <div className="category-filter">
+          {/* View Controls */}
+          <div className="category-filter" style={{ justifyContent: 'flex-start' }}>
             {/* View Mode Toggle */}
             <div style={{ display: 'flex', border: '2px solid #808080', marginRight: '8px' }}>
               <button
@@ -319,22 +319,21 @@ export default function SkillsGallery(): JSX.Element {
             >
               ★ Starred ({getStarredCount()})
             </button>
-            {SKILL_CATEGORIES.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className="win31-push-button"
-                style={{
-                  fontSize: '14px',
-                  padding: '10px 20px',
-                  background: selectedCategory === category ? 'var(--win31-blue)' : 'var(--win31-gray)',
-                  color: selectedCategory === category ? 'white' : 'black',
-                  fontWeight: selectedCategory === category ? 'bold' : 'normal',
-                }}
-              >
-                {category === 'all' ? 'All Skills' : category} ({categoryCounts[category] || 0})
-              </button>
-            ))}
+            {/* All Skills Button */}
+            <button
+              onClick={handleResetFilters}
+              className="win31-push-button"
+              style={{
+                fontSize: '14px',
+                padding: '10px 20px',
+                background: selectedCategory === 'all' && !showStarredOnly && selectedTags.length === 0 && !searchQuery ? 'var(--win31-blue)' : 'var(--win31-gray)',
+                color: selectedCategory === 'all' && !showStarredOnly && selectedTags.length === 0 && !searchQuery ? 'white' : 'black',
+                fontWeight: selectedCategory === 'all' && !showStarredOnly && selectedTags.length === 0 && !searchQuery ? 'bold' : 'normal',
+              }}
+              title="Clear all filters and show all skills"
+            >
+              All Skills ({ALL_SKILLS.length})
+            </button>
           </div>
 
           {/* Tag Filter Panel */}
@@ -343,10 +342,10 @@ export default function SkillsGallery(): JSX.Element {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                 <div>
                   <h3 className="win31-font" style={{ margin: 0, fontSize: '14px', color: 'var(--win31-navy)' }}>
-                    Filter by Tags
+                    Browse All Tags
                   </h3>
                   <p className="win31-font" style={{ margin: '4px 0 0 0', fontSize: '11px', color: '#666', fontStyle: 'italic' }}>
-                    Shows skills matching <strong>any</strong> selected tag
+                    Organized by <strong>purpose</strong> (what it does) and <strong>domain</strong> (subject area) • Matches skills with <strong>any</strong> selected tag
                   </p>
                 </div>
                 {selectedTags.length > 0 && (

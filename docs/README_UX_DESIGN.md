@@ -251,13 +251,13 @@ docs/
 **What:** Gallery of demos + embedded videos on skill pages
 **Why:** Visual learning, show real results
 **Key Component:** `VideoCard` (thumbnail + player)
-**Metrics:** 25% video view rate, 70% completion for <3min videos
+**Metrics:** 25% video view rate, 70% completion for &lt;3min videos
 
 ### Feature 4: Onboarding Flow
 **What:** First-visit modal with 3 path options
 **Why:** Immediate value, reduce bounce rate
 **Key Component:** `OnboardingModal` (path selection)
-**Metrics:** 30% onboarding completion, <30% bounce
+**Metrics:** 30% onboarding completion, &lt;30% bounce
 
 ### Feature 5: User Journey Maps
 **What:** Optimized paths for 4 user personas

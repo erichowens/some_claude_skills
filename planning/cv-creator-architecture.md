@@ -326,8 +326,8 @@ class TemplateEngine {
    - Only list skills mentioned elsewhere in resume
 
 4. **Education**
-   - Degree, Institution, Year (optional if >10 years ago)
-   - GPA only if recent (<5 years) and strong (>3.5)
+   - Degree, Institution, Year (optional if &gt;10 years ago)
+   - GPA only if recent (&lt;5 years) and strong (&gt;3.5)
    - No coursework unless applying for first job
 
 ### ATS Compliance Checklist
@@ -432,7 +432,7 @@ A well-generated resume should achieve:
 - **Keyword Coverage**: 80%+ of required keywords from job description
 - **Length**: 1-2 pages (strict limit)
 - **Formatting**: 0 parsing errors when tested through ATS simulator
-- **Readability**: Scannable in <30 seconds by human recruiter
+- **Readability**: Scannable in &lt;30 seconds by human recruiter
 - **Uniqueness**: Differentiated positioning vs. 80%+ of competitive set
 
 ## Future Enhancements
@@ -460,7 +460,7 @@ This skill is NOT appropriate for:
 **Cause**: Complex formatting, tables, or unusual fonts
 **Fix**: Switch to "minimalist" template, remove any custom styling
 
-### Issue: Resume is too long (>2 pages)
+### Issue: Resume is too long (&gt;2 pages)
 **Cause**: Including every role and detail from career history
 **Fix**: Consolidate older roles, remove irrelevant positions, trim bullet points to 1 line
 
