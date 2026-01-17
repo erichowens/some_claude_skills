@@ -301,7 +301,7 @@ class ClinicalDashboard:
 ## Performance Benchmarks
 
 **mellifluo.us Production Targets:**
-- **Latency**: < 200ms end-to-end (audio → feedback)
+- **Latency**: &lt; 200ms end-to-end (audio → feedback)
 - **Accuracy**: 94.2% agreement with human SLP (PERCEPT-R)
 - **Uptime**: 99.9% availability
 - **Scalability**: 10,000+ concurrent users

@@ -93,7 +93,7 @@ pip install heartpy neurokit2 scipy numpy pandas matplotlib
 - ✅ Good recovery capacity
 - ✅ Cardiovascular health
 
-**Low HRV** (RMSSD < 20ms, SDNN < 50ms):
+**Low HRV** (RMSSD &lt; 20ms, SDNN &lt; 50ms):
 - ⚠️ Chronic stress or overtraining
 - ⚠️ Poor recovery
 - ⚠️ Sympathetic dominance
@@ -113,7 +113,7 @@ pip install heartpy neurokit2 scipy numpy pandas matplotlib
 3. **Externally-Oriented Thinking** (EOT) - Focus on external over internal
 
 **TAS-20 Scoring:**
-- Score < 51: Non-alexithymia
+- Score &lt; 51: Non-alexithymia
 - Score 52-60: Possible alexithymia
 - Score > 61: Alexithymia
 

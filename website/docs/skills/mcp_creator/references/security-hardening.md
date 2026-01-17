@@ -96,7 +96,7 @@ const users = await knex("users")
 
 // ❌ BAD: String concatenation
 const result = await pool.query(
-  `SELECT * FROM users WHERE id = '$\{userId\}'`  // SQL INJECTION!
+  `SELECT * FROM users WHERE id = '${userId}'`  // SQL INJECTION!
 );
 ```
 
@@ -122,7 +122,7 @@ async function runGitCommand(args: string[]) {
 
 // ❌ BAD: exec with string
 import { exec } from "child_process";
-exec(`git $\{userInput\}`);  // COMMAND INJECTION!
+exec(`git ${userInput}`);  // COMMAND INJECTION!
 ```
 
 ### Path Traversal Prevention
@@ -153,7 +153,7 @@ await fs.readFile(filePath);
 function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) {
-    throw new Error(`Required environment variable $\{name\} is not set`);
+    throw new Error(`Required environment variable ${name} is not set`);
   }
   return value;
 }
@@ -173,7 +173,7 @@ const client = new SecretManagerServiceClient();
 
 async function getSecret(name: string): Promise<string> {
   const [version] = await client.accessSecretVersion({
-    name: `projects/my-project/secrets/$\{name\}/versions/latest`,
+    name: `projects/my-project/secrets/${name}/versions/latest`,
   });
 
   return version.payload?.data?.toString() || "";
@@ -335,7 +335,7 @@ async function checkPermission(
   action: string
 ): Promise<boolean> {
   const permissions = await getPermissions(userId);
-  return permissions.includes(`$\{resource\}:$\{action\}`);
+  return permissions.includes(`${resource}:${action}`);
 }
 
 // In handler
@@ -355,7 +355,7 @@ const scryptAsync = promisify(scrypt);
 async function hashPassword(password: string): Promise<string> {
   const salt = randomBytes(16).toString("hex");
   const hash = await scryptAsync(password, salt, 64) as Buffer;
-  return `$\{salt\}:${hash.toString("hex")}`;
+  return `${salt}:${hash.toString("hex")}`;
 }
 
 // ✅ Good: Timing-safe comparison

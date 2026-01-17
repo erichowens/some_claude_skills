@@ -2,6 +2,7 @@
 name: skill-architect
 description: Authoritative meta-skill for creating, auditing, and improving Agent Skills. Combines skill-coach expertise with skill-creator workflows. Use for skill creation, validation, improvement, activation debugging, and progressive disclosure design. NOT for general Claude Code features, runtime debugging, or non-skill coding.
 allowed-tools: Read,Write,Edit,Bash
+slug: /skills/skill_architect
 ---
 
 # Skill Architect: The Authoritative Meta-Skill

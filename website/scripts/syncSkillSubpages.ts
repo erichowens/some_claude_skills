@@ -7,12 +7,16 @@
  * - index.md (main skill page)
  * - references/*.md (subpages for each reference)
  *
+ * IMPORTANT: All content is sanitized for MDX compatibility before writing.
+ * This prevents angle bracket issues (<T>, <100, etc.) from breaking builds.
+ *
  * Run: npx tsx scripts/syncSkillSubpages.ts
  * Or: npm run sync:subpages
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { sanitizeForMdx } from './lib/mdx-sanitizer';
 
 const SKILLS_DIR = path.resolve(__dirname, '../../.claude/skills');
 const DOCS_DIR = path.resolve(__dirname, '../docs/skills');
@@ -36,68 +40,13 @@ function titleCase(str: string): string {
     .replace(/\b\w/g, c => c.toUpperCase());
 }
 
-function escapeAngleBrackets(content: string): string {
-  // Escape angle brackets and curly braces that could be interpreted as JSX
-  // MDX interprets {variable} as JSX expressions even in code blocks without language specifiers
-
-  const lines = content.split('\n');
-  const result: string[] = [];
-  let inCodeBlock = false;
-  let inFrontmatter = false;
-  let frontmatterCount = 0;
-
-  // Only track frontmatter if file actually starts with ---
-  // Otherwise, all --- are horizontal rules and should be ignored
-  const hasFrontmatter = lines[0] === '---';
-
-  for (const line of lines) {
-    if (line.startsWith('```')) {
-      inCodeBlock = !inCodeBlock;
-      result.push(line);
-      continue;
-    }
-
-    // Only track frontmatter delimiters if file has frontmatter
-    if (hasFrontmatter && line === '---' && !inCodeBlock && frontmatterCount < 2) {
-      frontmatterCount++;
-      if (frontmatterCount === 1) {
-        inFrontmatter = true;
-      } else if (frontmatterCount === 2) {
-        inFrontmatter = false;
-      }
-      result.push(line);
-      continue;
-    }
-
-    // Skip frontmatter entirely
-    if (inFrontmatter) {
-      result.push(line);
-      continue;
-    }
-
-    let escapedLine = line;
-
-    // Only escape angle brackets outside code blocks
-    if (!inCodeBlock) {
-      // Escape < that isn't part of a valid HTML/JSX tag or code fence
-      // Match < followed by anything that isn't a letter or / (valid tag start)
-      escapedLine = escapedLine.replace(/<(?![a-zA-Z\/!])/g, '\\<');
-
-      // Escape > followed by digits (e.g., >30, >100ms) which MDX interprets as JSX
-      escapedLine = escapedLine.replace(/>(\d)/g, '\\>$1');
-    }
-
-    // Escape curly braces that look like placeholders EVERYWHERE (including code blocks)
-    // MDX interprets {variable} as JSX expressions even in code blocks without language specifiers
-    // Use negative lookbehind to skip already-escaped braces: (?<!\\)
-    // Patterns: {Customer Name}, {first_name}, {Name}, etc.
-    escapedLine = escapedLine.replace(/(?<!\\)\{([A-Z][^}]*)\}/g, '\\{$1\\}'); // {Customer Name}, {Name}
-    escapedLine = escapedLine.replace(/(?<!\\)\{([a-z_][a-z0-9_]*)\}/gi, '\\{$1\\}'); // {first_name}, {name}
-
-    result.push(escapedLine);
-  }
-
-  return result.join('\n');
+/**
+ * Sanitize content for MDX compatibility using the central sanitizer.
+ * Handles angle brackets, curly braces, and other JSX-conflicting patterns.
+ */
+function sanitizeContent(content: string): string {
+  const result = sanitizeForMdx(content, { useHtmlEntities: true });
+  return result.content;
 }
 
 function escapeYamlValue(value: string): string {
@@ -235,14 +184,14 @@ function syncSubpagesToFolder(skillId: string, folderPath: string, subpages: Ski
       let finalContent: string;
       if (hasFrontmatter) {
         // Use existing content as-is, but escape angle brackets
-        finalContent = escapeAngleBrackets(sourceContent);
+        finalContent = sanitizeContent(sourceContent);
       } else {
         // Extract title from first heading or filename
         const headingMatch = sourceContent.match(/^#\s+(.+)$/m);
         const title = headingMatch ? headingMatch[1] : titleCase(fileName.replace('.md', ''));
         const sidebarLabel = title.length > 30 ? title.substring(0, 27) + '...' : title;
 
-        finalContent = generateFrontmatter(title, sidebarLabel, i + 1) + escapeAngleBrackets(sourceContent);
+        finalContent = generateFrontmatter(title, sidebarLabel, i + 1) + sanitizeContent(sourceContent);
       }
 
       // Write or update

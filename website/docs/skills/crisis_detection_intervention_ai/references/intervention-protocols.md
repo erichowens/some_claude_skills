@@ -11,7 +11,7 @@ Evidence-based intervention strategies for mental health crisis response.
 
 **Critical Rule**: AI detects, humans intervene.
 
-**Timeline**: From detection to human contact should be \&lt;15 minutes for immediate crises.
+**Timeline**: From detection to human contact should be &lt;15 minutes for immediate crises.
 
 ---
 
@@ -19,10 +19,10 @@ Evidence-based intervention strategies for mental health crisis response.
 
 | Severity | Response Time | Actions | Human Involvement |
 |----------|---------------|---------|-------------------|
-| **Immediate** | \&lt;5 minutes | 988 modal (blocking), notify on-call, SMS backup | Required immediately |
-| **High** | \&lt;1 hour | Crisis resources, notify on-call, email backup | Required within 1 hour |
-| **Medium** | \&lt;24 hours | In-app resources, add to review queue | Review next business day |
-| **Low** | \&lt;72 hours | Supportive resources, add to queue | Review within 3 days |
+| **Immediate** | &lt;5 minutes | 988 modal (blocking), notify on-call, SMS backup | Required immediately |
+| **High** | &lt;1 hour | Crisis resources, notify on-call, email backup | Required within 1 hour |
+| **Medium** | &lt;24 hours | In-app resources, add to review queue | Review next business day |
+| **Low** | &lt;72 hours | Supportive resources, add to queue | Review within 3 days |
 | **None** | N/A | No action | No action |
 
 ---
@@ -421,9 +421,9 @@ async function escalateIfNoResponse(detection: CrisisDetection): Promise<void> {
 - ✅ Annually: Full protocol review with clinical team
 
 **Metrics to track**:
-- Response time (goal: \&lt;5 min for immediate)
-- False positive rate (goal: \&lt;10%)
-- False negative rate (goal: \&lt;5%)
+- Response time (goal: &lt;5 min for immediate)
+- False positive rate (goal: &lt;10%)
+- False negative rate (goal: &lt;5%)
 - User outcome (did intervention help?)
 - Counselor satisfaction
 

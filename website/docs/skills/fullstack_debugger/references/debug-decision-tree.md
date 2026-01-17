@@ -150,7 +150,7 @@ What's happening vs expected?
 
 ```bash
 # 1. Is the site even reachable?
-curl -s -o /dev/null -w "%\{http_code\}" https://yoursite.com
+curl -s -o /dev/null -w "%{http_code}" https://yoursite.com
 
 # 2. Is the API working?
 curl -s https://your-worker.workers.dev/health

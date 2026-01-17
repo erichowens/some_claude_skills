@@ -63,6 +63,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 10,
     "folderCount": 1
   },
+  "background-job-orchestrator": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 2
+  },
   "bot-developer": {
     "hasContent": true,
     "fileCount": 6,
@@ -123,6 +128,16 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 6,
     "folderCount": 2
   },
+  "computer-vision-pipeline": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
+  },
+  "crisis-detection-intervention-ai": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
+  },
   "crisis-response-protocol": {
     "hasContent": false,
     "fileCount": 1,
@@ -164,6 +179,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "folderCount": 0
   },
   "dag-execution-tracer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dag-executor": {
     "hasContent": false,
     "fileCount": 1,
     "folderCount": 0
@@ -283,6 +303,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 2,
     "folderCount": 1
   },
+  "document-generation-pdf": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
+  },
   "drizzle-migrations": {
     "hasContent": false,
     "fileCount": 1,
@@ -318,10 +343,25 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 1,
     "folderCount": 0
   },
+  "form-validation-architect": {
+    "hasContent": true,
+    "fileCount": 9,
+    "folderCount": 4
+  },
   "fullstack-debugger": {
     "hasContent": true,
     "fileCount": 7,
     "folderCount": 2
+  },
+  "geospatial-data-pipeline": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
+  },
+  "github-actions-pipeline-builder": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 4
   },
   "grief-companion": {
     "hasContent": true,
@@ -383,6 +423,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 1,
     "folderCount": 0
   },
+  "llm-streaming-response-handler": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
+  },
   "maximalist-wall-decorator": {
     "hasContent": true,
     "fileCount": 2,
@@ -392,6 +437,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 8,
     "folderCount": 2
+  },
+  "mdx-sanitizer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "metal-shader-expert": {
     "hasContent": true,
@@ -458,6 +508,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 1
   },
+  "product-appeal-analyzer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 2
+  },
   "project-management-guru-adhd": {
     "hasContent": true,
     "fileCount": 6,
@@ -472,6 +527,21 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 7,
     "folderCount": 1
+  },
+  "react-performance-optimizer": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
+  },
+  "reactive-dashboard-performance": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "real-time-collaboration-engine": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 3
   },
   "recovery-app-legal-terms": {
     "hasContent": true,
@@ -528,14 +598,19 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 7,
     "folderCount": 2
   },
+  "skill-architect": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
+  },
   "skill-coach": {
     "hasContent": true,
-    "fileCount": 17,
+    "fileCount": 18,
     "folderCount": 19
   },
   "skill-creator": {
     "hasContent": true,
-    "fileCount": 5,
+    "fileCount": 6,
     "folderCount": 1
   },
   "skill-documentarian": {
@@ -552,6 +627,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "hasContent": true,
     "fileCount": 2,
     "folderCount": 1
+  },
+  "sobriety-tools-guardian": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 3
   },
   "sound-engineer": {
     "hasContent": true,
@@ -618,6 +698,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 2,
     "folderCount": 1
   },
+  "video-processing-editing": {
+    "hasContent": true,
+    "fileCount": 6,
+    "folderCount": 2
+  },
   "vitest-testing-patterns": {
     "hasContent": false,
     "fileCount": 1,
@@ -669,6 +754,7 @@ export const skillsWithContent = [
   "ai-video-production-master",
   "api-architect",
   "automatic-stateful-prompt-improver",
+  "background-job-orchestrator",
   "bot-developer",
   "career-biographer",
   "claude-ecosystem-promoter",
@@ -679,6 +765,8 @@ export const skillsWithContent = [
   "color-contrast-auditor",
   "color-theory-palette-harmony-expert",
   "competitive-cartographer",
+  "computer-vision-pipeline",
+  "crisis-detection-intervention-ai",
   "cv-creator",
   "data-pipeline-engineer",
   "data-viz-2025",
@@ -687,11 +775,15 @@ export const skillsWithContent = [
   "devops-automator",
   "diagramming-expert",
   "digital-estate-planner",
+  "document-generation-pdf",
   "drone-cv-expert",
   "drone-inspection-specialist",
   "event-detection-temporal-intelligence-expert",
   "fancy-yard-landscaper",
+  "form-validation-architect",
   "fullstack-debugger",
+  "geospatial-data-pipeline",
+  "github-actions-pipeline-builder",
   "grief-companion",
   "hand-drawn-infographic-creator",
   "hr-network-analyst",
@@ -700,6 +792,7 @@ export const skillsWithContent = [
   "interior-design-expert",
   "jungian-psychologist",
   "large-scale-map-visualization",
+  "llm-streaming-response-handler",
   "maximalist-wall-decorator",
   "mcp-creator",
   "metal-shader-expert",
@@ -713,8 +806,11 @@ export const skillsWithContent = [
   "photo-composition-critic",
   "photo-content-recognition-curation-expert",
   "physics-rendering-expert",
+  "product-appeal-analyzer",
   "project-management-guru-adhd",
   "pwa-expert",
+  "react-performance-optimizer",
+  "real-time-collaboration-engine",
   "recovery-app-legal-terms",
   "recovery-app-onboarding",
   "recovery-community-moderator",
@@ -723,11 +819,13 @@ export const skillsWithContent = [
   "security-auditor",
   "seo-visibility-expert",
   "site-reliability-engineer",
+  "skill-architect",
   "skill-coach",
   "skill-creator",
   "skill-documentarian",
   "skill-logger",
   "sober-addict-protector",
+  "sobriety-tools-guardian",
   "sound-engineer",
   "speech-pathology-ai",
   "supabase-admin",
@@ -737,6 +835,7 @@ export const skillsWithContent = [
   "typography-expert",
   "vaporwave-glassomorphic-ui-designer",
   "vibe-matcher",
+  "video-processing-editing",
   "voice-audio-engineer",
   "web-design-expert",
   "wedding-immortalist",

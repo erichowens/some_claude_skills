@@ -477,7 +477,7 @@ export function WeddingViewer({ spaces, moments, onMomentClick }: WeddingViewerP
    - Solution: Increase opacity pruning, reduce learning rate
 
 3. **Blurry reconstruction**: Motion blur in source images
-   - Solution: Filter frames with Laplacian variance < 100
+   - Solution: Filter frames with Laplacian variance &lt; 100
 
 4. **Memory errors**: Too many gaussians
    - Solution: Reduce densification, increase pruning

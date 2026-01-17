@@ -133,7 +133,7 @@ class GaussianSplatInspectionTool:
         nearby = []
         for cam_idx, camera in enumerate(self.model.cameras):
             dist = np.linalg.norm(camera.position - point_3d)
-            if dist < radius:
+            if dist &lt; radius:
                 nearby.append({
                     'camera_idx': cam_idx,
                     'distance': dist,
@@ -204,7 +204,7 @@ class PropertyAssessmentSystem:
                 )
                 
                 # Trees within 20ft are risk
-                if distance_to_building < 20:  # feet
+                if distance_to_building &lt; 20:  # feet
                     issues.append({
                         'type': 'TREE_TOO_CLOSE',
                         'severity': 'MEDIUM',

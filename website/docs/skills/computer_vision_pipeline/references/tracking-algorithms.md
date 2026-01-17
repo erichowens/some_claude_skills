@@ -188,7 +188,7 @@ while True:
 
         cv2.rectangle(frame, (int(ltrb[0]), int(ltrb[1])),
                       (int(ltrb[2]), int(ltrb[3])), (0, 255, 0), 2)
-        cv2.putText(frame, f'ID \{track_id\}', (int(ltrb[0]), int(ltrb[1])-10),
+        cv2.putText(frame, f'ID {track_id}', (int(ltrb[0]), int(ltrb[1])-10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 ```
 
@@ -253,7 +253,7 @@ for result in results:
             conf = float(box.conf[0])
             cls = int(box.cls[0])
 
-            print(f'Track \{track_id\}: {result.names[cls]} ({conf:.2f})')
+            print(f'Track {track_id}: {result.names[cls]} ({conf:.2f})')
 ```
 
 **Custom ByteTrack Config** (`bytetrack.yaml`):

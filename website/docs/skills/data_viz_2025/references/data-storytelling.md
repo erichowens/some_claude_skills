@@ -32,7 +32,7 @@ Every data story follows a structure:
 
 **❌ Data-First Approach:**
 ```typescript
-<BarChart data=\{sales\} title="Q4 Sales by Channel" />
+<BarChart data={sales} title="Q4 Sales by Channel" />
 ```
 *User must discover the insight themselves*
 
@@ -44,7 +44,7 @@ Every data story follows a structure:
     Mobile now drives 60% of revenue, up from 30% last quarter
   </p>
   <BarChart
-    data=\{sales\}
+    data={sales}
     highlightCategory="Mobile"
     annotation="2x growth"
   />
@@ -57,7 +57,7 @@ Every data story follows a structure:
 Don't make users hunt for insights. Point them out.
 
 ```typescript
-<LineChart data=\{revenue\}>
+<LineChart data={revenue}>
   <ReferenceLine
     x="2020-03-15"
     stroke="#dc2626"
@@ -111,13 +111,13 @@ Reveal complexity gradually. Start simple, allow drilling down.
 // Level 2: Expand to show trend
 <details>
   <summary>View trend</summary>
-  <LineChart data=\{quarterlyRevenue\} height={150} />
+  <LineChart data={quarterlyRevenue} height={150} />
 </details>
 
 // Level 3: Full breakdown
 <details>
   <summary>View breakdown by channel</summary>
-  <BarChart data=\{revenueByChannel\} height={300} />
+  <BarChart data={revenueByChannel} height={300} />
 </details>
 ```
 
@@ -142,9 +142,9 @@ export const ScrollytellingChart = () => {
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
 
   return (
-    <div ref=\{containerRef\} className="min-h-screen flex items-center">
+    <div ref={containerRef} className="min-h-screen flex items-center">
       <motion.div style={{ opacity, scale }}>
-        <LineChart data=\{data\} />
+        <LineChart data={data} />
       </motion.div>
     </div>
   );
@@ -195,7 +195,7 @@ Show the impact of changes by comparing states.
 <div className="before-after">
   <div className="before">
     <h3>Before Optimization</h3>
-    <BarChart data=\{beforeData\} color="#dc2626" />
+    <BarChart data={beforeData} color="#dc2626" />
     <p className="metric">Avg Load Time: 3.2s</p>
   </div>
 
@@ -203,7 +203,7 @@ Show the impact of changes by comparing states.
 
   <div className="after">
     <h3>After Optimization</h3>
-    <BarChart data=\{afterData\} color="#059669" />
+    <BarChart data={afterData} color="#059669" />
     <p className="metric">Avg Load Time: 0.8s</p>
     <p className="improvement"&gt;75% faster ✓</p>
   </div>
@@ -217,8 +217,8 @@ Use Tufte's small multiples to tell a comparative story.
 ```typescript
 <div className="grid grid-cols-3 gap-4">
   {regions.map(region => (
-    <div key=\{region\} className="region-card">
-      <h4>\{region\}</h4>
+    <div key={region} className="region-card">
+      <h4>{region}</h4>
       <Sparkline data={salesByRegion[region]} />
       <p className="insight">
         {generateInsight(salesByRegion[region])}
@@ -234,8 +234,8 @@ const generateInsight = (data: DataPoint[]) => {
   const trend = calculateTrend(data);
   const peak = findPeak(data);
 
-  if (trend > 20) return `Strong growth (+$\{trend\}%)`;
-  if (trend < -20) return `Declining ($\{trend\}%)`;
+  if (trend > 20) return `Strong growth (+${trend}%)`;
+  if (trend < -20) return `Declining (${trend}%)`;
   if (peak.recent) return `Recent peak in ${peak.month}`;
 
   return `Stable performance`;
@@ -258,7 +258,7 @@ const colors = {
 
 // Highlight the important bar
 <BarChart
-  data=\{data\}
+  data={data}
   colors={data.map(d =>
     d.category === 'Mobile' ? colors.highlight : colors.neutral
   )}
@@ -271,7 +271,7 @@ Show "better than" vs "worse than" with diverging colors.
 
 ```typescript
 <Heatmap
-  data=\{performance\}
+  data={performance}
   colorScale={{
     type: 'diverging',
     domain: [-100, 0, 100],
@@ -295,11 +295,11 @@ const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   <div className="filters">
     {categories.map(cat => (
       <button
-        key=\{cat\}
+        key={cat}
         onClick={() => setSelectedCategory(cat)}
         className={selectedCategory === cat ? 'active' : ''}
       >
-        \{cat\}
+        {cat}
       </button>
     ))}
   </div>
@@ -314,7 +314,7 @@ const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
       <LineChart
         data={filterData(data, selectedCategory)}
       />
-      <Insight category=\{selectedCategory\} />
+      <Insight category={selectedCategory} />
     </motion.div>
   </AnimatePresence>
 </div>
@@ -330,7 +330,7 @@ const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
       <p className="value">${dataPoint.value.toLocaleString()}</p>
       <p className="comparison">
         {dataPoint.changePercent > 0 ? '↑' : '↓'}
-        \{Math.abs(dataPoint.changePercent)\}% vs last period
+        {Math.abs(dataPoint.changePercent)}% vs last period
       </p>
       <p className="insight">{dataPoint.insight}</p>
     </div>
@@ -349,7 +349,7 @@ Arrange dashboard widgets to tell a story from top to bottom.
   {/* 1. HOOK - Most important insight */}
   <section className="hero-insight">
     <h1>Revenue Up 32% This Quarter</h1>
-    <BigNumber value=\{revenue\} change={+32} />
+    <BigNumber value={revenue} change={+32} />
   </section>
 
   {/* 2. CONTEXT - What's driving this? */}
@@ -365,8 +365,8 @@ Arrange dashboard widgets to tell a story from top to bottom.
   {/* 3. EVIDENCE - Detailed charts */}
   <section className="details">
     <h2>Detailed Performance</h2>
-    <LineChart data=\{revenueOverTime\} />
-    <BarChart data=\{revenueByChannel\} />
+    <LineChart data={revenueOverTime} />
+    <BarChart data={revenueByChannel} />
   </section>
 
   {/* 4. CONCLUSION - What's next? */}
@@ -422,7 +422,7 @@ const generateInsight = async (data: DataPoint[]) => {
         Analyze this sales data and provide ONE key insight (max 20 words).
         Be specific with numbers. Suggest one action.
 
-        Data: $\{JSON.stringify(data)\}
+        Data: ${JSON.stringify(data)}
       `
     })
   });
@@ -454,7 +454,7 @@ The New York Times' COVID economic impact story exemplifies data storytelling:
     </Narrative>
     <Chart>
       <LineChart
-        data=\{unemployment\}
+        data={unemployment}
         highlightRange={['2020-03', '2020-04']}
         annotation="33M jobs lost in 2 months"
       />
@@ -468,7 +468,7 @@ The New York Times' COVID economic impact story exemplifies data storytelling:
     </Narrative>
     <Chart>
       <LineChart
-        data=\{techEmployment\}
+        data={techEmployment}
         compareBaseline="2020-02"
       />
     </Chart>
@@ -481,7 +481,7 @@ The New York Times' COVID economic impact story exemplifies data storytelling:
     </Narrative>
     <Chart>
       <LineChart
-        data=\{serviceEmployment\}
+        data={serviceEmployment}
         highlightGap="15% below baseline"
       />
     </Chart>
@@ -495,7 +495,7 @@ The New York Times' COVID economic impact story exemplifies data storytelling:
 
 ```typescript
 <figure>
-  <Chart data=\{data\} />
+  <Chart data={data} />
 
   <figcaption className="sr-only">
     {generateTextDescription(data)}
@@ -513,8 +513,8 @@ const generateTextDescription = (data: DataPoint[]) => {
 
   return `
     Line chart showing ${data.length} months of sales data.
-    Overall trend is ${trend > 0 ? 'increasing' : 'decreasing'} by $\{Math.abs(trend)\}%.
-    Peak occurred in $\{maxMonth\} with ${max.toLocaleString()} sales.
+    Overall trend is ${trend > 0 ? 'increasing' : 'decreasing'} by ${Math.abs(trend)}%.
+    Peak occurred in ${maxMonth} with ${max.toLocaleString()} sales.
   `;
 };
 ```

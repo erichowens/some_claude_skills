@@ -2,11 +2,15 @@
  * Documentation Generator
  *
  * Generates docs/skills/*.md files from SKILL.md content.
+ *
+ * IMPORTANT: All content is sanitized for MDX compatibility before writing.
+ * This prevents angle bracket issues (<T>, <100, etc.) from breaking builds.
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { ParsedSkill, SKILL_CATEGORIES } from './types';
+import { sanitizeForMdx } from './mdx-sanitizer';
 
 // =============================================================================
 // DOC GENERATION
@@ -178,7 +182,7 @@ ${content}`;
       }
 
       // Sanitize MDX-incompatible content
-      content = sanitizeForMdx(content);
+      content = sanitizeMdxContent(content);
 
       fs.writeFileSync(destPath, content, 'utf-8');
       generated.push({ path: destPath, skill: skillId, type: 'reference' });
@@ -200,19 +204,13 @@ function extractTitleOrDefault(content: string, filename: string): string {
   return toTitleCase(path.basename(filename, '.md'));
 }
 
-function sanitizeForMdx(content: string): string {
-  // Replace problematic HTML-like tags in markdown context
-  // This handles cases like `<link>` that MDX interprets as JSX
-
-  // Replace standalone <link> tags (not in code blocks)
-  content = content.replace(/(?<!`)<link>(?!`)/gi, '[URL]');
-  content = content.replace(/(?<!`)<\/link>(?!`)/gi, '');
-
-  // Replace other problematic self-closing tags
-  content = content.replace(/(?<!`)<br>(?!`)/gi, '<br />');
-  content = content.replace(/(?<!`)<hr>(?!`)/gi, '<hr />');
-
-  return content;
+/**
+ * Sanitize content using the central MDX sanitizer.
+ * This is a thin wrapper that ensures consistent sanitization across all generators.
+ */
+function sanitizeMdxContent(content: string): string {
+  const result = sanitizeForMdx(content, { useHtmlEntities: true });
+  return result.content;
 }
 
 // =============================================================================

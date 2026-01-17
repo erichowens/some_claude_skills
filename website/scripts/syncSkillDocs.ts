@@ -6,12 +6,16 @@
  * Extracts: name, description, tools, triggers from frontmatter
  * Updates: SkillHeader component props in the doc file
  *
+ * IMPORTANT: All content is sanitized for MDX compatibility before writing.
+ * This prevents angle bracket issues (<T>, <100, etc.) from breaking builds.
+ *
  * Run: npx tsx scripts/syncSkillDocs.ts
  * Or: npm run sync:skills
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { sanitizeForMdx } from './lib/mdx-sanitizer';
 
 const SKILLS_DIR = path.resolve(__dirname, '../../.claude/skills');
 const DOCS_DIR = path.resolve(__dirname, '../docs/skills');
@@ -77,7 +81,7 @@ function createDocFile(skillId: string, skillMdPath: string): { created: boolean
   //     - Write
   // To:
   //   allowed-tools: Read,Write,Edit
-  const transformedContent = content.replace(
+  let transformedContent = content.replace(
     /^(allowed-tools:)\n((?:\s+-\s+.+\n?)+)/m,
     (match, prefix, toolsBlock) => {
       const tools = toolsBlock
@@ -89,13 +93,20 @@ function createDocFile(skillId: string, skillMdPath: string): { created: boolean
     }
   );
 
+  // Sanitize for MDX compatibility (escape angle brackets, etc.)
+  const sanitizationResult = sanitizeForMdx(transformedContent);
+  if (sanitizationResult.modified) {
+    console.log(`   🔧 Sanitized ${sanitizationResult.issues.length} MDX issue(s)`);
+    transformedContent = sanitizationResult.content;
+  }
+
   // Ensure the docs/skills directory exists
   if (!fs.existsSync(DOCS_DIR)) {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
   }
 
   fs.writeFileSync(docPath, transformedContent);
-  return { created: true };
+  return { updated: true, created: true };
 }
 
 function updateDocFile(skillId: string, frontmatter: SkillFrontmatter, skillMdPath: string): { updated: boolean; created?: boolean; reason?: string } {

@@ -2,6 +2,7 @@
 name: sobriety-tools-guardian
 description: Performance optimization and continuous improvement for sobriety.tools recovery app. Use for load time optimization, offline capability, crisis detection, performance monitoring, automated issue detection. Activate on "sobriety.tools", "recovery app perf", "crisis detection", "offline meetings", "HALT check-in", "sponsor contacts". NOT for general Next.js help, unrelated Cloudflare Workers, or non-recovery apps.
 allowed-tools: Read,Write,Edit,Bash,Grep,Glob,Task,WebFetch
+slug: /skills/sobriety_tools_guardian
 ---
 
 # Sobriety Tools Guardian
@@ -214,9 +215,9 @@ const Charts = dynamic(() => import('./Charts'), { loading: () => <ChartSkeleton
 ## Performance Optimization Checklist
 
 ### Before Every Deploy
-- [ ] Bundle size delta < 5KB
+- [ ] Bundle size delta &lt; 5KB
 - [ ] No new synchronous network calls in critical paths
-- [ ] Lighthouse performance score >= 90
+- [ ] Lighthouse performance score &gt;= 90
 - [ ] Offline mode tested (disable network in DevTools)
 
 ### Weekly Audit

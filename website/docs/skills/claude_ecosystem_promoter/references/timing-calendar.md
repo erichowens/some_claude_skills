@@ -242,11 +242,11 @@ For maximum reach, stagger announcements:
 
 | Platform | Target Response Time |
 |----------|---------------------|
-| Reddit comments | \< 30 minutes (first 4 hours) |
-| Twitter replies | \< 15 minutes (launch day) |
-| GitHub issues | \< 4 hours |
-| Discord questions | \< 1 hour |
-| Email inquiries | \< 24 hours |
+| Reddit comments | &lt; 30 minutes (first 4 hours) |
+| Twitter replies | &lt; 15 minutes (launch day) |
+| GitHub issues | &lt; 4 hours |
+| Discord questions | &lt; 1 hour |
+| Email inquiries | &lt; 24 hours |
 
 **Critical**: First 4 hours after posting determine success. Be fully available.
 

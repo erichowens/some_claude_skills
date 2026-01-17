@@ -22,7 +22,7 @@ Comprehensive directory of crisis hotlines, support services, and integration pa
 - Emotional support
 - Local resource referrals
 
-**Response time**: \&lt;1 minute
+**Response time**: &lt;1 minute
 
 **Integration**:
 ```typescript
@@ -52,7 +52,7 @@ const crisis988Modal = {
 - De-escalation techniques
 - Resource referrals
 
-**Response time**: \&lt;5 minutes
+**Response time**: &lt;5 minutes
 
 **Integration**:
 ```typescript
@@ -288,7 +288,7 @@ async function getLocalResources(
 ): Promise<LocalResource[]> {
   // Use SAMHSA Treatment Locator API
   const response = await fetch(
-    `https://findtreatment.samhsa.gov/locator/api/v1/facilities?zip=$\{zipCode\}&type=$\{serviceType\}`
+    `https://findtreatment.samhsa.gov/locator/api/v1/facilities?zip=${zipCode}&type=${serviceType}`
   );
 
   const facilities = await response.json();

@@ -80,7 +80,7 @@ Calculate:
 - Current savings: $Y
 - Runway: Y / X months
 
-**If runway \< 6 months:**
+**If runway &lt; 6 months:**
 URGENT: Get to first dollar FAST
 - Simplify MVP (1 week to launch)
 - Freelance 2 days/week ($200-300/hour ML consulting)

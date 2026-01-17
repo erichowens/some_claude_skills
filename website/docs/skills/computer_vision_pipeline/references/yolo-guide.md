@@ -85,12 +85,12 @@ for result in results:
         cls = box.cls[0]    # Class ID
         label = result.names[int(cls)]  # Class name
 
-        print(f"\{label\} {conf:.2f} at (\{x1\}, \{y1\}, \{x2\}, \{y2\})")
+        print(f"{label} {conf:.2f} at ({x1}, {y1}, {x2}, {y2})")
 
         # Draw on image
         img = result.orig_img
         cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
-        cv2.putText(img, f'\{label\} {conf:.2f}', (int(x1), int(y1)-10),
+        cv2.putText(img, f'{label} {conf:.2f}', (int(x1), int(y1)-10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
     cv2.imwrite('output.jpg', img)
@@ -153,7 +153,7 @@ results = model(image_paths)
 
 # Process results
 for i, result in enumerate(results):
-    print(f"Image \{i\}: {len(result.boxes)} detections")
+    print(f"Image {i}: {len(result.boxes)} detections")
 ```
 
 ---
@@ -296,7 +296,7 @@ print(f"Recall: {metrics.box.mr:.4f}")
 
 # Per-class metrics
 for i, ap in enumerate(metrics.box.ap50):
-    print(f"Class \{i\} AP50: {ap:.4f}")
+    print(f"Class {i} AP50: {ap:.4f}")
 ```
 
 ---
@@ -400,9 +400,9 @@ model.train(
 for batch_size in [4, 8, 16, 32, 64]:
     try:
         model.train(data='data.yaml', epochs=1, batch=batch_size)
-        print(f"Batch \{batch_size\}: OK")
+        print(f"Batch {batch_size}: OK")
     except RuntimeError as e:
-        print(f"Batch \{batch_size\}: OOM")
+        print(f"Batch {batch_size}: OOM")
         break
 ```
 

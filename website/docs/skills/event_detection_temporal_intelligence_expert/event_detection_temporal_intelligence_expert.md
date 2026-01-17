@@ -285,11 +285,11 @@ collage_photos = pipeline.select_for_collage(results, target_count=100)
 
 | Operation | Target |
 |-----------|--------|
-| ST-DBSCAN (10K photos) | < 2 seconds |
-| Event significance scoring | < 100ms/event |
-| Shareability prediction | < 50ms/photo |
-| Place recognition (cached) | < 10ms/photo |
-| Full pipeline (10K photos) | < 5 seconds |
+| ST-DBSCAN (10K photos) | &lt; 2 seconds |
+| Event significance scoring | &lt; 100ms/event |
+| Shareability prediction | &lt; 50ms/photo |
+| Place recognition (cached) | &lt; 10ms/photo |
+| Full pipeline (10K photos) | &lt; 5 seconds |
 
 ---
 

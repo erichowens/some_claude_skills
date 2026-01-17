@@ -514,7 +514,7 @@ function useSwipeNavigation({ onNext, onPrev, threshold = 50 }) {
 
 ### WCAG AA Compliance
 
-- **Contrast**: 4.5:1 for text < 18px, 3:1 for text >= 18px
+- **Contrast**: 4.5:1 for text &lt; 18px, 3:1 for text &gt;= 18px
 - **Touch targets**: Minimum 44x44px
 - **Focus indicators**: Visible outline on all interactive elements
 - **Screen readers**: Announce step changes with `aria-live`

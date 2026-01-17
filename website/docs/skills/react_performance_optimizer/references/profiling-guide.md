@@ -62,9 +62,9 @@ npm install -g react-devtools
 ### What Each Color Means
 
 **Colors** (gradient from green to yellow to red):
-- 🟢 **Green**: Fast render (\&lt;1ms)
+- 🟢 **Green**: Fast render (&lt;1ms)
 - 🟡 **Yellow**: Moderate render (1-10ms)
-- 🔴 **Red**: Slow render (\&gt;10ms)
+- 🔴 **Red**: Slow render (&gt;10ms)
 
 **Width**: How long the component took to render
 
@@ -145,11 +145,11 @@ App (50ms)              🔴
 
 ```typescript
 const Header = React.memo(({ title }) => {
-  return <header>\{title\}</header>;
+  return <header>{title}</header>;
 });
 
 const Content = React.memo(({ children }) => {
-  return <main>\{children\}</main>;
+  return <main>{children}</main>;
 });
 
 const Footer = React.memo(() => {
@@ -168,7 +168,7 @@ App (2ms)               🟢
 
 ### Pattern 2: List Renders Slowly
 
-**Symptom**: Rendering 1000-item list takes \&gt;500ms
+**Symptom**: Rendering 1000-item list takes &gt;500ms
 
 **Flame Graph**:
 ```
@@ -190,7 +190,7 @@ function UserList({ users }) {
       width="100%"
     >
       {({ index, style }) => (
-        <div style=\{style\}>
+        <div style={style}>
           <UserCard user={users[index]} />
         </div>
       )}
@@ -199,7 +199,7 @@ function UserList({ users }) {
 }
 ```
 
-**Result**: Render time drops to \&lt;50ms
+**Result**: Render time drops to &lt;50ms
 
 ```
 UserList (50ms)         🟢
@@ -236,11 +236,11 @@ function Parent() {
     console.log('clicked');
   }, []);
 
-  return <Child onClick=\{handleClick\} />;
+  return <Child onClick={handleClick} />;
 }
 
 const Child = React.memo(({ onClick }) => {
-  return <button onClick=\{onClick\}>Click me</button>;
+  return <button onClick={onClick}>Click me</button>;
 });
 ```
 
@@ -264,7 +264,7 @@ function ProductList({ products }) {
   // ❌ Sorts on every render
   const sorted = products.sort((a, b) => b.price - a.price);
 
-  return <div>{sorted.map(p => <Product product=\{p\} />)}</div>;
+  return <div>{sorted.map(p => <Product product={p} />)}</div>;
 }
 ```
 
@@ -278,7 +278,7 @@ function ProductList({ products }) {
     [products]
   );
 
-  return <div>{sorted.map(p => <Product product=\{p\} />)}</div>;
+  return <div>{sorted.map(p => <Product product={p} />)}</div>;
 }
 ```
 
@@ -339,12 +339,12 @@ import { unstable_trace as trace } from 'scheduler/tracing';
 
 | Metric | Excellent | Good | Needs Work |
 |--------|-----------|------|------------|
-| Component render time | \&lt;5ms | 5-16ms | \&gt;16ms (visible lag) |
-| Total page load | \&lt;1s | 1-3s | \&gt;3s |
-| Interaction response | \&lt;100ms | 100-300ms | \&gt;300ms (feels slow) |
-| List item render | \&lt;1ms | 1-5ms | \&gt;5ms (virtualize) |
+| Component render time | &lt;5ms | 5-16ms | &gt;16ms (visible lag) |
+| Total page load | &lt;1s | 1-3s | &gt;3s |
+| Interaction response | &lt;100ms | 100-300ms | &gt;300ms (feels slow) |
+| List item render | &lt;1ms | 1-5ms | &gt;5ms (virtualize) |
 
-**The 16ms Rule**: 60 FPS = 16.67ms per frame. Renders \&gt;16ms cause dropped frames.
+**The 16ms Rule**: 60 FPS = 16.67ms per frame. Renders &gt;16ms cause dropped frames.
 
 ---
 
@@ -380,7 +380,7 @@ function DataTable({ rows }) {
       itemSize={40}
     >
       {({ index, style }) => (
-        <Row style=\{style\} data={rows[index]} />
+        <Row style={style} data={rows[index]} />
       )}
     </FixedSizeList>
   );
@@ -421,7 +421,7 @@ Dashboard (15ms)        🟢
 4. **Verify improvement**
    - Record new profile
    - Compare before/after
-   - Target: Green bars, \&lt;16ms render time
+   - Target: Green bars, &lt;16ms render time
 
 ---
 
@@ -435,9 +435,9 @@ Dashboard (15ms)        🟢
 
 ### Mistake 2: Optimizing Green Components
 
-**Problem**: Spending time memoizing fast components (\&lt;5ms)
+**Problem**: Spending time memoizing fast components (&lt;5ms)
 
-**Solution**: Focus on red/yellow bars first (\&gt;10ms)
+**Solution**: Focus on red/yellow bars first (&gt;10ms)
 
 ### Mistake 3: Ignoring "Why Did This Render?"
 
@@ -471,7 +471,7 @@ function onRenderCallback(
   commitTime,          // When render committed
   interactions         // Set of interactions
 ) {
-  console.log(`$\{id\} took $\{actualDuration\}ms to render`);
+  console.log(`${id} took ${actualDuration}ms to render`);
 
   // Send to analytics
   if (actualDuration > 16) {
@@ -481,7 +481,7 @@ function onRenderCallback(
 
 function App() {
   return (
-    <Profiler id="DataTable" onRender=\{onRenderCallback\}>
+    <Profiler id="DataTable" onRender={onRenderCallback}>
       <DataTable />
     </Profiler>
   );

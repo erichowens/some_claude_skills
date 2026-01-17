@@ -2,6 +2,7 @@
 name: background-job-orchestrator
 description: Expert in background job processing with Bull/BullMQ (Redis), Celery, and cloud queues. Implements retries, scheduling, priority queues, and worker management. Use for async task processing, email campaigns, report generation, batch operations. Activate on "background job", "async task", "queue", "worker", "BullMQ", "Celery". NOT for real-time WebSocket communication, synchronous API calls, or simple setTimeout operations.
 allowed-tools: Read,Write,Edit,Bash(npm:*,pip:*)
+slug: /skills/background_job_orchestrator
 ---
 
 # Background Job Orchestrator

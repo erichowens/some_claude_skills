@@ -397,7 +397,7 @@ const HeavyChart = dynamic(() => import('./HeavyChart'), {
 ```
 
 ### Canvas vs SVG
-- **SVG** - Better for < 1000 data points, accessibility, crisp at any scale
+- **SVG** - Better for &lt; 1000 data points, accessibility, crisp at any scale
 - **Canvas** - Better for > 1000 data points, animations, performance
 - **WebGL** - Best for > 10,000 data points, 3D, gaming-level performance
 

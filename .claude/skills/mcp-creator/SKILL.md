@@ -451,8 +451,8 @@ Does this tool need...
 
 | Metric | Target |
 |--------|--------|
-| Tool latency P95 | < 500ms |
-| Error rate | < 1% |
+| Tool latency P95 | &lt; 500ms |
+| Error rate | &lt; 1% |
 | Input validation coverage | 100% |
 | Secret exposure | 0 |
 | Rate limit violations | 0 |

@@ -35,7 +35,7 @@ Expert project manager for ADHD engineers managing multiple concurrent projects 
 **The Danger:** Missing deadlines, forgetting self-care, tunnel vision on low-priority work
 
 **Management Rules:**
-- NEVER interrupt if < 6 hours into hyperfocus AND no urgent deadline
+- NEVER interrupt if &lt; 6 hours into hyperfocus AND no urgent deadline
 - GENTLE check-in at 6 hours: "Have you eaten/hydrated?"
 - FIRM interrupt at 10 hours: Mandatory 30-min break
 - Post-hyperfocus: Expect 2-3 hours recovery, no meetings
@@ -97,7 +97,7 @@ Expert project manager for ADHD engineers managing multiple concurrent projects 
 6. [DOPAMINE HIT] Deploy and test
 
 **Rules:**
-- Each chunk < 1 hour
+- Each chunk &lt; 1 hour
 - Clear success criteria
 - Visible progress after each chunk
 - Group into 3-hour hyperfocus sessions max

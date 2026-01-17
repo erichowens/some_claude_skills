@@ -221,7 +221,7 @@ create_agent(
 
 **Voice UI considerations:**
 - Use fast model (`eleven_flash_v2_5`) for real-time
-- Keep responses concise (< 30 seconds)
+- Keep responses concise (&lt; 30 seconds)
 - Add pauses for natural conversation flow
 - Handle interruptions gracefully
 

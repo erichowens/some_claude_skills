@@ -130,13 +130,13 @@ Diphthongs: /aɪ/, /aʊ/, /ɔɪ/ [eye, ow, oy]
 ### mellifluo.us Platform Integration
 
 **Platform Architecture:**
-- Real-time phoneme analysis with < 200ms latency
+- Real-time phoneme analysis with &lt; 200ms latency
 - Adaptive practice engine with spaced repetition
 - Progress tracking and clinical dashboards
 - Gamification for engagement
 
 **Performance Benchmarks:**
-- Latency: < 200ms end-to-end (audio → feedback)
+- Latency: &lt; 200ms end-to-end (audio → feedback)
 - Accuracy: 94.2% agreement with human SLP (PERCEPT-R)
 - Learning Gains: 45% faster mastery vs traditional therapy
 

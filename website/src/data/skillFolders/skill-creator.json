@@ -32,6 +32,13 @@
       ]
     },
     {
+      "name": "DEPRECATED.md",
+      "type": "file",
+      "path": "skill-creator/DEPRECATED.md",
+      "size": 522,
+      "content": "# DEPRECATED\n\nThis skill has been superseded by **skill-architect** as of 2026-01-14.\n\n## Why Deprecated\n\nskill-creator and skill-coach have been unified into a single authoritative meta-skill that combines:\n- Systematic workflow from skill-creator\n- Domain expertise encoding from skill-coach\n\n## Migration\n\nUse `/skill-architect` instead of this skill.\n\nAll functionality from skill-creator has been preserved and enhanced in skill-architect.\n\n## Location\n\nNew skill: `/Users/erichowens/.claude/skills/skill-architect/`\n"
+    },
+    {
       "name": "LICENSE.txt",
       "type": "file",
       "path": "skill-creator/LICENSE.txt",

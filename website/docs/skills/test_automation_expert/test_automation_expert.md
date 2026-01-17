@@ -74,9 +74,9 @@ Comprehensive testing guidance from unit to E2E. Designs test strategies, implem
 
 | Test Type | Percentage | Execution Time | Purpose |
 |-----------|------------|----------------|---------|
-| Unit | 70% | < 100ms each | Logic validation |
-| Integration | 20% | < 1s each | Component contracts |
-| E2E | 10% | < 30s each | Critical paths |
+| Unit | 70% | &lt; 100ms each | Logic validation |
+| Integration | 20% | &lt; 1s each | Component contracts |
+| E2E | 10% | &lt; 30s each | Critical paths |
 
 ## Framework Selection
 

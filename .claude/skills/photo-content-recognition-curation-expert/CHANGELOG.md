@@ -51,13 +51,13 @@
 ### Performance Targets (Documented)
 | Operation | 10K Photos |
 |-----------|-----------|
-| Perceptual hashing | < 2 minutes |
-| CLIP embeddings | < 3 minutes (GPU) |
-| Face detection | < 4 minutes |
-| Face clustering | < 30 seconds |
-| Duplicate detection | < 20 seconds |
+| Perceptual hashing | &lt; 2 minutes |
+| CLIP embeddings | &lt; 3 minutes (GPU) |
+| Face detection | &lt; 4 minutes |
+| Face clustering | &lt; 30 seconds |
+| Duplicate detection | &lt; 20 seconds |
 | Full pipeline (first run) | ~13 minutes |
-| Incremental updates | < 1 minute |
+| Incremental updates | &lt; 1 minute |
 
 ### Dependencies
 ```

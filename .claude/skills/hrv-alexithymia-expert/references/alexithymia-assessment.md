@@ -33,7 +33,7 @@
 ### Toronto Alexithymia Scale (TAS-20)
 
 20 questions, 5-point Likert scale:
-- Score < 51: Non-alexithymia
+- Score &lt; 51: Non-alexithymia
 - Score 52-60: Possible alexithymia
 - Score > 61: Alexithymia
 

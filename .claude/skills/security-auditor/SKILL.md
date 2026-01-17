@@ -237,8 +237,8 @@ security-scan:
 | Metric | Target |
 |--------|--------|
 | Critical/High pre-production | 0 |
-| Mean time to remediate critical | < 24 hours |
-| False positive rate | < 10% |
+| Mean time to remediate critical | &lt; 24 hours |
+| False positive rate | &lt; 10% |
 | Scan coverage | 100% of deployable code |
 
 ## Reference Files

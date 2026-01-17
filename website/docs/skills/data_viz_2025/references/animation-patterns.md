@@ -20,7 +20,7 @@ Motion communicates. In data visualizations, animations guide attention, reveal 
 
 - ❌ **Print visualizations** - Static medium
 - ❌ **Accessibility concern** - When `prefers-reduced-motion: reduce`
-- ❌ **Performance critical** - Large datasets (\&gt;10K points)
+- ❌ **Performance critical** - Large datasets (&gt;10K points)
 - ❌ **Just decoration** - Motion without purpose
 
 ## Spring Physics vs. Easing Curves
@@ -54,7 +54,7 @@ import { motion } from 'framer-motion';
     damping: 30
   }}
 >
-  \{chart\}
+  {chart}
 </motion.div>
 ```
 
@@ -139,9 +139,9 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
-<motion.div variants=\{container\} initial="hidden" animate="show">
+<motion.div variants={container} initial="hidden" animate="show">
   {data.map(d => (
-    <motion.div key={d.id} variants=\{item\}>
+    <motion.div key={d.id} variants={item}>
       {d.value}
     </motion.div>
   ))}
@@ -195,7 +195,7 @@ const Bar = ({ height, y }: Props) => (
   exit={{ opacity: 0, scale: 0.8 }}
   transition={{ duration: 0.15 }}
 >
-  \{content\}
+  {content}
 </motion.div>
 ```
 
@@ -209,7 +209,7 @@ const Bar = ({ height, y }: Props) => (
   exit={{ opacity: 0, x: -10 }}
   transition={{ type: "spring", stiffness: 400, damping: 30 }}
 >
-  \{content\}
+  {content}
 </motion.div>
 ```
 
@@ -246,7 +246,7 @@ const Bar = ({ height, y }: Props) => (
   }}
   transition={{ type: "spring", stiffness: 300, damping: 30 }}
 >
-  \{chart\}
+  {chart}
 </motion.div>
 ```
 
@@ -336,7 +336,7 @@ const ScrollChart = () => {
 
   return (
     <motion.div style={{ opacity, scale }}>
-      \{chart\}
+      {chart}
     </motion.div>
   );
 };
@@ -352,8 +352,8 @@ const DataPoint = ({ value, scrollProgress }: Props) => {
   return (
     <motion.circle
       style={{ opacity, y }}
-      cx=\{x\}
-      cy=\{y\}
+      cx={x}
+      cy={y}
       r={5}
     />
   );
@@ -459,7 +459,7 @@ const Chart = () => {
         type: shouldReduceMotion ? undefined : "spring"
       }}
     >
-      \{chart\}
+      {chart}
     </motion.div>
   );
 };
@@ -499,7 +499,7 @@ const Chart = () => {
 {data.length < 100 ? (
   data.map(d => <motion.rect animate={{ ... }} />)
 ) : (
-  <CanvasChart data=\{data\} />  // No individual SVG elements
+  <CanvasChart data={data} />  // No individual SVG elements
 )}
 ```
 
@@ -511,7 +511,7 @@ import { useDebouncedValue } from '@mantine/hooks';
 const Chart = ({ data }: Props) => {
   const [debouncedData] = useDebouncedValue(data, 200);
 
-  return <AnimatedChart data=\{debouncedData\} />;
+  return <AnimatedChart data={debouncedData} />;
 };
 ```
 
@@ -638,7 +638,7 @@ export const DashboardCard = ({ title, value, trend, data }) => {
         boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
       }}
     >
-      <h3>\{title\}</h3>
+      <h3>{title}</h3>
 
       <motion.div
         className="value"
@@ -646,7 +646,7 @@ export const DashboardCard = ({ title, value, trend, data }) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        <AnimatedNumber value=\{value\} />
+        <AnimatedNumber value={value} />
       </motion.div>
 
       <motion.div
@@ -655,7 +655,7 @@ export const DashboardCard = ({ title, value, trend, data }) => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3 }}
       >
-        {trend > 0 ? '↑' : '↓'} \{Math.abs(trend)\}%
+        {trend > 0 ? '↑' : '↓'} {Math.abs(trend)}%
       </motion.div>
 
       <svg width="100%" height={80}>

@@ -2,6 +2,7 @@
 name: form-validation-architect
 description: End-to-end form handling with react-hook-form, Zod schemas, validation patterns, error messaging, field arrays, and multi-step wizards. Use for complex forms, validation architecture, autosave, field dependencies. Activate on "form validation", "react-hook-form", "Zod", "form error", "multi-step form", "wizard". NOT for simple HTML forms, backend validation only, or non-React frameworks.
 allowed-tools: Read,Write,Edit,Bash(npm:*)
+slug: /skills/form_validation_architect
 ---
 
 # Form Validation Architect

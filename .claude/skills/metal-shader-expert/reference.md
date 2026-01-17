@@ -34,12 +34,12 @@ fragment float4 debug_text_overlay_fragment(
     float2 screen_pos [[position]],
     constant DebugText* debug_values [[buffer(0)]],
     constant uint& debug_count [[buffer(1)]],
-    texture2d<float> font_atlas [[texture(0)]],
+    texture2d&lt;float&gt; font_atlas [[texture(0)]],
     sampler font_sampler [[sampler(0)]]
 ) {
     float4 output = float4(0.0);  // Transparent background
     
-    for (uint i = 0; i < debug_count; i++) {
+    for (uint i = 0; i &lt; debug_count; i++) {
         DebugText dt = debug_values[i];
         
         // Convert value to string (simplified - just show as digits)
@@ -48,8 +48,8 @@ fragment float4 debug_text_overlay_fragment(
         // Check if we're in the text region
         float2 local_pos = screen_pos - dt.screen_pos;
         
-        if (local_pos.x > 0.0 && local_pos.x < 100.0 &&
-            local_pos.y > 0.0 && local_pos.y < 20.0) {
+        if (local_pos.x > 0.0 && local_pos.x &lt; 100.0 &&
+            local_pos.y > 0.0 && local_pos.y &lt; 20.0) {
             
             // Sample font atlas (simplified)
             float2 uv = local_pos / float2(100.0, 20.0);
@@ -88,7 +88,7 @@ kernel void render_performance_overlay(
     float4 color = float4(0.0, 0.0, 0.0, 0.0);
     
     // Draw frame time graph (top left corner)
-    if (uv.x < 0.3 && uv.y < 0.2) {
+    if (uv.x &lt; 0.3 && uv.y &lt; 0.2) {
         float2 graph_uv = uv / float2(0.3, 0.2);
         
         // Sample frame history
@@ -99,13 +99,13 @@ kernel void render_performance_overlay(
         float graph_value = 1.0 - (frame_time / 33.0);  // 33ms = 30fps
         float y_threshold = graph_uv.y;
         
-        if (abs(graph_value - y_threshold) < 0.01) {
+        if (abs(graph_value - y_threshold) &lt; 0.01) {
             // Graph line
             color = float4(0.0, 1.0, 0.0, 0.8);
         }
         
         // 60fps line (16.67ms)
-        if (abs((1.0 - 16.67/33.0) - y_threshold) < 0.005) {
+        if (abs((1.0 - 16.67/33.0) - y_threshold) &lt; 0.005) {
             color = float4(1.0, 1.0, 0.0, 0.5);
         }
         
@@ -252,10 +252,10 @@ fragment float4 fast_branchless(VertexOut in [[stage_in]]) {
 }
 
 // ❌ SLOW: Texture sampling in loop
-float calculate_blur(texture2d<float> tex, sampler s, float2 uv) {
+float calculate_blur(texture2d&lt;float&gt; tex, sampler s, float2 uv) {
     float sum = 0.0;
-    for (int i = -5; i <= 5; i++) {
-        for (int j = -5; j <= 5; j++) {
+    for (int i = -5; i &lt;= 5; i++) {
+        for (int j = -5; j &lt;= 5; j++) {
             float2 offset = float2(i, j) / 512.0;
             sum += tex.sample(s, uv + offset).r;
         }
@@ -264,11 +264,11 @@ float calculate_blur(texture2d<float> tex, sampler s, float2 uv) {
 }
 
 // ✅ FAST: Separable blur (11x11 -> 11+11 samples)
-float calculate_blur_fast(texture2d<float> tex, sampler s, float2 uv) {
+float calculate_blur_fast(texture2d&lt;float&gt; tex, sampler s, float2 uv) {
     // First pass: horizontal blur (done separately)
     // Second pass: vertical blur on pre-blurred texture
     float sum = 0.0;
-    for (int i = -5; i <= 5; i++) {
+    for (int i = -5; i &lt;= 5; i++) {
         float2 offset = float2(0, i) / 512.0;
         sum += tex.sample(s, uv + offset).r;
     }

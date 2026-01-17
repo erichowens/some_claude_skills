@@ -385,7 +385,7 @@ const subscription = supabase
       event: 'INSERT',
       schema: 'public',
       table: 'messages',
-      filter: `conversation_id=eq.$\{conversationId\}`
+      filter: `conversation_id=eq.${conversationId}`
     },
     (payload) => {
       addMessage(payload.new);
@@ -402,7 +402,7 @@ const friendRequests = supabase
       event: 'INSERT',
       schema: 'public',
       table: 'friendships',
-      filter: `addressee_id=eq.$\{userId\}`
+      filter: `addressee_id=eq.${userId}`
     },
     (payload) => {
       showNotification('New friend request!');

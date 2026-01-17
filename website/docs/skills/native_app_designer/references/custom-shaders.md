@@ -167,7 +167,7 @@ float particle = smoothstep(0.02, 0.0, length(uv - particlePos));
 - **Xcode Metal Debugger**: iOS shader debugging
 
 ### Performance Tips
-- Keep shaders simple for mobile (\< 50 instructions)
+- Keep shaders simple for mobile (&lt; 50 instructions)
 - Avoid branching in fragment shaders
 - Precompute values in vertex shader when possible
 - Use texture lookups sparingly

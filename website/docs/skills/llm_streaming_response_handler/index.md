@@ -2,6 +2,7 @@
 name: llm-streaming-response-handler
 description: Build production LLM streaming UIs with Server-Sent Events, real-time token display, cancellation, error recovery. Handles OpenAI/Anthropic/Claude streaming APIs. Use for chatbots, AI assistants, real-time text generation. Activate on "LLM streaming", "SSE", "token stream", "chat UI", "real-time AI". NOT for batch processing, non-streaming APIs, or WebSocket bidirectional chat.
 allowed-tools: Read,Write,Edit,Bash(npm:*)
+slug: /skills/llm_streaming_response_handler
 ---
 
 # LLM Streaming Response Handler

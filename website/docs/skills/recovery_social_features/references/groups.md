@@ -128,7 +128,7 @@ export function QuickMeetingGroup({ meeting }: Props) {
           Group created! Share this code with others at the meeting:
         </p>
         <code className="block px-4 py-3 bg-leather-900 rounded text-center text-xl">
-          \{inviteCode\}
+          {inviteCode}
         </code>
         <p className="text-xs text-leather-500 mt-2 text-center">
           This group expires in 24 hours
@@ -139,8 +139,8 @@ export function QuickMeetingGroup({ meeting }: Props) {
 
   return (
     <button
-      onClick=\{handleCreate\}
-      disabled=\{isLoading\}
+      onClick={handleCreate}
+      disabled={isLoading}
       className="flex items-center gap-2 px-4 py-2 bg-leather-700 rounded"
     >
       <UsersIcon className="w-5 h-5" />

@@ -126,10 +126,10 @@ For UI components like Winamp player:
 ## File Size Guidelines
 
 - **Component code**: No limit (it's source code)
-- **Images**: < 500KB each (compress with ImageOptim)
-- **Audio/MIDI**: < 1MB each
+- **Images**: &lt; 500KB each (compress with ImageOptim)
+- **Audio/MIDI**: &lt; 1MB each
 - **Videos**: Link to external (YouTube, Vimeo)
-- **Total artifact**: Aim for < 10MB
+- **Total artifact**: Aim for &lt; 10MB
 
 ## Remember
 

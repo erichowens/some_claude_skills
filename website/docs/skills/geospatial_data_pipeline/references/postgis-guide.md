@@ -236,8 +236,8 @@ LIMIT 10;
 ```
 
 **Key functions**:
-- `ST_DWithin`: Returns true if distance \<= threshold
-- `\<->`: Distance operator (for ORDER BY)
+- `ST_DWithin`: Returns true if distance &lt;= threshold
+- `<->`: Distance operator (for ORDER BY)
 
 ---
 
@@ -315,7 +315,7 @@ ORDER BY location <-> ST_SetSRID(ST_MakePoint(-122.4194, 37.7749), 4326)::geogra
 LIMIT 10;
 ```
 
-**Note**: `\<->` operator uses index for fast kNN search.
+**Note**: `<->` operator uses index for fast kNN search.
 
 ---
 

@@ -112,7 +112,7 @@ export function GenerateSponsorInvite({ program }: { program: string }) {
             {invite.code}
           </code>
           <button
-            onClick=\{copyCode\}
+            onClick={copyCode}
             className="px-4 py-3 bg-ember-500 rounded min-h-[44px]"
           >
             {copied ? 'Copied!' : 'Copy'}
@@ -127,8 +127,8 @@ export function GenerateSponsorInvite({ program }: { program: string }) {
 
   return (
     <button
-      onClick=\{handleCreate\}
-      disabled=\{isLoading\}
+      onClick={handleCreate}
+      disabled={isLoading}
       className="w-full py-3 bg-ember-500 rounded min-h-[44px]"
     >
       {isLoading ? 'Generating...' : 'Generate Sponsee Invite'}
@@ -167,14 +167,14 @@ export function AcceptSponsorInvite() {
   }
 
   return (
-    <form onSubmit=\{handleSubmit\} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label className="block text-sm text-leather-400 mb-1">
           Enter invite code from your sponsor
         </label>
         <input
           type="text"
-          value=\{code\}
+          value={code}
           onChange={(e) => setCode(e.target.value.toUpperCase())}
           placeholder="ABCD1234"
           className="w-full px-4 py-3 bg-leather-900 rounded font-mono tracking-wider uppercase"
@@ -183,7 +183,7 @@ export function AcceptSponsorInvite() {
       </div>
 
       {error && (
-        <p className="text-red-400 text-sm">\{error\}</p>
+        <p className="text-red-400 text-sm">{error}</p>
       )}
 
       <button

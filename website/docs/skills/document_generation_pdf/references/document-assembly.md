@@ -294,7 +294,7 @@ async function addPageNumbers(
   inputPath: string,
   outputPath: string,
   options: {
-    format?: string;  // "\{n\}", "Page \{n\}", "\{n\} of \{total\}"
+    format?: string;  // "{n}", "Page {n}", "{n} of {total}"
     position?: 'bottom-center' | 'bottom-right' | 'top-center';
     start?: number;
     fontSize?: number;
@@ -307,7 +307,7 @@ async function addPageNumbers(
   const fontSize = options.fontSize || 10;
   const position = options.position || 'bottom-center';
   const start = options.start || 1;
-  const format = options.format || 'Page \{n\} of \{total\}';
+  const format = options.format || 'Page {n} of {total}';
 
   const pages = pdfDoc.getPages();
   const total = pages.length;
@@ -317,8 +317,8 @@ async function addPageNumbers(
     const pageNumber = start + index;
 
     const text = format
-      .replace('\{n\}', pageNumber.toString())
-      .replace('\{total\}', total.toString());
+      .replace('{n}', pageNumber.toString())
+      .replace('{total}', total.toString());
 
     const textWidth = font.widthOfTextAtSize(text, fontSize);
 
@@ -537,7 +537,7 @@ async function createDocumentPacket(
         font
       });
 
-      tocPage.drawText(`Page $\{currentPage\}`, {
+      tocPage.drawText(`Page ${currentPage}`, {
         x: 500,
         y: yPosition,
         size: 12,
@@ -596,7 +596,7 @@ async function createDocumentPacket(
     pages.forEach((page, index) => {
       const { width } = page.getSize();
       const pageNumber = index + 1;
-      const text = `Page $\{pageNumber\} of $\{total\}`;
+      const text = `Page ${pageNumber} of ${total}`;
       const textWidth = font.widthOfTextAtSize(text, 10);
 
       page.drawText(text, {

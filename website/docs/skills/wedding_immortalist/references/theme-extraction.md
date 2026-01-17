@@ -434,20 +434,20 @@ def generate_css_variables(theme: dict) -> str:
 
     # Colors
     for name, value in theme['colors'].items():
-        css += f"  --color-\{name\}: \{value\};\n"
+        css += f"  --color-{name}: {value};\n"
 
     # Gradients
     for name, value in theme.get('gradients', {}).items():
-        css += f"  --gradient-\{name\}: \{value\};\n"
+        css += f"  --gradient-{name}: {value};\n"
 
     # Typography
     for name, value in theme.get('typography', {}).items():
-        css += f"  --font-\{name\}: \{value\};\n"
+        css += f"  --font-{name}: {value};\n"
 
     # Effects
     for name, value in theme.get('effects', {}).items():
         css_name = name.replace('_', '-')
-        css += f"  --\{css_name\}: \{value\};\n"
+        css += f"  --{css_name}: {value};\n"
 
     # Animation
     if 'animations' in theme:
@@ -486,11 +486,11 @@ export function WeddingThemeProvider({
     const root = document.documentElement;
 
     Object.entries(theme.colors).forEach(([key, value]) => {
-      root.style.setProperty(`--color-$\{key\}`, value);
+      root.style.setProperty(`--color-${key}`, value);
     });
 
     Object.entries(theme.gradients || {}).forEach(([key, value]) => {
-      root.style.setProperty(`--gradient-$\{key\}`, value);
+      root.style.setProperty(`--gradient-${key}`, value);
     });
 
     // Apply font imports
@@ -506,7 +506,7 @@ export function WeddingThemeProvider({
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      \{children\}
+      {children}
     </ThemeContext.Provider>
   );
 }

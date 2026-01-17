@@ -75,7 +75,7 @@ export function SalesChart({ data }) {
     return () => plot.remove();
   }, [data]);
 
-  return <div ref=\{containerRef\} />;
+  return <div ref={containerRef} />;
 }
 ```
 
@@ -104,7 +104,7 @@ export function SalesChart({ data }) {
 
 ### Weaknesses
 
-- **SVG only** - No Canvas option for large datasets (\&gt;1000 points)
+- **SVG only** - No Canvas option for large datasets (&gt;1000 points)
 - **Limited mobile gestures** - No built-in swipe/pinch support
 - **Styling can be verbose** - Many props to customize appearance
 - **Bundle size** - Larger than Plot, though still reasonable
@@ -135,7 +135,7 @@ import {
 export function SalesChart({ data }) {
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <LineChart data=\{data\}>
+      <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
         <XAxis dataKey="date" />
         <YAxis />
@@ -210,7 +210,7 @@ export function SalesChart({ data }) {
   return (
     <div style={{ height: 400 }}>
       <ResponsiveLine
-        data=\{nivoData\}
+        data={nivoData}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
@@ -230,9 +230,9 @@ export function SalesChart({ data }) {
         pointColor="#fff"
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}
-        enableGridX=\{false\}
-        enableGridY=\{true\}
-        useMesh=\{true\}
+        enableGridX={false}
+        enableGridY={true}
+        useMesh={true}
         theme={{
           axis: {
             ticks: {
@@ -316,13 +316,13 @@ export function SalesChart({ data, width = 640, height = 400 }) {
   });
 
   return (
-    <svg width=\{width\} height=\{height\}>
+    <svg width={width} height={height}>
       <Group left={margin.left} top={margin.top}>
-        <GridRows scale=\{yScale\} width=\{xMax\} stroke="#f3f4f6" />
-        <AxisBottom top=\{yMax\} scale=\{xScale\} />
-        <AxisLeft scale=\{yScale\} />
+        <GridRows scale={yScale} width={xMax} stroke="#f3f4f6" />
+        <AxisBottom top={yMax} scale={xScale} />
+        <AxisLeft scale={yScale} />
         <LinePath
-          data=\{data\}
+          data={data}
           x={d => xScale(d.date)}
           y={d => yScale(d.sales)}
           stroke="#d97706"
@@ -413,7 +413,7 @@ export function SalesChart({ data }) {
       .curve(d3.curveMonotoneX);
 
     g.append("g")
-      .attr("transform", `translate(0,$\{height\})`)
+      .attr("transform", `translate(0,${height})`)
       .call(d3.axisBottom(x));
 
     g.append("g")
@@ -428,7 +428,7 @@ export function SalesChart({ data }) {
 
   }, [data]);
 
-  return <svg ref=\{svgRef\} width={640} height={400} />;
+  return <svg ref={svgRef} width={640} height={400} />;
 }
 ```
 
@@ -442,7 +442,7 @@ export function SalesChart({ data }) {
 
 ### Performance
 
-| Library | Small Dataset (\&lt;100) | Medium (100-1K) | Large (1K-10K) | Huge (\&gt;10K) |
+| Library | Small Dataset (&lt;100) | Medium (100-1K) | Large (1K-10K) | Huge (&gt;10K) |
 |---------|---------------------|-----------------|----------------|-------------|
 | Observable Plot | ⚡⚡⚡ | ⚡⚡⚡ | ⚡⚡ | ⚡ |
 | Recharts | ⚡⚡⚡ | ⚡⚡ | ⚡ | ❌ (SVG only) |
@@ -529,8 +529,8 @@ import { LineChart, Line, YAxis } from 'recharts';
 // Use D3's log scale with Recharts
 const logScale = scaleLog().domain([1, 1000000]).range([0, 400]);
 
-<LineChart data=\{data\}>
-  <YAxis scale=\{logScale\} />
+<LineChart data={data}>
+  <YAxis scale={logScale} />
   <Line dataKey="value" />
 </LineChart>
 ```
@@ -540,7 +540,7 @@ const logScale = scaleLog().domain([1, 1000000]).range([0, 400]);
 import { ResponsiveLine } from '@nivo/line';
 
 <ResponsiveLine
-  data=\{data\}
+  data={data}
   layers={[
     'grid',
     'markers',

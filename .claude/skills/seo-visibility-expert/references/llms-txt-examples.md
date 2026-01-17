@@ -136,7 +136,7 @@ const UserSchema = z.object({
   age: z.number().min(0).optional(),
 });
 
-type User = z.infer<typeof UserSchema>;
+type User = z.infer&lt;typeof UserSchema>;
 // { name: string; email: string; age?: number }
 ```
 

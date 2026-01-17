@@ -45,14 +45,14 @@ describe('BarChart - Data Accuracy', () => {
   ];
 
   test('renders correct number of bars', () => {
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     const bars = screen.getAllByTestId('bar');
     expect(bars).toHaveLength(3);
   });
 
   test('bar heights are proportional to values', () => {
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     const bars = screen.getAllByTestId('bar');
     const heights = bars.map(b =>
@@ -67,7 +67,7 @@ describe('BarChart - Data Accuracy', () => {
   });
 
   test('labels match data categories', () => {
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     expect(screen.getByText('A')).toBeInTheDocument();
     expect(screen.getByText('B')).toBeInTheDocument();
@@ -87,7 +87,7 @@ describe('BarChart - Scale Accuracy', () => {
       { x: 'C', y: 100 }
     ];
 
-    render(<BarChart data=\{data\} height={200} />);
+    render(<BarChart data={data} height={200} />);
 
     const bars = screen.getAllByTestId('bar');
 
@@ -123,7 +123,7 @@ describe('BarChart - Edge Cases', () => {
       { x: 'A', y: -10 },
       { x: 'B', y: 20 }
     ];
-    render(<BarChart data=\{data\} />);
+    render(<BarChart data={data} />);
 
     // Verify baseline is drawn at zero
     expect(screen.getByTestId('baseline')).toBeInTheDocument();
@@ -131,7 +131,7 @@ describe('BarChart - Edge Cases', () => {
 
   test('handles very large values without overflow', () => {
     const data = [{ x: 'A', y: 1000000 }];
-    render(<BarChart data=\{data\} />);
+    render(<BarChart data={data} />);
 
     const bar = screen.getByTestId('bar');
     const height = parseInt(bar.getAttribute('height') || '0');
@@ -194,7 +194,7 @@ export const Empty: Story = {
 export const LargeDataset: Story = {
   args: {
     data: Array.from({ length: 50 }, (_, i) => ({
-      x: `Item $\{i\}`,
+      x: `Item ${i}`,
       y: Math.random() * 100
     }))
   }
@@ -309,7 +309,7 @@ import userEvent from '@testing-library/user-event';
 describe('BarChart - Interactions', () => {
   test('shows tooltip on hover', async () => {
     const user = userEvent.setup();
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     const bar = screen.getAllByTestId('bar')[0];
 
@@ -325,7 +325,7 @@ describe('BarChart - Interactions', () => {
 
   test('hides tooltip on mouse leave', async () => {
     const user = userEvent.setup();
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     const bar = screen.getAllByTestId('bar')[0];
 
@@ -338,7 +338,7 @@ describe('BarChart - Interactions', () => {
 
   test('calls onClick handler when bar is clicked', async () => {
     const handleClick = jest.fn();
-    render(<BarChart data=\{mockData\} onBarClick=\{handleClick\} />);
+    render(<BarChart data={mockData} onBarClick={handleClick} />);
 
     const bar = screen.getAllByTestId('bar')[1];
     fireEvent.click(bar);
@@ -356,7 +356,7 @@ describe('BarChart - Interactions', () => {
 describe('BarChart - Keyboard Navigation', () => {
   test('bars are focusable via Tab key', async () => {
     const user = userEvent.setup();
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     // Tab to first bar
     await user.tab();
@@ -370,10 +370,10 @@ describe('BarChart - Keyboard Navigation', () => {
   test('Enter key activates bar', async () => {
     const user = userEvent.setup();
     const handleClick = jest.fn();
-    render(<BarChart data=\{mockData\} onBarClick=\{handleClick\} />);
+    render(<BarChart data={mockData} onBarClick={handleClick} />);
 
     await user.tab(); // Focus first bar
-    await user.keyboard('\{Enter\}');
+    await user.keyboard('{Enter}');
 
     expect(handleClick).toHaveBeenCalledWith(
       expect.objectContaining({ category: 'A', value: 10 })
@@ -394,13 +394,13 @@ expect.extend(toHaveNoViolations);
 
 describe('BarChart - Accessibility', () => {
   test('has no axe violations', async () => {
-    const { container } = render(<BarChart data=\{mockData\} />);
+    const { container } = render(<BarChart data={mockData} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 
   test('has proper ARIA labels', () => {
-    render(<BarChart data=\{mockData\} title="Sales by Month" />);
+    render(<BarChart data={mockData} title="Sales by Month" />);
 
     // Chart container has role
     expect(screen.getByRole('img')).toBeInTheDocument();
@@ -410,7 +410,7 @@ describe('BarChart - Accessibility', () => {
   });
 
   test('provides text alternative for screen readers', () => {
-    render(<BarChart data=\{mockData\} />);
+    render(<BarChart data={mockData} />);
 
     // Data table alternative is available
     expect(screen.getByRole('table', { hidden: true })).toBeInTheDocument();
@@ -422,7 +422,7 @@ describe('BarChart - Accessibility', () => {
 
 ```typescript
 test('meets color contrast requirements', () => {
-  render(<BarChart data=\{mockData\} />);
+  render(<BarChart data={mockData} />);
 
   const bar = screen.getAllByTestId('bar')[0];
   const barColor = window.getComputedStyle(bar).fill;
@@ -443,12 +443,12 @@ test('meets color contrast requirements', () => {
 describe('BarChart - Performance', () => {
   test('renders large dataset in < 500ms', () => {
     const largeData = Array.from({ length: 1000 }, (_, i) => ({
-      x: `Item $\{i\}`,
+      x: `Item ${i}`,
       y: Math.random() * 100
     }));
 
     const start = performance.now();
-    render(<BarChart data=\{largeData\} />);
+    render(<BarChart data={largeData} />);
     const end = performance.now();
 
     expect(end - start).toBeLessThan(500);
@@ -456,13 +456,13 @@ describe('BarChart - Performance', () => {
 
   test('does not re-render on unrelated prop changes', () => {
     const { rerender } = render(
-      <BarChart data=\{mockData\} unrelatedProp="value1" />
+      <BarChart data={mockData} unrelatedProp="value1" />
     );
 
     const renderSpy = jest.spyOn(React, 'createElement');
 
     // Change unrelated prop
-    rerender(<BarChart data=\{mockData\} unrelatedProp="value2" />);
+    rerender(<BarChart data={mockData} unrelatedProp="value2" />);
 
     // Chart should be memoized and not re-render
     expect(renderSpy).toHaveBeenCalledTimes(0);
@@ -474,7 +474,7 @@ describe('BarChart - Performance', () => {
 
 ```typescript
 test('cleans up event listeners on unmount', () => {
-  const { unmount } = render(<BarChart data=\{mockData\} />);
+  const { unmount } = render(<BarChart data={mockData} />);
 
   const initialListeners = getEventListeners(window).length;
 
@@ -496,14 +496,14 @@ import { render } from '@testing-library/react';
 
 describe('BarChart - Snapshots', () => {
   test('matches snapshot', () => {
-    const { container } = render(<BarChart data=\{mockData\} />);
+    const { container } = render(<BarChart data={mockData} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   test('matches snapshot with custom colors', () => {
     const { container } = render(
       <BarChart
-        data=\{mockData\}
+        data={mockData}
         colors={['#d97706', '#7c3aed', '#059669']}
       />
     );
@@ -561,7 +561,7 @@ describe('BarChart - Property-Based Tests', () => {
           { minLength: 1, maxLength: 100 }
         ),
         (data) => {
-          const { container } = render(<BarChart data=\{data\} />);
+          const { container } = render(<BarChart data={data} />);
 
           // Should render without crashing
           expect(container.querySelector('svg')).toBeInTheDocument();
@@ -609,7 +609,7 @@ Before shipping a chart component:
 - [ ] Provides data table alternative
 
 ### Performance
-- [ ] Renders large datasets in \&lt;500ms
+- [ ] Renders large datasets in &lt;500ms
 - [ ] No unnecessary re-renders
 - [ ] No memory leaks
 - [ ] Bundle size reasonable

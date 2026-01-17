@@ -57,7 +57,7 @@ ALSO: Legend with symbols: ● Anxiety (red solid), ◆ Mood (blue dashed)
 **Principle:** All text must have sufficient contrast against background.
 
 **WCAG 2.1 AA Requirements:**
-- **Normal text** (\< 18px): 4.5:1 contrast ratio
+- **Normal text** (&lt; 18px): 4.5:1 contrast ratio
 - **Large text** (≥ 18px or ≥ 14px bold): 3:1 contrast ratio
 - **Graphical objects** (lines, borders): 3:1 contrast ratio
 

@@ -231,7 +231,7 @@ LIMIT 10;
 ```
 
 **Key functions**:
-- `ST_DWithin`: Returns true if distance <= threshold
+- `ST_DWithin`: Returns true if distance &lt;= threshold
 - `<->`: Distance operator (for ORDER BY)
 
 ---

@@ -60,7 +60,7 @@ Data-ink ratio: ~0.85 (most ink is data)
 
 ```typescript
 // ❌ BAD - Unnecessary decorations
-<BarChart data=\{data\}>
+<BarChart data={data}>
   <CartesianGrid strokeDasharray="3 3" opacity={0.5} />  {/* Remove */}
   <XAxis stroke="#666" strokeWidth={2} />                {/* Too heavy */}
   <YAxis stroke="#666" strokeWidth={2} />
@@ -77,7 +77,7 @@ Data-ink ratio: ~0.85 (most ink is data)
 </BarChart>
 
 // ✅ GOOD - Data-focused
-<BarChart data=\{data\}>
+<BarChart data={data}>
   <XAxis stroke="#d1d5db" strokeWidth={1} />            {/* Subtle, 1px */}
   <YAxis stroke="#d1d5db" strokeWidth={1} />
   <Bar dataKey="value" fill="#d97706" />
@@ -100,16 +100,16 @@ Data-ink ratio: ~0.85 (most ink is data)
 ```typescript
 // Using radius instead of area for circles
 // 2x the data = 2x the radius = 4x the visual area!
-<Circle r=\{value\} /> // WRONG
+<Circle r={value} /> // WRONG
 ```
 
 **✅ Good Example: Correct Proportions**
 ```typescript
 // 2x the data = 2x the area
-<Circle r=\{Math.sqrt(value / Math.PI)\} /> // CORRECT
+<Circle r={Math.sqrt(value / Math.PI)} /> // CORRECT
 
 // Or just use bars (linear representation)
-<Bar height=\{value\} />
+<Bar height={value} />
 ```
 
 ### 2. Clear Labeling
@@ -214,7 +214,7 @@ Simple 2D pie or (better) horizontal bar chart
 **Include labels for context-critical events in the data timeline.**
 
 ```typescript
-<LineChart data=\{data\}>
+<LineChart data={data}>
   <ReferenceLine
     x="2020-03-15"
     stroke="#dc2626"
@@ -277,12 +277,12 @@ Tufte championed "sparklines" - tiny line charts embedded in text.
   <tr>
     <td>Product A</td>
     <td>$2.3M</td>
-    <td><Sparkline data=\{productA\} width={50} height={20} /></td>
+    <td><Sparkline data={productA} width={50} height={20} /></td>
   </tr>
   <tr>
     <td>Product B</td>
     <td>$1.8M</td>
-    <td><Sparkline data=\{productB\} width={50} height={20} /></td>
+    <td><Sparkline data={productB} width={50} height={20} /></td>
   </tr>
 </table>
 ```
@@ -295,10 +295,10 @@ Tufte championed "sparklines" - tiny line charts embedded in text.
 
 <div className="grid grid-cols-4 gap-2">
   {months.map(month => (
-    <div key=\{month\} className="border border-gray-200 p-2">
-      <h3 className="text-xs font-medium">\{month\}</h3>
+    <div key={month} className="border border-gray-200 p-2">
+      <h3 className="text-xs font-medium">{month}</h3>
       <LineChart data={dataForMonth[month]} width={120} height={80}>
-        <Line dataKey="value" stroke="#d97706" dot=\{false\} />
+        <Line dataKey="value" stroke="#d97706" dot={false} />
       </LineChart>
     </div>
   ))}

@@ -69,7 +69,7 @@ export function ShareCheckIn({ checkIn, sponsors }: Props) {
       ))}
 
       <button
-        onClick=\{handleShare\}
+        onClick={handleShare}
         disabled={selectedSponsors.length === 0}
         className="w-full py-3 bg-ember-500 rounded disabled:opacity-50"
       >

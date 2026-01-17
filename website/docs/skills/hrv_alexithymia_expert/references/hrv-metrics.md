@@ -111,7 +111,7 @@ def calculate_frequency_domain_hrv(rr_intervals, sampling_rate=4):
 - ✅ Cardiovascular health
 - ✅ Adaptability to stress
 
-**Low HRV** (RMSSD \< 20ms, SDNN \< 50ms):
+**Low HRV** (RMSSD &lt; 20ms, SDNN &lt; 50ms):
 - ⚠️ Chronic stress or overtraining
 - ⚠️ Poor recovery
 - ⚠️ Sympathetic dominance

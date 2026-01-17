@@ -42,10 +42,10 @@ npm run build
 
 | Bundle Size (gzipped) | Rating | Action |
 |----------------------|--------|--------|
-| \&lt;100KB | ✅ Excellent | Maintain |
+| &lt;100KB | ✅ Excellent | Maintain |
 | 100-300KB | ⚠️ Good | Monitor |
 | 300-500KB | 🔴 Large | Optimize |
-| \&gt;500KB | 🚨 Critical | Immediate action |
+| &gt;500KB | 🚨 Critical | Immediate action |
 
 ---
 
@@ -539,7 +539,7 @@ function App() {
   return (
     <div>
       {user.isAdmin && (
-        <button onClick=\{loadAdminPanel\}>Open Admin</button>
+        <button onClick={loadAdminPanel}>Open Admin</button>
       )}
 
       {showAdmin && <AdminPanel />}

@@ -210,7 +210,7 @@ app.get('/tiles/:z/:x/:y.pbf', async (req, res) => {
 // Mapbox GL JS
 map.addSource('tiles', {
   type: 'vector',
-  tiles: ['https://api.example.com/tiles/\{z\}/\{x\}/\{y\}.pbf'],
+  tiles: ['https://api.example.com/tiles/{z}/{x}/{y}.pbf'],
   minzoom: 0,
   maxzoom: 14
 });
@@ -403,7 +403,7 @@ ls -lh input.geojson input.geojson.gz temp3.geojson temp3.geojson.gz
 | + Simplify (0.001) | 10 MB | 3 seconds |
 | + Remove properties | 5 MB | 1.5 seconds |
 | + Gzip | 1.5 MB | 0.5 seconds |
-| **Vector tiles** | **50 KB per tile** | **\&lt;100ms** |
+| **Vector tiles** | **50 KB per tile** | **&lt;100ms** |
 
 **Winner**: Vector tiles (100x improvement)
 
@@ -416,7 +416,7 @@ ls -lh input.geojson input.geojson.gz temp3.geojson temp3.geojson.gz
 | Reduce precision | Always | 30-40% |
 | Simplify geometry | Rendering at low zoom | 40-70% |
 | Remove properties | Properties not displayed | 20-80% |
-| Vector tiles | \&gt;1000 features or \&gt;5MB | 90%+ |
+| Vector tiles | &gt;1000 features or &gt;5MB | 90%+ |
 | Chunking | Mixed complexity features | Varies |
 | Compression | Always (server-side) | 70-80% |
 | TopoJSON | Adjacent polygons | 30-80% |

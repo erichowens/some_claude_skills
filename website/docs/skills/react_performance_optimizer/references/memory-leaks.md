@@ -183,7 +183,7 @@ function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const socket = io(`/rooms/$\{roomId\}`);
+    const socket = io(`/rooms/${roomId}`);
 
     socket.on('message', (msg) => {
       setMessages(prev => [...prev, msg]);
@@ -192,7 +192,7 @@ function ChatRoom({ roomId }) {
     // ❌ Socket never disconnected
   }, [roomId]);
 
-  return <MessageList messages=\{messages\} />;
+  return <MessageList messages={messages} />;
 }
 ```
 
@@ -202,7 +202,7 @@ function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const socket = io(`/rooms/$\{roomId\}`);
+    const socket = io(`/rooms/${roomId}`);
 
     socket.on('message', (msg) => {
       setMessages(prev => [...prev, msg]);
@@ -214,7 +214,7 @@ function ChatRoom({ roomId }) {
     };
   }, [roomId]);
 
-  return <MessageList messages=\{messages\} />;
+  return <MessageList messages={messages} />;
 }
 ```
 
@@ -306,7 +306,7 @@ function DataGrid({ data }) {  // data is 10MB array
     setSelected(item);
   }, [data]);  // data is in dependency array
 
-  return <Table data=\{data\} onRowClick=\{handleClick\} />;
+  return <Table data={data} onRowClick={handleClick} />;
 }
 ```
 
@@ -328,7 +328,7 @@ function DataGrid({ data }) {
     setSelected(item);
   }, [dataMap]);
 
-  return <Table data=\{data\} onRowClick=\{handleClick\} />;
+  return <Table data={data} onRowClick={handleClick} />;
 }
 ```
 
@@ -354,7 +354,7 @@ function ImageGallery() {
   }, []);
 
   return (
-    <div ref=\{containerRef\}>
+    <div ref={containerRef}>
       {/* Images render here */}
     </div>
   );
@@ -379,7 +379,7 @@ function ImageGallery() {
   }, []);
 
   return (
-    <div ref=\{containerRef\}>
+    <div ref={containerRef}>
       {/* Images render here */}
     </div>
   );
@@ -654,7 +654,7 @@ function Dashboard() {
     // ❌ Nothing cleaned up
   }, []);
 
-  return <canvas ref=\{canvasRef\} />;
+  return <canvas ref={canvasRef} />;
 }
 ```
 
@@ -676,7 +676,7 @@ function Dashboard() {
     };
   }, []);
 
-  return <canvas ref=\{canvasRef\} />;
+  return <canvas ref={canvasRef} />;
 }
 ```
 

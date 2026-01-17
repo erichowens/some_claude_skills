@@ -214,9 +214,9 @@ const Charts = dynamic(() => import('./Charts'), { loading: () => <ChartSkeleton
 ## Performance Optimization Checklist
 
 ### Before Every Deploy
-- [ ] Bundle size delta < 5KB
+- [ ] Bundle size delta &lt; 5KB
 - [ ] No new synchronous network calls in critical paths
-- [ ] Lighthouse performance score >= 90
+- [ ] Lighthouse performance score &gt;= 90
 - [ ] Offline mode tested (disable network in DevTools)
 
 ### Weekly Audit

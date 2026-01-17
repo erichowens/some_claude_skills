@@ -43,7 +43,7 @@ COMMITMENT LEVEL          TRUST REQUIREMENTS
 User has just arrived. Subconscious checks:
 - [ ] URL looks legitimate (no typos, proper domain)
 - [ ] HTTPS / padlock icon
-- [ ] Page loads in \&lt;3 seconds
+- [ ] Page loads in &lt;3 seconds
 - [ ] No browser security warnings
 - [ ] No popup overload
 
@@ -60,7 +60,7 @@ User is willing to look around:
 
 **If failing**: Visitor leaves within 10 seconds.
 
-### Level 2: Spend Time (\&gt;2 min)
+### Level 2: Spend Time (&gt;2 min)
 
 User is interested enough to read/explore:
 - [ ] Value demonstrated quickly (don't bury the lead)

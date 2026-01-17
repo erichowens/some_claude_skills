@@ -91,29 +91,29 @@ triggering actions, and navigating when styled as a link.
 
 ### HTML
 ```html
-<!-- Primary button -->
+<!-- Primary button --&gt;
 <button class="btn btn--primary">
   Submit Form
 </button>
 
-<!-- With icon -->
+<!-- With icon --&gt;
 <button class="btn btn--primary">
   <svg class="btn__icon" aria-hidden="true">...</svg>
   Download
 </button>
 
-<!-- Icon only -->
+<!-- Icon only --&gt;
 <button class="btn btn--ghost btn--icon" aria-label="Close">
   <svg aria-hidden="true">...</svg>
 </button>
 
-<!-- Loading -->
+<!-- Loading --&gt;
 <button class="btn btn--primary" aria-busy="true" disabled>
   <svg class="btn__spinner" aria-hidden="true">...</svg>
   Saving...
 </button>
 
-<!-- Disabled -->
+<!-- Disabled --&gt;
 <button class="btn btn--primary" aria-disabled="true">
   Unavailable
 </button>

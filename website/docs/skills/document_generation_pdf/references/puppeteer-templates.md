@@ -348,29 +348,29 @@ await page.pdf({
   <div class="invoice">
     <div class="header">
       <div class="company-info">
-        <h1>{\{company_name\}}</h1>
-        <p>{\{company_address\}}</p>
-        <p>{\{company_phone\}}</p>
-        <p>{\{company_email\}}</p>
+        <h1>{{company_name}}</h1>
+        <p>{{company_address}}</p>
+        <p>{{company_phone}}</p>
+        <p>{{company_email}}</p>
       </div>
       <div class="invoice-info">
-        <div class="invoice-number">Invoice #{\{invoice_number\}}</div>
-        <p>Date: {\{invoice_date\}}</p>
-        <p>Due: {\{due_date\}}</p>
+        <div class="invoice-number">Invoice #{{invoice_number}}</div>
+        <p>Date: {{invoice_date}}</p>
+        <p>Due: {{due_date}}</p>
       </div>
     </div>
 
     <div class="billing-info">
       <div class="bill-to">
         <strong>Bill To:</strong><br>
-        {\{customer_name\}}<br>
-        {\{customer_address\}}<br>
-        {\{customer_phone\}}
+        {{customer_name}}<br>
+        {{customer_address}}<br>
+        {{customer_phone}}
       </div>
       <div class="ship-to">
         <strong>Ship To:</strong><br>
-        {\{shipping_name\}}<br>
-        {\{shipping_address\}}
+        {{shipping_name}}<br>
+        {{shipping_address}}
       </div>
     </div>
 
@@ -386,10 +386,10 @@ await page.pdf({
       <tbody>
         {{#each items}}
         <tr>
-          <td>{\{description\}}</td>
-          <td>{\{quantity\}}</td>
-          <td class="amount">${\{unit_price\}}</td>
-          <td class="amount">${\{amount\}}</td>
+          <td>{{description}}</td>
+          <td>{{quantity}}</td>
+          <td class="amount">${{unit_price}}</td>
+          <td class="amount">${{amount}}</td>
         </tr>
         {{/each}}
       </tbody>
@@ -398,21 +398,21 @@ await page.pdf({
     <div class="total-section">
       <div class="total-row">
         <span>Subtotal:</span>
-        <span>${\{subtotal\}}</span>
+        <span>${{subtotal}}</span>
       </div>
       <div class="total-row">
-        <span>Tax ({\{tax_rate\}}%):</span>
-        <span>${\{tax_amount\}}</span>
+        <span>Tax ({{tax_rate}}%):</span>
+        <span>${{tax_amount}}</span>
       </div>
       <div class="total-row grand-total">
         <span>Total:</span>
-        <span>${\{total\}}</span>
+        <span>${{total}}</span>
       </div>
     </div>
 
     <div class="footer">
       <p>Thank you for your business!</p>
-      <p>Payment due within 30 days. Please make checks payable to {\{company_name\}}.</p>
+      <p>Payment due within 30 days. Please make checks payable to {{company_name}}.</p>
     </div>
   </div>
 </body>
@@ -514,21 +514,21 @@ await page.pdf({
   <div class="certificate">
     <div class="title">Certificate of Completion</div>
     <div class="subtitle">This is to certify that</div>
-    <div class="recipient">{\{recipient_name\}}</div>
+    <div class="recipient">{{recipient_name}}</div>
     <div class="description">
-      has successfully completed the {\{course_name\}} program
-      on {\{completion_date\}} with a score of {\{score\}}%.
+      has successfully completed the {{course_name}} program
+      on {{completion_date}} with a score of {{score}}%.
     </div>
     <div class="footer">
       <div class="signature-line">
         <div class="line"></div>
         <div>Instructor Signature</div>
-        <div>{\{instructor_name\}}</div>
+        <div>{{instructor_name}}</div>
       </div>
       <div class="signature-line">
         <div class="line"></div>
         <div>Date</div>
-        <div>{\{issue_date\}}</div>
+        <div>{{issue_date}}</div>
       </div>
     </div>
   </div>
@@ -601,11 +601,11 @@ await page.pdf({
 ```
 
 **Template variables**:
-- `{\{pageNumber\}}` - Current page number
-- `{\{totalPages\}}` - Total page count
-- `{\{url\}}` - Document URL
-- `{\{title\}}` - Document title
-- `{\{date\}}` - Print date
+- `{{pageNumber}}` - Current page number
+- `{{totalPages}}` - Total page count
+- `{{url}}` - Document URL
+- `{{title}}` - Document title
+- `{{date}}` - Print date
 
 ---
 

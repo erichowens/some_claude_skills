@@ -353,7 +353,7 @@ function startRequest(tool: string): string {
     startTime: Date.now(),
     tool,
   });
-  console.error(`[$\{requestId\}] START $\{tool\}`);
+  console.error(`[${requestId}] START ${tool}`);
   return requestId;
 }
 
@@ -361,7 +361,7 @@ function endRequest(requestId: string, success: boolean) {
   const ctx = activeRequests.get(requestId);
   if (ctx) {
     const duration = Date.now() - ctx.startTime;
-    console.error(`[$\{requestId\}] END ${ctx.tool} ${success ? "OK" : "FAIL"} $\{duration\}ms`);
+    console.error(`[${requestId}] END ${ctx.tool} ${success ? "OK" : "FAIL"} ${duration}ms`);
     activeRequests.delete(requestId);
   }
 }
@@ -404,7 +404,7 @@ function withTiming<T>(
   return fn().finally(() => {
     const end = process.hrtime.bigint();
     const durationMs = Number(end - start) / 1_000_000;
-    console.error(`TIMING $\{name\}: ${durationMs.toFixed(2)}ms`);
+    console.error(`TIMING ${name}: ${durationMs.toFixed(2)}ms`);
   });
 }
 
@@ -417,9 +417,9 @@ const result = await withTiming("api_call", () => apiRequest("/endpoint"));
 function logMemory() {
   const usage = process.memoryUsage();
   console.error("MEMORY:", {
-    heapUsed: `$\{Math.round(usage.heapUsed / 1024 / 1024)\}MB`,
-    heapTotal: `$\{Math.round(usage.heapTotal / 1024 / 1024)\}MB`,
-    external: `$\{Math.round(usage.external / 1024 / 1024)\}MB`,
+    heapUsed: `${Math.round(usage.heapUsed / 1024 / 1024)}MB`,
+    heapTotal: `${Math.round(usage.heapTotal / 1024 / 1024)}MB`,
+    external: `${Math.round(usage.external / 1024 / 1024)}MB`,
   });
 }
 
@@ -474,7 +474,7 @@ if (response.status === 429) {
     ? parseInt(retryAfter) * 1000
     : 60000;  // Default 1 minute
 
-  console.error(`Rate limited, waiting $\{waitMs\}ms`);
+  console.error(`Rate limited, waiting ${waitMs}ms`);
   await new Promise(r => setTimeout(r, waitMs));
   // Retry...
 }

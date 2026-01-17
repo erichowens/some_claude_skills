@@ -78,7 +78,7 @@ npm run feature:create
 
 1. **Read the manifest first:**
    ```bash
-   npm run feature:info -- <feature-id>
+   npm run feature:info -- &lt;feature-id>
    ```
 
 2. **Make your changes** to the implementation files

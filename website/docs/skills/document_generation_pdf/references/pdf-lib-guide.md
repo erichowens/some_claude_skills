@@ -204,7 +204,7 @@ fields.forEach(field => {
   const name = field.getName();
   const type = field.constructor.name;  // PDFTextField, PDFCheckBox, etc.
 
-  console.log(`$\{name\} ($\{type\})`);
+  console.log(`${name} (${type})`);
 
   // Field-specific details
   if (field instanceof PDFTextField) {
@@ -522,7 +522,7 @@ async function batchFillForms(
           if (value) fieldObj.check();
         }
       } catch (err) {
-        console.warn(`Field $\{field\} not found`);
+        console.warn(`Field ${field} not found`);
       }
     }
 
