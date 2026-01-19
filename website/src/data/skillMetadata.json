@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-17T23:40:45.830Z",
+  "generatedAt": "2026-01-19T03:50:38.152Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -1241,10 +1241,10 @@
       "id": "reactive-dashboard-performance",
       "createdAt": "2026-01-15T20:08:53-08:00",
       "updatedAt": "2026-01-15T20:08:53-08:00",
-      "totalLines": 8,
+      "totalLines": 171,
       "totalFiles": 1,
-      "skillMdSize": 0,
-      "skillMdLines": 0,
+      "skillMdSize": 4451,
+      "skillMdLines": 171,
       "hasReferences": false,
       "hasExamples": false,
       "hasChangelog": false
