@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-19T03:50:38.152Z",
+  "generatedAt": "2026-01-22T10:21:12.467Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -941,11 +941,11 @@
       "id": "knot-theory-educator",
       "createdAt": "2025-12-23T05:23:59-08:00",
       "updatedAt": "2025-12-26T08:40:43-08:00",
-      "totalLines": 314,
-      "totalFiles": 1,
+      "totalLines": 972,
+      "totalFiles": 2,
       "skillMdSize": 11102,
       "skillMdLines": 314,
-      "hasReferences": false,
+      "hasReferences": true,
       "hasExamples": false,
       "hasChangelog": false
     },
@@ -1169,8 +1169,8 @@
       "id": "physics-rendering-expert",
       "createdAt": "2025-11-25T18:43:58-08:00",
       "updatedAt": "2025-12-26T08:40:43-08:00",
-      "totalLines": 1102,
-      "totalFiles": 5,
+      "totalLines": 2036,
+      "totalFiles": 6,
       "skillMdSize": 5641,
       "skillMdLines": 143,
       "hasReferences": true,
@@ -1240,7 +1240,7 @@
     "reactive-dashboard-performance": {
       "id": "reactive-dashboard-performance",
       "createdAt": "2026-01-15T20:08:53-08:00",
-      "updatedAt": "2026-01-15T20:08:53-08:00",
+      "updatedAt": "2026-01-18T19:50:33-08:00",
       "totalLines": 171,
       "totalFiles": 1,
       "skillMdSize": 4451,
