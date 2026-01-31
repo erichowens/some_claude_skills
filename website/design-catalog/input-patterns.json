@@ -1,0 +1,375 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 22,
+    "categories": ["text", "selection", "date", "special", "state"]
+  },
+  "patterns": [
+    {
+      "id": "text-input",
+      "name": "Text Input",
+      "category": "text",
+      "description": "Single-line text field",
+      "anatomy": {
+        "label": "above or inside field",
+        "input": "text field",
+        "placeholder": "hint text (optional)",
+        "helper": "help text below (optional)",
+        "error": "error message when invalid"
+      },
+      "sizing": {
+        "height": "40-48px typical",
+        "padding": "12-16px horizontal"
+      }
+    },
+    {
+      "id": "textarea",
+      "name": "Textarea",
+      "category": "text",
+      "description": "Multi-line text input",
+      "features": {
+        "resize": "vertical, horizontal, both, none",
+        "autoGrow": "grow with content",
+        "charCount": "show remaining characters"
+      },
+      "sizing": {
+        "minHeight": "3-4 lines minimum",
+        "maxHeight": "limit or scroll"
+      }
+    },
+    {
+      "id": "password-input",
+      "name": "Password Input",
+      "category": "text",
+      "description": "Masked password field",
+      "features": {
+        "toggle": "show/hide password button",
+        "strength": "password strength indicator",
+        "requirements": "list of requirements"
+      },
+      "security": {
+        "autocomplete": "current-password or new-password",
+        "paste": "allow paste"
+      }
+    },
+    {
+      "id": "email-input",
+      "name": "Email Input",
+      "category": "text",
+      "description": "Email address field",
+      "attributes": {
+        "type": "email",
+        "autocomplete": "email",
+        "inputmode": "email"
+      },
+      "validation": "email format validation"
+    },
+    {
+      "id": "phone-input",
+      "name": "Phone Input",
+      "category": "text",
+      "description": "Phone number field",
+      "features": {
+        "countryCode": "country selector",
+        "formatting": "auto-format as typed",
+        "validation": "validate format"
+      },
+      "attributes": {
+        "type": "tel",
+        "inputmode": "tel"
+      }
+    },
+    {
+      "id": "number-input",
+      "name": "Number Input",
+      "category": "text",
+      "description": "Numeric value input",
+      "variants": {
+        "plain": "just number field",
+        "stepper": "with +/- buttons",
+        "slider": "with range slider"
+      },
+      "attributes": {
+        "type": "number",
+        "inputmode": "numeric or decimal",
+        "min": "minimum value",
+        "max": "maximum value",
+        "step": "increment amount"
+      }
+    },
+    {
+      "id": "search-input",
+      "name": "Search Input",
+      "category": "text",
+      "description": "Search query field",
+      "anatomy": {
+        "icon": "magnifying glass (left)",
+        "input": "search text",
+        "clear": "X button when has value"
+      },
+      "attributes": {
+        "type": "search",
+        "role": "searchbox"
+      }
+    },
+    {
+      "id": "url-input",
+      "name": "URL Input",
+      "category": "text",
+      "description": "Website URL field",
+      "features": {
+        "prefix": "https:// prefix (optional)",
+        "validation": "URL format validation"
+      },
+      "attributes": {
+        "type": "url",
+        "inputmode": "url"
+      }
+    },
+    {
+      "id": "select-dropdown",
+      "name": "Select/Dropdown",
+      "category": "selection",
+      "description": "Single selection from list",
+      "anatomy": {
+        "trigger": "selected value + arrow",
+        "dropdown": "list of options",
+        "search": "optional search within"
+      },
+      "behavior": {
+        "click": "opens dropdown",
+        "keyboard": "arrow keys navigate"
+      }
+    },
+    {
+      "id": "multi-select",
+      "name": "Multi-Select",
+      "category": "selection",
+      "description": "Multiple selections from list",
+      "variants": {
+        "chips": "selected items as chips in field",
+        "checkboxList": "dropdown with checkboxes",
+        "dualList": "two lists with transfer"
+      }
+    },
+    {
+      "id": "combobox",
+      "name": "Combobox/Autocomplete",
+      "category": "selection",
+      "description": "Type to filter options",
+      "behavior": {
+        "typing": "filters visible options",
+        "selection": "click or Enter to select",
+        "custom": "optionally allow custom values"
+      },
+      "accessibility": {
+        "role": "combobox",
+        "ariaExpanded": "true when open",
+        "ariaAutocomplete": "list"
+      }
+    },
+    {
+      "id": "checkbox",
+      "name": "Checkbox",
+      "category": "selection",
+      "description": "Boolean selection",
+      "states": {
+        "unchecked": "empty box",
+        "checked": "box with checkmark",
+        "indeterminate": "partial selection"
+      },
+      "useCases": ["yes/no options", "multi-select lists", "consent"]
+    },
+    {
+      "id": "radio-group",
+      "name": "Radio Button Group",
+      "category": "selection",
+      "description": "Single selection from options",
+      "anatomy": {
+        "options": "list of radio buttons",
+        "label": "text for each option"
+      },
+      "useCases": ["exclusive options", "small sets (2-5 items)"]
+    },
+    {
+      "id": "toggle-switch",
+      "name": "Toggle Switch",
+      "category": "selection",
+      "description": "On/off toggle control",
+      "anatomy": {
+        "track": "background track",
+        "thumb": "sliding indicator",
+        "label": "on/off labels (optional)"
+      },
+      "useCases": ["settings", "preferences", "features"],
+      "distinction": "immediate effect, no submit needed"
+    },
+    {
+      "id": "date-picker",
+      "name": "Date Picker",
+      "category": "date",
+      "description": "Date selection calendar",
+      "anatomy": {
+        "input": "date display field",
+        "calendar": "month view with days",
+        "navigation": "month/year navigation"
+      },
+      "features": {
+        "range": "date range selection",
+        "minMax": "min/max date constraints",
+        "presets": "quick selection presets"
+      }
+    },
+    {
+      "id": "time-picker",
+      "name": "Time Picker",
+      "category": "date",
+      "description": "Time selection",
+      "variants": {
+        "dropdown": "select hours/minutes",
+        "clock": "analog clock interface",
+        "input": "type time directly"
+      },
+      "format": "12-hour or 24-hour"
+    },
+    {
+      "id": "datetime-picker",
+      "name": "DateTime Picker",
+      "category": "date",
+      "description": "Combined date and time",
+      "anatomy": {
+        "date": "date picker component",
+        "time": "time picker component"
+      },
+      "layout": "sequential or combined view"
+    },
+    {
+      "id": "file-upload",
+      "name": "File Upload",
+      "category": "special",
+      "description": "File selection input",
+      "variants": {
+        "button": "browse button",
+        "dropzone": "drag-and-drop area",
+        "combined": "both button and dropzone"
+      },
+      "features": {
+        "preview": "image/file preview",
+        "progress": "upload progress",
+        "multiple": "multiple file selection"
+      }
+    },
+    {
+      "id": "color-picker",
+      "name": "Color Picker",
+      "category": "special",
+      "description": "Color selection",
+      "variants": {
+        "input": "hex/rgb input",
+        "swatches": "predefined colors",
+        "spectrum": "full color picker"
+      }
+    },
+    {
+      "id": "slider-range",
+      "name": "Slider/Range",
+      "category": "special",
+      "description": "Value selection on range",
+      "variants": {
+        "single": "one thumb, one value",
+        "range": "two thumbs, min-max"
+      },
+      "features": {
+        "labels": "min/max labels",
+        "value": "current value display",
+        "steps": "discrete steps"
+      }
+    },
+    {
+      "id": "otp-input",
+      "name": "OTP/Code Input",
+      "category": "special",
+      "description": "Verification code entry",
+      "anatomy": {
+        "boxes": "individual digit boxes",
+        "autoAdvance": "move to next on input"
+      },
+      "features": {
+        "paste": "support paste of full code",
+        "autoComplete": "SMS autofill"
+      }
+    },
+    {
+      "id": "credit-card-input",
+      "name": "Credit Card Input",
+      "category": "special",
+      "description": "Payment card entry",
+      "fields": {
+        "number": "card number with formatting",
+        "expiry": "MM/YY",
+        "cvc": "3-4 digit code"
+      },
+      "features": {
+        "cardType": "detect and show card type",
+        "formatting": "auto-format as typed",
+        "validation": "Luhn algorithm validation"
+      }
+    }
+  ],
+  "states": [
+    {
+      "id": "state-default",
+      "name": "Default",
+      "description": "Normal input state",
+      "styling": "base border and background"
+    },
+    {
+      "id": "state-focus",
+      "name": "Focus",
+      "description": "Input has keyboard focus",
+      "styling": "highlighted border, focus ring"
+    },
+    {
+      "id": "state-filled",
+      "name": "Filled",
+      "description": "Input has value",
+      "styling": "may differ from empty"
+    },
+    {
+      "id": "state-error",
+      "name": "Error",
+      "description": "Validation failed",
+      "styling": "red border, error message below"
+    },
+    {
+      "id": "state-disabled",
+      "name": "Disabled",
+      "description": "Cannot be edited",
+      "styling": "reduced opacity, not-allowed cursor"
+    },
+    {
+      "id": "state-readonly",
+      "name": "Read-Only",
+      "description": "Value visible but not editable",
+      "styling": "selectable text, no input styling"
+    }
+  ],
+  "accessibility": {
+    "labeling": [
+      "every input needs visible label",
+      "for attribute links label to input",
+      "aria-describedby for help/error text"
+    ],
+    "errors": [
+      "aria-invalid='true' for invalid inputs",
+      "associate error message with input",
+      "announce errors to screen readers"
+    ],
+    "keyboard": [
+      "all inputs keyboard accessible",
+      "Tab navigates between fields",
+      "Enter submits form"
+    ]
+  }
+}

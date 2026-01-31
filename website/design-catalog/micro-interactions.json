@@ -1,0 +1,435 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 32,
+    "categories": ["button", "form", "navigation", "feedback", "toggle", "loading", "data", "social"]
+  },
+  "patterns": [
+    {
+      "id": "button-ripple",
+      "name": "Button Ripple",
+      "category": "button",
+      "description": "Material Design ripple effect on click",
+      "trigger": "click/tap",
+      "animation": {
+        "type": "expanding circle from click point",
+        "duration": "400-600ms",
+        "easing": "ease-out"
+      },
+      "implementation": "pseudo-element or canvas overlay",
+      "examples": ["Material Design buttons"],
+      "a11y": "purely decorative, doesn't affect functionality"
+    },
+    {
+      "id": "button-fill",
+      "name": "Button Fill",
+      "category": "button",
+      "description": "Background fills from one side on hover",
+      "trigger": "hover",
+      "animation": {
+        "type": "background position or width transition",
+        "duration": "200-300ms",
+        "direction": "left-to-right or bottom-to-top"
+      },
+      "css": "background-size and background-position transition"
+    },
+    {
+      "id": "button-icon-slide",
+      "name": "Button Icon Slide",
+      "category": "button",
+      "description": "Icon slides in/out on hover",
+      "trigger": "hover",
+      "animation": {
+        "default": "text only",
+        "hover": "icon slides in from right, text shifts left"
+      },
+      "examples": ["Learn more →"]
+    },
+    {
+      "id": "button-morph",
+      "name": "Button Morph",
+      "category": "button",
+      "description": "Button morphs into loading state then success",
+      "trigger": "click → loading → complete",
+      "states": {
+        "default": "normal button",
+        "loading": "shrinks to circle with spinner",
+        "success": "checkmark appears",
+        "error": "X mark, shakes"
+      },
+      "duration": "loading variable, morph 300ms"
+    },
+    {
+      "id": "input-focus-label",
+      "name": "Input Focus Label",
+      "category": "form",
+      "description": "Label floats up when input is focused",
+      "trigger": "focus or has value",
+      "animation": {
+        "type": "translate up and scale down",
+        "duration": "150-200ms"
+      },
+      "states": {
+        "empty": "label inside input area",
+        "focused": "label floats above, smaller",
+        "filled": "stays floated"
+      }
+    },
+    {
+      "id": "input-highlight-border",
+      "name": "Input Highlight Border",
+      "category": "form",
+      "description": "Border animates/highlights on focus",
+      "trigger": "focus",
+      "variants": {
+        "color": "border color transitions",
+        "underline": "line grows from center",
+        "glow": "box-shadow glow appears"
+      },
+      "duration": "150-200ms"
+    },
+    {
+      "id": "input-shake-error",
+      "name": "Input Shake Error",
+      "category": "form",
+      "description": "Input shakes on validation error",
+      "trigger": "validation fail",
+      "animation": {
+        "type": "horizontal shake",
+        "duration": "300-400ms",
+        "keyframes": "translateX(-10px, 10px, -10px, 10px, 0)"
+      },
+      "combined": "red border + error message"
+    },
+    {
+      "id": "checkbox-check-draw",
+      "name": "Checkbox Check Draw",
+      "category": "form",
+      "description": "Checkmark draws itself when checked",
+      "trigger": "check action",
+      "animation": {
+        "type": "SVG stroke-dashoffset animation",
+        "duration": "200-300ms"
+      },
+      "implementation": "SVG path with animated stroke"
+    },
+    {
+      "id": "radio-fill",
+      "name": "Radio Fill",
+      "category": "form",
+      "description": "Inner circle scales in when selected",
+      "trigger": "selection",
+      "animation": {
+        "type": "scale from 0 to 1",
+        "duration": "150ms",
+        "easing": "ease-out or spring"
+      }
+    },
+    {
+      "id": "password-strength",
+      "name": "Password Strength Meter",
+      "category": "form",
+      "description": "Visual strength indicator as user types",
+      "trigger": "keypress in password field",
+      "animation": {
+        "bar": "width grows with strength",
+        "color": "red → yellow → green"
+      },
+      "feedback": "real-time as user types"
+    },
+    {
+      "id": "nav-underline-slide",
+      "name": "Nav Underline Slide",
+      "category": "navigation",
+      "description": "Underline slides between nav items",
+      "trigger": "hover or active state change",
+      "animation": {
+        "type": "position and width transition",
+        "duration": "200-300ms"
+      },
+      "implementation": "absolute positioned element that moves"
+    },
+    {
+      "id": "nav-indicator-pill",
+      "name": "Nav Indicator Pill",
+      "category": "navigation",
+      "description": "Background pill slides between items",
+      "trigger": "selection change",
+      "animation": {
+        "type": "morphs position and size",
+        "duration": "200-300ms",
+        "easing": "ease-out"
+      },
+      "examples": ["segment controls", "tab bars"]
+    },
+    {
+      "id": "hamburger-to-x",
+      "name": "Hamburger to X",
+      "category": "navigation",
+      "description": "Menu icon morphs to close icon",
+      "trigger": "menu open/close",
+      "animation": {
+        "lines": "top/bottom rotate to form X, middle fades",
+        "duration": "300ms"
+      },
+      "implementation": "three spans with transform"
+    },
+    {
+      "id": "dropdown-reveal",
+      "name": "Dropdown Reveal",
+      "category": "navigation",
+      "description": "Dropdown content animates in",
+      "trigger": "click or hover",
+      "animation": {
+        "type": "fade + slide down + scale",
+        "duration": "150-200ms",
+        "origin": "top"
+      },
+      "items": "stagger children for list effect"
+    },
+    {
+      "id": "toast-slide-in",
+      "name": "Toast Slide In",
+      "category": "feedback",
+      "description": "Notification slides in from edge",
+      "trigger": "event (success, error, info)",
+      "animation": {
+        "enter": "slide from right/top + fade",
+        "exit": "slide out + fade",
+        "duration": "300ms"
+      },
+      "autoDismiss": "slide out after 3-5 seconds"
+    },
+    {
+      "id": "success-checkmark",
+      "name": "Success Checkmark",
+      "category": "feedback",
+      "description": "Animated checkmark for success states",
+      "trigger": "success event",
+      "animation": {
+        "circle": "draws around",
+        "check": "draws after circle",
+        "duration": "500-700ms total"
+      },
+      "implementation": "SVG with stroke animation"
+    },
+    {
+      "id": "error-x-mark",
+      "name": "Error X Mark",
+      "category": "feedback",
+      "description": "Animated X for error states",
+      "trigger": "error event",
+      "animation": {
+        "circle": "draws around (red)",
+        "x": "both lines draw",
+        "shake": "optional shake after"
+      }
+    },
+    {
+      "id": "progress-bar-fill",
+      "name": "Progress Bar Fill",
+      "category": "feedback",
+      "description": "Progress bar with smooth fill animation",
+      "trigger": "progress update",
+      "animation": {
+        "width": "smooth transition to new value",
+        "shimmer": "optional shine effect moving across"
+      },
+      "variants": {
+        "determinate": "shows actual progress",
+        "indeterminate": "continuous animation when unknown"
+      }
+    },
+    {
+      "id": "toggle-switch",
+      "name": "Toggle Switch",
+      "category": "toggle",
+      "description": "iOS-style toggle with slide animation",
+      "trigger": "click/tap",
+      "animation": {
+        "thumb": "slides left/right",
+        "track": "background color transitions",
+        "duration": "200ms"
+      },
+      "spring": "optional spring bounce on thumb"
+    },
+    {
+      "id": "accordion-expand",
+      "name": "Accordion Expand",
+      "category": "toggle",
+      "description": "Content area expands/collapses smoothly",
+      "trigger": "click header",
+      "animation": {
+        "height": "animate from 0 to auto",
+        "icon": "chevron rotates",
+        "duration": "200-300ms"
+      },
+      "implementation": "grid or max-height technique for height: auto"
+    },
+    {
+      "id": "modal-backdrop-blur",
+      "name": "Modal Backdrop Blur",
+      "category": "toggle",
+      "description": "Background blurs when modal opens",
+      "trigger": "modal open",
+      "animation": {
+        "backdrop": "fade in + blur increases",
+        "modal": "scale in from 0.95",
+        "duration": "200-300ms"
+      }
+    },
+    {
+      "id": "skeleton-shimmer",
+      "name": "Skeleton Shimmer",
+      "category": "loading",
+      "description": "Shimmer effect on loading placeholders",
+      "trigger": "loading state",
+      "animation": {
+        "type": "gradient moving left to right",
+        "duration": "1-2s infinite"
+      },
+      "css": "linear-gradient with animated background-position"
+    },
+    {
+      "id": "content-placeholder-pulse",
+      "name": "Content Placeholder Pulse",
+      "category": "loading",
+      "description": "Pulsing placeholder for loading content",
+      "trigger": "loading state",
+      "animation": {
+        "type": "opacity pulse",
+        "duration": "1.5s infinite"
+      }
+    },
+    {
+      "id": "infinite-scroll-loader",
+      "name": "Infinite Scroll Loader",
+      "category": "loading",
+      "description": "Loader at bottom while fetching more",
+      "trigger": "scroll near bottom",
+      "animation": {
+        "spinner": "rotating or bouncing dots",
+        "duration": "until content loads"
+      }
+    },
+    {
+      "id": "card-flip",
+      "name": "Card Flip",
+      "category": "data",
+      "description": "Card flips to reveal back content",
+      "trigger": "click or hover",
+      "animation": {
+        "type": "rotateY 180deg",
+        "duration": "400-600ms",
+        "perspective": "1000px on parent"
+      },
+      "css": "transform-style: preserve-3d, backface-visibility: hidden"
+    },
+    {
+      "id": "list-item-swipe",
+      "name": "List Item Swipe",
+      "category": "data",
+      "description": "Swipe to reveal actions",
+      "trigger": "touch swipe",
+      "animation": {
+        "item": "slides to reveal action buttons",
+        "actions": "appear behind (delete, archive, etc.)"
+      },
+      "examples": ["iOS mail swipe actions"]
+    },
+    {
+      "id": "drag-and-drop-feedback",
+      "name": "Drag and Drop Feedback",
+      "category": "data",
+      "description": "Visual feedback during drag operations",
+      "states": {
+        "dragging": "item lifts, shadow increases, slight rotate",
+        "dropTarget": "target highlights, expands slightly",
+        "dropped": "item settles into place"
+      }
+    },
+    {
+      "id": "number-count-up",
+      "name": "Number Count Up",
+      "category": "data",
+      "description": "Number animates from 0 to target value",
+      "trigger": "scroll into view",
+      "animation": {
+        "type": "increment number over time",
+        "duration": "1-2 seconds",
+        "easing": "ease-out (fast start, slow end)"
+      },
+      "libraries": ["countup.js", "react-countup"]
+    },
+    {
+      "id": "like-heart-burst",
+      "name": "Like Heart Burst",
+      "category": "social",
+      "description": "Heart icon with particle burst on like",
+      "trigger": "click/double-tap",
+      "animation": {
+        "heart": "scales up briefly",
+        "particles": "burst of small hearts/circles",
+        "color": "fill with color"
+      },
+      "examples": ["Twitter/X like", "Instagram like"]
+    },
+    {
+      "id": "share-expand",
+      "name": "Share Expand",
+      "category": "social",
+      "description": "Share options expand from button",
+      "trigger": "click share button",
+      "animation": {
+        "options": "fan out in arc or row",
+        "stagger": "each option appears sequentially",
+        "duration": "200-300ms"
+      }
+    },
+    {
+      "id": "notification-badge-bounce",
+      "name": "Notification Badge Bounce",
+      "category": "social",
+      "description": "Badge bounces when count increases",
+      "trigger": "new notification",
+      "animation": {
+        "type": "scale bounce (1 → 1.2 → 1)",
+        "duration": "300ms"
+      },
+      "attention": "draws eye to new notification"
+    },
+    {
+      "id": "typing-indicator",
+      "name": "Typing Indicator",
+      "category": "social",
+      "description": "Bouncing dots showing someone is typing",
+      "trigger": "other user typing",
+      "animation": {
+        "dots": "3 dots bouncing with stagger",
+        "duration": "600ms infinite"
+      },
+      "examples": ["chat apps", "AI responses"]
+    }
+  ],
+  "principles": {
+    "timing": [
+      "UI feedback: 100-200ms (instant feel)",
+      "State changes: 200-300ms",
+      "Complex animations: 300-500ms",
+      "Page transitions: 300-500ms"
+    ],
+    "easing": {
+      "enter": "ease-out (decelerate into view)",
+      "exit": "ease-in (accelerate out of view)",
+      "movement": "ease-in-out",
+      "spring": "for playful, natural feel"
+    },
+    "accessibility": [
+      "Respect prefers-reduced-motion",
+      "Never block user interaction",
+      "Provide alternative for motion-dependent info",
+      "Keep animations under 5 seconds"
+    ]
+  }
+}

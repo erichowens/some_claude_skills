@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 14,
+    "categories": ["navigation", "manipulation", "actions", "discovery"],
+    "platforms": ["mobile", "tablet", "touchscreen", "trackpad"]
+  },
+  "patterns": [
+    {
+      "id": "swipe-horizontal",
+      "name": "Horizontal Swipe",
+      "category": "navigation",
+      "description": "Swipe left/right to navigate between items",
+      "gesture": {
+        "type": "horizontal drag",
+        "threshold": "50-100px to trigger",
+        "velocity": "consider swipe speed"
+      },
+      "useCases": [
+        "Image galleries",
+        "Onboarding screens",
+        "Card stacks",
+        "Date picker navigation"
+      ],
+      "feedback": {
+        "visual": "content follows finger, then snaps",
+        "indicator": "pagination dots or progress"
+      },
+      "implementation": {
+        "web": "touch events or Hammer.js",
+        "react": "react-swipeable, Framer Motion drag"
+      },
+      "accessibility": "provide alternative navigation (arrows, dots)"
+    },
+    {
+      "id": "swipe-to-action",
+      "name": "Swipe to Action",
+      "category": "actions",
+      "description": "Swipe list item to reveal action buttons",
+      "gesture": {
+        "type": "horizontal drag on list item",
+        "threshold": "30-50% of item width",
+        "snapPoints": ["closed", "partial (reveal)", "full (execute)"]
+      },
+      "actions": {
+        "left": ["delete", "archive"],
+        "right": ["favorite", "mark as read"]
+      },
+      "feedback": {
+        "reveal": "action buttons appear behind",
+        "color": "destructive actions in red",
+        "icons": "clear icons with labels"
+      },
+      "examples": ["iOS Mail", "Slack", "Gmail"],
+      "accessibility": "provide long-press menu alternative"
+    },
+    {
+      "id": "pull-to-refresh",
+      "name": "Pull to Refresh",
+      "category": "actions",
+      "description": "Pull down at top of list to refresh content",
+      "gesture": {
+        "type": "vertical overscroll drag",
+        "threshold": "60-80px",
+        "state": ["pulling", "triggered", "loading", "complete"]
+      },
+      "feedback": {
+        "pulling": "spinner appears, rotates with pull distance",
+        "triggered": "spinner completes, releases to refresh",
+        "loading": "spinner animates while loading",
+        "complete": "spinner hides, content updates"
+      },
+      "implementation": {
+        "native": "UIRefreshControl (iOS), SwipeRefreshLayout (Android)",
+        "web": "custom implementation needed"
+      },
+      "examples": ["most mobile apps"]
+    },
+    {
+      "id": "pinch-to-zoom",
+      "name": "Pinch to Zoom",
+      "category": "manipulation",
+      "description": "Two-finger pinch to zoom in/out",
+      "gesture": {
+        "type": "two-finger pinch",
+        "zoom": "scale based on finger distance change",
+        "pan": "move view while zoomed"
+      },
+      "constraints": {
+        "minScale": 1.0,
+        "maxScale": 3.0,
+        "boundaryBehavior": "spring back if over-zoomed"
+      },
+      "feedback": {
+        "smooth": "scales smoothly with gesture",
+        "momentum": "continues briefly after release"
+      },
+      "useCases": ["images", "maps", "documents", "diagrams"]
+    },
+    {
+      "id": "long-press",
+      "name": "Long Press",
+      "category": "discovery",
+      "description": "Press and hold to reveal options",
+      "gesture": {
+        "type": "press duration",
+        "threshold": "500-800ms",
+        "feedback": "haptic at trigger point"
+      },
+      "reveals": {
+        "contextMenu": "options specific to element",
+        "preview": "preview of linked content",
+        "dragMode": "enable drag and drop"
+      },
+      "feedback": {
+        "visual": "scale down slightly, then menu appears",
+        "haptic": "light haptic on trigger"
+      },
+      "examples": ["iOS context menus", "Android long-press"],
+      "accessibility": "provide alternative (right-click, menu button)"
+    },
+    {
+      "id": "drag-and-drop",
+      "name": "Drag and Drop",
+      "category": "manipulation",
+      "description": "Drag items to reorder or move between containers",
+      "gesture": {
+        "type": "long-press to initiate, then drag",
+        "initiation": "long-press or dedicated handle"
+      },
+      "feedback": {
+        "pickup": "item lifts, shadow increases",
+        "dragging": "item follows finger, placeholder shows origin",
+        "dropTarget": "valid targets highlight",
+        "drop": "item settles into new position"
+      },
+      "implementation": {
+        "web": "react-beautiful-dnd, dnd-kit, native drag API",
+        "native": "UIKit drag, Android DragShadowBuilder"
+      },
+      "useCases": ["lists", "kanban boards", "file management"]
+    },
+    {
+      "id": "edge-swipe-back",
+      "name": "Edge Swipe Back",
+      "category": "navigation",
+      "description": "Swipe from screen edge to go back",
+      "gesture": {
+        "type": "horizontal drag from left edge",
+        "startZone": "within 20-30px of left edge",
+        "threshold": "30% of screen width"
+      },
+      "feedback": {
+        "preview": "previous screen peeks in",
+        "parallax": "current screen slides right"
+      },
+      "platform": {
+        "iOS": "native back gesture",
+        "Android": "back gesture (Android 10+)",
+        "web": "can implement but may conflict with browser"
+      },
+      "caution": "don't override on web, may conflict with browser navigation"
+    },
+    {
+      "id": "double-tap",
+      "name": "Double Tap",
+      "category": "actions",
+      "description": "Two quick taps to trigger action",
+      "gesture": {
+        "type": "two taps in quick succession",
+        "timeout": "300ms between taps",
+        "area": "within small radius"
+      },
+      "useCases": {
+        "like": "double-tap to like (Instagram)",
+        "zoom": "double-tap to zoom image",
+        "select": "double-tap to select word"
+      },
+      "feedback": {
+        "like": "heart animation at tap point",
+        "zoom": "smooth zoom to point"
+      },
+      "caution": "adds 300ms delay to single tap detection"
+    },
+    {
+      "id": "rotate-gesture",
+      "name": "Rotate Gesture",
+      "category": "manipulation",
+      "description": "Two-finger rotation to rotate content",
+      "gesture": {
+        "type": "two-finger rotation",
+        "detection": "angle change between fingers"
+      },
+      "constraints": {
+        "snapAngles": "[0, 90, 180, 270] degrees",
+        "freeRotation": "or allow any angle"
+      },
+      "useCases": ["image editing", "map orientation", "design tools"],
+      "accessibility": "provide rotation buttons alternative"
+    },
+    {
+      "id": "three-finger-swipe",
+      "name": "Three-Finger Swipe",
+      "category": "navigation",
+      "description": "System-level navigation gesture",
+      "gesture": {
+        "type": "three-finger horizontal swipe",
+        "platform": "primarily iPad/macOS trackpad"
+      },
+      "useCases": {
+        "iPad": "switch between apps",
+        "macOS": "switch desktops/spaces"
+      },
+      "note": "typically system-reserved, don't override in apps"
+    },
+    {
+      "id": "force-touch-peek-pop",
+      "name": "Force Touch / Haptic Touch",
+      "category": "discovery",
+      "description": "Pressure-sensitive or long-press preview",
+      "gesture": {
+        "type": "firm press (3D Touch) or long press (Haptic Touch)",
+        "states": ["peek (preview)", "pop (open)"]
+      },
+      "feedback": {
+        "peek": "preview overlay appears",
+        "pop": "navigates to full content",
+        "haptic": "distinct feedback for each state"
+      },
+      "useCases": ["link preview", "quick actions", "content preview"],
+      "note": "3D Touch deprecated, Haptic Touch is current standard"
+    },
+    {
+      "id": "scroll-velocity",
+      "name": "Scroll with Velocity",
+      "category": "navigation",
+      "description": "Scrolling respects flick speed and momentum",
+      "gesture": {
+        "type": "vertical/horizontal drag and release",
+        "momentum": "continues after release based on velocity"
+      },
+      "physics": {
+        "deceleration": "gradual slowdown",
+        "bounce": "elastic effect at boundaries",
+        "rubberbanding": "resistance when overscrolling"
+      },
+      "implementation": "native scroll or physics libraries",
+      "useCases": ["all scrollable content"]
+    },
+    {
+      "id": "tap-hold-slider",
+      "name": "Tap and Hold Slider",
+      "category": "manipulation",
+      "description": "Press and hold to continuously adjust value",
+      "gesture": {
+        "type": "tap and hold on increment/decrement buttons",
+        "behavior": "value changes continuously while held"
+      },
+      "feedback": {
+        "acceleration": "change speed increases over time",
+        "haptic": "tick feedback at intervals"
+      },
+      "useCases": ["quantity selectors", "volume controls", "steppers"],
+      "accessibility": "must also support single taps"
+    },
+    {
+      "id": "shake-gesture",
+      "name": "Shake Gesture",
+      "category": "actions",
+      "description": "Device shake to trigger action",
+      "gesture": {
+        "type": "device motion (accelerometer)",
+        "threshold": "sufficient acceleration change",
+        "cooldown": "prevent repeated triggers"
+      },
+      "useCases": {
+        "undo": "shake to undo (iOS)",
+        "refresh": "shake to shuffle/refresh",
+        "feedback": "shake to report problem"
+      },
+      "accessibility": "always provide alternative trigger",
+      "caution": "may trigger accidentally, use sparingly"
+    }
+  ],
+  "guidelines": {
+    "discoverability": [
+      "Gestures are hidden by default",
+      "Provide visual hints (swipe indicators)",
+      "Tutorial overlays for first-time users",
+      "Always provide visible alternative"
+    ],
+    "feedback": [
+      "Immediate visual response to touch",
+      "Haptic feedback for state changes",
+      "Smooth animations during gesture",
+      "Clear indication of triggered action"
+    ],
+    "accessibility": [
+      "All gesture actions must have alternatives",
+      "Support assistive technologies",
+      "Don't require precise gestures",
+      "Provide sufficient touch targets (44x44 minimum)"
+    ]
+  }
+}

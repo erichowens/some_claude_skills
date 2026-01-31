@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 12,
+    "categories": ["tiered", "comparison", "calculator", "enterprise", "freemium", "usage-based"]
+  },
+  "patterns": [
+    {
+      "id": "three-tier-standard",
+      "name": "Three-Tier Standard",
+      "category": "tiered",
+      "description": "Classic pricing with Free/Pro/Enterprise tiers",
+      "structure": {
+        "tiers": [
+          { "name": "Free", "price": "$0", "cta": "Get started" },
+          { "name": "Pro", "price": "$29/mo", "cta": "Start trial", "highlighted": true },
+          { "name": "Enterprise", "price": "Custom", "cta": "Contact sales" }
+        ],
+        "perTier": ["name", "price", "description", "features list", "CTA"]
+      },
+      "design": {
+        "highlight": "middle tier with 'Most popular' badge",
+        "cardStyle": "elevated or bordered for recommended",
+        "layout": "equal-width columns"
+      },
+      "pricing": {
+        "monthly": "show monthly price",
+        "annual": "toggle with annual discount highlighted",
+        "savings": "'Save 20%' badge on annual"
+      },
+      "responsive": {
+        "mobile": "stack vertically, recommended first"
+      },
+      "examples": ["notion.so", "slack.com", "github.com"],
+      "bestFor": ["SaaS products", "most subscription products"]
+    },
+    {
+      "id": "two-tier-simple",
+      "name": "Two-Tier Simple",
+      "category": "tiered",
+      "description": "Simple Free/Paid or Basic/Pro pricing",
+      "structure": {
+        "tiers": [
+          { "name": "Free", "price": "$0", "description": "For individuals" },
+          { "name": "Pro", "price": "$19/mo", "description": "For professionals", "highlighted": true }
+        ]
+      },
+      "design": {
+        "layout": "side by side, equal prominence",
+        "differentiation": "clear feature differences"
+      },
+      "simplicity": "fewer choices = faster decisions",
+      "examples": ["simple tools", "indie products"],
+      "bestFor": ["simple products", "clear free/paid split"]
+    },
+    {
+      "id": "feature-comparison-matrix",
+      "name": "Feature Comparison Matrix",
+      "category": "comparison",
+      "description": "Detailed feature table across all plans",
+      "structure": {
+        "layout": "table with plans as columns",
+        "rows": "features grouped by category",
+        "cells": "checkmarks, X marks, or specific values"
+      },
+      "design": {
+        "stickyHeader": "plan names stay visible on scroll",
+        "categories": "collapsible feature groups",
+        "highlight": "recommended column highlighted"
+      },
+      "features": {
+        "tooltips": "explain features on hover",
+        "links": "link to feature documentation",
+        "limits": "show specific limits (10 users, 100GB)"
+      },
+      "responsive": {
+        "mobile": "horizontal scroll or select-to-compare"
+      },
+      "examples": ["notion.so/pricing", "github.com/pricing"],
+      "bestFor": ["complex products", "feature-differentiated tiers"]
+    },
+    {
+      "id": "slider-calculator",
+      "name": "Slider Calculator",
+      "category": "calculator",
+      "description": "Interactive pricing based on usage slider",
+      "structure": {
+        "input": "slider or number input for usage metric",
+        "output": "calculated price updates live",
+        "metric": "users, API calls, storage, etc."
+      },
+      "design": {
+        "slider": "smooth, responsive slider",
+        "display": "large, prominent price",
+        "breakdown": "optional: show calculation breakdown"
+      },
+      "features": {
+        "presets": "quick select buttons (10, 100, 1000)",
+        "tiers": "show where tier boundaries are",
+        "estimate": "'Estimated monthly cost'"
+      },
+      "examples": ["twilio.com", "aws.amazon.com/calculator"],
+      "bestFor": ["usage-based pricing", "API products", "infrastructure"]
+    },
+    {
+      "id": "usage-based-tiers",
+      "name": "Usage-Based Tiers",
+      "category": "usage-based",
+      "description": "Pricing tiers defined by usage limits",
+      "structure": {
+        "tiers": "defined by usage thresholds",
+        "perTier": ["usage limit", "price per unit", "included features"],
+        "overage": "per-unit price beyond limit"
+      },
+      "design": {
+        "clarity": "clear usage→price mapping",
+        "examples": "show example scenarios",
+        "calculator": "inline estimation"
+      },
+      "transparency": "show all costs upfront",
+      "examples": ["vercel.com/pricing", "supabase.com/pricing"],
+      "bestFor": ["developer tools", "APIs", "cloud services"]
+    },
+    {
+      "id": "per-seat-pricing",
+      "name": "Per-Seat Pricing",
+      "category": "tiered",
+      "description": "Pricing based on number of users/seats",
+      "structure": {
+        "format": "$X/user/month",
+        "tiers": "may have minimum seats or tiers",
+        "calculator": "input users, show total"
+      },
+      "design": {
+        "perUser": "emphasize per-user price",
+        "total": "show team total",
+        "discounts": "volume discounts if applicable"
+      },
+      "features": {
+        "minimum": "minimum seats if required",
+        "billing": "billed based on actual users"
+      },
+      "examples": ["slack.com", "figma.com"],
+      "bestFor": ["team tools", "collaboration software"]
+    },
+    {
+      "id": "enterprise-contact",
+      "name": "Enterprise Contact",
+      "category": "enterprise",
+      "description": "Custom pricing requiring sales contact",
+      "structure": {
+        "card": "Enterprise tier without price",
+        "cta": "'Contact sales' or 'Get a quote'",
+        "features": "highlight enterprise-specific features"
+      },
+      "design": {
+        "differentiation": "clearly different from self-serve",
+        "features": "emphasize security, compliance, support",
+        "style": "premium feel"
+      },
+      "content": {
+        "features": ["SSO/SAML", "SLA", "Dedicated support", "Custom contracts"],
+        "reassurance": "'Flexible terms' or 'Custom deployment'"
+      },
+      "examples": ["most B2B SaaS"],
+      "bestFor": ["B2B products", "enterprise sales motion"]
+    },
+    {
+      "id": "freemium-generous",
+      "name": "Freemium Generous",
+      "category": "freemium",
+      "description": "Generous free tier with clear upgrade path",
+      "structure": {
+        "free": "substantial free offering",
+        "paid": "premium features or limits",
+        "path": "clear triggers for upgrade"
+      },
+      "design": {
+        "freeFocus": "make free tier appealing",
+        "upgradePath": "show what unlocks with paid",
+        "trial": "may offer paid trial"
+      },
+      "psychology": "get users hooked before monetizing",
+      "examples": ["notion.so", "figma.com", "canva.com"],
+      "bestFor": ["products with network effects", "viral products"]
+    },
+    {
+      "id": "annual-monthly-toggle",
+      "name": "Annual/Monthly Toggle",
+      "category": "tiered",
+      "description": "Toggle between billing frequencies with savings",
+      "structure": {
+        "toggle": "Monthly | Annual switch",
+        "default": "annual (to show lower price first)",
+        "savings": "show percentage or dollar savings"
+      },
+      "design": {
+        "toggle": "clear, accessible switch",
+        "savings": "'Save 20%' badge near annual",
+        "prices": "prices update on toggle"
+      },
+      "psychology": "anchor on annual, show monthly as more expensive",
+      "implementation": "smooth price transitions",
+      "examples": ["most SaaS products"],
+      "bestFor": ["subscription products", "predictable revenue"]
+    },
+    {
+      "id": "one-time-purchase",
+      "name": "One-Time Purchase",
+      "category": "tiered",
+      "description": "Single payment for lifetime access",
+      "structure": {
+        "price": "single price, no subscription",
+        "includes": "what's included forever",
+        "updates": "clarify update policy"
+      },
+      "design": {
+        "emphasis": "highlight 'lifetime' or 'one-time'",
+        "value": "show value vs subscription",
+        "guarantee": "money-back guarantee prominent"
+      },
+      "variants": {
+        "tiered": "Basic/Pro/Ultimate one-time",
+        "single": "one product, one price"
+      },
+      "examples": ["indie apps", "courses", "templates"],
+      "bestFor": ["indie products", "courses", "desktop apps"]
+    },
+    {
+      "id": "credits-tokens",
+      "name": "Credits/Tokens",
+      "category": "usage-based",
+      "description": "Pre-purchased credits consumed on usage",
+      "structure": {
+        "packages": "credit bundles at different sizes",
+        "perCredit": "what one credit buys",
+        "savings": "volume discounts on larger packages"
+      },
+      "design": {
+        "packages": "3-4 package sizes",
+        "perUnit": "show effective per-credit price",
+        "comparison": "compare value across packages"
+      },
+      "psychology": "prepayment reduces per-action friction",
+      "examples": ["AI APIs", "email services"],
+      "bestFor": ["API products", "AI/ML services", "transactional services"]
+    },
+    {
+      "id": "hybrid-subscription-usage",
+      "name": "Hybrid Subscription + Usage",
+      "category": "usage-based",
+      "description": "Base subscription plus usage-based charges",
+      "structure": {
+        "base": "monthly subscription fee",
+        "usage": "per-unit charges beyond included",
+        "tiers": "higher tiers include more usage"
+      },
+      "design": {
+        "clarity": "clearly separate base vs. usage",
+        "examples": "show typical monthly cost scenarios",
+        "calculator": "estimate total cost"
+      },
+      "communication": "avoid bill shock with estimates",
+      "examples": ["vercel.com", "planetscale.com"],
+      "bestFor": ["cloud services", "platforms with variable usage"]
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 14,
+    "categories": ["logos", "testimonials", "metrics", "case-studies", "reviews", "media"]
+  },
+  "patterns": [
+    {
+      "id": "logo-wall-grayscale",
+      "name": "Logo Wall (Grayscale)",
+      "category": "logos",
+      "description": "Grid of customer logos in grayscale for subtle credibility",
+      "structure": {
+        "layout": "horizontal row or wrapped grid",
+        "logos": "5-12 customer/partner logos",
+        "heading": "'Trusted by' or 'Used by teams at'"
+      },
+      "design": {
+        "color": "grayscale or single muted color",
+        "opacity": "60-80% to reduce visual weight",
+        "size": "consistent height (24-48px)",
+        "spacing": "generous horizontal gaps"
+      },
+      "responsive": {
+        "scroll": "horizontal scroll on mobile",
+        "rows": "2 rows on mobile if static"
+      },
+      "placement": "below hero, before features",
+      "psychology": "builds credibility without overwhelming",
+      "examples": ["stripe.com", "vercel.com", "linear.app"],
+      "bestFor": ["SaaS landing pages", "B2B products"]
+    },
+    {
+      "id": "logo-wall-color",
+      "name": "Logo Wall (Full Color)",
+      "category": "logos",
+      "description": "Customer logos in full brand colors for maximum impact",
+      "structure": {
+        "layout": "grid with consistent sizing",
+        "logos": "6-16 prominent customers",
+        "heading": "'Trusted by industry leaders'"
+      },
+      "design": {
+        "color": "original brand colors",
+        "background": "light or contrasting section",
+        "hover": "optional: color on hover if grayscale default"
+      },
+      "when": "when logos are recognizable and impressive",
+      "examples": ["enterprise SaaS", "salesforce.com"],
+      "bestFor": ["enterprise products", "when logos are impressive"]
+    },
+    {
+      "id": "animated-logo-ticker",
+      "name": "Animated Logo Ticker",
+      "category": "logos",
+      "description": "Continuously scrolling logo strip",
+      "structure": {
+        "animation": "infinite horizontal scroll",
+        "logos": "duplicated for seamless loop",
+        "speed": "slow, readable pace"
+      },
+      "design": {
+        "direction": "left to right or right to left",
+        "pauseOnHover": "optional: pause on hover",
+        "fade": "fade edges for seamless look"
+      },
+      "accessibility": {
+        "reducedMotion": "stop animation if preferred",
+        "ariaHidden": "decorative, hide from screen readers"
+      },
+      "examples": ["modern landing pages"],
+      "bestFor": ["many logos to show", "modern aesthetic"]
+    },
+    {
+      "id": "testimonial-cards-grid",
+      "name": "Testimonial Cards Grid",
+      "category": "testimonials",
+      "description": "Grid of testimonial cards with quotes and attribution",
+      "structure": {
+        "layout": "2-3 column grid",
+        "perCard": ["quote", "name", "title", "company", "photo"],
+        "count": "3-6 testimonials"
+      },
+      "design": {
+        "cardStyle": "subtle shadow or border",
+        "quoteStyle": "large opening quote mark or none",
+        "photoSize": "40-64px circular"
+      },
+      "content": {
+        "quoteLength": "2-4 sentences, specific not generic",
+        "attribution": "real names and titles for trust"
+      },
+      "responsive": {
+        "mobile": "1 column or carousel"
+      },
+      "examples": ["notion.so", "linear.app"],
+      "bestFor": ["SaaS products", "B2B services"]
+    },
+    {
+      "id": "testimonial-carousel",
+      "name": "Testimonial Carousel",
+      "category": "testimonials",
+      "description": "Rotating testimonials with navigation",
+      "structure": {
+        "format": "one large testimonial at a time",
+        "navigation": "dots, arrows, or auto-rotate",
+        "content": "full quote with photo and details"
+      },
+      "design": {
+        "featured": "large photo (80-120px) or company logo",
+        "quote": "prominent, centered",
+        "transition": "fade or slide"
+      },
+      "autoplay": {
+        "timing": "5-8 seconds per testimonial",
+        "pause": "on hover or interaction"
+      },
+      "accessibility": {
+        "controls": "visible navigation controls",
+        "keyboard": "arrow key navigation"
+      },
+      "examples": ["many landing pages"],
+      "bestFor": ["limited space", "highlighting key testimonials"]
+    },
+    {
+      "id": "video-testimonials",
+      "name": "Video Testimonials",
+      "category": "testimonials",
+      "description": "Customer videos with play-on-click",
+      "structure": {
+        "thumbnail": "photo or video still with play button",
+        "modal": "video plays in modal or inline",
+        "info": "name, title, company below"
+      },
+      "design": {
+        "playButton": "prominent, centered",
+        "duration": "show video length (e.g., '1:30')",
+        "preview": "animated GIF preview on hover"
+      },
+      "content": {
+        "length": "60-90 seconds ideal",
+        "production": "professional but authentic"
+      },
+      "examples": ["B2B SaaS", "course landing pages"],
+      "bestFor": ["high-consideration purchases", "emotional products"]
+    },
+    {
+      "id": "twitter-testimonials",
+      "name": "Twitter/X Testimonials",
+      "category": "testimonials",
+      "description": "Embedded or styled tweets praising product",
+      "structure": {
+        "format": "tweet cards or masonry grid",
+        "content": "actual tweets (embedded or screenshots)",
+        "attribution": "Twitter handle and profile"
+      },
+      "design": {
+        "style": "Twitter card styling or custom",
+        "verification": "show blue checkmarks if applicable",
+        "links": "link to original tweet"
+      },
+      "authenticity": "real tweets feel more genuine than crafted quotes",
+      "curation": "select tweets that highlight specific benefits",
+      "examples": ["product launches", "dev tools"],
+      "bestFor": ["dev tools", "products with Twitter presence"]
+    },
+    {
+      "id": "metrics-counters",
+      "name": "Metrics Counters",
+      "category": "metrics",
+      "description": "Animated numbers showing impressive statistics",
+      "structure": {
+        "layout": "3-4 large numbers in row",
+        "perMetric": ["number", "label"],
+        "format": "10M+ users | 99.9% uptime | 150+ countries"
+      },
+      "design": {
+        "numberSize": "48-72px",
+        "animation": "count-up on scroll into view",
+        "suffix": "+, %, M, K as appropriate"
+      },
+      "content": {
+        "specificity": "specific numbers more credible than round",
+        "verification": "be prepared to back up claims"
+      },
+      "examples": ["about pages", "hero sections"],
+      "bestFor": ["established products", "impressive scale"]
+    },
+    {
+      "id": "case-study-cards",
+      "name": "Case Study Cards",
+      "category": "case-studies",
+      "description": "Preview cards linking to full case studies",
+      "structure": {
+        "perCard": ["company logo", "headline result", "industry tag", "CTA"],
+        "result": "'50% faster deployments' or '2x revenue growth'",
+        "link": "read full case study"
+      },
+      "design": {
+        "cardStyle": "image background or clean white",
+        "logo": "prominent company logo",
+        "result": "bold metric callout"
+      },
+      "content": {
+        "headline": "specific, quantified result",
+        "industry": "helps readers self-select"
+      },
+      "examples": ["salesforce.com", "hubspot.com"],
+      "bestFor": ["enterprise products", "B2B sales"]
+    },
+    {
+      "id": "case-study-featured",
+      "name": "Case Study Featured",
+      "category": "case-studies",
+      "description": "Full case study highlight on landing page",
+      "structure": {
+        "layout": "large section with company story",
+        "content": ["company intro", "challenge", "solution", "results"],
+        "visual": "company logo, screenshots, team photos"
+      },
+      "design": {
+        "style": "editorial, story-driven",
+        "quotes": "inline customer quotes",
+        "metrics": "callout boxes for key results"
+      },
+      "depth": "enough to be convincing, with link to full study",
+      "examples": ["enterprise SaaS sites"],
+      "bestFor": ["high-touch sales", "complex products"]
+    },
+    {
+      "id": "review-aggregation",
+      "name": "Review Aggregation",
+      "category": "reviews",
+      "description": "Aggregated ratings from review platforms",
+      "structure": {
+        "sources": ["G2", "Capterra", "TrustRadius", "App Store"],
+        "perSource": ["platform logo", "star rating", "review count"],
+        "badges": "award badges if applicable"
+      },
+      "design": {
+        "layout": "horizontal row of badges",
+        "stars": "visual star rating",
+        "links": "link to full reviews"
+      },
+      "trust": "third-party validation is powerful",
+      "examples": ["SaaS landing pages", "app store links"],
+      "bestFor": ["SaaS products", "apps with good reviews"]
+    },
+    {
+      "id": "star-rating-display",
+      "name": "Star Rating Display",
+      "category": "reviews",
+      "description": "Prominent star rating with review count",
+      "structure": {
+        "rating": "4.8/5 stars visual",
+        "count": "'Based on 2,847 reviews'",
+        "source": "review platform attribution"
+      },
+      "design": {
+        "stars": "filled stars with partial for decimals",
+        "size": "medium prominence",
+        "color": "gold/yellow or brand color"
+      },
+      "placement": "hero section, near CTA, or pricing",
+      "examples": ["e-commerce", "apps", "SaaS"],
+      "bestFor": ["products with high ratings", "e-commerce"]
+    },
+    {
+      "id": "press-mentions",
+      "name": "Press Mentions",
+      "category": "media",
+      "description": "Logos of publications that featured the product",
+      "structure": {
+        "heading": "'Featured in' or 'As seen in'",
+        "logos": "publication logos (TechCrunch, Forbes, etc.)",
+        "quotes": "optional: brief press quotes"
+      },
+      "design": {
+        "style": "grayscale logos in row",
+        "hover": "optional: show article headline",
+        "links": "link to articles"
+      },
+      "credibility": "recognized publications add legitimacy",
+      "examples": ["startup landing pages"],
+      "bestFor": ["startups with press coverage", "launches"]
+    },
+    {
+      "id": "awards-badges",
+      "name": "Awards & Badges",
+      "category": "media",
+      "description": "Industry awards and certification badges",
+      "structure": {
+        "badges": ["Product Hunt badges", "G2 awards", "certifications"],
+        "layout": "row or grid of badges",
+        "context": "year and category if applicable"
+      },
+      "design": {
+        "size": "recognizable but not overwhelming",
+        "color": "original badge colors",
+        "tooltip": "explain what award means on hover"
+      },
+      "types": [
+        "Product Hunt: #1 Product of Day/Week/Month",
+        "G2: Leader, High Performer badges",
+        "Industry: SOC 2, GDPR, HIPAA compliance",
+        "Awards: specific industry recognition"
+      ],
+      "examples": ["SaaS products", "enterprise software"],
+      "bestFor": ["award-winning products", "compliance-focused industries"]
+    }
+  ]
+}

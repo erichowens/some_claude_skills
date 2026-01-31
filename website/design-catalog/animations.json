@@ -1,0 +1,409 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPresets": 28,
+    "categories": ["entrance", "exit", "hover", "scroll", "micro", "loading", "attention"],
+    "library": "Framer Motion (React) - adaptable to CSS/GSAP"
+  },
+  "presets": [
+    {
+      "id": "fade-in",
+      "name": "Fade In",
+      "category": "entrance",
+      "description": "Simple opacity fade from invisible to visible",
+      "framerMotion": {
+        "initial": { "opacity": 0 },
+        "animate": { "opacity": 1 },
+        "transition": { "duration": 0.3, "ease": "easeOut" }
+      },
+      "css": {
+        "keyframes": "@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }",
+        "animation": "fadeIn 0.3s ease-out forwards"
+      },
+      "usage": "general purpose entrance, modals, overlays",
+      "a11y": "respect prefers-reduced-motion"
+    },
+    {
+      "id": "fade-in-up",
+      "name": "Fade In Up",
+      "category": "entrance",
+      "description": "Fade in while sliding up from below",
+      "framerMotion": {
+        "initial": { "opacity": 0, "y": 20 },
+        "animate": { "opacity": 1, "y": 0 },
+        "transition": { "duration": 0.4, "ease": [0.25, 0.46, 0.45, 0.94] }
+      },
+      "variants": {
+        "subtle": { "y": 10 },
+        "dramatic": { "y": 40 }
+      },
+      "usage": "content reveals, list items, cards",
+      "stagger": "add 0.1s delay between items for lists"
+    },
+    {
+      "id": "fade-in-down",
+      "name": "Fade In Down",
+      "category": "entrance",
+      "description": "Fade in while sliding down from above",
+      "framerMotion": {
+        "initial": { "opacity": 0, "y": -20 },
+        "animate": { "opacity": 1, "y": 0 },
+        "transition": { "duration": 0.4, "ease": "easeOut" }
+      },
+      "usage": "dropdowns, notifications from top"
+    },
+    {
+      "id": "fade-in-left",
+      "name": "Fade In Left",
+      "category": "entrance",
+      "description": "Fade in while sliding from the left",
+      "framerMotion": {
+        "initial": { "opacity": 0, "x": -20 },
+        "animate": { "opacity": 1, "x": 0 },
+        "transition": { "duration": 0.4, "ease": "easeOut" }
+      },
+      "usage": "sidebars, slide-in panels"
+    },
+    {
+      "id": "fade-in-right",
+      "name": "Fade In Right",
+      "category": "entrance",
+      "description": "Fade in while sliding from the right",
+      "framerMotion": {
+        "initial": { "opacity": 0, "x": 20 },
+        "animate": { "opacity": 1, "x": 0 },
+        "transition": { "duration": 0.4, "ease": "easeOut" }
+      },
+      "usage": "slide-in drawers, notifications"
+    },
+    {
+      "id": "scale-in",
+      "name": "Scale In",
+      "category": "entrance",
+      "description": "Grow from smaller size to full size",
+      "framerMotion": {
+        "initial": { "opacity": 0, "scale": 0.9 },
+        "animate": { "opacity": 1, "scale": 1 },
+        "transition": { "duration": 0.3, "ease": [0.34, 1.56, 0.64, 1] }
+      },
+      "variants": {
+        "subtle": { "scale": 0.95 },
+        "pop": { "scale": 0.5, "ease": [0.34, 1.56, 0.64, 1] }
+      },
+      "usage": "modals, popovers, tooltips"
+    },
+    {
+      "id": "scale-in-center",
+      "name": "Scale In Center",
+      "category": "entrance",
+      "description": "Grow from center point with slight overshoot",
+      "framerMotion": {
+        "initial": { "opacity": 0, "scale": 0.8 },
+        "animate": { "opacity": 1, "scale": 1 },
+        "transition": { "type": "spring", "stiffness": 300, "damping": 20 }
+      },
+      "usage": "centered modals, important callouts"
+    },
+    {
+      "id": "slide-in-bottom",
+      "name": "Slide In Bottom",
+      "category": "entrance",
+      "description": "Slide up from below viewport",
+      "framerMotion": {
+        "initial": { "y": "100%" },
+        "animate": { "y": 0 },
+        "transition": { "type": "spring", "damping": 25, "stiffness": 200 }
+      },
+      "usage": "mobile bottom sheets, action sheets"
+    },
+    {
+      "id": "fade-out",
+      "name": "Fade Out",
+      "category": "exit",
+      "description": "Simple fade to invisible",
+      "framerMotion": {
+        "exit": { "opacity": 0 },
+        "transition": { "duration": 0.2, "ease": "easeIn" }
+      },
+      "usage": "general purpose exit"
+    },
+    {
+      "id": "fade-out-down",
+      "name": "Fade Out Down",
+      "category": "exit",
+      "description": "Fade out while sliding down",
+      "framerMotion": {
+        "exit": { "opacity": 0, "y": 20 },
+        "transition": { "duration": 0.3, "ease": "easeIn" }
+      },
+      "usage": "dismissing items, notifications"
+    },
+    {
+      "id": "scale-out",
+      "name": "Scale Out",
+      "category": "exit",
+      "description": "Shrink and fade out",
+      "framerMotion": {
+        "exit": { "opacity": 0, "scale": 0.9 },
+        "transition": { "duration": 0.2, "ease": "easeIn" }
+      },
+      "usage": "closing modals, removing items"
+    },
+    {
+      "id": "hover-lift",
+      "name": "Hover Lift",
+      "category": "hover",
+      "description": "Subtle lift with shadow on hover",
+      "framerMotion": {
+        "whileHover": { "y": -4, "boxShadow": "0 10px 30px rgba(0,0,0,0.15)" },
+        "transition": { "duration": 0.2 }
+      },
+      "css": {
+        "transition": "transform 0.2s, box-shadow 0.2s",
+        "hover": "transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.15);"
+      },
+      "usage": "cards, clickable elements"
+    },
+    {
+      "id": "hover-scale",
+      "name": "Hover Scale",
+      "category": "hover",
+      "description": "Slight scale up on hover",
+      "framerMotion": {
+        "whileHover": { "scale": 1.05 },
+        "whileTap": { "scale": 0.98 },
+        "transition": { "duration": 0.2 }
+      },
+      "variants": {
+        "subtle": { "scale": 1.02 },
+        "prominent": { "scale": 1.1 }
+      },
+      "usage": "buttons, images, interactive elements"
+    },
+    {
+      "id": "hover-glow",
+      "name": "Hover Glow",
+      "category": "hover",
+      "description": "Glowing effect on hover",
+      "framerMotion": {
+        "whileHover": { "boxShadow": "0 0 20px rgba(99, 102, 241, 0.5)" },
+        "transition": { "duration": 0.3 }
+      },
+      "css": {
+        "transition": "box-shadow 0.3s",
+        "hover": "box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);"
+      },
+      "usage": "CTAs, important buttons, highlights"
+    },
+    {
+      "id": "hover-tilt",
+      "name": "Hover Tilt (3D)",
+      "category": "hover",
+      "description": "Tilt toward cursor position",
+      "implementation": "requires mouse position tracking",
+      "framerMotion": {
+        "whileHover": { "rotateX": 5, "rotateY": 5 },
+        "style": { "transformStyle": "preserve-3d" }
+      },
+      "note": "full implementation needs onMouseMove handler",
+      "usage": "cards, hero images, 3D effects"
+    },
+    {
+      "id": "button-press",
+      "name": "Button Press",
+      "category": "hover",
+      "description": "Scale down on click/tap",
+      "framerMotion": {
+        "whileHover": { "scale": 1.02 },
+        "whileTap": { "scale": 0.95 },
+        "transition": { "duration": 0.1 }
+      },
+      "usage": "all buttons and clickable elements"
+    },
+    {
+      "id": "scroll-fade-in",
+      "name": "Scroll Fade In",
+      "category": "scroll",
+      "description": "Fade in when scrolled into view",
+      "framerMotion": {
+        "initial": { "opacity": 0 },
+        "whileInView": { "opacity": 1 },
+        "viewport": { "once": true, "margin": "-100px" },
+        "transition": { "duration": 0.6 }
+      },
+      "usage": "content sections, lazy-loaded content"
+    },
+    {
+      "id": "scroll-reveal-up",
+      "name": "Scroll Reveal Up",
+      "category": "scroll",
+      "description": "Fade and slide up when scrolled into view",
+      "framerMotion": {
+        "initial": { "opacity": 0, "y": 50 },
+        "whileInView": { "opacity": 1, "y": 0 },
+        "viewport": { "once": true, "margin": "-50px" },
+        "transition": { "duration": 0.6, "ease": "easeOut" }
+      },
+      "stagger": {
+        "parent": { "staggerChildren": 0.1 },
+        "child": "use variants"
+      },
+      "usage": "feature sections, content blocks"
+    },
+    {
+      "id": "scroll-parallax",
+      "name": "Scroll Parallax",
+      "category": "scroll",
+      "description": "Element moves at different speed than scroll",
+      "framerMotion": {
+        "style": { "y": "useTransform(scrollYProgress, [0, 1], [0, -100])" }
+      },
+      "implementation": "use useScroll and useTransform hooks",
+      "variants": {
+        "slow": "moves slower than scroll",
+        "fast": "moves faster than scroll",
+        "reverse": "moves opposite to scroll"
+      },
+      "usage": "hero images, decorative elements"
+    },
+    {
+      "id": "scroll-progress",
+      "name": "Scroll Progress Bar",
+      "category": "scroll",
+      "description": "Progress bar that fills as page scrolls",
+      "framerMotion": {
+        "style": { "scaleX": "scrollYProgress", "transformOrigin": "left" }
+      },
+      "css": "fixed top bar that grows width",
+      "usage": "reading progress, long pages"
+    },
+    {
+      "id": "stagger-children",
+      "name": "Stagger Children",
+      "category": "entrance",
+      "description": "Animate list items with delay between each",
+      "framerMotion": {
+        "container": {
+          "variants": {
+            "hidden": { "opacity": 0 },
+            "show": { "opacity": 1, "transition": { "staggerChildren": 0.1 } }
+          }
+        },
+        "item": {
+          "variants": {
+            "hidden": { "opacity": 0, "y": 20 },
+            "show": { "opacity": 1, "y": 0 }
+          }
+        }
+      },
+      "timing": "0.05-0.15s between items",
+      "usage": "lists, grids, navigation items"
+    },
+    {
+      "id": "loading-spinner",
+      "name": "Loading Spinner",
+      "category": "loading",
+      "description": "Rotating spinner animation",
+      "framerMotion": {
+        "animate": { "rotate": 360 },
+        "transition": { "duration": 1, "repeat": "Infinity", "ease": "linear" }
+      },
+      "css": {
+        "animation": "spin 1s linear infinite",
+        "keyframes": "@keyframes spin { to { transform: rotate(360deg); } }"
+      },
+      "usage": "loading states, async operations"
+    },
+    {
+      "id": "loading-pulse",
+      "name": "Loading Pulse",
+      "category": "loading",
+      "description": "Pulsing opacity for skeleton loading",
+      "framerMotion": {
+        "animate": { "opacity": [0.5, 1, 0.5] },
+        "transition": { "duration": 1.5, "repeat": "Infinity", "ease": "easeInOut" }
+      },
+      "css": {
+        "animation": "pulse 1.5s ease-in-out infinite"
+      },
+      "usage": "skeleton screens, placeholder content"
+    },
+    {
+      "id": "loading-dots",
+      "name": "Loading Dots",
+      "category": "loading",
+      "description": "Three bouncing dots",
+      "framerMotion": {
+        "dots": [
+          { "animate": { "y": [0, -10, 0] }, "transition": { "duration": 0.6, "repeat": "Infinity", "delay": 0 } },
+          { "animate": { "y": [0, -10, 0] }, "transition": { "duration": 0.6, "repeat": "Infinity", "delay": 0.1 } },
+          { "animate": { "y": [0, -10, 0] }, "transition": { "duration": 0.6, "repeat": "Infinity", "delay": 0.2 } }
+        ]
+      },
+      "usage": "typing indicators, loading states"
+    },
+    {
+      "id": "shake",
+      "name": "Shake",
+      "category": "attention",
+      "description": "Horizontal shake for errors or attention",
+      "framerMotion": {
+        "animate": { "x": [0, -10, 10, -10, 10, 0] },
+        "transition": { "duration": 0.4 }
+      },
+      "css": {
+        "keyframes": "@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }"
+      },
+      "usage": "form errors, invalid input, attention"
+    },
+    {
+      "id": "bounce",
+      "name": "Bounce",
+      "category": "attention",
+      "description": "Bouncing animation for attention",
+      "framerMotion": {
+        "animate": { "y": [0, -15, 0] },
+        "transition": { "duration": 0.5, "repeat": "Infinity", "repeatDelay": 1 }
+      },
+      "usage": "scroll indicators, CTAs, notifications"
+    },
+    {
+      "id": "pulse-ring",
+      "name": "Pulse Ring",
+      "category": "attention",
+      "description": "Expanding ring pulse effect",
+      "framerMotion": {
+        "animate": { "scale": [1, 1.5], "opacity": [0.5, 0] },
+        "transition": { "duration": 1, "repeat": "Infinity" }
+      },
+      "usage": "notification badges, live indicators"
+    },
+    {
+      "id": "typewriter",
+      "name": "Typewriter",
+      "category": "attention",
+      "description": "Text appearing character by character",
+      "implementation": {
+        "method": "animate text length or use library",
+        "cursor": "blinking cursor at end"
+      },
+      "framerMotion": "use motion.span with staggered characters",
+      "libraries": ["typed.js", "react-type-animation"],
+      "usage": "hero headlines, landing pages, terminal effects"
+    }
+  ],
+  "accessibility": {
+    "prefersReducedMotion": {
+      "query": "@media (prefers-reduced-motion: reduce)",
+      "behavior": "disable or minimize animations",
+      "framerMotion": "use useReducedMotion hook"
+    },
+    "guidelines": [
+      "Keep durations under 500ms for UI animations",
+      "Avoid flashing or strobing effects",
+      "Provide way to pause infinite animations",
+      "Don't block interactions during animations"
+    ]
+  }
+}

@@ -1,0 +1,1104 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 20,
+    "categories": ["saas", "e-commerce", "portfolio", "agency", "startup", "enterprise", "product-launch", "content"]
+  },
+  "patterns": [
+    {
+      "id": "saas-conversion",
+      "name": "SaaS Conversion",
+      "description": "Optimized for B2B SaaS products with trial/demo focus",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "action-oriented, benefit-focused (e.g., 'Ship faster with confidence')",
+          "subheadline": "elaborate on benefit, address pain point",
+          "cta": { "primary": "Start free trial", "secondary": "See demo" },
+          "socialProof": "customer logos or metrics ('Trusted by 10,000+ teams')",
+          "visual": "product screenshot, hero animation, or abstract illustration",
+          "height": "100vh or generous (80vh minimum)"
+        },
+        {
+          "type": "social-proof-bar",
+          "position": 2,
+          "format": "logo wall of recognizable customers",
+          "count": "5-8 logos",
+          "style": "grayscale, muted, non-distracting"
+        },
+        {
+          "type": "features",
+          "position": 3,
+          "layout": "3-column grid or alternating rows with screenshots",
+          "content": "icon + headline + description",
+          "count": "3-6 features",
+          "depth": "brief (2-3 sentences each)"
+        },
+        {
+          "type": "how-it-works",
+          "position": 4,
+          "format": "3-step numbered process",
+          "visual": "illustrations or screenshots for each step",
+          "purpose": "reduce perceived complexity"
+        },
+        {
+          "type": "testimonials",
+          "position": 5,
+          "format": "2-3 featured quotes with photos and titles",
+          "content": "specific results, not generic praise",
+          "trust": "real names, company logos, LinkedIn links"
+        },
+        {
+          "type": "pricing",
+          "position": 6,
+          "format": "3-tier with highlighted 'recommended' option",
+          "features": "feature comparison matrix below",
+          "cta": "per-tier CTAs with different copy"
+        },
+        {
+          "type": "faq",
+          "position": 7,
+          "format": "accordion with 5-8 questions",
+          "content": "address objections and reduce support load",
+          "seo": "structured data for rich snippets"
+        },
+        {
+          "type": "final-cta",
+          "position": 8,
+          "format": "repeat primary CTA with urgency or summary",
+          "headline": "Ready to [benefit]?",
+          "design": "full-width background, high contrast"
+        }
+      ],
+      "bestFor": ["B2B SaaS", "productivity tools", "developer tools"],
+      "conversionFocus": "trial signup or demo request",
+      "examples": ["linear.app", "notion.so", "vercel.com", "stripe.com"]
+    },
+    {
+      "id": "product-hunt-launch",
+      "name": "Product Hunt Launch",
+      "description": "Optimized for launch day virality and early adopter conversion",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "punchy, memorable (often clever/playful)",
+          "subheadline": "one-liner explaining what it does",
+          "cta": { "primary": "Try it now", "secondary": "Watch demo (2 min)" },
+          "socialProof": "Product Hunt badge, early user count, star count",
+          "visual": "animated product demo or GIF",
+          "urgency": "Launch special or early bird pricing"
+        },
+        {
+          "type": "product-demo",
+          "position": 2,
+          "format": "interactive demo or autoplay video",
+          "duration": "30-60 seconds max",
+          "purpose": "instant understanding of value"
+        },
+        {
+          "type": "features-compact",
+          "position": 3,
+          "layout": "horizontal scroll or compact grid",
+          "style": "icon-forward, minimal text",
+          "count": "4-6 key features"
+        },
+        {
+          "type": "social-proof",
+          "position": 4,
+          "format": "Twitter/X testimonials embedded",
+          "style": "authentic, recent, from known people",
+          "count": "3-5 tweets"
+        },
+        {
+          "type": "early-access-cta",
+          "position": 5,
+          "format": "email capture or waitlist",
+          "incentive": "early bird pricing, exclusive features",
+          "counter": "show signup count for FOMO"
+        }
+      ],
+      "bestFor": ["new products", "indie hackers", "dev tools"],
+      "conversionFocus": "signups and social sharing",
+      "examples": ["arc.net launch", "raycast.com", "linear.app launch"]
+    },
+    {
+      "id": "enterprise-trust",
+      "name": "Enterprise Trust",
+      "description": "Built for security-conscious enterprise buyers with long sales cycles",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "outcome-focused, professional tone",
+          "subheadline": "emphasize scale, security, compliance",
+          "cta": { "primary": "Request demo", "secondary": "Contact sales" },
+          "socialProof": "enterprise logos (Fortune 500)",
+          "visual": "abstract, professional, or dashboard screenshot"
+        },
+        {
+          "type": "enterprise-logos",
+          "position": 2,
+          "format": "prominent logo wall with big names",
+          "style": "full color (not grayscale)",
+          "trust": "include industry leaders in target vertical"
+        },
+        {
+          "type": "value-props",
+          "position": 3,
+          "layout": "alternating rows with large visuals",
+          "focus": "security, scalability, compliance, support",
+          "depth": "detailed explanations"
+        },
+        {
+          "type": "case-studies",
+          "position": 4,
+          "format": "3 featured case studies with metrics",
+          "content": "company story, challenge, solution, results",
+          "cta": "Read full case study"
+        },
+        {
+          "type": "security-compliance",
+          "position": 5,
+          "format": "badge wall (SOC 2, GDPR, HIPAA, etc.)",
+          "content": "security overview, certifications, audit reports",
+          "cta": "Download security whitepaper"
+        },
+        {
+          "type": "integration-ecosystem",
+          "position": 6,
+          "format": "logo grid of integrations",
+          "filter": "by category (CRM, analytics, etc.)",
+          "cta": "View all integrations"
+        },
+        {
+          "type": "resources",
+          "position": 7,
+          "format": "cards linking to whitepapers, guides, webinars",
+          "content": "thought leadership, ROI calculators",
+          "purpose": "nurture long sales cycle"
+        },
+        {
+          "type": "contact-form",
+          "position": 8,
+          "format": "detailed form with company size, use case",
+          "fields": "work email, company, employees, use case",
+          "incentive": "personalized demo, free consultation"
+        }
+      ],
+      "bestFor": ["enterprise SaaS", "security products", "infrastructure"],
+      "conversionFocus": "demo request, contact sales",
+      "examples": ["salesforce.com", "datadog.com", "snowflake.com"]
+    },
+    {
+      "id": "developer-focused",
+      "name": "Developer-Focused",
+      "description": "Optimized for developers who want to see code first",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "technical and direct",
+          "subheadline": "what it does in one technical sentence",
+          "cta": { "primary": "Get started", "secondary": "View docs" },
+          "visual": "live code example with syntax highlighting",
+          "terminal": "installation command (copy-to-clipboard)"
+        },
+        {
+          "type": "code-demo",
+          "position": 2,
+          "format": "tabbed code examples (multiple languages)",
+          "features": "syntax highlighting, copy button, runnable",
+          "purpose": "show simplicity of integration"
+        },
+        {
+          "type": "features-technical",
+          "position": 3,
+          "layout": "grid with code snippets",
+          "content": "feature name + code example + brief explanation",
+          "style": "minimal prose, maximum code"
+        },
+        {
+          "type": "github-stats",
+          "position": 4,
+          "format": "star count, contributors, last commit",
+          "badges": "npm downloads, CI status, coverage",
+          "cta": "Star on GitHub"
+        },
+        {
+          "type": "documentation-preview",
+          "position": 5,
+          "format": "quick start guide embedded",
+          "content": "3-step getting started",
+          "cta": "Read full documentation"
+        },
+        {
+          "type": "changelog",
+          "position": 6,
+          "format": "recent releases with highlights",
+          "transparency": "show active development",
+          "cta": "View changelog"
+        },
+        {
+          "type": "community",
+          "position": 7,
+          "format": "Discord/Slack member count, GitHub discussions",
+          "content": "links to community resources",
+          "cta": "Join Discord"
+        }
+      ],
+      "bestFor": ["APIs", "SDKs", "developer tools", "open source"],
+      "conversionFocus": "npm install, GitHub star, docs visit",
+      "examples": ["stripe.com/docs", "vercel.com", "supabase.com"]
+    },
+    {
+      "id": "e-commerce-product",
+      "name": "E-commerce Product",
+      "description": "Single product landing page optimized for purchase",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "product name + key benefit",
+          "visual": "high-quality product photography (zoomable)",
+          "cta": { "primary": "Buy now", "secondary": "Add to cart" },
+          "price": "prominent, with any discounts shown",
+          "variants": "color/size selector if applicable"
+        },
+        {
+          "type": "product-gallery",
+          "position": 2,
+          "format": "thumbnail carousel with zoom",
+          "content": "multiple angles, lifestyle shots, detail shots",
+          "video": "product video if available"
+        },
+        {
+          "type": "key-features",
+          "position": 3,
+          "layout": "icon grid or bullet list",
+          "content": "materials, dimensions, key specs",
+          "style": "scannable, not dense"
+        },
+        {
+          "type": "social-proof",
+          "position": 4,
+          "format": "star rating + review count + sample reviews",
+          "filter": "most helpful, verified purchase",
+          "photos": "customer photos if available"
+        },
+        {
+          "type": "product-details",
+          "position": 5,
+          "format": "accordion or tabs",
+          "content": "full specs, care instructions, warranty, shipping",
+          "seo": "detailed for search"
+        },
+        {
+          "type": "related-products",
+          "position": 6,
+          "format": "horizontal scroll or grid",
+          "logic": "frequently bought together, similar items",
+          "upsell": "bundle discount if applicable"
+        },
+        {
+          "type": "trust-signals",
+          "position": 7,
+          "format": "icons with text",
+          "content": "free shipping, easy returns, secure checkout",
+          "placement": "near buy button"
+        }
+      ],
+      "bestFor": ["DTC brands", "single product launches", "Shopify stores"],
+      "conversionFocus": "add to cart, buy now",
+      "examples": ["apple.com/shop", "allbirds.com", "away.com"]
+    },
+    {
+      "id": "portfolio-creative",
+      "name": "Portfolio Creative",
+      "description": "Showcase work with maximum visual impact",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "name + role (e.g., 'Jane Doe, Product Designer')",
+          "subheadline": "tagline or philosophy",
+          "visual": "featured project or abstract motion",
+          "style": "full-bleed, immersive"
+        },
+        {
+          "type": "project-grid",
+          "position": 2,
+          "layout": "masonry or bento grid",
+          "content": "project thumbnails with hover preview",
+          "interaction": "hover reveals title + brief description",
+          "filter": "optional category filter"
+        },
+        {
+          "type": "featured-project",
+          "position": 3,
+          "format": "case study highlight",
+          "content": "challenge, process, outcome, metrics",
+          "visual": "process shots, before/after"
+        },
+        {
+          "type": "about-brief",
+          "position": 4,
+          "format": "photo + 2-3 paragraph bio",
+          "content": "experience, approach, notable clients",
+          "personality": "show human side"
+        },
+        {
+          "type": "services",
+          "position": 5,
+          "format": "simple list or cards",
+          "content": "what you offer, not how much",
+          "optional": "starting prices if comfortable"
+        },
+        {
+          "type": "contact",
+          "position": 6,
+          "format": "simple email or form",
+          "content": "clear availability status",
+          "social": "relevant social links"
+        }
+      ],
+      "bestFor": ["designers", "developers", "photographers", "creatives"],
+      "conversionFocus": "contact for work, project inquiry",
+      "examples": ["minimal.gallery examples", "semplice.com showcases"]
+    },
+    {
+      "id": "agency-services",
+      "name": "Agency Services",
+      "description": "Showcase capabilities and convert to consultation",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "bold claim or mission statement",
+          "subheadline": "what you do and for whom",
+          "cta": { "primary": "Get in touch", "secondary": "See our work" },
+          "visual": "video reel or animated showcase"
+        },
+        {
+          "type": "services",
+          "position": 2,
+          "layout": "card grid with icons",
+          "content": "service name + brief description + link to detail",
+          "style": "professional but approachable"
+        },
+        {
+          "type": "work-showcase",
+          "position": 3,
+          "format": "case study cards or video thumbnails",
+          "content": "client name, project type, key result",
+          "filter": "by industry or service type"
+        },
+        {
+          "type": "client-logos",
+          "position": 4,
+          "format": "logo wall",
+          "content": "recognizable brands you've worked with",
+          "style": "full color or grayscale depending on brand"
+        },
+        {
+          "type": "process",
+          "position": 5,
+          "format": "timeline or numbered steps",
+          "content": "how you work (discovery, design, develop, launch)",
+          "purpose": "set expectations, reduce friction"
+        },
+        {
+          "type": "team",
+          "position": 6,
+          "format": "photo grid with names and roles",
+          "style": "consistent photo treatment",
+          "personality": "show culture, not just faces"
+        },
+        {
+          "type": "testimonials",
+          "position": 7,
+          "format": "carousel or featured quotes",
+          "content": "specific praise from named clients",
+          "trust": "titles, companies, photos"
+        },
+        {
+          "type": "contact",
+          "position": 8,
+          "format": "form with project type selector",
+          "fields": "name, email, company, budget range, project description",
+          "alternative": "phone and email for those who prefer"
+        }
+      ],
+      "bestFor": ["design agencies", "dev shops", "marketing agencies"],
+      "conversionFocus": "project inquiry, consultation booking",
+      "examples": ["area17.com", "ueno.co", "basicagency.com"]
+    },
+    {
+      "id": "startup-fundraising",
+      "name": "Startup Fundraising",
+      "description": "Pitch to investors, not customers",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "bold vision statement",
+          "subheadline": "the problem you're solving",
+          "visual": "product in action or market visualization",
+          "cta": { "primary": "Read our deck", "secondary": "Contact founders" }
+        },
+        {
+          "type": "problem-solution",
+          "position": 2,
+          "format": "before/after or problem→solution flow",
+          "content": "market pain point and your approach",
+          "data": "market size, growth rate"
+        },
+        {
+          "type": "traction",
+          "position": 3,
+          "format": "metrics dashboard",
+          "content": "key numbers (MRR, users, growth rate)",
+          "chart": "growth chart if impressive"
+        },
+        {
+          "type": "market-opportunity",
+          "position": 4,
+          "format": "TAM/SAM/SOM visualization",
+          "content": "market size and your position",
+          "validation": "industry reports, trends"
+        },
+        {
+          "type": "product",
+          "position": 5,
+          "format": "feature overview or demo video",
+          "content": "what you've built",
+          "roadmap": "where you're headed"
+        },
+        {
+          "type": "team",
+          "position": 6,
+          "format": "founder photos with credentials",
+          "content": "relevant experience, exits, expertise",
+          "advisors": "notable advisors if applicable"
+        },
+        {
+          "type": "press-investors",
+          "position": 7,
+          "format": "logo wall of press and current investors",
+          "content": "TechCrunch, current backers",
+          "links": "to press articles"
+        },
+        {
+          "type": "contact",
+          "position": 8,
+          "format": "direct founder email",
+          "content": "specific ask (raising $X, looking for Y)",
+          "materials": "link to deck, data room if applicable"
+        }
+      ],
+      "bestFor": ["startups raising", "pitch sites"],
+      "conversionFocus": "investor meetings",
+      "examples": ["early Notion, Linear pitch sites"]
+    },
+    {
+      "id": "waitlist-teaser",
+      "name": "Waitlist Teaser",
+      "description": "Pre-launch hype building with email capture",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "intriguing, creates curiosity",
+          "subheadline": "hint at what's coming",
+          "cta": { "primary": "Join waitlist" },
+          "visual": "teaser animation, blurred product, or abstract",
+          "style": "mysterious but professional"
+        },
+        {
+          "type": "email-capture",
+          "position": 2,
+          "format": "simple email field + submit",
+          "incentive": "early access, founding member perks",
+          "counter": "show waitlist position or count"
+        },
+        {
+          "type": "teaser-features",
+          "position": 3,
+          "format": "3 vague but intriguing hints",
+          "style": "icons with one-line descriptions",
+          "purpose": "build anticipation without revealing too much"
+        },
+        {
+          "type": "social-links",
+          "position": 4,
+          "format": "follow for updates",
+          "content": "Twitter, Discord, newsletter",
+          "purpose": "multiple touchpoints"
+        }
+      ],
+      "bestFor": ["pre-launch products", "building hype"],
+      "conversionFocus": "email capture",
+      "examples": ["arc.net pre-launch", "new startup teasers"]
+    },
+    {
+      "id": "comparison-landing",
+      "name": "Comparison Landing",
+      "description": "Capture competitors' customers with direct comparison",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "[Your Product] vs [Competitor] - headline format",
+          "subheadline": "why users switch",
+          "cta": { "primary": "Switch to [Product]", "secondary": "See full comparison" },
+          "visual": "side-by-side or migration illustration"
+        },
+        {
+          "type": "comparison-table",
+          "position": 2,
+          "format": "feature comparison matrix",
+          "content": "checkmarks, key differentiators highlighted",
+          "fairness": "be honest about competitor strengths"
+        },
+        {
+          "type": "migration-stories",
+          "position": 3,
+          "format": "testimonials from switchers",
+          "content": "why they left, what they gained",
+          "specifics": "concrete improvements (faster, cheaper)"
+        },
+        {
+          "type": "migration-help",
+          "position": 4,
+          "format": "import tools, concierge service",
+          "content": "make switching easy",
+          "cta": "Start free migration"
+        },
+        {
+          "type": "pricing-comparison",
+          "position": 5,
+          "format": "side-by-side pricing",
+          "content": "show savings if applicable",
+          "fairness": "link to competitor pricing"
+        }
+      ],
+      "bestFor": ["established markets", "competitive products"],
+      "conversionFocus": "trial or migration",
+      "examples": ["notion.so/notion-vs-confluence", "linear.app/vs"]
+    },
+    {
+      "id": "content-creator",
+      "name": "Content Creator",
+      "description": "Personal brand landing for creators and influencers",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "name + what you do/create",
+          "subheadline": "your unique angle or niche",
+          "visual": "professional headshot or signature visual",
+          "cta": { "primary": "Subscribe", "secondary": "Latest content" }
+        },
+        {
+          "type": "content-feed",
+          "position": 2,
+          "format": "latest videos/posts/episodes",
+          "content": "thumbnail + title + date",
+          "platform": "embedded from YouTube, Substack, etc."
+        },
+        {
+          "type": "about",
+          "position": 3,
+          "format": "story-driven bio",
+          "content": "journey, credentials, personality",
+          "media": "behind-the-scenes photos or video"
+        },
+        {
+          "type": "newsletter-signup",
+          "position": 4,
+          "format": "email capture with value prop",
+          "content": "what subscribers get, frequency",
+          "social-proof": "subscriber count"
+        },
+        {
+          "type": "social-links",
+          "position": 5,
+          "format": "link tree style or icon grid",
+          "content": "all platforms where you create",
+          "follower-counts": "optional, shows reach"
+        },
+        {
+          "type": "sponsorship-cta",
+          "position": 6,
+          "format": "work with me section",
+          "content": "sponsorship opportunities, media kit",
+          "cta": "Download media kit"
+        }
+      ],
+      "bestFor": ["YouTubers", "podcasters", "newsletter writers", "influencers"],
+      "conversionFocus": "subscribe, follow",
+      "examples": ["personal creator sites", "carrd.co examples"]
+    },
+    {
+      "id": "mobile-app-store",
+      "name": "Mobile App Store",
+      "description": "Drive app downloads with store-optimized landing",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "app benefit, not just name",
+          "subheadline": "one-liner value prop",
+          "visual": "phone mockup with app screenshot",
+          "cta": { "primary": "App Store badge", "secondary": "Google Play badge" },
+          "rating": "star rating and review count"
+        },
+        {
+          "type": "app-preview",
+          "position": 2,
+          "format": "screenshot carousel in phone frames",
+          "content": "key screens showing features",
+          "video": "app preview video (autoplay muted)"
+        },
+        {
+          "type": "features",
+          "position": 3,
+          "layout": "icon + text list or phone mockup per feature",
+          "content": "3-5 key features",
+          "style": "benefit-focused, not feature-focused"
+        },
+        {
+          "type": "testimonials",
+          "position": 4,
+          "format": "app store review quotes",
+          "content": "real reviews from App Store/Play Store",
+          "trust": "username and star rating"
+        },
+        {
+          "type": "download-cta",
+          "position": 5,
+          "format": "large app store badges",
+          "qr": "QR code for desktop visitors",
+          "sms": "text me the link option"
+        }
+      ],
+      "bestFor": ["mobile apps", "app marketing"],
+      "conversionFocus": "app download",
+      "examples": ["app landing pages", "onelink templates"]
+    },
+    {
+      "id": "event-conference",
+      "name": "Event/Conference",
+      "description": "Drive registrations for events and conferences",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "event name + date + tagline",
+          "subheadline": "location (or 'Virtual')",
+          "visual": "past event photos or branded graphics",
+          "cta": { "primary": "Register now", "secondary": "View speakers" },
+          "countdown": "days until event"
+        },
+        {
+          "type": "speakers",
+          "position": 2,
+          "format": "grid of headshots with names/titles",
+          "content": "keynotes highlighted, full list expandable",
+          "filter": "by track or topic"
+        },
+        {
+          "type": "agenda",
+          "position": 3,
+          "format": "timeline or schedule grid",
+          "content": "sessions by day/track",
+          "filter": "by topic, save to calendar"
+        },
+        {
+          "type": "tickets",
+          "position": 4,
+          "format": "pricing tiers (early bird, regular, VIP)",
+          "content": "what's included in each",
+          "urgency": "early bird deadline, limited seats"
+        },
+        {
+          "type": "sponsors",
+          "position": 5,
+          "format": "tiered logo wall",
+          "content": "platinum, gold, silver sponsors",
+          "cta": "Become a sponsor"
+        },
+        {
+          "type": "venue",
+          "position": 6,
+          "format": "map + photos",
+          "content": "venue details, nearby hotels, travel info",
+          "virtual": "platform info if online"
+        },
+        {
+          "type": "past-event",
+          "position": 7,
+          "format": "video highlights reel",
+          "content": "photos from previous years",
+          "testimonials": "attendee quotes"
+        },
+        {
+          "type": "faq",
+          "position": 8,
+          "format": "accordion",
+          "content": "logistics, refunds, accessibility",
+          "contact": "organizer email"
+        }
+      ],
+      "bestFor": ["conferences", "meetups", "virtual events"],
+      "conversionFocus": "ticket purchase, registration",
+      "examples": ["react.conf", "figma.com/config"]
+    },
+    {
+      "id": "nonprofit-donation",
+      "name": "Nonprofit/Donation",
+      "description": "Drive donations with emotional storytelling",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "mission-driven, emotional",
+          "subheadline": "the impact of support",
+          "visual": "powerful imagery of cause/beneficiaries",
+          "cta": { "primary": "Donate now", "secondary": "Learn more" }
+        },
+        {
+          "type": "impact-story",
+          "position": 2,
+          "format": "narrative with photos",
+          "content": "individual story showing impact",
+          "purpose": "emotional connection"
+        },
+        {
+          "type": "impact-metrics",
+          "position": 3,
+          "format": "animated counters",
+          "content": "people helped, projects completed, funds raised",
+          "context": "what the numbers mean"
+        },
+        {
+          "type": "donation-options",
+          "position": 4,
+          "format": "preset amounts with impact descriptions",
+          "content": "'$25 provides meals for a week'",
+          "recurring": "monthly giving option highlighted"
+        },
+        {
+          "type": "transparency",
+          "position": 5,
+          "format": "pie chart of fund allocation",
+          "content": "where money goes",
+          "reports": "link to annual reports"
+        },
+        {
+          "type": "ways-to-help",
+          "position": 6,
+          "format": "cards for different involvement",
+          "content": "donate, volunteer, advocate, share",
+          "cta": "per action type"
+        },
+        {
+          "type": "partners",
+          "position": 7,
+          "format": "logo wall of corporate partners",
+          "content": "foundations, corporate sponsors",
+          "cta": "Become a partner"
+        }
+      ],
+      "bestFor": ["nonprofits", "charities", "social causes"],
+      "conversionFocus": "donation, recurring giving",
+      "examples": ["charity: water", "effective altruism sites"]
+    },
+    {
+      "id": "course-educational",
+      "name": "Course/Educational",
+      "description": "Sell online courses or educational products",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "transformation promise",
+          "subheadline": "who it's for and what they'll achieve",
+          "visual": "instructor or course preview",
+          "cta": { "primary": "Enroll now", "secondary": "Preview course" },
+          "price": "course price with any discounts"
+        },
+        {
+          "type": "instructor",
+          "position": 2,
+          "format": "photo + bio + credentials",
+          "content": "why they're qualified to teach",
+          "social-proof": "students taught, experience"
+        },
+        {
+          "type": "curriculum",
+          "position": 3,
+          "format": "expandable module list",
+          "content": "lessons per module, total hours",
+          "preview": "free preview lessons"
+        },
+        {
+          "type": "outcomes",
+          "position": 4,
+          "format": "checklist or before/after",
+          "content": "skills you'll gain",
+          "specifics": "concrete deliverables"
+        },
+        {
+          "type": "testimonials",
+          "position": 5,
+          "format": "video testimonials if possible",
+          "content": "student results and transformations",
+          "metrics": "job placements, salary increases"
+        },
+        {
+          "type": "bonuses",
+          "position": 6,
+          "format": "card list",
+          "content": "additional resources, community access",
+          "value": "show retail value"
+        },
+        {
+          "type": "pricing",
+          "position": 7,
+          "format": "single price or payment plan",
+          "guarantee": "money-back guarantee prominently",
+          "urgency": "enrollment deadline if applicable"
+        },
+        {
+          "type": "faq",
+          "position": 8,
+          "format": "accordion",
+          "content": "prerequisites, time commitment, access length",
+          "objections": "address common hesitations"
+        }
+      ],
+      "bestFor": ["online courses", "bootcamps", "educational products"],
+      "conversionFocus": "course enrollment",
+      "examples": ["Josh Comeau courses", "Wes Bos", "Teachable examples"]
+    },
+    {
+      "id": "saas-feature-launch",
+      "name": "SaaS Feature Launch",
+      "description": "Announce major feature to existing users and prospects",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "feature name + key benefit",
+          "subheadline": "what it enables",
+          "visual": "feature demo or screenshot",
+          "cta": { "primary": "Try it now", "secondary": "Learn more" },
+          "badge": "NEW or BETA badge"
+        },
+        {
+          "type": "demo-video",
+          "position": 2,
+          "format": "feature walkthrough video",
+          "duration": "1-3 minutes",
+          "autoplay": "muted, with play button"
+        },
+        {
+          "type": "use-cases",
+          "position": 3,
+          "format": "tabs or cards by persona/use case",
+          "content": "how different users benefit",
+          "specifics": "concrete examples"
+        },
+        {
+          "type": "comparison",
+          "position": 4,
+          "format": "before/after or old-way/new-way",
+          "content": "show improvement over previous",
+          "metrics": "time saved, efficiency gained"
+        },
+        {
+          "type": "availability",
+          "position": 5,
+          "format": "plan/pricing info",
+          "content": "which plans include it, upgrade CTA",
+          "trial": "free trial of feature if applicable"
+        },
+        {
+          "type": "docs-cta",
+          "position": 6,
+          "format": "link to documentation",
+          "content": "get started guide",
+          "cta": "Read the docs"
+        }
+      ],
+      "bestFor": ["feature announcements", "product updates"],
+      "conversionFocus": "feature adoption, upgrade",
+      "examples": ["Notion AI launch", "Linear releases"]
+    },
+    {
+      "id": "local-business",
+      "name": "Local Business",
+      "description": "Drive foot traffic and local inquiries",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "business name + what you do",
+          "subheadline": "location + key differentiator",
+          "visual": "storefront or service photos",
+          "cta": { "primary": "Book appointment", "secondary": "Get directions" },
+          "phone": "click-to-call prominent"
+        },
+        {
+          "type": "services",
+          "position": 2,
+          "format": "card grid with photos",
+          "content": "service name + description + price",
+          "booking": "book buttons per service"
+        },
+        {
+          "type": "gallery",
+          "position": 3,
+          "format": "photo grid",
+          "content": "work samples, space photos",
+          "style": "instagram-like"
+        },
+        {
+          "type": "reviews",
+          "position": 4,
+          "format": "Google/Yelp reviews embedded",
+          "content": "star rating + review excerpts",
+          "cta": "See all reviews"
+        },
+        {
+          "type": "location",
+          "position": 5,
+          "format": "embedded map + address",
+          "content": "hours, parking info",
+          "cta": "Get directions"
+        },
+        {
+          "type": "contact",
+          "position": 6,
+          "format": "phone + email + form",
+          "content": "simple inquiry form",
+          "hours": "when you'll respond"
+        }
+      ],
+      "bestFor": ["restaurants", "salons", "local services"],
+      "conversionFocus": "call, directions, booking",
+      "examples": ["local business websites"]
+    },
+    {
+      "id": "api-product",
+      "name": "API Product",
+      "description": "Sell API access to developers",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "what the API does",
+          "subheadline": "key capability in one line",
+          "visual": "code sample showing simple usage",
+          "cta": { "primary": "Get API key", "secondary": "View docs" },
+          "playground": "try it link"
+        },
+        {
+          "type": "live-demo",
+          "position": 2,
+          "format": "interactive API playground",
+          "content": "input → output demonstration",
+          "purpose": "show capability instantly"
+        },
+        {
+          "type": "endpoints",
+          "position": 3,
+          "format": "endpoint list with descriptions",
+          "content": "GET/POST, parameters, response",
+          "style": "technical reference preview"
+        },
+        {
+          "type": "code-examples",
+          "position": 4,
+          "format": "tabbed by language (Python, JS, cURL)",
+          "content": "copy-paste ready examples",
+          "scenarios": "common use cases"
+        },
+        {
+          "type": "pricing",
+          "position": 5,
+          "format": "usage-based pricing tiers",
+          "content": "free tier, per-call pricing, enterprise",
+          "calculator": "cost calculator"
+        },
+        {
+          "type": "sla-security",
+          "position": 6,
+          "format": "stats and badges",
+          "content": "uptime, latency, security certifications",
+          "trust": "infrastructure details"
+        },
+        {
+          "type": "sdks",
+          "position": 7,
+          "format": "language/platform badges",
+          "content": "official SDKs available",
+          "cta": "per-language install commands"
+        }
+      ],
+      "bestFor": ["API products", "developer services"],
+      "conversionFocus": "API key signup, paid plan",
+      "examples": ["stripe.com", "twilio.com", "openai.com/api"]
+    },
+    {
+      "id": "newsletter-subscription",
+      "name": "Newsletter Subscription",
+      "description": "Convert visitors to newsletter subscribers",
+      "sections": [
+        {
+          "type": "hero",
+          "position": 1,
+          "headline": "newsletter value prop",
+          "subheadline": "what readers get + frequency",
+          "visual": "newsletter preview or author",
+          "cta": { "primary": "Subscribe free" },
+          "social-proof": "subscriber count"
+        },
+        {
+          "type": "email-capture",
+          "position": 2,
+          "format": "prominent email field",
+          "incentive": "free resource or first issue preview",
+          "privacy": "no spam promise"
+        },
+        {
+          "type": "sample-content",
+          "position": 3,
+          "format": "past issues or excerpts",
+          "content": "proof of value",
+          "cta": "read past issues"
+        },
+        {
+          "type": "author",
+          "position": 4,
+          "format": "photo + bio",
+          "content": "credentials, why trust them",
+          "personality": "voice preview"
+        },
+        {
+          "type": "testimonials",
+          "position": 5,
+          "format": "reader quotes",
+          "content": "why they subscribe",
+          "source": "Twitter screenshots if available"
+        }
+      ],
+      "bestFor": ["newsletters", "content creators"],
+      "conversionFocus": "email subscription",
+      "examples": ["substack.com examples", "morning brew"]
+    }
+  ]
+}

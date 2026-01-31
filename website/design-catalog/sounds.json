@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 15,
+    "categories": ["feedback", "notification", "navigation", "ambient", "celebration"],
+    "note": "Sound design patterns and guidelines - actual audio files need to be sourced or created"
+  },
+  "patterns": [
+    {
+      "id": "tap-click",
+      "name": "Tap/Click Feedback",
+      "category": "feedback",
+      "description": "Subtle audio confirmation of button press",
+      "characteristics": {
+        "duration": "50-100ms",
+        "frequency": "mid-range (800-1200Hz)",
+        "envelope": "sharp attack, quick decay",
+        "style": "soft click, pop, or tick"
+      },
+      "usage": {
+        "when": "button press, toggle, checkbox",
+        "volume": "very quiet, barely audible"
+      },
+      "variants": {
+        "soft": "gentle tap for minor actions",
+        "firm": "slightly more pronounced for primary actions"
+      },
+      "examples": ["iOS keyboard clicks", "material design taps"],
+      "accessibility": "must be optional, respect system settings"
+    },
+    {
+      "id": "success-chime",
+      "name": "Success Chime",
+      "category": "feedback",
+      "description": "Positive completion sound",
+      "characteristics": {
+        "duration": "200-400ms",
+        "notes": "ascending or major chord",
+        "frequency": "higher pitch (positive association)",
+        "envelope": "soft attack, medium sustain"
+      },
+      "usage": {
+        "when": "form submitted, task completed, purchase confirmed",
+        "pairing": "with visual success indicator"
+      },
+      "psychology": "major intervals sound happy and resolved",
+      "examples": ["Stripe checkout success", "Duolingo correct answer"]
+    },
+    {
+      "id": "error-sound",
+      "name": "Error Sound",
+      "category": "feedback",
+      "description": "Negative feedback without being alarming",
+      "characteristics": {
+        "duration": "150-300ms",
+        "notes": "lower pitch, minor interval, or dissonant",
+        "envelope": "slightly abrupt"
+      },
+      "usage": {
+        "when": "validation error, failed action",
+        "caution": "not for every typo - only meaningful errors"
+      },
+      "variants": {
+        "gentle": "soft thud or dull tone",
+        "attention": "more noticeable for critical errors"
+      },
+      "examples": ["macOS error sound (Funk)", "form validation fail"]
+    },
+    {
+      "id": "notification-alert",
+      "name": "Notification Alert",
+      "category": "notification",
+      "description": "Attention-getting notification sound",
+      "characteristics": {
+        "duration": "300-800ms",
+        "pattern": "distinctive melody or tone sequence",
+        "frequency": "mid-high range for attention"
+      },
+      "usage": {
+        "when": "new message, reminder, important alert",
+        "context": "should work in background"
+      },
+      "variants": {
+        "standard": "general notification",
+        "urgent": "more insistent for critical alerts",
+        "subtle": "for frequent, less important updates"
+      },
+      "examples": ["Slack notification", "iMessage", "Discord ping"]
+    },
+    {
+      "id": "message-sent",
+      "name": "Message Sent",
+      "category": "feedback",
+      "description": "Confirmation that message was dispatched",
+      "characteristics": {
+        "duration": "100-200ms",
+        "style": "whoosh, pop, or soft sweep",
+        "direction": "ascending or outward feeling"
+      },
+      "usage": {
+        "when": "chat message sent, email sent",
+        "timing": "on send action, not on receipt"
+      },
+      "examples": ["iMessage send sound", "Slack message sent"]
+    },
+    {
+      "id": "message-received",
+      "name": "Message Received",
+      "category": "notification",
+      "description": "New message arrival notification",
+      "characteristics": {
+        "duration": "150-400ms",
+        "style": "pop, chime, or brief melody",
+        "direction": "descending or incoming feeling"
+      },
+      "differentiation": "distinct from sent sound",
+      "examples": ["iMessage receive", "Messenger pop"]
+    },
+    {
+      "id": "navigation-transition",
+      "name": "Navigation Transition",
+      "category": "navigation",
+      "description": "Subtle sound during view transitions",
+      "characteristics": {
+        "duration": "100-200ms",
+        "style": "soft swoosh or subtle tone",
+        "volume": "very quiet"
+      },
+      "usage": {
+        "when": "page navigation, modal open/close",
+        "caution": "easily annoying if overused"
+      },
+      "examples": ["iOS page swipe (subtle)"]
+    },
+    {
+      "id": "pull-to-refresh",
+      "name": "Pull to Refresh",
+      "category": "feedback",
+      "description": "Sound when refresh triggers",
+      "characteristics": {
+        "duration": "100-200ms",
+        "style": "soft pop or click when threshold reached",
+        "timing": "plays at trigger point"
+      },
+      "optional": "completion sound when refresh finishes"
+    },
+    {
+      "id": "toggle-on-off",
+      "name": "Toggle On/Off",
+      "category": "feedback",
+      "description": "Distinct sounds for toggle states",
+      "characteristics": {
+        "duration": "50-100ms each",
+        "on": "slightly higher pitch, positive",
+        "off": "slightly lower pitch, neutral"
+      },
+      "differentiation": "sounds should be distinguishable",
+      "usage": "toggle switches, checkboxes"
+    },
+    {
+      "id": "achievement-unlock",
+      "name": "Achievement Unlock",
+      "category": "celebration",
+      "description": "Celebratory sound for achievements",
+      "characteristics": {
+        "duration": "500-1500ms",
+        "style": "fanfare, ascending melody, sparkle",
+        "energy": "exciting and rewarding"
+      },
+      "usage": {
+        "when": "milestone reached, badge earned, level up",
+        "pairing": "with confetti or animation"
+      },
+      "examples": ["Duolingo streak", "game achievements"]
+    },
+    {
+      "id": "payment-success",
+      "name": "Payment Success",
+      "category": "celebration",
+      "description": "Reassuring payment confirmation",
+      "characteristics": {
+        "duration": "300-600ms",
+        "style": "satisfying chime, cash register influenced",
+        "tone": "professional yet positive"
+      },
+      "usage": {
+        "when": "payment processed successfully",
+        "importance": "provides confidence in transaction"
+      },
+      "examples": ["Square payment ding", "Stripe success"]
+    },
+    {
+      "id": "typing-indicator",
+      "name": "Typing Sound",
+      "category": "feedback",
+      "description": "Keyboard typing audio feedback",
+      "characteristics": {
+        "duration": "30-50ms per key",
+        "style": "mechanical click or soft tap",
+        "variation": "slight randomization prevents monotony"
+      },
+      "usage": {
+        "when": "user types (if enabled)",
+        "caution": "highly personal preference, default off"
+      },
+      "examples": ["iOS keyboard clicks", "mechanical keyboard sounds"]
+    },
+    {
+      "id": "ambient-background",
+      "name": "Ambient Background",
+      "category": "ambient",
+      "description": "Subtle background audio for atmosphere",
+      "characteristics": {
+        "duration": "looping, seamless",
+        "style": "minimal, unobtrusive",
+        "volume": "very low, almost subliminal"
+      },
+      "types": {
+        "workspace": "subtle hum or tone",
+        "nature": "soft rain, forest, ocean",
+        "focus": "binaural beats, lo-fi"
+      },
+      "usage": {
+        "when": "focus modes, meditation apps, workspaces",
+        "control": "user should control volume and type"
+      },
+      "examples": ["Calm app", "Noisli", "Brain.fm"]
+    },
+    {
+      "id": "countdown-tick",
+      "name": "Countdown Tick",
+      "category": "feedback",
+      "description": "Ticking sound for countdowns/timers",
+      "characteristics": {
+        "duration": "50-100ms per tick",
+        "style": "clock tick, soft beep",
+        "pattern": "regular intervals (1/second typically)"
+      },
+      "variants": {
+        "standard": "steady rhythm",
+        "urgent": "faster/louder as time runs out",
+        "final": "distinct sound for last few seconds"
+      },
+      "usage": "timers, countdowns, auctions",
+      "accessibility": "pair with visual countdown"
+    },
+    {
+      "id": "hover-feedback",
+      "name": "Hover Feedback",
+      "category": "feedback",
+      "description": "Very subtle sound on hover (rare use)",
+      "characteristics": {
+        "duration": "20-50ms",
+        "style": "barely perceptible tick or tone",
+        "volume": "extremely quiet"
+      },
+      "usage": {
+        "when": "rarely - specific UI contexts only",
+        "caution": "can be very annoying, use with extreme care"
+      },
+      "recommendation": "generally avoid, use visual feedback instead"
+    }
+  ],
+  "guidelines": {
+    "general": [
+      "Sound should enhance, not annoy",
+      "Always respect system mute/sound settings",
+      "Provide sound toggles in app settings",
+      "Less is more - don't overuse",
+      "Ensure sounds are distinctive for different actions"
+    ],
+    "accessibility": [
+      "Never rely solely on sound for information",
+      "Provide visual alternatives for all audio feedback",
+      "Support screen reader announcements",
+      "Respect prefers-reduced-motion (may imply reduced audio)"
+    ],
+    "technical": [
+      "Use Web Audio API for precise timing",
+      "Preload sounds for instant playback",
+      "Keep file sizes small (<50KB per sound)",
+      "Use appropriate formats (MP3, OGG, WAV)",
+      "Handle audio context initialization on user gesture"
+    ],
+    "branding": [
+      "Sound should match brand personality",
+      "Consistent sound palette across app",
+      "Consider custom sounds for brand recognition",
+      "Test sounds with different speakers/headphones"
+    ]
+  },
+  "resources": {
+    "libraries": [
+      "Howler.js - web audio library",
+      "Tone.js - Web Audio framework",
+      "use-sound - React hook for sounds"
+    ],
+    "soundSources": [
+      "freesound.org - free sound effects",
+      "soundsnap.com - professional sounds",
+      "artlist.io - licensed audio",
+      "Custom creation with synthesizers"
+    ]
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalTemplates": 16,
+    "purpose": "Industry-specific design pattern combinations"
+  },
+  "templates": [
+    {
+      "id": "saas-b2b",
+      "name": "B2B SaaS",
+      "description": "Enterprise software and business tools",
+      "characteristics": {
+        "tone": "professional, trustworthy, efficient",
+        "audience": "business decision-makers, teams"
+      },
+      "designSystem": {
+        "colorPalette": "swiss-modern-stripe or hyperminimalism-monochrome",
+        "typography": "clean sans-serif (Inter, SF Pro), clear hierarchy",
+        "elevation": "subtle shadows, clean cards"
+      },
+      "landingPage": {
+        "pattern": "saas-conversion",
+        "hero": "benefit-focused headline, product screenshot",
+        "sections": ["logo-wall", "features-alternating", "testimonials", "pricing", "faq", "final-cta"]
+      },
+      "navigation": "saas-sticky-header with mega-menu",
+      "footer": "saas-standard with newsletter",
+      "ctas": ["free-trial-urgency", "demo-request", "contact-sales"],
+      "animations": "subtle: fade-in-up reveals, hover-lift cards",
+      "examples": ["notion.so", "linear.app", "vercel.com", "stripe.com"]
+    },
+    {
+      "id": "developer-tools",
+      "name": "Developer Tools",
+      "description": "APIs, SDKs, developer platforms",
+      "characteristics": {
+        "tone": "technical, direct, no fluff",
+        "audience": "developers, engineers, technical decision-makers"
+      },
+      "designSystem": {
+        "colorPalette": "dark mode primary, cyberpunk-neon accents",
+        "typography": "monospace for code, clean sans for content",
+        "elevation": "flat or subtle, code blocks prominent"
+      },
+      "landingPage": {
+        "pattern": "developer-focused",
+        "hero": "code example front and center, terminal install command",
+        "sections": ["code-demo", "features-technical", "github-stats", "docs-preview", "community"]
+      },
+      "navigation": "saas-sticky-header with prominent docs link",
+      "footer": "documentation-footer with edit links",
+      "ctas": ["get-started-simple", "view-docs", "star-on-github"],
+      "animations": "minimal, fast: code syntax highlighting, terminal typing",
+      "examples": ["stripe.com/docs", "vercel.com", "supabase.com", "planetscale.com"]
+    },
+    {
+      "id": "ecommerce-dtc",
+      "name": "E-commerce / DTC",
+      "description": "Direct-to-consumer brands and online stores",
+      "characteristics": {
+        "tone": "aspirational, lifestyle-focused, visual",
+        "audience": "consumers, lifestyle buyers"
+      },
+      "designSystem": {
+        "colorPalette": "brand-specific, often warm and inviting",
+        "typography": "mix of display and body fonts, personality",
+        "elevation": "product-focused, clean product cards"
+      },
+      "landingPage": {
+        "pattern": "e-commerce-product",
+        "hero": "hero product imagery, lifestyle photography",
+        "sections": ["product-gallery", "key-features", "reviews", "related-products", "trust-signals"]
+      },
+      "navigation": "e-commerce-utility with cart and search",
+      "footer": "e-commerce-comprehensive with trust badges",
+      "ctas": ["buy-now-scarcity", "add-to-cart", "view-collection"],
+      "animations": "product zoom, cart add feedback, smooth transitions",
+      "examples": ["allbirds.com", "everlane.com", "away.com", "glossier.com"]
+    },
+    {
+      "id": "fintech",
+      "name": "Fintech",
+      "description": "Financial technology, banking, payments",
+      "characteristics": {
+        "tone": "secure, trustworthy, modern",
+        "audience": "consumers and businesses managing money"
+      },
+      "designSystem": {
+        "colorPalette": "blues and greens (trust), clean whites",
+        "typography": "professional sans-serif, clear numbers",
+        "elevation": "clean, card-based, secure feel"
+      },
+      "landingPage": {
+        "pattern": "saas-conversion or enterprise-trust",
+        "hero": "security + simplicity messaging",
+        "sections": ["features-security", "compliance-badges", "testimonials", "pricing-transparent"]
+      },
+      "navigation": "saas-sticky-header, prominent login",
+      "footer": "enterprise-mega-footer with compliance",
+      "ctas": ["sign-up-free", "download-app", "contact-sales"],
+      "trustElements": ["bank-level security badges", "compliance certifications", "money-back guarantees"],
+      "examples": ["stripe.com", "plaid.com", "mercury.com", "ramp.com"]
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare / Healthtech",
+      "description": "Medical, telehealth, health apps",
+      "characteristics": {
+        "tone": "caring, professional, accessible",
+        "audience": "patients, healthcare providers"
+      },
+      "designSystem": {
+        "colorPalette": "calming blues, greens, clean whites",
+        "typography": "highly readable, accessible sizes",
+        "elevation": "soft, gentle shadows"
+      },
+      "landingPage": {
+        "pattern": "saas-conversion adapted for healthcare",
+        "hero": "empathetic headline, diverse patient imagery",
+        "sections": ["how-it-works", "provider-credentials", "patient-testimonials", "hipaa-compliance"]
+      },
+      "navigation": "clean, accessible, prominent help",
+      "footer": "includes medical disclaimers, compliance info",
+      "ctas": ["book-appointment", "speak-to-provider", "download-app"],
+      "accessibility": "WCAG AAA compliance strongly recommended",
+      "compliance": ["HIPAA badges", "medical credentials", "privacy policies"],
+      "examples": ["onemedical.com", "teladoc.com", "ro.co"]
+    },
+    {
+      "id": "education",
+      "name": "Education / EdTech",
+      "description": "Online learning, courses, educational platforms",
+      "characteristics": {
+        "tone": "encouraging, clear, achievement-focused",
+        "audience": "learners, educators, institutions"
+      },
+      "designSystem": {
+        "colorPalette": "bright, encouraging colors, often purple/blue",
+        "typography": "friendly, readable, good for long reading",
+        "elevation": "playful cards, progress-focused UI"
+      },
+      "landingPage": {
+        "pattern": "course-educational",
+        "hero": "transformation promise, student success",
+        "sections": ["curriculum", "instructor-credibility", "student-outcomes", "pricing-with-guarantee"]
+      },
+      "navigation": "clear course navigation, progress visible",
+      "footer": "resources, support, institution info",
+      "ctas": ["enroll-now", "start-learning", "view-syllabus"],
+      "gamification": ["progress bars", "achievement badges", "streaks"],
+      "examples": ["duolingo.com", "coursera.org", "masterclass.com"]
+    },
+    {
+      "id": "creative-portfolio",
+      "name": "Creative Portfolio",
+      "description": "Designer, developer, artist portfolios",
+      "characteristics": {
+        "tone": "personal, showcasing craft",
+        "audience": "potential clients, employers"
+      },
+      "designSystem": {
+        "colorPalette": "personal choice, often minimal or bold",
+        "typography": "distinctive, reflects personal brand",
+        "elevation": "varies - can be minimal or dramatic"
+      },
+      "landingPage": {
+        "pattern": "portfolio-creative",
+        "hero": "name + role, signature project",
+        "sections": ["project-grid", "about-brief", "services", "contact"]
+      },
+      "navigation": "minimal-portfolio",
+      "footer": "minimal-creative with social links",
+      "ctas": ["view-work", "contact-me", "download-resume"],
+      "emphasis": "work speaks loudest, minimal UI chrome",
+      "examples": ["minimal.gallery showcases", "awwwards portfolios"]
+    },
+    {
+      "id": "agency",
+      "name": "Creative Agency",
+      "description": "Design, development, marketing agencies",
+      "characteristics": {
+        "tone": "confident, creative, results-focused",
+        "audience": "potential clients, brands"
+      },
+      "designSystem": {
+        "colorPalette": "bold brand colors, high contrast",
+        "typography": "distinctive, modern, often oversized",
+        "elevation": "dramatic when needed, clean for content"
+      },
+      "landingPage": {
+        "pattern": "agency-services",
+        "hero": "bold claim, video reel",
+        "sections": ["services", "work-showcase", "client-logos", "process", "team", "testimonials"]
+      },
+      "navigation": "can be experimental, but usable",
+      "footer": "contact-focused",
+      "ctas": ["get-in-touch", "view-our-work", "start-a-project"],
+      "showmanship": "portfolio quality reflects agency capability",
+      "examples": ["basicagency.com", "ueno.co", "area17.com"]
+    },
+    {
+      "id": "media-content",
+      "name": "Media / Content",
+      "description": "News, blogs, magazines, content platforms",
+      "characteristics": {
+        "tone": "authoritative, readable, engaging",
+        "audience": "readers, subscribers"
+      },
+      "designSystem": {
+        "colorPalette": "often minimal with brand accent",
+        "typography": "optimized for long-form reading",
+        "elevation": "subtle, content-focused"
+      },
+      "landingPage": {
+        "pattern": "content-creator or newsletter-subscription",
+        "hero": "latest content or value proposition",
+        "sections": ["featured-content", "categories", "newsletter-signup", "about-author"]
+      },
+      "navigation": "category-based, search prominent",
+      "footer": "sitemap-style with all categories",
+      "ctas": ["subscribe", "read-more", "share"],
+      "features": ["reading progress", "estimated read time", "related content"],
+      "examples": ["medium.com", "substack.com", "nytimes.com"]
+    },
+    {
+      "id": "real-estate",
+      "name": "Real Estate",
+      "description": "Property listings, real estate services",
+      "characteristics": {
+        "tone": "aspirational, trustworthy, local expertise",
+        "audience": "home buyers, sellers, renters"
+      },
+      "designSystem": {
+        "colorPalette": "professional, often blues/greens",
+        "typography": "clear, property details prominent",
+        "elevation": "clean cards for listings"
+      },
+      "landingPage": {
+        "pattern": "custom - search-focused",
+        "hero": "search bar prominently featured",
+        "sections": ["featured-listings", "neighborhoods", "agent-profiles", "testimonials"]
+      },
+      "navigation": "search-forward, location-based",
+      "footer": "local offices, licensing info",
+      "ctas": ["search-homes", "contact-agent", "schedule-tour"],
+      "features": ["map integration", "filter system", "saved searches", "image galleries"],
+      "examples": ["zillow.com", "redfin.com", "compass.com"]
+    },
+    {
+      "id": "travel-hospitality",
+      "name": "Travel / Hospitality",
+      "description": "Hotels, airlines, travel booking",
+      "characteristics": {
+        "tone": "wanderlust, experience-focused, welcoming",
+        "audience": "travelers, vacationers"
+      },
+      "designSystem": {
+        "colorPalette": "destination-inspired, vibrant imagery",
+        "typography": "elegant but readable",
+        "elevation": "imagery-forward, clean booking UI"
+      },
+      "landingPage": {
+        "pattern": "custom - booking-focused",
+        "hero": "stunning destination imagery, booking widget",
+        "sections": ["featured-destinations", "deals", "reviews", "loyalty-program"]
+      },
+      "navigation": "destination/booking focused",
+      "footer": "comprehensive with all destinations",
+      "ctas": ["book-now", "explore-destinations", "view-deals"],
+      "features": ["date picker", "guest selector", "map views", "photo galleries"],
+      "examples": ["airbnb.com", "booking.com", "marriott.com"]
+    },
+    {
+      "id": "food-restaurant",
+      "name": "Food / Restaurant",
+      "description": "Restaurants, food delivery, recipes",
+      "characteristics": {
+        "tone": "appetizing, warm, inviting",
+        "audience": "diners, food enthusiasts"
+      },
+      "designSystem": {
+        "colorPalette": "warm, appetizing colors (reds, oranges, earth tones)",
+        "typography": "personality-driven, menu-style",
+        "elevation": "food photography hero"
+      },
+      "landingPage": {
+        "pattern": "local-business or custom",
+        "hero": "mouth-watering food photography",
+        "sections": ["menu-highlights", "about-us", "reservations", "location", "reviews"]
+      },
+      "navigation": "simple - menu, reservations, location",
+      "footer": "hours, address, social media",
+      "ctas": ["view-menu", "make-reservation", "order-online"],
+      "features": ["menu display", "reservation widget", "location map"],
+      "examples": ["restaurant websites", "doordash.com", "grubhub.com"]
+    },
+    {
+      "id": "fitness-wellness",
+      "name": "Fitness / Wellness",
+      "description": "Gyms, fitness apps, wellness products",
+      "characteristics": {
+        "tone": "motivating, energetic, supportive",
+        "audience": "fitness enthusiasts, health-conscious"
+      },
+      "designSystem": {
+        "colorPalette": "energetic (orange, green) or calm (wellness)",
+        "typography": "bold for energy, clean for tracking",
+        "elevation": "dynamic, action-oriented"
+      },
+      "landingPage": {
+        "pattern": "mobile-app-store or saas-conversion",
+        "hero": "transformation/motivation imagery",
+        "sections": ["features", "workout-preview", "testimonials", "pricing", "download"]
+      },
+      "navigation": "app-focused, community links",
+      "footer": "app-cta-footer",
+      "ctas": ["start-free-trial", "download-app", "join-community"],
+      "features": ["progress tracking", "workout libraries", "community/social"],
+      "examples": ["peloton.com", "nike.com/ntc", "calm.com"]
+    },
+    {
+      "id": "nonprofit",
+      "name": "Nonprofit / Charity",
+      "description": "Charitable organizations, causes",
+      "characteristics": {
+        "tone": "compassionate, urgent, impactful",
+        "audience": "donors, volunteers, beneficiaries"
+      },
+      "designSystem": {
+        "colorPalette": "cause-appropriate, often warm/hopeful",
+        "typography": "accessible, emotional impact",
+        "elevation": "human-centered, photo-focused"
+      },
+      "landingPage": {
+        "pattern": "nonprofit-donation",
+        "hero": "emotional story, impact numbers",
+        "sections": ["impact-story", "metrics", "donation-options", "transparency", "ways-to-help"]
+      },
+      "navigation": "clear paths: donate, volunteer, learn",
+      "footer": "transparency, reports, contact",
+      "ctas": ["donate-now", "become-volunteer", "learn-more"],
+      "trustElements": ["transparency reports", "impact metrics", "charity ratings"],
+      "examples": ["charitywater.org", "savethechildren.org"]
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "description": "Video games, gaming platforms",
+      "characteristics": {
+        "tone": "exciting, immersive, community-driven",
+        "audience": "gamers of various types"
+      },
+      "designSystem": {
+        "colorPalette": "dark backgrounds, neon accents, game-specific",
+        "typography": "bold, often custom/stylized",
+        "elevation": "dramatic, cinematic"
+      },
+      "landingPage": {
+        "pattern": "product-launch or custom",
+        "hero": "game trailer/cinematic, key art",
+        "sections": ["features", "trailer", "screenshots", "editions", "pre-order"]
+      },
+      "navigation": "immersive, can be experimental",
+      "footer": "links to platforms, social, esports",
+      "ctas": ["pre-order", "play-free", "watch-trailer"],
+      "features": ["video backgrounds", "parallax", "animated elements"],
+      "examples": ["game promotional sites", "steam store pages"]
+    },
+    {
+      "id": "automotive",
+      "name": "Automotive",
+      "description": "Car manufacturers, dealerships",
+      "characteristics": {
+        "tone": "premium, performance, innovation",
+        "audience": "car buyers, enthusiasts"
+      },
+      "designSystem": {
+        "colorPalette": "brand colors, often dark/premium",
+        "typography": "sleek, modern, brand-specific",
+        "elevation": "cinematic, product-hero focused"
+      },
+      "landingPage": {
+        "pattern": "product-launch style",
+        "hero": "cinematic vehicle imagery/video",
+        "sections": ["models", "features", "configurator", "test-drive", "dealer-locator"]
+      },
+      "navigation": "model-focused, utility links",
+      "footer": "comprehensive with dealer info",
+      "ctas": ["build-yours", "schedule-test-drive", "find-dealer"],
+      "features": ["3D configurator", "comparison tools", "video showcases"],
+      "examples": ["tesla.com", "porsche.com", "bmw.com"]
+    }
+  ],
+  "usage": {
+    "howToUse": [
+      "Select template matching your industry",
+      "Reference linked patterns from other catalog files",
+      "Adapt to your specific brand and needs",
+      "Don't blindly follow - use as starting point"
+    ],
+    "customization": [
+      "Colors should match your brand",
+      "Tone should match your specific audience",
+      "Features depend on your actual product",
+      "Always test with real users"
+    ]
+  }
+}

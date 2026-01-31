@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalSystems": 12,
+    "categories": ["scales", "principles", "application"]
+  },
+  "scales": [
+    {
+      "id": "4px-scale",
+      "name": "4px Base Scale",
+      "category": "scales",
+      "description": "Most common spacing scale",
+      "base": 4,
+      "scale": {
+        "0": "0px",
+        "0.5": "2px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "5": "20px",
+        "6": "24px",
+        "8": "32px",
+        "10": "40px",
+        "12": "48px",
+        "16": "64px",
+        "20": "80px",
+        "24": "96px"
+      },
+      "usedBy": ["Tailwind CSS", "most design systems"],
+      "benefits": [
+        "aligns with common screen densities",
+        "flexible enough for fine-tuning",
+        "mathematical consistency"
+      ]
+    },
+    {
+      "id": "8px-scale",
+      "name": "8px Grid Scale",
+      "category": "scales",
+      "description": "Coarser scale for simpler systems",
+      "base": 8,
+      "scale": {
+        "1": "8px",
+        "2": "16px",
+        "3": "24px",
+        "4": "32px",
+        "5": "40px",
+        "6": "48px",
+        "8": "64px",
+        "10": "80px",
+        "12": "96px"
+      },
+      "usedBy": ["Material Design"],
+      "benefits": [
+        "simpler decisions",
+        "consistent rhythm",
+        "aligns with 8pt grid"
+      ],
+      "halfStep": "4px allowed for fine adjustments"
+    },
+    {
+      "id": "fibonacci-scale",
+      "name": "Fibonacci Scale",
+      "category": "scales",
+      "description": "Based on Fibonacci sequence",
+      "scale": {
+        "xs": "8px",
+        "sm": "13px",
+        "md": "21px",
+        "lg": "34px",
+        "xl": "55px",
+        "2xl": "89px"
+      },
+      "benefits": [
+        "natural visual harmony",
+        "golden ratio relationships",
+        "organic feel"
+      ],
+      "caution": "non-standard values may complicate grid alignment"
+    },
+    {
+      "id": "geometric-scale",
+      "name": "Geometric/Exponential Scale",
+      "category": "scales",
+      "description": "Each step multiplies by ratio",
+      "ratio": 1.5,
+      "scale": {
+        "1": "4px",
+        "2": "6px",
+        "3": "9px",
+        "4": "14px",
+        "5": "21px",
+        "6": "32px",
+        "7": "48px",
+        "8": "72px"
+      },
+      "benefits": [
+        "dramatic contrast between sizes",
+        "mathematically consistent"
+      ],
+      "usedBy": ["typographic scales often use this"]
+    },
+    {
+      "id": "tailwind-spacing",
+      "name": "Tailwind CSS Spacing",
+      "category": "scales",
+      "description": "Tailwind's default spacing scale",
+      "base": 4,
+      "tokens": {
+        "p-1": "4px",
+        "p-2": "8px",
+        "p-3": "12px",
+        "p-4": "16px",
+        "p-5": "20px",
+        "p-6": "24px",
+        "p-8": "32px",
+        "p-10": "40px",
+        "p-12": "48px",
+        "p-16": "64px",
+        "p-20": "80px",
+        "p-24": "96px"
+      },
+      "fractions": {
+        "p-px": "1px",
+        "p-0.5": "2px",
+        "p-1.5": "6px",
+        "p-2.5": "10px",
+        "p-3.5": "14px"
+      }
+    }
+  ],
+  "principles": [
+    {
+      "id": "internal-vs-external",
+      "name": "Internal vs External Spacing",
+      "category": "principles",
+      "description": "Padding vs margin distinction",
+      "internal": {
+        "what": "padding within components",
+        "controls": "component controls its own padding",
+        "consistent": "same component = same padding"
+      },
+      "external": {
+        "what": "margin between components",
+        "controls": "parent or layout controls",
+        "varies": "depends on context"
+      },
+      "bestPractice": "components define padding, layouts define gaps"
+    },
+    {
+      "id": "proximity-principle",
+      "name": "Law of Proximity",
+      "category": "principles",
+      "description": "Related items should be closer together",
+      "implementation": {
+        "groups": "less space within groups",
+        "sections": "more space between sections"
+      },
+      "ratio": "internal spacing ~60% of external spacing",
+      "example": {
+        "formField": "8px between label and input",
+        "formFields": "24px between form groups"
+      }
+    },
+    {
+      "id": "consistent-rhythm",
+      "name": "Vertical Rhythm",
+      "category": "principles",
+      "description": "Consistent vertical spacing creates flow",
+      "implementation": {
+        "baseline": "based on line-height",
+        "multiples": "spacing in multiples of baseline"
+      },
+      "benefits": [
+        "visual harmony",
+        "easier scanning",
+        "professional feel"
+      ]
+    },
+    {
+      "id": "optical-adjustment",
+      "name": "Optical Adjustments",
+      "category": "principles",
+      "description": "Sometimes math isn't enough",
+      "examples": {
+        "icons": "may need optical centering",
+        "buttons": "may need asymmetric padding",
+        "text": "may need visual alignment vs mathematical"
+      },
+      "principle": "if it looks wrong, adjust it"
+    },
+    {
+      "id": "density-levels",
+      "name": "Information Density",
+      "category": "principles",
+      "description": "Varying spacing for different contexts",
+      "levels": {
+        "compact": "less spacing, more information visible",
+        "comfortable": "balanced, default",
+        "spacious": "more whitespace, focused"
+      },
+      "useCases": {
+        "compact": "data tables, dashboards, power users",
+        "comfortable": "general applications",
+        "spacious": "marketing, reading content"
+      }
+    }
+  ],
+  "application": [
+    {
+      "id": "component-spacing",
+      "name": "Component Internal Spacing",
+      "category": "application",
+      "description": "Standard spacing within components",
+      "button": {
+        "paddingX": "16-24px",
+        "paddingY": "8-12px",
+        "gap": "8px (icon to text)"
+      },
+      "card": {
+        "padding": "16-24px",
+        "headerGap": "16px",
+        "contentGap": "12px"
+      },
+      "input": {
+        "paddingX": "12-16px",
+        "paddingY": "8-12px",
+        "labelGap": "4-8px"
+      }
+    },
+    {
+      "id": "layout-spacing",
+      "name": "Layout Spacing",
+      "category": "application",
+      "description": "Spacing at page/section level",
+      "pageMargins": {
+        "mobile": "16-24px",
+        "tablet": "24-48px",
+        "desktop": "48-96px or centered container"
+      },
+      "sectionGap": {
+        "small": "48-64px",
+        "medium": "80-120px",
+        "large": "120-160px"
+      },
+      "containerMaxWidth": "1200-1440px common"
+    },
+    {
+      "id": "gap-utility",
+      "name": "Gap Property Usage",
+      "category": "application",
+      "description": "Using gap instead of margins",
+      "benefits": [
+        "no margin collapse issues",
+        "consistent spacing",
+        "no extra margin on edges",
+        "works with flexbox and grid"
+      ],
+      "implementation": {
+        "flex": "display: flex; gap: 16px;",
+        "grid": "display: grid; gap: 24px;"
+      }
+    }
+  ],
+  "tokens": {
+    "naming": {
+      "semantic": "--space-xs, --space-sm, --space-md, --space-lg, --space-xl",
+      "numeric": "--space-1, --space-2, --space-4, --space-8",
+      "contextual": "--space-component-padding, --space-section-gap"
+    },
+    "implementation": {
+      "cssVariables": ":root { --space-4: 16px; }",
+      "usage": "padding: var(--space-4);"
+    }
+  },
+  "tools": {
+    "visualization": [
+      "8pt grid overlays in Figma",
+      "Spacing plugins",
+      "Browser DevTools layout view"
+    ],
+    "enforcement": [
+      "Stylelint rules for spacing values",
+      "Design tokens",
+      "Component constraints"
+    ]
+  }
+}

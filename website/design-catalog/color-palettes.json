@@ -1,0 +1,2192 @@
+{
+  "$schema": "./schemas/color-palette.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-29",
+  "totalPalettes": 15,
+  "palettes": [
+    {
+      "id": "neobrutalism-primary",
+      "name": "Neobrutalism Bold",
+      "trend": "neobrutalism",
+      "description": "High-contrast palette with cream backgrounds and bold accents inspired by Gumroad",
+      "colors": [
+        {
+          "name": "Deep Black",
+          "hex": "#1a1a1a",
+          "rgb": [
+            26,
+            26,
+            26
+          ],
+          "hsl": [
+            0,
+            0,
+            10
+          ],
+          "usage": [
+            "text",
+            "borders",
+            "shadows"
+          ],
+          "wcag": {
+            "onWhite": 17.4,
+            "onBlack": 1.2,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Cream",
+          "hex": "#fef3c7",
+          "rgb": [
+            254,
+            243,
+            199
+          ],
+          "hsl": [
+            48,
+            96,
+            89
+          ],
+          "usage": [
+            "background",
+            "cards"
+          ],
+          "wcag": {
+            "onWhite": 1.1,
+            "onBlack": 18.9,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Bold Red",
+          "hex": "#ef4444",
+          "rgb": [
+            239,
+            68,
+            68
+          ],
+          "hsl": [
+            0,
+            84,
+            60
+          ],
+          "usage": [
+            "cta",
+            "alerts",
+            "accents"
+          ],
+          "wcag": {
+            "onWhite": 3.8,
+            "onBlack": 5.6,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Electric Yellow",
+          "hex": "#facc15",
+          "rgb": [
+            250,
+            204,
+            21
+          ],
+          "hsl": [
+            48,
+            96,
+            53
+          ],
+          "usage": [
+            "highlights",
+            "badges"
+          ],
+          "wcag": {
+            "onWhite": 1.5,
+            "onBlack": 13.7,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Bright Green",
+          "hex": "#22c55e",
+          "rgb": [
+            34,
+            197,
+            94
+          ],
+          "hsl": [
+            142,
+            71,
+            45
+          ],
+          "usage": [
+            "success",
+            "accents"
+          ],
+          "wcag": {
+            "onWhite": 2.3,
+            "onBlack": 9.2,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#1a1a1a",
+          "background": "#fef3c7",
+          "contrastRatio": 15.6,
+          "rating": "AAA",
+          "usage": "Primary text on cards"
+        },
+        {
+          "foreground": "#fef3c7",
+          "background": "#ef4444",
+          "contrastRatio": 3.4,
+          "rating": "AA-Large",
+          "usage": "Button text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#22c55e",
+        "warning": "#facc15",
+        "error": "#ef4444",
+        "info": "#3b82f6"
+      }
+    },
+    {
+      "id": "neobrutalism-dark",
+      "name": "Neobrutalism Dark",
+      "trend": "neobrutalism",
+      "description": "Dark mode neobrutalism with neon accents",
+      "colors": [
+        {
+          "name": "Pure Black",
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "hsl": [
+            0,
+            0,
+            0
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 21,
+            "onBlack": 1,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Pure White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "usage": [
+            "text",
+            "borders"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Hot Pink",
+          "hex": "#ec4899",
+          "rgb": [
+            236,
+            72,
+            153
+          ],
+          "hsl": [
+            330,
+            81,
+            60
+          ],
+          "usage": [
+            "accents",
+            "cta"
+          ],
+          "wcag": {
+            "onWhite": 3.5,
+            "onBlack": 6,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Lime",
+          "hex": "#84cc16",
+          "rgb": [
+            132,
+            204,
+            22
+          ],
+          "hsl": [
+            84,
+            81,
+            44
+          ],
+          "usage": [
+            "success",
+            "highlights"
+          ],
+          "wcag": {
+            "onWhite": 2,
+            "onBlack": 10.6,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#ffffff",
+          "background": "#000000",
+          "contrastRatio": 21,
+          "rating": "AAA",
+          "usage": "Primary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#84cc16",
+        "warning": "#facc15",
+        "error": "#ef4444",
+        "info": "#3b82f6"
+      }
+    },
+    {
+      "id": "swiss-modern-stripe",
+      "name": "Swiss Modern (Stripe)",
+      "trend": "swiss-modern",
+      "description": "Clean, professional palette inspired by Stripe's signature purple",
+      "colors": [
+        {
+          "name": "Pure Black",
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "hsl": [
+            0,
+            0,
+            0
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 21,
+            "onBlack": 1,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Pure White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Stripe Purple",
+          "hex": "#635bff",
+          "rgb": [
+            99,
+            91,
+            255
+          ],
+          "hsl": [
+            243,
+            100,
+            68
+          ],
+          "usage": [
+            "primary",
+            "cta",
+            "links"
+          ],
+          "wcag": {
+            "onWhite": 4.7,
+            "onBlack": 4.5,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Neutral Gray",
+          "hex": "#6b7280",
+          "rgb": [
+            107,
+            114,
+            128
+          ],
+          "hsl": [
+            220,
+            9,
+            46
+          ],
+          "usage": [
+            "secondary-text",
+            "borders"
+          ],
+          "wcag": {
+            "onWhite": 4.8,
+            "onBlack": 4.3,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA-Large"
+          }
+        },
+        {
+          "name": "Surface Gray",
+          "hex": "#f9fafb",
+          "rgb": [
+            249,
+            250,
+            251
+          ],
+          "hsl": [
+            210,
+            20,
+            98
+          ],
+          "usage": [
+            "cards",
+            "surfaces"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 20.1,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#000000",
+          "background": "#ffffff",
+          "contrastRatio": 21,
+          "rating": "AAA",
+          "usage": "Primary text"
+        },
+        {
+          "foreground": "#635bff",
+          "background": "#ffffff",
+          "contrastRatio": 4.7,
+          "rating": "AA",
+          "usage": "Links and buttons"
+        },
+        {
+          "foreground": "#6b7280",
+          "background": "#ffffff",
+          "contrastRatio": 4.8,
+          "rating": "AA",
+          "usage": "Secondary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#10b981",
+        "warning": "#f59e0b",
+        "error": "#ef4444",
+        "info": "#3b82f6"
+      }
+    },
+    {
+      "id": "swiss-modern-linear",
+      "name": "Swiss Modern (Linear)",
+      "trend": "swiss-modern",
+      "description": "Minimalist palette with subtle purple accents inspired by Linear's interface",
+      "colors": [
+        {
+          "name": "Near Black",
+          "hex": "#0d0d0d",
+          "rgb": [
+            13,
+            13,
+            13
+          ],
+          "hsl": [
+            0,
+            0,
+            5
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 19.4,
+            "onBlack": 1.1,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Off White",
+          "hex": "#fafafa",
+          "rgb": [
+            250,
+            250,
+            250
+          ],
+          "hsl": [
+            0,
+            0,
+            98
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 20.1,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Linear Purple",
+          "hex": "#5e6ad2",
+          "rgb": [
+            94,
+            106,
+            210
+          ],
+          "hsl": [
+            234,
+            55,
+            60
+          ],
+          "usage": [
+            "primary",
+            "interactive"
+          ],
+          "wcag": {
+            "onWhite": 4.7,
+            "onBlack": 4.5,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Muted Gray",
+          "hex": "#8b8b8b",
+          "rgb": [
+            139,
+            139,
+            139
+          ],
+          "hsl": [
+            0,
+            0,
+            55
+          ],
+          "usage": [
+            "secondary-text"
+          ],
+          "wcag": {
+            "onWhite": 3.4,
+            "onBlack": 6.2,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#0d0d0d",
+          "background": "#fafafa",
+          "contrastRatio": 18.6,
+          "rating": "AAA",
+          "usage": "Primary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#4ade80",
+        "warning": "#fbbf24",
+        "error": "#f87171",
+        "info": "#5e6ad2"
+      }
+    },
+    {
+      "id": "glassmorphism-vision",
+      "name": "Glassmorphism Vision",
+      "trend": "glassmorphism",
+      "description": "Translucent surfaces with vibrant gradient backgrounds inspired by Apple Vision Pro",
+      "colors": [
+        {
+          "name": "Glass White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "opacity": 0.15,
+          "usage": [
+            "glass-surface"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Glass Border",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "opacity": 0.25,
+          "usage": [
+            "borders"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Gradient Purple",
+          "hex": "#667eea",
+          "rgb": [
+            102,
+            126,
+            234
+          ],
+          "hsl": [
+            229,
+            76,
+            66
+          ],
+          "usage": [
+            "background-start"
+          ],
+          "wcag": {
+            "onWhite": 3.7,
+            "onBlack": 5.7,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Gradient Violet",
+          "hex": "#764ba2",
+          "rgb": [
+            118,
+            75,
+            162
+          ],
+          "hsl": [
+            270,
+            37,
+            46
+          ],
+          "usage": [
+            "background-end"
+          ],
+          "wcag": {
+            "onWhite": 6.4,
+            "onBlack": 3.3,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA-Large"
+          }
+        },
+        {
+          "name": "Text White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#ffffff",
+          "background": "#667eea",
+          "contrastRatio": 3.7,
+          "rating": "AA-Large",
+          "usage": "Text on gradient"
+        },
+        {
+          "foreground": "#ffffff",
+          "background": "#764ba2",
+          "contrastRatio": 6.4,
+          "rating": "AA",
+          "usage": "Text on darker gradient"
+        }
+      ],
+      "gradients": [
+        {
+          "name": "Vision Gradient",
+          "type": "linear",
+          "angle": 135,
+          "stops": [
+            {
+              "color": "#667eea",
+              "position": 0
+            },
+            {
+              "color": "#764ba2",
+              "position": 100
+            }
+          ]
+        }
+      ],
+      "semanticColors": {
+        "success": "#34d399",
+        "warning": "#fbbf24",
+        "error": "#f87171",
+        "info": "#60a5fa"
+      }
+    },
+    {
+      "id": "glassmorphism-macos",
+      "name": "Glassmorphism macOS",
+      "trend": "glassmorphism",
+      "description": "Subtle frosted glass with macOS-inspired neutral backgrounds",
+      "colors": [
+        {
+          "name": "Frosted White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "opacity": 0.72,
+          "usage": [
+            "glass-surface"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Desktop Gray",
+          "hex": "#e5e5e5",
+          "rgb": [
+            229,
+            229,
+            229
+          ],
+          "hsl": [
+            0,
+            0,
+            90
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1.3,
+            "onBlack": 16.7,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "System Blue",
+          "hex": "#007aff",
+          "rgb": [
+            0,
+            122,
+            255
+          ],
+          "hsl": [
+            211,
+            100,
+            50
+          ],
+          "usage": [
+            "primary",
+            "interactive"
+          ],
+          "wcag": {
+            "onWhite": 4,
+            "onBlack": 5.2,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Text Dark",
+          "hex": "#1d1d1f",
+          "rgb": [
+            29,
+            29,
+            31
+          ],
+          "hsl": [
+            240,
+            3,
+            12
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 16.8,
+            "onBlack": 1.2,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#1d1d1f",
+          "background": "#ffffff",
+          "contrastRatio": 16.8,
+          "rating": "AAA",
+          "usage": "Primary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#34c759",
+        "warning": "#ff9500",
+        "error": "#ff3b30",
+        "info": "#007aff"
+      }
+    },
+    {
+      "id": "maximalism-carnival",
+      "name": "Maximalism Carnival",
+      "trend": "maximalism",
+      "description": "Vibrant, celebratory palette with bold contrasting colors",
+      "colors": [
+        {
+          "name": "Deep Navy",
+          "hex": "#1a1a2e",
+          "rgb": [
+            26,
+            26,
+            46
+          ],
+          "hsl": [
+            240,
+            28,
+            14
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 17.1,
+            "onBlack": 1.2,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Coral",
+          "hex": "#ff6b6b",
+          "rgb": [
+            255,
+            107,
+            107
+          ],
+          "hsl": [
+            0,
+            100,
+            71
+          ],
+          "usage": [
+            "primary",
+            "cta"
+          ],
+          "wcag": {
+            "onWhite": 2.8,
+            "onBlack": 7.6,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Teal",
+          "hex": "#4ecdc4",
+          "rgb": [
+            78,
+            205,
+            196
+          ],
+          "hsl": [
+            175,
+            57,
+            55
+          ],
+          "usage": [
+            "secondary",
+            "highlights"
+          ],
+          "wcag": {
+            "onWhite": 1.9,
+            "onBlack": 10.9,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Sunny Yellow",
+          "hex": "#ffe66d",
+          "rgb": [
+            255,
+            230,
+            109
+          ],
+          "hsl": [
+            50,
+            100,
+            71
+          ],
+          "usage": [
+            "accents",
+            "badges"
+          ],
+          "wcag": {
+            "onWhite": 1.3,
+            "onBlack": 16.8,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Royal Purple",
+          "hex": "#9b59b6",
+          "rgb": [
+            155,
+            89,
+            182
+          ],
+          "hsl": [
+            283,
+            39,
+            53
+          ],
+          "usage": [
+            "tertiary"
+          ],
+          "wcag": {
+            "onWhite": 4.7,
+            "onBlack": 4.5,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Fresh Green",
+          "hex": "#2ecc71",
+          "rgb": [
+            46,
+            204,
+            113
+          ],
+          "hsl": [
+            145,
+            63,
+            49
+          ],
+          "usage": [
+            "success",
+            "accents"
+          ],
+          "wcag": {
+            "onWhite": 2.1,
+            "onBlack": 10,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#ffe66d",
+          "background": "#1a1a2e",
+          "contrastRatio": 13.6,
+          "rating": "AAA",
+          "usage": "Primary text on dark"
+        },
+        {
+          "foreground": "#1a1a2e",
+          "background": "#4ecdc4",
+          "contrastRatio": 8.8,
+          "rating": "AAA",
+          "usage": "Text on teal"
+        }
+      ],
+      "semanticColors": {
+        "success": "#2ecc71",
+        "warning": "#ffe66d",
+        "error": "#ff6b6b",
+        "info": "#4ecdc4"
+      }
+    },
+    {
+      "id": "maximalism-glossier",
+      "name": "Maximalism Glossier",
+      "trend": "maximalism",
+      "description": "Playful, feminine palette inspired by beauty and lifestyle brands",
+      "colors": [
+        {
+          "name": "Blush Pink",
+          "hex": "#f8b4d9",
+          "rgb": [
+            248,
+            180,
+            217
+          ],
+          "hsl": [
+            327,
+            85,
+            84
+          ],
+          "usage": [
+            "primary",
+            "backgrounds"
+          ],
+          "wcag": {
+            "onWhite": 1.7,
+            "onBlack": 12.5,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Soft Coral",
+          "hex": "#fca5a5",
+          "rgb": [
+            252,
+            165,
+            165
+          ],
+          "hsl": [
+            0,
+            94,
+            82
+          ],
+          "usage": [
+            "secondary"
+          ],
+          "wcag": {
+            "onWhite": 1.9,
+            "onBlack": 11.1,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Lavender",
+          "hex": "#c4b5fd",
+          "rgb": [
+            196,
+            181,
+            253
+          ],
+          "hsl": [
+            252,
+            94,
+            85
+          ],
+          "usage": [
+            "accents"
+          ],
+          "wcag": {
+            "onWhite": 1.8,
+            "onBlack": 11.4,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Deep Rose",
+          "hex": "#be185d",
+          "rgb": [
+            190,
+            24,
+            93
+          ],
+          "hsl": [
+            335,
+            78,
+            42
+          ],
+          "usage": [
+            "text",
+            "cta"
+          ],
+          "wcag": {
+            "onWhite": 6,
+            "onBlack": 3.5,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA-Large"
+          }
+        },
+        {
+          "name": "Clean White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#be185d",
+          "background": "#ffffff",
+          "contrastRatio": 6,
+          "rating": "AA",
+          "usage": "Primary text"
+        },
+        {
+          "foreground": "#be185d",
+          "background": "#f8b4d9",
+          "contrastRatio": 3.6,
+          "rating": "AA-Large",
+          "usage": "Text on pink"
+        }
+      ],
+      "semanticColors": {
+        "success": "#10b981",
+        "warning": "#f59e0b",
+        "error": "#ef4444",
+        "info": "#6366f1"
+      }
+    },
+    {
+      "id": "hyperminimalism-monochrome",
+      "name": "Hyperminimalism Monochrome",
+      "trend": "hyperminimalism",
+      "description": "Extreme simplicity with near-black text on white with single accent",
+      "colors": [
+        {
+          "name": "Near Black",
+          "hex": "#1a1a1a",
+          "rgb": [
+            26,
+            26,
+            26
+          ],
+          "hsl": [
+            0,
+            0,
+            10
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 17.4,
+            "onBlack": 1.2,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Pure White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Light Border",
+          "hex": "#e5e5e5",
+          "rgb": [
+            229,
+            229,
+            229
+          ],
+          "hsl": [
+            0,
+            0,
+            90
+          ],
+          "usage": [
+            "borders",
+            "dividers"
+          ],
+          "wcag": {
+            "onWhite": 1.3,
+            "onBlack": 16.7,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Primary Blue",
+          "hex": "#2563eb",
+          "rgb": [
+            37,
+            99,
+            235
+          ],
+          "hsl": [
+            221,
+            83,
+            53
+          ],
+          "usage": [
+            "links",
+            "interactive"
+          ],
+          "wcag": {
+            "onWhite": 5.2,
+            "onBlack": 4.1,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA-Large"
+          }
+        },
+        {
+          "name": "Muted Gray",
+          "hex": "#737373",
+          "rgb": [
+            115,
+            115,
+            115
+          ],
+          "hsl": [
+            0,
+            0,
+            45
+          ],
+          "usage": [
+            "secondary-text"
+          ],
+          "wcag": {
+            "onWhite": 4.7,
+            "onBlack": 4.4,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA-Large"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#1a1a1a",
+          "background": "#ffffff",
+          "contrastRatio": 17.4,
+          "rating": "AAA",
+          "usage": "Primary text"
+        },
+        {
+          "foreground": "#737373",
+          "background": "#ffffff",
+          "contrastRatio": 4.7,
+          "rating": "AA",
+          "usage": "Secondary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#10b981",
+        "warning": "#f59e0b",
+        "error": "#ef4444",
+        "info": "#2563eb"
+      }
+    },
+    {
+      "id": "hyperminimalism-apple",
+      "name": "Hyperminimalism Apple",
+      "trend": "hyperminimalism",
+      "description": "Apple-inspired palette with subtle grays and system blue",
+      "colors": [
+        {
+          "name": "Apple Black",
+          "hex": "#1d1d1f",
+          "rgb": [
+            29,
+            29,
+            31
+          ],
+          "hsl": [
+            240,
+            3,
+            12
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 16.8,
+            "onBlack": 1.2,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Apple White",
+          "hex": "#fbfbfd",
+          "rgb": [
+            251,
+            251,
+            253
+          ],
+          "hsl": [
+            240,
+            25,
+            99
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 20.3,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Apple Gray",
+          "hex": "#86868b",
+          "rgb": [
+            134,
+            134,
+            139
+          ],
+          "hsl": [
+            240,
+            2,
+            54
+          ],
+          "usage": [
+            "secondary-text"
+          ],
+          "wcag": {
+            "onWhite": 3.6,
+            "onBlack": 5.8,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Apple Blue",
+          "hex": "#0071e3",
+          "rgb": [
+            0,
+            113,
+            227
+          ],
+          "hsl": [
+            210,
+            100,
+            45
+          ],
+          "usage": [
+            "links",
+            "cta"
+          ],
+          "wcag": {
+            "onWhite": 4.7,
+            "onBlack": 4.5,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#1d1d1f",
+          "background": "#fbfbfd",
+          "contrastRatio": 16.3,
+          "rating": "AAA",
+          "usage": "Primary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#34c759",
+        "warning": "#ff9500",
+        "error": "#ff3b30",
+        "info": "#0071e3"
+      }
+    },
+    {
+      "id": "cyberpunk-neon",
+      "name": "Cyberpunk Neon",
+      "trend": "cyberpunk",
+      "description": "High-contrast dark theme with neon accents inspired by Blade Runner",
+      "colors": [
+        {
+          "name": "Void Black",
+          "hex": "#0a0a0f",
+          "rgb": [
+            10,
+            10,
+            15
+          ],
+          "hsl": [
+            240,
+            20,
+            5
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 19.8,
+            "onBlack": 1.1,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Neon Cyan",
+          "hex": "#00ffff",
+          "rgb": [
+            0,
+            255,
+            255
+          ],
+          "hsl": [
+            180,
+            100,
+            50
+          ],
+          "usage": [
+            "primary",
+            "highlights"
+          ],
+          "wcag": {
+            "onWhite": 1.3,
+            "onBlack": 16.7,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Neon Magenta",
+          "hex": "#ff00ff",
+          "rgb": [
+            255,
+            0,
+            255
+          ],
+          "hsl": [
+            300,
+            100,
+            50
+          ],
+          "usage": [
+            "secondary",
+            "accents"
+          ],
+          "wcag": {
+            "onWhite": 3.1,
+            "onBlack": 6.7,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Matrix Green",
+          "hex": "#00ff00",
+          "rgb": [
+            0,
+            255,
+            0
+          ],
+          "hsl": [
+            120,
+            100,
+            50
+          ],
+          "usage": [
+            "success",
+            "highlights"
+          ],
+          "wcag": {
+            "onWhite": 1.4,
+            "onBlack": 15.3,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Warning Yellow",
+          "hex": "#ffff00",
+          "rgb": [
+            255,
+            255,
+            0
+          ],
+          "hsl": [
+            60,
+            100,
+            50
+          ],
+          "usage": [
+            "warning",
+            "alerts"
+          ],
+          "wcag": {
+            "onWhite": 1.1,
+            "onBlack": 19.6,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Light Gray",
+          "hex": "#e0e0e0",
+          "rgb": [
+            224,
+            224,
+            224
+          ],
+          "hsl": [
+            0,
+            0,
+            88
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 1.3,
+            "onBlack": 15.9,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#e0e0e0",
+          "background": "#0a0a0f",
+          "contrastRatio": 15,
+          "rating": "AAA",
+          "usage": "Primary text"
+        },
+        {
+          "foreground": "#00ffff",
+          "background": "#0a0a0f",
+          "contrastRatio": 15.8,
+          "rating": "AAA",
+          "usage": "Neon accents"
+        }
+      ],
+      "semanticColors": {
+        "success": "#00ff00",
+        "warning": "#ffff00",
+        "error": "#ff0000",
+        "info": "#00ffff"
+      }
+    },
+    {
+      "id": "cyberpunk-2077",
+      "name": "Cyberpunk 2077",
+      "trend": "cyberpunk",
+      "description": "Inspired by the game's yellow-heavy interface design",
+      "colors": [
+        {
+          "name": "Night City Black",
+          "hex": "#0d0d0d",
+          "rgb": [
+            13,
+            13,
+            13
+          ],
+          "hsl": [
+            0,
+            0,
+            5
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 19.4,
+            "onBlack": 1.1,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "2077 Yellow",
+          "hex": "#fcee0a",
+          "rgb": [
+            252,
+            238,
+            10
+          ],
+          "hsl": [
+            56,
+            98,
+            51
+          ],
+          "usage": [
+            "primary",
+            "interactive"
+          ],
+          "wcag": {
+            "onWhite": 1.2,
+            "onBlack": 17.4,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Red Alert",
+          "hex": "#ff003c",
+          "rgb": [
+            255,
+            0,
+            60
+          ],
+          "hsl": [
+            346,
+            100,
+            50
+          ],
+          "usage": [
+            "error",
+            "danger"
+          ],
+          "wcag": {
+            "onWhite": 3.9,
+            "onBlack": 5.3,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Steel Gray",
+          "hex": "#2d2d2d",
+          "rgb": [
+            45,
+            45,
+            45
+          ],
+          "hsl": [
+            0,
+            0,
+            18
+          ],
+          "usage": [
+            "surfaces",
+            "cards"
+          ],
+          "wcag": {
+            "onWhite": 13.8,
+            "onBlack": 1.5,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Interface Blue",
+          "hex": "#00d4ff",
+          "rgb": [
+            0,
+            212,
+            255
+          ],
+          "hsl": [
+            190,
+            100,
+            50
+          ],
+          "usage": [
+            "info",
+            "links"
+          ],
+          "wcag": {
+            "onWhite": 1.8,
+            "onBlack": 11.9,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#fcee0a",
+          "background": "#0d0d0d",
+          "contrastRatio": 16.1,
+          "rating": "AAA",
+          "usage": "Primary UI elements"
+        },
+        {
+          "foreground": "#0d0d0d",
+          "background": "#fcee0a",
+          "contrastRatio": 16.1,
+          "rating": "AAA",
+          "usage": "Inverted buttons"
+        }
+      ],
+      "semanticColors": {
+        "success": "#00ff00",
+        "warning": "#fcee0a",
+        "error": "#ff003c",
+        "info": "#00d4ff"
+      }
+    },
+    {
+      "id": "cottagecore-meadow",
+      "name": "Cottagecore Meadow",
+      "trend": "cottagecore",
+      "description": "Soft, natural palette inspired by rural countryside and vintage aesthetics",
+      "colors": [
+        {
+          "name": "Warm Brown",
+          "hex": "#8b7355",
+          "rgb": [
+            139,
+            115,
+            85
+          ],
+          "hsl": [
+            33,
+            24,
+            44
+          ],
+          "usage": [
+            "text",
+            "headers"
+          ],
+          "wcag": {
+            "onWhite": 4.5,
+            "onBlack": 4.7,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA"
+          }
+        },
+        {
+          "name": "Cream",
+          "hex": "#faf6f0",
+          "rgb": [
+            250,
+            246,
+            240
+          ],
+          "hsl": [
+            36,
+            50,
+            96
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1.1,
+            "onBlack": 19.5,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Sage Green",
+          "hex": "#9caf88",
+          "rgb": [
+            156,
+            175,
+            136
+          ],
+          "hsl": [
+            89,
+            21,
+            61
+          ],
+          "usage": [
+            "primary",
+            "accents"
+          ],
+          "wcag": {
+            "onWhite": 2.4,
+            "onBlack": 8.9,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Dusty Rose",
+          "hex": "#d4a5a5",
+          "rgb": [
+            212,
+            165,
+            165
+          ],
+          "hsl": [
+            0,
+            37,
+            74
+          ],
+          "usage": [
+            "secondary",
+            "highlights"
+          ],
+          "wcag": {
+            "onWhite": 2.2,
+            "onBlack": 9.7,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Dusty Blue",
+          "hex": "#b8c4d4",
+          "rgb": [
+            184,
+            196,
+            212
+          ],
+          "hsl": [
+            214,
+            30,
+            78
+          ],
+          "usage": [
+            "tertiary"
+          ],
+          "wcag": {
+            "onWhite": 1.8,
+            "onBlack": 11.9,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Warm Gray",
+          "hex": "#4a4a4a",
+          "rgb": [
+            74,
+            74,
+            74
+          ],
+          "hsl": [
+            0,
+            0,
+            29
+          ],
+          "usage": [
+            "body-text"
+          ],
+          "wcag": {
+            "onWhite": 8.9,
+            "onBlack": 2.4,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#4a4a4a",
+          "background": "#faf6f0",
+          "contrastRatio": 8.2,
+          "rating": "AAA",
+          "usage": "Body text"
+        },
+        {
+          "foreground": "#8b7355",
+          "background": "#faf6f0",
+          "contrastRatio": 4.2,
+          "rating": "AA-Large",
+          "usage": "Headers"
+        }
+      ],
+      "semanticColors": {
+        "success": "#9caf88",
+        "warning": "#daa520",
+        "error": "#cd5c5c",
+        "info": "#b8c4d4"
+      }
+    },
+    {
+      "id": "cottagecore-autumn",
+      "name": "Cottagecore Autumn",
+      "trend": "cottagecore",
+      "description": "Warm harvest colors with golden accents",
+      "colors": [
+        {
+          "name": "Chestnut",
+          "hex": "#6b4423",
+          "rgb": [
+            107,
+            68,
+            35
+          ],
+          "hsl": [
+            28,
+            51,
+            28
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 8.5,
+            "onBlack": 2.5,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Parchment",
+          "hex": "#f5e6d3",
+          "rgb": [
+            245,
+            230,
+            211
+          ],
+          "hsl": [
+            34,
+            61,
+            89
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1.2,
+            "onBlack": 17.1,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Harvest Gold",
+          "hex": "#daa520",
+          "rgb": [
+            218,
+            165,
+            32
+          ],
+          "hsl": [
+            43,
+            74,
+            49
+          ],
+          "usage": [
+            "accents",
+            "cta"
+          ],
+          "wcag": {
+            "onWhite": 2.2,
+            "onBlack": 9.4,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Rust",
+          "hex": "#b7410e",
+          "rgb": [
+            183,
+            65,
+            14
+          ],
+          "hsl": [
+            18,
+            86,
+            39
+          ],
+          "usage": [
+            "error",
+            "emphasis"
+          ],
+          "wcag": {
+            "onWhite": 5.6,
+            "onBlack": 3.8,
+            "ratingOnWhite": "AA",
+            "ratingOnBlack": "AA-Large"
+          }
+        },
+        {
+          "name": "Forest Green",
+          "hex": "#4a5d23",
+          "rgb": [
+            74,
+            93,
+            35
+          ],
+          "hsl": [
+            80,
+            45,
+            25
+          ],
+          "usage": [
+            "success",
+            "nature"
+          ],
+          "wcag": {
+            "onWhite": 7.3,
+            "onBlack": 2.9,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#6b4423",
+          "background": "#f5e6d3",
+          "contrastRatio": 6.9,
+          "rating": "AA",
+          "usage": "Primary text"
+        }
+      ],
+      "semanticColors": {
+        "success": "#4a5d23",
+        "warning": "#daa520",
+        "error": "#b7410e",
+        "info": "#5f9ea0"
+      }
+    },
+    {
+      "id": "brutalist-minimal-document",
+      "name": "Brutalist Minimal Document",
+      "trend": "brutalist-minimal",
+      "description": "Raw, honest palette mimicking early web and document styles",
+      "colors": [
+        {
+          "name": "Pure Black",
+          "hex": "#000000",
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "hsl": [
+            0,
+            0,
+            0
+          ],
+          "usage": [
+            "text"
+          ],
+          "wcag": {
+            "onWhite": 21,
+            "onBlack": 1,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Pure White",
+          "hex": "#ffffff",
+          "rgb": [
+            255,
+            255,
+            255
+          ],
+          "hsl": [
+            0,
+            0,
+            100
+          ],
+          "usage": [
+            "background"
+          ],
+          "wcag": {
+            "onWhite": 1,
+            "onBlack": 21,
+            "ratingOnWhite": "Fail",
+            "ratingOnBlack": "AAA"
+          }
+        },
+        {
+          "name": "Classic Blue",
+          "hex": "#0000ff",
+          "rgb": [
+            0,
+            0,
+            255
+          ],
+          "hsl": [
+            240,
+            100,
+            50
+          ],
+          "usage": [
+            "links"
+          ],
+          "wcag": {
+            "onWhite": 8.6,
+            "onBlack": 2.4,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Visited Purple",
+          "hex": "#551a8b",
+          "rgb": [
+            85,
+            26,
+            139
+          ],
+          "hsl": [
+            271,
+            68,
+            32
+          ],
+          "usage": [
+            "visited-links"
+          ],
+          "wcag": {
+            "onWhite": 11,
+            "onBlack": 1.9,
+            "ratingOnWhite": "AAA",
+            "ratingOnBlack": "Fail"
+          }
+        },
+        {
+          "name": "Alert Red",
+          "hex": "#ff0000",
+          "rgb": [
+            255,
+            0,
+            0
+          ],
+          "hsl": [
+            0,
+            100,
+            50
+          ],
+          "usage": [
+            "error",
+            "emphasis"
+          ],
+          "wcag": {
+            "onWhite": 4,
+            "onBlack": 5.3,
+            "ratingOnWhite": "AA-Large",
+            "ratingOnBlack": "AA"
+          }
+        }
+      ],
+      "combinations": [
+        {
+          "foreground": "#000000",
+          "background": "#ffffff",
+          "contrastRatio": 21,
+          "rating": "AAA",
+          "usage": "Primary text"
+        },
+        {
+          "foreground": "#0000ff",
+          "background": "#ffffff",
+          "contrastRatio": 8.6,
+          "rating": "AAA",
+          "usage": "Links"
+        }
+      ],
+      "semanticColors": {
+        "success": "#008000",
+        "warning": "#ffa500",
+        "error": "#ff0000",
+        "info": "#0000ff"
+      }
+    }
+  ]
+}

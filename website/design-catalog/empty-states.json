@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 18,
+    "categories": ["first-use", "no-data", "error", "search", "permission"]
+  },
+  "patterns": [
+    {
+      "id": "first-use-welcome",
+      "name": "First-Use Welcome",
+      "category": "first-use",
+      "description": "User's first encounter with a blank feature",
+      "psychology": "Turn emptiness into opportunity - guide toward first action",
+      "anatomy": {
+        "illustration": "friendly, on-brand visual",
+        "headline": "action-oriented or benefit-focused",
+        "description": "1-2 sentences explaining value",
+        "primaryCta": "clear first action button",
+        "secondaryCta": "optional: learn more, tutorial"
+      },
+      "example": {
+        "headline": "Create your first project",
+        "description": "Projects help you organize your work and collaborate with your team.",
+        "cta": "New Project"
+      },
+      "bestPractices": [
+        "focus on the ONE key action",
+        "show benefit, not just instruction",
+        "use friendly, encouraging tone",
+        "illustration should feel welcoming, not patronizing"
+      ]
+    },
+    {
+      "id": "first-use-demo-data",
+      "name": "Demo Data Offer",
+      "category": "first-use",
+      "description": "Offer sample data to explore feature",
+      "useCase": "complex features where empty state doesn't demonstrate value",
+      "anatomy": {
+        "headline": "See how it works",
+        "description": "Explore with sample data",
+        "primaryCta": "Add sample data",
+        "secondaryCta": "Start from scratch"
+      },
+      "implementation": {
+        "demoFlag": "mark demo data clearly",
+        "cleanup": "easy way to remove demo data",
+        "persistence": "demo data should be deletable"
+      },
+      "examples": ["analytics dashboards", "project management", "CRM"]
+    },
+    {
+      "id": "first-use-tutorial",
+      "name": "Tutorial Prompt",
+      "category": "first-use",
+      "description": "Offer guided walkthrough",
+      "anatomy": {
+        "headline": "New to [feature]?",
+        "description": "Take a quick tour",
+        "primaryCta": "Start tutorial",
+        "secondaryCta": "Maybe later",
+        "skipOption": "always allow dismissal"
+      },
+      "timing": "show on first visit, hide after completion or 3 dismissals",
+      "persistence": "remember tutorial completion in user preferences"
+    },
+    {
+      "id": "no-data-list",
+      "name": "Empty List",
+      "category": "no-data",
+      "description": "List or table with no items",
+      "variants": {
+        "addItem": "when user can create items",
+        "waitForData": "when data comes from external source",
+        "filteredOut": "when filters exclude all items"
+      },
+      "anatomy": {
+        "icon": "relevant empty state icon",
+        "headline": "No [items] yet",
+        "description": "brief explanation or suggestion",
+        "cta": "action to create first item"
+      },
+      "examples": {
+        "inbox": "All caught up! No new messages.",
+        "projects": "Create your first project to get started.",
+        "orders": "No orders yet. They'll appear here once customers purchase."
+      }
+    },
+    {
+      "id": "no-data-dashboard",
+      "name": "Empty Dashboard",
+      "category": "no-data",
+      "description": "Dashboard with no data to display",
+      "approach": {
+        "skeleton": "show chart shapes with placeholder",
+        "message": "explain what data will appear",
+        "action": "guide to data source setup"
+      },
+      "anatomy": {
+        "placeholder": "ghost/skeleton of expected layout",
+        "headline": "Connect your data source",
+        "description": "Once connected, your metrics will appear here",
+        "cta": "Connect data source"
+      }
+    },
+    {
+      "id": "no-data-completed",
+      "name": "Completed State",
+      "category": "no-data",
+      "description": "All items are done/cleared",
+      "psychology": "celebration, not confusion",
+      "examples": {
+        "inbox": "You're all caught up! 🎉",
+        "todos": "Nothing to do. Enjoy your day!",
+        "notifications": "No new notifications"
+      },
+      "design": {
+        "tone": "positive, celebratory",
+        "visual": "cheerful illustration or checkmark",
+        "cta": "optional next action"
+      }
+    },
+    {
+      "id": "search-no-results",
+      "name": "Search No Results",
+      "category": "search",
+      "description": "Search query returns nothing",
+      "anatomy": {
+        "icon": "search or empty illustration",
+        "headline": "No results for \"[query]\"",
+        "suggestions": [
+          "check spelling",
+          "try different keywords",
+          "broaden search terms"
+        ],
+        "alternatives": "popular searches, categories"
+      },
+      "enhancement": {
+        "didYouMean": "spelling correction suggestion",
+        "related": "show related content",
+        "feedback": "link to report issue"
+      }
+    },
+    {
+      "id": "search-initial",
+      "name": "Search Initial State",
+      "category": "search",
+      "description": "Search field before user types",
+      "options": {
+        "blank": "just show search input",
+        "suggestions": "popular/recent searches",
+        "categories": "browse by category links",
+        "tips": "search tips or syntax help"
+      },
+      "examples": {
+        "ecommerce": "Popular: winter jackets, boots, sale items",
+        "documentation": "Try: authentication, API reference, getting started"
+      }
+    },
+    {
+      "id": "filter-no-match",
+      "name": "Filter No Match",
+      "category": "search",
+      "description": "Applied filters exclude all items",
+      "distinction": "different from search - user has items, just filtered out",
+      "anatomy": {
+        "headline": "No items match these filters",
+        "description": "Try adjusting your filter criteria",
+        "cta": "Clear all filters",
+        "detail": "show active filters"
+      },
+      "enhancement": "suggest which filter to remove to see results"
+    },
+    {
+      "id": "error-general",
+      "name": "General Error",
+      "category": "error",
+      "description": "Something went wrong, unclear what",
+      "anatomy": {
+        "icon": "warning or error illustration",
+        "headline": "Something went wrong",
+        "description": "We couldn't load this content. Please try again.",
+        "primaryCta": "Try again",
+        "secondaryCta": "Contact support"
+      },
+      "logging": "log error details for debugging",
+      "tone": "apologetic but not alarming"
+    },
+    {
+      "id": "error-404",
+      "name": "Page Not Found (404)",
+      "category": "error",
+      "description": "Requested page doesn't exist",
+      "anatomy": {
+        "illustration": "creative, on-brand 404 visual",
+        "headline": "Page not found",
+        "description": "The page you're looking for doesn't exist or has been moved.",
+        "primaryCta": "Go to homepage",
+        "alternatives": ["search", "popular pages", "sitemap"]
+      },
+      "opportunity": "be creative, show brand personality"
+    },
+    {
+      "id": "error-500",
+      "name": "Server Error (500)",
+      "category": "error",
+      "description": "Server-side error",
+      "anatomy": {
+        "illustration": "technical but friendly",
+        "headline": "Something went wrong on our end",
+        "description": "We're working on fixing this. Please try again in a few minutes.",
+        "cta": "Try again",
+        "statusLink": "Check status page"
+      },
+      "transparency": "link to status page if available"
+    },
+    {
+      "id": "error-offline",
+      "name": "Offline State",
+      "category": "error",
+      "description": "No internet connection",
+      "anatomy": {
+        "icon": "disconnected/cloud icon",
+        "headline": "You're offline",
+        "description": "Check your internet connection and try again.",
+        "cta": "Try again"
+      },
+      "enhancement": {
+        "autoRetry": "automatically retry when online",
+        "cachedContent": "show cached content if available",
+        "indicator": "persistent offline indicator"
+      }
+    },
+    {
+      "id": "error-timeout",
+      "name": "Timeout Error",
+      "category": "error",
+      "description": "Request took too long",
+      "anatomy": {
+        "headline": "This is taking too long",
+        "description": "The server didn't respond in time.",
+        "cta": "Try again",
+        "alternative": "Try again later"
+      },
+      "enhancement": "offer to notify when available"
+    },
+    {
+      "id": "permission-denied",
+      "name": "Permission Denied",
+      "category": "permission",
+      "description": "User doesn't have access",
+      "anatomy": {
+        "icon": "lock icon",
+        "headline": "You don't have access",
+        "description": "This content is restricted. Contact your admin for access.",
+        "cta": "Request access"
+      },
+      "context": {
+        "whoHasAccess": "explain who can access",
+        "howToGet": "explain how to get access",
+        "contactAdmin": "link to request access"
+      }
+    },
+    {
+      "id": "permission-upgrade",
+      "name": "Upgrade Required",
+      "category": "permission",
+      "description": "Feature requires higher plan",
+      "anatomy": {
+        "icon": "premium/upgrade icon",
+        "headline": "Upgrade to access [feature]",
+        "description": "This feature is available on [Plan Name] and higher.",
+        "primaryCta": "View plans",
+        "secondaryCta": "Learn more"
+      },
+      "psychology": "show value, not just restriction",
+      "preview": "if possible, show blurred/limited preview"
+    },
+    {
+      "id": "loading-state",
+      "name": "Loading State",
+      "category": "no-data",
+      "description": "Content is loading",
+      "variants": {
+        "spinner": "simple rotating indicator",
+        "skeleton": "placeholder matching content shape",
+        "progress": "determinate progress bar",
+        "message": "loading with status text"
+      },
+      "guidelines": {
+        "delay": "show skeleton immediately or after 200ms",
+        "spinner": "use for < 10 seconds expected",
+        "progress": "use when duration is known",
+        "message": "use for long operations (> 10s)"
+      }
+    },
+    {
+      "id": "maintenance-mode",
+      "name": "Maintenance Mode",
+      "category": "error",
+      "description": "Service temporarily unavailable for maintenance",
+      "anatomy": {
+        "illustration": "construction/maintenance visual",
+        "headline": "We'll be right back",
+        "description": "We're doing some scheduled maintenance. Check back soon.",
+        "eta": "Expected completion: [time]",
+        "statusLink": "Follow updates on our status page"
+      },
+      "communication": "proactive notification before maintenance"
+    }
+  ],
+  "guidelines": {
+    "illustration": [
+      "use consistent illustration style across empty states",
+      "avoid generic stock illustrations",
+      "match brand personality (playful, professional, minimal)",
+      "don't use illustrations that could be confused with errors"
+    ],
+    "copy": [
+      "be specific about what's empty and why",
+      "always provide a clear next action",
+      "use positive, helpful language",
+      "avoid blaming the user"
+    ],
+    "design": [
+      "center empty states vertically and horizontally",
+      "use appropriate whitespace",
+      "maintain visual hierarchy (headline > description > CTA)",
+      "ensure empty states work at different viewport sizes"
+    ]
+  }
+}

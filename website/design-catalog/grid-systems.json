@@ -1,0 +1,247 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalSystems": 14,
+    "categories": ["column", "modular", "css", "application"]
+  },
+  "systems": [
+    {
+      "id": "12-column",
+      "name": "12-Column Grid",
+      "category": "column",
+      "description": "Most common grid system",
+      "columns": 12,
+      "divisibility": [1, 2, 3, 4, 6, 12],
+      "useCases": {
+        "fullWidth": "12/12 columns",
+        "twoEqual": "6/6 columns",
+        "threeEqual": "4/4/4 columns",
+        "fourEqual": "3/3/3/3 columns",
+        "sidebarContent": "3/9 or 4/8 columns",
+        "asymmetric": "5/7 columns"
+      },
+      "frameworks": ["Bootstrap", "Foundation", "Tailwind"]
+    },
+    {
+      "id": "16-column",
+      "name": "16-Column Grid",
+      "category": "column",
+      "description": "More flexibility for complex layouts",
+      "columns": 16,
+      "divisibility": [1, 2, 4, 8, 16],
+      "useCases": [
+        "editorial layouts",
+        "complex dashboards",
+        "design tool canvases"
+      ],
+      "tradeoff": "more flexible but harder to work with mentally"
+    },
+    {
+      "id": "golden-ratio",
+      "name": "Golden Ratio Grid",
+      "category": "column",
+      "description": "Based on 1:1.618 ratio",
+      "ratio": 1.618,
+      "columns": {
+        "major": "61.8%",
+        "minor": "38.2%"
+      },
+      "useCases": ["editorial", "art direction", "classical feel"],
+      "note": "often approximated as 60/40 or 5/8 columns in 12-col"
+    },
+    {
+      "id": "modular-grid",
+      "name": "Modular Grid",
+      "category": "modular",
+      "description": "Both column and row divisions",
+      "structure": {
+        "columns": "vertical divisions",
+        "rows": "horizontal divisions",
+        "modules": "rectangular units"
+      },
+      "useCases": [
+        "magazine layouts",
+        "dashboards",
+        "complex data displays"
+      ],
+      "examples": ["newspaper layouts", "bento grids"]
+    },
+    {
+      "id": "baseline-grid",
+      "name": "Baseline Grid",
+      "category": "modular",
+      "description": "Horizontal lines for text alignment",
+      "basedOn": "line-height of body text",
+      "implementation": {
+        "lineHeight": "typically 24px",
+        "spacing": "multiples of baseline"
+      },
+      "benefits": [
+        "vertical rhythm",
+        "harmonious text layout"
+      ]
+    },
+    {
+      "id": "compound-grid",
+      "name": "Compound Grid",
+      "category": "modular",
+      "description": "Overlaying multiple grids",
+      "example": {
+        "primary": "4-column for major sections",
+        "secondary": "12-column for content",
+        "baseline": "8px for vertical rhythm"
+      },
+      "useCases": ["complex editorial", "magazines"]
+    },
+    {
+      "id": "css-grid",
+      "name": "CSS Grid",
+      "category": "css",
+      "description": "Native CSS two-dimensional grid",
+      "key-features": {
+        "templateColumns": "grid-template-columns: repeat(12, 1fr)",
+        "gap": "gap: 24px",
+        "areas": "grid-template-areas for named regions",
+        "autoFit": "auto-fit with minmax for responsive"
+      },
+      "responsive": {
+        "pattern": "grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))",
+        "behavior": "columns automatically wrap"
+      }
+    },
+    {
+      "id": "flexbox-grid",
+      "name": "Flexbox Grid",
+      "category": "css",
+      "description": "Grid using flexbox",
+      "implementation": {
+        "container": "display: flex; flex-wrap: wrap; gap: 24px",
+        "item": "flex: 0 0 calc(33.333% - 16px)"
+      },
+      "useCases": [
+        "simple row-based layouts",
+        "equal-height columns",
+        "legacy browser support"
+      ],
+      "note": "CSS Grid preferred for complex 2D layouts"
+    },
+    {
+      "id": "subgrid",
+      "name": "CSS Subgrid",
+      "category": "css",
+      "description": "Inherit parent grid in children",
+      "implementation": "grid-template-columns: subgrid",
+      "useCases": [
+        "aligning nested content to parent grid",
+        "card content alignment",
+        "form layouts"
+      ],
+      "support": "modern browsers (2023+)"
+    },
+    {
+      "id": "container-grid",
+      "name": "Container/Content Grid",
+      "category": "application",
+      "description": "Centered content with max-width",
+      "implementation": {
+        "container": "max-width: 1200px; margin: 0 auto; padding: 0 24px",
+        "fullBleed": "sections that break out"
+      },
+      "variants": {
+        "narrow": "max-width: 680px (reading)",
+        "medium": "max-width: 960px (content)",
+        "wide": "max-width: 1200px (standard)",
+        "full": "max-width: 1440px (large)"
+      }
+    },
+    {
+      "id": "asymmetric-grid",
+      "name": "Asymmetric Grid",
+      "category": "application",
+      "description": "Unequal column widths",
+      "examples": {
+        "blog": "wide content + narrow sidebar",
+        "portfolio": "varied image sizes",
+        "magazine": "mixed column spans"
+      },
+      "ratios": ["1:2", "1:3", "2:3", "golden ratio"],
+      "implementation": "grid-template-columns: 2fr 1fr"
+    },
+    {
+      "id": "bento-grid",
+      "name": "Bento Box Grid",
+      "category": "application",
+      "description": "Varied-size tiles in modular grid",
+      "characteristics": {
+        "modules": "different sized rectangles",
+        "flow": "items fill available space",
+        "visual": "apple-style feature sections"
+      },
+      "implementation": {
+        "grid": "CSS Grid with span classes",
+        "span": "grid-column: span 2; grid-row: span 2"
+      },
+      "useCases": ["feature sections", "portfolios", "dashboards"],
+      "trend": "popular since ~2022"
+    },
+    {
+      "id": "masonry-layout",
+      "name": "Masonry Layout",
+      "category": "application",
+      "description": "Pinterest-style varied-height columns",
+      "implementation": {
+        "js": "Masonry.js, Isotope",
+        "css": "columns property (limited)",
+        "future": "CSS masonry (in development)"
+      },
+      "useCases": [
+        "image galleries",
+        "card collections",
+        "pinterest-style feeds"
+      ],
+      "caution": "can cause reading order issues (accessibility)"
+    },
+    {
+      "id": "holy-grail",
+      "name": "Holy Grail Layout",
+      "category": "application",
+      "description": "Header, footer, 3-column main",
+      "structure": {
+        "header": "full width",
+        "sidebar-left": "fixed or flexible",
+        "main": "flexible center content",
+        "sidebar-right": "fixed or flexible",
+        "footer": "full width"
+      },
+      "implementation": {
+        "grid": "grid-template-rows: auto 1fr auto; grid-template-columns: 200px 1fr 200px",
+        "areas": "grid-template-areas: 'header header header' 'nav main aside' 'footer footer footer'"
+      }
+    }
+  ],
+  "gutters": {
+    "description": "Space between columns",
+    "typical": {
+      "mobile": "16px",
+      "tablet": "24px",
+      "desktop": "24-32px"
+    },
+    "consideration": "larger gutters = more breathing room, fewer columns visible"
+  },
+  "margins": {
+    "description": "Space on outside of grid",
+    "typical": {
+      "mobile": "16-24px",
+      "tablet": "32-48px",
+      "desktop": "auto (centered container)"
+    }
+  },
+  "bestPractices": [
+    "use consistent grid across project",
+    "allow for full-bleed sections when needed",
+    "consider content requirements, not just aesthetics",
+    "test grid at all breakpoints",
+    "document grid specifications"
+  ]
+}

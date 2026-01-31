@@ -1,0 +1,857 @@
+{
+  "$schema": "../schemas/component-library.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-30",
+  "totalComponents": 22,
+  "componentTypes": [
+    "button",
+    "card",
+    "navigation",
+    "hero",
+    "cta",
+    "testimonial",
+    "form-input",
+    "form-select",
+    "form-checkbox"
+  ],
+  "components": [
+    {
+      "id": "button-primary-neobrutalism",
+      "type": "button",
+      "variant": "primary",
+      "trend": "neobrutalism",
+      "description": "Bold, high-contrast button with thick borders and hard shadow",
+      "states": {
+        "default": {
+          "background": "#1a1a1a",
+          "color": "#fef3c7",
+          "border": "3px solid #1a1a1a",
+          "borderRadius": "0px",
+          "padding": "14px 28px",
+          "fontWeight": 700,
+          "fontSize": "16px",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.05em",
+          "boxShadow": "4px 4px 0 #1a1a1a"
+        },
+        "hover": {
+          "background": "#333333",
+          "transform": "translate(-2px, -2px)",
+          "boxShadow": "6px 6px 0 #1a1a1a"
+        },
+        "active": {
+          "transform": "translate(2px, 2px)",
+          "boxShadow": "2px 2px 0 #1a1a1a"
+        },
+        "focus": {
+          "outline": "3px solid #facc15",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "background": "#9ca3af",
+          "color": "#6b7280",
+          "cursor": "not-allowed",
+          "boxShadow": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "3px solid #facc15",
+        "ariaRole": "button",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA",
+        "contrastRatio": 14.8
+      },
+      "css": ".btn-primary-neo {\n  background: #1a1a1a;\n  color: #fef3c7;\n  border: 3px solid #1a1a1a;\n  border-radius: 0;\n  padding: 14px 28px;\n  font-weight: 700;\n  font-size: 16px;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  box-shadow: 4px 4px 0 #1a1a1a;\n  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);\n  min-height: 44px;\n  min-width: 44px;\n}\n.btn-primary-neo:hover {\n  background: #333333;\n  transform: translate(-2px, -2px);\n  box-shadow: 6px 6px 0 #1a1a1a;\n}\n.btn-primary-neo:active {\n  transform: translate(2px, 2px);\n  box-shadow: 2px 2px 0 #1a1a1a;\n}\n.btn-primary-neo:focus-visible {\n  outline: 3px solid #facc15;\n  outline-offset: 2px;\n}\n.btn-primary-neo:disabled {\n  background: #9ca3af;\n  color: #6b7280;\n  cursor: not-allowed;\n  box-shadow: none;\n}"
+    },
+    {
+      "id": "button-secondary-neobrutalism",
+      "type": "button",
+      "variant": "secondary",
+      "trend": "neobrutalism",
+      "description": "Outlined button with neobrutalist styling",
+      "states": {
+        "default": {
+          "background": "transparent",
+          "color": "#1a1a1a",
+          "border": "3px solid #1a1a1a",
+          "borderRadius": "0px",
+          "padding": "14px 28px",
+          "fontWeight": 700,
+          "fontSize": "16px",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.05em"
+        },
+        "hover": {
+          "background": "#1a1a1a",
+          "color": "#fef3c7"
+        },
+        "active": {
+          "background": "#333333",
+          "color": "#fef3c7"
+        },
+        "focus": {
+          "outline": "3px solid #facc15",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "borderColor": "#9ca3af",
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "3px solid #facc15",
+        "ariaRole": "button",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA",
+        "contrastRatio": 16.1
+      },
+      "css": ".btn-secondary-neo {\n  background: transparent;\n  color: #1a1a1a;\n  border: 3px solid #1a1a1a;\n  border-radius: 0;\n  padding: 14px 28px;\n  font-weight: 700;\n  font-size: 16px;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  transition: all 150ms ease-out;\n  min-height: 44px;\n  min-width: 44px;\n}\n.btn-secondary-neo:hover {\n  background: #1a1a1a;\n  color: #fef3c7;\n}\n.btn-secondary-neo:active {\n  background: #333333;\n  color: #fef3c7;\n}\n.btn-secondary-neo:focus-visible {\n  outline: 3px solid #facc15;\n  outline-offset: 2px;\n}\n.btn-secondary-neo:disabled {\n  border-color: #9ca3af;\n  color: #9ca3af;\n  cursor: not-allowed;\n}"
+    },
+    {
+      "id": "button-primary-swiss",
+      "type": "button",
+      "variant": "primary",
+      "trend": "swiss-modern",
+      "description": "Clean, minimal button with subtle hover state",
+      "states": {
+        "default": {
+          "background": "#635bff",
+          "color": "#ffffff",
+          "border": "none",
+          "borderRadius": "6px",
+          "padding": "12px 24px",
+          "fontWeight": 600,
+          "fontSize": "15px"
+        },
+        "hover": {
+          "background": "#5046e5",
+          "transform": "translateY(-1px)",
+          "boxShadow": "0 4px 12px rgba(99, 91, 255, 0.3)"
+        },
+        "active": {
+          "transform": "translateY(0)",
+          "boxShadow": "none"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "background": "#e5e7eb",
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "button",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA",
+        "contrastRatio": 4.6
+      },
+      "css": ".btn-primary-swiss {\n  background: #635bff;\n  color: #ffffff;\n  border: none;\n  border-radius: 6px;\n  padding: 12px 24px;\n  font-weight: 600;\n  font-size: 15px;\n  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);\n  min-height: 44px;\n  min-width: 44px;\n}\n.btn-primary-swiss:hover {\n  background: #5046e5;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(99, 91, 255, 0.3);\n}\n.btn-primary-swiss:active {\n  transform: translateY(0);\n  box-shadow: none;\n}\n.btn-primary-swiss:focus-visible {\n  outline: 2px solid #635bff;\n  outline-offset: 2px;\n}\n.btn-primary-swiss:disabled {\n  background: #e5e7eb;\n  color: #9ca3af;\n  cursor: not-allowed;\n}"
+    },
+    {
+      "id": "button-ghost-swiss",
+      "type": "button",
+      "variant": "ghost",
+      "trend": "swiss-modern",
+      "description": "Minimal ghost button for secondary actions",
+      "states": {
+        "default": {
+          "background": "transparent",
+          "color": "#635bff",
+          "border": "none",
+          "borderRadius": "6px",
+          "padding": "12px 24px",
+          "fontWeight": 500,
+          "fontSize": "15px"
+        },
+        "hover": {
+          "background": "rgba(99, 91, 255, 0.1)"
+        },
+        "active": {
+          "background": "rgba(99, 91, 255, 0.15)"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "button",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA",
+        "contrastRatio": 4.6
+      },
+      "css": ".btn-ghost-swiss {\n  background: transparent;\n  color: #635bff;\n  border: none;\n  border-radius: 6px;\n  padding: 12px 24px;\n  font-weight: 500;\n  font-size: 15px;\n  transition: background 150ms ease;\n  min-height: 44px;\n  min-width: 44px;\n}\n.btn-ghost-swiss:hover {\n  background: rgba(99, 91, 255, 0.1);\n}\n.btn-ghost-swiss:active {\n  background: rgba(99, 91, 255, 0.15);\n}\n.btn-ghost-swiss:focus-visible {\n  outline: 2px solid #635bff;\n  outline-offset: 2px;\n}\n.btn-ghost-swiss:disabled {\n  color: #9ca3af;\n  cursor: not-allowed;\n}"
+    },
+    {
+      "id": "button-neon-cyberpunk",
+      "type": "button",
+      "variant": "primary",
+      "trend": "cyberpunk",
+      "description": "Glowing neon button with cyberpunk aesthetic",
+      "states": {
+        "default": {
+          "background": "transparent",
+          "color": "#00ffff",
+          "border": "2px solid #00ffff",
+          "borderRadius": "0px",
+          "padding": "14px 32px",
+          "fontWeight": 700,
+          "fontSize": "14px",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.1em",
+          "textShadow": "0 0 10px #00ffff",
+          "boxShadow": "0 0 10px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.1)"
+        },
+        "hover": {
+          "background": "rgba(0, 255, 255, 0.1)",
+          "boxShadow": "0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.2)"
+        },
+        "active": {
+          "background": "rgba(0, 255, 255, 0.2)",
+          "boxShadow": "0 0 5px rgba(0, 255, 255, 0.5)"
+        },
+        "focus": {
+          "outline": "2px solid #ff00ff",
+          "outlineOffset": "4px"
+        },
+        "disabled": {
+          "borderColor": "#444",
+          "color": "#444",
+          "textShadow": "none",
+          "boxShadow": "none",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #ff00ff",
+        "ariaRole": "button",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA",
+        "contrastRatio": 16.7
+      },
+      "css": ".btn-neon-cyber {\n  background: transparent;\n  color: #00ffff;\n  border: 2px solid #00ffff;\n  border-radius: 0;\n  padding: 14px 32px;\n  font-weight: 700;\n  font-size: 14px;\n  text-transform: uppercase;\n  letter-spacing: 0.1em;\n  text-shadow: 0 0 10px #00ffff;\n  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.1);\n  transition: all 200ms ease-out;\n  min-height: 44px;\n  min-width: 44px;\n}\n.btn-neon-cyber:hover {\n  background: rgba(0, 255, 255, 0.1);\n  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.2);\n}\n.btn-neon-cyber:active {\n  background: rgba(0, 255, 255, 0.2);\n  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);\n}\n.btn-neon-cyber:focus-visible {\n  outline: 2px solid #ff00ff;\n  outline-offset: 4px;\n}\n.btn-neon-cyber:disabled {\n  border-color: #444;\n  color: #444;\n  text-shadow: none;\n  box-shadow: none;\n  cursor: not-allowed;\n}\n@media (prefers-reduced-motion: reduce) {\n  .btn-neon-cyber {\n    text-shadow: none;\n    box-shadow: none;\n  }\n}"
+    },
+    {
+      "id": "card-elevated-swiss",
+      "type": "card",
+      "variant": "elevated",
+      "trend": "swiss-modern",
+      "description": "Clean card with subtle shadow and hover lift",
+      "states": {
+        "default": {
+          "background": "#ffffff",
+          "border": "1px solid #e5e7eb",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "boxShadow": "0 1px 3px rgba(0, 0, 0, 0.1)"
+        },
+        "hover": {
+          "boxShadow": "0 10px 40px rgba(0, 0, 0, 0.1)",
+          "transform": "translateY(-4px)"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.6,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "article",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".card-elevated-swiss {\n  background: #ffffff;\n  border: 1px solid #e5e7eb;\n  border-radius: 12px;\n  padding: 24px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n.card-elevated-swiss:hover {\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);\n  transform: translateY(-4px);\n}\n.card-elevated-swiss:focus-within {\n  outline: 2px solid #635bff;\n  outline-offset: 2px;\n}"
+    },
+    {
+      "id": "card-flat-swiss",
+      "type": "card",
+      "variant": "flat",
+      "trend": "swiss-modern",
+      "description": "Borderless card with subtle background",
+      "states": {
+        "default": {
+          "background": "#f9fafb",
+          "border": "none",
+          "borderRadius": "8px",
+          "padding": "20px"
+        },
+        "hover": {
+          "background": "#f3f4f6"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.6,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "article",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".card-flat-swiss {\n  background: #f9fafb;\n  border: none;\n  border-radius: 8px;\n  padding: 20px;\n  transition: background 150ms ease;\n}\n.card-flat-swiss:hover {\n  background: #f3f4f6;\n}\n.card-flat-swiss:focus-within {\n  outline: 2px solid #635bff;\n  outline-offset: 2px;\n}"
+    },
+    {
+      "id": "card-neobrutalism",
+      "type": "card",
+      "variant": "elevated",
+      "trend": "neobrutalism",
+      "description": "Bold card with thick border and hard shadow",
+      "states": {
+        "default": {
+          "background": "#fef3c7",
+          "border": "3px solid #1a1a1a",
+          "borderRadius": "0px",
+          "padding": "24px",
+          "boxShadow": "6px 6px 0 #1a1a1a"
+        },
+        "hover": {
+          "transform": "translate(-3px, -3px)",
+          "boxShadow": "9px 9px 0 #1a1a1a"
+        },
+        "focus": {
+          "outline": "3px solid #facc15",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.6,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "3px solid #facc15",
+        "ariaRole": "article",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA"
+      },
+      "css": ".card-neobrutalism {\n  background: #fef3c7;\n  border: 3px solid #1a1a1a;\n  border-radius: 0;\n  padding: 24px;\n  box-shadow: 6px 6px 0 #1a1a1a;\n  transition: all 150ms ease-out;\n}\n.card-neobrutalism:hover {\n  transform: translate(-3px, -3px);\n  box-shadow: 9px 9px 0 #1a1a1a;\n}\n.card-neobrutalism:focus-within {\n  outline: 3px solid #facc15;\n  outline-offset: 2px;\n}"
+    },
+    {
+      "id": "card-glass",
+      "type": "card",
+      "variant": "glass",
+      "trend": "glassmorphism",
+      "description": "Frosted glass card with blur effect",
+      "states": {
+        "default": {
+          "background": "rgba(255, 255, 255, 0.15)",
+          "border": "1px solid rgba(255, 255, 255, 0.25)",
+          "borderRadius": "16px",
+          "padding": "24px",
+          "backdropFilter": "blur(12px)",
+          "WebkitBackdropFilter": "blur(12px)"
+        },
+        "hover": {
+          "background": "rgba(255, 255, 255, 0.2)",
+          "borderColor": "rgba(255, 255, 255, 0.35)"
+        },
+        "focus": {
+          "outline": "2px solid rgba(255, 255, 255, 0.5)",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.6,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid rgba(255, 255, 255, 0.5)",
+        "ariaRole": "article",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".card-glass {\n  background: rgba(255, 255, 255, 0.15);\n  border: 1px solid rgba(255, 255, 255, 0.25);\n  border-radius: 16px;\n  padding: 24px;\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n  transition: all 200ms ease;\n}\n.card-glass:hover {\n  background: rgba(255, 255, 255, 0.2);\n  border-color: rgba(255, 255, 255, 0.35);\n}\n.card-glass:focus-within {\n  outline: 2px solid rgba(255, 255, 255, 0.5);\n  outline-offset: 2px;\n}"
+    },
+    {
+      "id": "nav-horizontal-swiss",
+      "type": "navigation",
+      "variant": "horizontal",
+      "trend": "swiss-modern",
+      "description": "Clean horizontal navigation with subtle active states",
+      "states": {
+        "default": {
+          "display": "flex",
+          "gap": "32px",
+          "padding": "0",
+          "listStyle": "none"
+        },
+        "hover": {
+          "color": "#000000"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.5,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "navigation",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".nav-horizontal-swiss {\n  display: flex;\n  gap: 32px;\n  padding: 0;\n  list-style: none;\n}\n.nav-horizontal-swiss a {\n  color: #6b7280;\n  font-size: 15px;\n  font-weight: 500;\n  padding: 8px 0;\n  border-bottom: 2px solid transparent;\n  transition: all 150ms ease;\n  min-height: 44px;\n  display: flex;\n  align-items: center;\n}\n.nav-horizontal-swiss a:hover {\n  color: #000000;\n}\n.nav-horizontal-swiss a:focus-visible {\n  outline: 2px solid #635bff;\n  outline-offset: 2px;\n}\n.nav-horizontal-swiss a[aria-current=\"page\"] {\n  color: #000000;\n  border-bottom-color: #635bff;\n}"
+    },
+    {
+      "id": "nav-vertical-cottagecore",
+      "type": "navigation",
+      "variant": "vertical",
+      "trend": "cottagecore",
+      "description": "Warm, rustic vertical navigation",
+      "states": {
+        "default": {
+          "display": "flex",
+          "flexDirection": "column",
+          "gap": "8px",
+          "padding": "16px",
+          "background": "#faf6f0",
+          "borderRadius": "8px"
+        },
+        "hover": {
+          "background": "rgba(156, 175, 136, 0.2)"
+        },
+        "focus": {
+          "outline": "2px solid #9caf88",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.5,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #9caf88",
+        "ariaRole": "navigation",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".nav-vertical-cottagecore {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 16px;\n  background: #faf6f0;\n  border-radius: 8px;\n}\n.nav-vertical-cottagecore a {\n  color: #8b7355;\n  font-size: 16px;\n  font-weight: 500;\n  font-family: 'Lora', serif;\n  padding: 12px 16px;\n  border-radius: 4px;\n  transition: background 150ms ease;\n  min-height: 44px;\n  display: flex;\n  align-items: center;\n}\n.nav-vertical-cottagecore a:hover {\n  background: rgba(156, 175, 136, 0.2);\n}\n.nav-vertical-cottagecore a:focus-visible {\n  outline: 2px solid #9caf88;\n  outline-offset: 2px;\n}\n.nav-vertical-cottagecore a[aria-current=\"page\"] {\n  background: #9caf88;\n  color: #ffffff;\n}"
+    },
+    {
+      "id": "nav-dropdown-neobrutalism",
+      "type": "navigation",
+      "variant": "dropdown",
+      "trend": "neobrutalism",
+      "description": "Bold dropdown menu with hard edges",
+      "states": {
+        "default": {
+          "position": "relative"
+        },
+        "hover": {
+          "background": "#facc15"
+        },
+        "focus": {
+          "outline": "3px solid #facc15",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.5,
+          "pointerEvents": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "3px solid #facc15",
+        "ariaRole": "menu",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA"
+      },
+      "css": ".nav-dropdown-neo {\n  position: relative;\n}\n.nav-dropdown-neo-trigger {\n  color: #1a1a1a;\n  font-size: 16px;\n  font-weight: 700;\n  text-transform: uppercase;\n  padding: 12px 20px;\n  border: 3px solid #1a1a1a;\n  background: #fef3c7;\n  min-height: 44px;\n  cursor: pointer;\n}\n.nav-dropdown-neo-trigger:focus-visible {\n  outline: 3px solid #facc15;\n  outline-offset: 2px;\n}\n.nav-dropdown-neo-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  background: #ffffff;\n  border: 3px solid #1a1a1a;\n  border-top: none;\n  box-shadow: 4px 4px 0 #1a1a1a;\n  padding: 0;\n  min-width: 200px;\n}\n.nav-dropdown-neo-item {\n  padding: 12px 20px;\n  color: #1a1a1a;\n  font-weight: 600;\n  border-bottom: 2px solid #1a1a1a;\n  min-height: 44px;\n  display: flex;\n  align-items: center;\n}\n.nav-dropdown-neo-item:hover {\n  background: #facc15;\n}\n.nav-dropdown-neo-item:focus-visible {\n  outline: 3px solid #facc15;\n  outline-offset: -3px;\n}"
+    },
+    {
+      "id": "hero-image-swiss",
+      "type": "hero",
+      "variant": "image",
+      "trend": "swiss-modern",
+      "description": "Clean hero with large image and minimal text",
+      "states": {
+        "default": {
+          "display": "grid",
+          "gridTemplateColumns": "1fr 1fr",
+          "gap": "64px",
+          "alignItems": "center",
+          "padding": "80px 0"
+        },
+        "hover": {},
+        "focus": {},
+        "disabled": {}
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "banner",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA"
+      },
+      "css": ".hero-image-swiss {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 64px;\n  align-items: center;\n  padding: 80px 0;\n}\n.hero-image-swiss h1 {\n  font-size: 56px;\n  font-weight: 700;\n  line-height: 1.1;\n  color: #000000;\n  margin-bottom: 24px;\n}\n.hero-image-swiss p {\n  font-size: 20px;\n  font-weight: 400;\n  line-height: 1.6;\n  color: #6b7280;\n  margin-bottom: 32px;\n}\n.hero-image-swiss img {\n  border-radius: 12px;\n  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);\n}\n@media (max-width: 768px) {\n  .hero-image-swiss {\n    grid-template-columns: 1fr;\n    padding: 40px 0;\n  }\n}"
+    },
+    {
+      "id": "hero-text-hyperminimal",
+      "type": "hero",
+      "variant": "text",
+      "trend": "hyperminimalism",
+      "description": "Text-only hero with maximum whitespace",
+      "states": {
+        "default": {
+          "display": "flex",
+          "flexDirection": "column",
+          "alignItems": "center",
+          "textAlign": "center",
+          "padding": "120px 0",
+          "maxWidth": "800px",
+          "margin": "0 auto"
+        },
+        "hover": {},
+        "focus": {},
+        "disabled": {}
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #2563eb",
+        "ariaRole": "banner",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA"
+      },
+      "css": ".hero-text-hyperminimal {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  padding: 120px 0;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.hero-text-hyperminimal h1 {\n  font-size: 48px;\n  font-weight: 500;\n  line-height: 1.2;\n  color: #1a1a1a;\n  margin-bottom: 24px;\n}\n.hero-text-hyperminimal p {\n  font-size: 20px;\n  font-weight: 400;\n  line-height: 1.7;\n  color: #737373;\n  margin-bottom: 40px;\n}\n.hero-text-hyperminimal a {\n  font-size: 16px;\n  color: #2563eb;\n  font-weight: 500;\n  min-height: 44px;\n  display: inline-flex;\n  align-items: center;\n}\n.hero-text-hyperminimal a:focus-visible {\n  outline: 2px solid #2563eb;\n  outline-offset: 2px;\n}"
+    },
+    {
+      "id": "cta-button-neobrutalism",
+      "type": "cta",
+      "variant": "button",
+      "trend": "neobrutalism",
+      "description": "Bold call-to-action with arrow icon",
+      "states": {
+        "default": {
+          "display": "inline-flex",
+          "alignItems": "center",
+          "gap": "12px",
+          "background": "#ef4444",
+          "color": "#ffffff",
+          "border": "3px solid #1a1a1a",
+          "padding": "16px 32px",
+          "fontWeight": 800,
+          "fontSize": "18px",
+          "textTransform": "uppercase",
+          "boxShadow": "4px 4px 0 #1a1a1a"
+        },
+        "hover": {
+          "background": "#dc2626",
+          "transform": "translate(-2px, -2px)",
+          "boxShadow": "6px 6px 0 #1a1a1a"
+        },
+        "focus": {
+          "outline": "3px solid #facc15",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "background": "#9ca3af",
+          "cursor": "not-allowed",
+          "boxShadow": "none"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "3px solid #facc15",
+        "ariaRole": "button",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA",
+        "contrastRatio": 4.6
+      },
+      "css": ".cta-button-neo {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  background: #ef4444;\n  color: #ffffff;\n  border: 3px solid #1a1a1a;\n  padding: 16px 32px;\n  font-weight: 800;\n  font-size: 18px;\n  text-transform: uppercase;\n  box-shadow: 4px 4px 0 #1a1a1a;\n  transition: all 150ms ease;\n  min-height: 44px;\n  cursor: pointer;\n}\n.cta-button-neo:hover {\n  background: #dc2626;\n  transform: translate(-2px, -2px);\n  box-shadow: 6px 6px 0 #1a1a1a;\n}\n.cta-button-neo:focus-visible {\n  outline: 3px solid #facc15;\n  outline-offset: 2px;\n}\n.cta-button-neo:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  box-shadow: none;\n}\n.cta-button-neo .icon {\n  transition: transform 150ms ease;\n}\n.cta-button-neo:hover .icon {\n  transform: translateX(4px);\n}"
+    },
+    {
+      "id": "cta-link-swiss",
+      "type": "cta",
+      "variant": "link",
+      "trend": "swiss-modern",
+      "description": "Subtle link-style CTA with underline",
+      "states": {
+        "default": {
+          "display": "inline-flex",
+          "alignItems": "center",
+          "gap": "8px",
+          "color": "#635bff",
+          "fontSize": "16px",
+          "fontWeight": 500,
+          "textDecoration": "underline",
+          "textUnderlineOffset": "4px"
+        },
+        "hover": {
+          "textDecorationThickness": "2px"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "link",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".cta-link-swiss {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  color: #635bff;\n  font-size: 16px;\n  font-weight: 500;\n  text-decoration: underline;\n  text-underline-offset: 4px;\n  min-height: 44px;\n}\n.cta-link-swiss:hover {\n  text-decoration-thickness: 2px;\n}\n.cta-link-swiss:focus-visible {\n  outline: 2px solid #635bff;\n  outline-offset: 2px;\n}\n.cta-link-swiss:disabled {\n  color: #9ca3af;\n  cursor: not-allowed;\n}"
+    },
+    {
+      "id": "testimonial-card",
+      "type": "testimonial",
+      "variant": "card",
+      "trend": "swiss-modern",
+      "description": "Clean testimonial card with quote and attribution",
+      "states": {
+        "default": {
+          "background": "#ffffff",
+          "border": "1px solid #e5e7eb",
+          "borderRadius": "12px",
+          "padding": "32px"
+        },
+        "hover": {
+          "boxShadow": "0 4px 12px rgba(0, 0, 0, 0.05)"
+        },
+        "focus": {
+          "outline": "2px solid #635bff",
+          "outlineOffset": "2px"
+        },
+        "disabled": {
+          "opacity": 0.6
+        }
+      },
+      "accessibility": {
+        "focusVisible": "2px solid #635bff",
+        "ariaRole": "blockquote",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".testimonial-card {\n  background: #ffffff;\n  border: 1px solid #e5e7eb;\n  border-radius: 12px;\n  padding: 32px;\n  transition: box-shadow 200ms ease;\n}\n.testimonial-card:hover {\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);\n}\n.testimonial-card .quote-mark {\n  font-size: 48px;\n  color: #635bff;\n  line-height: 1;\n  margin-bottom: 8px;\n}\n.testimonial-card .quote {\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 1.6;\n  color: #374151;\n  font-style: italic;\n  margin-bottom: 24px;\n}\n.testimonial-card .author {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.testimonial-card .avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  object-fit: cover;\n}\n.testimonial-card .name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #000000;\n}\n.testimonial-card .title {\n  font-size: 14px;\n  color: #6b7280;\n}"
+    },
+    {
+      "id": "input-text-swiss",
+      "type": "form-input",
+      "variant": "text",
+      "trend": "swiss-modern",
+      "description": "Clean text input with floating label",
+      "states": {
+        "default": {
+          "width": "100%",
+          "padding": "16px 14px",
+          "fontSize": "16px",
+          "border": "1px solid #d1d5db",
+          "borderRadius": "8px",
+          "background": "#ffffff",
+          "color": "#000000"
+        },
+        "hover": {
+          "borderColor": "#9ca3af"
+        },
+        "focus": {
+          "outline": "none",
+          "borderColor": "#635bff",
+          "boxShadow": "0 0 0 3px rgba(99, 91, 255, 0.1)"
+        },
+        "disabled": {
+          "background": "#f3f4f6",
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "0 0 0 3px rgba(99, 91, 255, 0.2)",
+        "ariaRole": "textbox",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".input-text-swiss {\n  width: 100%;\n  padding: 16px 14px;\n  font-size: 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #ffffff;\n  color: #000000;\n  transition: all 150ms ease;\n  min-height: 44px;\n}\n.input-text-swiss::placeholder {\n  color: #9ca3af;\n}\n.input-text-swiss:hover {\n  border-color: #9ca3af;\n}\n.input-text-swiss:focus {\n  outline: none;\n  border-color: #635bff;\n  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);\n}\n.input-text-swiss:disabled {\n  background: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n}\n.input-text-swiss[aria-invalid=\"true\"] {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);\n}\n.input-text-swiss-label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.input-text-swiss-error {\n  font-size: 13px;\n  color: #ef4444;\n  margin-top: 6px;\n}"
+    },
+    {
+      "id": "input-text-neobrutalism",
+      "type": "form-input",
+      "variant": "text",
+      "trend": "neobrutalism",
+      "description": "Bold text input with thick border",
+      "states": {
+        "default": {
+          "width": "100%",
+          "padding": "14px 16px",
+          "fontSize": "16px",
+          "border": "3px solid #1a1a1a",
+          "borderRadius": "0px",
+          "background": "#ffffff",
+          "color": "#1a1a1a",
+          "fontWeight": 500
+        },
+        "hover": {
+          "background": "#fef3c7"
+        },
+        "focus": {
+          "outline": "none",
+          "background": "#fef3c7",
+          "boxShadow": "4px 4px 0 #1a1a1a"
+        },
+        "disabled": {
+          "background": "#f3f4f6",
+          "borderColor": "#9ca3af",
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "4px 4px 0 #facc15",
+        "ariaRole": "textbox",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AAA"
+      },
+      "css": ".input-text-neo {\n  width: 100%;\n  padding: 14px 16px;\n  font-size: 16px;\n  border: 3px solid #1a1a1a;\n  border-radius: 0;\n  background: #ffffff;\n  color: #1a1a1a;\n  font-weight: 500;\n  transition: all 150ms ease;\n  min-height: 44px;\n}\n.input-text-neo:hover {\n  background: #fef3c7;\n}\n.input-text-neo:focus {\n  outline: none;\n  background: #fef3c7;\n  box-shadow: 4px 4px 0 #1a1a1a;\n}\n.input-text-neo:disabled {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n  color: #9ca3af;\n  cursor: not-allowed;\n}\n.input-text-neo[aria-invalid=\"true\"] {\n  border-color: #ef4444;\n  box-shadow: 4px 4px 0 #ef4444;\n}"
+    },
+    {
+      "id": "select-swiss",
+      "type": "form-select",
+      "variant": "default",
+      "trend": "swiss-modern",
+      "description": "Clean select dropdown",
+      "states": {
+        "default": {
+          "width": "100%",
+          "padding": "16px 40px 16px 14px",
+          "fontSize": "16px",
+          "border": "1px solid #d1d5db",
+          "borderRadius": "8px",
+          "background": "#ffffff",
+          "color": "#000000",
+          "appearance": "none"
+        },
+        "hover": {
+          "borderColor": "#9ca3af"
+        },
+        "focus": {
+          "outline": "none",
+          "borderColor": "#635bff",
+          "boxShadow": "0 0 0 3px rgba(99, 91, 255, 0.1)"
+        },
+        "disabled": {
+          "background": "#f3f4f6",
+          "color": "#9ca3af",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "0 0 0 3px rgba(99, 91, 255, 0.2)",
+        "ariaRole": "listbox",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".select-swiss {\n  width: 100%;\n  padding: 16px 40px 16px 14px;\n  font-size: 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #ffffff;\n  color: #000000;\n  appearance: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\");\n  background-position: right 14px center;\n  background-repeat: no-repeat;\n  cursor: pointer;\n  min-height: 44px;\n}\n.select-swiss:hover {\n  border-color: #9ca3af;\n}\n.select-swiss:focus {\n  outline: none;\n  border-color: #635bff;\n  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);\n}\n.select-swiss:disabled {\n  background-color: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n}"
+    },
+    {
+      "id": "checkbox-swiss",
+      "type": "form-checkbox",
+      "variant": "default",
+      "trend": "swiss-modern",
+      "description": "Clean checkbox with custom styling",
+      "states": {
+        "default": {
+          "width": "20px",
+          "height": "20px",
+          "border": "2px solid #d1d5db",
+          "borderRadius": "4px",
+          "background": "#ffffff"
+        },
+        "hover": {
+          "borderColor": "#635bff"
+        },
+        "focus": {
+          "outline": "none",
+          "boxShadow": "0 0 0 3px rgba(99, 91, 255, 0.2)"
+        },
+        "disabled": {
+          "background": "#f3f4f6",
+          "borderColor": "#d1d5db",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "0 0 0 3px rgba(99, 91, 255, 0.2)",
+        "ariaRole": "checkbox",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".checkbox-swiss {\n  width: 20px;\n  height: 20px;\n  border: 2px solid #d1d5db;\n  border-radius: 4px;\n  background: #ffffff;\n  appearance: none;\n  cursor: pointer;\n  position: relative;\n}\n.checkbox-swiss:hover {\n  border-color: #635bff;\n}\n.checkbox-swiss:focus {\n  outline: none;\n  box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.2);\n}\n.checkbox-swiss:checked {\n  background: #635bff;\n  border-color: #635bff;\n}\n.checkbox-swiss:checked::after {\n  content: '';\n  position: absolute;\n  left: 6px;\n  top: 2px;\n  width: 5px;\n  height: 10px;\n  border: solid white;\n  border-width: 0 2px 2px 0;\n  transform: rotate(45deg);\n}\n.checkbox-swiss:disabled {\n  background: #f3f4f6;\n  border-color: #d1d5db;\n  cursor: not-allowed;\n}\n.checkbox-swiss-wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  min-height: 44px;\n}\n.checkbox-swiss-label {\n  font-size: 15px;\n  color: #374151;\n  cursor: pointer;\n}"
+    },
+    {
+      "id": "radio-cottagecore",
+      "type": "form-checkbox",
+      "variant": "radio",
+      "trend": "cottagecore",
+      "description": "Warm styled radio button",
+      "states": {
+        "default": {
+          "width": "22px",
+          "height": "22px",
+          "border": "2px solid #8b7355",
+          "borderRadius": "50%",
+          "background": "#faf6f0"
+        },
+        "hover": {
+          "borderColor": "#9caf88"
+        },
+        "focus": {
+          "boxShadow": "0 0 0 3px rgba(156, 175, 136, 0.3)"
+        },
+        "disabled": {
+          "background": "#e5e7eb",
+          "borderColor": "#d1d5db",
+          "cursor": "not-allowed"
+        }
+      },
+      "accessibility": {
+        "focusVisible": "0 0 0 3px rgba(156, 175, 136, 0.3)",
+        "ariaRole": "radio",
+        "keyboardSupport": true,
+        "minTouchTarget": "44px",
+        "wcagRating": "AA"
+      },
+      "css": ".radio-cottagecore {\n  width: 22px;\n  height: 22px;\n  border: 2px solid #8b7355;\n  border-radius: 50%;\n  background: #faf6f0;\n  appearance: none;\n  cursor: pointer;\n  position: relative;\n}\n.radio-cottagecore:hover {\n  border-color: #9caf88;\n}\n.radio-cottagecore:focus {\n  outline: none;\n  box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.3);\n}\n.radio-cottagecore:checked {\n  border-color: #9caf88;\n}\n.radio-cottagecore:checked::after {\n  content: '';\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 12px;\n  height: 12px;\n  background: #9caf88;\n  border-radius: 50%;\n}\n.radio-cottagecore:disabled {\n  background: #e5e7eb;\n  border-color: #d1d5db;\n  cursor: not-allowed;\n}\n.radio-cottagecore-wrapper {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  min-height: 44px;\n}\n.radio-cottagecore-label {\n  font-size: 15px;\n  color: #8b7355;\n  font-family: 'Lora', serif;\n  cursor: pointer;\n}"
+    }
+  ]
+}

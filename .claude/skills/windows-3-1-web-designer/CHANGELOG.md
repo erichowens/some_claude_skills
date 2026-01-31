@@ -5,6 +5,54 @@ All notable changes to the windows-3-1-web-designer skill will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-01-31
+
+### Added
+- **Modern Extrapolations** - How Win31 would handle 2026 UI needs:
+  - AI chatbot patterns (Cue Card paradigm, pre-Clippy)
+  - Mobile responsive (Pocket Computing paradigm)
+  - Responsive breakpoints (MDI as metaphor)
+  - Theme variations (Hotdog Stand, Monochrome)
+- `references/ai-assistant-patterns.md` - Complete Cue Card-style AI UX:
+  - Modal dialog patterns
+  - Setup Wizard flows
+  - Message box styles (info, question, warning, error)
+  - Terminal chat interface
+  - Help Index pattern
+  - Sound effect mappings
+- `references/mobile-pocket-computing.md` - Responsive Win31 for mobile:
+  - Program Manager as mobile navigation
+  - Dialog stack pattern
+  - Touch adaptations with 44px targets
+  - Gesture mappings
+  - Responsive breakpoints
+  - Menu system for mobile
+- Explicit Win31 vs Win95 differentiation table
+- 8 anti-patterns with Win95-specific distinctions
+- Decision tree covering AI/help patterns
+- Quick Test checklist with Win95-specific negatives
+- CSS Variables template with spacing scale
+
+### Changed
+- Expanded SKILL.md from ~150 lines to ~530 lines (matching Win95 skill depth)
+- Enhanced description with modern extrapolation keywords
+- Updated "When to Use" with AI chatbot and mobile use cases
+- Reorganized anti-patterns to emphasize Win95 distinctions
+
+### Technical
+- Proper NOT clause distinguishing from Win95 skill
+- Cross-references to windows-95-web-designer
+- Complements Win95 skill with distinct aesthetic
+
+### Key Differences from Win95 (Highlighted)
+| Feature | Win31 | Win95 |
+|---------|-------|-------|
+| Title bar | **Solid navy** | Gradient |
+| Window controls | **Single button** | Three buttons |
+| Navigation | **Program Manager** | Start Menu |
+| AI style | **Cue Cards, Wizards** | Clippy character |
+| Mobile | **Pocket computing** | Pocket PC |
+
 ## [2.0.0] - 2024-01-XX
 
 ### Changed

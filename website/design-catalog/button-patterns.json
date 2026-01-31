@@ -1,0 +1,299 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 20,
+    "categories": ["variant", "size", "state", "special"]
+  },
+  "patterns": [
+    {
+      "id": "primary-button",
+      "name": "Primary Button",
+      "category": "variant",
+      "description": "Main action button",
+      "styling": {
+        "background": "brand primary color",
+        "text": "white or contrasting",
+        "prominence": "highest visual weight"
+      },
+      "usage": {
+        "frequency": "one per section/form",
+        "action": "main action user should take"
+      },
+      "examples": ["Submit", "Save", "Continue", "Sign Up"]
+    },
+    {
+      "id": "secondary-button",
+      "name": "Secondary Button",
+      "category": "variant",
+      "description": "Alternative action button",
+      "styling": {
+        "background": "transparent or light",
+        "border": "colored border",
+        "text": "brand color"
+      },
+      "usage": {
+        "frequency": "alongside primary",
+        "action": "alternative actions"
+      },
+      "examples": ["Cancel", "Learn More", "Back"]
+    },
+    {
+      "id": "tertiary-button",
+      "name": "Tertiary/Ghost Button",
+      "category": "variant",
+      "description": "Subtle action button",
+      "styling": {
+        "background": "transparent",
+        "border": "none",
+        "text": "colored text"
+      },
+      "usage": {
+        "frequency": "multiple allowed",
+        "action": "less important actions"
+      },
+      "hover": "subtle background on hover"
+    },
+    {
+      "id": "destructive-button",
+      "name": "Destructive Button",
+      "category": "variant",
+      "description": "Dangerous action button",
+      "styling": {
+        "background": "red/danger color",
+        "text": "white"
+      },
+      "usage": {
+        "action": "delete, remove, destroy",
+        "confirmation": "often requires confirmation"
+      },
+      "examples": ["Delete", "Remove", "Cancel Subscription"]
+    },
+    {
+      "id": "icon-button",
+      "name": "Icon Button",
+      "category": "variant",
+      "description": "Button with icon only",
+      "styling": {
+        "shape": "square or circular",
+        "size": "typically square dimensions"
+      },
+      "accessibility": {
+        "ariaLabel": "required - describe action",
+        "tooltip": "show label on hover"
+      },
+      "examples": ["close (×)", "menu (≡)", "more (⋮)"]
+    },
+    {
+      "id": "icon-text-button",
+      "name": "Icon + Text Button",
+      "category": "variant",
+      "description": "Button with icon and label",
+      "layout": {
+        "iconLeft": "icon before text (common)",
+        "iconRight": "icon after text (directional)"
+      },
+      "spacing": "8px gap between icon and text",
+      "iconSize": "match or smaller than text"
+    },
+    {
+      "id": "link-button",
+      "name": "Link Button",
+      "category": "variant",
+      "description": "Button styled as text link",
+      "styling": {
+        "appearance": "looks like a link",
+        "underline": "on hover or always"
+      },
+      "usage": "inline actions, cancel, dismiss"
+    },
+    {
+      "id": "floating-action",
+      "name": "Floating Action Button (FAB)",
+      "category": "special",
+      "description": "Fixed position primary action",
+      "styling": {
+        "shape": "circular",
+        "elevation": "high shadow",
+        "position": "fixed, bottom-right"
+      },
+      "usage": {
+        "action": "primary screen action",
+        "frequency": "one per screen"
+      },
+      "example": "compose, add new"
+    },
+    {
+      "id": "split-button",
+      "name": "Split Button",
+      "category": "special",
+      "description": "Primary action with dropdown",
+      "anatomy": {
+        "main": "primary action",
+        "arrow": "dropdown trigger",
+        "menu": "additional options"
+      },
+      "example": "Save ▾ → Save As, Save & Close"
+    },
+    {
+      "id": "button-group",
+      "name": "Button Group",
+      "category": "special",
+      "description": "Related buttons grouped together",
+      "styling": {
+        "connected": "buttons touch or minimal gap",
+        "borders": "shared border, rounded ends"
+      },
+      "useCases": ["segmented control", "view switcher", "toolbar"]
+    },
+    {
+      "id": "toggle-button",
+      "name": "Toggle Button",
+      "category": "special",
+      "description": "Button with on/off state",
+      "states": {
+        "off": "normal appearance",
+        "on": "highlighted/filled"
+      },
+      "accessibility": "aria-pressed for state",
+      "example": "bold/italic in editor"
+    },
+    {
+      "id": "size-small",
+      "name": "Small Button",
+      "category": "size",
+      "description": "Compact button size",
+      "dimensions": {
+        "height": "28-32px",
+        "padding": "8-12px horizontal",
+        "fontSize": "12-13px"
+      },
+      "usage": "inline actions, tables, dense UI"
+    },
+    {
+      "id": "size-medium",
+      "name": "Medium Button (Default)",
+      "category": "size",
+      "description": "Standard button size",
+      "dimensions": {
+        "height": "36-40px",
+        "padding": "16-20px horizontal",
+        "fontSize": "14px"
+      },
+      "usage": "most buttons"
+    },
+    {
+      "id": "size-large",
+      "name": "Large Button",
+      "category": "size",
+      "description": "Prominent button size",
+      "dimensions": {
+        "height": "48-56px",
+        "padding": "24-32px horizontal",
+        "fontSize": "16-18px"
+      },
+      "usage": "CTAs, marketing, hero sections"
+    },
+    {
+      "id": "state-default",
+      "name": "Default State",
+      "category": "state",
+      "description": "Normal button appearance",
+      "styling": "base button styles"
+    },
+    {
+      "id": "state-hover",
+      "name": "Hover State",
+      "category": "state",
+      "description": "Mouse over button",
+      "styling": {
+        "primary": "slightly darker/lighter",
+        "effect": "subtle lift or glow"
+      },
+      "timing": "immediate response"
+    },
+    {
+      "id": "state-active",
+      "name": "Active/Pressed State",
+      "category": "state",
+      "description": "Button being clicked",
+      "styling": {
+        "effect": "press down effect",
+        "color": "slightly darker"
+      }
+    },
+    {
+      "id": "state-focus",
+      "name": "Focus State",
+      "category": "state",
+      "description": "Keyboard focus on button",
+      "styling": {
+        "ring": "visible focus ring",
+        "color": "2-3px ring, offset"
+      },
+      "accessibility": "critical for keyboard users"
+    },
+    {
+      "id": "state-disabled",
+      "name": "Disabled State",
+      "category": "state",
+      "description": "Button cannot be clicked",
+      "styling": {
+        "opacity": "reduced (50-60%)",
+        "cursor": "not-allowed"
+      },
+      "accessibility": {
+        "ariaDisabled": "true",
+        "tooltip": "explain why if helpful"
+      }
+    },
+    {
+      "id": "state-loading",
+      "name": "Loading State",
+      "category": "state",
+      "description": "Action in progress",
+      "anatomy": {
+        "spinner": "loading spinner",
+        "text": "optional text change",
+        "disabled": "prevent double-click"
+      },
+      "example": "'Save' → spinner + 'Saving...' → 'Saved!'"
+    }
+  ],
+  "guidelines": {
+    "labeling": [
+      "use action verbs (Save, Submit, Delete)",
+      "be specific (Create Project vs Create)",
+      "2-3 words maximum",
+      "sentence case preferred"
+    ],
+    "hierarchy": [
+      "one primary per section",
+      "secondary supports primary",
+      "destructive actions need confirmation"
+    ],
+    "sizing": [
+      "touch targets minimum 44x44px",
+      "consistent sizes throughout",
+      "full-width on mobile forms"
+    ],
+    "spacing": [
+      "group related actions together",
+      "primary on right for forms",
+      "adequate padding (8-16px between)"
+    ]
+  },
+  "accessibility": {
+    "requirements": [
+      "visible focus states",
+      "sufficient color contrast (4.5:1)",
+      "disabled state clear",
+      "icon buttons need aria-label"
+    ],
+    "keyboard": [
+      "Enter or Space activates",
+      "Tab navigates between",
+      "Escape cancels if appropriate"
+    ]
+  }
+}

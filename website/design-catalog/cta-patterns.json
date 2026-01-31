@@ -1,0 +1,655 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 32,
+    "categories": ["primary", "secondary", "tertiary", "ghost", "text-link", "floating", "inline"]
+  },
+  "patterns": [
+    {
+      "id": "free-trial-urgency",
+      "category": "primary",
+      "text": "Start your free 14-day trial",
+      "subtext": "No credit card required",
+      "psychology": "Low commitment + time boundary reduces friction",
+      "visualStyle": {
+        "size": "large",
+        "color": "primary or high-contrast",
+        "icon": "arrow-right or checkmark",
+        "animation": "subtle hover scale (1.02-1.05)"
+      },
+      "conversionTips": [
+        "Pair with social proof nearby",
+        "Use action verb (Start, Get, Try)",
+        "Include reassurance text below",
+        "Place above the fold"
+      ],
+      "bestFor": ["SaaS", "subscription products", "tools"],
+      "examples": ["linear.app", "notion.so", "figma.com"]
+    },
+    {
+      "id": "get-started-simple",
+      "category": "primary",
+      "text": "Get started",
+      "subtext": null,
+      "psychology": "Minimal friction, implies easy onboarding",
+      "visualStyle": {
+        "size": "medium-large",
+        "color": "primary brand color",
+        "icon": "optional arrow-right",
+        "animation": "hover: slight lift or glow"
+      },
+      "conversionTips": [
+        "Works best when product is self-explanatory",
+        "Pair with 'Learn more' secondary CTA",
+        "Keep button text short (2-3 words max)"
+      ],
+      "bestFor": ["developer tools", "productivity apps", "well-known brands"],
+      "examples": ["vercel.com", "stripe.com", "github.com"]
+    },
+    {
+      "id": "demo-request",
+      "category": "primary",
+      "text": "Request a demo",
+      "subtext": "See how it works for your team",
+      "psychology": "High-touch sales approach, implies personalization",
+      "visualStyle": {
+        "size": "large",
+        "color": "primary or contrast",
+        "icon": "calendar or play icon",
+        "animation": "subtle pulse or glow"
+      },
+      "conversionTips": [
+        "Best for enterprise/B2B products",
+        "Include expected response time",
+        "Offer alternative (self-serve trial) nearby"
+      ],
+      "bestFor": ["enterprise SaaS", "complex products", "high-ticket items"],
+      "examples": ["salesforce.com", "hubspot.com", "datadog.com"]
+    },
+    {
+      "id": "sign-up-free",
+      "category": "primary",
+      "text": "Sign up free",
+      "subtext": null,
+      "psychology": "Zero-risk framing, emphasizes no cost",
+      "visualStyle": {
+        "size": "medium",
+        "color": "primary",
+        "icon": "none or subtle arrow",
+        "animation": "standard hover state"
+      },
+      "conversionTips": [
+        "Effective when free tier is genuinely useful",
+        "Don't use if free tier is very limited",
+        "Pair with feature comparison nearby"
+      ],
+      "bestFor": ["freemium products", "developer tools", "social platforms"],
+      "examples": ["slack.com", "discord.com", "canva.com"]
+    },
+    {
+      "id": "buy-now-scarcity",
+      "category": "primary",
+      "text": "Buy now",
+      "subtext": "Only 3 left in stock",
+      "psychology": "Scarcity + urgency drives immediate action",
+      "visualStyle": {
+        "size": "large",
+        "color": "high-contrast (orange, red accent)",
+        "icon": "shopping cart or lightning bolt",
+        "animation": "attention-grabbing but not annoying"
+      },
+      "conversionTips": [
+        "Only use genuine scarcity (fake scarcity erodes trust)",
+        "Show inventory count or time remaining",
+        "Add trust badges nearby (secure checkout, guarantees)"
+      ],
+      "bestFor": ["e-commerce", "limited editions", "event tickets"],
+      "examples": ["amazon.com", "shopify stores", "ticketmaster.com"]
+    },
+    {
+      "id": "add-to-cart",
+      "category": "primary",
+      "text": "Add to cart",
+      "subtext": null,
+      "psychology": "Low commitment, implies continued browsing",
+      "visualStyle": {
+        "size": "medium-large",
+        "color": "primary or standard e-commerce green/blue",
+        "icon": "shopping cart",
+        "animation": "cart icon animation on click"
+      },
+      "conversionTips": [
+        "Show mini-cart preview on add",
+        "Include quantity selector nearby",
+        "Add 'Buy now' as alternative for impulse buyers"
+      ],
+      "bestFor": ["e-commerce", "multi-item purchases"],
+      "examples": ["amazon.com", "target.com", "bestbuy.com"]
+    },
+    {
+      "id": "learn-more-curiosity",
+      "category": "secondary",
+      "text": "Learn more",
+      "subtext": null,
+      "psychology": "Low commitment, satisfies curiosity before decision",
+      "visualStyle": {
+        "size": "medium",
+        "color": "text color or muted primary",
+        "icon": "arrow-right or chevron",
+        "animation": "arrow slides right on hover"
+      },
+      "conversionTips": [
+        "Always pair with primary CTA",
+        "Link to features page or explainer section",
+        "Don't use as primary action"
+      ],
+      "bestFor": ["complex products", "B2B", "high-consideration purchases"],
+      "examples": ["apple.com", "stripe.com", "notion.so"]
+    },
+    {
+      "id": "see-demo-video",
+      "category": "secondary",
+      "text": "Watch demo",
+      "subtext": "2 min video",
+      "psychology": "Visual learners prefer video, time estimate reduces friction",
+      "visualStyle": {
+        "size": "medium",
+        "color": "outline or ghost style",
+        "icon": "play button",
+        "animation": "play icon pulses subtly"
+      },
+      "conversionTips": [
+        "Always include video length",
+        "Use thumbnail preview on hover",
+        "Open in modal, don't navigate away"
+      ],
+      "bestFor": ["complex products", "visual products", "developer tools"],
+      "examples": ["loom.com", "figma.com", "miro.com"]
+    },
+    {
+      "id": "view-pricing",
+      "category": "secondary",
+      "text": "View pricing",
+      "subtext": null,
+      "psychology": "Transparency builds trust, helps self-qualification",
+      "visualStyle": {
+        "size": "medium",
+        "color": "text link or outline button",
+        "icon": "none or dollar sign",
+        "animation": "standard hover"
+      },
+      "conversionTips": [
+        "Don't hide pricing if it's straightforward",
+        "Use for enterprise products with complex pricing",
+        "Consider 'See plans' as alternative"
+      ],
+      "bestFor": ["SaaS", "subscription products", "tiered pricing"],
+      "examples": ["notion.so", "slack.com", "vercel.com"]
+    },
+    {
+      "id": "contact-sales",
+      "category": "secondary",
+      "text": "Contact sales",
+      "subtext": null,
+      "psychology": "Signals high-touch experience, for serious buyers",
+      "visualStyle": {
+        "size": "medium",
+        "color": "outline or text style",
+        "icon": "chat bubble or phone",
+        "animation": "minimal"
+      },
+      "conversionTips": [
+        "Place near enterprise/custom pricing",
+        "Include expected response time",
+        "Offer chat as faster alternative"
+      ],
+      "bestFor": ["enterprise products", "custom solutions", "high-ticket items"],
+      "examples": ["salesforce.com", "stripe.com", "aws.amazon.com"]
+    },
+    {
+      "id": "explore-features",
+      "category": "secondary",
+      "text": "Explore features",
+      "subtext": null,
+      "psychology": "Discovery-oriented, for research phase",
+      "visualStyle": {
+        "size": "medium",
+        "color": "outline or ghost",
+        "icon": "grid or compass",
+        "animation": "icon rotates slightly on hover"
+      },
+      "conversionTips": [
+        "Link to interactive features page",
+        "Use when product has many features to showcase",
+        "Good for comparison shoppers"
+      ],
+      "bestFor": ["feature-rich products", "B2B SaaS", "platforms"],
+      "examples": ["notion.so", "airtable.com", "monday.com"]
+    },
+    {
+      "id": "ghost-sign-in",
+      "category": "ghost",
+      "text": "Sign in",
+      "subtext": null,
+      "psychology": "For existing users, should not compete with primary CTA",
+      "visualStyle": {
+        "size": "small-medium",
+        "color": "text only, no background",
+        "icon": "none",
+        "animation": "underline on hover"
+      },
+      "conversionTips": [
+        "Always place in header, top-right",
+        "Keep visually subordinate to sign-up CTA",
+        "Consider icon-only on mobile"
+      ],
+      "bestFor": ["all products with user accounts"],
+      "examples": ["everywhere"]
+    },
+    {
+      "id": "ghost-documentation",
+      "category": "ghost",
+      "text": "Documentation",
+      "subtext": null,
+      "psychology": "For technical users who want details first",
+      "visualStyle": {
+        "size": "small-medium",
+        "color": "text only",
+        "icon": "book or file icon",
+        "animation": "standard text hover"
+      },
+      "conversionTips": [
+        "Essential for developer products",
+        "Place in header navigation",
+        "Consider search shortcut (Cmd+K)"
+      ],
+      "bestFor": ["developer tools", "APIs", "technical products"],
+      "examples": ["stripe.com", "vercel.com", "supabase.com"]
+    },
+    {
+      "id": "text-link-inline",
+      "category": "text-link",
+      "text": "See all features →",
+      "subtext": null,
+      "psychology": "Minimal visual weight, for supporting actions",
+      "visualStyle": {
+        "size": "body text size",
+        "color": "primary or link blue",
+        "icon": "arrow inline with text",
+        "animation": "arrow moves right on hover"
+      },
+      "conversionTips": [
+        "Use within content sections",
+        "Good for 'read more' patterns",
+        "Don't overuse - creates visual noise"
+      ],
+      "bestFor": ["content sections", "cards", "feature lists"],
+      "examples": ["apple.com", "stripe.com"]
+    },
+    {
+      "id": "floating-chat",
+      "category": "floating",
+      "text": "Chat with us",
+      "subtext": "We typically reply in minutes",
+      "psychology": "Always-available support reduces anxiety",
+      "visualStyle": {
+        "size": "floating bubble, 48-60px",
+        "color": "brand primary",
+        "icon": "chat bubble or avatar",
+        "animation": "gentle bounce or pulse to attract attention"
+      },
+      "conversionTips": [
+        "Show response time or online status",
+        "Don't auto-open (annoying)",
+        "Position bottom-right (convention)",
+        "Allow minimizing/hiding"
+      ],
+      "bestFor": ["SaaS", "e-commerce", "service businesses"],
+      "examples": ["intercom", "drift", "zendesk"]
+    },
+    {
+      "id": "floating-sticky-bar",
+      "category": "floating",
+      "text": "Get 20% off today only",
+      "subtext": null,
+      "psychology": "Persistent reminder, urgency with deadline",
+      "visualStyle": {
+        "size": "full-width bar, 48-60px height",
+        "color": "attention-grabbing (not annoying)",
+        "icon": "optional timer or tag",
+        "animation": "slide in from top, dismissible"
+      },
+      "conversionTips": [
+        "Must be dismissible",
+        "Don't stack multiple bars",
+        "Use for time-sensitive offers only",
+        "Track dismissals, don't re-show immediately"
+      ],
+      "bestFor": ["e-commerce promotions", "product launches", "limited offers"],
+      "examples": ["most e-commerce sites"]
+    },
+    {
+      "id": "social-proof-cta",
+      "category": "primary",
+      "text": "Join 50,000+ teams",
+      "subtext": "Start free trial",
+      "psychology": "Social proof embedded in CTA, bandwagon effect",
+      "visualStyle": {
+        "size": "large",
+        "color": "primary",
+        "icon": "user group or company logos below",
+        "animation": "counter animation on scroll"
+      },
+      "conversionTips": [
+        "Use real numbers (round if needed)",
+        "Update regularly",
+        "Pair with recognizable company logos"
+      ],
+      "bestFor": ["established products", "B2B with notable customers"],
+      "examples": ["slack.com", "notion.so", "figma.com"]
+    },
+    {
+      "id": "personalized-cta",
+      "category": "primary",
+      "text": "Continue where you left off",
+      "subtext": "Your draft is waiting",
+      "psychology": "Personalization increases relevance, endowment effect",
+      "visualStyle": {
+        "size": "medium-large",
+        "color": "primary",
+        "icon": "relevant to context (document, project)",
+        "animation": "entrance animation on recognition"
+      },
+      "conversionTips": [
+        "Requires user data/cookies",
+        "Fall back to generic CTA if no data",
+        "Show preview of their content"
+      ],
+      "bestFor": ["apps with saved state", "SaaS with projects"],
+      "examples": ["figma.com", "canva.com", "notion.so"]
+    },
+    {
+      "id": "newsletter-subscribe",
+      "category": "inline",
+      "text": "Subscribe",
+      "subtext": "Weekly insights, no spam",
+      "psychology": "Value proposition in subtext, anti-spam reassurance",
+      "visualStyle": {
+        "size": "medium",
+        "color": "primary",
+        "icon": "mail or paper plane",
+        "animation": "success animation on submit"
+      },
+      "conversionTips": [
+        "Include frequency (weekly, monthly)",
+        "Show subscriber count if impressive",
+        "Offer preview of past issues",
+        "GDPR: add privacy link"
+      ],
+      "bestFor": ["blogs", "newsletters", "content companies"],
+      "examples": ["substack.com", "buttondown.email"]
+    },
+    {
+      "id": "download-app",
+      "category": "primary",
+      "text": "Download for Mac",
+      "subtext": "Also available for Windows & Linux",
+      "psychology": "Platform-specific shows awareness, builds trust",
+      "visualStyle": {
+        "size": "large",
+        "color": "primary or platform-themed (Apple gray)",
+        "icon": "Apple/Windows logo or download arrow",
+        "animation": "platform icon swap based on detection"
+      },
+      "conversionTips": [
+        "Auto-detect platform",
+        "Show other platforms as secondary",
+        "Include version/size info",
+        "Add 'Web version' alternative"
+      ],
+      "bestFor": ["desktop apps", "cross-platform tools"],
+      "examples": ["figma.com", "slack.com", "discord.com"]
+    },
+    {
+      "id": "upgrade-upsell",
+      "category": "primary",
+      "text": "Upgrade to Pro",
+      "subtext": "Unlock all features",
+      "psychology": "Clear value proposition, aspirational naming",
+      "visualStyle": {
+        "size": "medium-large",
+        "color": "premium color (gold, purple, gradient)",
+        "icon": "star, crown, or sparkle",
+        "animation": "subtle shimmer or glow"
+      },
+      "conversionTips": [
+        "Show specific features being unlocked",
+        "Use within product, not landing page",
+        "Trigger at moment of need"
+      ],
+      "bestFor": ["freemium products", "in-app upsells"],
+      "examples": ["spotify.com", "canva.com", "notion.so"]
+    },
+    {
+      "id": "claim-offer",
+      "category": "primary",
+      "text": "Claim your offer",
+      "subtext": "Expires in 23:59:12",
+      "psychology": "Ownership language + countdown creates urgency",
+      "visualStyle": {
+        "size": "large",
+        "color": "urgent (orange, red accent)",
+        "icon": "gift or tag",
+        "animation": "countdown timer ticking"
+      },
+      "conversionTips": [
+        "Real deadlines only (fake urgency kills trust)",
+        "Show what they're claiming",
+        "Persist countdown across sessions"
+      ],
+      "bestFor": ["promotions", "limited-time offers", "launches"],
+      "examples": ["e-commerce, course launches"]
+    },
+    {
+      "id": "book-call",
+      "category": "primary",
+      "text": "Book a call",
+      "subtext": "15-min intro, no pressure",
+      "psychology": "Time estimate reduces commitment fear",
+      "visualStyle": {
+        "size": "medium-large",
+        "color": "primary",
+        "icon": "calendar or video",
+        "animation": "calendar picker preview on hover"
+      },
+      "conversionTips": [
+        "Embed Calendly or similar",
+        "Show available times preview",
+        "Include 'no sales pitch' reassurance if applicable"
+      ],
+      "bestFor": ["services", "consulting", "high-touch sales"],
+      "examples": ["calendly.com", "service businesses"]
+    },
+    {
+      "id": "contribute-open-source",
+      "category": "secondary",
+      "text": "Star on GitHub",
+      "subtext": "12.4k stars",
+      "psychology": "Social proof + community building",
+      "visualStyle": {
+        "size": "medium",
+        "color": "GitHub black or outline",
+        "icon": "GitHub star",
+        "animation": "star count increments on click"
+      },
+      "conversionTips": [
+        "Show real star count",
+        "Place in hero for open-source projects",
+        "Add 'Fork' as secondary"
+      ],
+      "bestFor": ["open-source projects", "developer tools"],
+      "examples": ["tailwindcss.com", "nextjs.org"]
+    },
+    {
+      "id": "waitlist-exclusive",
+      "category": "primary",
+      "text": "Join the waitlist",
+      "subtext": "Get early access",
+      "psychology": "Exclusivity + anticipation, low commitment",
+      "visualStyle": {
+        "size": "large",
+        "color": "primary",
+        "icon": "clock or lock",
+        "animation": "success: 'You're #1,234 in line'"
+      },
+      "conversionTips": [
+        "Show position in queue",
+        "Offer referral for queue jumping",
+        "Send genuine updates"
+      ],
+      "bestFor": ["pre-launch", "limited beta", "exclusive products"],
+      "examples": ["new product launches"]
+    },
+    {
+      "id": "compare-plans",
+      "category": "tertiary",
+      "text": "Compare all plans",
+      "subtext": null,
+      "psychology": "For analytical buyers who want full picture",
+      "visualStyle": {
+        "size": "small-medium",
+        "color": "text link",
+        "icon": "table or grid",
+        "animation": "standard"
+      },
+      "conversionTips": [
+        "Link to detailed comparison table",
+        "Place below pricing cards",
+        "Include feature explanations"
+      ],
+      "bestFor": ["SaaS with multiple tiers", "complex pricing"],
+      "examples": ["notion.so", "slack.com", "github.com"]
+    },
+    {
+      "id": "skip-intro",
+      "category": "ghost",
+      "text": "Skip to dashboard",
+      "subtext": null,
+      "psychology": "Respects user's time, for returning/experienced users",
+      "visualStyle": {
+        "size": "small",
+        "color": "muted text",
+        "icon": "fast-forward",
+        "animation": "minimal"
+      },
+      "conversionTips": [
+        "Offer during onboarding flows",
+        "Track who skips to optimize onboarding",
+        "Don't make too prominent (most should complete)"
+      ],
+      "bestFor": ["onboarding flows", "tutorials"],
+      "examples": ["figma.com", "notion.so"]
+    },
+    {
+      "id": "share-referral",
+      "category": "secondary",
+      "text": "Invite friends, get $10",
+      "subtext": "They get $10 too",
+      "psychology": "Win-win framing, concrete reward",
+      "visualStyle": {
+        "size": "medium",
+        "color": "secondary or reward-themed",
+        "icon": "gift or share",
+        "animation": "celebration on successful referral"
+      },
+      "conversionTips": [
+        "Show both sides' benefit",
+        "Make sharing frictionless",
+        "Track and display referral status"
+      ],
+      "bestFor": ["consumer apps", "marketplaces", "subscription services"],
+      "examples": ["dropbox.com", "uber.com", "airbnb.com"]
+    },
+    {
+      "id": "install-extension",
+      "category": "primary",
+      "text": "Add to Chrome",
+      "subtext": "Free - 100k+ users",
+      "psychology": "Platform-specific + social proof",
+      "visualStyle": {
+        "size": "medium-large",
+        "color": "Chrome blue or primary",
+        "icon": "Chrome logo or puzzle piece",
+        "animation": "browser detection swap"
+      },
+      "conversionTips": [
+        "Auto-detect browser",
+        "Show other browser options",
+        "Include review rating"
+      ],
+      "bestFor": ["browser extensions", "tools"],
+      "examples": ["grammarly.com", "lastpass.com"]
+    },
+    {
+      "id": "view-case-studies",
+      "category": "tertiary",
+      "text": "See customer stories",
+      "subtext": null,
+      "psychology": "Social proof for research phase",
+      "visualStyle": {
+        "size": "medium",
+        "color": "text link or outline",
+        "icon": "quote or people",
+        "animation": "customer logo preview on hover"
+      },
+      "conversionTips": [
+        "Feature recognizable companies",
+        "Include metrics in previews",
+        "Video testimonials convert better"
+      ],
+      "bestFor": ["B2B products", "enterprise sales"],
+      "examples": ["slack.com", "notion.so", "figma.com"]
+    },
+    {
+      "id": "try-playground",
+      "category": "secondary",
+      "text": "Try in playground",
+      "subtext": "No signup required",
+      "psychology": "Zero-friction trial, show don't tell",
+      "visualStyle": {
+        "size": "medium",
+        "color": "outline or secondary",
+        "icon": "code or play",
+        "animation": "code snippet preview"
+      },
+      "conversionTips": [
+        "Pre-populate with interesting example",
+        "Save work to encourage signup",
+        "Highlight 'no signup' aspect"
+      ],
+      "bestFor": ["developer tools", "APIs", "code products"],
+      "examples": ["codesandbox.io", "replit.com", "openai.com"]
+    },
+    {
+      "id": "continue-with-google",
+      "category": "primary",
+      "text": "Continue with Google",
+      "subtext": null,
+      "psychology": "Familiar auth reduces friction, trusted brand",
+      "visualStyle": {
+        "size": "large",
+        "color": "white with Google colors",
+        "icon": "Google G logo",
+        "animation": "standard OAuth button"
+      },
+      "conversionTips": [
+        "Follow Google's brand guidelines exactly",
+        "Offer email alternative below",
+        "Show what data is accessed"
+      ],
+      "bestFor": ["consumer apps", "B2B tools", "most SaaS"],
+      "examples": ["everywhere"]
+    }
+  ]
+}

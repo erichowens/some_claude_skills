@@ -1,0 +1,1036 @@
+{
+  "$schema": "./schemas/typography-system.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-29",
+  "totalSystems": 12,
+  "systems": [
+    {
+      "id": "swiss-modern-typography",
+      "name": "Swiss Modern",
+      "trend": "swiss-modern",
+      "description": "Clean, grid-based typography inspired by International Typographic Style. Used by Stripe, Linear, Figma.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.25,
+      "scaleName": "major-third",
+      "fonts": {
+        "display": {
+          "family": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "category": "sans-serif",
+          "weights": [700, 800, 900],
+          "sizes": [48, 56, 64, 72],
+          "lineHeight": 1.1,
+          "letterSpacing": -0.02,
+          "features": ["font-feature-settings: 'ss01', 'cv01'"]
+        },
+        "heading": {
+          "family": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "category": "sans-serif",
+          "weights": [600, 700],
+          "sizes": [24, 32, 40],
+          "lineHeight": 1.2,
+          "letterSpacing": -0.01
+        },
+        "body": {
+          "family": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [14, 16, 18],
+          "lineHeight": 1.6,
+          "letterSpacing": 0
+        },
+        "label": {
+          "family": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600],
+          "sizes": [11, 12, 13],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.02,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace",
+          "category": "monospace",
+          "weights": [400, 500],
+          "sizes": [13, 14, 15],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.1,
+        "snug": 1.25,
+        "normal": 1.5,
+        "relaxed": 1.625,
+        "loose": 2
+      },
+      "typeScale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem",
+        "7xl": "4.5rem"
+      },
+      "readabilityScore": 9.5,
+      "readabilityFactors": {
+        "lineLength": "60-80 characters recommended",
+        "contrast": "High (black on white)",
+        "xHeight": "Tall (Inter has excellent x-height)",
+        "spacing": "Generous"
+      },
+      "examples": ["Stripe", "Linear", "Figma", "Vercel"],
+      "cssVariables": {
+        "--font-sans": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "--font-mono": "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.6"
+      }
+    },
+    {
+      "id": "neobrutalism-typography",
+      "name": "Neobrutalism Bold",
+      "trend": "neobrutalism",
+      "description": "Heavy, impactful typography with stark contrasts. Oversized headlines and quirky accents.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.5,
+      "scaleName": "perfect-fifth",
+      "fonts": {
+        "display": {
+          "family": "'Space Grotesk', 'Work Sans', 'IBM Plex Sans', sans-serif",
+          "category": "sans-serif",
+          "weights": [700, 800],
+          "sizes": [64, 80, 96, 128],
+          "lineHeight": 0.95,
+          "letterSpacing": -0.03,
+          "features": ["font-feature-settings: 'ss01'"]
+        },
+        "heading": {
+          "family": "'Space Grotesk', 'Work Sans', 'IBM Plex Sans', sans-serif",
+          "category": "sans-serif",
+          "weights": [600, 700],
+          "sizes": [28, 36, 48],
+          "lineHeight": 1.1,
+          "letterSpacing": -0.02
+        },
+        "body": {
+          "family": "'Space Grotesk', 'IBM Plex Sans', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [16, 18, 20],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        },
+        "label": {
+          "family": "'Space Mono', 'IBM Plex Mono', monospace",
+          "category": "monospace",
+          "weights": [400, 700],
+          "sizes": [12, 14],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.05,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'Space Mono', 'IBM Plex Mono', 'Courier New', monospace",
+          "category": "monospace",
+          "weights": [400, 700],
+          "sizes": [14, 16],
+          "lineHeight": 1.4,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 0.95,
+        "snug": 1.1,
+        "normal": 1.5,
+        "relaxed": 1.6,
+        "loose": 1.8
+      },
+      "typeScale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.5rem",
+        "2xl": "2.25rem",
+        "3xl": "3.375rem",
+        "4xl": "5.0625rem",
+        "5xl": "7.5938rem"
+      },
+      "readabilityScore": 8.0,
+      "readabilityFactors": {
+        "lineLength": "50-70 characters (shorter for impact)",
+        "contrast": "Very high (black on cream)",
+        "xHeight": "Medium-tall",
+        "spacing": "Tight headlines, normal body"
+      },
+      "examples": ["Gumroad", "Poolsuite", "Figma Community"],
+      "cssVariables": {
+        "--font-sans": "'Space Grotesk', 'Work Sans', sans-serif",
+        "--font-mono": "'Space Mono', 'IBM Plex Mono', monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.5"
+      }
+    },
+    {
+      "id": "glassmorphism-typography",
+      "name": "Glassmorphism Elegant",
+      "trend": "glassmorphism",
+      "description": "Light, airy typography that works on translucent surfaces. Optimized for legibility on blur.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.25,
+      "scaleName": "major-third",
+      "fonts": {
+        "display": {
+          "family": "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600, 700],
+          "sizes": [40, 48, 56, 64],
+          "lineHeight": 1.1,
+          "letterSpacing": -0.015,
+          "textShadow": "0 1px 2px rgba(0,0,0,0.1)"
+        },
+        "heading": {
+          "family": "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600],
+          "sizes": [24, 28, 32],
+          "lineHeight": 1.2,
+          "letterSpacing": -0.01
+        },
+        "body": {
+          "family": "'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [14, 15, 16, 17],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        },
+        "label": {
+          "family": "'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600],
+          "sizes": [11, 12, 13],
+          "lineHeight": 1.35,
+          "letterSpacing": 0.01
+        },
+        "monospace": {
+          "family": "'SF Mono', Menlo, Monaco, Consolas, monospace",
+          "category": "monospace",
+          "weights": [400, 500],
+          "sizes": [12, 13, 14],
+          "lineHeight": 1.4,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.1,
+        "snug": 1.2,
+        "normal": 1.5,
+        "relaxed": 1.6,
+        "loose": 1.75
+      },
+      "typeScale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.0625rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.75rem",
+        "4xl": "2rem",
+        "5xl": "2.5rem",
+        "6xl": "3rem"
+      },
+      "readabilityScore": 8.5,
+      "readabilityFactors": {
+        "lineLength": "55-75 characters",
+        "contrast": "Requires text-shadow for glass surfaces",
+        "xHeight": "Tall (SF Pro optimized)",
+        "spacing": "Generous, airy"
+      },
+      "accessibilityNotes": "Always add text-shadow or backdrop blur for text on glass surfaces to ensure WCAG compliance",
+      "examples": ["Apple Vision Pro", "macOS Big Sur", "iOS"],
+      "cssVariables": {
+        "--font-sans": "'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif",
+        "--font-mono": "'SF Mono', Menlo, Monaco, monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.5",
+        "--text-shadow-glass": "0 1px 2px rgba(0,0,0,0.1)"
+      }
+    },
+    {
+      "id": "maximalism-typography",
+      "name": "Maximalism Expressive",
+      "trend": "maximalism",
+      "description": "Varied, eclectic typography with multiple font families and experimental combinations.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.333,
+      "scaleName": "perfect-fourth",
+      "fonts": {
+        "display": {
+          "family": "'Playfair Display', 'Libre Baskerville', Georgia, serif",
+          "category": "serif",
+          "weights": [700, 900],
+          "sizes": [56, 72, 96, 120],
+          "lineHeight": 1.0,
+          "letterSpacing": -0.02,
+          "features": ["font-style: italic for emphasis"]
+        },
+        "heading": {
+          "family": "'Poppins', 'Montserrat', 'Nunito Sans', sans-serif",
+          "category": "sans-serif",
+          "weights": [600, 700, 800],
+          "sizes": [24, 32, 40, 48],
+          "lineHeight": 1.15,
+          "letterSpacing": -0.01
+        },
+        "body": {
+          "family": "'Source Sans Pro', 'Open Sans', 'Nunito', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500, 600],
+          "sizes": [16, 18, 20],
+          "lineHeight": 1.65,
+          "letterSpacing": 0.01
+        },
+        "accent": {
+          "family": "'Pacifico', 'Dancing Script', 'Satisfy', cursive",
+          "category": "script",
+          "weights": [400],
+          "sizes": [24, 32, 40],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.02,
+          "usage": "Decorative headlines, pull quotes"
+        },
+        "label": {
+          "family": "'Poppins', 'Montserrat', sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600, 700],
+          "sizes": [11, 12, 14],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.08,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'Fira Code', 'Source Code Pro', monospace",
+          "category": "monospace",
+          "weights": [400, 500],
+          "sizes": [14, 16],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.0,
+        "snug": 1.15,
+        "normal": 1.65,
+        "relaxed": 1.8,
+        "loose": 2.0
+      },
+      "typeScale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.333rem",
+        "xl": "1.777rem",
+        "2xl": "2.369rem",
+        "3xl": "3.157rem",
+        "4xl": "4.209rem",
+        "5xl": "5.61rem"
+      },
+      "readabilityScore": 7.5,
+      "readabilityFactors": {
+        "lineLength": "45-65 characters (shorter due to visual complexity)",
+        "contrast": "Variable - must be tested per background",
+        "xHeight": "Mixed across families",
+        "spacing": "Generous body, tight display"
+      },
+      "accessibilityNotes": "Limit decorative fonts to headlines only; ensure body text uses high-legibility sans-serif",
+      "examples": ["Glossier", "Awwwards", "Creative agencies"],
+      "cssVariables": {
+        "--font-display": "'Playfair Display', Georgia, serif",
+        "--font-heading": "'Poppins', 'Montserrat', sans-serif",
+        "--font-body": "'Source Sans Pro', 'Open Sans', sans-serif",
+        "--font-accent": "'Pacifico', cursive",
+        "--font-mono": "'Fira Code', monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.65"
+      }
+    },
+    {
+      "id": "hyperminimalism-typography",
+      "name": "Hyperminimalism Zen",
+      "trend": "hyperminimalism",
+      "description": "Single font family, minimal weights, maximum whitespace. Content-first typography.",
+      "baseFontSize": 18,
+      "scaleRatio": 1.2,
+      "scaleName": "minor-third",
+      "fonts": {
+        "display": {
+          "family": "'Söhne', 'Inter', -apple-system, sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600],
+          "sizes": [36, 42, 48],
+          "lineHeight": 1.15,
+          "letterSpacing": -0.02
+        },
+        "heading": {
+          "family": "'Söhne', 'Inter', -apple-system, sans-serif",
+          "category": "sans-serif",
+          "weights": [500],
+          "sizes": [24, 28, 32],
+          "lineHeight": 1.25,
+          "letterSpacing": -0.01
+        },
+        "body": {
+          "family": "'Söhne', 'Inter', -apple-system, sans-serif",
+          "category": "sans-serif",
+          "weights": [400],
+          "sizes": [17, 18, 19],
+          "lineHeight": 1.7,
+          "letterSpacing": 0.005
+        },
+        "label": {
+          "family": "'Söhne', 'Inter', -apple-system, sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [12, 13, 14],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.01
+        },
+        "monospace": {
+          "family": "'Söhne Mono', 'JetBrains Mono', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [15, 16],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.15,
+        "snug": 1.25,
+        "normal": 1.7,
+        "relaxed": 1.8,
+        "loose": 2.0
+      },
+      "typeScale": {
+        "xs": "0.833rem",
+        "sm": "0.917rem",
+        "base": "1rem",
+        "lg": "1.2rem",
+        "xl": "1.44rem",
+        "2xl": "1.728rem",
+        "3xl": "2.074rem",
+        "4xl": "2.488rem"
+      },
+      "readabilityScore": 9.8,
+      "readabilityFactors": {
+        "lineLength": "65-85 characters (optimal for reading)",
+        "contrast": "Maximum (near-black on white)",
+        "xHeight": "Tall, optimized for screen",
+        "spacing": "Very generous - whitespace is content"
+      },
+      "examples": ["iA Writer", "Hey", "Basecamp", "Apple"],
+      "cssVariables": {
+        "--font-sans": "'Söhne', 'Inter', -apple-system, sans-serif",
+        "--font-mono": "'Söhne Mono', 'JetBrains Mono', monospace",
+        "--font-size-base": "18px",
+        "--line-height-base": "1.7"
+      }
+    },
+    {
+      "id": "cyberpunk-typography",
+      "name": "Cyberpunk Terminal",
+      "trend": "cyberpunk",
+      "description": "Futuristic, tech-forward typography with glowing effects and geometric forms.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.414,
+      "scaleName": "augmented-fourth",
+      "fonts": {
+        "display": {
+          "family": "'Orbitron', 'Audiowide', 'Rajdhani', sans-serif",
+          "category": "sans-serif",
+          "weights": [700, 900],
+          "sizes": [48, 64, 80, 96],
+          "lineHeight": 1.0,
+          "letterSpacing": 0.05,
+          "textTransform": "uppercase",
+          "effects": ["text-shadow: 0 0 10px currentColor"]
+        },
+        "heading": {
+          "family": "'Rajdhani', 'Exo 2', 'Titillium Web', sans-serif",
+          "category": "sans-serif",
+          "weights": [600, 700],
+          "sizes": [24, 32, 40],
+          "lineHeight": 1.15,
+          "letterSpacing": 0.02,
+          "textTransform": "uppercase"
+        },
+        "body": {
+          "family": "'Rajdhani', 'Exo 2', 'Share Tech', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [15, 16, 18],
+          "lineHeight": 1.5,
+          "letterSpacing": 0.02
+        },
+        "terminal": {
+          "family": "'Share Tech Mono', 'Fira Code', 'Source Code Pro', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [14, 15, 16],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.05,
+          "effects": ["text-shadow: 0 0 5px #00ffff"]
+        },
+        "label": {
+          "family": "'Share Tech Mono', 'Fira Code', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [10, 11, 12],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.1,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'Share Tech Mono', 'Fira Code', 'Source Code Pro', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [14, 15, 16],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.02
+        }
+      },
+      "lineHeights": {
+        "tight": 1.0,
+        "snug": 1.15,
+        "normal": 1.5,
+        "relaxed": 1.6,
+        "loose": 1.75
+      },
+      "typeScale": {
+        "xs": "0.707rem",
+        "sm": "0.841rem",
+        "base": "1rem",
+        "lg": "1.189rem",
+        "xl": "1.414rem",
+        "2xl": "1.682rem",
+        "3xl": "2rem",
+        "4xl": "2.378rem",
+        "5xl": "2.828rem",
+        "6xl": "4rem"
+      },
+      "readabilityScore": 7.0,
+      "readabilityFactors": {
+        "lineLength": "50-70 characters",
+        "contrast": "High (light on dark)",
+        "xHeight": "Medium",
+        "spacing": "Wide letter-spacing for display"
+      },
+      "accessibilityNotes": "Limit neon glow effects; ensure readable fallbacks; avoid rapid color animations",
+      "examples": ["Cyberpunk 2077", "Watch Dogs", "Gaming interfaces"],
+      "cssVariables": {
+        "--font-display": "'Orbitron', 'Audiowide', sans-serif",
+        "--font-heading": "'Rajdhani', 'Exo 2', sans-serif",
+        "--font-body": "'Rajdhani', 'Share Tech', sans-serif",
+        "--font-mono": "'Share Tech Mono', 'Fira Code', monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.5",
+        "--glow-cyan": "0 0 10px #00ffff",
+        "--glow-magenta": "0 0 10px #ff00ff"
+      }
+    },
+    {
+      "id": "cottagecore-typography",
+      "name": "Cottagecore Rustic",
+      "trend": "cottagecore",
+      "description": "Warm, inviting typography with serif elegance and handwritten accents.",
+      "baseFontSize": 17,
+      "scaleRatio": 1.25,
+      "scaleName": "major-third",
+      "fonts": {
+        "display": {
+          "family": "'Playfair Display', 'Libre Baskerville', 'Cormorant Garamond', serif",
+          "category": "serif",
+          "weights": [600, 700],
+          "sizes": [36, 44, 52, 60],
+          "lineHeight": 1.15,
+          "letterSpacing": 0
+        },
+        "heading": {
+          "family": "'Lora', 'Merriweather', 'Crimson Text', serif",
+          "category": "serif",
+          "weights": [500, 600],
+          "sizes": [22, 26, 32],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.005
+        },
+        "body": {
+          "family": "'Source Serif Pro', 'Lora', 'Crimson Text', serif",
+          "category": "serif",
+          "weights": [400, 500],
+          "sizes": [16, 17, 18],
+          "lineHeight": 1.75,
+          "letterSpacing": 0.01
+        },
+        "accent": {
+          "family": "'Homemade Apple', 'Caveat', 'Dancing Script', cursive",
+          "category": "handwritten",
+          "weights": [400],
+          "sizes": [20, 24, 28],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.02,
+          "usage": "Pull quotes, decorative elements"
+        },
+        "label": {
+          "family": "'Lato', 'Open Sans', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 600],
+          "sizes": [11, 12, 13],
+          "lineHeight": 1.35,
+          "letterSpacing": 0.03,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'Courier Prime', 'Courier New', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [14, 15],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.15,
+        "snug": 1.3,
+        "normal": 1.75,
+        "relaxed": 1.9,
+        "loose": 2.1
+      },
+      "typeScale": {
+        "xs": "0.8rem",
+        "sm": "0.889rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.563rem",
+        "3xl": "1.953rem",
+        "4xl": "2.441rem",
+        "5xl": "3.052rem"
+      },
+      "readabilityScore": 8.5,
+      "readabilityFactors": {
+        "lineLength": "60-75 characters",
+        "contrast": "Medium-high (warm grays on cream)",
+        "xHeight": "Medium (serif optimized)",
+        "spacing": "Very generous - leisurely reading"
+      },
+      "examples": ["Etsy artisan shops", "Wedding sites", "Bakery websites", "Lifestyle blogs"],
+      "cssVariables": {
+        "--font-display": "'Playfair Display', Georgia, serif",
+        "--font-heading": "'Lora', 'Merriweather', serif",
+        "--font-body": "'Source Serif Pro', 'Lora', serif",
+        "--font-accent": "'Caveat', 'Dancing Script', cursive",
+        "--font-sans": "'Lato', 'Open Sans', sans-serif",
+        "--font-mono": "'Courier Prime', monospace",
+        "--font-size-base": "17px",
+        "--line-height-base": "1.75"
+      }
+    },
+    {
+      "id": "brutalist-minimal-typography",
+      "name": "Brutalist Minimal",
+      "trend": "brutalist-minimal",
+      "description": "Raw, honest typography using system fonts or stark classics. Content over form.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.2,
+      "scaleName": "minor-third",
+      "fonts": {
+        "display": {
+          "family": "Georgia, 'Times New Roman', Times, serif",
+          "category": "serif",
+          "weights": [700],
+          "sizes": [32, 40, 48],
+          "lineHeight": 1.1,
+          "letterSpacing": 0
+        },
+        "heading": {
+          "family": "Georgia, 'Times New Roman', Times, serif",
+          "category": "serif",
+          "weights": [700],
+          "sizes": [20, 24, 28],
+          "lineHeight": 1.2,
+          "letterSpacing": 0
+        },
+        "body": {
+          "family": "Georgia, 'Times New Roman', Times, serif",
+          "category": "serif",
+          "weights": [400],
+          "sizes": [16, 17, 18],
+          "lineHeight": 1.6,
+          "letterSpacing": 0
+        },
+        "label": {
+          "family": "Arial, Helvetica, sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 700],
+          "sizes": [11, 12, 13],
+          "lineHeight": 1.3,
+          "letterSpacing": 0
+        },
+        "monospace": {
+          "family": "'Courier New', Courier, monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [14, 15, 16],
+          "lineHeight": 1.4,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.1,
+        "snug": 1.2,
+        "normal": 1.6,
+        "relaxed": 1.7,
+        "loose": 1.8
+      },
+      "typeScale": {
+        "xs": "0.833rem",
+        "sm": "0.917rem",
+        "base": "1rem",
+        "lg": "1.2rem",
+        "xl": "1.44rem",
+        "2xl": "1.728rem",
+        "3xl": "2.074rem",
+        "4xl": "2.488rem"
+      },
+      "readabilityScore": 9.0,
+      "readabilityFactors": {
+        "lineLength": "60-80 characters",
+        "contrast": "Maximum (black on white)",
+        "xHeight": "Standard (Georgia optimized for screen)",
+        "spacing": "Functional, not decorative"
+      },
+      "examples": ["Craigslist", "Hacker News", "Academic journals", "Drudge Report"],
+      "cssVariables": {
+        "--font-serif": "Georgia, 'Times New Roman', Times, serif",
+        "--font-sans": "Arial, Helvetica, sans-serif",
+        "--font-mono": "'Courier New', Courier, monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.6"
+      }
+    },
+    {
+      "id": "stripe-documentation",
+      "name": "Stripe Docs",
+      "trend": "swiss-modern",
+      "description": "Optimized for technical documentation with excellent code display and hierarchy.",
+      "baseFontSize": 16,
+      "scaleRatio": 1.2,
+      "scaleName": "minor-third",
+      "fonts": {
+        "display": {
+          "family": "'Söhne', -apple-system, BlinkMacSystemFont, sans-serif",
+          "category": "sans-serif",
+          "weights": [600, 700],
+          "sizes": [32, 40, 48],
+          "lineHeight": 1.15,
+          "letterSpacing": -0.02
+        },
+        "heading": {
+          "family": "'Söhne', -apple-system, BlinkMacSystemFont, sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600],
+          "sizes": [20, 24, 28],
+          "lineHeight": 1.25,
+          "letterSpacing": -0.01
+        },
+        "body": {
+          "family": "'Söhne', -apple-system, BlinkMacSystemFont, sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [15, 16],
+          "lineHeight": 1.6,
+          "letterSpacing": 0
+        },
+        "code-inline": {
+          "family": "'Söhne Mono', 'SF Mono', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [14, 15],
+          "lineHeight": 1.4,
+          "letterSpacing": 0,
+          "background": "#f6f8fa",
+          "padding": "2px 6px",
+          "borderRadius": "4px"
+        },
+        "code-block": {
+          "family": "'Söhne Mono', 'SF Mono', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [13, 14],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        },
+        "label": {
+          "family": "'Söhne', -apple-system, sans-serif",
+          "category": "sans-serif",
+          "weights": [500],
+          "sizes": [11, 12],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.02,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'Söhne Mono', 'SF Mono', 'JetBrains Mono', monospace",
+          "category": "monospace",
+          "weights": [400, 500],
+          "sizes": [13, 14, 15],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 1.15,
+        "snug": 1.25,
+        "normal": 1.6,
+        "relaxed": 1.7,
+        "loose": 1.8
+      },
+      "typeScale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem"
+      },
+      "readabilityScore": 9.7,
+      "readabilityFactors": {
+        "lineLength": "70-90 characters (code can be wider)",
+        "contrast": "High (optimized for long reading)",
+        "xHeight": "Tall",
+        "spacing": "Generous, scannable"
+      },
+      "examples": ["Stripe Docs", "Vercel Docs", "Tailwind Docs"],
+      "cssVariables": {
+        "--font-sans": "'Söhne', -apple-system, sans-serif",
+        "--font-mono": "'Söhne Mono', 'SF Mono', monospace",
+        "--font-size-base": "16px",
+        "--line-height-base": "1.6",
+        "--code-bg": "#f6f8fa"
+      }
+    },
+    {
+      "id": "gaming-hud",
+      "name": "Gaming HUD",
+      "trend": "cyberpunk",
+      "description": "High-visibility typography for heads-up displays and gaming interfaces.",
+      "baseFontSize": 14,
+      "scaleRatio": 1.25,
+      "scaleName": "major-third",
+      "fonts": {
+        "display": {
+          "family": "'Russo One', 'Black Ops One', 'Bebas Neue', sans-serif",
+          "category": "display",
+          "weights": [400],
+          "sizes": [48, 64, 80],
+          "lineHeight": 1.0,
+          "letterSpacing": 0.05,
+          "textTransform": "uppercase"
+        },
+        "heading": {
+          "family": "'Teko', 'Oswald', 'Barlow Condensed', sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600, 700],
+          "sizes": [20, 28, 36],
+          "lineHeight": 1.1,
+          "letterSpacing": 0.03,
+          "textTransform": "uppercase"
+        },
+        "body": {
+          "family": "'Barlow', 'Roboto Condensed', 'Open Sans', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [13, 14, 16],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.02
+        },
+        "stats": {
+          "family": "'Orbitron', 'Digital-7', monospace",
+          "category": "display",
+          "weights": [400, 700],
+          "sizes": [24, 32, 48],
+          "lineHeight": 1.0,
+          "letterSpacing": 0.1,
+          "usage": "Score displays, timers, counters"
+        },
+        "label": {
+          "family": "'Barlow', 'Roboto Condensed', sans-serif",
+          "category": "sans-serif",
+          "weights": [500, 600],
+          "sizes": [10, 11, 12],
+          "lineHeight": 1.2,
+          "letterSpacing": 0.08,
+          "textTransform": "uppercase"
+        },
+        "monospace": {
+          "family": "'JetBrains Mono', 'Fira Code', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [12, 13, 14],
+          "lineHeight": 1.3,
+          "letterSpacing": 0.02
+        }
+      },
+      "lineHeights": {
+        "tight": 1.0,
+        "snug": 1.1,
+        "normal": 1.4,
+        "relaxed": 1.5,
+        "loose": 1.6
+      },
+      "typeScale": {
+        "xs": "0.625rem",
+        "sm": "0.75rem",
+        "base": "0.875rem",
+        "lg": "1rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "2rem",
+        "4xl": "2.5rem",
+        "5xl": "3.5rem"
+      },
+      "readabilityScore": 7.5,
+      "readabilityFactors": {
+        "lineLength": "40-60 characters (quick scanning)",
+        "contrast": "Very high (critical for gameplay)",
+        "xHeight": "Tall condensed",
+        "spacing": "Tight, information-dense"
+      },
+      "accessibilityNotes": "Prioritize high contrast; avoid small text below 12px; use color + shape for critical info",
+      "examples": ["Call of Duty HUD", "Apex Legends", "Overwatch"],
+      "cssVariables": {
+        "--font-display": "'Russo One', 'Bebas Neue', sans-serif",
+        "--font-heading": "'Teko', 'Oswald', sans-serif",
+        "--font-body": "'Barlow', 'Roboto Condensed', sans-serif",
+        "--font-stats": "'Orbitron', monospace",
+        "--font-mono": "'JetBrains Mono', monospace",
+        "--font-size-base": "14px",
+        "--line-height-base": "1.4"
+      }
+    },
+    {
+      "id": "editorial-magazine",
+      "name": "Editorial Magazine",
+      "trend": "maximalism",
+      "description": "High-fashion editorial typography with dramatic contrasts and elegant serifs.",
+      "baseFontSize": 18,
+      "scaleRatio": 1.5,
+      "scaleName": "perfect-fifth",
+      "fonts": {
+        "display": {
+          "family": "'Playfair Display', 'Bodoni Moda', 'Libre Baskerville', serif",
+          "category": "serif",
+          "weights": [700, 900],
+          "sizes": [72, 96, 120, 144],
+          "lineHeight": 0.9,
+          "letterSpacing": -0.03,
+          "features": ["font-feature-settings: 'liga', 'kern'"]
+        },
+        "heading": {
+          "family": "'Cormorant Garamond', 'EB Garamond', 'Libre Baskerville', serif",
+          "category": "serif",
+          "weights": [500, 600, 700],
+          "sizes": [28, 36, 48],
+          "lineHeight": 1.1,
+          "letterSpacing": 0
+        },
+        "subheading": {
+          "family": "'Montserrat', 'Poppins', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [14, 16, 18],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.15,
+          "textTransform": "uppercase"
+        },
+        "body": {
+          "family": "'Source Serif Pro', 'Lora', 'Georgia', serif",
+          "category": "serif",
+          "weights": [400],
+          "sizes": [17, 18, 20],
+          "lineHeight": 1.8,
+          "letterSpacing": 0.01
+        },
+        "caption": {
+          "family": "'Montserrat', 'Poppins', sans-serif",
+          "category": "sans-serif",
+          "weights": [400, 500],
+          "sizes": [11, 12, 13],
+          "lineHeight": 1.4,
+          "letterSpacing": 0.02
+        },
+        "pullquote": {
+          "family": "'Playfair Display', 'Bodoni Moda', serif",
+          "category": "serif",
+          "weights": [400],
+          "sizes": [24, 28, 32],
+          "lineHeight": 1.3,
+          "letterSpacing": 0,
+          "fontStyle": "italic"
+        },
+        "monospace": {
+          "family": "'IBM Plex Mono', 'Courier New', monospace",
+          "category": "monospace",
+          "weights": [400],
+          "sizes": [15, 16],
+          "lineHeight": 1.5,
+          "letterSpacing": 0
+        }
+      },
+      "lineHeights": {
+        "tight": 0.9,
+        "snug": 1.1,
+        "normal": 1.8,
+        "relaxed": 2.0,
+        "loose": 2.2
+      },
+      "typeScale": {
+        "xs": "0.667rem",
+        "sm": "0.778rem",
+        "base": "1rem",
+        "lg": "1.333rem",
+        "xl": "1.778rem",
+        "2xl": "2.667rem",
+        "3xl": "4rem",
+        "4xl": "6rem",
+        "5xl": "9rem"
+      },
+      "readabilityScore": 8.0,
+      "readabilityFactors": {
+        "lineLength": "55-70 characters",
+        "contrast": "High (elegant black on white)",
+        "xHeight": "Classic serif proportions",
+        "spacing": "Very generous - luxurious reading"
+      },
+      "examples": ["Vogue", "Harper's Bazaar", "The New York Times Magazine"],
+      "cssVariables": {
+        "--font-display": "'Playfair Display', 'Bodoni Moda', serif",
+        "--font-heading": "'Cormorant Garamond', 'EB Garamond', serif",
+        "--font-body": "'Source Serif Pro', 'Lora', serif",
+        "--font-sans": "'Montserrat', 'Poppins', sans-serif",
+        "--font-mono": "'IBM Plex Mono', monospace",
+        "--font-size-base": "18px",
+        "--line-height-base": "1.8"
+      }
+    }
+  ]
+}

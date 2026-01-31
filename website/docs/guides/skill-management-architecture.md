@@ -427,7 +427,7 @@ fi
 ## Success Metrics
 
 - **Zero manual edits** to skills.ts after Phase 1
-- **< 5 minutes** from submission to GitHub Issue
-- **< 10 minutes** from approved to implemented skill
+- **&lt; 5 minutes** from submission to GitHub Issue
+- **&lt; 10 minutes** from approved to implemented skill
 - **100% validation** coverage for all skill sources
 - **Community contributions** enabled without repo access

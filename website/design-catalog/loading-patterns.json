@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 16,
+    "categories": ["spinner", "skeleton", "progress", "optimistic"]
+  },
+  "patterns": [
+    {
+      "id": "spinner",
+      "name": "Loading Spinner",
+      "category": "spinner",
+      "description": "Rotating indicator for indeterminate loading",
+      "anatomy": {
+        "shape": "circle, dots, or brand-specific",
+        "animation": "continuous rotation or pulse",
+        "size": "matches context (inline, full-page)"
+      },
+      "sizes": {
+        "xs": "16px - inline with text",
+        "sm": "24px - buttons, small areas",
+        "md": "40px - card loading",
+        "lg": "64px - section loading",
+        "xl": "80px+ - full page"
+      },
+      "timing": "show after 200-300ms delay to avoid flash"
+    },
+    {
+      "id": "three-dot",
+      "name": "Three Dots Loader",
+      "category": "spinner",
+      "description": "Animated dots in sequence",
+      "animation": {
+        "bounce": "dots bounce up and down",
+        "pulse": "dots scale in sequence",
+        "fade": "dots fade in sequence"
+      },
+      "useCases": ["chat typing indicator", "AI processing", "loading messages"]
+    },
+    {
+      "id": "skeleton-screen",
+      "name": "Skeleton Screen",
+      "category": "skeleton",
+      "description": "Placeholder matching content shape",
+      "anatomy": {
+        "shapes": "rectangles matching text, circles for avatars",
+        "animation": "shimmer/pulse effect",
+        "color": "gray tones slightly darker than background"
+      },
+      "implementation": {
+        "layout": "match actual content layout exactly",
+        "animation": "linear-gradient shimmer effect",
+        "transition": "fade in actual content"
+      },
+      "benefits": [
+        "reduces perceived wait time",
+        "prevents layout shift",
+        "shows content structure"
+      ]
+    },
+    {
+      "id": "skeleton-card",
+      "name": "Card Skeleton",
+      "category": "skeleton",
+      "description": "Skeleton for card components",
+      "anatomy": {
+        "image": "rectangular placeholder",
+        "title": "single line rectangle",
+        "text": "2-3 shorter lines",
+        "meta": "small rectangles for metadata"
+      }
+    },
+    {
+      "id": "skeleton-list",
+      "name": "List Skeleton",
+      "category": "skeleton",
+      "description": "Skeleton for list items",
+      "anatomy": {
+        "avatar": "circle on left",
+        "primaryText": "longer rectangle",
+        "secondaryText": "shorter rectangle",
+        "action": "small rectangle on right"
+      },
+      "count": "show expected number of items"
+    },
+    {
+      "id": "skeleton-text",
+      "name": "Text Skeleton",
+      "category": "skeleton",
+      "description": "Placeholder for text content",
+      "anatomy": {
+        "lines": "varying length rectangles",
+        "paragraph": "3-4 lines, last shorter"
+      },
+      "sizing": {
+        "lineHeight": "match actual line height",
+        "width": "vary: 100%, 90%, 80%, 60%"
+      }
+    },
+    {
+      "id": "progress-bar",
+      "name": "Progress Bar",
+      "category": "progress",
+      "description": "Determinate progress indicator",
+      "anatomy": {
+        "track": "background bar",
+        "fill": "progress fill",
+        "label": "optional percentage"
+      },
+      "states": {
+        "determinate": "known progress percentage",
+        "indeterminate": "unknown, animated fill"
+      },
+      "useCases": ["file upload", "form completion", "installation"]
+    },
+    {
+      "id": "progress-circle",
+      "name": "Circular Progress",
+      "category": "progress",
+      "description": "Circular progress indicator",
+      "anatomy": {
+        "track": "background circle",
+        "arc": "progress arc",
+        "label": "percentage in center"
+      },
+      "implementation": "SVG stroke-dasharray animation",
+      "useCases": ["compact spaces", "dashboards", "stats"]
+    },
+    {
+      "id": "step-progress",
+      "name": "Step Progress",
+      "category": "progress",
+      "description": "Multi-step process indicator",
+      "anatomy": {
+        "steps": "numbered or labeled steps",
+        "connector": "line between steps",
+        "current": "highlighted current step",
+        "complete": "checkmark for done"
+      },
+      "variants": {
+        "horizontal": "steps in a row",
+        "vertical": "steps stacked"
+      },
+      "useCases": ["checkout", "wizard", "onboarding"]
+    },
+    {
+      "id": "pull-to-refresh",
+      "name": "Pull-to-Refresh Loader",
+      "category": "spinner",
+      "description": "Mobile refresh gesture feedback",
+      "states": {
+        "pulling": "indicator appears, follows drag",
+        "threshold": "reached trigger point",
+        "loading": "spinner while refreshing",
+        "complete": "hides, content updates"
+      },
+      "feedback": "haptic on threshold reached"
+    },
+    {
+      "id": "optimistic-update",
+      "name": "Optimistic UI Update",
+      "category": "optimistic",
+      "description": "Show success before confirmation",
+      "implementation": {
+        "immediate": "update UI immediately",
+        "request": "send request in background",
+        "success": "keep update",
+        "failure": "revert and show error"
+      },
+      "useCases": ["likes", "comments", "toggles", "chat messages"],
+      "benefits": ["feels instant", "improved perceived performance"]
+    },
+    {
+      "id": "button-loading",
+      "name": "Button Loading State",
+      "category": "spinner",
+      "description": "Loading indicator within button",
+      "anatomy": {
+        "spinner": "replace or beside text",
+        "text": "optional loading text",
+        "disabled": "prevent double-click"
+      },
+      "states": {
+        "idle": "normal button",
+        "loading": "spinner + optional text change",
+        "success": "checkmark briefly",
+        "error": "error state"
+      },
+      "text": "'Submit' → 'Submitting...' → 'Done!'"
+    },
+    {
+      "id": "page-loading",
+      "name": "Full Page Loading",
+      "category": "spinner",
+      "description": "Initial page load indicator",
+      "options": {
+        "spinner": "centered spinner",
+        "skeleton": "full page skeleton",
+        "progress": "progress bar at top",
+        "branded": "logo animation"
+      },
+      "considerations": {
+        "splash": "use sparingly, feels slow",
+        "server": "prefer server rendering",
+        "streaming": "stream content progressively"
+      }
+    },
+    {
+      "id": "inline-loading",
+      "name": "Inline Content Loading",
+      "category": "skeleton",
+      "description": "Loading within existing content",
+      "placement": "replace content being loaded",
+      "avoid": "don't shift layout",
+      "examples": ["image loading", "lazy loaded sections"]
+    },
+    {
+      "id": "lazy-loading",
+      "name": "Lazy Loading Pattern",
+      "category": "optimistic",
+      "description": "Load content as needed",
+      "techniques": {
+        "intersection": "load when entering viewport",
+        "placeholder": "blur-up or skeleton until loaded",
+        "priority": "prioritize above-fold content"
+      },
+      "implementation": {
+        "images": "loading='lazy'",
+        "components": "React.lazy, dynamic imports",
+        "infinite": "load more on scroll"
+      }
+    },
+    {
+      "id": "background-sync",
+      "name": "Background Sync Indicator",
+      "category": "optimistic",
+      "description": "Show sync status without blocking",
+      "states": {
+        "synced": "hidden or subtle checkmark",
+        "syncing": "subtle spinner or animation",
+        "conflict": "warning indicator",
+        "offline": "offline badge"
+      },
+      "placement": "header, status bar, or inline",
+      "useCases": ["document editing", "offline-first apps"]
+    }
+  ],
+  "guidelines": {
+    "timing": [
+      "< 100ms: no indicator needed",
+      "100-300ms: subtle spinner",
+      "> 300ms: skeleton or progress",
+      "> 3s: progress with explanation"
+    ],
+    "feedback": [
+      "always show something is happening",
+      "explain long waits",
+      "allow cancellation when possible",
+      "show progress when determinable"
+    ],
+    "avoid": [
+      "loading spinners over white space",
+      "blocking UI unnecessarily",
+      "layout shift when content loads"
+    ]
+  },
+  "accessibility": {
+    "announcements": [
+      "aria-busy='true' on loading regions",
+      "aria-live for status updates",
+      "announce completion to screen readers"
+    ],
+    "motion": [
+      "respect prefers-reduced-motion",
+      "provide non-animated alternatives"
+    ]
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 20,
+    "categories": ["signup", "activation", "education", "engagement"]
+  },
+  "patterns": [
+    {
+      "id": "progressive-signup",
+      "name": "Progressive Signup",
+      "category": "signup",
+      "description": "Collect minimal info first, more later",
+      "philosophy": "reduce friction at entry, gather details over time",
+      "implementation": {
+        "step1": "email only (or social login)",
+        "step2": "name after email verified",
+        "step3": "profile details during use"
+      },
+      "metrics": {
+        "success": "higher conversion at each step",
+        "tradeoff": "may have incomplete profiles"
+      },
+      "examples": ["Spotify", "Slack"]
+    },
+    {
+      "id": "social-login",
+      "name": "Social Login",
+      "category": "signup",
+      "description": "Sign up with existing accounts",
+      "providers": ["Google", "Apple", "GitHub", "Microsoft", "Facebook"],
+      "guidelines": {
+        "ordering": "most relevant first for your audience",
+        "emailFallback": "always offer email signup",
+        "brandMatch": "use official button styles"
+      },
+      "ux": {
+        "oneClick": "aim for single-click signup",
+        "permissions": "request minimal scopes",
+        "linking": "allow linking accounts later"
+      }
+    },
+    {
+      "id": "magic-link",
+      "name": "Magic Link (Passwordless)",
+      "category": "signup",
+      "description": "Login via email link, no password",
+      "flow": {
+        "1": "user enters email",
+        "2": "email with login link sent",
+        "3": "click link to authenticate"
+      },
+      "benefits": [
+        "no password to remember",
+        "no password to hack",
+        "simpler UX"
+      ],
+      "considerations": {
+        "emailAccess": "requires email access",
+        "linkExpiry": "links should expire (15-60 min)",
+        "mobile": "may open in different browser"
+      }
+    },
+    {
+      "id": "welcome-tour",
+      "name": "Welcome Tour",
+      "category": "education",
+      "description": "Guided walkthrough of key features",
+      "triggers": ["first login", "major update", "feature discovery"],
+      "formats": {
+        "modal": "modal with steps",
+        "tooltip": "sequential tooltips pointing to UI",
+        "overlay": "coach marks highlighting elements",
+        "video": "short video walkthrough"
+      },
+      "guidelines": {
+        "skipOption": "always allow skip",
+        "steps": "3-5 steps maximum",
+        "persistence": "remember completion",
+        "reaccess": "allow restart from help menu"
+      }
+    },
+    {
+      "id": "coach-marks",
+      "name": "Coach Marks/Spotlights",
+      "category": "education",
+      "description": "Highlight UI elements with explanations",
+      "anatomy": {
+        "spotlight": "highlights specific element",
+        "tooltip": "explains what it does",
+        "navigation": "next/skip/dismiss"
+      },
+      "timing": "sequential or on feature discovery",
+      "ux": {
+        "nonBlocking": "allow interaction with rest of UI",
+        "contextual": "trigger when relevant",
+        "dismissible": "easy to close"
+      }
+    },
+    {
+      "id": "empty-state-onboarding",
+      "name": "Empty State Guidance",
+      "category": "activation",
+      "description": "Guide users to first action via empty states",
+      "philosophy": "let empty screens teach",
+      "implementation": {
+        "illustration": "friendly visual",
+        "headline": "action-oriented text",
+        "cta": "clear first action"
+      },
+      "examples": {
+        "projects": "Create your first project",
+        "contacts": "Import your contacts",
+        "dashboard": "Connect your data source"
+      }
+    },
+    {
+      "id": "setup-wizard",
+      "name": "Setup Wizard",
+      "category": "activation",
+      "description": "Multi-step configuration process",
+      "anatomy": {
+        "progress": "clear step indicator",
+        "title": "current step name",
+        "content": "step-specific form",
+        "navigation": "back, next, skip"
+      },
+      "guidelines": {
+        "steps": "3-7 steps typical",
+        "required": "mark optional steps",
+        "skipAll": "option to skip entire wizard",
+        "completion": "celebrate finish"
+      },
+      "examples": ["Slack workspace setup", "Notion onboarding"]
+    },
+    {
+      "id": "checklist",
+      "name": "Onboarding Checklist",
+      "category": "activation",
+      "description": "List of tasks to complete setup",
+      "anatomy": {
+        "items": "named tasks with checkboxes",
+        "progress": "X of Y complete",
+        "reward": "benefit or celebration at 100%"
+      },
+      "placement": {
+        "sidebar": "persistent in navigation",
+        "modal": "dismissible popup",
+        "dashboard": "card on home screen"
+      },
+      "psychology": {
+        "completion": "Zeigarnik effect - incomplete tasks are remembered",
+        "gamification": "progress bar motivates completion",
+        "rewards": "incentives for completion"
+      },
+      "examples": ["GitHub profile completion", "Slack onboarding"]
+    },
+    {
+      "id": "personalization-survey",
+      "name": "Personalization Survey",
+      "category": "signup",
+      "description": "Questions to customize experience",
+      "timing": "during signup or first session",
+      "questions": {
+        "role": "What's your role?",
+        "goal": "What do you want to accomplish?",
+        "experience": "How experienced are you?",
+        "useCase": "What will you use this for?"
+      },
+      "ux": {
+        "quick": "3-5 questions max",
+        "visual": "image/icon choices when possible",
+        "skip": "allow skipping",
+        "value": "explain why you're asking"
+      },
+      "outcome": "tailor dashboard, recommendations, defaults"
+    },
+    {
+      "id": "sample-data",
+      "name": "Sample Data Population",
+      "category": "activation",
+      "description": "Pre-populate with example content",
+      "useCases": [
+        "complex products that are confusing when empty",
+        "templates and examples",
+        "showing product value quickly"
+      ],
+      "implementation": {
+        "opt-in": "ask if user wants sample data",
+        "clearly marked": "indicate which is sample",
+        "easy removal": "clear all sample data option"
+      },
+      "examples": ["Notion templates", "analytics with demo data"]
+    },
+    {
+      "id": "progressive-disclosure",
+      "name": "Progressive Feature Disclosure",
+      "category": "education",
+      "description": "Reveal advanced features gradually",
+      "philosophy": "don't overwhelm new users with everything",
+      "triggers": {
+        "time": "after X days of use",
+        "usage": "after using related features",
+        "milestone": "after certain accomplishments"
+      },
+      "implementation": {
+        "newBadges": "NEW badges on revealed features",
+        "contextual": "introduce when relevant",
+        "tooltips": "explain new features"
+      }
+    },
+    {
+      "id": "first-run-experience",
+      "name": "First-Run Experience (FRE)",
+      "category": "activation",
+      "description": "Complete first-time user flow",
+      "components": {
+        "welcome": "greeting and value prop",
+        "quickstart": "fastest path to value",
+        "education": "key feature introduction",
+        "personalization": "customization options"
+      },
+      "goal": "get user to 'aha moment' quickly",
+      "metrics": {
+        "timeToValue": "how quickly user sees value",
+        "activationRate": "% who complete key action",
+        "dropoff": "where users abandon"
+      }
+    },
+    {
+      "id": "invite-flow",
+      "name": "Team Invite Flow",
+      "category": "engagement",
+      "description": "Invite colleagues/team members",
+      "timing": "during onboarding or after setup",
+      "methods": {
+        "email": "enter email addresses",
+        "link": "shareable invite link",
+        "domain": "auto-approve by domain"
+      },
+      "incentives": {
+        "social": "product is better with team",
+        "rewards": "extended trial, free features",
+        "progress": "checklist completion"
+      }
+    },
+    {
+      "id": "notification-permission",
+      "name": "Notification Permission Request",
+      "category": "engagement",
+      "description": "Ask for push notification permission",
+      "timing": "NOT immediately - after value demonstrated",
+      "flow": {
+        "prime": "explain why notifications are useful",
+        "request": "then ask for permission",
+        "accept": "confirm what they'll receive",
+        "decline": "gracefully handle rejection"
+      },
+      "bestPractice": "ask after user has used product and seen value"
+    },
+    {
+      "id": "email-verification",
+      "name": "Email Verification",
+      "category": "signup",
+      "description": "Confirm user owns email address",
+      "timing": {
+        "blocking": "require before full access",
+        "nonBlocking": "allow limited use, remind later"
+      },
+      "flow": {
+        "send": "send verification email automatically",
+        "remind": "show banner/toast if unverified",
+        "resend": "easy resend option",
+        "confirm": "celebrate verification"
+      },
+      "ux": {
+        "clear": "explain what's happening",
+        "spamTip": "remind to check spam folder",
+        "alternative": "support contact if issues"
+      }
+    },
+    {
+      "id": "trial-countdown",
+      "name": "Trial Period Awareness",
+      "category": "engagement",
+      "description": "Communicate trial status",
+      "elements": {
+        "dayCounter": "X days remaining in trial",
+        "features": "what's included in trial",
+        "upgrade": "clear upgrade path"
+      },
+      "timing": {
+        "start": "subtle mention at signup",
+        "midpoint": "reminder with value summary",
+        "ending": "urgent message final days"
+      },
+      "ux": "show value received, not just deadline"
+    },
+    {
+      "id": "contextual-education",
+      "name": "Contextual Feature Education",
+      "category": "education",
+      "description": "Teach features when relevant",
+      "triggers": {
+        "firstUse": "first time using feature",
+        "hover": "hovering over complex UI",
+        "error": "making a mistake",
+        "opportunity": "when feature would help"
+      },
+      "formats": {
+        "tooltip": "quick explanation",
+        "popover": "more detailed with action",
+        "banner": "feature announcement",
+        "inline": "text within UI"
+      }
+    },
+    {
+      "id": "celebration-moments",
+      "name": "Celebration & Milestones",
+      "category": "engagement",
+      "description": "Celebrate user achievements",
+      "milestones": {
+        "firstAction": "completed first [thing]",
+        "streak": "using product X days",
+        "volume": "reached X [items/actions]",
+        "team": "team members joined"
+      },
+      "celebration": {
+        "confetti": "visual celebration",
+        "badge": "achievement unlocked",
+        "message": "congratulatory text",
+        "share": "optional social share"
+      }
+    },
+    {
+      "id": "help-widget",
+      "name": "In-App Help Widget",
+      "category": "education",
+      "description": "Persistent help access",
+      "placement": "bottom-right corner typically",
+      "contents": {
+        "search": "search help articles",
+        "suggestions": "contextual help",
+        "chat": "live chat support",
+        "contact": "email/ticket submission"
+      },
+      "examples": ["Intercom", "Zendesk", "Drift"]
+    },
+    {
+      "id": "quick-start-video",
+      "name": "Quick Start Video",
+      "category": "education",
+      "description": "Short video introduction",
+      "guidelines": {
+        "length": "60-90 seconds ideal",
+        "content": "core value prop and key actions",
+        "quality": "professional but friendly",
+        "captions": "always include captions"
+      },
+      "placement": {
+        "welcomeModal": "first-time visitor",
+        "helpSection": "always accessible",
+        "emptyState": "contextual"
+      }
+    }
+  ],
+  "metrics": {
+    "activation": {
+      "timeToFirstAction": "how quickly users do key action",
+      "completionRate": "% completing onboarding",
+      "dropoffPoints": "where users abandon"
+    },
+    "engagement": {
+      "day1Retention": "return rate after 1 day",
+      "day7Retention": "return rate after 7 days",
+      "featureAdoption": "% using key features"
+    }
+  },
+  "antiPatterns": [
+    "forcing tour before any exploration",
+    "too many steps before value",
+    "asking personal info too early",
+    "interrupting active users with education",
+    "no skip options",
+    "making users repeat tour"
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 16,
+    "categories": ["header", "sidebar", "mobile", "footer-nav", "contextual"]
+  },
+  "patterns": [
+    {
+      "id": "saas-sticky-header",
+      "name": "SaaS Sticky Header",
+      "category": "header",
+      "description": "Standard SaaS navigation with product links and auth CTAs",
+      "structure": {
+        "leftSide": ["logo", "product-link", "features-dropdown", "pricing", "docs"],
+        "rightSide": ["sign-in", "get-started-cta"],
+        "center": null
+      },
+      "behavior": {
+        "sticky": true,
+        "shrinkOnScroll": true,
+        "backgroundOnScroll": "blur or solid",
+        "hideOnScrollDown": false
+      },
+      "mobile": {
+        "type": "hamburger",
+        "animation": "slide-from-right",
+        "logoPosition": "left",
+        "ctaPosition": "preserved-visible"
+      },
+      "dropdowns": {
+        "style": "mega-menu or simple list",
+        "trigger": "hover with slight delay (150ms)",
+        "animation": "fade + slight slide down"
+      },
+      "accessibility": {
+        "skipLink": true,
+        "keyboardNav": "arrow keys in dropdowns",
+        "ariaLabels": "required on all interactive elements",
+        "focusRing": "visible 2px outline"
+      },
+      "examples": ["stripe.com", "vercel.com", "linear.app"],
+      "bestFor": ["SaaS products", "developer tools", "B2B products"]
+    },
+    {
+      "id": "mega-menu-enterprise",
+      "name": "Mega Menu Enterprise",
+      "category": "header",
+      "description": "Full-width dropdown with organized sections for complex product suites",
+      "structure": {
+        "leftSide": ["logo"],
+        "center": ["products-mega", "solutions-mega", "resources-mega", "pricing"],
+        "rightSide": ["search", "sign-in", "contact-sales"]
+      },
+      "behavior": {
+        "sticky": true,
+        "shrinkOnScroll": false,
+        "backgroundOnScroll": "solid"
+      },
+      "mobile": {
+        "type": "hamburger",
+        "animation": "full-screen-overlay",
+        "nested": "accordion-style expanding"
+      },
+      "dropdowns": {
+        "style": "mega-menu full-width",
+        "trigger": "click (not hover for complex menus)",
+        "columns": "3-4 with headers",
+        "features": ["featured product", "recent blog post", "illustration"]
+      },
+      "accessibility": {
+        "escapeClose": true,
+        "focusTrap": "within open dropdown",
+        "announcements": "aria-live for state changes"
+      },
+      "examples": ["salesforce.com", "microsoft.com", "ibm.com"],
+      "bestFor": ["enterprise software", "multi-product companies", "complex offerings"]
+    },
+    {
+      "id": "minimal-portfolio",
+      "name": "Minimal Portfolio",
+      "category": "header",
+      "description": "Clean, minimal navigation for creative portfolios",
+      "structure": {
+        "leftSide": ["name-logo"],
+        "center": null,
+        "rightSide": ["work", "about", "contact"]
+      },
+      "behavior": {
+        "sticky": false,
+        "transparent": true,
+        "showOnScroll": "optional: reveal after hero"
+      },
+      "mobile": {
+        "type": "hamburger-minimal",
+        "animation": "fade-in centered",
+        "style": "full-screen with large typography"
+      },
+      "typography": {
+        "style": "all lowercase or all caps",
+        "weight": "light or regular",
+        "size": "small (14-16px)"
+      },
+      "examples": ["minimal portfolio sites", "designer websites"],
+      "bestFor": ["portfolios", "personal sites", "creative work"]
+    },
+    {
+      "id": "e-commerce-utility",
+      "name": "E-commerce Utility",
+      "category": "header",
+      "description": "Two-tier navigation with utility bar and main navigation",
+      "structure": {
+        "utilityBar": ["store-locator", "help", "country-selector"],
+        "mainNav": {
+          "leftSide": ["logo"],
+          "center": ["categories-mega"],
+          "rightSide": ["search", "account", "wishlist", "cart-with-count"]
+        }
+      },
+      "behavior": {
+        "sticky": "main nav only (utility bar scrolls away)",
+        "cartPreview": "hover or click mini-cart"
+      },
+      "mobile": {
+        "type": "hamburger",
+        "bottomBar": ["home", "search", "account", "cart"],
+        "animation": "slide-from-left"
+      },
+      "dropdowns": {
+        "style": "mega-menu with product images",
+        "content": "categories + featured products + promotions"
+      },
+      "examples": ["nike.com", "apple.com/shop", "nordstrom.com"],
+      "bestFor": ["e-commerce", "retail", "fashion"]
+    },
+    {
+      "id": "documentation-sidebar",
+      "name": "Documentation Sidebar",
+      "category": "sidebar",
+      "description": "Persistent sidebar navigation for documentation",
+      "structure": {
+        "header": ["logo", "version-selector", "search"],
+        "sections": "nested tree structure",
+        "footer": ["github-link", "discord-link"]
+      },
+      "behavior": {
+        "sticky": true,
+        "collapsible": "sections expand/collapse",
+        "activeIndicator": "highlight current page",
+        "scrollSync": "sync with content headings"
+      },
+      "mobile": {
+        "type": "off-canvas-left",
+        "trigger": "hamburger in header",
+        "overlay": true
+      },
+      "features": {
+        "search": "command palette (Cmd+K)",
+        "tableOfContents": "right sidebar on wide screens",
+        "breadcrumbs": "above content"
+      },
+      "examples": ["stripe.com/docs", "vercel.com/docs", "tailwindcss.com"],
+      "bestFor": ["documentation", "knowledge bases", "wikis"]
+    },
+    {
+      "id": "dashboard-sidebar",
+      "name": "Dashboard Sidebar",
+      "category": "sidebar",
+      "description": "App sidebar with icons and collapsible state",
+      "structure": {
+        "top": ["logo-icon", "workspace-selector"],
+        "main": ["nav-items with icons"],
+        "bottom": ["settings", "help", "user-avatar"]
+      },
+      "behavior": {
+        "collapsible": "icons-only mode",
+        "hoverExpand": "optional: expand on hover when collapsed",
+        "activeIndicator": "background highlight or left border"
+      },
+      "mobile": {
+        "type": "off-canvas or bottom-tabs",
+        "gesture": "swipe from left edge"
+      },
+      "features": {
+        "search": "at top",
+        "notifications": "badge on icon",
+        "shortcuts": "keyboard shortcuts for nav items",
+        "recentItems": "recent projects/files"
+      },
+      "examples": ["linear.app", "notion.so", "figma.com"],
+      "bestFor": ["dashboards", "SaaS apps", "admin panels"]
+    },
+    {
+      "id": "mobile-bottom-tabs",
+      "name": "Mobile Bottom Tabs",
+      "category": "mobile",
+      "description": "iOS/Android-style bottom navigation",
+      "structure": {
+        "tabs": ["home", "search", "create", "notifications", "profile"],
+        "maxItems": 5,
+        "activeIndicator": "filled icon or dot"
+      },
+      "behavior": {
+        "sticky": "always visible at bottom",
+        "hideOnScroll": "optional: hide on scroll down, show on scroll up",
+        "safeArea": "respect device safe area"
+      },
+      "interactions": {
+        "tapToScroll": "tap active tab to scroll to top",
+        "longPress": "optional: reveal sub-actions"
+      },
+      "accessibility": {
+        "tabRole": "navigation with role='navigation'",
+        "labels": "aria-label for icon-only tabs"
+      },
+      "examples": ["Instagram", "Twitter/X", "TikTok"],
+      "bestFor": ["mobile apps", "social apps", "consumer apps"]
+    },
+    {
+      "id": "hamburger-overlay",
+      "name": "Hamburger Overlay",
+      "category": "mobile",
+      "description": "Full-screen overlay menu for mobile",
+      "structure": {
+        "trigger": "hamburger icon (3 lines)",
+        "content": "centered nav items with large touch targets",
+        "footer": "social links, contact info"
+      },
+      "behavior": {
+        "animation": "fade in + scale or slide",
+        "background": "solid or blur over content",
+        "closeButton": "X icon or hamburger transforms to X"
+      },
+      "interactions": {
+        "swipeToClose": "swipe down to dismiss",
+        "escapeClose": true
+      },
+      "design": {
+        "typography": "large (24-32px)",
+        "spacing": "generous for touch",
+        "animation": "staggered item reveal"
+      },
+      "examples": ["most mobile sites"],
+      "bestFor": ["mobile navigation", "responsive sites"]
+    },
+    {
+      "id": "breadcrumb-contextual",
+      "name": "Breadcrumb Contextual",
+      "category": "contextual",
+      "description": "Hierarchical navigation showing current location",
+      "structure": {
+        "format": "Home > Category > Subcategory > Current",
+        "separator": "/ or > or chevron icon",
+        "truncation": "ellipsis for deep hierarchies"
+      },
+      "behavior": {
+        "clickable": "all items except current",
+        "currentItem": "plain text, not linked",
+        "overflow": "horizontal scroll or dropdown"
+      },
+      "mobile": {
+        "simplified": "show only 'Back to Parent'",
+        "collapsed": "first + last with ellipsis"
+      },
+      "schema": {
+        "structuredData": "BreadcrumbList schema for SEO"
+      },
+      "examples": ["e-commerce sites", "documentation"],
+      "bestFor": ["deep hierarchies", "e-commerce", "documentation"]
+    },
+    {
+      "id": "tabs-inline",
+      "name": "Tabs Inline",
+      "category": "contextual",
+      "description": "Horizontal tabs for content switching",
+      "structure": {
+        "style": "underline, pills, or segment",
+        "overflow": "horizontal scroll or dropdown"
+      },
+      "behavior": {
+        "switchAnimation": "fade or slide content",
+        "urlSync": "optional: update URL hash",
+        "lazyLoad": "optional: load content on switch"
+      },
+      "accessibility": {
+        "role": "tablist with tab and tabpanel",
+        "keyboard": "arrow keys to switch",
+        "focus": "focus tab, not panel on switch"
+      },
+      "variants": {
+        "underline": "minimal, good for content tabs",
+        "pills": "more prominent, good for filters",
+        "segment": "iOS style, good for toggles"
+      },
+      "examples": ["GitHub file/blame/history", "settings pages"],
+      "bestFor": ["settings pages", "content sections", "filters"]
+    },
+    {
+      "id": "pagination-load-more",
+      "name": "Pagination & Load More",
+      "category": "contextual",
+      "description": "Navigation for paginated content",
+      "variants": {
+        "numbered": {
+          "format": "< 1 2 3 ... 10 >",
+          "showPages": "7 max, with ellipsis",
+          "currentHighlight": "filled button or underline"
+        },
+        "loadMore": {
+          "format": "button at bottom of content",
+          "loading": "spinner or skeleton",
+          "autoTrigger": "optional: infinite scroll"
+        },
+        "prevNext": {
+          "format": "Previous / Next only",
+          "labels": "include destination title"
+        }
+      },
+      "behavior": {
+        "urlUpdate": "update URL for numbered pagination",
+        "scrollPosition": "preserve or scroll to top"
+      },
+      "mobile": {
+        "simplified": "< Prev | Page X of Y | Next >"
+      },
+      "examples": ["blog archives", "search results", "product listings"],
+      "bestFor": ["blogs", "search results", "product listings"]
+    },
+    {
+      "id": "sticky-section-nav",
+      "name": "Sticky Section Nav",
+      "category": "contextual",
+      "description": "Navigation that highlights current section while scrolling",
+      "structure": {
+        "position": "top below main nav or side",
+        "items": "section anchors",
+        "indicator": "underline or background"
+      },
+      "behavior": {
+        "scrollSync": "highlight active section",
+        "smoothScroll": "animated scroll to section on click",
+        "offsetTop": "account for sticky header height"
+      },
+      "mobile": {
+        "position": "horizontal scroll at top",
+        "style": "pills or tabs"
+      },
+      "examples": ["product pages", "long-form content", "documentation"],
+      "bestFor": ["long pages", "documentation", "product pages"]
+    },
+    {
+      "id": "command-palette",
+      "name": "Command Palette",
+      "category": "contextual",
+      "description": "Keyboard-first navigation modal (Cmd+K)",
+      "structure": {
+        "trigger": "Cmd+K or click search",
+        "input": "search field at top",
+        "results": "grouped by category",
+        "footer": "keyboard shortcuts hint"
+      },
+      "behavior": {
+        "fuzzySearch": "match partial terms",
+        "recentItems": "show recent searches first",
+        "categories": "pages, actions, settings",
+        "preview": "optional: show preview on hover"
+      },
+      "interactions": {
+        "arrowKeys": "navigate results",
+        "enter": "select item",
+        "escape": "close palette",
+        "tabKey": "switch categories"
+      },
+      "accessibility": {
+        "role": "combobox with listbox",
+        "announcements": "aria-live for results count"
+      },
+      "examples": ["linear.app", "notion.so", "vercel.com", "raycast.com"],
+      "bestFor": ["power users", "developer tools", "productivity apps"]
+    },
+    {
+      "id": "wizard-stepper",
+      "name": "Wizard Stepper",
+      "category": "contextual",
+      "description": "Multi-step process navigation",
+      "structure": {
+        "steps": "numbered or labeled steps",
+        "connector": "line between steps",
+        "states": "completed, current, upcoming"
+      },
+      "behavior": {
+        "linearProgress": "can only go forward, or allow back",
+        "validation": "prevent next without completing",
+        "saveDraft": "optional: save partial progress"
+      },
+      "mobile": {
+        "collapsed": "show current step + progress bar",
+        "expanded": "vertical stepper"
+      },
+      "accessibility": {
+        "progressRole": "aria-label for current step",
+        "announcements": "announce step changes"
+      },
+      "examples": ["checkout flows", "onboarding", "form wizards"],
+      "bestFor": ["checkout", "onboarding", "multi-step forms"]
+    },
+    {
+      "id": "floating-nav",
+      "name": "Floating Nav",
+      "category": "header",
+      "description": "Centered floating navigation bar (pill-style)",
+      "structure": {
+        "position": "centered, floating above content",
+        "items": "minimal nav items (3-5)",
+        "style": "pill or card with shadow"
+      },
+      "behavior": {
+        "appearOnScroll": "fade in after hero",
+        "backdrop": "blur behind",
+        "responsive": "full width on mobile"
+      },
+      "design": {
+        "shape": "rounded pill or rounded rectangle",
+        "shadow": "subtle elevation",
+        "background": "semi-transparent with blur"
+      },
+      "examples": ["apple.com (sometimes)", "modern landing pages"],
+      "bestFor": ["modern landing pages", "creative sites"]
+    },
+    {
+      "id": "app-header-hybrid",
+      "name": "App Header Hybrid",
+      "category": "header",
+      "description": "Combines navigation, search, and actions for web apps",
+      "structure": {
+        "leftSide": ["logo", "workspace-breadcrumb"],
+        "center": ["global-search"],
+        "rightSide": ["notifications", "help", "user-menu"]
+      },
+      "behavior": {
+        "sticky": true,
+        "contextual": "breadcrumb updates with location",
+        "searchFocus": "Cmd+K to focus"
+      },
+      "mobile": {
+        "simplified": "logo, search icon, menu icon",
+        "searchExpand": "overlay search on icon tap"
+      },
+      "features": {
+        "notifications": "dropdown with unread badge",
+        "userMenu": "dropdown with account, settings, logout",
+        "help": "dropdown with docs, support, shortcuts"
+      },
+      "examples": ["github.com", "gitlab.com", "atlassian products"],
+      "bestFor": ["web apps", "dashboards", "collaboration tools"]
+    }
+  ]
+}

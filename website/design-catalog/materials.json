@@ -1,0 +1,379 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalMaterials": 22,
+    "categories": ["glass", "metal", "paper", "fabric", "liquid", "organic", "noise", "3d"]
+  },
+  "materials": [
+    {
+      "id": "frosted-glass",
+      "name": "Frosted Glass",
+      "category": "glass",
+      "description": "Semi-transparent surface with blur effect",
+      "css": {
+        "background": "rgba(255, 255, 255, 0.25)",
+        "backdropFilter": "blur(10px)",
+        "WebkitBackdropFilter": "blur(10px)",
+        "border": "1px solid rgba(255, 255, 255, 0.18)"
+      },
+      "variants": {
+        "light": { "background": "rgba(255, 255, 255, 0.7)", "blur": "8px" },
+        "dark": { "background": "rgba(0, 0, 0, 0.5)", "blur": "12px" },
+        "colored": { "background": "rgba(99, 102, 241, 0.3)", "blur": "10px" }
+      },
+      "performance": "backdrop-filter can be expensive; use sparingly",
+      "fallback": "solid color with opacity for unsupported browsers",
+      "examples": ["macOS windows", "iOS control center"],
+      "bestFor": ["modals", "cards over images", "navigation bars"]
+    },
+    {
+      "id": "acrylic",
+      "name": "Acrylic (Fluent)",
+      "category": "glass",
+      "description": "Microsoft Fluent Design acrylic material",
+      "css": {
+        "background": "linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.5))",
+        "backdropFilter": "blur(30px) saturate(125%)",
+        "border": "1px solid rgba(255,255,255,0.5)"
+      },
+      "characteristics": {
+        "blur": "heavy blur (20-30px)",
+        "saturation": "slightly boosted",
+        "noise": "subtle noise overlay",
+        "tint": "color tint layer"
+      },
+      "layers": ["blur", "saturation", "noise texture", "color tint", "border"],
+      "examples": ["Windows 11", "Fluent UI"],
+      "bestFor": ["system UI", "sidebars", "overlays"]
+    },
+    {
+      "id": "clear-glass",
+      "name": "Clear Glass",
+      "category": "glass",
+      "description": "Transparent with subtle refraction effect",
+      "css": {
+        "background": "rgba(255, 255, 255, 0.1)",
+        "backdropFilter": "blur(2px)",
+        "border": "1px solid rgba(255, 255, 255, 0.2)",
+        "boxShadow": "0 4px 30px rgba(0, 0, 0, 0.1)"
+      },
+      "effect": "minimal distortion, mostly transparent",
+      "bestFor": ["subtle overlays", "hover states"]
+    },
+    {
+      "id": "brushed-metal",
+      "name": "Brushed Metal",
+      "category": "metal",
+      "description": "Linear grain texture like brushed aluminum",
+      "css": {
+        "background": "linear-gradient(135deg, #d4d4d4 0%, #a8a8a8 50%, #d4d4d4 100%)",
+        "backgroundSize": "200% 200%"
+      },
+      "texture": {
+        "noise": "horizontal streaks SVG or canvas",
+        "reflection": "subtle gradient shift"
+      },
+      "variants": {
+        "aluminum": { "colors": ["#d4d4d4", "#a8a8a8"] },
+        "steel": { "colors": ["#8a9299", "#5c6670"] },
+        "gold": { "colors": ["#d4af37", "#996515"] }
+      },
+      "examples": ["Apple hardware", "automotive UI"],
+      "bestFor": ["premium feel", "hardware-inspired UI"]
+    },
+    {
+      "id": "chrome-reflective",
+      "name": "Chrome Reflective",
+      "category": "metal",
+      "description": "High-shine reflective chrome surface",
+      "css": {
+        "background": "linear-gradient(135deg, #e8e8e8 0%, #ffffff 25%, #8a8a8a 50%, #ffffff 75%, #e8e8e8 100%)",
+        "backgroundSize": "400% 400%"
+      },
+      "animation": {
+        "hover": "shift gradient position",
+        "keyframes": "slow gradient movement"
+      },
+      "use": "sparingly for accent elements",
+      "bestFor": ["logos", "badges", "premium accents"]
+    },
+    {
+      "id": "matte-metal",
+      "name": "Matte Metal",
+      "category": "metal",
+      "description": "Non-reflective metallic surface",
+      "css": {
+        "background": "#71717a",
+        "boxShadow": "inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.1)"
+      },
+      "texture": "subtle noise for grain",
+      "variants": {
+        "gunmetal": "#374151",
+        "titanium": "#78716c",
+        "copper": "#b45309"
+      },
+      "bestFor": ["buttons", "toolbars", "industrial aesthetic"]
+    },
+    {
+      "id": "paper-texture",
+      "name": "Paper Texture",
+      "category": "paper",
+      "description": "Natural paper with subtle fiber texture",
+      "css": {
+        "background": "#faf9f6",
+        "backgroundImage": "url('data:image/svg+xml,...')"
+      },
+      "texture": {
+        "type": "noise or fiber pattern",
+        "opacity": "5-15%",
+        "blend": "multiply or soft-light"
+      },
+      "variants": {
+        "white": "#ffffff with subtle texture",
+        "cream": "#faf9f6",
+        "kraft": "#c9a959",
+        "newsprint": "#e8e4dc"
+      },
+      "examples": ["editorial sites", "stationery brands"],
+      "bestFor": ["editorial", "organic brands", "portfolios"]
+    },
+    {
+      "id": "cardboard",
+      "name": "Cardboard",
+      "category": "paper",
+      "description": "Corrugated or flat cardboard texture",
+      "css": {
+        "background": "#b8956b",
+        "backgroundImage": "repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)"
+      },
+      "texture": "horizontal ridges for corrugated",
+      "bestFor": ["eco-friendly brands", "packaging-inspired UI"]
+    },
+    {
+      "id": "linen-fabric",
+      "name": "Linen Fabric",
+      "category": "fabric",
+      "description": "Woven linen texture pattern",
+      "css": {
+        "backgroundColor": "#f5f5dc",
+        "backgroundImage": "url('linen-pattern.png')",
+        "backgroundSize": "100px 100px"
+      },
+      "texture": {
+        "type": "crosshatch weave pattern",
+        "scale": "small, subtle"
+      },
+      "examples": ["iOS classic linen", "warm interfaces"],
+      "bestFor": ["warm aesthetic", "backgrounds", "organic feel"]
+    },
+    {
+      "id": "denim",
+      "name": "Denim",
+      "category": "fabric",
+      "description": "Blue jean textile texture",
+      "css": {
+        "backgroundColor": "#1e3a5f",
+        "backgroundImage": "url('denim-texture.png')"
+      },
+      "characteristics": {
+        "color": "indigo blue spectrum",
+        "weave": "diagonal twill pattern"
+      },
+      "bestFor": ["casual brands", "fashion", "youth-oriented"]
+    },
+    {
+      "id": "leather",
+      "name": "Leather",
+      "category": "fabric",
+      "description": "Leather grain texture",
+      "css": {
+        "backgroundColor": "#5c4033",
+        "backgroundImage": "url('leather-grain.png')"
+      },
+      "variants": {
+        "brown": "#5c4033",
+        "black": "#1a1a1a",
+        "tan": "#d2b48c"
+      },
+      "characteristics": "natural grain variation, subtle sheen",
+      "bestFor": ["luxury brands", "professional tools", "skeuomorphic design"]
+    },
+    {
+      "id": "liquid-gradient",
+      "name": "Liquid Gradient",
+      "category": "liquid",
+      "description": "Flowing, organic gradient blobs",
+      "css": {
+        "background": "linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4)",
+        "backgroundSize": "400% 400%",
+        "animation": "gradient-flow 15s ease infinite"
+      },
+      "animation": {
+        "keyframes": "shift background-position",
+        "duration": "10-20s for subtle movement"
+      },
+      "creation": "CSS gradients or SVG filters for blob shapes",
+      "examples": ["Stripe", "modern landing pages"],
+      "bestFor": ["hero backgrounds", "modern aesthetic"]
+    },
+    {
+      "id": "water-ripple",
+      "name": "Water Ripple",
+      "category": "liquid",
+      "description": "Concentric ripple effect",
+      "implementation": {
+        "css": "radial-gradient animation",
+        "canvas": "sine wave displacement",
+        "webgl": "fragment shader ripple"
+      },
+      "trigger": "on click or hover",
+      "examples": ["Material Design ripple"],
+      "bestFor": ["interaction feedback", "water themes"]
+    },
+    {
+      "id": "oil-slick",
+      "name": "Oil Slick / Iridescent",
+      "category": "liquid",
+      "description": "Rainbow iridescent sheen effect",
+      "css": {
+        "background": "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)",
+        "backgroundSize": "200% 200%"
+      },
+      "animation": "shift gradient on hover or continuously",
+      "effect": "color-shifting based on angle/position",
+      "bestFor": ["premium accents", "holographic effects", "Y2K aesthetic"]
+    },
+    {
+      "id": "wood-grain",
+      "name": "Wood Grain",
+      "category": "organic",
+      "description": "Natural wood texture with grain lines",
+      "css": {
+        "backgroundColor": "#deb887",
+        "backgroundImage": "url('wood-grain.jpg')",
+        "backgroundSize": "cover"
+      },
+      "variants": {
+        "oak": "#deb887",
+        "walnut": "#5d432c",
+        "maple": "#f5deb3",
+        "cherry": "#8b4513"
+      },
+      "bestFor": ["natural themes", "furniture brands", "warm aesthetic"]
+    },
+    {
+      "id": "marble",
+      "name": "Marble",
+      "category": "organic",
+      "description": "Veined marble stone texture",
+      "css": {
+        "backgroundColor": "#f5f5f5",
+        "backgroundImage": "url('marble-texture.jpg')"
+      },
+      "variants": {
+        "white": "white with gray veins",
+        "black": "black with white/gold veins",
+        "green": "verde marble"
+      },
+      "examples": ["luxury brands", "editorial"],
+      "bestFor": ["luxury", "fashion", "architecture"]
+    },
+    {
+      "id": "concrete",
+      "name": "Concrete",
+      "category": "organic",
+      "description": "Raw concrete/cement texture",
+      "css": {
+        "backgroundColor": "#9ca3af",
+        "backgroundImage": "url('concrete-texture.png')"
+      },
+      "characteristics": "mottled, slightly rough appearance",
+      "variants": {
+        "light": "#d1d5db",
+        "dark": "#6b7280",
+        "weathered": "with stains and patches"
+      },
+      "bestFor": ["brutalist design", "industrial", "architecture"]
+    },
+    {
+      "id": "noise-grain",
+      "name": "Noise/Grain Overlay",
+      "category": "noise",
+      "description": "Film grain or digital noise texture",
+      "css": {
+        "backgroundImage": "url('noise.png')",
+        "opacity": "0.05-0.15",
+        "mixBlendMode": "overlay"
+      },
+      "generation": {
+        "svg": "feTurbulence filter",
+        "canvas": "random pixel generation",
+        "image": "pre-generated noise PNG"
+      },
+      "usage": "overlay on gradients or solid colors for texture",
+      "examples": ["Linear", "modern landing pages"],
+      "bestFor": ["adding texture to flat designs", "retro feel"]
+    },
+    {
+      "id": "halftone",
+      "name": "Halftone Pattern",
+      "category": "noise",
+      "description": "Dot pattern like print media",
+      "css": {
+        "backgroundImage": "radial-gradient(circle, #000 1px, transparent 1px)",
+        "backgroundSize": "4px 4px"
+      },
+      "variants": {
+        "fine": "2px spacing",
+        "coarse": "8px spacing",
+        "gradient": "varying dot sizes"
+      },
+      "examples": ["comic book style", "print-inspired"],
+      "bestFor": ["editorial", "pop art", "retro print"]
+    },
+    {
+      "id": "scanlines",
+      "name": "Scanlines",
+      "category": "noise",
+      "description": "CRT monitor scanline effect",
+      "css": {
+        "backgroundImage": "repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px)"
+      },
+      "usage": "overlay for retro/cyberpunk aesthetic",
+      "bestFor": ["retro gaming", "cyberpunk", "CRT aesthetic"]
+    },
+    {
+      "id": "3d-plastic",
+      "name": "3D Plastic",
+      "category": "3d",
+      "description": "Glossy 3D rendered plastic look",
+      "css": {
+        "background": "linear-gradient(145deg, #ffffff, #e6e6e6)",
+        "boxShadow": "5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff",
+        "borderRadius": "15px"
+      },
+      "effect": "neumorphism with glossy highlight",
+      "usage": "for 3D-looking UI elements",
+      "bestFor": ["playful UI", "toy-like aesthetic", "claymorphism"]
+    },
+    {
+      "id": "clay-3d",
+      "name": "Clay/Claymorphism",
+      "category": "3d",
+      "description": "Soft, clay-like 3D appearance",
+      "css": {
+        "background": "linear-gradient(145deg, #cacaca, #f0f0f0)",
+        "boxShadow": "20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
+        "borderRadius": "30px"
+      },
+      "characteristics": {
+        "shadows": "large, soft shadows",
+        "radius": "very rounded corners",
+        "colors": "muted, pastel"
+      },
+      "trend": "2023-2024 design trend",
+      "bestFor": ["friendly UI", "illustrations", "playful brands"]
+    }
+  ]
+}

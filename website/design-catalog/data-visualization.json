@@ -1,0 +1,413 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 24,
+    "categories": ["charts", "dashboards", "maps", "accessibility"]
+  },
+  "charts": [
+    {
+      "id": "bar-chart",
+      "name": "Bar Chart",
+      "category": "charts",
+      "description": "Comparing discrete categories",
+      "bestFor": ["comparing quantities", "ranking items", "showing distribution"],
+      "variants": {
+        "vertical": "default, most common",
+        "horizontal": "better for long labels",
+        "stacked": "shows part-to-whole within categories",
+        "grouped": "compares multiple series"
+      },
+      "guidelines": {
+        "startAtZero": "always start y-axis at zero",
+        "barWidth": "bars wider than gaps between them",
+        "sorting": "sort by value unless categorical order matters",
+        "labels": "direct labels preferred over legends"
+      },
+      "accessibility": "use patterns/textures in addition to color"
+    },
+    {
+      "id": "line-chart",
+      "name": "Line Chart",
+      "category": "charts",
+      "description": "Showing trends over continuous data",
+      "bestFor": ["time series", "trends", "change over time"],
+      "variants": {
+        "single": "one data series",
+        "multi": "comparing multiple series (max 4-5)",
+        "area": "emphasizes volume/magnitude",
+        "sparkline": "compact, inline trend indicator"
+      },
+      "guidelines": {
+        "aspectRatio": "wider than tall (2:1 to 3:1)",
+        "markers": "optional - useful for discrete points",
+        "interpolation": "linear for accuracy, curved for aesthetic",
+        "gridlines": "subtle horizontal, avoid vertical"
+      },
+      "accessibility": "different line styles (dashed, dotted) plus color"
+    },
+    {
+      "id": "pie-chart",
+      "name": "Pie/Donut Chart",
+      "category": "charts",
+      "description": "Part-to-whole relationships",
+      "bestFor": ["percentage breakdowns", "simple proportions (2-5 items)"],
+      "limitations": [
+        "hard to compare similar-sized slices",
+        "max 5-6 slices before confusion",
+        "don't use for precise comparisons"
+      ],
+      "variants": {
+        "pie": "full circle, classic",
+        "donut": "center cutout, can hold summary stat",
+        "semi": "half circle, saves space"
+      },
+      "guidelines": {
+        "startPosition": "12 o'clock, largest slice first",
+        "labels": "direct labels, not legend if possible",
+        "ordering": "by size, clockwise"
+      },
+      "alternative": "consider bar chart for more than 5 categories"
+    },
+    {
+      "id": "scatter-plot",
+      "name": "Scatter Plot",
+      "category": "charts",
+      "description": "Showing correlation between two variables",
+      "bestFor": ["correlation analysis", "outlier detection", "distribution patterns"],
+      "variants": {
+        "basic": "dots showing x/y relationship",
+        "bubble": "third variable as dot size",
+        "connected": "dots connected to show sequence"
+      },
+      "guidelines": {
+        "pointSize": "consistent unless encoding data",
+        "transparency": "use opacity for overlapping points",
+        "trendline": "optional, shows correlation direction",
+        "axes": "labeled with units"
+      }
+    },
+    {
+      "id": "heatmap",
+      "name": "Heatmap",
+      "category": "charts",
+      "description": "Density or intensity across two dimensions",
+      "bestFor": ["patterns in matrices", "time-based patterns", "correlation matrices"],
+      "useCases": {
+        "activity": "GitHub contribution graph",
+        "calendar": "usage patterns by day/hour",
+        "correlation": "feature correlation matrices"
+      },
+      "guidelines": {
+        "colorScale": "sequential (single hue) or diverging (two hues from center)",
+        "legend": "always include color scale legend",
+        "labels": "cell values if space permits"
+      },
+      "colorBlindness": "avoid red-green, use blue-orange diverging"
+    },
+    {
+      "id": "treemap",
+      "name": "Treemap",
+      "category": "charts",
+      "description": "Hierarchical data as nested rectangles",
+      "bestFor": ["hierarchical proportions", "file system visualization", "budget breakdowns"],
+      "guidelines": {
+        "layout": "squarified algorithm for readable proportions",
+        "nesting": "max 2-3 levels before confusion",
+        "labels": "fit inside rectangles, truncate if needed",
+        "color": "by category or by value gradient"
+      },
+      "interactivity": "zoom into levels, tooltip on hover"
+    },
+    {
+      "id": "funnel-chart",
+      "name": "Funnel Chart",
+      "category": "charts",
+      "description": "Sequential stages with drop-off",
+      "bestFor": ["conversion funnels", "sales pipelines", "user flows"],
+      "metrics": {
+        "absolute": "count at each stage",
+        "conversion": "percentage from previous stage",
+        "overall": "percentage from first stage"
+      },
+      "guidelines": {
+        "direction": "top-to-bottom or left-to-right",
+        "labels": "stage name + count + percentage",
+        "color": "gradient or consistent brand color"
+      }
+    },
+    {
+      "id": "gauge-chart",
+      "name": "Gauge/Meter",
+      "category": "charts",
+      "description": "Single value against a scale",
+      "bestFor": ["KPIs", "progress toward goal", "performance metrics"],
+      "variants": {
+        "semicircle": "classic speedometer",
+        "circular": "full circle progress",
+        "linear": "horizontal progress bar"
+      },
+      "guidelines": {
+        "ranges": "color zones for good/warning/bad",
+        "target": "marker showing goal",
+        "value": "large, prominent current value"
+      }
+    },
+    {
+      "id": "sankey-diagram",
+      "name": "Sankey Diagram",
+      "category": "charts",
+      "description": "Flow and distribution between nodes",
+      "bestFor": ["budget flows", "user journey paths", "energy/resource flows"],
+      "guidelines": {
+        "flowWidth": "proportional to quantity",
+        "nodes": "labeled with name and value",
+        "colors": "by source or by category",
+        "direction": "left-to-right typically"
+      },
+      "complexity": "best for 3-7 nodes per level"
+    },
+    {
+      "id": "radar-chart",
+      "name": "Radar/Spider Chart",
+      "category": "charts",
+      "description": "Multivariate data on radial axes",
+      "bestFor": ["comparing profiles", "skill assessments", "product comparisons"],
+      "limitations": [
+        "hard to read precise values",
+        "area can be misleading",
+        "max 8-10 variables"
+      ],
+      "guidelines": {
+        "axes": "all same scale (normalize data)",
+        "comparison": "max 2-3 overlapping shapes",
+        "labels": "at end of each axis"
+      }
+    }
+  ],
+  "dashboards": [
+    {
+      "id": "executive-dashboard",
+      "name": "Executive Dashboard",
+      "category": "dashboards",
+      "description": "High-level KPIs for leadership",
+      "characteristics": {
+        "density": "low - focus on key metrics",
+        "updates": "daily or weekly",
+        "depth": "summary with drill-down option"
+      },
+      "layout": {
+        "structure": "large KPI cards at top, supporting charts below",
+        "kpiCount": "4-6 primary metrics",
+        "comparison": "vs previous period, vs target"
+      },
+      "bestPractices": [
+        "single screen, no scrolling",
+        "red/yellow/green status indicators",
+        "trend sparklines next to numbers",
+        "date range selector"
+      ]
+    },
+    {
+      "id": "operational-dashboard",
+      "name": "Operational Dashboard",
+      "category": "dashboards",
+      "description": "Real-time monitoring for operations",
+      "characteristics": {
+        "density": "high - comprehensive view",
+        "updates": "real-time or near-real-time",
+        "depth": "detailed current state"
+      },
+      "layout": {
+        "structure": "grid of panels, often 2-3 columns",
+        "alerts": "prominent alert/warning section",
+        "status": "system health indicators"
+      },
+      "features": [
+        "auto-refresh",
+        "alert thresholds",
+        "time range filtering",
+        "export/share capability"
+      ],
+      "examples": ["Grafana", "Datadog", "server monitoring"]
+    },
+    {
+      "id": "analytical-dashboard",
+      "name": "Analytical Dashboard",
+      "category": "dashboards",
+      "description": "Deep exploration of data",
+      "characteristics": {
+        "density": "medium - balance of overview and detail",
+        "updates": "on-demand or daily",
+        "depth": "exploratory, interactive"
+      },
+      "layout": {
+        "structure": "filters on left/top, main viz center, details on side",
+        "interactivity": "cross-filtering between charts",
+        "drill": "click to drill into details"
+      },
+      "features": [
+        "extensive filtering",
+        "date range selection",
+        "segment comparison",
+        "data export"
+      ],
+      "examples": ["Google Analytics", "Amplitude", "Mixpanel"]
+    },
+    {
+      "id": "kpi-cards",
+      "name": "KPI Card Design",
+      "category": "dashboards",
+      "description": "Individual metric display cards",
+      "anatomy": {
+        "metric": "large number, primary focus",
+        "label": "metric name above or below",
+        "comparison": "vs previous period (arrow + percentage)",
+        "sparkline": "trend over time",
+        "context": "target or benchmark"
+      },
+      "variants": {
+        "simple": "just number and label",
+        "comparison": "includes period comparison",
+        "goal": "includes progress toward target",
+        "mini-chart": "includes sparkline"
+      },
+      "coloring": {
+        "positive": "green for improvement",
+        "negative": "red for decline",
+        "neutral": "gray for unchanged"
+      }
+    }
+  ],
+  "maps": [
+    {
+      "id": "choropleth",
+      "name": "Choropleth Map",
+      "category": "maps",
+      "description": "Geographic regions colored by value",
+      "bestFor": ["regional comparisons", "population data", "election results"],
+      "guidelines": {
+        "colorScale": "sequential or diverging",
+        "normalization": "per capita often better than absolute",
+        "legend": "clear color scale with values",
+        "interaction": "hover for details"
+      },
+      "caution": "large regions can dominate visually"
+    },
+    {
+      "id": "point-map",
+      "name": "Point/Marker Map",
+      "category": "maps",
+      "description": "Individual locations as markers",
+      "bestFor": ["store locations", "event locations", "specific addresses"],
+      "variants": {
+        "simple": "uniform markers",
+        "sized": "marker size by value",
+        "clustered": "grouped at zoom levels"
+      },
+      "guidelines": {
+        "clustering": "essential for many points",
+        "popups": "click/tap for details",
+        "search": "find specific locations"
+      }
+    },
+    {
+      "id": "heat-map-geo",
+      "name": "Geographic Heatmap",
+      "category": "maps",
+      "description": "Density visualization on map",
+      "bestFor": ["activity density", "incident concentration", "population density"],
+      "guidelines": {
+        "radius": "adjust based on zoom level",
+        "intensity": "normalize for consistent view",
+        "colorScale": "transparent to opaque"
+      }
+    }
+  ],
+  "accessibility": [
+    {
+      "id": "color-accessibility",
+      "name": "Color Accessibility",
+      "category": "accessibility",
+      "description": "Making charts readable for color blind users",
+      "strategies": [
+        "use patterns/textures in addition to color",
+        "avoid red-green combinations",
+        "use blue-orange as safe diverging palette",
+        "ensure sufficient contrast between adjacent colors",
+        "direct labels reduce reliance on color legends"
+      ],
+      "tools": ["colorbrewer2.org", "Viz Palette", "Coblis simulator"]
+    },
+    {
+      "id": "screen-reader",
+      "name": "Screen Reader Support",
+      "category": "accessibility",
+      "description": "Making charts accessible to screen readers",
+      "requirements": [
+        "meaningful alt text describing the insight",
+        "data table alternative for complex charts",
+        "ARIA labels for interactive elements",
+        "keyboard navigation for interactivity"
+      ],
+      "pattern": "Provide both visual chart AND accessible data table"
+    },
+    {
+      "id": "text-alternatives",
+      "name": "Text Alternatives",
+      "category": "accessibility",
+      "description": "Describing charts in text",
+      "structure": {
+        "title": "what is this chart showing",
+        "description": "key insight or trend",
+        "data": "summary statistics or table",
+        "source": "where data comes from"
+      },
+      "example": "Sales grew 23% year-over-year, from $1.2M to $1.5M, with strongest growth in Q4."
+    }
+  ],
+  "libraries": [
+    {
+      "id": "d3",
+      "name": "D3.js",
+      "type": "low-level",
+      "description": "Complete control, steep learning curve",
+      "bestFor": "custom, unique visualizations"
+    },
+    {
+      "id": "recharts",
+      "name": "Recharts",
+      "type": "react",
+      "description": "React wrapper around D3",
+      "bestFor": "React apps, common chart types"
+    },
+    {
+      "id": "visx",
+      "name": "visx",
+      "type": "react",
+      "description": "Low-level D3 primitives for React",
+      "bestFor": "custom charts in React"
+    },
+    {
+      "id": "chart-js",
+      "name": "Chart.js",
+      "type": "canvas",
+      "description": "Simple, performant canvas charts",
+      "bestFor": "quick implementation, basic charts"
+    },
+    {
+      "id": "plotly",
+      "name": "Plotly",
+      "type": "scientific",
+      "description": "Scientific and 3D visualization",
+      "bestFor": "data science, complex charts"
+    },
+    {
+      "id": "observable-plot",
+      "name": "Observable Plot",
+      "type": "declarative",
+      "description": "Grammar of graphics approach",
+      "bestFor": "exploratory analysis, quick iteration"
+    }
+  ]
+}

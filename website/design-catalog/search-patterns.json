@@ -1,0 +1,282 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 16,
+    "categories": ["input", "results", "filters", "advanced"]
+  },
+  "patterns": [
+    {
+      "id": "simple-search",
+      "name": "Simple Search Input",
+      "category": "input",
+      "description": "Basic search field",
+      "anatomy": {
+        "icon": "magnifying glass (left)",
+        "input": "text field",
+        "clear": "X button when text present",
+        "submit": "optional button or Enter key"
+      },
+      "placeholder": "Search... or Search [domain]",
+      "behavior": {
+        "focus": "expand or highlight on focus",
+        "submit": "Enter key or button click"
+      }
+    },
+    {
+      "id": "expandable-search",
+      "name": "Expandable Search",
+      "category": "input",
+      "description": "Icon that expands to full search",
+      "states": {
+        "collapsed": "just magnifying glass icon",
+        "expanded": "full search input"
+      },
+      "trigger": "click icon to expand",
+      "collapse": "blur when empty, or explicit close",
+      "useCases": ["space-constrained headers", "secondary search"]
+    },
+    {
+      "id": "autocomplete",
+      "name": "Autocomplete/Typeahead",
+      "category": "input",
+      "description": "Suggestions as user types",
+      "behavior": {
+        "trigger": "start showing after 2-3 characters",
+        "debounce": "300-500ms delay",
+        "highlight": "bold matching text in suggestions"
+      },
+      "navigation": {
+        "arrows": "up/down to navigate",
+        "enter": "select highlighted",
+        "escape": "close suggestions",
+        "tab": "select and move focus"
+      },
+      "types": {
+        "recent": "user's recent searches",
+        "popular": "trending/popular searches",
+        "suggestions": "query completions",
+        "results": "actual result previews"
+      }
+    },
+    {
+      "id": "command-palette-search",
+      "name": "Command Palette Search",
+      "category": "input",
+      "description": "Cmd+K style universal search",
+      "trigger": "Cmd/Ctrl + K",
+      "features": {
+        "actions": "search actions and commands",
+        "navigation": "search pages/routes",
+        "content": "search content/documents",
+        "recent": "recent items/actions"
+      },
+      "categories": "group results by type",
+      "shortcuts": "show keyboard shortcuts",
+      "examples": ["VS Code", "Linear", "Raycast", "Notion"]
+    },
+    {
+      "id": "scoped-search",
+      "name": "Scoped/Filtered Search",
+      "category": "input",
+      "description": "Search within specific category",
+      "implementation": {
+        "prefix": "type: or category/ prefix",
+        "dropdown": "category selector before input",
+        "chips": "filter chips in input"
+      },
+      "examples": {
+        "github": "is:issue is:open",
+        "gmail": "from: to: subject:",
+        "ecommerce": "category dropdown + search"
+      }
+    },
+    {
+      "id": "search-results-list",
+      "name": "List Results",
+      "category": "results",
+      "description": "Traditional vertical list",
+      "anatomy": {
+        "title": "result title (linked)",
+        "snippet": "matching content preview",
+        "meta": "source, date, category",
+        "highlight": "matched terms highlighted"
+      },
+      "density": {
+        "compact": "title only",
+        "standard": "title + snippet",
+        "detailed": "title + snippet + meta + image"
+      }
+    },
+    {
+      "id": "search-results-grid",
+      "name": "Grid Results",
+      "category": "results",
+      "description": "Visual grid for media/products",
+      "useCases": ["images", "products", "videos"],
+      "anatomy": {
+        "thumbnail": "visual preview",
+        "title": "item name",
+        "meta": "price, date, author"
+      }
+    },
+    {
+      "id": "instant-search",
+      "name": "Instant Search Results",
+      "category": "results",
+      "description": "Results update as you type",
+      "implementation": {
+        "debounce": "200-300ms",
+        "loading": "subtle loading indicator",
+        "cache": "cache recent queries"
+      },
+      "performance": {
+        "target": "< 200ms perceived",
+        "optimisticUI": "show skeleton while loading"
+      },
+      "examples": ["Algolia", "Elasticsearch"]
+    },
+    {
+      "id": "no-results",
+      "name": "No Results State",
+      "category": "results",
+      "description": "Handling zero matches",
+      "anatomy": {
+        "message": "No results for '[query]'",
+        "suggestions": [
+          "check spelling",
+          "try fewer keywords",
+          "try different terms"
+        ],
+        "alternatives": "popular searches, categories"
+      },
+      "enhancement": {
+        "didYouMean": "spelling correction",
+        "related": "related content",
+        "broadenSearch": "suggest removing filters"
+      }
+    },
+    {
+      "id": "faceted-search",
+      "name": "Faceted Navigation",
+      "category": "filters",
+      "description": "Multiple filter dimensions",
+      "placement": {
+        "sidebar": "left sidebar (desktop)",
+        "overlay": "filter modal (mobile)",
+        "inline": "horizontal filter bar"
+      },
+      "facetTypes": {
+        "checkbox": "multi-select options",
+        "radio": "single-select options",
+        "range": "price, date ranges",
+        "colorSwatches": "visual color selection"
+      },
+      "counts": "show result count per option",
+      "examples": ["Amazon", "Airbnb", "job boards"]
+    },
+    {
+      "id": "filter-chips",
+      "name": "Active Filter Chips",
+      "category": "filters",
+      "description": "Visual display of active filters",
+      "anatomy": {
+        "chip": "filter name + value + remove X",
+        "clearAll": "Remove all filters"
+      },
+      "placement": "above results, below search",
+      "interaction": "click X to remove filter"
+    },
+    {
+      "id": "sort-options",
+      "name": "Sort Controls",
+      "category": "filters",
+      "description": "Ordering search results",
+      "common": {
+        "relevance": "best match (default)",
+        "date": "newest/oldest first",
+        "popularity": "most viewed/purchased",
+        "price": "low to high / high to low",
+        "alphabetical": "A-Z / Z-A"
+      },
+      "implementation": {
+        "dropdown": "sort dropdown select",
+        "toggle": "clickable column headers (tables)"
+      }
+    },
+    {
+      "id": "saved-searches",
+      "name": "Saved Searches",
+      "category": "advanced",
+      "description": "Save and rerun searches",
+      "features": {
+        "save": "save current search + filters",
+        "name": "custom name for search",
+        "notify": "optional: alert when new results"
+      },
+      "useCases": ["job searches", "real estate", "marketplace alerts"]
+    },
+    {
+      "id": "search-history",
+      "name": "Search History",
+      "category": "advanced",
+      "description": "Access to past searches",
+      "display": "recent searches in dropdown",
+      "privacy": {
+        "clear": "clear history option",
+        "disable": "option to not track"
+      },
+      "personalization": "inform autocomplete suggestions"
+    },
+    {
+      "id": "voice-search",
+      "name": "Voice Search",
+      "category": "advanced",
+      "description": "Speech-to-text search",
+      "trigger": "microphone icon",
+      "feedback": {
+        "listening": "visual indicator",
+        "transcript": "show recognized text",
+        "confirm": "allow edit before search"
+      },
+      "api": "Web Speech API",
+      "accessibility": "helpful for motor impairments"
+    },
+    {
+      "id": "visual-search",
+      "name": "Visual/Image Search",
+      "category": "advanced",
+      "description": "Search using images",
+      "input": {
+        "upload": "upload image",
+        "camera": "take photo",
+        "url": "paste image URL"
+      },
+      "useCases": ["product search", "similar items", "identify objects"],
+      "examples": ["Google Lens", "Pinterest", "Amazon"]
+    }
+  ],
+  "accessibility": {
+    "input": [
+      "proper label for search input",
+      "announce result count to screen readers",
+      "keyboard navigable suggestions"
+    ],
+    "results": [
+      "semantic list markup",
+      "focus management to results",
+      "announce loading/loaded states"
+    ],
+    "aria": {
+      "input": "role='searchbox'",
+      "suggestions": "aria-autocomplete='list'",
+      "results": "aria-live='polite' for updates"
+    }
+  },
+  "performance": {
+    "debounce": "300ms typical for autocomplete",
+    "cache": "cache recent queries and results",
+    "pagination": "don't load all results at once",
+    "indexing": "use search service (Algolia, Elasticsearch, Meilisearch)"
+  }
+}

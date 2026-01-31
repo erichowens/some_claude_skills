@@ -2,13 +2,14 @@
 
 ## Multi-Agent Strategic Synthesis
 *Generated: January 2, 2026*
-*Agents Consulted: Creative Design (Win31), UI/UX Designer, Frontend Developer, Competitive Intelligence, Content Marketing, Product Launch Strategy*
+*Updated: January 17, 2026 (Product Appeal Analysis)*
+*Agents Consulted: Creative Design (Win31), UI/UX Designer, Frontend Developer, Competitive Intelligence, Content Marketing, Product Launch Strategy, **Product Appeal Analyzer***
 
 ---
 
 ## Executive Summary
 
-This plan synthesizes recommendations from 6 specialized AI agents to transform Some Claude Skills from a documentation site into **the premier curated Claude Code skills platform** - differentiated by quality curation, tutorial-first learning, and the memorable Windows 3.1 aesthetic.
+This plan synthesizes recommendations from 7 specialized AI agents to transform Some Claude Skills from a documentation site into **the premier curated Claude Code skills platform** - differentiated by quality curation, tutorial-first learning, and the memorable Windows 3.1 aesthetic.
 
 ### The Strategic Thesis
 
@@ -20,6 +21,100 @@ This plan synthesizes recommendations from 6 specialized AI agents to transform 
 2. **Quality Vacuum**: No verification, certification, or security audits anywhere
 3. **Learning Barrier**: Zero tutorial content across all competitors
 4. **Brand Opportunity**: Generic branding everywhere - Win31 aesthetic is ownable
+
+---
+
+## ⚠️ Critical Finding: Product Appeal Analysis (Jan 2026)
+
+### The Desirability Triangle
+
+```
+                    IDENTITY FIT
+                    "This is for people like me"
+                         /\
+                        /  \
+                       / 8  \
+                      /      \
+                     / DESIRE \
+                    /    6     \
+                   /______________\
+        PROBLEM               TRUST
+        URGENCY               SIGNALS
+           4                     9
+   "I need this now"     "This will actually work"
+```
+
+**Overall Appeal Score: 63/90** — Strong foundation, but urgency is the killer.
+
+| Dimension | Score | Analysis |
+|-----------|-------|----------|
+| **Identity Fit** | 8/10 | ✅ Win31 aesthetic creates instant recognition for creative devs |
+| **Trust Signals** | 9/10 | ✅ Ex-Meta engineer, MIT license, GitHub = very credible |
+| **Problem Urgency** | 4/10 | ❌ **CRITICAL GAP** - Users think "cool, maybe later" not "I need this now" |
+
+### Critical Issues Discovered
+
+| Issue | Severity | Impact |
+|-------|----------|--------|
+| **Getting Started page 404s** | 🔴 Critical | Users who want to start *can't* |
+| **Bundles page 404s** | 🔴 Critical | Choice-reduction feature is broken |
+| **Primary CTA is a terminal command** | 🔴 Critical | Trust ladder violation - asking too much before value |
+| **No "What are Claude Skills?" section** | 🟡 High | Assumes visitors already know the concept |
+| **No urgency mechanics** | 🟡 High | No "trending", "popular this week", freshness signals |
+| **No demo/preview capability** | 🟡 High | Can't see skills in action before installing |
+
+### Conversion Funnel Gap Analysis
+
+```
+CURRENT STATE:
+
+Landing Page ──────> ??? ──────> ??? ──────> Install Skill
+    │                                              │
+    │ "Cool site"                                  │ "Somehow I'm supposed
+    │                                              │  to run this command?"
+    │                                              │
+    └── 80% bounce here                            └── Only power users convert
+
+MISSING STEPS:
+1. Education     → "What are Claude skills?"     ❌ MISSING
+2. Inspiration   → "See what's possible"         ⚠️ Gallery exists, no demos
+3. Selection     → "Find my first skill"         ⚠️ Filters exist, no guidance
+4. Installation  → "Get it working"              ❌ Getting Started 404s
+5. Success       → "It works!"                   ❌ MISSING
+6. Expansion     → "What else can I do?"         ❌ Bundles page 404s
+```
+
+### Objection Mapping (Unaddressed)
+
+| Objection | Currently Addressed? | Priority Fix |
+|-----------|---------------------|--------------|
+| "What even is a Claude skill?" | ❌ No | Add explainer above fold |
+| "Too complicated to set up" | ❌ No | Fix Getting Started 404 |
+| "I don't know which skill to try" | ⚠️ Partial | Fix Bundles 404, add "Start here" |
+| "Will this work for my use case?" | ❌ No | Use-case navigation |
+| "I'll try it later" | ❌ No | Urgency mechanics (trending, popular) |
+| "How is this different from prompts?" | ❌ No | Comparison section |
+
+### Recommended Priority Reorder
+
+Based on this analysis, **education and CTA fixes must come before features**:
+
+```diff
+BEFORE:
+  Wave 1: Foundation (design system, types, logger, vitest)
+  Wave 2: Hooks & Analytics
+  Wave 3: UI Components
+
+AFTER:
++ Wave 0: CRITICAL FIXES (NEW)
++   - Fix bundles page 404
++   - Fix/create Getting Started page
++   - Add "What are Claude Skills?" explainer above fold
++   - Change primary CTA from command → "Browse Skills"
+  Wave 1: Foundation (design system, types, logger, vitest)
+  Wave 2: Hooks & Analytics + Education content
+  ...
+```
 
 ---
 
@@ -476,6 +571,8 @@ Repo: github.com/xxx/some_claude_skills
 
 | Phase | Metric | Target |
 |-------|--------|--------|
+| **Week 0** | 404 pages fixed | 100% |
+| **Week 0** | Bounce rate reduction | -10% |
 | **Week 1** | Onboarding path selection | 60%+ |
 | **Week 4** | Tutorial L1 completion | 60%+ |
 | **Week 6** | Bundle install rate | 15%+ |
@@ -484,9 +581,32 @@ Repo: github.com/xxx/some_claude_skills
 | **Day 30** | Tracked installs | 1,000+ |
 | **Day 90** | Monthly visitors | 10,000+ |
 
+#### New Metrics from Product Appeal Analysis
+
+| Metric | Current | Target | Why |
+|--------|---------|--------|-----|
+| **5-Second Test Score** | 6/10 | 8/10 | Clarity of value prop |
+| **Problem Urgency Score** | 4/10 | 7/10 | Conversion driver |
+| **Skill page views/session** | Unknown | >3 | Engagement depth |
+| **Install command copies** | Unknown | >5% | Conversion signal |
+| **WCAG AA Compliance** | Unknown | 100% | Accessibility |
+
 ---
 
 ## Part 7: Implementation Checklist
+
+### 🔴 Week 0: Critical Fixes (BEFORE ANYTHING ELSE)
+*From Product Appeal Analysis - These are conversion killers*
+
+- [ ] **Fix /bundles page 404** - Page exists in code but not accessible
+- [ ] **Create /docs/getting-started** - Installation tutorial with clear steps
+- [ ] **Add "What are Claude Skills?" section** - Above fold on homepage
+  - 2-3 sentences explaining the concept
+  - Link to expanded explanation
+  - Before/after example of Claude with vs without a skill
+- [ ] **Change primary CTA** - From terminal command → "Browse Skills" or "Get Started"
+- [ ] **Add urgency signals** - "Most popular", "New this week", install counts
+- [ ] **Test 5-second clarity** - Can a stranger answer: What? Who? Why? How?
 
 ### Week 1-2: Foundation
 - [ ] Deploy onboarding modal component
@@ -573,7 +693,37 @@ Repo: github.com/xxx/some_claude_skills
 | **Competitive Intelligence** | Positioning | "Quality > Quantity", tutorial gap |
 | **Content Marketing** | 90-day calendar | Video batching, social templates |
 | **Product Launch** | Go-to-market | HN strategy, metrics, timing |
+| **Product Appeal Analyzer** | Desirability audit | Trust ladder violation, urgency gap, 404 blockers |
 
 ---
 
-*This plan synthesizes 6 expert perspectives into a single actionable roadmap. Execute week by week, measure against metrics, and iterate based on data.*
+## Appendix B: Product Appeal Analysis Details
+
+*Full analysis: `docs/PRODUCT_APPEAL_ANALYSIS.md`*
+
+### Persona Scores
+
+| Persona | Identity | Urgency | Trust | Total | Verdict |
+|---------|----------|---------|-------|-------|---------|
+| **The Tinkerer** (indie dev) | 9/10 | 5/10 | 9/10 | 69/90 | ✅ Strong fit |
+| **The Pragmatist** (work dev) | 6/10 | 4/10 | 8/10 | 54/90 | ⚠️ Needs work |
+| **The Curious Visitor** (new) | 7/10 | 3/10 | 8/10 | 54/90 | ⚠️ Critical gap |
+
+### Anti-Pattern Detection
+
+| Pattern | Status | Fix |
+|---------|--------|-----|
+| **Feature Soup Headline** | ✅ Clear | "Make Claude an Expert" is good |
+| **Screenshot Hero** | ⚠️ Music player doesn't show outcomes | Add demo/before-after |
+| **Trust Ladder Violation** | ❌ Terminal command CTA | Change to "Browse Skills" |
+| **Identity Mismatch** | ⚠️ Some enterprise skills buried | Consider persona-based paths |
+
+### Key Recommendations Summary
+
+1. **Immediate**: Fix 404s, change CTA, add "What is a skill?" explainer
+2. **Medium-term**: Demo capability, use-case navigation, urgency signals
+3. **Long-term**: Testimonials, enterprise landing variant, interactive playground
+
+---
+
+*This plan synthesizes 7 expert perspectives into a single actionable roadmap. Execute week by week, measure against metrics, and iterate based on data.*

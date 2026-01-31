@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 14,
+    "categories": ["implementation", "colors", "components", "accessibility"]
+  },
+  "patterns": [
+    {
+      "id": "system-preference",
+      "name": "System Preference Detection",
+      "category": "implementation",
+      "description": "Follow OS dark mode setting",
+      "implementation": {
+        "css": "@media (prefers-color-scheme: dark) { ... }",
+        "js": "window.matchMedia('(prefers-color-scheme: dark)')",
+        "listener": "matchMedia.addEventListener('change', callback)"
+      },
+      "behavior": "automatically match system setting",
+      "userOverride": "allow user to override system setting"
+    },
+    {
+      "id": "manual-toggle",
+      "name": "Manual Theme Toggle",
+      "category": "implementation",
+      "description": "User-controlled theme switching",
+      "options": {
+        "twoState": "light | dark",
+        "threeState": "light | dark | system"
+      },
+      "persistence": {
+        "localStorage": "remember preference",
+        "account": "sync across devices if logged in"
+      },
+      "placement": ["settings", "header", "footer"],
+      "icons": {
+        "light": "sun icon",
+        "dark": "moon icon",
+        "system": "computer/auto icon"
+      }
+    },
+    {
+      "id": "css-variables",
+      "name": "CSS Custom Properties",
+      "category": "implementation",
+      "description": "Theme via CSS variables",
+      "implementation": {
+        "root": ":root { --bg: white; --text: black; }",
+        "dark": ".dark { --bg: #1a1a1a; --text: white; }",
+        "usage": "background: var(--bg); color: var(--text);"
+      },
+      "organization": {
+        "semantic": "--color-background, --color-text-primary",
+        "scale": "--gray-100 through --gray-900"
+      },
+      "benefits": ["single source of truth", "easy switching", "no specificity wars"]
+    },
+    {
+      "id": "data-attribute",
+      "name": "Data Attribute Strategy",
+      "category": "implementation",
+      "description": "Theme via data attribute on html/body",
+      "implementation": {
+        "attribute": "<html data-theme='dark'>",
+        "css": "[data-theme='dark'] { ... }",
+        "js": "document.documentElement.dataset.theme = 'dark'"
+      },
+      "advantages": ["works with SSR", "no flash on load", "easy to toggle"]
+    },
+    {
+      "id": "dark-backgrounds",
+      "name": "Dark Background Colors",
+      "category": "colors",
+      "description": "Background color selection for dark mode",
+      "recommendations": {
+        "pureBlack": {
+          "value": "#000000",
+          "use": "OLED screens (battery saving)",
+          "caution": "harsh contrast with text"
+        },
+        "softBlack": {
+          "value": "#0a0a0a to #1a1a1a",
+          "use": "most applications",
+          "benefit": "easier on eyes"
+        },
+        "warmBlack": {
+          "value": "#1a1918",
+          "use": "warmer aesthetic"
+        },
+        "coolBlack": {
+          "value": "#0f172a",
+          "use": "technical/professional feel"
+        }
+      },
+      "elevationScale": "lighter shades for elevated surfaces"
+    },
+    {
+      "id": "dark-text-colors",
+      "name": "Dark Mode Text Colors",
+      "category": "colors",
+      "description": "Text color selection for dark mode",
+      "hierarchy": {
+        "primary": "#FFFFFF or #F5F5F5 (not pure white)",
+        "secondary": "#A0A0A0 to #B0B0B0",
+        "tertiary": "#707070 to #808080",
+        "disabled": "#505050"
+      },
+      "contrast": {
+        "minimum": "4.5:1 for normal text",
+        "recommendation": "reduce white intensity to ~90% for comfort"
+      }
+    },
+    {
+      "id": "accent-colors",
+      "name": "Accent Color Adjustment",
+      "category": "colors",
+      "description": "Adjusting brand/accent colors for dark mode",
+      "strategy": {
+        "desaturate": "reduce saturation 10-20%",
+        "lighten": "increase lightness for visibility",
+        "vibrant": "or use more vibrant versions"
+      },
+      "examples": {
+        "lightMode": "#2563EB (blue)",
+        "darkMode": "#60A5FA (lighter blue)"
+      },
+      "testing": "check contrast against dark backgrounds"
+    },
+    {
+      "id": "dark-elevation",
+      "name": "Dark Mode Elevation",
+      "category": "colors",
+      "description": "Depth without shadows in dark mode",
+      "problem": "shadows not visible on dark backgrounds",
+      "solution": "use lighter background shades for elevation",
+      "scale": {
+        "level0": "#121212",
+        "level1": "#1e1e1e",
+        "level2": "#232323",
+        "level3": "#252525",
+        "level4": "#272727"
+      },
+      "alternative": "subtle border or glow instead of shadow"
+    },
+    {
+      "id": "image-handling",
+      "name": "Image Treatment in Dark Mode",
+      "category": "components",
+      "description": "Handling images in dark theme",
+      "strategies": {
+        "reduceExposure": "filter: brightness(0.85)",
+        "invert": "filter: invert(1) for simple graphics",
+        "separate": "provide dark mode specific images",
+        "background": "add dark background behind transparent images"
+      },
+      "logos": {
+        "strategy": "provide light and dark versions",
+        "fallback": "or use SVG with currentColor"
+      }
+    },
+    {
+      "id": "illustration-handling",
+      "name": "Illustration Adaptation",
+      "category": "components",
+      "description": "Adapting illustrations for dark mode",
+      "approaches": {
+        "dimming": "reduce brightness/opacity",
+        "inversion": "invert colors (limited use)",
+        "recoloring": "create dark mode variants",
+        "outline": "use outline style that works in both"
+      },
+      "bestPractice": "design illustrations with both modes in mind"
+    },
+    {
+      "id": "form-inputs",
+      "name": "Form Input Styling",
+      "category": "components",
+      "description": "Form fields in dark mode",
+      "background": {
+        "sameAs": "same as page (outline border)",
+        "lighter": "slightly lighter than page",
+        "darker": "slightly darker (inset look)"
+      },
+      "borders": {
+        "visible": "ensure borders have contrast",
+        "focus": "maintain or enhance focus ring visibility"
+      },
+      "placeholder": "lower opacity than light mode placeholder"
+    },
+    {
+      "id": "status-colors",
+      "name": "Status Color Adjustment",
+      "category": "colors",
+      "description": "Adjusting semantic colors for dark mode",
+      "colors": {
+        "success": {
+          "light": "#22C55E",
+          "dark": "#4ADE80 (lighter)"
+        },
+        "error": {
+          "light": "#EF4444",
+          "dark": "#F87171 (lighter)"
+        },
+        "warning": {
+          "light": "#F59E0B",
+          "dark": "#FBBF24 (lighter)"
+        },
+        "info": {
+          "light": "#3B82F6",
+          "dark": "#60A5FA (lighter)"
+        }
+      },
+      "reason": "darker backgrounds need lighter foregrounds for same contrast"
+    },
+    {
+      "id": "syntax-highlighting",
+      "name": "Code Syntax Highlighting",
+      "category": "components",
+      "description": "Code blocks in dark mode",
+      "themes": {
+        "light": "GitHub Light, One Light",
+        "dark": "GitHub Dark, One Dark, Dracula"
+      },
+      "background": {
+        "light": "slightly darker than page",
+        "dark": "slightly lighter than page or same"
+      },
+      "implementation": "separate CSS for each theme"
+    },
+    {
+      "id": "transition-animation",
+      "name": "Theme Transition",
+      "category": "implementation",
+      "description": "Animating between themes",
+      "approaches": {
+        "instant": "no transition (simplest)",
+        "fade": "transition: background-color 0.3s, color 0.3s",
+        "scale": "brief overlay that fades"
+      },
+      "performance": "may cause paint on every element",
+      "recommendation": "short duration (150-300ms) or none"
+    }
+  ],
+  "accessibility": {
+    "contrast": [
+      "minimum 4.5:1 for normal text",
+      "minimum 3:1 for large text",
+      "test with actual dark mode colors"
+    ],
+    "colorBlindness": [
+      "don't rely on color alone",
+      "maintain patterns from light mode"
+    ],
+    "reducedMotion": [
+      "respect prefers-reduced-motion for transitions"
+    ]
+  },
+  "testing": {
+    "checklist": [
+      "all text readable against backgrounds",
+      "form inputs clearly visible",
+      "focus states visible",
+      "images don't clash",
+      "borders/dividers visible",
+      "no white flashes on load"
+    ],
+    "tools": [
+      "Chrome DevTools - Emulate dark mode",
+      "Color contrast checkers",
+      "Real device testing"
+    ]
+  },
+  "antiPatterns": [
+    "pure black (#000) with pure white (#fff) - too harsh",
+    "inverted light mode - looks wrong",
+    "ignoring images - they stand out",
+    "same brand colors - often too dark",
+    "forgetting focus states - invisible",
+    "no user preference persistence"
+  ]
+}

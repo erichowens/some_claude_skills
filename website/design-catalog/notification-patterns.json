@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 18,
+    "categories": ["inline", "overlay", "system", "management"]
+  },
+  "patterns": [
+    {
+      "id": "toast",
+      "name": "Toast Notification",
+      "category": "overlay",
+      "description": "Temporary floating message",
+      "anatomy": {
+        "icon": "status icon (optional)",
+        "message": "brief text",
+        "action": "optional action button",
+        "dismiss": "optional close button"
+      },
+      "position": {
+        "common": "top-right, bottom-center, bottom-right",
+        "stack": "multiple toasts stack"
+      },
+      "timing": {
+        "duration": "3-5 seconds typical",
+        "autoDismiss": "true for non-critical",
+        "pauseOnHover": "pause timer when hovered"
+      },
+      "variants": {
+        "success": "green, checkmark",
+        "error": "red, X or warning icon",
+        "warning": "yellow/orange, warning icon",
+        "info": "blue, info icon",
+        "neutral": "gray, no icon"
+      }
+    },
+    {
+      "id": "snackbar",
+      "name": "Snackbar (Material)",
+      "category": "overlay",
+      "description": "Bottom-positioned brief message",
+      "position": "bottom center",
+      "anatomy": {
+        "message": "single line text",
+        "action": "one optional text button"
+      },
+      "behavior": {
+        "duration": "4-10 seconds",
+        "singleInstance": "only one visible at a time",
+        "queue": "queue multiple messages"
+      },
+      "guidelines": "brief, actionable messages only"
+    },
+    {
+      "id": "alert-banner",
+      "name": "Alert Banner",
+      "category": "inline",
+      "description": "Prominent inline alert",
+      "anatomy": {
+        "icon": "status icon",
+        "title": "optional bold title",
+        "message": "description text",
+        "actions": "optional action buttons",
+        "dismiss": "optional close"
+      },
+      "variants": {
+        "info": "general information",
+        "success": "positive outcome",
+        "warning": "caution needed",
+        "error": "problem/failure"
+      },
+      "placement": "top of content area, above related content"
+    },
+    {
+      "id": "inline-message",
+      "name": "Inline Message",
+      "category": "inline",
+      "description": "Contextual message near related content",
+      "useCases": [
+        "form validation messages",
+        "field-specific help",
+        "contextual warnings"
+      ],
+      "placement": "adjacent to related element",
+      "style": "less prominent than banner"
+    },
+    {
+      "id": "badge-count",
+      "name": "Badge/Count Indicator",
+      "category": "inline",
+      "description": "Numeric indicator on icons/elements",
+      "anatomy": {
+        "count": "number or 9+/99+ for large",
+        "dot": "simple dot for presence (no count)"
+      },
+      "placement": "top-right of icon",
+      "sizing": {
+        "single": "small circle for 1 digit",
+        "double": "wider for 2+ digits"
+      },
+      "useCases": ["unread messages", "notifications", "cart items"]
+    },
+    {
+      "id": "notification-bell",
+      "name": "Notification Bell/Center",
+      "category": "system",
+      "description": "Central notification hub",
+      "anatomy": {
+        "icon": "bell icon with badge",
+        "dropdown": "list of notifications",
+        "markRead": "mark all as read",
+        "viewAll": "link to full list"
+      },
+      "listItem": {
+        "icon": "notification type icon",
+        "content": "message + timestamp",
+        "unread": "visual unread indicator",
+        "action": "click to navigate"
+      },
+      "placement": "header, usually right side"
+    },
+    {
+      "id": "push-notification",
+      "name": "Push Notification",
+      "category": "system",
+      "description": "OS-level notification",
+      "anatomy": {
+        "icon": "app icon",
+        "title": "brief title",
+        "body": "message content",
+        "action": "optional action buttons"
+      },
+      "permission": "requires user permission",
+      "timing": "use sparingly, respect user attention",
+      "api": "Web Push API, Firebase Cloud Messaging"
+    },
+    {
+      "id": "progress-notification",
+      "name": "Progress Notification",
+      "category": "overlay",
+      "description": "Shows ongoing operation progress",
+      "anatomy": {
+        "title": "operation name",
+        "progress": "progress bar or percentage",
+        "status": "current status text",
+        "cancel": "optional cancel action"
+      },
+      "useCases": ["file upload", "export", "long operations"]
+    },
+    {
+      "id": "confirmation-dialog",
+      "name": "Confirmation Dialog",
+      "category": "overlay",
+      "description": "Confirm before action",
+      "anatomy": {
+        "title": "action being confirmed",
+        "message": "consequences/details",
+        "confirm": "action button",
+        "cancel": "cancel button"
+      },
+      "useCases": ["delete", "destructive actions", "important changes"],
+      "seeAlso": "modal-patterns.json"
+    },
+    {
+      "id": "permission-request",
+      "name": "Permission Request",
+      "category": "system",
+      "description": "Asking for system permissions",
+      "priming": {
+        "what": "explain why you need permission",
+        "when": "before system prompt",
+        "benefit": "show value to user"
+      },
+      "types": [
+        "notifications",
+        "location",
+        "camera",
+        "microphone",
+        "contacts"
+      ],
+      "bestPractice": "ask in context, not on first visit"
+    },
+    {
+      "id": "empty-inbox",
+      "name": "Empty Notification State",
+      "category": "management",
+      "description": "No notifications to show",
+      "message": "You're all caught up",
+      "tone": "positive, not empty",
+      "optional": "suggestion for next action"
+    },
+    {
+      "id": "notification-settings",
+      "name": "Notification Preferences",
+      "category": "management",
+      "description": "User control over notifications",
+      "controls": {
+        "channels": "email, push, in-app toggles",
+        "types": "per-category settings",
+        "frequency": "immediate, digest, never"
+      },
+      "placement": "settings > notifications",
+      "defaults": "smart defaults, don't spam"
+    },
+    {
+      "id": "mute-options",
+      "name": "Mute/Snooze Options",
+      "category": "management",
+      "description": "Temporarily silence notifications",
+      "options": {
+        "mute": "mute specific source",
+        "snooze": "pause all for X hours",
+        "dnd": "do not disturb mode"
+      },
+      "persistence": "remember preference"
+    },
+    {
+      "id": "announcement-banner",
+      "name": "Site-Wide Announcement",
+      "category": "inline",
+      "description": "Important site-wide message",
+      "placement": "top of page, above header",
+      "anatomy": {
+        "message": "announcement text",
+        "link": "optional learn more",
+        "dismiss": "close button"
+      },
+      "styling": {
+        "height": "40-48px",
+        "background": "brand or attention color"
+      },
+      "persistence": "remember dismissal"
+    },
+    {
+      "id": "status-bar",
+      "name": "Connection/Status Bar",
+      "category": "inline",
+      "description": "System status indicator",
+      "states": {
+        "offline": "You're offline",
+        "reconnecting": "Reconnecting...",
+        "syncing": "Syncing changes...",
+        "error": "Connection error"
+      },
+      "placement": "top of app, persistent when relevant",
+      "autoDismiss": "hide when resolved"
+    },
+    {
+      "id": "live-update",
+      "name": "Live Update Indicator",
+      "category": "inline",
+      "description": "New content available",
+      "patterns": {
+        "pill": "'5 new items' pill button",
+        "toast": "toast with refresh option",
+        "inline": "inline message at top of list"
+      },
+      "action": "click to load new content",
+      "useCases": ["feeds", "comments", "live data"]
+    },
+    {
+      "id": "onboarding-tooltip",
+      "name": "Feature Tooltip/Callout",
+      "category": "inline",
+      "description": "Point out new or unused features",
+      "anatomy": {
+        "arrow": "points to feature",
+        "title": "feature name",
+        "description": "brief explanation",
+        "dismiss": "got it button"
+      },
+      "timing": "contextual, not overwhelming",
+      "persistence": "don't show again after dismissed"
+    },
+    {
+      "id": "system-maintenance",
+      "name": "Maintenance Notice",
+      "category": "system",
+      "description": "Scheduled downtime warning",
+      "timing": {
+        "advance": "24-48 hours before",
+        "during": "maintenance mode page"
+      },
+      "content": {
+        "what": "scheduled maintenance",
+        "when": "date and time",
+        "duration": "expected duration",
+        "impact": "what will be affected"
+      }
+    }
+  ],
+  "guidelines": {
+    "frequency": [
+      "don't overwhelm users",
+      "batch similar notifications",
+      "respect user preferences"
+    ],
+    "content": [
+      "be specific and actionable",
+      "use consistent language",
+      "include relevant context"
+    ],
+    "timing": [
+      "immediate for urgent",
+      "appropriate delay for non-urgent",
+      "consider time zones"
+    ]
+  },
+  "accessibility": {
+    "ariaLive": "announce dynamic content",
+    "focus": "manage focus appropriately",
+    "dismiss": "keyboard-accessible dismiss",
+    "contrast": "ensure visibility"
+  }
+}

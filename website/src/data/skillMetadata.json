@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-01-23T14:52:16.873Z",
+  "generatedAt": "2026-01-23T15:40:11.660Z",
   "skills": {
     "2000s-visualization-expert": {
       "id": "2000s-visualization-expert",
@@ -639,8 +639,8 @@
     },
     "design-justice": {
       "id": "design-justice",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2026-01-23T06:52:09-08:00",
+      "updatedAt": "2026-01-23T06:52:09-08:00",
       "totalLines": 1944,
       "totalFiles": 5,
       "skillMdSize": 12134,
@@ -1695,8 +1695,8 @@
     },
     "web-cloud-designer": {
       "id": "web-cloud-designer",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2026-01-23T06:52:09-08:00",
+      "updatedAt": "2026-01-23T06:52:09-08:00",
       "totalLines": 1857,
       "totalFiles": 5,
       "skillMdSize": 18106,
@@ -1719,8 +1719,8 @@
     },
     "web-wave-designer": {
       "id": "web-wave-designer",
-      "createdAt": null,
-      "updatedAt": null,
+      "createdAt": "2026-01-23T06:52:09-08:00",
+      "updatedAt": "2026-01-23T06:52:09-08:00",
       "totalLines": 2227,
       "totalFiles": 5,
       "skillMdSize": 28067,

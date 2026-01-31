@@ -1,0 +1,410 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 16,
+    "categories": ["signup", "contact", "checkout", "wizard", "inline", "conversational"]
+  },
+  "patterns": [
+    {
+      "id": "single-field-email",
+      "name": "Single Field Email",
+      "category": "signup",
+      "description": "Minimal email capture with one input",
+      "structure": {
+        "fields": ["email"],
+        "button": "Subscribe / Get started / Join",
+        "layout": "inline or stacked"
+      },
+      "design": {
+        "inline": "email field + button in one row",
+        "stacked": "email above, full-width button below",
+        "style": "clean, minimal friction"
+      },
+      "validation": {
+        "realTime": "validate email format on blur",
+        "error": "inline error message below field"
+      },
+      "extras": {
+        "privacyLink": "'We respect your privacy' or link to policy",
+        "incentive": "'Get 10% off' or 'Free ebook'"
+      },
+      "examples": ["newsletter signups", "waitlists"],
+      "bestFor": ["newsletters", "waitlists", "lead capture"]
+    },
+    {
+      "id": "social-auth-signup",
+      "name": "Social Auth Signup",
+      "category": "signup",
+      "description": "One-click signup with social providers",
+      "structure": {
+        "options": ["Google", "GitHub", "Apple", "Microsoft"],
+        "alternative": "or continue with email",
+        "layout": "buttons stacked or side by side"
+      },
+      "design": {
+        "buttons": "follow provider brand guidelines",
+        "separator": "'or' divider line",
+        "prominence": "social options above email form"
+      },
+      "benefits": {
+        "friction": "reduces signup friction",
+        "trust": "familiar auth flow"
+      },
+      "considerations": {
+        "privacy": "some users avoid social login",
+        "fallback": "always offer email alternative"
+      },
+      "examples": ["most modern apps", "figma.com", "notion.so"],
+      "bestFor": ["consumer apps", "developer tools", "most SaaS"]
+    },
+    {
+      "id": "email-password-basic",
+      "name": "Email + Password Basic",
+      "category": "signup",
+      "description": "Traditional email and password signup",
+      "structure": {
+        "fields": ["email", "password"],
+        "options": ["show password toggle", "remember me"],
+        "button": "Create account / Sign up"
+      },
+      "design": {
+        "layout": "stacked fields, full-width button",
+        "labels": "floating labels or above field",
+        "spacing": "generous between fields"
+      },
+      "validation": {
+        "email": "format validation",
+        "password": "strength indicator optional",
+        "realTime": "validate on blur, not on change"
+      },
+      "extras": {
+        "terms": "checkbox or implicit agreement",
+        "login": "'Already have an account? Sign in'"
+      },
+      "examples": ["traditional signups"],
+      "bestFor": ["products requiring email verification", "enterprise"]
+    },
+    {
+      "id": "magic-link-passwordless",
+      "name": "Magic Link Passwordless",
+      "category": "signup",
+      "description": "Email-only authentication with magic links",
+      "structure": {
+        "fields": ["email"],
+        "flow": "enter email → check inbox → click link",
+        "feedback": "show 'check your email' state"
+      },
+      "design": {
+        "simplicity": "single field, clear instructions",
+        "confirmation": "show sent state with email address",
+        "resend": "option to resend after delay"
+      },
+      "benefits": {
+        "security": "no password to remember or steal",
+        "friction": "very low signup friction"
+      },
+      "considerations": {
+        "email access": "requires email access",
+        "timing": "may feel slower than password"
+      },
+      "examples": ["slack.com", "notion.so"],
+      "bestFor": ["modern apps", "security-conscious products"]
+    },
+    {
+      "id": "contact-form-standard",
+      "name": "Contact Form Standard",
+      "category": "contact",
+      "description": "Basic contact form for inquiries",
+      "structure": {
+        "fields": ["name", "email", "message"],
+        "optional": ["company", "phone", "subject"],
+        "button": "Send message / Submit"
+      },
+      "design": {
+        "layout": "single column stacked",
+        "message": "textarea with generous height",
+        "labels": "clear, above or floating"
+      },
+      "validation": {
+        "required": "mark required fields",
+        "email": "validate format",
+        "message": "minimum length if needed"
+      },
+      "feedback": {
+        "success": "clear confirmation message",
+        "expectation": "'We'll respond within 24 hours'"
+      },
+      "examples": ["contact pages", "support forms"],
+      "bestFor": ["contact pages", "general inquiries"]
+    },
+    {
+      "id": "demo-request-qualified",
+      "name": "Demo Request Qualified",
+      "category": "contact",
+      "description": "Lead qualification form for demo requests",
+      "structure": {
+        "fields": ["work email", "name", "company", "company size", "use case"],
+        "progressive": "may reveal more fields after initial",
+        "button": "Request demo / Book a call"
+      },
+      "design": {
+        "layout": "single column or two-column on desktop",
+        "selects": "dropdowns for company size, industry",
+        "required": "minimize required fields"
+      },
+      "qualification": {
+        "company size": "helps route leads",
+        "use case": "prepares sales team"
+      },
+      "friction": "balance qualification vs. completion rate",
+      "examples": ["enterprise SaaS", "salesforce.com"],
+      "bestFor": ["B2B products", "enterprise sales"]
+    },
+    {
+      "id": "multi-step-wizard",
+      "name": "Multi-Step Wizard",
+      "category": "wizard",
+      "description": "Form split into multiple steps",
+      "structure": {
+        "steps": "3-5 focused steps",
+        "perStep": "2-4 related fields",
+        "navigation": "back/next buttons, progress indicator"
+      },
+      "design": {
+        "progress": "step indicator or progress bar",
+        "validation": "validate each step before proceeding",
+        "persistence": "save progress for return"
+      },
+      "psychology": {
+        "chunking": "feels less overwhelming",
+        "commitment": "sunk cost after starting"
+      },
+      "implementation": {
+        "saveDraft": "auto-save or save button",
+        "backButton": "allow returning to previous steps"
+      },
+      "examples": ["onboarding flows", "checkout", "applications"],
+      "bestFor": ["complex signups", "onboarding", "long forms"]
+    },
+    {
+      "id": "checkout-single-page",
+      "name": "Checkout Single Page",
+      "category": "checkout",
+      "description": "All checkout fields on one page",
+      "structure": {
+        "sections": ["contact", "shipping", "payment"],
+        "summary": "order summary sidebar or top",
+        "button": "Place order / Complete purchase"
+      },
+      "design": {
+        "layout": "form left, summary right (or above on mobile)",
+        "sections": "clear visual separation",
+        "autofill": "support browser autofill"
+      },
+      "payment": {
+        "options": "cards, PayPal, Apple Pay, etc.",
+        "security": "trust badges visible"
+      },
+      "optimization": {
+        "guestCheckout": "don't force account creation",
+        "addressAutocomplete": "use Google Places or similar"
+      },
+      "examples": ["shopify checkout", "stripe checkout"],
+      "bestFor": ["e-commerce", "one-time purchases"]
+    },
+    {
+      "id": "checkout-accordion",
+      "name": "Checkout Accordion",
+      "category": "checkout",
+      "description": "Sequential accordion sections for checkout",
+      "structure": {
+        "sections": ["contact → shipping → payment → review"],
+        "flow": "complete one section to open next",
+        "summary": "collapsed sections show summary"
+      },
+      "design": {
+        "accordion": "one section open at a time",
+        "completed": "show checkmark and summary",
+        "edit": "allow editing previous sections"
+      },
+      "benefits": {
+        "focus": "one section at a time",
+        "progress": "clear sense of progress"
+      },
+      "examples": ["amazon checkout"],
+      "bestFor": ["complex checkouts", "high-value purchases"]
+    },
+    {
+      "id": "inline-edit",
+      "name": "Inline Edit",
+      "category": "inline",
+      "description": "Edit content in place without separate form",
+      "structure": {
+        "display": "shows value as text",
+        "edit": "click to edit inline",
+        "save": "save on blur or explicit button"
+      },
+      "design": {
+        "trigger": "edit icon or click anywhere",
+        "input": "replace text with input field",
+        "feedback": "show saving/saved state"
+      },
+      "implementation": {
+        "escape": "cancel edit on escape key",
+        "validation": "inline validation",
+        "autosave": "save on blur recommended"
+      },
+      "examples": ["notion.so", "trello.com", "settings pages"],
+      "bestFor": ["settings pages", "editable content", "dashboards"]
+    },
+    {
+      "id": "search-filter-form",
+      "name": "Search + Filters Form",
+      "category": "inline",
+      "description": "Search with filter controls",
+      "structure": {
+        "search": "main search input",
+        "filters": "dropdown selects, checkboxes, or pills",
+        "clear": "clear all filters button"
+      },
+      "design": {
+        "layout": "search prominent, filters below or side",
+        "pills": "selected filters as removable pills",
+        "count": "show result count"
+      },
+      "behavior": {
+        "liveUpdate": "results update as filters change",
+        "url": "filters reflected in URL"
+      },
+      "mobile": {
+        "filterButton": "filter icon opens modal/drawer",
+        "sheet": "bottom sheet for filters"
+      },
+      "examples": ["e-commerce", "job boards", "marketplaces"],
+      "bestFor": ["search interfaces", "listings", "marketplaces"]
+    },
+    {
+      "id": "conversational-form",
+      "name": "Conversational Form",
+      "category": "conversational",
+      "description": "Form presented as conversation/chat",
+      "structure": {
+        "flow": "one question at a time",
+        "format": "chat bubble interface",
+        "input": "quick replies or free text"
+      },
+      "design": {
+        "style": "chat-like interface",
+        "progress": "scroll through conversation",
+        "input": "varies by question type"
+      },
+      "implementation": {
+        "branching": "different paths based on answers",
+        "quickReplies": "buttons for common answers",
+        "typing": "typing indicator for personality"
+      },
+      "examples": ["typeform.com", "intercom surveys"],
+      "bestFor": ["surveys", "onboarding", "high-engagement forms"]
+    },
+    {
+      "id": "survey-matrix",
+      "name": "Survey Matrix",
+      "category": "inline",
+      "description": "Grid of questions with consistent answer options",
+      "structure": {
+        "rows": "questions/statements",
+        "columns": "answer scale (1-5, agree-disagree)",
+        "input": "radio buttons or clickable cells"
+      },
+      "design": {
+        "labels": "clear column and row headers",
+        "selection": "highlight selected cell",
+        "mobile": "may need to stack or scroll"
+      },
+      "accessibility": {
+        "labels": "proper associations",
+        "keyboard": "arrow key navigation"
+      },
+      "examples": ["NPS surveys", "feedback forms"],
+      "bestFor": ["surveys", "feedback", "assessments"]
+    },
+    {
+      "id": "file-upload",
+      "name": "File Upload",
+      "category": "inline",
+      "description": "File upload with drag-and-drop",
+      "structure": {
+        "dropzone": "drag and drop area",
+        "button": "or click to browse",
+        "preview": "show uploaded files"
+      },
+      "design": {
+        "dropzone": "dashed border, icon, text",
+        "dragOver": "highlight on drag over",
+        "preview": "thumbnail or file name"
+      },
+      "features": {
+        "progress": "upload progress bar",
+        "validation": "file type and size limits",
+        "multiple": "support multiple files if needed"
+      },
+      "feedback": {
+        "success": "checkmark and file info",
+        "error": "clear error message"
+      },
+      "examples": ["profile photo upload", "document submission"],
+      "bestFor": ["profile settings", "applications", "content upload"]
+    },
+    {
+      "id": "address-autocomplete",
+      "name": "Address Autocomplete",
+      "category": "checkout",
+      "description": "Address input with autocomplete suggestions",
+      "structure": {
+        "input": "single address field to start",
+        "suggestions": "dropdown of matching addresses",
+        "expansion": "populate full address fields on select"
+      },
+      "design": {
+        "dropdown": "suggestions appear on type",
+        "highlight": "highlight matching text",
+        "expand": "reveal full address fields after selection"
+      },
+      "implementation": {
+        "api": "Google Places, Mapbox, or similar",
+        "fallback": "manual entry if no match",
+        "formatting": "handle international formats"
+      },
+      "examples": ["checkout forms", "shipping addresses"],
+      "bestFor": ["shipping forms", "checkout", "location input"]
+    },
+    {
+      "id": "date-time-picker",
+      "name": "Date/Time Picker",
+      "category": "inline",
+      "description": "Calendar and time selection interface",
+      "structure": {
+        "date": "calendar picker or date input",
+        "time": "time slots or time input",
+        "combined": "datetime picker"
+      },
+      "design": {
+        "calendar": "month view with day selection",
+        "time": "dropdown or scroll picker",
+        "range": "support date ranges if needed"
+      },
+      "features": {
+        "constraints": "disable past dates, weekends, etc.",
+        "presets": "'Today', 'Tomorrow', 'Next week'",
+        "timezone": "show timezone if relevant"
+      },
+      "accessibility": {
+        "keyboard": "full keyboard navigation",
+        "labels": "proper date format announcements"
+      },
+      "examples": ["booking systems", "scheduling"],
+      "bestFor": ["booking", "scheduling", "event creation"]
+    }
+  ]
+}

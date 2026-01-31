@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalShaders": 18,
+    "categories": ["noise", "distortion", "particles", "post-processing", "gradient", "3d"],
+    "frameworks": ["Three.js", "WebGL", "GLSL", "Shader Park"]
+  },
+  "shaders": [
+    {
+      "id": "perlin-noise-background",
+      "name": "Perlin Noise Background",
+      "category": "noise",
+      "description": "Animated organic noise pattern",
+      "glsl": {
+        "type": "fragment",
+        "uniforms": ["time", "resolution", "scale", "speed"],
+        "algorithm": "fractal Brownian motion (fBm) over Perlin noise"
+      },
+      "parameters": {
+        "scale": { "default": 3.0, "range": [1, 10] },
+        "speed": { "default": 0.5, "range": [0.1, 2] },
+        "octaves": { "default": 4, "range": [1, 8] }
+      },
+      "usage": "hero backgrounds, loading screens",
+      "performance": "medium - reduce octaves on mobile",
+      "examples": ["stripe.com backgrounds"]
+    },
+    {
+      "id": "simplex-flow",
+      "name": "Simplex Flow Field",
+      "category": "noise",
+      "description": "Flowing simplex noise with directional movement",
+      "glsl": {
+        "type": "fragment",
+        "uniforms": ["time", "resolution", "flowDirection", "turbulence"]
+      },
+      "parameters": {
+        "flowDirection": { "default": [1, 0.5], "description": "direction of flow" },
+        "turbulence": { "default": 0.5, "range": [0, 1] }
+      },
+      "usage": "fluid backgrounds, smoke effects"
+    },
+    {
+      "id": "voronoi-cells",
+      "name": "Voronoi Cells",
+      "category": "noise",
+      "description": "Cellular/organic pattern based on Voronoi diagram",
+      "glsl": {
+        "type": "fragment",
+        "algorithm": "distance to nearest random point"
+      },
+      "variants": {
+        "cells": "show cell boundaries",
+        "distance": "gradient based on distance",
+        "cracked": "with edge detection for cracks"
+      },
+      "usage": "organic textures, cell patterns, glass cracks"
+    },
+    {
+      "id": "wave-distortion",
+      "name": "Wave Distortion",
+      "category": "distortion",
+      "description": "Sine wave displacement of image/content",
+      "glsl": {
+        "type": "fragment",
+        "uniforms": ["time", "amplitude", "frequency", "texture"]
+      },
+      "parameters": {
+        "amplitude": { "default": 0.02, "range": [0, 0.1] },
+        "frequency": { "default": 10, "range": [1, 50] }
+      },
+      "trigger": "on hover or scroll",
+      "usage": "image hovers, transitions, underwater effects"
+    },
+    {
+      "id": "ripple-distortion",
+      "name": "Ripple Distortion",
+      "category": "distortion",
+      "description": "Concentric ripple effect from point",
+      "glsl": {
+        "type": "fragment",
+        "uniforms": ["time", "center", "amplitude", "frequency"]
+      },
+      "trigger": "on click, expand from click point",
+      "parameters": {
+        "center": "mouse position or center",
+        "decay": "ripple fades over distance"
+      },
+      "usage": "click effects, water drop effects"
+    },
+    {
+      "id": "glitch-effect",
+      "name": "Glitch Effect",
+      "category": "distortion",
+      "description": "Digital glitch with RGB split and displacement",
+      "glsl": {
+        "type": "fragment",
+        "effects": ["RGB channel separation", "horizontal displacement", "scanlines"]
+      },
+      "parameters": {
+        "intensity": { "default": 0.5, "range": [0, 1] },
+        "sliceCount": { "default": 10, "range": [1, 50] }
+      },
+      "trigger": "on hover, periodic, or on error",
+      "usage": "error states, cyberpunk aesthetic, transitions"
+    },
+    {
+      "id": "chromatic-aberration",
+      "name": "Chromatic Aberration",
+      "category": "distortion",
+      "description": "RGB color fringing at edges",
+      "glsl": {
+        "type": "fragment",
+        "technique": "offset R and B channels from center"
+      },
+      "parameters": {
+        "offset": { "default": 0.005, "range": [0, 0.02] },
+        "direction": "radial from center or directional"
+      },
+      "usage": "photo effects, lens effects, stylized images"
+    },
+    {
+      "id": "particle-system",
+      "name": "Particle System",
+      "category": "particles",
+      "description": "Floating particles with physics",
+      "implementation": {
+        "method": "points in Three.js or Canvas",
+        "count": "100-10000 depending on performance"
+      },
+      "parameters": {
+        "count": 500,
+        "size": { "min": 1, "max": 3 },
+        "speed": 0.5,
+        "connections": "optional lines between nearby particles"
+      },
+      "variants": {
+        "floating": "gentle random movement",
+        "network": "connected by lines (constellation)",
+        "attracted": "attracted to mouse position"
+      },
+      "usage": "hero backgrounds, network visualizations"
+    },
+    {
+      "id": "particle-trails",
+      "name": "Particle Trails",
+      "category": "particles",
+      "description": "Particles that follow mouse with trailing effect",
+      "implementation": {
+        "method": "particles with velocity and fade",
+        "trail": "previous positions with decreasing opacity"
+      },
+      "trigger": "follow mouse movement",
+      "usage": "cursor effects, interactive backgrounds"
+    },
+    {
+      "id": "confetti-burst",
+      "name": "Confetti Burst",
+      "category": "particles",
+      "description": "Celebratory confetti explosion",
+      "implementation": {
+        "particles": "colored rectangles with rotation",
+        "physics": "gravity, air resistance, spin"
+      },
+      "trigger": "on success action, achievement",
+      "libraries": ["canvas-confetti", "react-confetti"],
+      "usage": "success states, celebrations, achievements"
+    },
+    {
+      "id": "bloom-glow",
+      "name": "Bloom/Glow",
+      "category": "post-processing",
+      "description": "HDR bloom effect making bright areas glow",
+      "implementation": {
+        "threejs": "UnrealBloomPass from postprocessing",
+        "technique": "blur bright pixels and add back"
+      },
+      "parameters": {
+        "threshold": { "default": 0.8, "description": "brightness threshold" },
+        "strength": { "default": 1.5, "range": [0, 3] },
+        "radius": { "default": 0.4, "range": [0, 1] }
+      },
+      "usage": "neon effects, highlights, dramatic lighting"
+    },
+    {
+      "id": "vignette",
+      "name": "Vignette",
+      "category": "post-processing",
+      "description": "Darkened edges fading to center",
+      "glsl": {
+        "type": "fragment",
+        "technique": "radial gradient darkening from edges"
+      },
+      "parameters": {
+        "intensity": { "default": 0.5, "range": [0, 1] },
+        "softness": { "default": 0.5, "range": [0, 1] }
+      },
+      "usage": "focus attention, cinematic effect, photography"
+    },
+    {
+      "id": "film-grain",
+      "name": "Film Grain",
+      "category": "post-processing",
+      "description": "Animated noise overlay for film look",
+      "glsl": {
+        "type": "fragment",
+        "technique": "random noise multiplied by time for animation"
+      },
+      "parameters": {
+        "intensity": { "default": 0.1, "range": [0, 0.5] },
+        "animated": true
+      },
+      "usage": "vintage aesthetic, photography, cinematic"
+    },
+    {
+      "id": "gradient-mesh",
+      "name": "Gradient Mesh",
+      "category": "gradient",
+      "description": "Multi-point gradient with smooth interpolation",
+      "implementation": {
+        "method": "multiple radial gradients or mesh gradient",
+        "animation": "slowly move gradient centers"
+      },
+      "parameters": {
+        "colors": ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4"],
+        "points": "4-8 control points"
+      },
+      "usage": "hero backgrounds, modern aesthetic",
+      "examples": ["stripe.com", "linear.app"]
+    },
+    {
+      "id": "aurora-gradient",
+      "name": "Aurora Gradient",
+      "category": "gradient",
+      "description": "Northern lights-style flowing gradient",
+      "implementation": {
+        "layers": "multiple overlapping gradient waves",
+        "animation": "flowing movement with noise"
+      },
+      "colors": "typically cyan, purple, green",
+      "usage": "hero backgrounds, dramatic headers"
+    },
+    {
+      "id": "3d-blob",
+      "name": "3D Metaball/Blob",
+      "category": "3d",
+      "description": "Organic 3D blob with smooth surface",
+      "implementation": {
+        "threejs": "sphere with vertex displacement",
+        "technique": "noise-based vertex offset"
+      },
+      "parameters": {
+        "complexity": "noise frequency",
+        "amplitude": "displacement amount",
+        "animation": "morphing over time"
+      },
+      "usage": "3D hero elements, abstract visuals"
+    },
+    {
+      "id": "3d-terrain",
+      "name": "3D Terrain",
+      "category": "3d",
+      "description": "Procedural terrain with height map",
+      "implementation": {
+        "threejs": "PlaneGeometry with height displacement",
+        "heightMap": "Perlin/Simplex noise"
+      },
+      "parameters": {
+        "resolution": "grid density",
+        "height": "max displacement",
+        "wireframe": "optional wireframe rendering"
+      },
+      "usage": "3D backgrounds, data visualization, games"
+    },
+    {
+      "id": "liquid-metal",
+      "name": "Liquid Metal",
+      "category": "3d",
+      "description": "Reflective liquid surface with environment mapping",
+      "implementation": {
+        "threejs": "MeshStandardMaterial with high metalness",
+        "envMap": "environment map for reflections",
+        "animation": "vertex displacement for liquid motion"
+      },
+      "parameters": {
+        "metalness": 1.0,
+        "roughness": 0.0,
+        "displacement": "noise-based surface animation"
+      },
+      "usage": "premium aesthetics, product showcases"
+    }
+  ],
+  "performance": {
+    "tips": [
+      "Use lower resolutions on mobile (0.5x or 0.75x)",
+      "Reduce particle counts on low-end devices",
+      "Use requestAnimationFrame for smooth animation",
+      "Consider static fallbacks for very low-end devices",
+      "Profile GPU usage with browser dev tools"
+    ],
+    "detection": "check for WebGL support and use fallbacks"
+  },
+  "libraries": {
+    "threejs": "https://threejs.org - 3D graphics",
+    "glslCanvas": "quick GLSL shader testing",
+    "shaderpark": "https://shaderpark.com - visual shader creation",
+    "shadertoy": "https://shadertoy.com - shader examples and inspiration"
+  }
+}

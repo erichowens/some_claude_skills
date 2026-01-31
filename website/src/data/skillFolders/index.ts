@@ -283,6 +283,11 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 5,
     "folderCount": 2
   },
+  "design-justice": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
   "design-system-creator": {
     "hasContent": true,
     "fileCount": 5,
@@ -409,9 +414,9 @@ export const skillFolderIndex: SkillFolderIndex = {
     "folderCount": 2
   },
   "knot-theory-educator": {
-    "hasContent": false,
-    "fileCount": 1,
-    "folderCount": 0
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
   },
   "large-scale-map-visualization": {
     "hasContent": true,
@@ -505,7 +510,7 @@ export const skillFolderIndex: SkillFolderIndex = {
   },
   "physics-rendering-expert": {
     "hasContent": true,
-    "fileCount": 5,
+    "fileCount": 6,
     "folderCount": 1
   },
   "product-appeal-analyzer": {
@@ -718,7 +723,17 @@ export const skillFolderIndex: SkillFolderIndex = {
     "fileCount": 1,
     "folderCount": 0
   },
+  "web-cloud-designer": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
   "web-design-expert": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
+  "web-wave-designer": {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 1
@@ -771,6 +786,7 @@ export const skillsWithContent = [
   "data-pipeline-engineer",
   "data-viz-2025",
   "design-archivist",
+  "design-justice",
   "design-system-creator",
   "devops-automator",
   "diagramming-expert",
@@ -791,6 +807,7 @@ export const skillsWithContent = [
   "indie-monetization-strategist",
   "interior-design-expert",
   "jungian-psychologist",
+  "knot-theory-educator",
   "large-scale-map-visualization",
   "llm-streaming-response-handler",
   "maximalist-wall-decorator",
@@ -837,7 +854,9 @@ export const skillsWithContent = [
   "vibe-matcher",
   "video-processing-editing",
   "voice-audio-engineer",
+  "web-cloud-designer",
   "web-design-expert",
+  "web-wave-designer",
   "wedding-immortalist",
   "windows-3-1-web-designer",
   "wisdom-accountability-coach"

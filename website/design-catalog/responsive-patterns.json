@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 18,
+    "categories": ["breakpoints", "layout", "navigation", "content", "images"]
+  },
+  "breakpoints": {
+    "common": {
+      "mobile": "< 640px",
+      "tablet": "640px - 1024px",
+      "desktop": "1024px - 1440px",
+      "large": "> 1440px"
+    },
+    "tailwind": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "bootstrap": {
+      "sm": "576px",
+      "md": "768px",
+      "lg": "992px",
+      "xl": "1200px",
+      "xxl": "1400px"
+    },
+    "contentDriven": {
+      "philosophy": "set breakpoints based on content, not devices",
+      "method": "resize until layout breaks, add breakpoint there"
+    }
+  },
+  "patterns": [
+    {
+      "id": "mobile-first",
+      "name": "Mobile-First Approach",
+      "category": "layout",
+      "description": "Start with mobile, enhance for larger screens",
+      "css": "min-width media queries",
+      "philosophy": [
+        "mobile constraints force prioritization",
+        "easier to add than remove",
+        "smaller CSS files (base is mobile)"
+      ],
+      "implementation": {
+        "base": "styles for mobile",
+        "enhanced": "@media (min-width: 768px) { ... }"
+      }
+    },
+    {
+      "id": "desktop-first",
+      "name": "Desktop-First Approach",
+      "category": "layout",
+      "description": "Start with desktop, adapt for smaller",
+      "css": "max-width media queries",
+      "useCases": [
+        "desktop-primary applications",
+        "complex admin interfaces",
+        "legacy conversion"
+      ],
+      "caution": "often leads to mobile afterthought"
+    },
+    {
+      "id": "fluid-typography",
+      "name": "Fluid Typography",
+      "category": "content",
+      "description": "Font size scales with viewport",
+      "implementation": {
+        "clamp": "font-size: clamp(16px, 4vw, 24px)",
+        "explanation": "min, preferred, max"
+      },
+      "scale": {
+        "body": "clamp(1rem, 0.9rem + 0.5vw, 1.125rem)",
+        "h1": "clamp(2rem, 1.5rem + 2.5vw, 4rem)",
+        "h2": "clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem)"
+      },
+      "benefits": [
+        "no breakpoint jumps",
+        "smooth scaling",
+        "fewer media queries"
+      ]
+    },
+    {
+      "id": "fluid-spacing",
+      "name": "Fluid Spacing",
+      "category": "layout",
+      "description": "Spacing scales with viewport",
+      "implementation": {
+        "clamp": "padding: clamp(16px, 5vw, 64px)",
+        "variables": "--space-xl: clamp(32px, 8vw, 128px)"
+      },
+      "useCases": [
+        "section padding",
+        "container gutters",
+        "gap between elements"
+      ]
+    },
+    {
+      "id": "container-queries",
+      "name": "Container Queries",
+      "category": "layout",
+      "description": "Respond to container size, not viewport",
+      "implementation": {
+        "container": "container-type: inline-size",
+        "query": "@container (min-width: 400px) { ... }"
+      },
+      "useCases": [
+        "reusable components",
+        "sidebar that changes width",
+        "cards in varying contexts"
+      ],
+      "support": "modern browsers (2023+)"
+    },
+    {
+      "id": "stack-to-row",
+      "name": "Stack to Row Layout",
+      "category": "layout",
+      "description": "Vertical on mobile, horizontal on desktop",
+      "implementation": {
+        "mobile": "flex-direction: column",
+        "desktop": "flex-direction: row"
+      },
+      "common": "most common responsive pattern",
+      "examples": ["nav items", "feature cards", "form fields"]
+    },
+    {
+      "id": "column-drop",
+      "name": "Column Drop",
+      "category": "layout",
+      "description": "Columns stack as viewport shrinks",
+      "behavior": [
+        "3 columns on desktop",
+        "2 columns on tablet",
+        "1 column on mobile"
+      ],
+      "implementation": "CSS Grid with auto-fit or Flexbox wrap"
+    },
+    {
+      "id": "off-canvas",
+      "name": "Off-Canvas Navigation",
+      "category": "navigation",
+      "description": "Navigation slides in from edge",
+      "trigger": "hamburger menu button",
+      "position": ["left", "right"],
+      "overlay": "dim background when open",
+      "animation": "slide in/out"
+    },
+    {
+      "id": "priority-plus",
+      "name": "Priority+ Navigation",
+      "category": "navigation",
+      "description": "Show what fits, overflow to 'more' menu",
+      "behavior": [
+        "show nav items that fit",
+        "items that don't fit go to '...' dropdown"
+      ],
+      "implementation": "measure available width, hide overflow",
+      "libraries": ["Priority Nav Scroller"]
+    },
+    {
+      "id": "bottom-nav",
+      "name": "Bottom Navigation (Mobile)",
+      "category": "navigation",
+      "description": "Fixed navigation at bottom on mobile",
+      "guidelines": {
+        "items": "3-5 items maximum",
+        "icons": "icon + label for clarity",
+        "active": "clear active state"
+      },
+      "useCases": ["mobile apps", "mobile web apps"],
+      "consideration": "accounts for iOS safe area"
+    },
+    {
+      "id": "responsive-images",
+      "name": "Responsive Images",
+      "category": "images",
+      "description": "Serve appropriate image size",
+      "techniques": {
+        "srcset": "<img srcset='small.jpg 640w, large.jpg 1280w'>",
+        "sizes": "sizes='(max-width: 600px) 100vw, 50vw'",
+        "picture": "<picture> with multiple <source> elements"
+      },
+      "artDirection": "different crops for different sizes",
+      "benefits": ["faster loading", "less bandwidth", "better UX"]
+    },
+    {
+      "id": "aspect-ratio",
+      "name": "Aspect Ratio Containers",
+      "category": "images",
+      "description": "Maintain aspect ratio responsively",
+      "modern": "aspect-ratio: 16/9",
+      "legacy": "padding-top: 56.25% (16:9)",
+      "useCases": ["video embeds", "image placeholders", "cards"]
+    },
+    {
+      "id": "table-responsive",
+      "name": "Responsive Tables",
+      "category": "content",
+      "description": "Tables that work on mobile",
+      "strategies": {
+        "scroll": "horizontal scroll container",
+        "cards": "transform to stacked cards",
+        "collapse": "hide less important columns",
+        "reflow": "stack label: value pairs"
+      },
+      "seeAlso": "table-patterns.json"
+    },
+    {
+      "id": "touch-targets",
+      "name": "Touch-Friendly Targets",
+      "category": "content",
+      "description": "Adequate tap/click areas on mobile",
+      "minimumSize": "44x44px (Apple), 48x48px (Google)",
+      "spacing": "8px minimum between targets",
+      "exceptions": "inline text links can be smaller"
+    },
+    {
+      "id": "content-choreography",
+      "name": "Content Choreography",
+      "category": "content",
+      "description": "Reorder content for different screens",
+      "examples": {
+        "sidebar": "below content on mobile, side on desktop",
+        "image": "above text on mobile, beside on desktop"
+      },
+      "implementation": "CSS Grid order or Flexbox order",
+      "caution": "maintain logical source order for accessibility"
+    },
+    {
+      "id": "conditional-content",
+      "name": "Conditional Content Display",
+      "category": "content",
+      "description": "Show/hide content based on screen size",
+      "examples": {
+        "mobileOnly": "compact summary on mobile",
+        "desktopOnly": "detailed data on desktop"
+      },
+      "implementation": "display: none at breakpoints",
+      "accessibility": "hidden content still accessible if needed"
+    },
+    {
+      "id": "sticky-elements",
+      "name": "Sticky Element Behavior",
+      "category": "layout",
+      "description": "Managing sticky elements across sizes",
+      "considerations": {
+        "mobile": "less sticky elements (save space)",
+        "stack": "account for stacking (header + banner)",
+        "height": "variable sticky element heights"
+      },
+      "common": "sticky header on all, sticky sidebar desktop only"
+    },
+    {
+      "id": "modal-responsive",
+      "name": "Responsive Modals/Overlays",
+      "category": "content",
+      "description": "Modals that adapt to screen size",
+      "desktop": {
+        "width": "max-width: 500-600px",
+        "position": "centered with backdrop"
+      },
+      "mobile": {
+        "option1": "full screen takeover",
+        "option2": "bottom sheet sliding up",
+        "option3": "nearly full with small margin"
+      }
+    }
+  ],
+  "testing": {
+    "methods": [
+      "browser dev tools responsive mode",
+      "actual devices (iOS, Android)",
+      "BrowserStack/LambdaTest",
+      "resize browser window"
+    ],
+    "checklist": [
+      "navigation accessible at all sizes",
+      "text readable without zooming",
+      "no horizontal scroll on pages",
+      "touch targets large enough",
+      "forms usable on mobile",
+      "images load appropriate sizes"
+    ]
+  },
+  "frameworks": {
+    "tailwind": "responsive prefix (md:, lg:)",
+    "bootstrap": "responsive classes (col-md-6)",
+    "cssGrid": "auto-fit, minmax()",
+    "flexbox": "flex-wrap, flex-basis"
+  }
+}

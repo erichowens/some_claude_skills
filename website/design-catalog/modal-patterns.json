@@ -1,0 +1,407 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 16,
+    "categories": ["dialog", "overlay", "drawer", "accessibility"]
+  },
+  "patterns": [
+    {
+      "id": "confirmation-modal",
+      "name": "Confirmation Dialog",
+      "category": "dialog",
+      "description": "Confirm before destructive or important action",
+      "anatomy": {
+        "icon": "optional warning icon for destructive",
+        "title": "clear action statement",
+        "description": "explain consequences",
+        "primaryAction": "confirm button (verb-based)",
+        "secondaryAction": "cancel/dismiss"
+      },
+      "examples": {
+        "delete": {
+          "title": "Delete project?",
+          "description": "This action cannot be undone. All data will be permanently removed.",
+          "primary": "Delete",
+          "secondary": "Cancel"
+        },
+        "unsavedChanges": {
+          "title": "Unsaved changes",
+          "description": "You have unsaved changes. Are you sure you want to leave?",
+          "primary": "Leave",
+          "secondary": "Stay"
+        }
+      },
+      "styling": {
+        "destructive": "red primary button for delete/remove",
+        "normal": "brand color for non-destructive confirms"
+      },
+      "accessibility": {
+        "focus": "focus on cancel for destructive actions",
+        "escape": "Escape key dismisses"
+      }
+    },
+    {
+      "id": "alert-modal",
+      "name": "Alert Dialog",
+      "category": "dialog",
+      "description": "Important information requiring acknowledgment",
+      "anatomy": {
+        "icon": "info/warning/error icon",
+        "title": "clear statement",
+        "message": "explanation",
+        "action": "single acknowledge button"
+      },
+      "variants": {
+        "info": "neutral information",
+        "success": "positive confirmation",
+        "warning": "caution",
+        "error": "problem occurred"
+      },
+      "guidelines": {
+        "blocking": "should be used sparingly",
+        "alternative": "consider inline alerts instead"
+      }
+    },
+    {
+      "id": "form-modal",
+      "name": "Form Modal",
+      "category": "dialog",
+      "description": "Short form for creating/editing",
+      "anatomy": {
+        "title": "action + object (Create Project, Edit Profile)",
+        "form": "2-6 fields typically",
+        "primaryAction": "save/submit",
+        "secondaryAction": "cancel"
+      },
+      "guidelines": {
+        "complexity": "max 6 fields - more should be full page",
+        "validation": "inline validation, not on submit only",
+        "autofocus": "focus first field on open",
+        "submitOnEnter": "Enter submits form"
+      },
+      "ux": {
+        "closeOnSuccess": "close modal after successful save",
+        "persistOnError": "keep open with errors visible",
+        "confirmClose": "warn if form has unsaved changes"
+      }
+    },
+    {
+      "id": "media-modal",
+      "name": "Media Lightbox",
+      "category": "overlay",
+      "description": "Full-screen media viewing",
+      "anatomy": {
+        "media": "image/video centered",
+        "close": "X button, usually top-right",
+        "navigation": "prev/next if gallery",
+        "caption": "optional description below",
+        "background": "dark overlay (80-90% opacity)"
+      },
+      "interaction": {
+        "clickOutside": "closes modal",
+        "escape": "closes modal",
+        "arrows": "navigate gallery",
+        "zoom": "pinch/scroll to zoom images"
+      },
+      "mobile": {
+        "swipe": "swipe to navigate gallery",
+        "pinch": "pinch to zoom"
+      }
+    },
+    {
+      "id": "wizard-modal",
+      "name": "Multi-Step Wizard",
+      "category": "dialog",
+      "description": "Sequential steps in modal",
+      "anatomy": {
+        "progress": "step indicator (1 of 3)",
+        "title": "current step name",
+        "content": "step-specific content",
+        "navigation": "back, next/complete",
+        "cancel": "always available"
+      },
+      "guidelines": {
+        "stepCount": "2-5 steps ideal",
+        "validation": "validate before proceeding",
+        "persistence": "warn before abandoning",
+        "progress": "show clear progress indication"
+      },
+      "examples": ["onboarding", "checkout", "setup wizard"]
+    },
+    {
+      "id": "command-palette",
+      "name": "Command Palette",
+      "category": "overlay",
+      "description": "Quick action search (Cmd+K pattern)",
+      "anatomy": {
+        "input": "search field at top",
+        "results": "scrollable list of matches",
+        "categories": "grouped by type",
+        "shortcuts": "keyboard shortcuts shown"
+      },
+      "behavior": {
+        "trigger": "Cmd/Ctrl + K",
+        "filter": "real-time filtering",
+        "navigate": "arrow keys",
+        "select": "Enter to execute"
+      },
+      "design": {
+        "position": "centered, upper third of screen",
+        "width": "500-600px typically",
+        "backdrop": "subtle, click-to-close"
+      },
+      "examples": ["VS Code", "Figma", "Linear", "Raycast"]
+    },
+    {
+      "id": "drawer-right",
+      "name": "Right Drawer",
+      "category": "drawer",
+      "description": "Slide-in panel from right",
+      "anatomy": {
+        "header": "title + close button",
+        "content": "scrollable content area",
+        "footer": "optional fixed actions"
+      },
+      "width": {
+        "small": "320px - quick info",
+        "medium": "480px - forms",
+        "large": "640px - complex content"
+      },
+      "behavior": {
+        "overlay": "dark backdrop behind",
+        "push": "or push content left",
+        "escape": "close on Escape",
+        "clickOutside": "close on backdrop click"
+      },
+      "useCases": ["detail panels", "settings", "filters", "shopping cart"]
+    },
+    {
+      "id": "drawer-bottom",
+      "name": "Bottom Sheet",
+      "category": "drawer",
+      "description": "Slide-up panel from bottom",
+      "anatomy": {
+        "handle": "drag handle at top",
+        "header": "optional title",
+        "content": "scrollable content"
+      },
+      "behavior": {
+        "snapPoints": "[25%, 50%, 90%] of viewport",
+        "drag": "drag handle to resize",
+        "swipeDown": "swipe to dismiss"
+      },
+      "useCases": ["mobile actions", "share menus", "filters", "pickers"],
+      "platform": "especially common on mobile"
+    },
+    {
+      "id": "popover",
+      "name": "Popover",
+      "category": "overlay",
+      "description": "Small overlay attached to trigger",
+      "anatomy": {
+        "arrow": "points to trigger element",
+        "content": "compact information or actions",
+        "position": "auto-positions to stay in viewport"
+      },
+      "positioning": {
+        "preferred": "bottom, with fallback to top/sides",
+        "offset": "8-12px from trigger",
+        "viewport": "stays within viewport bounds"
+      },
+      "behavior": {
+        "hover": "show on hover (info)",
+        "click": "show on click (actions)",
+        "focus": "show on focus for accessibility"
+      },
+      "distinction": "smaller than modal, attached to element"
+    },
+    {
+      "id": "dropdown-menu",
+      "name": "Dropdown Menu",
+      "category": "overlay",
+      "description": "Menu of actions attached to button",
+      "anatomy": {
+        "trigger": "button that opens menu",
+        "items": "list of actions",
+        "dividers": "group related actions",
+        "shortcuts": "keyboard shortcuts"
+      },
+      "interaction": {
+        "click": "click trigger to open",
+        "arrows": "navigate with arrows",
+        "enter": "select with Enter",
+        "escape": "close with Escape",
+        "typeahead": "type to jump to item"
+      },
+      "guidelines": {
+        "maxItems": "prefer 7-10 items max",
+        "grouping": "use dividers for groups",
+        "icons": "optional icons for recognition"
+      }
+    },
+    {
+      "id": "context-menu",
+      "name": "Context Menu",
+      "category": "overlay",
+      "description": "Right-click action menu",
+      "anatomy": {
+        "items": "contextual actions",
+        "submenus": "expandable for categories",
+        "shortcuts": "keyboard shortcuts"
+      },
+      "trigger": "right-click or long-press",
+      "positioning": "appears at cursor position",
+      "guidelines": {
+        "relevance": "show only relevant actions",
+        "consistency": "consistent placement of common actions",
+        "accessibility": "also accessible via keyboard"
+      }
+    },
+    {
+      "id": "toast-notification",
+      "name": "Toast Notification",
+      "category": "overlay",
+      "description": "Brief feedback message",
+      "anatomy": {
+        "icon": "status icon",
+        "message": "brief text",
+        "action": "optional action button",
+        "dismiss": "optional close button"
+      },
+      "positioning": {
+        "common": "bottom-center or top-right",
+        "stack": "multiple toasts stack"
+      },
+      "timing": {
+        "duration": "3-5 seconds typically",
+        "autoDismiss": "dismisses automatically",
+        "pauseOnHover": "pause timer on hover"
+      },
+      "variants": {
+        "success": "green, checkmark",
+        "error": "red, X icon",
+        "warning": "yellow/orange, warning icon",
+        "info": "blue, info icon"
+      }
+    },
+    {
+      "id": "cookie-banner",
+      "name": "Cookie Consent Banner",
+      "category": "overlay",
+      "description": "GDPR/privacy consent",
+      "positioning": "bottom of page, persistent",
+      "anatomy": {
+        "message": "brief privacy explanation",
+        "acceptAll": "accept all cookies",
+        "rejectAll": "reject non-essential",
+        "customize": "manage preferences",
+        "privacyLink": "link to full policy"
+      },
+      "compliance": {
+        "gdpr": "EU requires consent before tracking",
+        "ccpa": "California opt-out requirement",
+        "default": "no tracking until consent"
+      },
+      "ux": {
+        "notDismissable": "must interact to proceed",
+        "remembers": "stores preference",
+        "accessible": "via footer settings link later"
+      }
+    },
+    {
+      "id": "announcement-banner",
+      "name": "Announcement Banner",
+      "category": "overlay",
+      "description": "Site-wide announcement",
+      "positioning": "top of page, above header",
+      "anatomy": {
+        "message": "brief announcement",
+        "link": "optional learn more",
+        "dismiss": "close button"
+      },
+      "styling": {
+        "height": "40-48px",
+        "background": "brand color or attention color",
+        "contrast": "ensure text readable"
+      },
+      "behavior": {
+        "persistent": "shows until dismissed",
+        "remembers": "dismissal stored",
+        "priority": "one at a time"
+      }
+    },
+    {
+      "id": "full-screen-takeover",
+      "name": "Full-Screen Takeover",
+      "category": "overlay",
+      "description": "Full viewport overlay",
+      "useCases": [
+        "onboarding",
+        "feature announcements",
+        "immersive content",
+        "mobile menus"
+      ],
+      "anatomy": {
+        "content": "full screen content",
+        "close": "prominent close option",
+        "progress": "progress if multi-step"
+      },
+      "caution": "very disruptive - use sparingly"
+    },
+    {
+      "id": "split-modal",
+      "name": "Split Modal",
+      "category": "dialog",
+      "description": "Two-column modal layout",
+      "anatomy": {
+        "left": "illustration, preview, or context",
+        "right": "form or main content",
+        "close": "top-right close button"
+      },
+      "useCases": [
+        "signup with imagery",
+        "preview + edit",
+        "comparison selection"
+      ],
+      "responsive": "stack vertically on mobile"
+    }
+  ],
+  "accessibility": {
+    "focus": [
+      "trap focus within modal",
+      "return focus to trigger on close",
+      "first focusable element gets focus on open"
+    ],
+    "keyboard": [
+      "Escape closes modal",
+      "Tab cycles through focusable elements",
+      "Enter activates focused button"
+    ],
+    "aria": [
+      "role='dialog' or role='alertdialog'",
+      "aria-modal='true'",
+      "aria-labelledby for title",
+      "aria-describedby for description"
+    ],
+    "screenReader": [
+      "announce modal open/close",
+      "content before modal hidden from screen readers"
+    ]
+  },
+  "animation": {
+    "enter": {
+      "modal": "fade + scale from 95% to 100%",
+      "backdrop": "fade in",
+      "drawer": "slide in from edge",
+      "duration": "150-200ms"
+    },
+    "exit": {
+      "modal": "fade + scale from 100% to 95%",
+      "backdrop": "fade out",
+      "drawer": "slide out to edge",
+      "duration": "100-150ms"
+    },
+    "easing": "ease-out for open, ease-in for close"
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 18,
+    "categories": ["layout", "features", "interaction", "responsive"]
+  },
+  "patterns": [
+    {
+      "id": "basic-data-table",
+      "name": "Basic Data Table",
+      "category": "layout",
+      "description": "Standard tabular data display",
+      "anatomy": {
+        "header": "column names, sortable indicators",
+        "rows": "data rows with consistent cells",
+        "borders": "horizontal lines minimum",
+        "striping": "optional alternating row colors"
+      },
+      "guidelines": {
+        "alignment": "text left, numbers right",
+        "padding": "12-16px horizontal, 8-12px vertical",
+        "headerStyle": "bold or uppercase, distinct from data"
+      }
+    },
+    {
+      "id": "sortable-table",
+      "name": "Sortable Table",
+      "category": "features",
+      "description": "Columns can be sorted by clicking header",
+      "interaction": {
+        "click": "click header to sort ascending",
+        "secondClick": "click again for descending",
+        "thirdClick": "reset to default (optional)"
+      },
+      "indicators": {
+        "unsorted": "no icon or subtle icon",
+        "ascending": "arrow up",
+        "descending": "arrow down"
+      },
+      "ux": "persist sort preference, clear state on new data"
+    },
+    {
+      "id": "filterable-table",
+      "name": "Filterable Table",
+      "category": "features",
+      "description": "Filter data by column values",
+      "patterns": {
+        "global": "single search filtering all columns",
+        "perColumn": "filter inputs in each column header",
+        "faceted": "sidebar with filter options"
+      },
+      "features": {
+        "liveFilter": "filter as user types",
+        "clearFilter": "easy way to reset",
+        "resultCount": "show number of matches"
+      }
+    },
+    {
+      "id": "paginated-table",
+      "name": "Paginated Table",
+      "category": "features",
+      "description": "Table with page navigation",
+      "anatomy": {
+        "pagination": "page numbers or prev/next",
+        "pageSize": "rows per page selector",
+        "totalCount": "Showing 1-10 of 248"
+      },
+      "placement": "footer, sometimes mirrored in header",
+      "ux": {
+        "urlState": "page in URL for shareability",
+        "loadingState": "show loading while fetching",
+        "scrollToTop": "scroll to table top on page change"
+      }
+    },
+    {
+      "id": "infinite-scroll-table",
+      "name": "Infinite Scroll Table",
+      "category": "features",
+      "description": "Load more rows on scroll",
+      "behavior": {
+        "trigger": "load when near bottom",
+        "loading": "loading indicator at bottom",
+        "end": "no more data message"
+      },
+      "virtualization": {
+        "what": "only render visible rows",
+        "why": "performance with large datasets",
+        "libraries": ["react-window", "tanstack-virtual", "react-virtualized"]
+      },
+      "ux": "consider providing jump-to and keyboard navigation"
+    },
+    {
+      "id": "expandable-rows",
+      "name": "Expandable Rows",
+      "category": "interaction",
+      "description": "Rows can expand to show details",
+      "trigger": "click row or expand icon",
+      "content": {
+        "nested": "child data or sub-table",
+        "detail": "additional fields",
+        "actions": "row-specific actions"
+      },
+      "animation": "smooth height animation",
+      "accessibility": "aria-expanded on trigger"
+    },
+    {
+      "id": "selectable-rows",
+      "name": "Selectable Rows",
+      "category": "interaction",
+      "description": "Rows can be selected for bulk actions",
+      "types": {
+        "single": "radio button selection",
+        "multi": "checkbox selection"
+      },
+      "features": {
+        "selectAll": "header checkbox selects all",
+        "bulkActions": "toolbar with actions for selected",
+        "count": "X items selected"
+      },
+      "ux": {
+        "shift-click": "range selection",
+        "indeterminate": "partial selection checkbox state"
+      }
+    },
+    {
+      "id": "editable-table",
+      "name": "Inline Editable Table",
+      "category": "interaction",
+      "description": "Edit cell values directly in table",
+      "triggers": {
+        "click": "single click to edit",
+        "doubleClick": "double-click to edit",
+        "editButton": "explicit edit mode"
+      },
+      "ux": {
+        "validation": "validate on blur or submit",
+        "escape": "cancel edit with Escape",
+        "enter": "confirm edit with Enter",
+        "tabNavigation": "Tab to next editable cell"
+      },
+      "feedback": {
+        "saving": "show saving state",
+        "success": "flash or checkmark",
+        "error": "inline error message"
+      }
+    },
+    {
+      "id": "reorderable-rows",
+      "name": "Drag Reorderable Table",
+      "category": "interaction",
+      "description": "Drag rows to reorder",
+      "trigger": {
+        "handle": "dedicated drag handle",
+        "row": "drag entire row"
+      },
+      "feedback": {
+        "pickup": "row lifts slightly",
+        "dragging": "ghost row follows cursor",
+        "dropTarget": "line indicates drop position"
+      },
+      "libraries": ["dnd-kit", "react-beautiful-dnd"]
+    },
+    {
+      "id": "resizable-columns",
+      "name": "Resizable Columns",
+      "category": "features",
+      "description": "Drag column borders to resize",
+      "interaction": {
+        "cursor": "col-resize cursor on border",
+        "drag": "drag to resize",
+        "doubleClick": "auto-fit to content"
+      },
+      "constraints": {
+        "min": "minimum column width",
+        "max": "optional maximum",
+        "persist": "remember user preferences"
+      }
+    },
+    {
+      "id": "fixed-columns",
+      "name": "Fixed/Frozen Columns",
+      "category": "layout",
+      "description": "First column(s) stay visible when scrolling",
+      "implementation": {
+        "sticky": "position: sticky",
+        "shadow": "shadow on fixed column edge"
+      },
+      "useCases": [
+        "ID/name column always visible",
+        "action column on right"
+      ]
+    },
+    {
+      "id": "fixed-header",
+      "name": "Fixed/Sticky Header",
+      "category": "layout",
+      "description": "Header stays visible when scrolling",
+      "implementation": "position: sticky; top: 0",
+      "considerations": {
+        "shadow": "add shadow when scrolled",
+        "zIndex": "above table content",
+        "height": "account for other sticky elements"
+      }
+    },
+    {
+      "id": "grouped-rows",
+      "name": "Grouped/Sectioned Table",
+      "category": "layout",
+      "description": "Rows grouped by category",
+      "anatomy": {
+        "groupHeader": "spanning row with category name",
+        "rows": "data rows within group",
+        "collapse": "optional group collapse"
+      },
+      "styling": {
+        "groupHeader": "distinct background, bold text",
+        "indentation": "optional row indentation"
+      }
+    },
+    {
+      "id": "tree-table",
+      "name": "Tree/Hierarchical Table",
+      "category": "layout",
+      "description": "Nested hierarchical data",
+      "anatomy": {
+        "expanders": "expand/collapse arrows",
+        "indentation": "visual nesting level",
+        "connector": "optional tree lines"
+      },
+      "useCases": ["file systems", "org charts", "nested data"],
+      "accessibility": "aria-level, aria-expanded"
+    },
+    {
+      "id": "responsive-cards",
+      "name": "Responsive: Card Layout",
+      "category": "responsive",
+      "description": "Table becomes cards on mobile",
+      "desktop": "normal table layout",
+      "mobile": {
+        "layout": "stacked cards",
+        "labels": "show column name with each value",
+        "actions": "easily accessible"
+      },
+      "breakpoint": "typically < 768px"
+    },
+    {
+      "id": "responsive-horizontal-scroll",
+      "name": "Responsive: Horizontal Scroll",
+      "category": "responsive",
+      "description": "Allow horizontal scroll on small screens",
+      "implementation": "overflow-x: auto on container",
+      "indicators": {
+        "fadeEdge": "gradient indicating more content",
+        "scrollbar": "visible scrollbar",
+        "arrow": "scroll arrows"
+      },
+      "consideration": "less accessible than cards but preserves layout"
+    },
+    {
+      "id": "responsive-priority-columns",
+      "name": "Responsive: Priority Columns",
+      "category": "responsive",
+      "description": "Hide less important columns on small screens",
+      "implementation": {
+        "dataAttribute": "data-priority on columns",
+        "mediaQueries": "hide at breakpoints",
+        "expandRow": "hidden data in expandable section"
+      },
+      "priority": {
+        "essential": "always visible",
+        "secondary": "visible on tablet+",
+        "tertiary": "visible on desktop only"
+      }
+    },
+    {
+      "id": "loading-skeleton",
+      "name": "Table Loading State",
+      "category": "features",
+      "description": "Placeholder while data loads",
+      "patterns": {
+        "skeleton": "gray animated placeholders",
+        "spinner": "centered loading spinner",
+        "overlay": "dim table with spinner"
+      },
+      "ux": {
+        "headerVisible": "show real headers during load",
+        "rowCount": "match expected row count"
+      }
+    }
+  ],
+  "bestPractices": {
+    "performance": [
+      "virtualize large tables (1000+ rows)",
+      "debounce filter/search inputs",
+      "lazy load additional data",
+      "memoize row components"
+    ],
+    "accessibility": [
+      "use proper <table> markup",
+      "scope='col' on header cells",
+      "caption or aria-label describing table",
+      "keyboard navigation for interactive cells"
+    ],
+    "ux": [
+      "empty state when no data",
+      "clear visual hierarchy",
+      "consistent column widths",
+      "appropriate information density"
+    ]
+  },
+  "libraries": {
+    "react": ["TanStack Table", "AG Grid", "MUI DataGrid", "Mantine Table"],
+    "headless": ["TanStack Table (headless)", "react-table"],
+    "styled": ["AG Grid", "Ant Design Table", "Chakra Table"]
+  }
+}

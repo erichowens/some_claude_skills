@@ -1,0 +1,350 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 18,
+    "categories": ["reveal", "parallax", "sticky", "progress", "transform", "storytelling"]
+  },
+  "patterns": [
+    {
+      "id": "fade-in-on-scroll",
+      "name": "Fade In On Scroll",
+      "category": "reveal",
+      "description": "Elements fade in when scrolled into viewport",
+      "trigger": {
+        "type": "intersection",
+        "threshold": 0.2,
+        "rootMargin": "-50px"
+      },
+      "animation": {
+        "from": { "opacity": 0 },
+        "to": { "opacity": 1 },
+        "duration": "0.6s"
+      },
+      "implementation": {
+        "css": "IntersectionObserver + CSS transition",
+        "framer": "whileInView prop",
+        "libraries": ["AOS", "ScrollReveal"]
+      },
+      "bestFor": "general content reveal"
+    },
+    {
+      "id": "slide-up-reveal",
+      "name": "Slide Up Reveal",
+      "category": "reveal",
+      "description": "Elements slide up while fading in",
+      "trigger": {
+        "type": "intersection",
+        "threshold": 0.1
+      },
+      "animation": {
+        "from": { "opacity": 0, "y": 50 },
+        "to": { "opacity": 1, "y": 0 },
+        "duration": "0.6s",
+        "easing": "ease-out"
+      },
+      "stagger": {
+        "children": true,
+        "delay": "0.1s"
+      },
+      "bestFor": "feature sections, cards, lists"
+    },
+    {
+      "id": "scale-in-reveal",
+      "name": "Scale In Reveal",
+      "category": "reveal",
+      "description": "Elements scale up from smaller size",
+      "trigger": {
+        "type": "intersection",
+        "threshold": 0.2
+      },
+      "animation": {
+        "from": { "opacity": 0, "scale": 0.8 },
+        "to": { "opacity": 1, "scale": 1 },
+        "duration": "0.5s"
+      },
+      "bestFor": "images, cards, call-outs"
+    },
+    {
+      "id": "clip-path-reveal",
+      "name": "Clip Path Reveal",
+      "category": "reveal",
+      "description": "Content revealed through animated clip-path",
+      "trigger": {
+        "type": "intersection",
+        "threshold": 0.3
+      },
+      "animation": {
+        "from": "clip-path: inset(0 100% 0 0)",
+        "to": "clip-path: inset(0 0 0 0)",
+        "variants": ["left-to-right", "top-to-bottom", "circle-expand"]
+      },
+      "bestFor": "dramatic reveals, images, videos"
+    },
+    {
+      "id": "text-reveal-mask",
+      "name": "Text Reveal Mask",
+      "category": "reveal",
+      "description": "Text revealed line by line or word by word",
+      "trigger": {
+        "type": "intersection",
+        "threshold": 0.5
+      },
+      "animation": {
+        "type": "overflow hidden with translateY",
+        "stagger": "per line or per word"
+      },
+      "implementation": "split text into spans, animate each",
+      "bestFor": "headlines, hero text, quotes"
+    },
+    {
+      "id": "parallax-background",
+      "name": "Parallax Background",
+      "category": "parallax",
+      "description": "Background moves slower than content",
+      "trigger": {
+        "type": "scroll position",
+        "continuous": true
+      },
+      "animation": {
+        "transform": "translateY(scrollY * 0.5)",
+        "rate": "0.3-0.7 of scroll speed"
+      },
+      "implementation": {
+        "css": "background-attachment: fixed (simple)",
+        "js": "transform based on scrollY (smoother)"
+      },
+      "performance": "use will-change: transform",
+      "bestFor": "hero sections, section backgrounds"
+    },
+    {
+      "id": "parallax-layers",
+      "name": "Parallax Layers",
+      "category": "parallax",
+      "description": "Multiple elements at different parallax speeds",
+      "trigger": {
+        "type": "scroll position",
+        "continuous": true
+      },
+      "layers": [
+        { "name": "background", "speed": 0.2 },
+        { "name": "midground", "speed": 0.5 },
+        { "name": "foreground", "speed": 0.8 }
+      ],
+      "effect": "creates depth illusion",
+      "bestFor": "illustrated scenes, landing pages"
+    },
+    {
+      "id": "horizontal-scroll",
+      "name": "Horizontal Scroll Section",
+      "category": "transform",
+      "description": "Vertical scroll triggers horizontal movement",
+      "trigger": {
+        "type": "scroll within pinned section",
+        "continuous": true
+      },
+      "animation": {
+        "transform": "translateX based on scroll progress"
+      },
+      "implementation": {
+        "sticky": "parent is sticky while scrolling",
+        "width": "content wider than viewport",
+        "libraries": ["GSAP ScrollTrigger", "Locomotive Scroll"]
+      },
+      "bestFor": "portfolios, timelines, showcases"
+    },
+    {
+      "id": "sticky-section",
+      "name": "Sticky Section",
+      "category": "sticky",
+      "description": "Element sticks during scroll through section",
+      "trigger": {
+        "type": "scroll position",
+        "start": "top of section",
+        "end": "bottom of section"
+      },
+      "behavior": {
+        "css": "position: sticky",
+        "top": "desired sticky position"
+      },
+      "variants": {
+        "sidebar": "sticky sidebar next to scrolling content",
+        "image": "image stays while text scrolls",
+        "header": "compact header appears on scroll"
+      },
+      "bestFor": "feature comparisons, documentation, dashboards"
+    },
+    {
+      "id": "sticky-image-text-sync",
+      "name": "Sticky Image with Text Sync",
+      "category": "sticky",
+      "description": "Image changes as corresponding text scrolls into view",
+      "trigger": {
+        "type": "intersection of text sections"
+      },
+      "animation": {
+        "image": "crossfade or slide between images",
+        "sync": "image matches visible text section"
+      },
+      "implementation": "sticky image column + scrolling text column",
+      "examples": ["Apple product pages"],
+      "bestFor": "feature explanations, product showcases"
+    },
+    {
+      "id": "progress-indicator",
+      "name": "Scroll Progress Indicator",
+      "category": "progress",
+      "description": "Bar showing page scroll progress",
+      "trigger": {
+        "type": "scroll position",
+        "continuous": true
+      },
+      "animation": {
+        "width": "scaleX(scrollProgress)",
+        "position": "fixed top of viewport"
+      },
+      "variants": {
+        "bar": "horizontal bar at top",
+        "circle": "circular progress indicator",
+        "vertical": "progress on side"
+      },
+      "bestFor": "long-form content, articles, documentation"
+    },
+    {
+      "id": "section-progress",
+      "name": "Section Progress Nav",
+      "category": "progress",
+      "description": "Navigation dots showing current section",
+      "trigger": {
+        "type": "intersection of sections"
+      },
+      "animation": {
+        "active": "dot fills or enlarges",
+        "smooth": "transitions between states"
+      },
+      "position": "fixed on side of viewport",
+      "bestFor": "single-page sites, presentations"
+    },
+    {
+      "id": "scroll-driven-rotation",
+      "name": "Scroll-Driven Rotation",
+      "category": "transform",
+      "description": "Element rotates based on scroll position",
+      "trigger": {
+        "type": "scroll position",
+        "continuous": true
+      },
+      "animation": {
+        "transform": "rotate(scrollProgress * 360deg)"
+      },
+      "use": "decorative elements, icons",
+      "bestFor": "visual interest, decorative elements"
+    },
+    {
+      "id": "scroll-zoom",
+      "name": "Scroll Zoom",
+      "category": "transform",
+      "description": "Element scales with scroll position",
+      "trigger": {
+        "type": "scroll within section",
+        "continuous": true
+      },
+      "animation": {
+        "scale": "increases as user scrolls",
+        "range": "1 to 1.5 or larger"
+      },
+      "variants": {
+        "zoomIn": "gets larger scrolling down",
+        "zoomOut": "gets smaller scrolling down"
+      },
+      "bestFor": "hero images, product reveals"
+    },
+    {
+      "id": "scroll-snap",
+      "name": "Scroll Snap Sections",
+      "category": "sticky",
+      "description": "Scroll snaps to section boundaries",
+      "trigger": {
+        "type": "CSS scroll-snap"
+      },
+      "css": {
+        "container": "scroll-snap-type: y mandatory",
+        "children": "scroll-snap-align: start"
+      },
+      "behavior": "sections lock into view",
+      "caution": "can feel jarring, use intentionally",
+      "bestFor": "full-screen sections, presentations"
+    },
+    {
+      "id": "storytelling-scroll",
+      "name": "Storytelling Scroll",
+      "category": "storytelling",
+      "description": "Narrative unfolds through scroll interactions",
+      "trigger": {
+        "type": "scroll position",
+        "multiple triggers": true
+      },
+      "elements": {
+        "text": "appears and disappears",
+        "visuals": "animate in sequence",
+        "video": "plays during scroll"
+      },
+      "libraries": ["Scrollama", "GSAP ScrollTrigger"],
+      "examples": ["NYT interactives", "Apple product pages"],
+      "bestFor": "data journalism, product stories, reports"
+    },
+    {
+      "id": "video-scrub",
+      "name": "Video Scrub",
+      "category": "storytelling",
+      "description": "Video playhead controlled by scroll position",
+      "trigger": {
+        "type": "scroll position",
+        "continuous": true
+      },
+      "animation": {
+        "video": "currentTime = scrollProgress * duration"
+      },
+      "implementation": "video element with currentTime manipulation",
+      "examples": ["Apple AirPods Pro page"],
+      "bestFor": "product reveals, 3D object rotation videos"
+    },
+    {
+      "id": "lottie-scroll",
+      "name": "Lottie Scroll Control",
+      "category": "storytelling",
+      "description": "Lottie animation progress tied to scroll",
+      "trigger": {
+        "type": "scroll position",
+        "continuous": true
+      },
+      "animation": {
+        "lottie": "frame = scrollProgress * totalFrames"
+      },
+      "implementation": "Lottie-web with goToAndStop",
+      "bestFor": "illustrated animations, infographics"
+    }
+  ],
+  "performance": {
+    "tips": [
+      "Use IntersectionObserver over scroll events",
+      "Throttle/debounce continuous scroll handlers",
+      "Use transform instead of top/left",
+      "Add will-change for animated properties",
+      "Test on lower-end devices"
+    ],
+    "accessibility": [
+      "Respect prefers-reduced-motion",
+      "Ensure content accessible without animation",
+      "Avoid scroll hijacking that prevents navigation",
+      "Provide skip options for long scroll animations"
+    ]
+  },
+  "libraries": {
+    "framerMotion": "whileInView, useScroll, useTransform",
+    "gsap": "ScrollTrigger plugin",
+    "aos": "simple reveal animations",
+    "locomotiveScroll": "smooth scrolling + parallax",
+    "scrollama": "scrollytelling for data viz"
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 16,
+    "categories": ["grid", "alternating", "bento", "comparison", "interactive", "visual-heavy"]
+  },
+  "patterns": [
+    {
+      "id": "three-column-icon-grid",
+      "name": "Three-Column Icon Grid",
+      "category": "grid",
+      "description": "Classic feature grid with icons, headlines, and descriptions",
+      "structure": {
+        "columns": 3,
+        "perFeature": ["icon", "headline", "description"],
+        "rows": "1-2 rows (3-6 features)"
+      },
+      "design": {
+        "iconStyle": "line icons, filled, or illustrations",
+        "iconSize": "48-64px",
+        "spacing": "generous between items",
+        "alignment": "center or left-aligned"
+      },
+      "responsive": {
+        "tablet": "2 columns",
+        "mobile": "1 column or horizontal scroll"
+      },
+      "variants": {
+        "withLinks": "add 'Learn more →' per feature",
+        "numbered": "replace icons with numbers",
+        "minimal": "icon + headline only"
+      },
+      "examples": ["stripe.com", "notion.so", "vercel.com"],
+      "bestFor": ["SaaS landing pages", "feature overviews", "benefit lists"]
+    },
+    {
+      "id": "alternating-rows",
+      "name": "Alternating Rows",
+      "category": "alternating",
+      "description": "Image/screenshot on one side, text on the other, alternating",
+      "structure": {
+        "perRow": ["visual (50%)", "content (50%)"],
+        "content": ["headline", "description", "bullet points", "optional CTA"],
+        "alternation": "image left, then image right, repeat"
+      },
+      "design": {
+        "visualType": "screenshots, illustrations, or videos",
+        "aspectRatio": "16:9 or custom to fit",
+        "verticalSpacing": "80-120px between rows"
+      },
+      "responsive": {
+        "tablet": "stack with image above",
+        "mobile": "stack with image above, reduce spacing"
+      },
+      "variants": {
+        "withBackground": "alternating background colors per row",
+        "fullBleed": "images extend to edge",
+        "animated": "reveal on scroll"
+      },
+      "examples": ["apple.com product pages", "linear.app"],
+      "bestFor": ["product pages", "detailed feature explanations", "storytelling"]
+    },
+    {
+      "id": "bento-grid",
+      "name": "Bento Grid",
+      "category": "bento",
+      "description": "Asymmetric grid with varying cell sizes for visual interest",
+      "structure": {
+        "layout": "CSS Grid with span variations",
+        "cells": "mix of 1x1, 2x1, 1x2, 2x2",
+        "content": "features with varying depth based on importance"
+      },
+      "design": {
+        "cellStyle": "cards with subtle borders or shadows",
+        "heroCell": "2x2 for most important feature",
+        "background": "different colors or images per cell",
+        "animation": "hover effects, optional scroll reveal"
+      },
+      "responsive": {
+        "reflow": "cells reflow to different arrangements",
+        "mobile": "may stack vertically or carousel"
+      },
+      "accessibility": {
+        "readingOrder": "ensure logical tab order",
+        "contrast": "check all cell backgrounds"
+      },
+      "examples": ["apple.com feature pages", "vercel.com/features"],
+      "bestFor": ["modern product pages", "visual-first features", "dashboards"]
+    },
+    {
+      "id": "feature-comparison-table",
+      "name": "Feature Comparison Table",
+      "category": "comparison",
+      "description": "Table comparing features across products or plans",
+      "structure": {
+        "columns": "products/plans",
+        "rows": "features grouped by category",
+        "cells": "checkmarks, X marks, or specific values"
+      },
+      "design": {
+        "headerSticky": "keep headers visible on scroll",
+        "highlighting": "highlight recommended column",
+        "groupHeaders": "separate feature categories"
+      },
+      "responsive": {
+        "horizontal": "horizontal scroll on mobile",
+        "alternative": "card-based comparison on mobile"
+      },
+      "features": {
+        "tooltips": "explain features on hover",
+        "filtering": "filter by feature category",
+        "expansion": "show more features"
+      },
+      "examples": ["notion.so/pricing", "github.com/pricing"],
+      "bestFor": ["pricing pages", "competitor comparisons", "plan selection"]
+    },
+    {
+      "id": "tab-switched-features",
+      "name": "Tab-Switched Features",
+      "category": "interactive",
+      "description": "Tabs that switch between different feature views",
+      "structure": {
+        "tabs": "feature categories or use cases",
+        "perTab": "visual + description for that feature set",
+        "transition": "fade or slide between tabs"
+      },
+      "design": {
+        "tabStyle": "underline, pills, or segment",
+        "contentArea": "consistent height or dynamic",
+        "autoRotate": "optional auto-cycling"
+      },
+      "responsive": {
+        "tabs": "horizontal scroll or dropdown on mobile"
+      },
+      "accessibility": {
+        "keyboard": "arrow keys to switch",
+        "ariaControls": "proper tab panel relationships"
+      },
+      "examples": ["many SaaS sites"],
+      "bestFor": ["multiple feature categories", "use case segmentation"]
+    },
+    {
+      "id": "interactive-demo",
+      "name": "Interactive Demo",
+      "category": "interactive",
+      "description": "Live product demo embedded in the page",
+      "structure": {
+        "format": "iframe, video, or custom interactive",
+        "controls": "minimal or guided",
+        "context": "surrounded by feature callouts"
+      },
+      "variants": {
+        "sandbox": "fully interactive product sandbox",
+        "guided": "step-by-step walkthrough",
+        "video": "recorded demo with chapters"
+      },
+      "design": {
+        "frame": "browser chrome or clean",
+        "callouts": "hotspots highlighting features",
+        "overlay": "feature labels that fade"
+      },
+      "examples": ["figma.com", "notion.so", "linear.app"],
+      "bestFor": ["complex products", "visual products", "dev tools"]
+    },
+    {
+      "id": "feature-cards-carousel",
+      "name": "Feature Cards Carousel",
+      "category": "visual-heavy",
+      "description": "Horizontally scrolling feature cards",
+      "structure": {
+        "cards": "peek previous/next cards",
+        "perCard": ["icon/image", "headline", "description"],
+        "navigation": "dots, arrows, or swipe"
+      },
+      "design": {
+        "cardWidth": "280-400px",
+        "peek": "show edge of adjacent cards",
+        "active": "scale or elevate active card"
+      },
+      "responsive": {
+        "desktop": "show 3-4 cards",
+        "mobile": "show 1-2 cards with swipe"
+      },
+      "accessibility": {
+        "ariaLabel": "carousel region labeling",
+        "keyboard": "arrow key navigation"
+      },
+      "examples": ["app store feature sections"],
+      "bestFor": ["mobile-first sites", "many features to show"]
+    },
+    {
+      "id": "before-after-slider",
+      "name": "Before/After Slider",
+      "category": "interactive",
+      "description": "Draggable slider showing transformation",
+      "structure": {
+        "images": "before and after screenshots",
+        "slider": "draggable divider line",
+        "labels": "Before/After labels"
+      },
+      "design": {
+        "sliderHandle": "visible, draggable icon",
+        "defaultPosition": "50% or strategic reveal",
+        "animation": "smooth drag following"
+      },
+      "responsive": {
+        "touch": "touch-friendly handle",
+        "size": "maintains aspect ratio"
+      },
+      "useCases": [
+        "show product improvements",
+        "compare old vs new UI",
+        "demonstrate editing capabilities"
+      ],
+      "examples": ["photo editing apps", "redesign showcases"],
+      "bestFor": ["visual transformations", "before/after comparisons"]
+    },
+    {
+      "id": "numbered-steps",
+      "name": "Numbered Steps",
+      "category": "grid",
+      "description": "Sequential steps with numbers showing process",
+      "structure": {
+        "layout": "horizontal timeline or vertical list",
+        "perStep": ["number", "headline", "description", "optional visual"],
+        "connector": "line between numbers"
+      },
+      "design": {
+        "numberStyle": "circled, large, or subtle",
+        "connector": "solid line, dashed, or arrow",
+        "activeState": "highlight current step if applicable"
+      },
+      "variants": {
+        "timeline": "horizontal with dates",
+        "process": "how it works steps",
+        "journey": "user journey stages"
+      },
+      "examples": ["onboarding explanations", "how it works sections"],
+      "bestFor": ["process explanations", "onboarding", "how it works"]
+    },
+    {
+      "id": "icon-feature-list",
+      "name": "Icon Feature List",
+      "category": "grid",
+      "description": "Compact list of features with icons",
+      "structure": {
+        "layout": "2-column list",
+        "perItem": ["checkmark or icon", "feature text"],
+        "count": "8-16 features"
+      },
+      "design": {
+        "iconStyle": "checkmarks, bullets, or custom icons",
+        "density": "compact spacing",
+        "columns": "2 on desktop, 1 on mobile"
+      },
+      "purpose": "quickly communicate feature coverage",
+      "placement": "below main features, near pricing",
+      "examples": ["pricing sections", "plan comparisons"],
+      "bestFor": ["feature lists", "plan details", "quick scanning"]
+    },
+    {
+      "id": "stats-highlight",
+      "name": "Stats Highlight",
+      "category": "visual-heavy",
+      "description": "Large numbers showcasing impressive metrics",
+      "structure": {
+        "layout": "3-4 columns of stats",
+        "perStat": ["large number", "label/description"],
+        "format": "99% | 10M+ | 24/7"
+      },
+      "design": {
+        "numberSize": "very large (48-72px)",
+        "animation": "count-up animation on scroll",
+        "icons": "optional small icons"
+      },
+      "responsive": {
+        "mobile": "2x2 grid or horizontal scroll"
+      },
+      "psychology": "specific numbers build credibility",
+      "examples": ["about pages", "landing page social proof"],
+      "bestFor": ["social proof", "credibility building", "about pages"]
+    },
+    {
+      "id": "accordion-features",
+      "name": "Accordion Features",
+      "category": "interactive",
+      "description": "Expandable sections revealing feature details",
+      "structure": {
+        "items": "collapsed by default or first open",
+        "perItem": ["header with icon", "expandable content"],
+        "content": "text, images, or both when expanded"
+      },
+      "design": {
+        "indicator": "+ / - or chevron",
+        "animation": "smooth height transition",
+        "visual": "optional image changes with selection"
+      },
+      "accessibility": {
+        "keyboard": "Enter/Space to toggle",
+        "ariaExpanded": "state communication"
+      },
+      "variants": {
+        "withImage": "large image area that updates",
+        "nested": "sub-accordions for categories"
+      },
+      "examples": ["FAQ sections", "feature detail pages"],
+      "bestFor": ["dense information", "FAQs", "progressive disclosure"]
+    },
+    {
+      "id": "video-feature-showcase",
+      "name": "Video Feature Showcase",
+      "category": "visual-heavy",
+      "description": "Feature sections with video demonstrations",
+      "structure": {
+        "layout": "video + text side by side",
+        "video": "autoplay muted or click to play",
+        "text": "headline + description + CTA"
+      },
+      "design": {
+        "videoStyle": "loop, GIF-like, or full demo",
+        "autoplay": "muted, pauses when out of view",
+        "fallback": "poster image for slow connections"
+      },
+      "responsive": {
+        "mobile": "video above, text below"
+      },
+      "performance": {
+        "lazyLoad": "load video when in view",
+        "compression": "optimize for web"
+      },
+      "examples": ["linear.app", "notion.so"],
+      "bestFor": ["visual products", "complex features", "motion-based UIs"]
+    },
+    {
+      "id": "testimonial-feature-combo",
+      "name": "Testimonial + Feature Combo",
+      "category": "visual-heavy",
+      "description": "Feature explanation paired with relevant testimonial",
+      "structure": {
+        "layout": "feature section + testimonial card",
+        "testimonial": "quote specifically about that feature",
+        "flow": "feature → proof pattern"
+      },
+      "design": {
+        "integration": "testimonial feels part of section",
+        "visual": "quote card or inline quote"
+      },
+      "psychology": "immediate social proof per feature",
+      "examples": ["SaaS landing pages"],
+      "bestFor": ["high-consideration purchases", "B2B products"]
+    },
+    {
+      "id": "use-case-tabs",
+      "name": "Use Case Tabs",
+      "category": "interactive",
+      "description": "Features organized by user persona or use case",
+      "structure": {
+        "tabs": ["For Developers", "For Designers", "For Teams"],
+        "perTab": "features relevant to that audience",
+        "visual": "different screenshots per persona"
+      },
+      "design": {
+        "tabStyle": "clear persona/use case labels",
+        "content": "tailored benefits and features"
+      },
+      "personalization": "can auto-detect or ask user type",
+      "examples": ["figma.com", "notion.so"],
+      "bestFor": ["multi-persona products", "platform products"]
+    },
+    {
+      "id": "animated-feature-reveal",
+      "name": "Animated Feature Reveal",
+      "category": "visual-heavy",
+      "description": "Features that animate into view on scroll",
+      "structure": {
+        "trigger": "intersection observer on scroll",
+        "animation": "fade up, slide in, or scale",
+        "stagger": "sequential reveal of multiple items"
+      },
+      "design": {
+        "timing": "200-400ms per element",
+        "easing": "ease-out or spring",
+        "staggerDelay": "50-100ms between items"
+      },
+      "accessibility": {
+        "reducedMotion": "respect prefers-reduced-motion",
+        "fallback": "show content immediately"
+      },
+      "libraries": ["Framer Motion", "GSAP", "AOS"],
+      "examples": ["modern landing pages", "apple.com"],
+      "bestFor": ["premium feel", "storytelling", "attention-grabbing"]
+    }
+  ]
+}

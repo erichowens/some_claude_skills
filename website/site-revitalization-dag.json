@@ -1,0 +1,571 @@
+{
+  "id": "site-revitalization-2026",
+  "name": "Some Claude Skills Platform Enhancement",
+  "description": "Transform from documentation site into the premier curated Claude Code skills platform",
+  "created": "2026-01-17T03:00:00Z",
+  "updated": "2026-01-17T05:00:00Z",
+  "source": "MASTER_IMPLEMENTATION_PLAN.md + PRODUCT_APPEAL_ANALYSIS.md",
+
+  "productAppealFindings": {
+    "overallScore": "63/90",
+    "desirabilityTriangle": {
+      "identityFit": 8,
+      "trustSignals": 9,
+      "problemUrgency": 4
+    },
+    "criticalIssues": [
+      "Getting Started page 404s",
+      "Bundles page 404s",
+      "Primary CTA is terminal command (trust ladder violation)",
+      "No 'What are Claude Skills?' education",
+      "No urgency mechanics"
+    ],
+    "verdict": "Strong foundation, but urgency gap means users think 'cool, maybe later' instead of converting"
+  },
+
+  "decomposition": {
+    "strategy": "CRITICAL FIXES FIRST: Fix 404s and education gap before features. Then decompose into Foundation (design system + infrastructure), Onboarding (modal + analytics), Tutorials (content + components), Bundles (schema + UI), and Polish phases. Maximize parallelism within phases where file conflicts don't exist.",
+    "complexity": 9,
+    "totalSubtasks": 25,
+    "totalWaves": 10,
+    "theoreticalSpeedup": 2.0
+  },
+
+  "executorConfig": {
+    "default": "process",
+    "rationale": "Process executor is 36x cheaper than task-tool. Use task-tool only when shared context is critical.",
+    "costPerTaskEstimates": {
+      "task-tool": { "minUsd": 0.15, "maxUsd": 0.35, "avgUsd": 0.25, "tokenOverhead": "HIGH" },
+      "process": { "minUsd": 0.01, "maxUsd": 0.08, "avgUsd": 0.04, "tokenOverhead": "ZERO" },
+      "worktree": { "minUsd": 0.01, "maxUsd": 0.08, "avgUsd": 0.04, "tokenOverhead": "ZERO" }
+    }
+  },
+
+  "nodes": [
+    {
+      "id": "fix-bundles-404",
+      "description": "Fix /bundles page 404 - ensure bundles.tsx is properly routed and renders",
+      "phase": "Critical Fixes",
+      "dependencies": [],
+      "skillMatch": "fullstack-debugger",
+      "confidence": 0.95,
+      "predictedFiles": ["src/pages/bundles.tsx", "docusaurus.config.js"],
+      "estimatedMinutes": 15,
+      "urgency": "CRITICAL",
+      "appealImpact": "Unblocks choice-reduction conversion path"
+    },
+    {
+      "id": "create-getting-started",
+      "description": "Create /docs/getting-started page with clear installation steps and first skill tutorial",
+      "phase": "Critical Fixes",
+      "dependencies": [],
+      "skillMatch": "technical-writer",
+      "confidence": 0.90,
+      "predictedFiles": ["docs/getting-started.md", "sidebars.js"],
+      "estimatedMinutes": 30,
+      "urgency": "CRITICAL",
+      "appealImpact": "Users who want to start currently CAN'T"
+    },
+    {
+      "id": "skills-explainer-section",
+      "description": "Add 'What are Claude Skills?' section above fold on homepage with 2-3 sentences and before/after example",
+      "phase": "Critical Fixes",
+      "dependencies": [],
+      "skillMatch": "web-design-expert",
+      "confidence": 0.85,
+      "predictedFiles": ["src/pages/index.tsx", "src/components/SkillsExplainer.tsx"],
+      "estimatedMinutes": 25,
+      "urgency": "CRITICAL",
+      "appealImpact": "Addresses 'What even is a Claude skill?' objection"
+    },
+    {
+      "id": "fix-primary-cta",
+      "description": "Change primary CTA from terminal command to 'Browse Skills' or 'Get Started' button with clear destination",
+      "phase": "Critical Fixes",
+      "dependencies": [],
+      "skillMatch": "mobile-ux-optimizer",
+      "confidence": 0.88,
+      "predictedFiles": ["src/pages/index.tsx", "src/css/custom.css"],
+      "estimatedMinutes": 15,
+      "urgency": "CRITICAL",
+      "appealImpact": "Fixes trust ladder violation - stop asking for terminal action before value"
+    },
+    {
+      "id": "urgency-signals",
+      "description": "Add urgency mechanics: 'Most Popular', 'New This Week' badges, and freshness indicators",
+      "phase": "Critical Fixes",
+      "dependencies": [],
+      "skillMatch": "web-design-expert",
+      "confidence": 0.80,
+      "predictedFiles": ["src/components/SkillCard/*.tsx", "src/data/skills.ts"],
+      "estimatedMinutes": 35,
+      "urgency": "HIGH",
+      "appealImpact": "Converts 'cool, maybe later' to 'I should try this now'"
+    },
+    {
+      "id": "win31-design-system",
+      "description": "Create Win31 design system components (Modal, Button, Window, Wizard)",
+      "phase": "Foundation",
+      "dependencies": ["fix-bundles-404", "create-getting-started", "skills-explainer-section", "fix-primary-cta"],
+      "skillMatch": "design-system-creator",
+      "confidence": 0.85,
+      "predictedFiles": ["src/components/win31/*.tsx", "src/css/win31.css"],
+      "estimatedMinutes": 45
+    },
+    {
+      "id": "logger-utility",
+      "description": "Create centralized logger utility with namespaces and log levels",
+      "phase": "Foundation",
+      "dependencies": [],
+      "skillMatch": "fullstack-debugger",
+      "confidence": 0.72,
+      "predictedFiles": ["src/utils/logger.ts"],
+      "estimatedMinutes": 15
+    },
+    {
+      "id": "vitest-setup",
+      "description": "Configure Vitest with React Testing Library for component tests",
+      "phase": "Foundation",
+      "dependencies": [],
+      "skillMatch": "test-automation-expert",
+      "confidence": 0.88,
+      "predictedFiles": ["vitest.config.ts", "src/test/setup.ts"],
+      "estimatedMinutes": 20
+    },
+    {
+      "id": "typescript-types",
+      "description": "Define TypeScript interfaces for Tutorial, Bundle, Video, Onboarding features",
+      "phase": "Foundation",
+      "dependencies": [],
+      "skillMatch": "api-architect",
+      "confidence": 0.65,
+      "predictedFiles": ["src/types/features.ts"],
+      "estimatedMinutes": 20
+    },
+    {
+      "id": "use-onboarding-hook",
+      "description": "Create useOnboarding hook with localStorage persistence and path selection",
+      "phase": "Onboarding",
+      "dependencies": ["typescript-types"],
+      "skillMatch": "pwa-expert",
+      "confidence": 0.68,
+      "predictedFiles": ["src/hooks/useOnboarding.ts"],
+      "estimatedMinutes": 30
+    },
+    {
+      "id": "onboarding-modal",
+      "description": "Build Win31-styled onboarding modal with 3-step wizard and path selection",
+      "phase": "Onboarding",
+      "dependencies": ["win31-design-system", "use-onboarding-hook"],
+      "skillMatch": "web-design-expert",
+      "confidence": 0.82,
+      "predictedFiles": ["src/components/OnboardingModal/*.tsx"],
+      "estimatedMinutes": 60
+    },
+    {
+      "id": "analytics-events",
+      "description": "Define Plausible analytics events for onboarding path selection and tutorial progress",
+      "phase": "Onboarding",
+      "dependencies": ["typescript-types"],
+      "skillMatch": "chatbot-analytics",
+      "confidence": 0.71,
+      "predictedFiles": ["src/utils/analytics.ts"],
+      "estimatedMinutes": 20
+    },
+    {
+      "id": "homepage-integration",
+      "description": "Integrate onboarding modal into homepage with first-visit detection",
+      "phase": "Onboarding",
+      "dependencies": ["onboarding-modal", "analytics-events"],
+      "skillMatch": "mobile-ux-optimizer",
+      "confidence": 0.75,
+      "predictedFiles": ["src/pages/index.tsx"],
+      "estimatedMinutes": 25
+    },
+    {
+      "id": "use-tutorial-progress-hook",
+      "description": "Create useTutorialProgress hook with localStorage for step completion tracking",
+      "phase": "Tutorials",
+      "dependencies": ["typescript-types"],
+      "skillMatch": "pwa-expert",
+      "confidence": 0.70,
+      "predictedFiles": ["src/hooks/useTutorialProgress.ts"],
+      "estimatedMinutes": 35
+    },
+    {
+      "id": "tutorial-step-component",
+      "description": "Build TutorialStep component with code copying, checkboxes, and WinHelp styling",
+      "phase": "Tutorials",
+      "dependencies": ["win31-design-system", "use-tutorial-progress-hook"],
+      "skillMatch": "web-design-expert",
+      "confidence": 0.80,
+      "predictedFiles": ["src/components/tutorial/*.tsx"],
+      "estimatedMinutes": 45
+    },
+    {
+      "id": "beginner-tutorials-content",
+      "description": "Write 4 beginner tutorial MDX files: Install First Skill, Great Skills, Using Skills, Customizing",
+      "phase": "Tutorials",
+      "dependencies": ["tutorial-step-component"],
+      "skillMatch": "technical-writer",
+      "confidence": 0.85,
+      "predictedFiles": ["docs/tutorials/beginner/*.mdx"],
+      "estimatedMinutes": 120
+    },
+    {
+      "id": "bundle-yaml-schema",
+      "description": "Define YAML schema for skill bundles with metadata, skills list, and install commands",
+      "phase": "Bundles",
+      "dependencies": ["typescript-types"],
+      "skillMatch": "api-architect",
+      "confidence": 0.72,
+      "predictedFiles": ["bundles/schema.yaml", "src/types/bundle.ts"],
+      "estimatedMinutes": 25
+    },
+    {
+      "id": "bundle-generator-script",
+      "description": "Create generate-bundles.ts script to convert YAML to TypeScript data",
+      "phase": "Bundles",
+      "dependencies": ["bundle-yaml-schema"],
+      "skillMatch": "devops-automator",
+      "confidence": 0.78,
+      "predictedFiles": ["scripts/generate-bundles.ts"],
+      "estimatedMinutes": 40
+    },
+    {
+      "id": "starter-bundles-yaml",
+      "description": "Create 5 launch bundle YAML files: Startup MVP, Code Review, Docs, DevOps, AI Stack",
+      "phase": "Bundles",
+      "dependencies": ["bundle-yaml-schema"],
+      "skillMatch": "skill-coach",
+      "confidence": 0.82,
+      "predictedFiles": ["bundles/*.yaml"],
+      "estimatedMinutes": 60
+    },
+    {
+      "id": "bundle-card-component",
+      "description": "Build BundleCard component with skill list, install button, and Win31 styling",
+      "phase": "Bundles",
+      "dependencies": ["win31-design-system", "bundle-generator-script"],
+      "skillMatch": "web-design-expert",
+      "confidence": 0.80,
+      "predictedFiles": ["src/components/bundle/*.tsx"],
+      "estimatedMinutes": 45
+    },
+    {
+      "id": "bundles-page",
+      "description": "Create /bundles page with filtering, search, and bundle gallery",
+      "phase": "Bundles",
+      "dependencies": ["bundle-card-component", "starter-bundles-yaml"],
+      "skillMatch": "mobile-ux-optimizer",
+      "confidence": 0.76,
+      "predictedFiles": ["src/pages/bundles.tsx"],
+      "estimatedMinutes": 50
+    },
+    {
+      "id": "video-player-component",
+      "description": "Build Win31VideoPlayer component with VHS aesthetic and YouTube/Loom embed support",
+      "phase": "Video",
+      "dependencies": ["win31-design-system"],
+      "skillMatch": "web-design-expert",
+      "confidence": 0.75,
+      "predictedFiles": ["src/components/video/*.tsx"],
+      "estimatedMinutes": 60
+    },
+    {
+      "id": "color-contrast-audit",
+      "description": "Audit all UI components for WCAG 2.1 color contrast compliance and fix violations",
+      "phase": "Polish",
+      "dependencies": ["homepage-integration", "bundles-page", "tutorial-step-component"],
+      "skillMatch": "color-contrast-auditor",
+      "confidence": 0.92,
+      "predictedFiles": ["src/css/*.css", "src/components/**/*.tsx"],
+      "estimatedMinutes": 45
+    },
+    {
+      "id": "ux-polish-audit",
+      "description": "Fix marquee readability, button hierarchy, NEW badges, and general accessibility",
+      "phase": "Polish",
+      "dependencies": ["color-contrast-audit"],
+      "skillMatch": "ux-friction-analyzer",
+      "confidence": 0.88,
+      "predictedFiles": ["src/css/*.css", "src/components/**/*.tsx"],
+      "estimatedMinutes": 90
+    },
+    {
+      "id": "product-appeal-analysis",
+      "description": "Analyze completed platform for product-market fit, first impressions, and conversion optimization",
+      "phase": "Final",
+      "dependencies": ["ux-polish-audit"],
+      "skillMatch": "product-appeal-analyzer",
+      "confidence": 0.90,
+      "predictedFiles": ["docs/PRODUCT_APPEAL_REPORT.md"],
+      "estimatedMinutes": 60
+    }
+  ],
+
+  "edges": [
+    { "from": "fix-bundles-404", "to": ["win31-design-system", "logger-utility", "vitest-setup", "typescript-types"] },
+    { "from": "create-getting-started", "to": ["win31-design-system", "logger-utility", "vitest-setup", "typescript-types"] },
+    { "from": "skills-explainer-section", "to": ["win31-design-system", "logger-utility", "vitest-setup", "typescript-types"] },
+    { "from": "fix-primary-cta", "to": ["win31-design-system", "logger-utility", "vitest-setup", "typescript-types"] },
+    { "from": "urgency-signals", "to": ["analytics-events"] },
+    { "from": "typescript-types", "to": ["use-onboarding-hook", "analytics-events", "use-tutorial-progress-hook", "bundle-yaml-schema"] },
+    { "from": "win31-design-system", "to": ["onboarding-modal", "tutorial-step-component", "bundle-card-component", "video-player-component"] },
+    { "from": "use-onboarding-hook", "to": ["onboarding-modal"] },
+    { "from": "onboarding-modal", "to": ["homepage-integration"] },
+    { "from": "analytics-events", "to": ["homepage-integration"] },
+    { "from": "use-tutorial-progress-hook", "to": ["tutorial-step-component"] },
+    { "from": "tutorial-step-component", "to": ["beginner-tutorials-content", "color-contrast-audit"] },
+    { "from": "bundle-yaml-schema", "to": ["bundle-generator-script", "starter-bundles-yaml"] },
+    { "from": "bundle-generator-script", "to": ["bundle-card-component"] },
+    { "from": "bundle-card-component", "to": ["bundles-page"] },
+    { "from": "starter-bundles-yaml", "to": ["bundles-page"] },
+    { "from": "homepage-integration", "to": ["color-contrast-audit"] },
+    { "from": "bundles-page", "to": ["color-contrast-audit"] },
+    { "from": "color-contrast-audit", "to": ["ux-polish-audit"] },
+    { "from": "ux-polish-audit", "to": ["product-appeal-analysis"] }
+  ],
+
+  "waves": [
+    {
+      "waveNumber": 0,
+      "name": "🔴 CRITICAL FIXES (Product Appeal)",
+      "nodeIds": ["fix-bundles-404", "create-getting-started", "skills-explainer-section", "fix-primary-cta", "urgency-signals"],
+      "parallelizable": true,
+      "executor": "process",
+      "executorRationale": "Independent fixes to different files. Can all run in parallel.",
+      "totalMinutes": 120,
+      "parallelMinutes": 35,
+      "cost": {
+        "estimatedUsd": { "min": 0.05, "max": 0.40, "expected": 0.20 },
+        "tasks": 5
+      },
+      "rationale": "MUST complete before features. These are conversion killers identified by product appeal analysis.",
+      "appealImpact": {
+        "before": { "urgencyScore": 4, "5secTestScore": 6 },
+        "after": { "urgencyScore": 6, "5secTestScore": 8 }
+      }
+    },
+    {
+      "waveNumber": 1,
+      "name": "Foundation - Infrastructure",
+      "nodeIds": ["win31-design-system", "logger-utility", "vitest-setup", "typescript-types"],
+      "parallelizable": true,
+      "executor": "process",
+      "executorRationale": "Fully isolated tasks with no shared context needed. Use cheap process executor.",
+      "totalMinutes": 100,
+      "parallelMinutes": 45,
+      "cost": {
+        "estimatedUsd": { "min": 0.04, "max": 0.32, "expected": 0.16 },
+        "tasks": 4
+      },
+      "rationale": "No file conflicts - independent infrastructure tasks"
+    },
+    {
+      "waveNumber": 2,
+      "name": "Onboarding - Hooks & Analytics",
+      "nodeIds": ["use-onboarding-hook", "analytics-events", "use-tutorial-progress-hook", "bundle-yaml-schema"],
+      "parallelizable": true,
+      "executor": "process",
+      "executorRationale": "Independent hook/schema work. No shared context needed.",
+      "totalMinutes": 110,
+      "parallelMinutes": 35,
+      "cost": {
+        "estimatedUsd": { "min": 0.04, "max": 0.32, "expected": 0.16 },
+        "tasks": 4
+      },
+      "rationale": "All depend on typescript-types, but modify different files"
+    },
+    {
+      "waveNumber": 3,
+      "name": "UI Components - Wave A",
+      "nodeIds": ["onboarding-modal", "tutorial-step-component", "bundle-generator-script", "starter-bundles-yaml"],
+      "parallelizable": true,
+      "executor": "worktree",
+      "executorRationale": "Heavy file creation across component directories. Worktree provides true isolation.",
+      "totalMinutes": 205,
+      "parallelMinutes": 60,
+      "cost": {
+        "estimatedUsd": { "min": 0.04, "max": 0.32, "expected": 0.16 },
+        "tasks": 4
+      },
+      "rationale": "Different component directories, no overlap"
+    },
+    {
+      "waveNumber": 4,
+      "name": "UI Components - Wave B",
+      "nodeIds": ["bundle-card-component", "video-player-component"],
+      "parallelizable": true,
+      "executor": "worktree",
+      "executorRationale": "Component creation with potential CSS interactions. Worktree keeps isolation.",
+      "totalMinutes": 105,
+      "parallelMinutes": 60,
+      "cost": {
+        "estimatedUsd": { "min": 0.02, "max": 0.16, "expected": 0.08 },
+        "tasks": 2
+      },
+      "rationale": "Separate component directories"
+    },
+    {
+      "waveNumber": 5,
+      "name": "Content Creation",
+      "nodeIds": ["beginner-tutorials-content"],
+      "parallelizable": false,
+      "executor": "task-tool",
+      "executorRationale": "Content needs iterative feedback and consistency checking. Worth the cost for quality.",
+      "totalMinutes": 120,
+      "parallelMinutes": 120,
+      "cost": {
+        "estimatedUsd": { "min": 0.15, "max": 0.35, "expected": 0.25 },
+        "tasks": 1
+      },
+      "rationale": "Content creation is inherently sequential for consistency"
+    },
+    {
+      "waveNumber": 6,
+      "name": "Page Integration",
+      "nodeIds": ["homepage-integration", "bundles-page"],
+      "parallelizable": true,
+      "executor": "worktree",
+      "executorRationale": "Different pages but may share layout components. Worktree for safety.",
+      "totalMinutes": 75,
+      "parallelMinutes": 50,
+      "cost": {
+        "estimatedUsd": { "min": 0.02, "max": 0.16, "expected": 0.08 },
+        "tasks": 2
+      },
+      "rationale": "Different pages, no file overlap"
+    },
+    {
+      "waveNumber": 7,
+      "name": "Color Contrast Audit",
+      "nodeIds": ["color-contrast-audit"],
+      "parallelizable": false,
+      "executor": "task-tool",
+      "executorRationale": "Cross-cutting accessibility audit needs full context visibility. Worth premium cost.",
+      "totalMinutes": 45,
+      "parallelMinutes": 45,
+      "cost": {
+        "estimatedUsd": { "min": 0.15, "max": 0.35, "expected": 0.25 },
+        "tasks": 1
+      },
+      "rationale": "Accessibility audit requires holistic view of all components"
+    },
+    {
+      "waveNumber": 8,
+      "name": "UX Polish & QA",
+      "nodeIds": ["ux-polish-audit"],
+      "parallelizable": false,
+      "executor": "task-tool",
+      "executorRationale": "Cross-cutting UX work needs iterative refinement with full context.",
+      "totalMinutes": 90,
+      "parallelMinutes": 90,
+      "cost": {
+        "estimatedUsd": { "min": 0.15, "max": 0.35, "expected": 0.25 },
+        "tasks": 1
+      },
+      "rationale": "Cross-cutting concern, touches many files"
+    },
+    {
+      "waveNumber": 9,
+      "name": "Final Analysis",
+      "nodeIds": ["product-appeal-analysis"],
+      "parallelizable": false,
+      "executor": "task-tool",
+      "executorRationale": "Final holistic analysis needs full context of completed platform.",
+      "totalMinutes": 60,
+      "parallelMinutes": 60,
+      "cost": {
+        "estimatedUsd": { "min": 0.15, "max": 0.35, "expected": 0.25 },
+        "tasks": 1
+      },
+      "rationale": "Final product analysis requires seeing everything together"
+    }
+  ],
+
+  "execution": {
+    "totalNodes": 25,
+    "totalWaves": 10,
+    "sequentialTime": 1030,
+    "parallelTime": 600,
+    "speedup": 1.72,
+    "criticalPath": ["fix-bundles-404", "typescript-types", "bundle-yaml-schema", "bundle-generator-script", "bundle-card-component", "bundles-page", "color-contrast-audit", "ux-polish-audit", "product-appeal-analysis"],
+    "criticalPathMinutes": 370,
+    "wave0IsCritical": true,
+    "wave0Rationale": "Product appeal analysis identified conversion-killing issues that must be fixed before investing in features"
+  },
+
+  "costSummary": {
+    "byExecutor": {
+      "process": { "waves": [0, 1, 2], "tasks": 13, "estimatedUsd": { "min": 0.13, "max": 1.04, "expected": 0.52 } },
+      "worktree": { "waves": [3, 4, 6], "tasks": 8, "estimatedUsd": { "min": 0.08, "max": 0.64, "expected": 0.32 } },
+      "task-tool": { "waves": [5, 7, 8, 9], "tasks": 4, "estimatedUsd": { "min": 0.60, "max": 1.40, "expected": 1.00 } }
+    },
+    "total": {
+      "tasks": 25,
+      "estimatedUsd": { "min": 0.81, "max": 3.08, "expected": 1.84 }
+    },
+    "comparison": {
+      "ifAllTaskTool": { "estimatedUsd": { "min": 3.75, "max": 8.75, "expected": 6.25 } },
+      "savings": "~70% cost reduction by using process/worktree executors for parallelizable work"
+    },
+    "wave0Investment": {
+      "cost": 0.20,
+      "appealImpactROI": "Fixes critical conversion blockers BEFORE spending on features"
+    }
+  },
+
+  "skillMatches": {
+    "fullstack-debugger": 2,
+    "technical-writer": 2,
+    "web-design-expert": 6,
+    "mobile-ux-optimizer": 3,
+    "design-system-creator": 1,
+    "test-automation-expert": 1,
+    "api-architect": 2,
+    "pwa-expert": 2,
+    "chatbot-analytics": 1,
+    "devops-automator": 1,
+    "skill-coach": 1,
+    "color-contrast-auditor": 1,
+    "ux-friction-analyzer": 1,
+    "product-appeal-analyzer": 1
+  },
+
+  "riskFactors": [
+    {
+      "risk": "Win31 design system complexity",
+      "mitigation": "Start with Modal + Button, iterate on Window and Wizard",
+      "impact": "medium"
+    },
+    {
+      "risk": "Tutorial content quality",
+      "mitigation": "Write beginner tutorials first, get feedback before intermediate/advanced",
+      "impact": "high"
+    },
+    {
+      "risk": "Bundle YAML schema changes",
+      "mitigation": "Design schema with extensibility in mind, version the schema",
+      "impact": "low"
+    },
+    {
+      "risk": "Color contrast violations widespread",
+      "mitigation": "color-contrast-auditor will systematically scan and provide fixes",
+      "impact": "medium"
+    },
+    {
+      "risk": "Product appeal issues surface late",
+      "mitigation": "product-appeal-analyzer runs last to catch issues before launch",
+      "impact": "high"
+    }
+  ],
+
+  "successMetrics": {
+    "bounceRate": { "current": "unknown", "target": "<60%", "final": "<40%" },
+    "sessionDuration": { "current": "unknown", "target": ">2min", "final": ">4min" },
+    "tutorialCompletion": { "current": "N/A", "target": ">50%", "final": ">70%" },
+    "returnVisitors": { "current": "unknown", "target": ">20%", "final": ">35%" },
+    "wcagCompliance": { "current": "unknown", "target": "AA", "final": "AA" }
+  }
+}

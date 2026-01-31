@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalSystems": 14,
+    "categories": ["style", "systems", "usage", "libraries"]
+  },
+  "styles": [
+    {
+      "id": "outline-icons",
+      "name": "Outline/Line Icons",
+      "category": "style",
+      "description": "Icons with stroked paths, no fill",
+      "characteristics": {
+        "strokeWidth": "1.5-2px typical",
+        "corners": "rounded or sharp",
+        "weight": "light, modern feel"
+      },
+      "pros": ["clean", "modern", "scales well", "works on any background"],
+      "cons": ["less visible at small sizes", "can feel cold"],
+      "bestFor": ["navigation", "toolbars", "modern interfaces"],
+      "examples": ["Feather Icons", "Heroicons Outline", "Phosphor Light"]
+    },
+    {
+      "id": "solid-icons",
+      "name": "Solid/Filled Icons",
+      "category": "style",
+      "description": "Icons with solid filled shapes",
+      "characteristics": {
+        "fill": "solid color",
+        "weight": "heavier visual presence",
+        "recognition": "faster recognition"
+      },
+      "pros": ["higher visibility", "better at small sizes", "more prominent"],
+      "cons": ["can feel heavy", "less subtle"],
+      "bestFor": ["active states", "mobile nav", "emphasis"],
+      "examples": ["Heroicons Solid", "FontAwesome Solid", "Material Filled"]
+    },
+    {
+      "id": "duotone-icons",
+      "name": "Duotone Icons",
+      "category": "style",
+      "description": "Two-color icons with primary and secondary layers",
+      "characteristics": {
+        "layers": "two distinct color layers",
+        "opacity": "secondary layer often 40-60%",
+        "depth": "creates visual depth"
+      },
+      "pros": ["more personality", "depth without complexity", "brand-able"],
+      "cons": ["requires two color setup", "more complex to implement"],
+      "bestFor": ["feature icons", "marketing", "dashboards"],
+      "examples": ["FontAwesome Duotone", "Phosphor Duotone"]
+    },
+    {
+      "id": "colored-icons",
+      "name": "Multi-Color Icons",
+      "category": "style",
+      "description": "Icons with multiple distinct colors",
+      "characteristics": {
+        "colors": "3+ distinct colors",
+        "style": "often illustrative",
+        "detail": "more detailed than mono icons"
+      },
+      "pros": ["expressive", "memorable", "decorative"],
+      "cons": ["harder to maintain consistency", "doesn't scale to small sizes"],
+      "bestFor": ["feature highlights", "onboarding", "empty states"],
+      "examples": ["app icons", "feature illustrations"]
+    },
+    {
+      "id": "hand-drawn-icons",
+      "name": "Hand-Drawn Icons",
+      "category": "style",
+      "description": "Sketchy, organic, hand-drawn appearance",
+      "characteristics": {
+        "lines": "imperfect, organic strokes",
+        "feel": "friendly, approachable, human",
+        "weight": "variable stroke weights"
+      },
+      "pros": ["unique personality", "friendly", "stands out"],
+      "cons": ["hard to maintain consistency", "may feel unprofessional"],
+      "bestFor": ["creative brands", "personal sites", "playful UIs"],
+      "examples": ["Rough.js style", "hand-drawn icon sets"]
+    },
+    {
+      "id": "isometric-icons",
+      "name": "Isometric Icons",
+      "category": "style",
+      "description": "3D isometric perspective icons",
+      "characteristics": {
+        "perspective": "30° isometric projection",
+        "depth": "3D appearance",
+        "complexity": "more detailed"
+      },
+      "pros": ["modern", "technical feel", "visual interest"],
+      "cons": ["harder to create consistently", "larger file sizes"],
+      "bestFor": ["tech products", "infographics", "dashboards"],
+      "examples": ["isometric icon sets", "tech illustrations"]
+    }
+  ],
+  "systems": [
+    {
+      "id": "size-scale",
+      "name": "Icon Size Scale",
+      "category": "systems",
+      "description": "Consistent sizing across icon usage",
+      "scale": {
+        "xs": { "size": "12px", "use": "inline text, badges" },
+        "sm": { "size": "16px", "use": "buttons, form elements" },
+        "md": { "size": "20-24px", "use": "navigation, lists" },
+        "lg": { "size": "32px", "use": "feature cards, headers" },
+        "xl": { "size": "48px", "use": "empty states, heroes" },
+        "2xl": { "size": "64px+", "use": "illustrations, marketing" }
+      },
+      "consistency": "use 4px or 8px increments"
+    },
+    {
+      "id": "optical-sizing",
+      "name": "Optical Sizing",
+      "category": "systems",
+      "description": "Adjusting icon weight for different sizes",
+      "principle": "smaller icons need thicker strokes",
+      "guidelines": {
+        "small": { "size": "16px", "stroke": "2px" },
+        "medium": { "size": "24px", "stroke": "1.5px" },
+        "large": { "size": "48px", "stroke": "1px" }
+      },
+      "reasoning": "maintains visual weight across sizes"
+    },
+    {
+      "id": "icon-grid",
+      "name": "Icon Grid System",
+      "category": "systems",
+      "description": "Underlying grid for icon consistency",
+      "grid": {
+        "size": "24x24 is common base",
+        "padding": "2px safe area on edges",
+        "keylines": "circle, square, horizontal, vertical guides"
+      },
+      "alignment": {
+        "center": "icons should be optically centered",
+        "baseline": "align to text baseline when inline"
+      }
+    },
+    {
+      "id": "state-variations",
+      "name": "Icon State Variations",
+      "category": "systems",
+      "description": "How icons change across states",
+      "states": {
+        "default": "standard appearance",
+        "hover": "color change or slight scale",
+        "active": "filled version or inverted",
+        "disabled": "reduced opacity (40-50%)",
+        "selected": "filled or color highlight"
+      },
+      "pattern": "outline default → solid on active is common"
+    }
+  ],
+  "usage": [
+    {
+      "id": "icon-label-pairing",
+      "name": "Icon + Label Pairing",
+      "category": "usage",
+      "description": "When and how to pair icons with text",
+      "guidelines": {
+        "always-label": ["primary navigation", "important actions", "new features"],
+        "icon-only-ok": ["common actions (close, menu)", "space-constrained", "secondary actions"],
+        "tooltip-required": "all icon-only buttons need tooltips"
+      },
+      "spacing": {
+        "inline": "8px gap between icon and text",
+        "stacked": "4-8px gap below icon"
+      },
+      "alignment": "vertically center icon with text"
+    },
+    {
+      "id": "icon-buttons",
+      "name": "Icon Buttons",
+      "category": "usage",
+      "description": "Icons as clickable buttons",
+      "requirements": {
+        "touchTarget": "minimum 44x44px",
+        "visualSize": "icon can be smaller within target",
+        "feedback": "hover/active states required"
+      },
+      "accessibility": {
+        "ariaLabel": "required for all icon buttons",
+        "focusRing": "visible focus indicator",
+        "tooltip": "show label on hover/focus"
+      }
+    },
+    {
+      "id": "decorative-vs-functional",
+      "name": "Decorative vs Functional",
+      "category": "usage",
+      "description": "Distinguishing icon purposes",
+      "functional": {
+        "purpose": "conveys meaning or enables action",
+        "a11y": "needs aria-label or visible label",
+        "examples": ["navigation", "buttons", "status indicators"]
+      },
+      "decorative": {
+        "purpose": "purely visual enhancement",
+        "a11y": "aria-hidden='true'",
+        "examples": ["list bullets", "visual accents", "illustrations"]
+      }
+    }
+  ],
+  "libraries": [
+    {
+      "id": "heroicons",
+      "name": "Heroicons",
+      "url": "https://heroicons.com",
+      "style": "outline and solid",
+      "count": "450+",
+      "framework": "React, Vue, or SVG",
+      "creator": "Tailwind Labs",
+      "license": "MIT",
+      "bestFor": "Tailwind projects, modern web apps"
+    },
+    {
+      "id": "lucide",
+      "name": "Lucide",
+      "url": "https://lucide.dev",
+      "style": "outline (Feather fork)",
+      "count": "1000+",
+      "framework": "React, Vue, Svelte, or SVG",
+      "license": "ISC",
+      "bestFor": "large icon needs, React projects"
+    },
+    {
+      "id": "phosphor",
+      "name": "Phosphor Icons",
+      "url": "https://phosphoricons.com",
+      "style": "6 weights (thin to bold)",
+      "count": "1200+",
+      "framework": "React, Vue, or SVG",
+      "license": "MIT",
+      "bestFor": "flexible weight needs, comprehensive sets"
+    },
+    {
+      "id": "tabler",
+      "name": "Tabler Icons",
+      "url": "https://tabler-icons.io",
+      "style": "outline with consistent stroke",
+      "count": "3000+",
+      "framework": "React, Vue, Svelte, or SVG",
+      "license": "MIT",
+      "bestFor": "largest free set, dashboard projects"
+    },
+    {
+      "id": "radix-icons",
+      "name": "Radix Icons",
+      "url": "https://icons.radix-ui.com",
+      "style": "15x15 crisp icons",
+      "count": "300+",
+      "framework": "React",
+      "license": "MIT",
+      "bestFor": "Radix UI projects, small UI icons"
+    },
+    {
+      "id": "fontawesome",
+      "name": "Font Awesome",
+      "url": "https://fontawesome.com",
+      "style": "solid, regular, light, duotone, brands",
+      "count": "7000+ (pro)",
+      "framework": "any (font or SVG)",
+      "license": "free tier + paid pro",
+      "bestFor": "brand icons, comprehensive coverage"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 18,
+    "categories": ["basic", "content", "interactive", "layout"]
+  },
+  "patterns": [
+    {
+      "id": "basic-card",
+      "name": "Basic Card",
+      "category": "basic",
+      "description": "Simple container with elevation",
+      "anatomy": {
+        "container": "rounded corners, background",
+        "padding": "consistent internal spacing",
+        "elevation": "shadow or border"
+      },
+      "styling": {
+        "borderRadius": "8-16px common",
+        "padding": "16-24px",
+        "shadow": "subtle shadow or border"
+      }
+    },
+    {
+      "id": "content-card",
+      "name": "Content Card",
+      "category": "content",
+      "description": "Card with structured content",
+      "anatomy": {
+        "header": "title, optional subtitle",
+        "body": "main content",
+        "footer": "actions, metadata"
+      },
+      "variants": {
+        "withImage": "image at top",
+        "withIcon": "icon in header",
+        "minimal": "content only"
+      }
+    },
+    {
+      "id": "media-card",
+      "name": "Media Card",
+      "category": "content",
+      "description": "Card featuring image/video",
+      "anatomy": {
+        "media": "image or video (top or side)",
+        "content": "title, description below",
+        "actions": "buttons or links"
+      },
+      "imageRatio": {
+        "landscape": "16:9, 4:3",
+        "square": "1:1",
+        "portrait": "3:4, 9:16"
+      },
+      "variants": {
+        "vertical": "image on top",
+        "horizontal": "image on side"
+      }
+    },
+    {
+      "id": "profile-card",
+      "name": "Profile/User Card",
+      "category": "content",
+      "description": "Display user information",
+      "anatomy": {
+        "avatar": "user photo or initials",
+        "name": "display name",
+        "role": "title or role",
+        "meta": "location, status, etc.",
+        "actions": "follow, message buttons"
+      },
+      "variants": {
+        "compact": "small avatar + name inline",
+        "detailed": "full profile with stats"
+      }
+    },
+    {
+      "id": "product-card",
+      "name": "Product Card",
+      "category": "content",
+      "description": "E-commerce product display",
+      "anatomy": {
+        "image": "product photo",
+        "title": "product name",
+        "price": "current price, sale price",
+        "rating": "stars and review count",
+        "cta": "add to cart button"
+      },
+      "features": {
+        "badge": "sale, new, sold out",
+        "wishlist": "heart icon",
+        "quickView": "preview modal"
+      }
+    },
+    {
+      "id": "pricing-card",
+      "name": "Pricing Card",
+      "category": "content",
+      "description": "Pricing tier display",
+      "anatomy": {
+        "tier": "plan name",
+        "price": "amount + billing period",
+        "features": "list of included features",
+        "cta": "sign up button"
+      },
+      "highlighting": {
+        "popular": "badge or border",
+        "recommended": "larger or elevated"
+      }
+    },
+    {
+      "id": "stat-card",
+      "name": "Stat/Metric Card",
+      "category": "content",
+      "description": "Display KPI or metric",
+      "anatomy": {
+        "value": "large number",
+        "label": "metric name",
+        "trend": "up/down indicator",
+        "sparkline": "optional mini chart"
+      },
+      "sizing": "compact, works in grids"
+    },
+    {
+      "id": "testimonial-card",
+      "name": "Testimonial Card",
+      "category": "content",
+      "description": "Customer quote display",
+      "anatomy": {
+        "quote": "testimonial text",
+        "avatar": "customer photo",
+        "name": "customer name",
+        "role": "title/company"
+      },
+      "styling": {
+        "quotes": "large quotation marks (optional)",
+        "stars": "rating (optional)"
+      }
+    },
+    {
+      "id": "article-card",
+      "name": "Article/Blog Card",
+      "category": "content",
+      "description": "Blog post preview",
+      "anatomy": {
+        "image": "featured image",
+        "category": "article category",
+        "title": "article headline",
+        "excerpt": "preview text",
+        "meta": "author, date, read time"
+      }
+    },
+    {
+      "id": "feature-card",
+      "name": "Feature Card",
+      "category": "content",
+      "description": "Feature/benefit highlight",
+      "anatomy": {
+        "icon": "feature icon",
+        "title": "feature name",
+        "description": "brief explanation"
+      },
+      "layout": "icon top or icon left",
+      "sizing": "works in 2-4 column grids"
+    },
+    {
+      "id": "clickable-card",
+      "name": "Clickable Card",
+      "category": "interactive",
+      "description": "Entire card is a link/button",
+      "implementation": {
+        "wrapper": "entire card is clickable",
+        "cursor": "pointer cursor",
+        "hover": "elevation or border change"
+      },
+      "accessibility": {
+        "focus": "visible focus ring",
+        "semantics": "link or button role"
+      }
+    },
+    {
+      "id": "selectable-card",
+      "name": "Selectable Card",
+      "category": "interactive",
+      "description": "Card that can be selected",
+      "useCases": ["plan selection", "option selection"],
+      "states": {
+        "default": "normal appearance",
+        "hover": "subtle highlight",
+        "selected": "border highlight, checkmark"
+      },
+      "implementation": "radio or checkbox underneath"
+    },
+    {
+      "id": "expandable-card",
+      "name": "Expandable Card",
+      "category": "interactive",
+      "description": "Card that expands for more content",
+      "trigger": "click to expand/collapse",
+      "states": {
+        "collapsed": "preview content",
+        "expanded": "full content"
+      },
+      "animation": "smooth height transition"
+    },
+    {
+      "id": "action-card",
+      "name": "Action Card",
+      "category": "interactive",
+      "description": "Card with prominent actions",
+      "anatomy": {
+        "content": "card content",
+        "actions": "buttons at bottom or floating"
+      },
+      "patterns": {
+        "footer": "buttons in card footer",
+        "hover": "actions appear on hover",
+        "menu": "three-dot menu"
+      }
+    },
+    {
+      "id": "swipeable-card",
+      "name": "Swipeable Card",
+      "category": "interactive",
+      "description": "Card with swipe actions (mobile)",
+      "actions": {
+        "left": "destructive action (delete)",
+        "right": "positive action (archive, favorite)"
+      },
+      "feedback": {
+        "reveal": "action revealed behind card",
+        "fullSwipe": "action triggered on full swipe"
+      }
+    },
+    {
+      "id": "card-list",
+      "name": "Card List Layout",
+      "category": "layout",
+      "description": "Vertical stack of cards",
+      "spacing": "consistent gap between cards",
+      "useCases": ["feeds", "search results", "dashboards"]
+    },
+    {
+      "id": "card-grid",
+      "name": "Card Grid Layout",
+      "category": "layout",
+      "description": "Cards in responsive grid",
+      "implementation": "CSS Grid or Flexbox",
+      "responsive": {
+        "mobile": "1 column",
+        "tablet": "2-3 columns",
+        "desktop": "3-4 columns"
+      }
+    },
+    {
+      "id": "card-carousel",
+      "name": "Card Carousel",
+      "category": "layout",
+      "description": "Horizontal scrollable cards",
+      "anatomy": {
+        "cards": "horizontally arranged",
+        "navigation": "arrows or dots",
+        "overflow": "peek of next card"
+      },
+      "interaction": {
+        "swipe": "swipe to navigate",
+        "arrows": "click navigation"
+      }
+    }
+  ],
+  "styling": {
+    "elevation": [
+      "shadow-sm: subtle depth",
+      "shadow-md: standard card",
+      "shadow-lg: elevated/focused"
+    ],
+    "borders": [
+      "none: rely on shadow only",
+      "subtle: 1px gray border",
+      "emphasized: stronger border"
+    ],
+    "corners": {
+      "none": "0px - sharp, technical",
+      "sm": "4px - subtle",
+      "md": "8px - friendly (common)",
+      "lg": "12-16px - soft, modern",
+      "full": "pill shape"
+    }
+  },
+  "accessibility": {
+    "clickable": [
+      "proper focus states",
+      "keyboard navigation",
+      "meaningful link text"
+    ],
+    "selectable": [
+      "use proper form controls",
+      "announce selection state"
+    ],
+    "content": [
+      "heading hierarchy",
+      "alt text for images",
+      "sufficient color contrast"
+    ]
+  }
+}

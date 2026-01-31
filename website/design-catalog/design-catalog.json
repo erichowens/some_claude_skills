@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-29T16:00:00Z",
+  "metadata": {
+    "title": "Design System Catalog",
+    "description": "Curated collection of design trends, color palettes, typography systems, and UI components with accessibility specifications",
+    "author": "Some Claude Skills",
+    "license": "MIT",
+    "repository": "https://github.com/erichowens/some_claude_skills"
+  },
+  "statistics": {
+    "trends": 8,
+    "colorPalettes": 15,
+    "typographySystems": 11,
+    "components": 22,
+    "wcagCompliant": {
+      "aa": 15,
+      "aaa": 11
+    }
+  },
+  "trends": [
+    {
+      "id": "neobrutalism",
+      "name": "Neobrutalism",
+      "era": "2022-2025",
+      "popularity": "high"
+    },
+    {
+      "id": "swiss-modern",
+      "name": "Swiss Modern Revival",
+      "era": "2023-2025",
+      "popularity": "high"
+    },
+    {
+      "id": "glassmorphism",
+      "name": "Glassmorphism",
+      "era": "2020-2024",
+      "popularity": "medium"
+    },
+    {
+      "id": "maximalism",
+      "name": "Digital Maximalism",
+      "era": "2024-2025",
+      "popularity": "rising"
+    },
+    {
+      "id": "hyperminimalism",
+      "name": "Hyperminimalism",
+      "era": "2023-2025",
+      "popularity": "medium"
+    },
+    {
+      "id": "cyberpunk",
+      "name": "Cyberpunk/Neon",
+      "era": "2019-2025",
+      "popularity": "medium"
+    },
+    {
+      "id": "cottagecore",
+      "name": "Cottagecore/Organic",
+      "era": "2020-2025",
+      "popularity": "niche"
+    },
+    {
+      "id": "brutalist-minimal",
+      "name": "Brutalist Minimal",
+      "era": "2024-2025",
+      "popularity": "rising"
+    }
+  ],
+  "files": {
+    "colorPalettes": "./color-palettes.json",
+    "typographySystems": "./typography-systems.json",
+    "components": "./components/index.json",
+    "documentation": "./README.md"
+  },
+  "accessibilityStandards": {
+    "wcag": "2.1",
+    "level": "AA",
+    "contrastRequirements": {
+      "normalText": 4.5,
+      "largeText": 3.0,
+      "uiComponents": 3.0
+    },
+    "touchTargetMinimum": "44px",
+    "focusIndicatorRequirement": "visible"
+  },
+  "componentCategories": [
+    {
+      "id": "buttons",
+      "name": "Buttons",
+      "count": 5,
+      "description": "Interactive button components with various styles"
+    },
+    {
+      "id": "cards",
+      "name": "Cards",
+      "count": 4,
+      "description": "Content container components"
+    },
+    {
+      "id": "navigation",
+      "name": "Navigation",
+      "count": 3,
+      "description": "Navigation and menu components"
+    },
+    {
+      "id": "heroes",
+      "name": "Heroes",
+      "count": 2,
+      "description": "Hero section components"
+    },
+    {
+      "id": "ctas",
+      "name": "Call-to-Actions",
+      "count": 2,
+      "description": "Call-to-action components"
+    },
+    {
+      "id": "testimonials",
+      "name": "Testimonials",
+      "count": 1,
+      "description": "Testimonial display components"
+    },
+    {
+      "id": "forms",
+      "name": "Forms",
+      "count": 5,
+      "description": "Form input and control components"
+    }
+  ],
+  "usage": {
+    "installation": "Copy the design-catalog directory to your project",
+    "import": "import catalog from './design-catalog/design-catalog.json'",
+    "typescript": "Import types from '@site/src/types/design-catalog'"
+  }
+}

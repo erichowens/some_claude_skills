@@ -1,0 +1,597 @@
+{
+  "$schema": "./schemas/gradient.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-30",
+  "totalGradients": 32,
+  "gradients": [
+    {
+      "id": "sunset-blaze",
+      "name": "Sunset Blaze",
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "color": "#ff6b6b", "position": 0 },
+        { "color": "#feca57", "position": 50 },
+        { "color": "#ff9ff3", "position": 100 }
+      ],
+      "css": "linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%)",
+      "usage": ["hero-backgrounds", "cards", "marketing"],
+      "trend": "maximalism",
+      "mood": ["energetic", "playful", "warm"],
+      "textGuidance": {
+        "recommended": "#1a1a1a or #ffffff with text-shadow",
+        "avoid": "light colors without contrast enhancement"
+      }
+    },
+    {
+      "id": "ocean-depth",
+      "name": "Ocean Depth",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#667eea", "position": 0 },
+        { "color": "#764ba2", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #667eea 0%, #764ba2 100%)",
+      "usage": ["hero-backgrounds", "cards", "premium"],
+      "trend": "glassmorphism",
+      "mood": ["calm", "professional", "trust"],
+      "textGuidance": {
+        "recommended": "#ffffff (6.4:1 on darkest)",
+        "avoid": "blue or purple text"
+      }
+    },
+    {
+      "id": "aurora-borealis",
+      "name": "Aurora Borealis",
+      "type": "linear",
+      "angle": 45,
+      "stops": [
+        { "color": "#00c9ff", "position": 0 },
+        { "color": "#92fe9d", "position": 100 }
+      ],
+      "css": "linear-gradient(45deg, #00c9ff 0%, #92fe9d 100%)",
+      "usage": ["accents", "badges", "highlights"],
+      "trend": "maximalism",
+      "mood": ["fresh", "innovative", "natural"],
+      "textGuidance": {
+        "recommended": "#1a1a1a (high contrast throughout)",
+        "avoid": "white text (fails on green end)"
+      }
+    },
+    {
+      "id": "midnight-city",
+      "name": "Midnight City",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#232526", "position": 0 },
+        { "color": "#414345", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #232526 0%, #414345 100%)",
+      "usage": ["dark-mode-backgrounds", "cards", "headers"],
+      "trend": "cyberpunk",
+      "mood": ["sophisticated", "dark", "premium"],
+      "textGuidance": {
+        "recommended": "#e0e0e0 or #ffffff (15:1+)",
+        "avoid": "dark colors"
+      }
+    },
+    {
+      "id": "peach-cream",
+      "name": "Peach Cream",
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "color": "#ffecd2", "position": 0 },
+        { "color": "#fcb69f", "position": 100 }
+      ],
+      "css": "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+      "usage": ["backgrounds", "cards", "feminine"],
+      "trend": "cottagecore",
+      "mood": ["soft", "warm", "approachable"],
+      "textGuidance": {
+        "recommended": "#4a4a4a or #6b4423 (earth tones)",
+        "avoid": "white or very light text"
+      }
+    },
+    {
+      "id": "electric-violet",
+      "name": "Electric Violet",
+      "type": "linear",
+      "angle": 90,
+      "stops": [
+        { "color": "#4776e6", "position": 0 },
+        { "color": "#8e54e9", "position": 100 }
+      ],
+      "css": "linear-gradient(90deg, #4776e6 0%, #8e54e9 100%)",
+      "usage": ["cta-buttons", "interactive", "tech"],
+      "trend": "swiss-modern",
+      "mood": ["innovative", "tech", "premium"],
+      "textGuidance": {
+        "recommended": "#ffffff (5.5:1+ throughout)",
+        "avoid": "blue or purple text"
+      }
+    },
+    {
+      "id": "cyber-neon",
+      "name": "Cyber Neon",
+      "type": "linear",
+      "angle": 45,
+      "stops": [
+        { "color": "#00ffff", "position": 0 },
+        { "color": "#ff00ff", "position": 100 }
+      ],
+      "css": "linear-gradient(45deg, #00ffff 0%, #ff00ff 100%)",
+      "usage": ["accents", "badges", "gaming"],
+      "trend": "cyberpunk",
+      "mood": ["vibrant", "futuristic", "bold"],
+      "textGuidance": {
+        "recommended": "#0a0a0f (dark backgrounds)",
+        "avoid": "using as text background without overlay"
+      }
+    },
+    {
+      "id": "forest-mist",
+      "name": "Forest Mist",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#134e5e", "position": 0 },
+        { "color": "#71b280", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #134e5e 0%, #71b280 100%)",
+      "usage": ["nature", "wellness", "eco"],
+      "trend": "cottagecore",
+      "mood": ["natural", "calm", "growth"],
+      "textGuidance": {
+        "recommended": "#ffffff (7:1+ on dark end)",
+        "avoid": "green text"
+      }
+    },
+    {
+      "id": "royal-gold",
+      "name": "Royal Gold",
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "color": "#f7971e", "position": 0 },
+        { "color": "#ffd200", "position": 100 }
+      ],
+      "css": "linear-gradient(135deg, #f7971e 0%, #ffd200 100%)",
+      "usage": ["premium", "badges", "highlights"],
+      "trend": "maximalism",
+      "mood": ["luxurious", "warm", "achievement"],
+      "textGuidance": {
+        "recommended": "#1a1a1a (excellent contrast)",
+        "avoid": "white or light yellow text"
+      }
+    },
+    {
+      "id": "cotton-candy",
+      "name": "Cotton Candy",
+      "type": "linear",
+      "angle": 90,
+      "stops": [
+        { "color": "#f8b4d9", "position": 0 },
+        { "color": "#c4b5fd", "position": 100 }
+      ],
+      "css": "linear-gradient(90deg, #f8b4d9 0%, #c4b5fd 100%)",
+      "usage": ["feminine", "playful", "cards"],
+      "trend": "maximalism",
+      "mood": ["playful", "soft", "youthful"],
+      "textGuidance": {
+        "recommended": "#be185d or #4a4a4a",
+        "avoid": "white or light pastel text"
+      }
+    },
+    {
+      "id": "steel-gray",
+      "name": "Steel Gray",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#485563", "position": 0 },
+        { "color": "#29323c", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #485563 0%, #29323c 100%)",
+      "usage": ["professional", "enterprise", "dark-mode"],
+      "trend": "swiss-modern",
+      "mood": ["professional", "serious", "reliable"],
+      "textGuidance": {
+        "recommended": "#ffffff or #e0e0e0",
+        "avoid": "dark or gray text"
+      }
+    },
+    {
+      "id": "cherry-blossom",
+      "name": "Cherry Blossom",
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "color": "#ffecd2", "position": 0 },
+        { "color": "#f8b4d9", "position": 50 },
+        { "color": "#c4b5fd", "position": 100 }
+      ],
+      "css": "linear-gradient(135deg, #ffecd2 0%, #f8b4d9 50%, #c4b5fd 100%)",
+      "usage": ["hero", "spring-campaigns", "beauty"],
+      "trend": "maximalism",
+      "mood": ["delicate", "feminine", "spring"],
+      "textGuidance": {
+        "recommended": "#4a4a4a or #6b4423",
+        "avoid": "white or pastel text"
+      }
+    },
+    {
+      "id": "void-black",
+      "name": "Void Black",
+      "type": "radial",
+      "shape": "circle",
+      "position": "center",
+      "stops": [
+        { "color": "#1a1a2e", "position": 0 },
+        { "color": "#0a0a0f", "position": 100 }
+      ],
+      "css": "radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%)",
+      "usage": ["dark-backgrounds", "space", "gaming"],
+      "trend": "cyberpunk",
+      "mood": ["mysterious", "deep", "immersive"],
+      "textGuidance": {
+        "recommended": "#ffffff or neon accents",
+        "avoid": "dark text"
+      }
+    },
+    {
+      "id": "sunrise-radial",
+      "name": "Sunrise Radial",
+      "type": "radial",
+      "shape": "circle",
+      "position": "bottom center",
+      "stops": [
+        { "color": "#ffecd2", "position": 0 },
+        { "color": "#fcb69f", "position": 50 },
+        { "color": "#ff9a9e", "position": 100 }
+      ],
+      "css": "radial-gradient(circle at bottom center, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%)",
+      "usage": ["hero-backgrounds", "sunrise-themes", "warmth"],
+      "trend": "cottagecore",
+      "mood": ["hopeful", "warm", "new-beginnings"],
+      "textGuidance": {
+        "recommended": "#4a4a4a (center) or #1a1a1a",
+        "avoid": "white text without shadow"
+      }
+    },
+    {
+      "id": "spotlight",
+      "name": "Spotlight",
+      "type": "radial",
+      "shape": "circle",
+      "position": "top center",
+      "stops": [
+        { "color": "#ffffff", "position": 0 },
+        { "color": "#f9fafb", "position": 50 },
+        { "color": "#e5e7eb", "position": 100 }
+      ],
+      "css": "radial-gradient(circle at top center, #ffffff 0%, #f9fafb 50%, #e5e7eb 100%)",
+      "usage": ["light-mode", "focus", "cards"],
+      "trend": "hyperminimalism",
+      "mood": ["clean", "focused", "bright"],
+      "textGuidance": {
+        "recommended": "#1a1a1a or #000000",
+        "avoid": "light gray or white text"
+      }
+    },
+    {
+      "id": "conic-rainbow",
+      "name": "Conic Rainbow",
+      "type": "conic",
+      "startAngle": 0,
+      "position": "center",
+      "stops": [
+        { "color": "#ff6b6b", "position": 0 },
+        { "color": "#feca57", "position": 17 },
+        { "color": "#48dbfb", "position": 33 },
+        { "color": "#1dd1a1", "position": 50 },
+        { "color": "#5f27cd", "position": 67 },
+        { "color": "#ff6b6b", "position": 100 }
+      ],
+      "css": "conic-gradient(from 0deg at center, #ff6b6b 0%, #feca57 17%, #48dbfb 33%, #1dd1a1 50%, #5f27cd 67%, #ff6b6b 100%)",
+      "usage": ["badges", "loading", "playful"],
+      "trend": "maximalism",
+      "mood": ["playful", "diverse", "celebratory"],
+      "textGuidance": {
+        "recommended": "Avoid text on gradient, use as accent only",
+        "avoid": "Any text directly on gradient"
+      }
+    },
+    {
+      "id": "progress-conic",
+      "name": "Progress Conic",
+      "type": "conic",
+      "startAngle": 0,
+      "position": "center",
+      "stops": [
+        { "color": "#635bff", "position": 0 },
+        { "color": "#635bff", "position": 75 },
+        { "color": "#e5e7eb", "position": 75 },
+        { "color": "#e5e7eb", "position": 100 }
+      ],
+      "css": "conic-gradient(from 0deg at center, #635bff 0% 75%, #e5e7eb 75% 100%)",
+      "usage": ["progress-indicators", "charts", "dashboards"],
+      "trend": "swiss-modern",
+      "mood": ["data", "progress", "achievement"],
+      "textGuidance": {
+        "recommended": "Use for visual indicators only",
+        "avoid": "Text overlay"
+      }
+    },
+    {
+      "id": "mesh-aurora",
+      "name": "Mesh Aurora",
+      "type": "mesh",
+      "description": "Complex multi-point gradient simulating northern lights",
+      "meshPoints": [
+        { "color": "#00c9ff", "x": 0, "y": 0 },
+        { "color": "#92fe9d", "x": 100, "y": 0 },
+        { "color": "#764ba2", "x": 50, "y": 100 },
+        { "color": "#667eea", "x": 0, "y": 100 }
+      ],
+      "css": "background: #667eea; background: radial-gradient(at 0% 0%, #00c9ff 0%, transparent 50%), radial-gradient(at 100% 0%, #92fe9d 0%, transparent 50%), radial-gradient(at 50% 100%, #764ba2 0%, transparent 50%), #667eea;",
+      "usage": ["hero-backgrounds", "immersive", "premium"],
+      "trend": "glassmorphism",
+      "mood": ["magical", "immersive", "premium"],
+      "textGuidance": {
+        "recommended": "#ffffff with subtle text-shadow",
+        "avoid": "Colored text"
+      }
+    },
+    {
+      "id": "mesh-sunset",
+      "name": "Mesh Sunset",
+      "type": "mesh",
+      "description": "Warm multi-point gradient with organic feel",
+      "meshPoints": [
+        { "color": "#ff6b6b", "x": 0, "y": 0 },
+        { "color": "#feca57", "x": 100, "y": 30 },
+        { "color": "#ff9ff3", "x": 30, "y": 100 },
+        { "color": "#fcb69f", "x": 100, "y": 100 }
+      ],
+      "css": "background: #fcb69f; background: radial-gradient(at 0% 0%, #ff6b6b 0%, transparent 50%), radial-gradient(at 100% 30%, #feca57 0%, transparent 50%), radial-gradient(at 30% 100%, #ff9ff3 0%, transparent 50%), #fcb69f;",
+      "usage": ["creative", "lifestyle", "warmth"],
+      "trend": "maximalism",
+      "mood": ["creative", "warm", "organic"],
+      "textGuidance": {
+        "recommended": "#1a1a1a or dark overlay + white text",
+        "avoid": "Light colored text"
+      }
+    },
+    {
+      "id": "stripe-mesh",
+      "name": "Stripe Mesh",
+      "type": "mesh",
+      "description": "Stripe-inspired professional mesh gradient",
+      "meshPoints": [
+        { "color": "#635bff", "x": 0, "y": 0 },
+        { "color": "#00d4ff", "x": 100, "y": 20 },
+        { "color": "#ff80bf", "x": 80, "y": 80 },
+        { "color": "#7928ca", "x": 20, "y": 100 }
+      ],
+      "css": "background: #635bff; background: radial-gradient(at 0% 0%, #635bff 0%, transparent 50%), radial-gradient(at 100% 20%, #00d4ff 0%, transparent 50%), radial-gradient(at 80% 80%, #ff80bf 0%, transparent 50%), radial-gradient(at 20% 100%, #7928ca 0%, transparent 50%), #635bff;",
+      "usage": ["fintech", "saas", "premium-landing"],
+      "trend": "swiss-modern",
+      "mood": ["innovative", "premium", "trust"],
+      "textGuidance": {
+        "recommended": "#ffffff with 60% opacity overlay",
+        "avoid": "Direct text on busy areas"
+      }
+    },
+    {
+      "id": "animated-shimmer",
+      "name": "Animated Shimmer",
+      "type": "animated",
+      "baseGradient": "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%)",
+      "animation": {
+        "keyframes": "@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }",
+        "duration": "2s",
+        "timing": "ease-in-out",
+        "iteration": "infinite"
+      },
+      "css": "background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%); background-size: 200% 100%; animation: shimmer 2s ease-in-out infinite;",
+      "usage": ["loading-states", "skeleton", "highlights"],
+      "trend": "hyperminimalism",
+      "mood": ["loading", "anticipation", "premium"],
+      "textGuidance": {
+        "recommended": "Overlay on existing content",
+        "avoid": "As standalone background"
+      }
+    },
+    {
+      "id": "animated-pulse",
+      "name": "Animated Pulse",
+      "type": "animated",
+      "baseGradient": "radial-gradient(circle, #635bff 0%, transparent 70%)",
+      "animation": {
+        "keyframes": "@keyframes pulse { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }",
+        "duration": "2s",
+        "timing": "ease-in-out",
+        "iteration": "infinite"
+      },
+      "css": "background: radial-gradient(circle, #635bff 0%, transparent 70%); animation: pulse 2s ease-in-out infinite;",
+      "usage": ["attention", "cta-backgrounds", "focus"],
+      "trend": "swiss-modern",
+      "mood": ["attention", "interactive", "alive"],
+      "textGuidance": {
+        "recommended": "Use behind buttons/CTAs",
+        "avoid": "As text background"
+      }
+    },
+    {
+      "id": "glassmorphism-base",
+      "name": "Glassmorphism Base",
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "color": "rgba(255,255,255,0.1)", "position": 0 },
+        { "color": "rgba(255,255,255,0.05)", "position": 100 }
+      ],
+      "css": "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
+      "additionalCSS": {
+        "backdropFilter": "blur(10px)",
+        "border": "1px solid rgba(255,255,255,0.2)"
+      },
+      "usage": ["glass-cards", "overlays", "modals"],
+      "trend": "glassmorphism",
+      "mood": ["modern", "depth", "elegant"],
+      "textGuidance": {
+        "recommended": "Depends on background behind glass",
+        "avoid": "Low contrast combinations"
+      }
+    },
+    {
+      "id": "dark-glass",
+      "name": "Dark Glass",
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "color": "rgba(0,0,0,0.3)", "position": 0 },
+        { "color": "rgba(0,0,0,0.1)", "position": 100 }
+      ],
+      "css": "linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%)",
+      "additionalCSS": {
+        "backdropFilter": "blur(10px)",
+        "border": "1px solid rgba(255,255,255,0.1)"
+      },
+      "usage": ["dark-mode-glass", "overlays", "modals"],
+      "trend": "glassmorphism",
+      "mood": ["mysterious", "elegant", "depth"],
+      "textGuidance": {
+        "recommended": "#ffffff or light colors",
+        "avoid": "Dark text"
+      }
+    },
+    {
+      "id": "neobrutalism-yellow",
+      "name": "Neobrutalism Yellow",
+      "type": "solid-with-noise",
+      "baseColor": "#facc15",
+      "noiseOpacity": 0.05,
+      "css": "#facc15",
+      "additionalCSS": {
+        "backgroundImage": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E\")"
+      },
+      "usage": ["backgrounds", "cards", "neobrutalism"],
+      "trend": "neobrutalism",
+      "mood": ["bold", "energetic", "raw"],
+      "textGuidance": {
+        "recommended": "#1a1a1a (17.4:1 contrast)",
+        "avoid": "White or light text"
+      }
+    },
+    {
+      "id": "neobrutalism-cream",
+      "name": "Neobrutalism Cream",
+      "type": "solid-with-noise",
+      "baseColor": "#fef3c7",
+      "noiseOpacity": 0.03,
+      "css": "#fef3c7",
+      "additionalCSS": {
+        "backgroundImage": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")"
+      },
+      "usage": ["backgrounds", "cards", "neobrutalism"],
+      "trend": "neobrutalism",
+      "mood": ["warm", "approachable", "textured"],
+      "textGuidance": {
+        "recommended": "#1a1a1a (15.6:1 contrast)",
+        "avoid": "White or very light text"
+      }
+    },
+    {
+      "id": "grain-overlay",
+      "name": "Grain Overlay",
+      "type": "noise",
+      "description": "Film grain texture overlay",
+      "opacity": 0.1,
+      "css": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+      "usage": ["overlays", "texture", "editorial"],
+      "trend": "maximalism",
+      "mood": ["textured", "film", "organic"],
+      "textGuidance": {
+        "recommended": "Apply as overlay, not background",
+        "avoid": "Heavy grain on text"
+      }
+    },
+    {
+      "id": "dark-gradient-brutalist",
+      "name": "Dark Gradient Brutalist",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#0d0d0d", "position": 0 },
+        { "color": "#1a1a1a", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%)",
+      "usage": ["dark-mode", "footer", "sections"],
+      "trend": "brutalist-minimal",
+      "mood": ["stark", "bold", "direct"],
+      "textGuidance": {
+        "recommended": "#ffffff (21:1 contrast)",
+        "avoid": "Dark text"
+      }
+    },
+    {
+      "id": "warm-paper",
+      "name": "Warm Paper",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#faf6f0", "position": 0 },
+        { "color": "#f5e6d3", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #faf6f0 0%, #f5e6d3 100%)",
+      "usage": ["backgrounds", "reading", "documentation"],
+      "trend": "cottagecore",
+      "mood": ["warm", "readable", "comfortable"],
+      "textGuidance": {
+        "recommended": "#4a4a4a or #6b4423",
+        "avoid": "White or very light text"
+      }
+    },
+    {
+      "id": "cool-paper",
+      "name": "Cool Paper",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#fafafa", "position": 0 },
+        { "color": "#f0f0f5", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #fafafa 0%, #f0f0f5 100%)",
+      "usage": ["backgrounds", "documentation", "professional"],
+      "trend": "hyperminimalism",
+      "mood": ["clean", "professional", "neutral"],
+      "textGuidance": {
+        "recommended": "#1a1a1a or #0d0d0d",
+        "avoid": "Light gray or white text"
+      }
+    },
+    {
+      "id": "vercel-gradient",
+      "name": "Vercel Gradient",
+      "type": "linear",
+      "angle": 180,
+      "stops": [
+        { "color": "#ffffff", "position": 0 },
+        { "color": "#f5f5f5", "position": 50 },
+        { "color": "#000000", "position": 100 }
+      ],
+      "css": "linear-gradient(180deg, #ffffff 0%, #f5f5f5 50%, #000000 100%)",
+      "usage": ["hero", "dramatic-sections", "contrast"],
+      "trend": "swiss-modern",
+      "mood": ["dramatic", "bold", "modern"],
+      "textGuidance": {
+        "recommended": "Context-dependent: dark on light area, light on dark area",
+        "avoid": "Single text color across gradient"
+      }
+    }
+  ]
+}

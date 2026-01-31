@@ -1,0 +1,42 @@
+# .CLAUDE_LOCK - Multi-Agent File Coordination
+#
+# This file coordinates work between multiple Claude sessions.
+# Each session registers their active files here before editing.
+#
+# Format: session-id:timestamp:status
+# Rules: Each session updates its timestamp hourly. Move to COMPLETED when done.
+
+# ============================================================================
+# ACTIVE SESSIONS
+# ============================================================================
+
+session-s4-design-system-generator:2026-01-31T14:00:00Z:IN_PROGRESS
+# Purpose: Build design-system-generator skill + supporting skills
+# Status: ACTIVE - Building skill definition, matcher logic, token generator
+# Files: .claude/skills/design-system-generator/, website/src/utils/design-*.ts
+# Dependency: website/design-catalog/ ✓ ENHANCED (24 trends, 2800+ components)
+# Started: 2026-01-31T14:00:00Z
+
+# ============================================================================
+# COMPLETED SESSIONS (for reference)
+# ============================================================================
+
+# session-s1-stop-controls - IN_PROGRESS (separate repo: workgroup-ai)
+# Note: Running in ~/coding/workgroup-ai, not blocking this repo
+
+# session-s2-cost-verification - COMPLETED 2026-01-30T05:20:00Z
+# Results: Token estimation calibrated to ±8.6% cost variance
+# Deliverables: test-dags.ts, verify-costs.ts, cost-verification-auditor skill
+# Budget used: ~$0.006 (well under $27 budget)
+
+# session-s3-design-research - COMPLETED 2026-01-31T14:00:00Z (ENHANCED)
+# Original: 8 trends, 15 palettes, 11 typography, 22 components
+# Enhanced: 24 trends, 12 galleries, 7 CSS patterns, 7 color systems, 8 typography
+# Additional work: Crawled 21st.dev (1400+ components), DesignPrompts (31 styles),
+#   FreeFrontend (112 CSS galleries), added scroll-driven animations, claymorphism,
+#   web3, art deco, terminal aesthetic, botanical styles
+# Deliverables: website/design-catalog/gallery-sources.json (753 lines)
+# Output: FAR exceeds original spec - ready for Session 4
+
+# ============================================================================
+# Last updated: 2026-01-31T14:00:00Z

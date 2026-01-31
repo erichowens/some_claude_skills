@@ -127,7 +127,7 @@ Examples: `career-biographer-hero.png`, `agent-creator-hero.png`
 - ❌ Use photorealistic rendering
 - ❌ Include modern flat UI (Material Design, iOS style)
 - ❌ Use gradients that aren't dithered
-- ❌ Make the image too busy (< 5 focal elements)
+- ❌ Make the image too busy (&lt; 5 focal elements)
 - ❌ Use clipart or stock imagery
 - ❌ Include real brand logos
 - ❌ Make text actually readable (stylized gibberish is fine)

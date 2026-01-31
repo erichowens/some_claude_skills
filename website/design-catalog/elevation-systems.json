@@ -1,0 +1,467 @@
+{
+  "$schema": "./schemas/elevation-system.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-30",
+  "totalSystems": 12,
+  "elevationSystems": [
+    {
+      "id": "material-3",
+      "name": "Material Design 3",
+      "source": "Google",
+      "description": "Google's elevation system combining shadows with surface tint for better dark mode support",
+      "levels": [
+        {
+          "level": 0,
+          "name": "Level 0 (Surface)",
+          "shadow": "none",
+          "surfaceTintOpacity": 0,
+          "usage": ["flat-surfaces", "backgrounds"]
+        },
+        {
+          "level": 1,
+          "name": "Level 1 (Low)",
+          "shadow": "0 1px 2px 0 rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15)",
+          "surfaceTintOpacity": 0.05,
+          "usage": ["cards", "search-bars"]
+        },
+        {
+          "level": 2,
+          "name": "Level 2 (Medium-Low)",
+          "shadow": "0 1px 2px 0 rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15)",
+          "surfaceTintOpacity": 0.08,
+          "usage": ["raised-buttons", "action-sheets"]
+        },
+        {
+          "level": 3,
+          "name": "Level 3 (Medium)",
+          "shadow": "0 1px 3px 0 rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15)",
+          "surfaceTintOpacity": 0.11,
+          "usage": ["fab", "modals", "snackbars"]
+        },
+        {
+          "level": 4,
+          "name": "Level 4 (High)",
+          "shadow": "0 2px 3px 0 rgba(0,0,0,0.3), 0 6px 10px 4px rgba(0,0,0,0.15)",
+          "surfaceTintOpacity": 0.12,
+          "usage": ["navigation-drawers", "side-sheets"]
+        },
+        {
+          "level": 5,
+          "name": "Level 5 (Highest)",
+          "shadow": "0 4px 4px 0 rgba(0,0,0,0.3), 0 8px 12px 6px rgba(0,0,0,0.15)",
+          "surfaceTintOpacity": 0.14,
+          "usage": ["dialogs", "pickers"]
+        }
+      ],
+      "darkModeNote": "Use surface tint (primary color at low opacity) instead of lighter grays for dark mode elevation"
+    },
+    {
+      "id": "tailwind-default",
+      "name": "Tailwind CSS Default",
+      "source": "Tailwind CSS",
+      "description": "Tailwind's practical shadow scale, great for web applications",
+      "levels": [
+        {
+          "level": 0,
+          "name": "shadow-none",
+          "shadow": "none",
+          "usage": ["flat"]
+        },
+        {
+          "level": 1,
+          "name": "shadow-sm",
+          "shadow": "0 1px 2px 0 rgba(0,0,0,0.05)",
+          "usage": ["subtle-cards", "buttons"]
+        },
+        {
+          "level": 2,
+          "name": "shadow",
+          "shadow": "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)",
+          "usage": ["cards", "dropdowns"]
+        },
+        {
+          "level": 3,
+          "name": "shadow-md",
+          "shadow": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)",
+          "usage": ["raised-elements", "modals"]
+        },
+        {
+          "level": 4,
+          "name": "shadow-lg",
+          "shadow": "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)",
+          "usage": ["dialogs", "popovers"]
+        },
+        {
+          "level": 5,
+          "name": "shadow-xl",
+          "shadow": "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)",
+          "usage": ["feature-highlights", "floating-panels"]
+        },
+        {
+          "level": 6,
+          "name": "shadow-2xl",
+          "shadow": "0 25px 50px -12px rgba(0,0,0,0.25)",
+          "usage": ["dramatic-cards", "hero-elements"]
+        }
+      ],
+      "coloredShadows": {
+        "note": "Tailwind supports colored shadows via arbitrary values",
+        "example": "shadow-[0_4px_14px_0_rgba(99,91,255,0.39)]"
+      }
+    },
+    {
+      "id": "fluent-ui",
+      "name": "Microsoft Fluent UI",
+      "source": "Microsoft",
+      "description": "Fluent Design System's depth system with focus on natural light and motion",
+      "levels": [
+        {
+          "level": 2,
+          "name": "Depth 2",
+          "shadow": "0 1.6px 3.6px 0 rgba(0,0,0,0.13), 0 0.3px 0.9px 0 rgba(0,0,0,0.11)",
+          "usage": ["cards", "list-items"]
+        },
+        {
+          "level": 4,
+          "name": "Depth 4",
+          "shadow": "0 3.2px 7.2px 0 rgba(0,0,0,0.13), 0 0.6px 1.8px 0 rgba(0,0,0,0.11)",
+          "usage": ["menus", "command-bars"]
+        },
+        {
+          "level": 8,
+          "name": "Depth 8",
+          "shadow": "0 6.4px 14.4px 0 rgba(0,0,0,0.13), 0 1.2px 3.6px 0 rgba(0,0,0,0.11)",
+          "usage": ["panels", "dialogs"]
+        },
+        {
+          "level": 16,
+          "name": "Depth 16",
+          "shadow": "0 12.8px 28.8px 0 rgba(0,0,0,0.13), 0 2.4px 7.2px 0 rgba(0,0,0,0.11)",
+          "usage": ["teaching-callouts", "tooltips"]
+        },
+        {
+          "level": 64,
+          "name": "Depth 64",
+          "shadow": "0 25.6px 57.6px 0 rgba(0,0,0,0.22), 0 4.8px 14.4px 0 rgba(0,0,0,0.18)",
+          "usage": ["full-screen-dialogs", "overlays"]
+        }
+      ],
+      "philosophy": "Elevation values are multiples of 2, shadows represent natural light from above"
+    },
+    {
+      "id": "apple-hig",
+      "name": "Apple Human Interface Guidelines",
+      "source": "Apple",
+      "description": "Apple's subtle, sophisticated elevation system with emphasis on blur",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Small",
+          "shadow": "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+          "usage": ["cards", "buttons"]
+        },
+        {
+          "level": 2,
+          "name": "Medium",
+          "shadow": "0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12)",
+          "usage": ["popovers", "menus"]
+        },
+        {
+          "level": 3,
+          "name": "Large",
+          "shadow": "0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10)",
+          "usage": ["sheets", "panels"]
+        },
+        {
+          "level": 4,
+          "name": "Extra Large",
+          "shadow": "0 15px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.05)",
+          "usage": ["modals", "alerts"]
+        }
+      ],
+      "vibrancy": {
+        "note": "Apple heavily uses vibrancy (background blur + transparency) alongside shadows",
+        "css": "backdrop-filter: blur(20px); background: rgba(255,255,255,0.72);"
+      }
+    },
+    {
+      "id": "neobrutalism",
+      "name": "Neobrutalism",
+      "source": "Design Trend",
+      "description": "Hard, offset shadows with no blur - signature of neobrutalist design",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Small",
+          "shadow": "2px 2px 0 0 #000000",
+          "usage": ["small-buttons", "tags"]
+        },
+        {
+          "level": 2,
+          "name": "Medium",
+          "shadow": "4px 4px 0 0 #000000",
+          "usage": ["cards", "buttons"]
+        },
+        {
+          "level": 3,
+          "name": "Large",
+          "shadow": "6px 6px 0 0 #000000",
+          "usage": ["featured-cards", "cta"]
+        },
+        {
+          "level": 4,
+          "name": "Extra Large",
+          "shadow": "8px 8px 0 0 #000000",
+          "usage": ["hero-elements", "modals"]
+        },
+        {
+          "level": 5,
+          "name": "Dramatic",
+          "shadow": "12px 12px 0 0 #000000",
+          "usage": ["feature-highlights", "dramatic-elements"]
+        }
+      ],
+      "variants": {
+        "colored": "Use brand colors instead of black: 4px 4px 0 0 #635bff",
+        "inverted": "Shadow goes opposite direction: -4px -4px 0 0 #000000"
+      },
+      "border": "Always pair with 2-4px solid black border"
+    },
+    {
+      "id": "soft-ui",
+      "name": "Soft UI (Neumorphism)",
+      "source": "Design Trend",
+      "description": "Extruded or inset elements using dual shadows for a soft, tactile feel",
+      "baseBackground": "#e0e5ec",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Flat",
+          "shadow": "none",
+          "usage": ["surface"]
+        },
+        {
+          "level": 2,
+          "name": "Raised",
+          "shadow": "6px 6px 12px #b8bec7, -6px -6px 12px #ffffff",
+          "usage": ["cards", "buttons"]
+        },
+        {
+          "level": 3,
+          "name": "Pressed",
+          "shadow": "inset 6px 6px 12px #b8bec7, inset -6px -6px 12px #ffffff",
+          "usage": ["active-buttons", "inputs"]
+        },
+        {
+          "level": 4,
+          "name": "Elevated",
+          "shadow": "12px 12px 24px #b8bec7, -12px -12px 24px #ffffff",
+          "usage": ["prominent-cards", "modals"]
+        }
+      ],
+      "accessibilityWarning": "Low contrast - use sparingly and ensure text contrast meets WCAG"
+    },
+    {
+      "id": "glassmorphism",
+      "name": "Glassmorphism",
+      "source": "Design Trend",
+      "description": "Glass-like depth through blur and transparency rather than shadows",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Light Glass",
+          "background": "rgba(255,255,255,0.1)",
+          "blur": "8px",
+          "border": "1px solid rgba(255,255,255,0.2)",
+          "shadow": "0 8px 32px rgba(0,0,0,0.1)",
+          "usage": ["cards", "nav-bars"]
+        },
+        {
+          "level": 2,
+          "name": "Medium Glass",
+          "background": "rgba(255,255,255,0.15)",
+          "blur": "12px",
+          "border": "1px solid rgba(255,255,255,0.25)",
+          "shadow": "0 8px 32px rgba(0,0,0,0.15)",
+          "usage": ["modals", "panels"]
+        },
+        {
+          "level": 3,
+          "name": "Heavy Glass",
+          "background": "rgba(255,255,255,0.25)",
+          "blur": "16px",
+          "border": "1px solid rgba(255,255,255,0.3)",
+          "shadow": "0 8px 32px rgba(0,0,0,0.2)",
+          "usage": ["dialogs", "prominent-cards"]
+        }
+      ],
+      "darkVariants": {
+        "darkGlass": "rgba(0,0,0,0.3) with white border at 0.1 opacity"
+      },
+      "requirements": ["backdrop-filter support", "colorful background behind glass"]
+    },
+    {
+      "id": "sharp-modern",
+      "name": "Sharp Modern",
+      "source": "Custom",
+      "description": "Clean, sharp shadows for contemporary minimalist design",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Subtle",
+          "shadow": "0 2px 4px rgba(0,0,0,0.08)",
+          "usage": ["cards", "surfaces"]
+        },
+        {
+          "level": 2,
+          "name": "Standard",
+          "shadow": "0 4px 8px rgba(0,0,0,0.12)",
+          "usage": ["raised-elements", "dropdowns"]
+        },
+        {
+          "level": 3,
+          "name": "Prominent",
+          "shadow": "0 8px 16px rgba(0,0,0,0.16)",
+          "usage": ["modals", "popovers"]
+        },
+        {
+          "level": 4,
+          "name": "Floating",
+          "shadow": "0 16px 32px rgba(0,0,0,0.20)",
+          "usage": ["feature-cards", "hero-elements"]
+        }
+      ],
+      "colorAccent": "Add brand color to shadows: 0 4px 8px rgba(99,91,255,0.2)"
+    },
+    {
+      "id": "diffused-soft",
+      "name": "Diffused Soft",
+      "source": "Custom",
+      "description": "Very diffused, soft shadows for approachable, friendly UI",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Whisper",
+          "shadow": "0 2px 8px rgba(0,0,0,0.04)",
+          "usage": ["subtle-cards"]
+        },
+        {
+          "level": 2,
+          "name": "Gentle",
+          "shadow": "0 4px 16px rgba(0,0,0,0.06)",
+          "usage": ["cards", "inputs"]
+        },
+        {
+          "level": 3,
+          "name": "Soft",
+          "shadow": "0 8px 32px rgba(0,0,0,0.08)",
+          "usage": ["modals", "panels"]
+        },
+        {
+          "level": 4,
+          "name": "Cloud",
+          "shadow": "0 16px 64px rgba(0,0,0,0.10)",
+          "usage": ["floating-elements", "hero"]
+        }
+      ],
+      "bestFor": ["Wellness apps", "Lifestyle brands", "Cottagecore aesthetic"]
+    },
+    {
+      "id": "layered-depth",
+      "name": "Layered Depth",
+      "source": "Custom",
+      "description": "Multiple shadow layers for realistic depth perception",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Level 1",
+          "shadow": "0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04)",
+          "usage": ["cards"]
+        },
+        {
+          "level": 2,
+          "name": "Level 2",
+          "shadow": "0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04), 0 8px 8px rgba(0,0,0,0.02)",
+          "usage": ["raised-cards"]
+        },
+        {
+          "level": 3,
+          "name": "Level 3",
+          "shadow": "0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04), 0 8px 8px rgba(0,0,0,0.02), 0 16px 16px rgba(0,0,0,0.01)",
+          "usage": ["modals"]
+        },
+        {
+          "level": 4,
+          "name": "Level 4",
+          "shadow": "0 1px 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.04), 0 8px 8px rgba(0,0,0,0.02), 0 16px 16px rgba(0,0,0,0.01), 0 32px 32px rgba(0,0,0,0.01)",
+          "usage": ["floating-panels"]
+        }
+      ],
+      "technique": "Each layer doubles in size and halves in opacity"
+    },
+    {
+      "id": "inner-glow",
+      "name": "Inner Glow",
+      "source": "Custom",
+      "description": "Inset shadows that create a subtle inner glow effect",
+      "levels": [
+        {
+          "level": 1,
+          "name": "Subtle Inset",
+          "shadow": "inset 0 1px 2px rgba(0,0,0,0.05)",
+          "usage": ["inputs", "pressed-buttons"]
+        },
+        {
+          "level": 2,
+          "name": "Medium Inset",
+          "shadow": "inset 0 2px 4px rgba(0,0,0,0.08)",
+          "usage": ["wells", "containers"]
+        },
+        {
+          "level": 3,
+          "name": "Deep Inset",
+          "shadow": "inset 0 4px 8px rgba(0,0,0,0.12)",
+          "usage": ["recessed-sections", "active-states"]
+        }
+      ],
+      "glowVariant": {
+        "note": "Invert with light color for glow effect",
+        "example": "inset 0 -2px 4px rgba(255,255,255,0.5)"
+      }
+    },
+    {
+      "id": "colored-shadow",
+      "name": "Colored Shadows",
+      "source": "Custom",
+      "description": "Shadows using the element's dominant color for a cohesive, vibrant effect",
+      "examples": [
+        {
+          "name": "Purple CTA",
+          "baseColor": "#635bff",
+          "shadow": "0 4px 14px rgba(99,91,255,0.39)",
+          "usage": ["cta-buttons"]
+        },
+        {
+          "name": "Success Green",
+          "baseColor": "#10b981",
+          "shadow": "0 4px 14px rgba(16,185,129,0.39)",
+          "usage": ["success-elements"]
+        },
+        {
+          "name": "Error Red",
+          "baseColor": "#ef4444",
+          "shadow": "0 4px 14px rgba(239,68,68,0.39)",
+          "usage": ["error-elements"]
+        },
+        {
+          "name": "Info Blue",
+          "baseColor": "#3b82f6",
+          "shadow": "0 4px 14px rgba(59,130,246,0.39)",
+          "usage": ["info-elements", "links"]
+        }
+      ],
+      "formula": "Extract dominant hue, apply at 30-50% opacity with moderate blur",
+      "bestFor": ["CTAs", "Hover states", "Featured elements"]
+    }
+  ]
+}

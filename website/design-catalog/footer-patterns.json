@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalPatterns": 12,
+    "categories": ["enterprise", "minimal", "creative", "e-commerce", "app"]
+  },
+  "patterns": [
+    {
+      "id": "enterprise-mega-footer",
+      "name": "Enterprise Mega Footer",
+      "category": "enterprise",
+      "description": "Comprehensive footer with multiple link columns for large organizations",
+      "structure": {
+        "columns": [
+          { "heading": "Product", "links": ["Features", "Pricing", "Integrations", "API", "Changelog", "Roadmap"] },
+          { "heading": "Company", "links": ["About", "Blog", "Careers", "Press", "Partners", "Contact"] },
+          { "heading": "Resources", "links": ["Documentation", "Help Center", "Community", "Status", "Webinars"] },
+          { "heading": "Legal", "links": ["Privacy", "Terms", "Security", "GDPR", "Cookie Policy"] }
+        ],
+        "bottomBar": {
+          "left": ["copyright", "language-selector"],
+          "right": ["social-links"]
+        }
+      },
+      "extras": {
+        "newsletter": "optional signup in footer",
+        "appBadges": "App Store / Play Store badges",
+        "certifications": "SOC 2, GDPR badges"
+      },
+      "design": {
+        "background": "dark or contrasting to page",
+        "linkStyle": "plain text, underline on hover",
+        "spacing": "generous padding (80-120px top)"
+      },
+      "mobile": {
+        "columns": "stack vertically or accordion",
+        "simplify": "hide less important links"
+      },
+      "examples": ["salesforce.com", "stripe.com", "notion.so"],
+      "bestFor": ["enterprise SaaS", "large companies", "complex products"]
+    },
+    {
+      "id": "saas-standard",
+      "name": "SaaS Standard",
+      "category": "enterprise",
+      "description": "Balanced footer with key sections and newsletter",
+      "structure": {
+        "topSection": {
+          "left": ["logo", "tagline"],
+          "right": ["newsletter-signup"]
+        },
+        "columns": [
+          { "heading": "Product", "links": ["Features", "Pricing", "Integrations", "Changelog"] },
+          { "heading": "Company", "links": ["About", "Blog", "Careers", "Contact"] },
+          { "heading": "Support", "links": ["Help Center", "Documentation", "Status", "Community"] }
+        ],
+        "bottomBar": {
+          "left": ["copyright"],
+          "center": ["privacy", "terms"],
+          "right": ["social-links"]
+        }
+      },
+      "newsletter": {
+        "headline": "Stay updated",
+        "subtext": "Get product news and tips",
+        "fields": ["email"],
+        "button": "Subscribe"
+      },
+      "examples": ["linear.app", "vercel.com", "supabase.com"],
+      "bestFor": ["SaaS products", "developer tools", "B2B products"]
+    },
+    {
+      "id": "minimal-creative",
+      "name": "Minimal Creative",
+      "category": "minimal",
+      "description": "Clean, minimal footer for portfolios and creative sites",
+      "structure": {
+        "content": {
+          "left": ["name-or-logo"],
+          "center": ["minimal-nav-links"],
+          "right": ["social-icons"]
+        },
+        "bottom": ["copyright"]
+      },
+      "design": {
+        "style": "single line or two lines max",
+        "background": "transparent or subtle",
+        "typography": "small, muted"
+      },
+      "links": {
+        "count": "3-5 max",
+        "examples": ["Work", "About", "Contact"]
+      },
+      "mobile": {
+        "stack": "center-aligned, stacked"
+      },
+      "examples": ["portfolio sites", "minimal agencies"],
+      "bestFor": ["portfolios", "creative agencies", "personal sites"]
+    },
+    {
+      "id": "centered-simple",
+      "name": "Centered Simple",
+      "category": "minimal",
+      "description": "Centered layout with stacked elements",
+      "structure": {
+        "layout": "centered, stacked vertically",
+        "elements": ["logo", "nav-links-inline", "social-icons", "copyright"]
+      },
+      "design": {
+        "alignment": "center",
+        "spacing": "generous vertical spacing",
+        "style": "elegant, spacious"
+      },
+      "examples": ["luxury brands", "editorial sites"],
+      "bestFor": ["luxury brands", "editorial", "minimal aesthetics"]
+    },
+    {
+      "id": "e-commerce-comprehensive",
+      "name": "E-commerce Comprehensive",
+      "category": "e-commerce",
+      "description": "Full-featured footer for online stores",
+      "structure": {
+        "topSection": {
+          "elements": ["newsletter-signup", "usp-icons"]
+        },
+        "columns": [
+          { "heading": "Shop", "links": ["New Arrivals", "Best Sellers", "Sale", "Gift Cards"] },
+          { "heading": "Help", "links": ["Order Status", "Shipping", "Returns", "Size Guide", "Contact"] },
+          { "heading": "About", "links": ["Our Story", "Sustainability", "Careers", "Press"] },
+          { "heading": "Account", "links": ["Sign In", "Create Account", "Order History", "Wishlist"] }
+        ],
+        "uspBar": {
+          "icons": ["free-shipping", "easy-returns", "secure-payment", "24-7-support"]
+        },
+        "bottomBar": {
+          "left": ["copyright"],
+          "center": ["payment-icons"],
+          "right": ["country-selector", "language-selector"]
+        }
+      },
+      "trustSignals": {
+        "paymentIcons": ["Visa", "Mastercard", "Amex", "PayPal", "Apple Pay"],
+        "securityBadges": ["SSL", "PCI compliant"],
+        "guarantees": "money-back guarantee text"
+      },
+      "mobile": {
+        "accordions": true,
+        "uspBar": "horizontal scroll"
+      },
+      "examples": ["nike.com", "everlane.com", "allbirds.com"],
+      "bestFor": ["e-commerce", "retail", "DTC brands"]
+    },
+    {
+      "id": "newsletter-focused",
+      "name": "Newsletter Focused",
+      "category": "creative",
+      "description": "Footer that prioritizes email capture",
+      "structure": {
+        "hero": {
+          "headline": "Join 50,000+ subscribers",
+          "subtext": "Weekly insights on design and development",
+          "form": ["email-input", "subscribe-button"]
+        },
+        "below": {
+          "layout": "minimal links + social + copyright"
+        }
+      },
+      "design": {
+        "emphasis": "newsletter form is the hero element",
+        "background": "contrasting or gradient",
+        "formStyle": "large, prominent"
+      },
+      "socialProof": {
+        "subscriberCount": true,
+        "testimonial": "optional reader quote"
+      },
+      "examples": ["substack newsletters", "blog sites"],
+      "bestFor": ["blogs", "newsletters", "content sites"]
+    },
+    {
+      "id": "app-cta-footer",
+      "name": "App CTA Footer",
+      "category": "app",
+      "description": "Footer focused on driving app downloads",
+      "structure": {
+        "appSection": {
+          "headline": "Get the app",
+          "badges": ["app-store", "google-play"],
+          "qrCode": "optional QR code"
+        },
+        "links": {
+          "layout": "minimal columns or inline",
+          "content": ["About", "Help", "Privacy", "Terms"]
+        },
+        "bottomBar": ["copyright", "social-links"]
+      },
+      "design": {
+        "emphasis": "app badges are prominent",
+        "mockup": "optional phone mockup"
+      },
+      "examples": ["mobile-first apps", "fintech apps"],
+      "bestFor": ["mobile apps", "fintech", "consumer apps"]
+    },
+    {
+      "id": "contact-focused",
+      "name": "Contact Focused",
+      "category": "creative",
+      "description": "Footer that emphasizes getting in touch",
+      "structure": {
+        "cta": {
+          "headline": "Let's work together",
+          "subtext": "Have a project in mind?",
+          "button": "Get in touch"
+        },
+        "contact": {
+          "email": "hello@example.com",
+          "phone": "optional",
+          "address": "optional"
+        },
+        "links": "minimal navigation",
+        "social": "social icons"
+      },
+      "design": {
+        "style": "bold CTA headline",
+        "animation": "optional: headline animation"
+      },
+      "examples": ["agency sites", "freelancer portfolios"],
+      "bestFor": ["agencies", "freelancers", "service businesses"]
+    },
+    {
+      "id": "sitemap-footer",
+      "name": "Sitemap Footer",
+      "category": "enterprise",
+      "description": "Exhaustive footer with all site links",
+      "structure": {
+        "columns": "5-8 columns covering entire site",
+        "links": "every major page linked",
+        "grouping": "by section or user type"
+      },
+      "purpose": {
+        "seo": "helps crawlers index site",
+        "navigation": "fallback for confused users",
+        "completeness": "shows site scope"
+      },
+      "design": {
+        "density": "compact link spacing",
+        "typography": "small, readable",
+        "background": "distinct from page content"
+      },
+      "examples": ["large corporate sites", "government sites"],
+      "bestFor": ["large sites", "SEO-focused sites", "corporate"]
+    },
+    {
+      "id": "social-proof-footer",
+      "name": "Social Proof Footer",
+      "category": "creative",
+      "description": "Footer highlighting testimonials and trust",
+      "structure": {
+        "topSection": {
+          "testimonial": "featured customer quote",
+          "logos": "trusted by logos"
+        },
+        "mainSection": {
+          "columns": "standard link columns"
+        },
+        "bottomBar": "copyright + social"
+      },
+      "socialProof": {
+        "testimonial": {
+          "quote": "with attribution",
+          "photo": "optional headshot",
+          "company": "company logo"
+        },
+        "metrics": "optional: 'Trusted by 10,000+ teams'"
+      },
+      "examples": ["SaaS products with strong testimonials"],
+      "bestFor": ["SaaS", "B2B", "products with strong social proof"]
+    },
+    {
+      "id": "sticky-cta-footer",
+      "name": "Sticky CTA Footer",
+      "category": "app",
+      "description": "Persistent footer bar for key actions",
+      "structure": {
+        "bar": {
+          "content": "value prop + CTA button",
+          "position": "fixed at bottom",
+          "dismissible": true
+        },
+        "regularFooter": "appears above the sticky bar"
+      },
+      "behavior": {
+        "showAfter": "scroll past hero",
+        "dismissable": "X button or swipe",
+        "respects": "cookie preferences"
+      },
+      "mobile": {
+        "height": "compact (56-64px)",
+        "safeArea": "respect device safe area"
+      },
+      "examples": ["mobile product pages", "landing pages"],
+      "bestFor": ["mobile landing pages", "e-commerce product pages"]
+    },
+    {
+      "id": "documentation-footer",
+      "name": "Documentation Footer",
+      "category": "app",
+      "description": "Minimal footer for documentation sites",
+      "structure": {
+        "content": {
+          "left": ["copyright", "version"],
+          "center": ["prev-next-navigation"],
+          "right": ["edit-on-github", "report-issue"]
+        }
+      },
+      "features": {
+        "prevNext": "navigate to previous/next doc page",
+        "editLink": "link to edit page on GitHub",
+        "lastUpdated": "show last edit date"
+      },
+      "design": {
+        "style": "minimal, functional",
+        "integration": "matches docs theme"
+      },
+      "examples": ["docusaurus sites", "developer docs"],
+      "bestFor": ["documentation", "open source projects"]
+    }
+  ]
+}

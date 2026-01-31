@@ -419,10 +419,10 @@ Front-end artifacts can be large. Guidelines:
 
 **File Size Limits:**
 - Component code: No limit (it's source code)
-- Images: < 500KB each (compress with ImageOptim)
-- Audio/MIDI: < 1MB each
+- Images: &lt; 500KB each (compress with ImageOptim)
+- Audio/MIDI: &lt; 1MB each
 - Videos: Link to external (YouTube, Vimeo)
-- Total artifact: Aim for < 10MB
+- Total artifact: Aim for &lt; 10MB
 
 **Optimization:**
 - Compress screenshots (PNG → WebP if possible)

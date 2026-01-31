@@ -1,0 +1,402 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-30",
+    "totalFormulas": 28,
+    "categories": ["benefit-focused", "action-oriented", "curiosity", "social-proof", "problem-solution", "comparison", "question", "numbered"]
+  },
+  "formulas": [
+    {
+      "id": "benefit-verb",
+      "category": "action-oriented",
+      "template": "[Verb] [outcome] [qualifier]",
+      "examples": [
+        "Ship faster with confidence",
+        "Build better apps in half the time",
+        "Scale without limits",
+        "Design beautiful interfaces effortlessly"
+      ],
+      "psychology": "Action-oriented, outcome-focused. The verb creates momentum, the outcome is the benefit, the qualifier adds specificity.",
+      "bestFor": ["SaaS", "developer tools", "productivity apps"],
+      "subheadlineFormula": "Expand on HOW you enable this outcome"
+    },
+    {
+      "id": "the-blank-for-blank",
+      "category": "comparison",
+      "template": "The [known thing] for [your audience]",
+      "examples": [
+        "The GitHub for designers",
+        "The Stripe for marketplaces",
+        "The Slack for async teams",
+        "The Notion for engineering teams"
+      ],
+      "psychology": "Instant understanding through comparison. Borrows trust and recognition from established brand.",
+      "bestFor": ["startups", "new categories", "quick pitch"],
+      "caution": "Only works if the comparison is apt and your audience knows the reference"
+    },
+    {
+      "id": "outcome-without-pain",
+      "category": "benefit-focused",
+      "template": "[Desirable outcome] without [common pain point]",
+      "examples": [
+        "Beautiful websites without code",
+        "Enterprise security without the complexity",
+        "Real-time collaboration without the chaos",
+        "Powerful analytics without the data team"
+      ],
+      "psychology": "Addresses both desire and fear. Shows you understand their frustration.",
+      "bestFor": ["tools replacing complex solutions", "no-code products", "simplification plays"],
+      "subheadlineFormula": "Explain how you eliminate the pain point"
+    },
+    {
+      "id": "finally-statement",
+      "category": "problem-solution",
+      "template": "Finally, [solution to long-standing problem]",
+      "examples": [
+        "Finally, email that works for teams",
+        "Finally, a database that scales automatically",
+        "Finally, design and development in sync",
+        "Finally, meetings that respect your time"
+      ],
+      "psychology": "Acknowledges frustration, implies previous solutions failed, positions you as the answer.",
+      "bestFor": ["disruptive products", "painful problem spaces"],
+      "caution": "Only use if the problem is genuinely painful and common"
+    },
+    {
+      "id": "simple-declarative",
+      "category": "benefit-focused",
+      "template": "[Simple statement of what you are/do]",
+      "examples": [
+        "The modern data stack",
+        "AI that works for you",
+        "Your second brain",
+        "The world's fastest framework"
+      ],
+      "psychology": "Confident, bold, memorable. Works when you're category-defining.",
+      "bestFor": ["category leaders", "well-known brands", "bold positioning"],
+      "caution": "Requires subheadline to explain; can feel vague alone"
+    },
+    {
+      "id": "how-x-does-y",
+      "category": "social-proof",
+      "template": "How [impressive group] [achieves outcome]",
+      "examples": [
+        "How top teams ship faster",
+        "How leading brands build customer loyalty",
+        "How the best developers debug code",
+        "How unicorn startups scale infrastructure"
+      ],
+      "psychology": "Aspirational social proof. Reader wants to be like the impressive group.",
+      "bestFor": ["B2B products", "enterprise tools", "professional services"],
+      "subheadlineFormula": "Your product name + brief value prop"
+    },
+    {
+      "id": "question-hook",
+      "category": "question",
+      "template": "[Question that implies your solution]?",
+      "examples": [
+        "What if your website built itself?",
+        "Ready to ship 10x faster?",
+        "Still managing servers manually?",
+        "Why are you still writing SQL?"
+      ],
+      "psychology": "Engages reader's mind, makes them think. Rhetorical questions assume the answer.",
+      "bestFor": ["challenger brands", "provocative positioning", "problem-aware audiences"],
+      "caution": "Weak questions fall flat; must hit a nerve"
+    },
+    {
+      "id": "number-specific",
+      "category": "numbered",
+      "template": "[Number] [specific outcome/benefit]",
+      "examples": [
+        "10x faster deployments",
+        "50% less time in meetings",
+        "Zero-config serverless functions",
+        "One platform for all your data"
+      ],
+      "psychology": "Specificity builds credibility. Numbers stand out in text.",
+      "bestFor": ["performance claims", "efficiency tools", "measurable benefits"],
+      "caution": "Numbers must be defensible and impressive"
+    },
+    {
+      "id": "stop-doing-start-doing",
+      "category": "problem-solution",
+      "template": "Stop [pain]. Start [benefit].",
+      "examples": [
+        "Stop debugging. Start shipping.",
+        "Stop guessing. Start knowing.",
+        "Stop managing servers. Start building products.",
+        "Stop the chaos. Start the clarity."
+      ],
+      "psychology": "Contrast creates clarity. Positions old way vs. new way.",
+      "bestFor": ["transformation products", "workflow tools"],
+      "design": "Works well as two-line headline"
+    },
+    {
+      "id": "everything-you-need",
+      "category": "benefit-focused",
+      "template": "Everything you need to [outcome]",
+      "examples": [
+        "Everything you need to build modern apps",
+        "Everything you need to run your business",
+        "Everything you need to design at scale",
+        "Everything you need to ship fast"
+      ],
+      "psychology": "Completeness appeal. Addresses fear of missing pieces.",
+      "bestFor": ["platforms", "all-in-one solutions", "suites"],
+      "subheadlineFormula": "List key capabilities or call out consolidation benefit"
+    },
+    {
+      "id": "the-way-x-should-be",
+      "category": "problem-solution",
+      "template": "[Category] the way it should be",
+      "examples": [
+        "Email the way it should be",
+        "Project management the way it should be",
+        "Banking the way it should be",
+        "Analytics the way it should be"
+      ],
+      "psychology": "Implies current solutions are broken. Positions you as the ideal.",
+      "bestFor": ["reinventing existing categories", "UX-focused products"],
+      "caution": "Must deliver on the promise of 'should be'"
+    },
+    {
+      "id": "for-people-who",
+      "category": "benefit-focused",
+      "template": "[Product type] for [specific audience trait]",
+      "examples": [
+        "A database for developers who ship fast",
+        "Project management for teams who move quickly",
+        "Email for people who hate email",
+        "Analytics for companies that care about privacy"
+      ],
+      "psychology": "Self-selection. Reader identifies with trait and feels product is for them.",
+      "bestFor": ["niche products", "opinionated tools", "specific audiences"],
+      "subheadlineFormula": "Expand on what makes it perfect for that audience"
+    },
+    {
+      "id": "verb-your-noun",
+      "category": "action-oriented",
+      "template": "[Strong verb] your [domain noun]",
+      "examples": [
+        "Supercharge your workflow",
+        "Automate your infrastructure",
+        "Amplify your reach",
+        "Accelerate your growth"
+      ],
+      "psychology": "Action-oriented, improvement-focused. Implies transformation.",
+      "bestFor": ["enhancement tools", "optimization products"],
+      "caution": "Can feel generic if verb/noun pair isn't specific"
+    },
+    {
+      "id": "introducing-the-new",
+      "category": "curiosity",
+      "template": "Introducing [new way/thing/approach]",
+      "examples": [
+        "Introducing the future of development",
+        "Introducing a new way to collaborate",
+        "Introducing AI-native design",
+        "Introducing the next generation of analytics"
+      ],
+      "psychology": "Novelty appeal. Creates anticipation and curiosity.",
+      "bestFor": ["product launches", "major updates", "new categories"],
+      "caution": "Overused; works best for genuinely new things"
+    },
+    {
+      "id": "no-more-x",
+      "category": "problem-solution",
+      "template": "No more [pain point]",
+      "examples": [
+        "No more context switching",
+        "No more deployment anxiety",
+        "No more spreadsheet chaos",
+        "No more waiting for IT"
+      ],
+      "psychology": "Pain elimination. Directly addresses frustration.",
+      "bestFor": ["tools solving specific pain points"],
+      "subheadlineFormula": "Explain what replaces the pain"
+    },
+    {
+      "id": "built-for-x",
+      "category": "benefit-focused",
+      "template": "Built for [specific use case/audience]",
+      "examples": [
+        "Built for speed",
+        "Built for scale",
+        "Built for developers",
+        "Built for the modern web"
+      ],
+      "psychology": "Intentionality. Shows purpose-built design.",
+      "bestFor": ["technical products", "performance-focused tools"],
+      "subheadlineFormula": "Explain how it's built for that purpose"
+    },
+    {
+      "id": "from-x-to-y",
+      "category": "comparison",
+      "template": "From [starting state] to [end state]",
+      "examples": [
+        "From idea to production in minutes",
+        "From chaos to clarity",
+        "From spreadsheets to systems",
+        "From local to global"
+      ],
+      "psychology": "Transformation journey. Shows clear before/after.",
+      "bestFor": ["transformation tools", "process improvement"],
+      "design": "Works well with timeline or process visuals"
+    },
+    {
+      "id": "one-x-for-all-y",
+      "category": "benefit-focused",
+      "template": "One [tool/platform] for all your [needs]",
+      "examples": [
+        "One platform for all your data",
+        "One app for all your communication",
+        "One tool for design, development, and deployment",
+        "One workspace for your entire team"
+      ],
+      "psychology": "Consolidation appeal. Addresses tool sprawl fatigue.",
+      "bestFor": ["platforms", "all-in-one solutions", "suites"],
+      "caution": "Must actually be comprehensive"
+    },
+    {
+      "id": "the-only-x-that",
+      "category": "comparison",
+      "template": "The only [category] that [unique capability]",
+      "examples": [
+        "The only CRM that salespeople actually use",
+        "The only database that scales to zero",
+        "The only design tool with real collaboration",
+        "The only analytics with built-in privacy"
+      ],
+      "psychology": "Differentiation through exclusivity. Bold claim.",
+      "bestFor": ["differentiated products", "unique features"],
+      "caution": "Claim must be defensible"
+    },
+    {
+      "id": "join-number-who",
+      "category": "social-proof",
+      "template": "Join [number]+ [people/companies] who [outcome]",
+      "examples": [
+        "Join 50,000+ developers who ship faster",
+        "Join 10,000+ teams who collaborate better",
+        "Join the companies who moved to modern infrastructure",
+        "Join millions who've simplified their finances"
+      ],
+      "psychology": "Social proof + bandwagon. FOMO through numbers.",
+      "bestFor": ["established products", "products with impressive user counts"],
+      "caution": "Numbers must be real and impressive"
+    },
+    {
+      "id": "we-help-x-do-y",
+      "category": "benefit-focused",
+      "template": "We help [audience] [achieve outcome]",
+      "examples": [
+        "We help developers build faster",
+        "We help teams collaborate seamlessly",
+        "We help businesses understand their data",
+        "We help creators monetize their content"
+      ],
+      "psychology": "Service-oriented, clear value proposition. Human touch.",
+      "bestFor": ["service businesses", "B2B products", "consultative sales"],
+      "caution": "Can feel generic; specificity helps"
+    },
+    {
+      "id": "imagine-x",
+      "category": "curiosity",
+      "template": "Imagine [ideal scenario]",
+      "examples": [
+        "Imagine never worrying about infrastructure again",
+        "Imagine shipping features in hours, not weeks",
+        "Imagine design and code, perfectly in sync",
+        "Imagine data you can actually trust"
+      ],
+      "psychology": "Aspirational visualization. Engages imagination.",
+      "bestFor": ["transformational products", "vision-selling"],
+      "subheadlineFormula": "Now you can with [Product]"
+    },
+    {
+      "id": "x-meets-y",
+      "category": "comparison",
+      "template": "[Capability A] meets [Capability B]",
+      "examples": [
+        "Simplicity meets power",
+        "Speed meets reliability",
+        "Design meets code",
+        "Flexibility meets structure"
+      ],
+      "psychology": "Best of both worlds. Resolves perceived trade-offs.",
+      "bestFor": ["products bridging two needs", "balanced solutions"],
+      "subheadlineFormula": "Explain how you achieve both"
+    },
+    {
+      "id": "x-without-y",
+      "category": "benefit-focused",
+      "template": "[Benefit] without [drawback]",
+      "examples": [
+        "Power without complexity",
+        "Speed without sacrificing quality",
+        "Scale without the ops burden",
+        "Collaboration without the chaos"
+      ],
+      "psychology": "Eliminates trade-off. Addresses 'yes, but...' objection.",
+      "bestFor": ["products solving trade-offs", "premium positioning"],
+      "similar": "outcome-without-pain but focused on positive framing"
+    },
+    {
+      "id": "beyond-x",
+      "category": "comparison",
+      "template": "Beyond [current solution/category]",
+      "examples": [
+        "Beyond spreadsheets",
+        "Beyond the CRM",
+        "Beyond basic analytics",
+        "Beyond traditional databases"
+      ],
+      "psychology": "Evolution positioning. Implies you're next generation.",
+      "bestFor": ["category disruptors", "next-gen products"],
+      "subheadlineFormula": "Explain what 'beyond' means"
+    },
+    {
+      "id": "where-x-happens",
+      "category": "benefit-focused",
+      "template": "Where [important activity] happens",
+      "examples": [
+        "Where work happens",
+        "Where teams build together",
+        "Where ideas become products",
+        "Where data becomes insight"
+      ],
+      "psychology": "Positioning as essential place/platform. Hub mentality.",
+      "bestFor": ["platforms", "collaboration tools", "central hubs"],
+      "caution": "Bold claim; requires strong product-market fit"
+    },
+    {
+      "id": "made-for-x-by-x",
+      "category": "social-proof",
+      "template": "Made for [audience] by [audience]",
+      "examples": [
+        "Made for developers by developers",
+        "Made for designers by designers",
+        "Made for creators by creators",
+        "Made for teams by teams"
+      ],
+      "psychology": "Insider credibility. 'We understand you because we are you.'",
+      "bestFor": ["tools by practitioners", "community-driven products"],
+      "subheadlineFormula": "Expand on your insider understanding"
+    },
+    {
+      "id": "the-fastest-way-to",
+      "category": "action-oriented",
+      "template": "The fastest way to [outcome]",
+      "examples": [
+        "The fastest way to build web apps",
+        "The fastest way to deploy infrastructure",
+        "The fastest way to create beautiful designs",
+        "The fastest way to understand your users"
+      ],
+      "psychology": "Speed appeal. Time is valuable, faster is better.",
+      "bestFor": ["developer tools", "productivity tools", "efficiency products"],
+      "caution": "Speed claim must be demonstrable"
+    }
+  ]
+}

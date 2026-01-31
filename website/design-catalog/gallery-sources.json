@@ -1,0 +1,753 @@
+{
+  "$schema": "./schemas/gallery-sources.schema.json",
+  "metadata": {
+    "version": "1.1.0",
+    "lastUpdated": "2026-01-31",
+    "crawledVia": "Firecrawl MCP",
+    "totalSources": 12,
+    "totalTrends": 24,
+    "totalComponents": "2800+",
+    "notes": "Comprehensive front-end design database covering all major design trends for 2026"
+  },
+  "trends2026": [
+    {
+      "id": "3d-immersive",
+      "name": "3D and Immersive Elements",
+      "description": "Interactive 3D models, WebGL experiences, AR previews, scroll-triggered animations",
+      "status": "rising",
+      "examples": ["Nike", "IKEA Virtual Reality"],
+      "technologies": ["WebGL", "Three.js", "AR.js"],
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "experimental-navigation",
+      "name": "Experimental Navigation",
+      "description": "Radial menus, hidden drawers, interactive maps, nonlinear journeys beyond traditional nav",
+      "status": "emerging",
+      "examples": ["Locomotive", "Palmer Dinnerware", "Google Arts & Culture"],
+      "sources": ["figma"]
+    },
+    {
+      "id": "vibrant-colors",
+      "name": "Vibrant Color Palettes",
+      "description": "Y2K nostalgia, neon gradients, high-contrast pairings, dopamine design aesthetics",
+      "status": "mainstream",
+      "examples": ["Lush", "Headspace", "Starface"],
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "bold-typography",
+      "name": "Bold Typography",
+      "description": "Custom fonts, oversized headlines, kinetic lettering, variable fonts",
+      "status": "mainstream",
+      "examples": ["Glossier", "Samsung"],
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "dark-mode",
+      "name": "Dark Mode",
+      "description": "Light/dark toggles, reduced eye strain, OLED optimization, personalization",
+      "status": "established",
+      "examples": ["YouTube", "X/Twitter", "Slack"],
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "motion-design",
+      "name": "Motion Design & Animation",
+      "description": "Micro animations, scroll-triggered narratives, scrollytelling, hover effects",
+      "status": "mainstream",
+      "examples": ["Nike", "Ralph Lauren", "Jitter", "Silo"],
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "gamified-design",
+      "name": "Gamified Design",
+      "description": "Points, badges, progress bars, leaderboards, micro-rewards in UX",
+      "status": "rising",
+      "examples": ["Duolingo", "Sephora"],
+      "sources": ["figma"]
+    },
+    {
+      "id": "neumorphism",
+      "name": "Neumorphism",
+      "description": "Soft shadows, subtle gradients, raised/inset elements, tactile interfaces",
+      "status": "stable",
+      "examples": ["Apple", "Flow Ninja", "Stripe"],
+      "sources": ["figma"]
+    },
+    {
+      "id": "retrofuturism",
+      "name": "Retrofuturism",
+      "description": "Vintage sci-fi aesthetics, neon accents, chrome textures, pixel art, arcade vibes",
+      "status": "niche",
+      "sources": ["figma"]
+    },
+    {
+      "id": "maximalism",
+      "name": "Maximalism",
+      "description": "Rich colors, overlapping visuals, bold fonts, dense compositions, high-energy",
+      "status": "rising",
+      "examples": ["Spotify", "Liquid Death"],
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "collage",
+      "name": "Collage Design",
+      "description": "Scrapbook-style, sticker graphics, torn textures, cutout photos, hand-drawn fonts",
+      "status": "niche",
+      "examples": ["La Palatine"],
+      "sources": ["figma"]
+    },
+    {
+      "id": "neobrutalism",
+      "name": "Neo-Brutalism / Anti-Design",
+      "description": "Raw visuals, bold strokes, hard shadows (no blur), thick borders, high contrast",
+      "status": "rising",
+      "signature": "box-shadow: 4px 4px 0 #000000",
+      "examples": ["Balenciaga", "Diesel", "Mailchimp", "Gumroad", "Figma"],
+      "sources": ["figma", "neobrutalism.dev", "freefrontend", "behance"]
+    },
+    {
+      "id": "sustainable-design",
+      "name": "Sustainable Web Design",
+      "description": "Leaner code, optimized images, low-impact hosting, accessibility-first, ethical UX",
+      "status": "growing",
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "ai-chatbots",
+      "name": "AI Chatbots & Agents",
+      "description": "Proactive, conversational, agentic assistants handling multi-step tasks",
+      "status": "mainstream",
+      "sources": ["figma", "designmodo"]
+    },
+    {
+      "id": "voice-interfaces",
+      "name": "Voice-Activated Interfaces",
+      "description": "Beyond search - control features, accessibility, personalized help",
+      "status": "emerging",
+      "examples": ["Amazon", "Google", "Walmart", "Domino's", "Nike", "Sephora"],
+      "sources": ["figma"]
+    },
+    {
+      "id": "dynamic-cursors",
+      "name": "Dynamic Cursors",
+      "description": "Custom cursors that guide, reveal, highlight - dot, following, flashlight, text effects",
+      "status": "rising",
+      "sources": ["designmodo"]
+    },
+    {
+      "id": "vr-ar",
+      "name": "VR and AR Experiences",
+      "description": "Virtual tours, AR trials, 3D product visualization, Apple Vision Pro compatible",
+      "status": "emerging",
+      "examples": ["IKEA Co-worker"],
+      "sources": ["designmodo"]
+    },
+    {
+      "id": "claymorphism",
+      "name": "Claymorphism",
+      "description": "3D rendered clay-like elements, soft rounded shapes, playful depth, pastel colors",
+      "status": "rising",
+      "sources": ["designprompts"]
+    },
+    {
+      "id": "kinetic-typography",
+      "name": "Kinetic Typography",
+      "description": "Animated text, motion-driven letterforms, scroll-triggered type animations",
+      "status": "rising",
+      "sources": ["designprompts", "21stdev"]
+    },
+    {
+      "id": "terminal-aesthetic",
+      "name": "Terminal/CLI Aesthetic",
+      "description": "Monospace fonts, command-line styling, hacker/dev culture, green-on-black",
+      "status": "niche",
+      "examples": ["Vercel CLI", "GitHub CLI"],
+      "sources": ["designprompts"]
+    },
+    {
+      "id": "web3-crypto",
+      "name": "Web3/Crypto Design",
+      "description": "Gradients, dark themes, futuristic elements, blockchain visualization, token aesthetics",
+      "status": "stable",
+      "examples": ["Ethereum", "Solana", "OpenSea"],
+      "sources": ["designprompts"]
+    },
+    {
+      "id": "botanical-organic",
+      "name": "Botanical/Organic",
+      "description": "Natural textures, plant motifs, earthy colors, hand-drawn illustrations, sustainability",
+      "status": "growing",
+      "sources": ["designprompts", "figma"]
+    },
+    {
+      "id": "art-deco-revival",
+      "name": "Art Deco Revival",
+      "description": "Geometric patterns, gold accents, luxury feel, roaring 20s meets modern web",
+      "status": "niche",
+      "sources": ["designprompts"]
+    },
+    {
+      "id": "scroll-driven-animations",
+      "name": "Scroll-Driven Animations",
+      "description": "CSS Scroll-Driven Animations API, view-timeline, scroll-linked effects without JS",
+      "status": "emerging",
+      "technologies": ["CSS Scroll-Driven Animations API", "view-timeline", "animation-timeline"],
+      "sources": ["freefrontend"]
+    }
+  ],
+  "galleries": {
+    "awwwards": {
+      "name": "Awwwards",
+      "url": "https://www.awwwards.com/websites/ui-design/",
+      "type": "curated-awards",
+      "description": "Award-winning UI designs, curated collection of innovative and visually striking sites",
+      "categories": ["UI Design", "UX Design", "Design Systems", "Animation"],
+      "featuredSites": [
+        {"name": "Snowflake Studio", "url": "https://snowflake.studio/"},
+        {"name": "Hemi Network", "url": "https://hemi.xyz/"},
+        {"name": "Gielly Green", "url": "https://giellygreen.co.uk/"},
+        {"name": "Mason Wong", "url": "http://www.mason-wong.com/"},
+        {"name": "Chromia", "url": "https://chromia.com/"},
+        {"name": "Didi Hirsch", "url": "https://didihirsch.org/"},
+        {"name": "Dulcedo", "url": "https://dulcedo.com/"},
+        {"name": "Voku.Studio", "url": "https://voku.studio/"},
+        {"name": "Jesko Jets", "url": "https://jeskojets.com/", "awards": ["SOTD", "Developer Award"]},
+        {"name": "Project 0", "url": "https://www.0.xyz/"}
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "componentGallery": {
+      "name": "The Component Gallery",
+      "url": "https://component.gallery/",
+      "type": "component-reference",
+      "description": "Repository of interface components from real-world design systems",
+      "stats": {
+        "components": 60,
+        "designSystems": 95,
+        "examples": 2680
+      },
+      "components": [
+        "Carousel", "Tree view", "Popover", "Rating", "Accordion",
+        "Quote", "Pagination", "Tabs"
+      ],
+      "designSystems": [
+        {"name": "Elastic UI", "tech": ["React", "CSS-in-JS"], "url": "https://eui.elastic.co/"},
+        {"name": "Sainsbury's", "tech": ["React", "Sass"], "url": "https://design-systems.sainsburys.co.uk/"},
+        {"name": "Ariakit", "tech": ["React"], "features": ["Accessibility"], "url": "https://ariakit.org/"},
+        {"name": "Web Awesome", "tech": ["Web Components"], "url": "https://webawesome.com/"},
+        {"name": "Red Hat", "tech": ["Web Components"], "url": "https://ux.redhat.com/"},
+        {"name": "HeroUI", "tech": ["React", "Tailwind CSS"], "url": "https://www.heroui.com/"},
+        {"name": "Morningstar", "tech": ["Vue"], "url": "https://design.morningstar.com/systems/product"}
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "framer": {
+      "name": "Framer Templates",
+      "url": "https://www.framer.com/templates/",
+      "type": "template-marketplace",
+      "description": "No-code website templates for portfolios, businesses, and more",
+      "categories": [
+        {"name": "Business", "count": 2900},
+        {"name": "Creative", "count": 1700},
+        {"name": "Community", "count": 213},
+        {"name": "Style", "count": 2300},
+        {"name": "Free", "count": 1400}
+      ],
+      "featuredTemplates": [
+        {"name": "Stelvio", "author": "Peter Konti", "price": "Free"},
+        {"name": "Luxel", "author": "Framer Web Pro", "price": "$19"},
+        {"name": "Finns", "author": "Motiondrops", "price": "Free"},
+        {"name": "Omega", "author": "Yousef Osman", "price": "$79"},
+        {"name": "Xtract", "author": "Kanishk Dubey", "price": "Free"}
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "neobrutalism": {
+      "name": "Neobrutalism.dev",
+      "url": "https://www.neobrutalism.dev/",
+      "type": "component-library",
+      "description": "Neobrutalism-styled components based on shadcn/ui",
+      "author": "Samuel Breznjak (@samuelbreznjak)",
+      "tech": ["React", "Tailwind CSS", "shadcn/ui"],
+      "features": ["Open source", "MIT License", "Customizable styling"],
+      "components": [
+        "Alerts", "Accordions", "Badges", "Buttons", "Cards",
+        "Carousels", "Checkboxes", "Dialogs", "Dropdowns", "Forms",
+        "OTP inputs", "Radio groups", "Toggles"
+      ],
+      "colorThemes": ["blue", "green", "orange", "violet"],
+      "crawledAt": "2026-01-31"
+    },
+    "freefrontend": {
+      "name": "FreeFrontend CSS Neobrutalism",
+      "url": "https://freefrontend.com/css-neobrutalism/",
+      "type": "css-examples",
+      "description": "CSS neobrutalism UI examples with bold borders and high-contrast aesthetics",
+      "examples": [
+        {
+          "name": "Neobrutalist Subscribe Form",
+          "codepen": "https://codepen.io/rustcode/pen/MYYMrVQ",
+          "features": ["Responsive input", "Animation on validation", "Green arrow CTA"]
+        },
+        {
+          "name": "Neo-Brutalist Component Library",
+          "codepen": "https://codepen.io/rustcode/pen/YPPbxYX"
+        },
+        {
+          "name": "Bootstrap 5 Accordion",
+          "features": [":has() pseudo-class", "Pop-out focus effect"]
+        },
+        {
+          "name": "Credit Card Checkout",
+          "features": ["JS-free", "Pseudo-3D effect", "Flexbox layout"]
+        }
+      ],
+      "relatedHubs": [
+        "https://freefrontend.com/css-box-shadow-examples/",
+        "https://freefrontend.com/css-forms/",
+        "https://freefrontend.com/css-has/"
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "behance": {
+      "name": "Behance",
+      "url": "https://www.behance.net/",
+      "type": "portfolio-platform",
+      "description": "Design portfolios and tutorials from professional designers",
+      "neobrutalism": {
+        "tutorial": {
+          "title": "How can I design in the Neo Brutalism style?",
+          "url": "https://www.behance.net/gallery/164728311/How-can-I-design-in-the-Neo-Brutalism-style",
+          "author": "Sepideh Yazdi (@sepidy)",
+          "stats": {"appreciations": 499, "views": 10200},
+          "keyInsights": {
+            "color": {
+              "black": "Pitch black for strokes and shadows",
+              "backgrounds": "Vibrant OR vintage/muted allowed",
+              "rule": "NO GRADIENTS - colors are distinct"
+            },
+            "shadows": {
+              "formula": "X and Y offset, NO BLUR, black 100% opacity"
+            },
+            "components": "Raw shapes (circles, rectangles, stars, polygons) with strokes",
+            "fonts": ["Lexend Mega", "Public Sans", "Mabry Pro", "Archivo Black", "Bebas Kai"]
+          }
+        }
+      },
+      "searches": [
+        "https://www.behance.net/tags/brutalism",
+        "https://www.behance.net/search/projects/retro%20elements%20brutalism"
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "dribbble": {
+      "name": "Dribbble",
+      "url": "https://dribbble.com/",
+      "type": "design-inspiration",
+      "description": "Design inspiration and showcase platform",
+      "searches": [
+        {"query": "neobrutalism-ui-design", "url": "https://dribbble.com/search/neobrutalism-ui-design"},
+        {"query": "neobrutalism", "url": "https://dribbble.com/search/neobrutalism"},
+        {"query": "neo-brutalism-design", "url": "https://dribbble.com/search/neo-brutalism-design"},
+        {"query": "neobrutalism-web", "url": "https://dribbble.com/search/neobrutalism-web"},
+        {"query": "brutalism-ui", "url": "https://dribbble.com/search/brutalism-ui"}
+      ],
+      "tags": [
+        "https://dribbble.com/tags/neobrutalism-design"
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "figma": {
+      "name": "Figma Resource Library",
+      "url": "https://www.figma.com/resource-library/web-design-trends/",
+      "type": "trend-guide",
+      "description": "Official Figma guide to 2026 web design trends",
+      "trends": [
+        "3D and immersive elements",
+        "Experimental navigation",
+        "Vibrant color palettes",
+        "Bold typography",
+        "Dark mode",
+        "Motion design and animation",
+        "Gamified design",
+        "Neumorphism",
+        "Retrofuturism",
+        "Maximalism",
+        "Collage",
+        "Neo-brutalism/anti-design",
+        "Sustainable Web design"
+      ],
+      "aiTrends": [
+        "AI Chatbots",
+        "Voice-activated interfaces",
+        "Progressive lead nurturing"
+      ],
+      "tools": ["Figma Make", "Figma Sites", "Dev Mode"],
+      "crawledAt": "2026-01-31"
+    },
+    "designmodo": {
+      "name": "Designmodo",
+      "url": "https://designmodo.com/web-design-trends/",
+      "type": "trend-article",
+      "description": "Comprehensive 2026 web design trends analysis",
+      "authors": ["Andrian Valeanu", "Nataly Birch"],
+      "trends": [
+        "Mobile-first design & AMP",
+        "Ethical, sustainable, accessible design",
+        "Meaningful interactions (dynamic cursors, microinteractions)",
+        "Playful entertaining websites",
+        "AI-powered web projects",
+        "Complex hero areas",
+        "VR and AR"
+      ],
+      "insights": {
+        "mobileTraffic": "60% of website traffic from mobile",
+        "dailyNewSites": 252000,
+        "firstImpression": "Website design responsible for 90%+ of first impressions"
+      },
+      "crawledAt": "2026-01-31"
+    },
+    "21stdev": {
+      "name": "21st.dev Community Components",
+      "url": "https://21st.dev/community/components",
+      "type": "component-library",
+      "description": "Community-contributed UI components with live previews and code export",
+      "tech": ["React", "Tailwind CSS", "Framer Motion", "shadcn/ui"],
+      "totalComponents": 1400,
+      "marketingBlocks": {
+        "announcements": 10,
+        "backgrounds": 33,
+        "borders": 12,
+        "callsToAction": 34,
+        "clients": 16,
+        "comparisons": 6,
+        "docks": 6,
+        "features": 36,
+        "footers": 14,
+        "heroes": 73,
+        "hooks": 31,
+        "images": 26,
+        "maps": 2,
+        "navigationMenus": 11,
+        "pricingSections": 17,
+        "scrollAreas": 24,
+        "shaders": 15,
+        "testimonials": 15,
+        "texts": 58,
+        "videos": 9
+      },
+      "uiComponents": {
+        "accordions": 40,
+        "aiChats": 30,
+        "alerts": 23,
+        "avatars": 17,
+        "badges": 25,
+        "buttons": 130,
+        "calendars": 34,
+        "cards": 79,
+        "carousels": 16,
+        "checkboxes": 19,
+        "datePickers": 12,
+        "dialogsModals": 37,
+        "dropdowns": 25,
+        "emptyStates": 1,
+        "fileTrees": 2,
+        "fileUploads": 7,
+        "forms": 23,
+        "icons": 10,
+        "inputs": 102,
+        "links": 13,
+        "menus": 18,
+        "notifications": 5,
+        "numbers": 18,
+        "paginations": 20,
+        "popovers": 23,
+        "radioGroups": 22,
+        "selects": 62,
+        "sidebars": 10,
+        "signIns": 4,
+        "signUps": 4,
+        "sliders": 45,
+        "spinnerLoaders": 21,
+        "tables": 30,
+        "tabs": 38,
+        "tags": 6,
+        "textAreas": 22,
+        "toasts": 2,
+        "toggles": 12,
+        "tooltips": 28
+      },
+      "featuredComponents": [
+        {"name": "Glowing Effect", "author": "Aceternity UI"},
+        {"name": "Spline Scene", "author": "Serafim"},
+        {"name": "Display Cards", "author": "Prism UI"},
+        {"name": "Timeline", "author": "Aceternity UI"},
+        {"name": "Glassmorphism Trust Hero", "author": "EaseMize UI"},
+        {"name": "Flow Gradient HeroSection", "author": "Hardik Kashiyani"},
+        {"name": "Isometric Wave Grid Background", "author": "EaseMize UI"},
+        {"name": "Hero Dithering Card", "author": "shadway"}
+      ],
+      "crawledAt": "2026-01-31"
+    },
+    "designprompts": {
+      "name": "Design Prompts",
+      "url": "https://www.designprompts.dev/",
+      "type": "ai-prompt-library",
+      "description": "AI-ready design prompts for consistent interfaces - drop into any AI assistant",
+      "totalStyles": 31,
+      "styles": [
+        {"id": "monochrome", "name": "Monochrome", "mode": "light", "type": "serif", "description": "Stark editorial design on pure black/white, dramatic contrast, oversized serif typography"},
+        {"id": "bauhaus", "name": "Bauhaus", "mode": "light", "type": "sans"},
+        {"id": "modern-dark", "name": "Modern Dark", "mode": "dark", "type": "sans"},
+        {"id": "newsprint", "name": "Newsprint", "mode": "light", "type": "serif"},
+        {"id": "saas", "name": "SaaS", "mode": "light", "type": "sans"},
+        {"id": "luxury", "name": "Luxury", "mode": "light", "type": "serif"},
+        {"id": "terminal", "name": "Terminal", "mode": "dark", "type": "mono"},
+        {"id": "swiss-minimalist", "name": "Swiss Minimalist", "mode": "light", "type": "sans"},
+        {"id": "kinetic", "name": "Kinetic", "mode": "dark", "type": "sans"},
+        {"id": "flat-design", "name": "Flat Design", "mode": "light", "type": "sans"},
+        {"id": "art-deco", "name": "Art Deco", "mode": "dark", "type": "serif"},
+        {"id": "material-design", "name": "Material Design", "mode": "light", "type": "sans"},
+        {"id": "neo-brutalism", "name": "Neo Brutalism", "mode": "light", "type": "sans"},
+        {"id": "bold-typography", "name": "Bold Typography", "mode": "dark", "type": "sans"},
+        {"id": "academia", "name": "Academia", "mode": "light", "type": "serif"},
+        {"id": "cyberpunk", "name": "Cyberpunk", "mode": "dark", "type": "mono"},
+        {"id": "web3", "name": "Web3", "mode": "dark", "type": "sans"},
+        {"id": "playful-geometric", "name": "Playful Geometric", "mode": "light", "type": "sans"},
+        {"id": "minimal-dark", "name": "Minimal Dark", "mode": "dark", "type": "sans"},
+        {"id": "claymorphism", "name": "Claymorphism", "mode": "light", "type": "sans"},
+        {"id": "professional", "name": "Professional", "mode": "light", "type": "sans"},
+        {"id": "botanical", "name": "Botanical", "mode": "light", "type": "serif"},
+        {"id": "vaporwave", "name": "Vaporwave", "mode": "dark", "type": "sans"},
+        {"id": "enterprise", "name": "Enterprise", "mode": "light", "type": "sans"},
+        {"id": "sketch", "name": "Sketch", "mode": "light", "type": "sans"},
+        {"id": "industrial", "name": "Industrial", "mode": "light", "type": "sans"},
+        {"id": "neumorphism", "name": "Neumorphism", "mode": "light", "type": "sans"},
+        {"id": "organic", "name": "Organic", "mode": "light", "type": "serif"},
+        {"id": "maximalism", "name": "Maximalism", "mode": "light", "type": "sans"},
+        {"id": "retro", "name": "Retro", "mode": "light", "type": "sans"}
+      ],
+      "features": ["Live previews", "Copy-paste prompts", "Dark/Light modes", "Font type filtering"],
+      "crawledAt": "2026-01-31"
+    },
+    "freefrontendGallery": {
+      "name": "FreeFrontend CSS Gallery",
+      "url": "https://freefrontend.com/css-gallery/",
+      "type": "css-examples",
+      "description": "112 CSS gallery examples using Grid, Scroll Snap, pure CSS lightboxes",
+      "totalExamples": 112,
+      "advancedTechniques": [
+        {
+          "name": "Trigonometric 3D Orbit Gallery",
+          "features": ["CSS math", "Parametric equations", "32 images on 3D curve"],
+          "browser": "Chrome 111+, Edge 111+, Safari 16.4+, Firefox 113+",
+          "level": "Advanced"
+        },
+        {
+          "name": "Animated Grid Tracks with :has()",
+          "features": [":has() selector", "grid-template-columns transition", "Blend modes"],
+          "level": "Intermediate"
+        },
+        {
+          "name": "Scroll-Driven Gallery",
+          "features": ["CSS Scroll-Driven Animations API", "view-timeline", "Zero JavaScript"],
+          "level": "Advanced"
+        },
+        {
+          "name": "Coverflow 3D Effect",
+          "features": ["CSS Scroll-driven Animations", "3D perspective", "Rotate on viewport entry"],
+          "level": "Advanced"
+        },
+        {
+          "name": "3D Parallax Navigation with Fisheye",
+          "features": ["transform-style: preserve-3d", "translateZ", "CSS-only"],
+          "level": "Advanced"
+        },
+        {
+          "name": "Full Viewport Gallery: Pure CSS",
+          "features": [":has() pseudo-class", "Radio input hacks", "CSS Grid variables"],
+          "level": "Intermediate"
+        },
+        {
+          "name": "Corner-shape Hexagon Avatars",
+          "features": ["corner-shape: bevel", "linear() easing", "Bouncy animations"],
+          "level": "Intermediate"
+        }
+      ],
+      "galleryTypes": [
+        "Honeycomb", "Rhombus", "Diamond", "Hexagon", "Pizza-like Grid",
+        "Wavy/Jigsaw", "Marquee", "Masonry", "Coverflow", "Parallax"
+      ],
+      "relatedHubs": [
+        {"name": "CSS Grid Examples", "url": "https://freefrontend.com/css-grid/"},
+        {"name": "CSS :has() Examples", "url": "https://freefrontend.com/css-has/"},
+        {"name": "CSS 3D Transforms", "url": "https://freefrontend.com/css-3d-transforms/"},
+        {"name": "CSS Hover Effects", "url": "https://freefrontend.com/css-hover-effects/"},
+        {"name": "CSS transition Examples", "url": "https://freefrontend.com/css-transition/"}
+      ],
+      "crawledAt": "2026-01-31"
+    }
+  },
+  "cssPatterns": {
+    "neobrutalism": {
+      "signature": {
+        "shadow": "box-shadow: 4px 4px 0 #000000",
+        "border": "border: 3px solid #000000",
+        "hoverShadow": "box-shadow: 6px 6px 0 #000000; transform: translate(-2px, -2px)",
+        "activeShadow": "box-shadow: 2px 2px 0 #000000; transform: translate(2px, 2px)"
+      },
+      "antiPatterns": [
+        "blur in shadows",
+        "gradients",
+        "rounded corners",
+        "thin borders",
+        "transparency/opacity"
+      ]
+    },
+    "glassmorphism": {
+      "signature": {
+        "backdrop": "backdrop-filter: blur(10px)",
+        "background": "background: rgba(255, 255, 255, 0.1)",
+        "border": "border: 1px solid rgba(255, 255, 255, 0.2)"
+      }
+    },
+    "neumorphism": {
+      "signature": {
+        "shadow": "box-shadow: 6px 6px 12px #d1d1d1, -6px -6px 12px #ffffff",
+        "background": "background: #e0e0e0"
+      }
+    },
+    "scrollDrivenAnimations": {
+      "signature": {
+        "scrollTimeline": "animation-timeline: scroll()",
+        "viewTimeline": "view-timeline-name: --element; animation-timeline: --element",
+        "scrollProgress": "animation-range: entry 0% cover 50%"
+      },
+      "browserSupport": "Chrome 115+, Edge 115+, Safari 18+, Firefox 128+",
+      "useCases": ["Parallax", "Reveal on scroll", "Progress indicators", "3D transforms"]
+    },
+    "modernHasSelector": {
+      "signature": {
+        "siblingHover": ".container:has(.item:hover) .other-item { opacity: 0.5 }",
+        "formValidation": "form:has(:invalid) button { pointer-events: none }",
+        "gridExpand": ".grid:has(.item:hover) { grid-template-columns: 2fr 1fr 1fr }"
+      },
+      "browserSupport": "Chrome 105+, Edge 105+, Safari 15.4+, Firefox 121+"
+    },
+    "claymorphism": {
+      "signature": {
+        "background": "background: linear-gradient(145deg, #e6e6e6, #ffffff)",
+        "shadow": "box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff",
+        "borderRadius": "border-radius: 30px"
+      },
+      "colors": ["Soft pastels", "Muted primaries", "High saturation accents"]
+    },
+    "3dTransformPatterns": {
+      "preserve3d": "transform-style: preserve-3d",
+      "perspective": "perspective: 1000px",
+      "translateZ": "transform: translateZ(50px) rotateY(15deg)",
+      "useCases": ["Card flips", "Coverflow galleries", "Parallax depth", "3D carousels"]
+    }
+  },
+  "colorPalettes": {
+    "neobrutalism": {
+      "vibrant": {
+        "red": "#FF5252",
+        "yellow": "#FFEB3B",
+        "blue": "#2196F3",
+        "green": "#4CAF50",
+        "purple": "#9C27B0"
+      },
+      "vintage": {
+        "cream": "#FEF3C7",
+        "sage": "#A7C4A0",
+        "dustyRose": "#D4A5A5",
+        "mustard": "#E3B23C",
+        "slate": "#6B7280"
+      }
+    },
+    "dopamine": {
+      "description": "Y2K nostalgia, high saturation, playful",
+      "colors": ["#FF6B6B", "#4ECDC4", "#FFE66D", "#95E1D3", "#F38181"]
+    },
+    "terminal": {
+      "description": "Hacker aesthetic, CLI-inspired, green phosphor or amber",
+      "colors": {
+        "classic": ["#0D1117", "#00FF00", "#1A1A2E", "#16C60C"],
+        "amber": ["#1A1A1A", "#FFB000", "#2D2D2D", "#FF9500"],
+        "matrix": ["#0D0208", "#003B00", "#008F11", "#00FF41"]
+      }
+    },
+    "web3": {
+      "description": "Crypto/blockchain inspired, dark gradients, futuristic glow",
+      "colors": {
+        "primary": ["#0F0F0F", "#6366F1", "#8B5CF6", "#EC4899"],
+        "gradients": ["linear-gradient(135deg, #667eea 0%, #764ba2 100%)", "linear-gradient(to right, #f953c6, #b91d73)"]
+      }
+    },
+    "artDeco": {
+      "description": "1920s luxury, geometric, gold and navy",
+      "colors": {
+        "primary": ["#1A1A2E", "#D4AF37", "#0F3460", "#E94560"],
+        "metallics": ["#FFD700", "#C5B358", "#B8860B"]
+      }
+    },
+    "botanical": {
+      "description": "Nature-inspired, earthy, organic growth",
+      "colors": {
+        "primary": ["#F5F5DC", "#228B22", "#8B4513", "#DAA520"],
+        "muted": ["#E8E4D9", "#6B8E23", "#BC8F8F", "#F4A460"]
+      }
+    },
+    "claymorphism": {
+      "description": "Soft 3D clay-like appearance, pastel backgrounds",
+      "colors": {
+        "backgrounds": ["#E8E4E6", "#D4E4ED", "#FDE4CF", "#E2D1F9"],
+        "shadows": ["#BEBEBE", "#A8C5DA", "#D4B8A0", "#C5B3D9"]
+      }
+    }
+  },
+  "typography": {
+    "neobrutalism": {
+      "display": ["Archivo Black", "Lexend Mega", "Bebas Kai"],
+      "body": ["Public Sans", "Space Grotesk", "Mabry Pro"],
+      "characteristics": ["Sans-serif", "Large headings", "Experiment with spacing"]
+    },
+    "retrofuturism": {
+      "display": ["Orbitron", "Audiowide", "Exo 2"],
+      "characteristics": ["Geometric", "Sci-fi inspired", "Monospace accents"]
+    },
+    "terminal": {
+      "display": ["JetBrains Mono", "Fira Code", "IBM Plex Mono", "Source Code Pro"],
+      "body": ["Roboto Mono", "SF Mono", "Consolas"],
+      "characteristics": ["Monospace only", "Ligatures optional", "High contrast"]
+    },
+    "web3": {
+      "display": ["Space Grotesk", "Clash Display", "Cabinet Grotesk", "Satoshi"],
+      "body": ["Inter", "DM Sans", "Plus Jakarta Sans"],
+      "characteristics": ["Geometric sans-serif", "Wide tracking for headings", "Modern feel"]
+    },
+    "artDeco": {
+      "display": ["Poiret One", "Josefin Sans", "Bodoni Moda", "Tenor Sans"],
+      "body": ["Lato", "Raleway", "Cormorant Garamond"],
+      "characteristics": ["High contrast serifs", "Geometric letterforms", "Elegant weight variations"]
+    },
+    "botanical": {
+      "display": ["Playfair Display", "Cormorant", "EB Garamond", "Crimson Pro"],
+      "body": ["Source Serif Pro", "Merriweather", "Libre Baskerville"],
+      "characteristics": ["Classic serifs", "Readable body text", "Organic curves"]
+    },
+    "monochrome": {
+      "display": ["Playfair Display", "Didot", "Bodoni", "Canela"],
+      "body": ["Georgia", "Times New Roman", "Libre Baskerville"],
+      "characteristics": ["High-contrast serifs", "Editorial feel", "Oversized headings", "Dramatic weight contrast"]
+    },
+    "swiss": {
+      "display": ["Helvetica Neue", "Neue Haas Grotesk", "Akzidenz-Grotesk", "Suisse Int'l"],
+      "body": ["Inter", "Aktiv Grotesk", "Graphik"],
+      "characteristics": ["Neutral sans-serif", "Grid-based layouts", "Tight tracking", "Rational proportions"]
+    }
+  }
+}
