@@ -1,7 +1,7 @@
 ---
 title: Bundle Optimization Strategies
 sidebar_label: Bundle Optimization Strategies
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Bundle Optimization Strategies
 

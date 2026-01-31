@@ -1,7 +1,7 @@
 ---
 title: Architecture Decision Record (ADR) Template
-sidebar_label: Architecture Decision Record (...
-sidebar_position: 2
+sidebar_label: Architecture Decision Recor...
+sidebar_position: 1
 ---
 # Architecture Decision Record (ADR) Template
 # Based on Michael Nygard's ADR format

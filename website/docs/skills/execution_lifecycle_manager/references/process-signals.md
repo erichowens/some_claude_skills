@@ -1,7 +1,7 @@
 ---
 title: Unix Process Signals Reference
 sidebar_label: Unix Process Signals Reference
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Unix Process Signals Reference
 

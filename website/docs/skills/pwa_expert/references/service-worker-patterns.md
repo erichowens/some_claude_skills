@@ -1,7 +1,7 @@
 ---
 title: Service Worker Patterns
 sidebar_label: Service Worker Patterns
-sidebar_position: 2
+sidebar_position: 5
 ---
 # Service Worker Patterns
 

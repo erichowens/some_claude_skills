@@ -1,7 +1,7 @@
 ---
 title: Offline Handling
 sidebar_label: Offline Handling
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Offline Handling
 

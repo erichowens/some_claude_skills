@@ -1,7 +1,7 @@
 ---
 title: Design Tooling Integration
 sidebar_label: Design Tooling Integration
-sidebar_position: 2
+sidebar_position: 3
 ---
 # Design Tooling Integration
 

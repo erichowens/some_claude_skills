@@ -1,7 +1,7 @@
 ---
-title: Writing Voice Examples: Annotated
-sidebar_label: Writing Voice Examples: Annota...
-sidebar_position: 2
+title: "Writing Voice Examples: Annotated"
+sidebar_label: "Writing Voice Examples: Ann..."
+sidebar_position: 4
 ---
 # Writing Voice Examples: Annotated
 

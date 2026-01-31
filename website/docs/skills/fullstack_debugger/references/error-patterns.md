@@ -1,6 +1,6 @@
 ---
 title: Common Error Patterns & Solutions
-sidebar_label: Common Error Patterns & Soluti...
+sidebar_label: Common Error Patterns & Sol...
 sidebar_position: 2
 ---
 # Common Error Patterns & Solutions

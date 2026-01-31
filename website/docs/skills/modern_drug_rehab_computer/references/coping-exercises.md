@@ -1,7 +1,7 @@
 ---
 title: Coping Skills & Exercises
 sidebar_label: Coping Skills & Exercises
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Coping Skills & Exercises
 

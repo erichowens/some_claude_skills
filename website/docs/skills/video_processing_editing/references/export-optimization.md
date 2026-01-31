@@ -1,7 +1,7 @@
 ---
 title: Export Optimization Reference
 sidebar_label: Export Optimization Reference
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Export Optimization Reference
 

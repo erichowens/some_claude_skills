@@ -1,7 +1,7 @@
 ---
 title: Collage Types & Techniques
 sidebar_label: Collage Types & Techniques
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Collage Types & Techniques
 

@@ -1,7 +1,7 @@
 ---
-title: AI Assistant Patterns: The Clippy Paradigm
-sidebar_label: AI Assistant Patterns: The Cli...
-sidebar_position: 2
+title: "AI Assistant Patterns: The Clippy Paradigm"
+sidebar_label: "AI Assistant Patterns: The ..."
+sidebar_position: 1
 ---
 # AI Assistant Patterns: The Clippy Paradigm
 

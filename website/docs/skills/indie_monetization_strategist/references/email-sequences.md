@@ -1,7 +1,7 @@
 ---
 title: Email Sequence Templates
 sidebar_label: Email Sequence Templates
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Email Sequence Templates
 

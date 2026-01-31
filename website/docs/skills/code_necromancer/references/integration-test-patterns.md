@@ -1,7 +1,7 @@
 ---
 title: Integration Test Patterns
 sidebar_label: Integration Test Patterns
-sidebar_position: 2
+sidebar_position: 5
 ---
 # Integration Test Patterns
 

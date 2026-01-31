@@ -1,7 +1,7 @@
 ---
-title: Knot Garden: Educational Content & Visualization Guide
-sidebar_label: Knot Garden: Educational Conte...
-sidebar_position: 2
+title: "Knot Garden: Educational Content & Visualization Guide"
+sidebar_label: "Knot Garden: Educational Co..."
+sidebar_position: 1
 ---
 # Knot Garden: Educational Content & Visualization Guide
 

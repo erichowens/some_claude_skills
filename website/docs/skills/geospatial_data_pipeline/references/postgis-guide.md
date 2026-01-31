@@ -1,7 +1,7 @@
 ---
 title: PostGIS Guide
 sidebar_label: PostGIS Guide
-sidebar_position: 2
+sidebar_position: 3
 ---
 # PostGIS Guide
 

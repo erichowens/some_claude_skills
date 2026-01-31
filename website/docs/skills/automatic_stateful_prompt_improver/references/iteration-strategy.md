@@ -1,7 +1,7 @@
 ---
 title: Iteration Strategy
 sidebar_label: Iteration Strategy
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Iteration Strategy
 

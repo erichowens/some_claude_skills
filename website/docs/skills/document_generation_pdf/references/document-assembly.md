@@ -1,7 +1,7 @@
 ---
 title: Document Assembly
 sidebar_label: Document Assembly
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Document Assembly
 

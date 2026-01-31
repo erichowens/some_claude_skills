@@ -1,6 +1,6 @@
 ---
-title: Addiction & Recovery: A Jungian Framework
-sidebar_label: Addiction & Recovery: A Jungia...
+title: "Addiction & Recovery: A Jungian Framework"
+sidebar_label: "Addiction & Recovery: A Jun..."
 sidebar_position: 2
 ---
 # Addiction & Recovery: A Jungian Framework

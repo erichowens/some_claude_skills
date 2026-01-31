@@ -1,7 +1,7 @@
 ---
 title: Component Patterns
 sidebar_label: Component Patterns
-sidebar_position: 2
+sidebar_position: 3
 ---
 # Component Patterns
 

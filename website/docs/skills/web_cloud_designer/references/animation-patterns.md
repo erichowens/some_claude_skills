@@ -1,7 +1,7 @@
 ---
 title: Cloud Animation Patterns
 sidebar_label: Cloud Animation Patterns
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Cloud Animation Patterns
 

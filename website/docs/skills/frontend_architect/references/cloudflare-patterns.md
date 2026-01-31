@@ -1,7 +1,7 @@
 ---
 title: Advanced Cloudflare Patterns
 sidebar_label: Advanced Cloudflare Patterns
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Advanced Cloudflare Patterns
 

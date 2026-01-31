@@ -1,7 +1,7 @@
 ---
 title: Network Analysis Algorithms Reference
-sidebar_label: Network Analysis Algorithms Re...
-sidebar_position: 2
+sidebar_label: Network Analysis Algorithms...
+sidebar_position: 1
 ---
 # Network Analysis Algorithms Reference
 

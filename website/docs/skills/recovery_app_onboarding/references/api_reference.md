@@ -1,7 +1,7 @@
 ---
 title: Reference Documentation for Recovery App Onboarding
-sidebar_label: Reference Documentation for Re...
-sidebar_position: 2
+sidebar_label: Reference Documentation for...
+sidebar_position: 1
 ---
 # Reference Documentation for Recovery App Onboarding
 

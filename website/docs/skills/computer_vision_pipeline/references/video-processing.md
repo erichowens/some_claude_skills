@@ -1,6 +1,6 @@
 ---
 title: Video Processing for Computer Vision
-sidebar_label: Video Processing for Computer ...
+sidebar_label: Video Processing for Comput...
 sidebar_position: 2
 ---
 # Video Processing for Computer Vision

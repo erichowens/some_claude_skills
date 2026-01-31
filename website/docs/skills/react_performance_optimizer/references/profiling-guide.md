@@ -1,7 +1,7 @@
 ---
 title: React DevTools Profiler Guide
 sidebar_label: React DevTools Profiler Guide
-sidebar_position: 2
+sidebar_position: 3
 ---
 # React DevTools Profiler Guide
 
