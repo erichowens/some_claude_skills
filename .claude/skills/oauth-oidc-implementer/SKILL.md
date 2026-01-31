@@ -1,5 +1,6 @@
 ---
 name: oauth-oidc-implementer
+description: Expert in implementing OAuth 2.0 and OpenID Connect (OIDC) authentication flows. Specializes in secure token handling, social login integration, API authorization, and identity provider configuration. Handles both client-side and server-side flows with security best practices.
 version: 1.0.0
 category: security
 tags: [oauth, oidc, authentication, authorization, jwt, security]

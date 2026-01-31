@@ -4,12 +4,6 @@
   "path": "llm-streaming-response-handler",
   "children": [
     {
-      "name": "assets",
-      "type": "folder",
-      "path": "llm-streaming-response-handler/assets",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "llm-streaming-response-handler/references",

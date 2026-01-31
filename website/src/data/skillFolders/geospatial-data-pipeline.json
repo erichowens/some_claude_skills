@@ -4,12 +4,6 @@
   "path": "geospatial-data-pipeline",
   "children": [
     {
-      "name": "assets",
-      "type": "folder",
-      "path": "geospatial-data-pipeline/assets",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "geospatial-data-pipeline/references",

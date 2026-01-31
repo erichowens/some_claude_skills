@@ -4,6 +4,11 @@
     "fileCount": 5,
     "folderCount": 1
   },
+  "2026-legal-research-agent": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 2
+  },
   "adhd-daily-planner": {
     "hasContent": true,
     "fileCount": 3,
@@ -75,9 +80,9 @@
     "folderCount": 1
   },
   "cloudflare-worker-dev": {
-    "hasContent": true,
+    "hasContent": false,
     "fileCount": 1,
-    "folderCount": 2
+    "folderCount": 0
   },
   "code-necromancer": {
     "hasContent": true,
@@ -112,12 +117,22 @@
   "computer-vision-pipeline": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
+  },
+  "cost-accrual-tracker": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
+  "cost-verification-auditor": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
   },
   "crisis-detection-intervention-ai": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
   },
   "crisis-response-protocol": {
     "hasContent": false,
@@ -249,6 +264,16 @@
     "fileCount": 1,
     "folderCount": 0
   },
+  "dag-visual-editor-design": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "dark-mode-design-expert": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 1
+  },
   "data-pipeline-engineer": {
     "hasContent": true,
     "fileCount": 7,
@@ -264,6 +289,11 @@
     "fileCount": 5,
     "folderCount": 2
   },
+  "design-critic": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
   "design-justice": {
     "hasContent": true,
     "fileCount": 5,
@@ -272,6 +302,11 @@
   "design-system-creator": {
     "hasContent": true,
     "fileCount": 5,
+    "folderCount": 1
+  },
+  "design-system-generator": {
+    "hasContent": true,
+    "fileCount": 2,
     "folderCount": 1
   },
   "devops-automator": {
@@ -292,7 +327,7 @@
   "document-generation-pdf": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
   },
   "drizzle-migrations": {
     "hasContent": false,
@@ -319,6 +354,11 @@
     "fileCount": 6,
     "folderCount": 1
   },
+  "execution-lifecycle-manager": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
   "fancy-yard-landscaper": {
     "hasContent": true,
     "fileCount": 2,
@@ -334,6 +374,11 @@
     "fileCount": 9,
     "folderCount": 4
   },
+  "frontend-architect": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 1
+  },
   "fullstack-debugger": {
     "hasContent": true,
     "fileCount": 7,
@@ -342,7 +387,7 @@
   "geospatial-data-pipeline": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
   },
   "github-actions-pipeline-builder": {
     "hasContent": true,
@@ -400,9 +445,14 @@
     "folderCount": 1
   },
   "large-scale-map-visualization": {
-    "hasContent": true,
+    "hasContent": false,
     "fileCount": 1,
-    "folderCount": 1
+    "folderCount": 0
+  },
+  "launch-readiness-auditor": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "liaison": {
     "hasContent": false,
@@ -412,7 +462,7 @@
   "llm-streaming-response-handler": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
   },
   "maximalist-wall-decorator": {
     "hasContent": true,
@@ -449,10 +499,35 @@
     "fileCount": 3,
     "folderCount": 1
   },
+  "national-expungement-expert": {
+    "hasContent": true,
+    "fileCount": 2,
+    "folderCount": 1
+  },
   "native-app-designer": {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 1
+  },
+  "neobrutalist-web-designer": {
+    "hasContent": true,
+    "fileCount": 5,
+    "folderCount": 1
+  },
+  "nextjs-app-router-expert": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "oauth-oidc-implementer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "openapi-spec-writer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "orchestrator": {
     "hasContent": false,
@@ -494,6 +569,26 @@
     "fileCount": 6,
     "folderCount": 1
   },
+  "pixel-art-infographic-creator": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "playwright-e2e-tester": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "playwright-screenshot-inspector": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "postgresql-optimization": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "product-appeal-analyzer": {
     "hasContent": true,
     "fileCount": 7,
@@ -517,7 +612,7 @@
   "react-performance-optimizer": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
   },
   "reactive-dashboard-performance": {
     "hasContent": false,
@@ -527,7 +622,7 @@
   "real-time-collaboration-engine": {
     "hasContent": true,
     "fileCount": 6,
-    "folderCount": 3
+    "folderCount": 2
   },
   "recovery-app-legal-terms": {
     "hasContent": true,
@@ -548,6 +643,11 @@
     "hasContent": true,
     "fileCount": 4,
     "folderCount": 2
+  },
+  "recovery-education-writer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
   },
   "recovery-social-features": {
     "hasContent": true,
@@ -592,7 +692,7 @@
   "skill-coach": {
     "hasContent": true,
     "fileCount": 18,
-    "folderCount": 19
+    "folderCount": 6
   },
   "skill-creator": {
     "hasContent": true,
@@ -617,7 +717,7 @@
   "sobriety-tools-guardian": {
     "hasContent": true,
     "fileCount": 7,
-    "folderCount": 3
+    "folderCount": 2
   },
   "sound-engineer": {
     "hasContent": true,
@@ -632,7 +732,7 @@
   "supabase-admin": {
     "hasContent": true,
     "fileCount": 3,
-    "folderCount": 2
+    "folderCount": 1
   },
   "swift-executor": {
     "hasContent": false,
@@ -653,6 +753,11 @@
     "hasContent": true,
     "fileCount": 7,
     "folderCount": 2
+  },
+  "terraform-iac-expert": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
   },
   "test-automation-expert": {
     "hasContent": true,
@@ -719,6 +824,11 @@
     "fileCount": 5,
     "folderCount": 1
   },
+  "web-weather-creator": {
+    "hasContent": true,
+    "fileCount": 4,
+    "folderCount": 1
+  },
   "webapp-testing": {
     "hasContent": false,
     "fileCount": 1,
@@ -729,7 +839,22 @@
     "fileCount": 4,
     "folderCount": 1
   },
+  "win31-audio-design": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
+  "win31-pixel-art-designer": {
+    "hasContent": false,
+    "fileCount": 1,
+    "folderCount": 0
+  },
   "windows-3-1-web-designer": {
+    "hasContent": true,
+    "fileCount": 7,
+    "folderCount": 1
+  },
+  "windows-95-web-designer": {
     "hasContent": true,
     "fileCount": 5,
     "folderCount": 1

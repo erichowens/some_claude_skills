@@ -4,12 +4,6 @@
   "path": "computer-vision-pipeline",
   "children": [
     {
-      "name": "assets",
-      "type": "folder",
-      "path": "computer-vision-pipeline/assets",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "computer-vision-pipeline/references",

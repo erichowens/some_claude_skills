@@ -1,3 +1,13 @@
+---
+name: dark-mode-design-expert
+description: Master dark mode UI design with atmospheric theming, WCAG accessibility, and cross-platform best practices. Specializes in weather/sky/ocean-inspired color systems that adapt to time of day and environmental conditions.
+category: Design
+tags:
+  - dark-mode
+  - accessibility
+  - theming
+---
+
 # Dark Mode Design Expert
 
 Master dark mode UI design with atmospheric theming, WCAG accessibility, and cross-platform best practices. Specializes in weather/sky/ocean-inspired color systems that adapt to time of day and environmental conditions.

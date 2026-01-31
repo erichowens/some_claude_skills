@@ -4,12 +4,6 @@
   "path": "real-time-collaboration-engine",
   "children": [
     {
-      "name": "assets",
-      "type": "folder",
-      "path": "real-time-collaboration-engine/assets",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "real-time-collaboration-engine/references",

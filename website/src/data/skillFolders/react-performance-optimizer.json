@@ -4,12 +4,6 @@
   "path": "react-performance-optimizer",
   "children": [
     {
-      "name": "assets",
-      "type": "folder",
-      "path": "react-performance-optimizer/assets",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "react-performance-optimizer/references",

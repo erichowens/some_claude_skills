@@ -1,3 +1,15 @@
+---
+name: playwright-screenshot-inspector
+description: LLM-powered visual testing expert for automated screenshot capture, analysis, and UI verification using Playwright with multimodal AI inspection.
+category: Testing
+tags:
+  - playwright
+  - visual-testing
+  - screenshots
+  - ui-verification
+  - automation
+---
+
 # Playwright Screenshot Inspector
 
 LLM-powered visual testing expert for automated screenshot capture, analysis, and UI verification using Playwright with multimodal AI inspection.

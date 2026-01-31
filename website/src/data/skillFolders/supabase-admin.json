@@ -25,12 +25,6 @@
       ]
     },
     {
-      "name": "scripts",
-      "type": "folder",
-      "path": "supabase-admin/scripts",
-      "children": []
-    },
-    {
       "name": "SKILL.md",
       "type": "file",
       "path": "supabase-admin/SKILL.md",

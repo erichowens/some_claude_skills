@@ -1,5 +1,6 @@
 ---
 name: playwright-e2e-tester
+description: Expert in end-to-end testing with Playwright, the modern cross-browser testing framework. Specializes in test generation, page object patterns, visual regression testing, and CI/CD integration. Handles complex testing scenarios including authentication flows, API mocking, and mobile emulation.
 version: 1.0.0
 category: testing
 tags: [e2e, playwright, testing, automation, ci-cd, cross-browser]

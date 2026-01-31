@@ -1,5 +1,6 @@
 ---
 name: terraform-iac-expert
+description: Expert in Infrastructure as Code using Terraform and OpenTofu. Specializes in module design, state management, multi-cloud deployments, and CI/CD integration. Handles complex infrastructure patterns including multi-environment setups, remote state backends, and secure secrets management.
 version: 1.0.0
 category: devops
 tags: [terraform, iac, infrastructure, aws, gcp, azure, opentofu]
