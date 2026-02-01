@@ -1,7 +1,7 @@
 ---
 title: Advanced RLS Policy Patterns
 sidebar_label: Advanced RLS Policy Patterns
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Advanced RLS Policy Patterns
 

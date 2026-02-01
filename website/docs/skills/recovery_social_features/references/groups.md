@@ -1,7 +1,7 @@
 ---
 title: Meeting-Based Groups
 sidebar_label: Meeting-Based Groups
-sidebar_position: 2
+sidebar_position: 3
 ---
 # Meeting-Based Groups
 

@@ -1,7 +1,7 @@
 ---
 title: Vercel AI SDK Integration Patterns
-sidebar_label: Vercel AI SDK Integration Patt...
-sidebar_position: 2
+sidebar_label: Vercel AI SDK Integration P...
+sidebar_position: 3
 ---
 # Vercel AI SDK Integration Patterns
 

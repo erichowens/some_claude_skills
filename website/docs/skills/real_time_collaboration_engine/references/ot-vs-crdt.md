@@ -1,7 +1,7 @@
 ---
 title: Operational Transform vs CRDTs
 sidebar_label: Operational Transform vs CRDTs
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Operational Transform vs CRDTs
 

@@ -1,7 +1,7 @@
 ---
 title: Crisis Detection Patterns for Recovery Apps
-sidebar_label: Crisis Detection Patterns for ...
-sidebar_position: 2
+sidebar_label: Crisis Detection Patterns f...
+sidebar_position: 1
 ---
 # Crisis Detection Patterns for Recovery Apps
 

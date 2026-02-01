@@ -1,7 +1,7 @@
 ---
 title: Safe Messaging
 sidebar_label: Safe Messaging
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Safe Messaging
 

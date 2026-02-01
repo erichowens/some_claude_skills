@@ -1,6 +1,6 @@
 ---
-title: Neuroscience of Addiction: Core Concepts
-sidebar_label: Neuroscience of Addiction: Cor...
+title: "Neuroscience of Addiction: Core Concepts"
+sidebar_label: "Neuroscience of Addiction: ..."
 sidebar_position: 2
 ---
 # Neuroscience of Addiction: Core Concepts

@@ -1,7 +1,7 @@
 ---
 title: Core Physics Algorithms
 sidebar_label: Core Physics Algorithms
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Core Physics Algorithms
 

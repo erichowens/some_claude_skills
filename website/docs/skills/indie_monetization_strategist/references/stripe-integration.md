@@ -1,7 +1,7 @@
 ---
 title: Complete Stripe Integration Guide
-sidebar_label: Complete Stripe Integration Gu...
-sidebar_position: 2
+sidebar_label: Complete Stripe Integration...
+sidebar_position: 3
 ---
 # Complete Stripe Integration Guide
 

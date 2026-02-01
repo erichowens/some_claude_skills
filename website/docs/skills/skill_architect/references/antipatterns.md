@@ -1,7 +1,7 @@
 ---
-title: Skill Anti-Patterns: The Shibboleths
-sidebar_label: Skill Anti-Patterns: The Shibb...
-sidebar_position: 2
+title: "Skill Anti-Patterns: The Shibboleths"
+sidebar_label: "Skill Anti-Patterns: The Sh..."
+sidebar_position: 1
 ---
 # Skill Anti-Patterns: The Shibboleths
 

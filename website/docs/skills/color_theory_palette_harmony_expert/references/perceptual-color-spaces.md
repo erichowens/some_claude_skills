@@ -1,7 +1,7 @@
 ---
 title: Perceptual Color Spaces
 sidebar_label: Perceptual Color Spaces
-sidebar_position: 2
+sidebar_position: 5
 ---
 # Perceptual Color Spaces
 

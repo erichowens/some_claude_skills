@@ -4,12 +4,6 @@
   "path": "crisis-detection-intervention-ai",
   "children": [
     {
-      "name": "assets",
-      "type": "folder",
-      "path": "crisis-detection-intervention-ai/assets",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "crisis-detection-intervention-ai/references",

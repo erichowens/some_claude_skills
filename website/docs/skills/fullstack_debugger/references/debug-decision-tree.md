@@ -1,7 +1,7 @@
 ---
 title: Debug Decision Tree
 sidebar_label: Debug Decision Tree
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Debug Decision Tree
 

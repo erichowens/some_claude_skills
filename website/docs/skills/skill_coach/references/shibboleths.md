@@ -1,7 +1,7 @@
 ---
 title: Domain Shibboleths
 sidebar_label: Domain Shibboleths
-sidebar_position: 2
+sidebar_position: 5
 ---
 # Domain Shibboleths
 

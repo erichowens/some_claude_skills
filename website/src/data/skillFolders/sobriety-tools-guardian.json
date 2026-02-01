@@ -4,12 +4,6 @@
   "path": "sobriety-tools-guardian",
   "children": [
     {
-      "name": "agents",
-      "type": "folder",
-      "path": "sobriety-tools-guardian/agents",
-      "children": []
-    },
-    {
       "name": "references",
       "type": "folder",
       "path": "sobriety-tools-guardian/references",

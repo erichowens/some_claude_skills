@@ -1,7 +1,7 @@
 ---
 title: Calibration Data
 sidebar_label: Calibration Data
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Calibration Data
 

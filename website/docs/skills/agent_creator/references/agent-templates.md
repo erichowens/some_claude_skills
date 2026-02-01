@@ -1,7 +1,7 @@
 ---
 title: Agent Templates
 sidebar_label: Agent Templates
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Agent Templates
 

@@ -1,7 +1,7 @@
 ---
 title: Artifact Structure Reference
 sidebar_label: Artifact Structure Reference
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Artifact Structure Reference
 

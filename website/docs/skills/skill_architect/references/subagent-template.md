@@ -1,7 +1,7 @@
 ---
 title: Subagent Definition Template
 sidebar_label: Subagent Definition Template
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Subagent Definition Template
 

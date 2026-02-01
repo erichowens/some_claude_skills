@@ -1,7 +1,7 @@
 ---
 title: ST-DBSCAN Implementation Reference
-sidebar_label: ST-DBSCAN Implementation Refer...
-sidebar_position: 2
+sidebar_label: ST-DBSCAN Implementation Re...
+sidebar_position: 3
 ---
 # ST-DBSCAN Implementation Reference
 

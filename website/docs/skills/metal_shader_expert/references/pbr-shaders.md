@@ -1,7 +1,7 @@
 ---
 title: PBR Shader Implementation
 sidebar_label: PBR Shader Implementation
-sidebar_position: 2
+sidebar_position: 3
 ---
 # PBR Shader Implementation
 

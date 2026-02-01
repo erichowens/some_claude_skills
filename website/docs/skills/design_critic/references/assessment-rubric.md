@@ -1,7 +1,7 @@
 ---
 title: Design Assessment Rubric
 sidebar_label: Design Assessment Rubric
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Design Assessment Rubric
 

@@ -1,7 +1,7 @@
 ---
 title: Accountability Features
 sidebar_label: Accountability Features
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Accountability Features
 

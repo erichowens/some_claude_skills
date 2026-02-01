@@ -1,7 +1,7 @@
 ---
 title: MCP Tool Design Patterns
 sidebar_label: MCP Tool Design Patterns
-sidebar_position: 2
+sidebar_position: 4
 ---
 # MCP Tool Design Patterns
 

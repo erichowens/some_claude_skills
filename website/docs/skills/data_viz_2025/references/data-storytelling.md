@@ -1,6 +1,6 @@
 ---
-title: Data Storytelling: Turning Charts into Narratives
-sidebar_label: Data Storytelling: Turning Cha...
+title: "Data Storytelling: Turning Charts into Narratives"
+sidebar_label: "Data Storytelling: Turning ..."
 sidebar_position: 2
 ---
 # Data Storytelling: Turning Charts into Narratives

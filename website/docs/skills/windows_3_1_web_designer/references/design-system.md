@@ -1,7 +1,7 @@
 ---
 title: Windows 3.1 Design System
 sidebar_label: Windows 3.1 Design System
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Windows 3.1 Design System
 

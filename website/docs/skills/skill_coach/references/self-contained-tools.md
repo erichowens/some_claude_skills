@@ -1,7 +1,7 @@
 ---
 title: Self-Contained Tools
 sidebar_label: Self-Contained Tools
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Self-Contained Tools
 

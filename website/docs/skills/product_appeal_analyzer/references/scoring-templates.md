@@ -1,7 +1,7 @@
 ---
 title: Scoring Templates
 sidebar_label: Scoring Templates
-sidebar_position: 2
+sidebar_position: 3
 ---
 # Scoring Templates
 

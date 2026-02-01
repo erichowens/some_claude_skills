@@ -1,7 +1,7 @@
 ---
 title: Harm Reduction Principles for Educational Content
-sidebar_label: Harm Reduction Principles for ...
-sidebar_position: 2
+sidebar_label: Harm Reduction Principles f...
+sidebar_position: 1
 ---
 # Harm Reduction Principles for Educational Content
 

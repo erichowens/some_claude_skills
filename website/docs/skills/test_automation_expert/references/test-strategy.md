@@ -1,7 +1,7 @@
 ---
 title: Test Strategy Framework
 sidebar_label: Test Strategy Framework
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Test Strategy Framework
 

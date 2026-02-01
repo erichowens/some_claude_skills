@@ -1,7 +1,7 @@
 ---
-title: Post-Acute Withdrawal Syndrome (PAWS): Timeline and Management
-sidebar_label: Post-Acute Withdrawal Syndrome...
-sidebar_position: 2
+title: "Post-Acute Withdrawal Syndrome (PAWS): Timeline and Management"
+sidebar_label: Post-Acute Withdrawal Syndr...
+sidebar_position: 3
 ---
 # Post-Acute Withdrawal Syndrome (PAWS): Timeline and Management
 

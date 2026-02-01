@@ -1,6 +1,6 @@
 ---
-title: Anti-Patterns: Windows 3.1 vs Vaporwave
-sidebar_label: Anti-Patterns: Windows 3.1 vs ...
+title: "Anti-Patterns: Windows 3.1 vs Vaporwave"
+sidebar_label: "Anti-Patterns: Windows 3.1 ..."
 sidebar_position: 2
 ---
 # Anti-Patterns: Windows 3.1 vs Vaporwave

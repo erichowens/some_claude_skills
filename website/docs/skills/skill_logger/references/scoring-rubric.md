@@ -1,7 +1,7 @@
 ---
 title: Skill Scoring Rubric
 sidebar_label: Skill Scoring Rubric
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Skill Scoring Rubric
 

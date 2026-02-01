@@ -1,7 +1,7 @@
 ---
 title: mellifluo.us Platform Integration
-sidebar_label: mellifluo.us Platform Integrat...
-sidebar_position: 2
+sidebar_label: mellifluo.us Platform Integ...
+sidebar_position: 3
 ---
 # mellifluo.us Platform Integration
 
