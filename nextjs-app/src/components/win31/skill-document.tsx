@@ -8,18 +8,30 @@ import {
   FileText,
   Book,
   Link2,
+  ChevronDown,
   ChevronRight,
+  Zap,
+  Clock,
+  Tag,
+  Layers,
+  Terminal,
+  Sparkles,
+  ArrowRight,
+  AlertTriangle,
+  CheckCircle2,
+  XCircle,
+  Info,
+  Lightbulb,
 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { type Skill, type SkillReference, categoryMeta } from '@/lib/skills';
 import { Button } from '@/components/ui/button';
-import { Window, WindowContent, WindowStatusBar } from './window';
+import { Window } from './window';
 
 /*
  * ═══════════════════════════════════════════════════════════════════════════
- * SKILL DOCUMENT VIEWER
- * Full-page document view for skills - like opening a file in Notepad
+ * SKILL DOCUMENT VIEWER - Bento Layout with Progressive Disclosure
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -39,207 +51,513 @@ export function SkillDocument({ skill, onClose, onNavigate }: SkillDocumentProps
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // Parse content into sections for progressive disclosure
+  const sections = React.useMemo(() => parseContentSections(skill.content), [skill.content]);
+
+  // Extract stats
+  const lineCount = skill.content.split('\n').length;
+  const wordCount = skill.content.split(/\s+/).length;
+  const codeBlockCount = (skill.content.match(/```/g) || []).length / 2;
+
   return (
     <Window
       title={`${skill.title}.md`}
       icon={<FileText className="h-4 w-4" />}
       onClose={onClose}
-      className="mx-auto h-[calc(100dvh-60px)] max-w-4xl animate-fade-in"
-      mobile
+      className="mx-auto h-[calc(100dvh-60px)] max-w-6xl animate-fade-in"
+      size="full"
     >
-      {/* Toolbar */}
-      <div className="flex items-center gap-1 border-b border-win31-gray-darker bg-win31-gray px-2 py-1">
-        <span className="text-xs text-win31-gray-darker">Category:</span>
-        <span className="flex items-center gap-1 rounded bg-win31-gray-light px-2 py-0.5 text-xs">
-          {category.icon} {category.label}
-        </span>
-        <span className="mx-2 h-4 w-px bg-win31-gray-darker" />
-        <span className="text-xs text-win31-gray-darker">Difficulty:</span>
-        <DifficultyBadge difficulty={skill.difficulty} />
-        <div className="flex-1" />
-        <Button variant="ghost" size="icon-sm" onClick={handleCopy} title="Copy install command">
-          {copied ? <Check className="h-4 w-4 text-win31-green" /> : <Copy className="h-4 w-4" />}
-        </Button>
-      </div>
-
-      {/* Main content area with sidebar */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* Document content */}
+      <div className="flex h-full flex-col overflow-hidden">
+        {/* Main scrollable area */}
         <div className="flex-1 overflow-auto">
-          <WindowContent className="pb-8">
-            {/* Header */}
-            <div className="mb-6 border-b border-win31-gray-darker pb-4">
-              <div className="mb-2 flex items-center gap-3">
-                <span className="text-3xl">{skill.icon}</span>
-                <div>
-                  <h1 className="text-xl font-semibold text-win31-navy">{skill.title}</h1>
-                  <p className="text-sm text-win31-gray-darker">{skill.description}</p>
+          <div className="p-4 sm:p-6">
+            {/* ═══════════════════════════════════════════════════════════════
+                HERO FRONT CARD - The beautiful first impression
+            ═══════════════════════════════════════════════════════════════ */}
+            <div className="mb-6 grid gap-4 lg:grid-cols-3">
+              {/* Main hero card */}
+              <div className="lg:col-span-2">
+                <BentoCard className="h-full" size="large" glow>
+                  <div className="flex h-full flex-col">
+                    {/* Hero image area */}
+                    <div className="relative mb-4 aspect-video w-full overflow-hidden rounded bg-gradient-to-br from-win31-navy via-win31-blue to-indigo-600">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-8xl opacity-30">{skill.icon}</span>
+                      </div>
+                      {/* Pixel grid overlay */}
+                      <div 
+                        className="absolute inset-0 opacity-10"
+                        style={{
+                          backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px),
+                                           repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px)`,
+                        }}
+                      />
+                      {/* Category badge */}
+                      <div className="absolute left-3 top-3">
+                        <span className="inline-flex items-center gap-1.5 rounded-sm bg-black/50 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                          {category.icon} {category.label}
+                        </span>
+                      </div>
+                      {/* Difficulty badge */}
+                      <div className="absolute right-3 top-3">
+                        <DifficultyBadge difficulty={skill.difficulty} />
+                      </div>
+                    </div>
+
+                    {/* Title and description */}
+                    <div className="flex-1">
+                      <div className="mb-2 flex items-start gap-3">
+                        <span className="text-4xl">{skill.icon}</span>
+                        <div className="flex-1">
+                          <h1 className="text-2xl font-bold text-win31-navy">{skill.title}</h1>
+                          <p className="mt-1 text-sm text-win31-gray-darker leading-relaxed">
+                            {skill.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Tags */}
+                      <div className="mt-4 flex flex-wrap gap-1.5">
+                        {skill.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-1 rounded-sm bg-win31-gray-light px-2 py-0.5 text-xs text-win31-gray-darker border border-win31-gray-darker/30"
+                          >
+                            <Tag className="h-2.5 w-2.5" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Install CTA - Prominent */}
+                    <div className="mt-4 pt-4 border-t border-win31-gray-darker/30">
+                      <div className="flex items-center gap-3">
+                        <div className="flex-1 overflow-hidden">
+                          <div className="flex items-center gap-2 rounded bg-win31-black px-3 py-2">
+                            <Terminal className="h-4 w-4 text-win31-lime flex-shrink-0" />
+                            <code className="flex-1 truncate font-mono text-sm text-win31-lime">
+                              {skill.installCommand}
+                            </code>
+                          </div>
+                        </div>
+                        <Button 
+                          variant="primary" 
+                          size="lg" 
+                          onClick={handleCopy}
+                          className="flex-shrink-0"
+                        >
+                          {copied ? (
+                            <>
+                              <Check className="h-4 w-4 mr-2" />
+                              Copied!
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="h-4 w-4 mr-2" />
+                              Install
+                            </>
+                          )}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </BentoCard>
+              </div>
+
+              {/* Stats bento column */}
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                {/* Quick stats */}
+                <BentoCard>
+                  <h3 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-win31-gray-darker">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    Quick Stats
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    <StatPill icon={<FileText className="h-3.5 w-3.5" />} label="Lines" value={lineCount} />
+                    <StatPill icon={<Layers className="h-3.5 w-3.5" />} label="Sections" value={sections.length} />
+                    <StatPill icon={<Terminal className="h-3.5 w-3.5" />} label="Code Blocks" value={Math.floor(codeBlockCount)} />
+                    <StatPill icon={<Clock className="h-3.5 w-3.5" />} label="~Read Time" value={`${Math.ceil(wordCount / 200)}m`} />
+                  </div>
+                </BentoCard>
+
+                {/* References preview */}
+                {skill.references && skill.references.length > 0 && (
+                  <BentoCard>
+                    <h3 className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-win31-gray-darker">
+                      <Link2 className="h-3.5 w-3.5" />
+                      References ({skill.references.length})
+                    </h3>
+                    <div className="space-y-2">
+                      {skill.references.slice(0, 3).map((ref, i) => (
+                        <ReferenceChip key={i} reference={ref} onNavigate={onNavigate} />
+                      ))}
+                      {skill.references.length > 3 && (
+                        <p className="text-xs text-win31-gray-darker">
+                          +{skill.references.length - 3} more below
+                        </p>
+                      )}
+                    </div>
+                  </BentoCard>
+                )}
+
+                {/* Related skills placeholder */}
+                <BentoCard className="bg-gradient-to-br from-win31-gray to-win31-gray-light">
+                  <h3 className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-win31-gray-darker">
+                    <Zap className="h-3.5 w-3.5" />
+                    Works Great With
+                  </h3>
+                  <p className="text-xs text-win31-gray-darker">
+                    Combine with other skills for powerful workflows
+                  </p>
+                  <Button variant="ghost" size="sm" className="mt-2 w-full justify-between">
+                    Explore Bundles
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Button>
+                </BentoCard>
+              </div>
+            </div>
+
+            {/* ═══════════════════════════════════════════════════════════════
+                CONTENT SECTIONS - Progressive Disclosure Wonderland
+            ═══════════════════════════════════════════════════════════════ */}
+            <div className="space-y-3">
+              {sections.map((section, index) => (
+                <CollapsibleSection
+                  key={index}
+                  section={section}
+                  defaultOpen={index < 2} // First two sections open by default
+                />
+              ))}
+            </div>
+
+            {/* ═══════════════════════════════════════════════════════════════
+                BOTTOM BENTO GRID - Additional Resources
+            ═══════════════════════════════════════════════════════════════ */}
+            {skill.references && skill.references.length > 0 && (
+              <div className="mt-6">
+                <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold text-win31-navy">
+                  <Book className="h-4 w-4" />
+                  All References & Resources
+                </h2>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {skill.references.map((ref, i) => (
+                    <ReferenceCard key={i} reference={ref} onNavigate={onNavigate} />
+                  ))}
                 </div>
               </div>
-
-              {/* Tags */}
-              <div className="mt-3 flex flex-wrap gap-1">
-                {skill.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-sm bg-win31-gray-light px-2 py-0.5 text-xs text-win31-gray-darker"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Install command */}
-              <div className="mt-4 flex items-center gap-2">
-                <code className="flex-1 rounded-none border border-win31-gray-darker bg-win31-black px-3 py-2 font-mono text-sm text-win31-lime">
-                  {skill.installCommand}
-                </code>
-                <Button variant="primary" size="sm" onClick={handleCopy}>
-                  {copied ? 'Copied!' : 'Copy'}
-                </Button>
-              </div>
-            </div>
-
-            {/* Rendered markdown content */}
-            <div className="prose-win31">
-              <MarkdownContent content={skill.content} />
-            </div>
-          </WindowContent>
+            )}
+          </div>
         </div>
-
-        {/* References sidebar - prominent on desktop, collapsible on mobile */}
-        {skill.references && skill.references.length > 0 && (
-          <ReferencesSidebar
-            references={skill.references}
-            onNavigate={onNavigate}
-          />
-        )}
       </div>
-
-      {/* Status bar */}
-      <WindowStatusBar>
-        <span className="flex-1">{skill.content.split('\n').length} lines</span>
-        <span>Skill v1.0</span>
-      </WindowStatusBar>
     </Window>
   );
 }
 
 /*
  * ═══════════════════════════════════════════════════════════════════════════
- * REFERENCES SIDEBAR
+ * BENTO CARD - Reusable container
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
-interface ReferencesSidebarProps {
-  references: SkillReference[];
-  onNavigate?: (skillId: string) => void;
+interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  size?: 'small' | 'medium' | 'large';
+  glow?: boolean;
 }
 
-function ReferencesSidebar({ references, onNavigate }: ReferencesSidebarProps) {
-  const [expanded, setExpanded] = React.useState(true);
-
-  const grouped = React.useMemo(() => {
-    const groups: Record<string, SkillReference[]> = {};
-    for (const ref of references) {
-      if (!groups[ref.type]) groups[ref.type] = [];
-      groups[ref.type].push(ref);
-    }
-    return groups;
-  }, [references]);
-
-  const typeLabels: Record<string, { label: string; icon: React.ReactNode }> = {
-    guide: { label: 'Guides', icon: <Book className="h-3 w-3" /> },
-    example: { label: 'Examples', icon: <FileText className="h-3 w-3" /> },
-    'related-skill': { label: 'Related Skills', icon: <Link2 className="h-3 w-3" /> },
-    external: { label: 'External', icon: <ExternalLink className="h-3 w-3" /> },
-  };
-
+function BentoCard({ className, size = 'medium', glow, children, ...props }: BentoCardProps) {
   return (
-    <aside
+    <div
       className={cn(
-        'flex-shrink-0 border-l border-win31-gray-darker bg-win31-gray-light',
-        'transition-all duration-200',
-        expanded ? 'w-64' : 'w-10'
+        'rounded-sm border-2 border-win31-black bg-win31-gray p-4',
+        'shadow-[inset_1px_1px_0_var(--color-win31-white),inset_-1px_-1px_0_var(--color-win31-gray-darker)]',
+        glow && 'ring-2 ring-win31-navy/20',
+        size === 'small' && 'p-3',
+        size === 'large' && 'p-5',
+        className
       )}
+      {...props}
     >
-      {/* Toggle button */}
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="flex h-8 w-full items-center gap-2 border-b border-win31-gray-darker px-2 text-xs font-semibold hover:bg-win31-gray"
-      >
-        <ChevronRight
-          className={cn(
-            'h-3 w-3 transition-transform',
-            expanded && 'rotate-180'
-          )}
-        />
-        {expanded && <span>References</span>}
-      </button>
-
-      {expanded && (
-        <div className="overflow-auto p-2">
-          {Object.entries(grouped).map(([type, refs]) => (
-            <div key={type} className="mb-4">
-              <div className="mb-2 flex items-center gap-1 text-xs font-semibold text-win31-gray-darker">
-                {typeLabels[type]?.icon}
-                <span>{typeLabels[type]?.label || type}</span>
-              </div>
-              <div className="space-y-1">
-                {refs.map((ref, i) => (
-                  <ReferenceLink
-                    key={i}
-                    reference={ref}
-                    onNavigate={onNavigate}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </aside>
+      {children}
+    </div>
   );
 }
 
-interface ReferenceLinkProps {
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * STAT PILL
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+interface StatPillProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string | number;
+}
+
+function StatPill({ icon, label, value }: StatPillProps) {
+  return (
+    <div className="flex items-center gap-2 rounded-sm bg-win31-gray-light px-2 py-1.5 border border-win31-gray-darker/30">
+      <span className="text-win31-navy">{icon}</span>
+      <div className="flex-1 min-w-0">
+        <p className="truncate text-xs font-medium text-win31-black">{value}</p>
+        <p className="truncate text-[10px] text-win31-gray-darker">{label}</p>
+      </div>
+    </div>
+  );
+}
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * COLLAPSIBLE SECTION - Progressive Disclosure
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+interface ContentSection {
+  title: string;
+  level: number;
+  content: string;
+  children: ContentSection[];
+}
+
+function parseContentSections(content: string): ContentSection[] {
+  const lines = content.split('\n');
+  const sections: ContentSection[] = [];
+  let currentSection: ContentSection | null = null;
+  let currentContent: string[] = [];
+
+  for (const line of lines) {
+    const h2Match = line.match(/^## (.+)$/);
+    const h3Match = line.match(/^### (.+)$/);
+
+    if (h2Match) {
+      // Save previous section
+      if (currentSection) {
+        currentSection.content = currentContent.join('\n').trim();
+        sections.push(currentSection);
+      }
+      currentSection = { title: h2Match[1], level: 2, content: '', children: [] };
+      currentContent = [];
+    } else if (h3Match && currentSection) {
+      // Add h3 as nested content (we'll render it inline for now)
+      currentContent.push(line);
+    } else if (currentSection) {
+      currentContent.push(line);
+    }
+  }
+
+  // Don't forget the last section
+  if (currentSection) {
+    currentSection.content = currentContent.join('\n').trim();
+    sections.push(currentSection);
+  }
+
+  return sections;
+}
+
+interface CollapsibleSectionProps {
+  section: ContentSection;
+  defaultOpen?: boolean;
+}
+
+function CollapsibleSection({ section, defaultOpen = false }: CollapsibleSectionProps) {
+  const [isOpen, setIsOpen] = React.useState(defaultOpen);
+
+  // Detect section type for styling
+  const sectionType = detectSectionType(section.title);
+
+  return (
+    <BentoCard 
+      size="small" 
+      className={cn(
+        'transition-all duration-200',
+        !isOpen && 'hover:bg-win31-gray-light cursor-pointer'
+      )}
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center gap-3 text-left"
+      >
+        {/* Section icon based on type */}
+        <span className={cn(
+          'flex h-8 w-8 items-center justify-center rounded-sm text-white',
+          sectionType.bgColor
+        )}>
+          {sectionType.icon}
+        </span>
+
+        <div className="flex-1 min-w-0">
+          <h2 className="font-semibold text-win31-navy truncate">{section.title}</h2>
+          {!isOpen && (
+            <p className="text-xs text-win31-gray-darker truncate mt-0.5">
+              {getPreviewText(section.content)}
+            </p>
+          )}
+        </div>
+
+        <span className={cn(
+          'flex h-6 w-6 items-center justify-center rounded-sm bg-win31-gray-light transition-transform',
+          isOpen && 'rotate-180'
+        )}>
+          <ChevronDown className="h-4 w-4" />
+        </span>
+      </button>
+
+      {/* Expanded content */}
+      {isOpen && (
+        <div className="mt-4 pt-4 border-t border-win31-gray-darker/30">
+          <div className="prose-win31">
+            <MarkdownContent content={section.content} />
+          </div>
+        </div>
+      )}
+    </BentoCard>
+  );
+}
+
+function detectSectionType(title: string): { icon: React.ReactNode; bgColor: string } {
+  const lower = title.toLowerCase();
+  
+  if (lower.includes('when to use') || lower.includes('usage')) {
+    return { icon: <CheckCircle2 className="h-4 w-4" />, bgColor: 'bg-emerald-600' };
+  }
+  if (lower.includes('don\'t') || lower.includes('avoid') || lower.includes('anti')) {
+    return { icon: <XCircle className="h-4 w-4" />, bgColor: 'bg-red-600' };
+  }
+  if (lower.includes('important') || lower.includes('critical') || lower.includes('warning')) {
+    return { icon: <AlertTriangle className="h-4 w-4" />, bgColor: 'bg-amber-600' };
+  }
+  if (lower.includes('tip') || lower.includes('best practice')) {
+    return { icon: <Lightbulb className="h-4 w-4" />, bgColor: 'bg-blue-600' };
+  }
+  if (lower.includes('example') || lower.includes('code')) {
+    return { icon: <Terminal className="h-4 w-4" />, bgColor: 'bg-slate-700' };
+  }
+  if (lower.includes('reference') || lower.includes('resource')) {
+    return { icon: <Book className="h-4 w-4" />, bgColor: 'bg-purple-600' };
+  }
+  
+  return { icon: <Layers className="h-4 w-4" />, bgColor: 'bg-win31-navy' };
+}
+
+function getPreviewText(content: string): string {
+  // Get first meaningful line
+  const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('#') && !l.startsWith('```'));
+  const first = lines[0] || '';
+  return first.slice(0, 80) + (first.length > 80 ? '...' : '');
+}
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * REFERENCE COMPONENTS
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+interface ReferenceChipProps {
   reference: SkillReference;
   onNavigate?: (skillId: string) => void;
 }
 
-function ReferenceLink({ reference, onNavigate }: ReferenceLinkProps) {
-  const isInternal = reference.url.startsWith('/');
+function ReferenceChip({ reference, onNavigate }: ReferenceChipProps) {
+  const isExternal = reference.url.startsWith('http');
   const isSkill = reference.type === 'related-skill';
 
   const handleClick = () => {
     if (isSkill && onNavigate) {
-      // Extract skill ID from URL like /skills/typescript-developer
       const skillId = reference.url.split('/').pop();
       if (skillId) onNavigate(skillId);
-    } else if (!isInternal) {
+    } else if (isExternal) {
       window.open(reference.url, '_blank', 'noopener,noreferrer');
     }
+  };
+
+  const typeIcon = {
+    guide: <Book className="h-3 w-3" />,
+    example: <FileText className="h-3 w-3" />,
+    'related-skill': <Link2 className="h-3 w-3" />,
+    external: <ExternalLink className="h-3 w-3" />,
   };
 
   return (
     <button
       onClick={handleClick}
-      className={cn(
-        'flex w-full items-start gap-2 rounded-sm p-2 text-left text-xs',
-        'hover:bg-win31-navy hover:text-white',
-        'transition-colors'
-      )}
+      className="flex w-full items-center gap-2 rounded-sm bg-win31-gray-light px-2 py-1.5 text-left text-xs hover:bg-win31-navy hover:text-white transition-colors border border-win31-gray-darker/30"
     >
-      <span className="flex-1">
-        <span className="block font-medium">{reference.title}</span>
-        {reference.description && (
-          <span className="block text-win31-gray-darker group-hover:text-win31-gray-light">
-            {reference.description}
-          </span>
-        )}
-      </span>
-      {!isInternal && <ExternalLink className="mt-0.5 h-3 w-3 flex-shrink-0" />}
+      <span className="flex-shrink-0">{typeIcon[reference.type]}</span>
+      <span className="flex-1 truncate font-medium">{reference.title}</span>
+      {isExternal && <ExternalLink className="h-2.5 w-2.5 flex-shrink-0 opacity-50" />}
     </button>
+  );
+}
+
+interface ReferenceCardProps {
+  reference: SkillReference;
+  onNavigate?: (skillId: string) => void;
+}
+
+function ReferenceCard({ reference, onNavigate }: ReferenceCardProps) {
+  const isExternal = reference.url.startsWith('http');
+  const isSkill = reference.type === 'related-skill';
+
+  const handleClick = () => {
+    if (isSkill && onNavigate) {
+      const skillId = reference.url.split('/').pop();
+      if (skillId) onNavigate(skillId);
+    } else if (isExternal) {
+      window.open(reference.url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const typeConfig = {
+    guide: { icon: <Book className="h-4 w-4" />, bg: 'bg-blue-600', label: 'Guide' },
+    example: { icon: <FileText className="h-4 w-4" />, bg: 'bg-emerald-600', label: 'Example' },
+    'related-skill': { icon: <Link2 className="h-4 w-4" />, bg: 'bg-purple-600', label: 'Related' },
+    external: { icon: <ExternalLink className="h-4 w-4" />, bg: 'bg-slate-600', label: 'External' },
+  };
+
+  const config = typeConfig[reference.type];
+
+  return (
+    <button
+      onClick={handleClick}
+      className="flex items-start gap-3 rounded-sm border-2 border-win31-black bg-win31-gray p-3 text-left transition-all hover:bg-win31-gray-light hover:shadow-md"
+    >
+      <span className={cn('flex h-8 w-8 items-center justify-center rounded-sm text-white', config.bg)}>
+        {config.icon}
+      </span>
+      <div className="flex-1 min-w-0">
+        <p className="font-medium text-sm text-win31-navy truncate">{reference.title}</p>
+        {reference.description && (
+          <p className="text-xs text-win31-gray-darker mt-0.5 line-clamp-2">{reference.description}</p>
+        )}
+        <span className="inline-flex items-center gap-1 mt-1 text-[10px] text-win31-gray-darker">
+          {config.label}
+          {isExternal && <ExternalLink className="h-2.5 w-2.5" />}
+        </span>
+      </div>
+    </button>
+  );
+}
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * DIFFICULTY BADGE
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+function DifficultyBadge({ difficulty }: { difficulty: Skill['difficulty'] }) {
+  const config = {
+    beginner: { bg: 'bg-emerald-500', label: 'Beginner' },
+    intermediate: { bg: 'bg-amber-500', label: 'Intermediate' },
+    advanced: { bg: 'bg-red-500', label: 'Advanced' },
+  };
+
+  const { bg, label } = config[difficulty];
+
+  return (
+    <span className={cn('inline-flex items-center gap-1 rounded-sm px-2 py-1 text-xs font-medium text-white', bg)}>
+      {label}
+    </span>
   );
 }
 
@@ -251,14 +569,6 @@ function ReferenceLink({ reference, onNavigate }: ReferenceLinkProps) {
  */
 
 import { Highlight, themes, type Language } from 'prism-react-renderer';
-import {
-  AlertTriangle,
-  CheckCircle2,
-  XCircle,
-  Info,
-  Lightbulb,
-  Zap,
-} from 'lucide-react';
 
 // Language aliases for code blocks
 const LANGUAGE_ALIASES: Record<string, Language> = {
@@ -300,15 +610,7 @@ const CALLOUT_CONFIG: Record<CalloutType, {
   label: string;
 }> = {
   do: {
-    patterns: [
-      /^✅\s*/,
-      /^DO:\s*/i,
-      /^ALWAYS:\s*/i,
-      /^\[x\]\s*/i,
-      /^SHOULD:\s*/i,
-      /^MUST:\s*/i,
-      /^PREFER:\s*/i,
-    ],
+    patterns: [/^✅\s*/, /^DO:\s*/i, /^ALWAYS:\s*/i, /^\[x\]\s*/i, /^SHOULD:\s*/i, /^MUST:\s*/i, /^PREFER:\s*/i],
     icon: <CheckCircle2 className="h-4 w-4" />,
     bgColor: 'bg-emerald-500/10',
     borderColor: 'border-l-emerald-500',
@@ -316,16 +618,7 @@ const CALLOUT_CONFIG: Record<CalloutType, {
     label: 'DO',
   },
   dont: {
-    patterns: [
-      /^❌\s*/,
-      /^DON'?T:\s*/i,
-      /^NEVER:\s*/i,
-      /^AVOID:\s*/i,
-      /^\[ \]\s*/i,
-      /^SHOULDN'?T:\s*/i,
-      /^MUST NOT:\s*/i,
-      /^NOT:\s*/i,
-    ],
+    patterns: [/^❌\s*/, /^DON'?T:\s*/i, /^NEVER:\s*/i, /^AVOID:\s*/i, /^\[ \]\s*/i, /^SHOULDN'?T:\s*/i, /^MUST NOT:\s*/i, /^NOT:\s*/i],
     icon: <XCircle className="h-4 w-4" />,
     bgColor: 'bg-red-500/10',
     borderColor: 'border-l-red-500',
@@ -333,13 +626,7 @@ const CALLOUT_CONFIG: Record<CalloutType, {
     label: "DON'T",
   },
   important: {
-    patterns: [
-      /^⚠️\s*/,
-      /^IMPORTANT:\s*/i,
-      /^CRITICAL:\s*/i,
-      /^REQUIRED:\s*/i,
-      /^CRUCIAL:\s*/i,
-    ],
+    patterns: [/^⚠️\s*/, /^IMPORTANT:\s*/i, /^CRITICAL:\s*/i, /^REQUIRED:\s*/i, /^CRUCIAL:\s*/i],
     icon: <AlertTriangle className="h-4 w-4" />,
     bgColor: 'bg-amber-500/10',
     borderColor: 'border-l-amber-500',
@@ -347,12 +634,7 @@ const CALLOUT_CONFIG: Record<CalloutType, {
     label: 'IMPORTANT',
   },
   warning: {
-    patterns: [
-      /^⚡\s*/,
-      /^WARNING:\s*/i,
-      /^CAUTION:\s*/i,
-      /^WATCH OUT:\s*/i,
-    ],
+    patterns: [/^⚡\s*/, /^WARNING:\s*/i, /^CAUTION:\s*/i, /^WATCH OUT:\s*/i],
     icon: <Zap className="h-4 w-4" />,
     bgColor: 'bg-orange-500/10',
     borderColor: 'border-l-orange-500',
@@ -360,13 +642,7 @@ const CALLOUT_CONFIG: Record<CalloutType, {
     label: 'WARNING',
   },
   tip: {
-    patterns: [
-      /^💡\s*/,
-      /^TIP:\s*/i,
-      /^HINT:\s*/i,
-      /^PRO TIP:\s*/i,
-      /^BEST PRACTICE:\s*/i,
-    ],
+    patterns: [/^💡\s*/, /^TIP:\s*/i, /^HINT:\s*/i, /^PRO TIP:\s*/i, /^BEST PRACTICE:\s*/i],
     icon: <Lightbulb className="h-4 w-4" />,
     bgColor: 'bg-blue-500/10',
     borderColor: 'border-l-blue-500',
@@ -374,12 +650,7 @@ const CALLOUT_CONFIG: Record<CalloutType, {
     label: 'TIP',
   },
   note: {
-    patterns: [
-      /^ℹ️\s*/,
-      /^NOTE:\s*/i,
-      /^INFO:\s*/i,
-      /^FYI:\s*/i,
-    ],
+    patterns: [/^ℹ️\s*/, /^NOTE:\s*/i, /^INFO:\s*/i, /^FYI:\s*/i],
     icon: <Info className="h-4 w-4" />,
     bgColor: 'bg-slate-500/10',
     borderColor: 'border-l-slate-500',
@@ -392,10 +663,7 @@ function detectCalloutType(text: string): { type: CalloutType; cleanText: string
   for (const [type, config] of Object.entries(CALLOUT_CONFIG)) {
     for (const pattern of config.patterns) {
       if (pattern.test(text)) {
-        return {
-          type: type as CalloutType,
-          cleanText: text.replace(pattern, '').trim(),
-        };
+        return { type: type as CalloutType, cleanText: text.replace(pattern, '').trim() };
       }
     }
   }
@@ -414,23 +682,14 @@ function MarkdownContent({ content }: { content: string }) {
     if (calloutBuffer && calloutBuffer.items.length > 0) {
       const config = CALLOUT_CONFIG[calloutBuffer.type];
       elements.push(
-        <div
-          key={`callout-${key}`}
-          className={cn(
-            'my-4 border-l-4 p-4',
-            config.bgColor,
-            config.borderColor
-          )}
-        >
+        <div key={`callout-${key}`} className={cn('my-4 border-l-4 p-4 rounded-r-sm', config.bgColor, config.borderColor)}>
           <div className={cn('mb-2 flex items-center gap-2 font-semibold text-sm', config.textColor)}>
             {config.icon}
             <span>{config.label}</span>
           </div>
           <ul className="space-y-1 pl-6">
             {calloutBuffer.items.map((item, i) => (
-              <li key={i} className="list-disc text-sm">
-                {renderInline(item)}
-              </li>
+              <li key={i} className="list-disc text-sm">{renderInline(item)}</li>
             ))}
           </ul>
         </div>
@@ -449,12 +708,7 @@ function MarkdownContent({ content }: { content: string }) {
         const langKey = codeBlockLang.toLowerCase();
         const language = LANGUAGE_ALIASES[langKey] || langKey || 'text';
         elements.push(
-          <CodeBlock
-            key={i}
-            code={codeBlockContent.join('\n')}
-            language={language as Language}
-            filename={codeBlockLang ? `code.${langKey}` : undefined}
-          />
+          <CodeBlock key={i} code={codeBlockContent.join('\n')} language={language as Language} />
         );
         codeBlockContent = [];
         codeBlockLang = '';
@@ -471,29 +725,12 @@ function MarkdownContent({ content }: { content: string }) {
       continue;
     }
 
-    // Headers
-    if (line.startsWith('# ')) {
-      flushCalloutBuffer(i);
-      elements.push(
-        <h1 key={i} className="mb-4 mt-6 text-xl font-bold text-win31-navy first:mt-0">
-          {line.slice(2)}
-        </h1>
-      );
-      continue;
-    }
-    if (line.startsWith('## ')) {
-      flushCalloutBuffer(i);
-      elements.push(
-        <h2 key={i} className="mb-3 mt-6 text-lg font-semibold text-win31-navy">
-          {line.slice(3)}
-        </h2>
-      );
-      continue;
-    }
+    // H3 headers (within sections)
     if (line.startsWith('### ')) {
       flushCalloutBuffer(i);
       elements.push(
-        <h3 key={i} className="mb-2 mt-4 text-base font-semibold text-win31-gray-darker">
+        <h3 key={i} className="mb-2 mt-5 text-base font-semibold text-win31-navy flex items-center gap-2">
+          <ChevronRight className="h-4 w-4 text-win31-gray-darker" />
           {line.slice(4)}
         </h3>
       );
@@ -506,7 +743,6 @@ function MarkdownContent({ content }: { content: string }) {
       const callout = detectCalloutType(itemText);
 
       if (callout) {
-        // Start or continue a callout buffer
         if (calloutBuffer && calloutBuffer.type === callout.type) {
           calloutBuffer.items.push(callout.cleanText);
         } else {
@@ -516,19 +752,16 @@ function MarkdownContent({ content }: { content: string }) {
       } else {
         flushCalloutBuffer(i);
         elements.push(
-          <li key={i} className="ml-4 list-disc text-sm">
-            {renderInline(itemText)}
-          </li>
+          <li key={i} className="ml-4 list-disc text-sm">{renderInline(itemText)}</li>
         );
       }
       continue;
     }
+
     if (/^\d+\. /.test(line)) {
       flushCalloutBuffer(i);
       elements.push(
-        <li key={i} className="ml-4 list-decimal text-sm">
-          {renderInline(line.replace(/^\d+\. /, ''))}
-        </li>
+        <li key={i} className="ml-4 list-decimal text-sm">{renderInline(line.replace(/^\d+\. /, ''))}</li>
       );
       continue;
     }
@@ -540,45 +773,29 @@ function MarkdownContent({ content }: { content: string }) {
       continue;
     }
 
-    // Tables (enhanced)
+    // Tables
     if (line.startsWith('|')) {
       flushCalloutBuffer(i);
-      // Collect all table lines
       const tableLines: string[] = [line];
       let j = i + 1;
       while (j < lines.length && lines[j].startsWith('|')) {
         tableLines.push(lines[j]);
         j++;
       }
-      
       if (tableLines.length >= 2) {
         elements.push(<MarkdownTable key={i} lines={tableLines} />);
-        // Skip processed lines (but the for loop will increment i by 1)
         i = j - 1;
-      } else {
-        elements.push(
-          <div key={i} className="overflow-x-auto text-xs font-mono">
-            {line}
-          </div>
-        );
       }
       continue;
     }
 
-    // Block-level callouts (standalone paragraphs starting with callout patterns)
+    // Block-level callouts
     const blockCallout = detectCalloutType(line.trim());
     if (blockCallout && !line.startsWith('-') && !line.startsWith('*')) {
       flushCalloutBuffer(i);
       const config = CALLOUT_CONFIG[blockCallout.type];
       elements.push(
-        <div
-          key={i}
-          className={cn(
-            'my-4 border-l-4 p-4',
-            config.bgColor,
-            config.borderColor
-          )}
-        >
+        <div key={i} className={cn('my-4 border-l-4 p-4 rounded-r-sm', config.bgColor, config.borderColor)}>
           <div className={cn('flex items-center gap-2 font-semibold text-sm', config.textColor)}>
             {config.icon}
             <span>{renderInline(blockCallout.cleanText)}</span>
@@ -591,15 +808,11 @@ function MarkdownContent({ content }: { content: string }) {
     // Regular paragraphs
     flushCalloutBuffer(i);
     elements.push(
-      <p key={i} className="text-sm leading-relaxed">
-        {renderInline(line)}
-      </p>
+      <p key={i} className="text-sm leading-relaxed">{renderInline(line)}</p>
     );
   }
 
-  // Flush any remaining callout buffer
   flushCalloutBuffer(lines.length);
-
   return <div className="space-y-1">{elements}</div>;
 }
 
@@ -612,10 +825,9 @@ function MarkdownContent({ content }: { content: string }) {
 interface CodeBlockProps {
   code: string;
   language: Language;
-  filename?: string;
 }
 
-function CodeBlock({ code, language, filename }: CodeBlockProps) {
+function CodeBlock({ code, language }: CodeBlockProps) {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopy = async () => {
@@ -624,110 +836,48 @@ function CodeBlock({ code, language, filename }: CodeBlockProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Custom Win31-themed syntax highlighting
   const win31Theme = {
     ...themes.vsDark,
-    plain: {
-      color: '#00ff00', // Win31 lime green
-      backgroundColor: '#000000',
-    },
+    plain: { color: '#00ff00', backgroundColor: '#000000' },
     styles: [
       ...themes.vsDark.styles,
-      {
-        types: ['comment', 'prolog', 'doctype', 'cdata'],
-        style: { color: '#6A9955' }, // Green comments
-      },
-      {
-        types: ['keyword', 'tag', 'operator'],
-        style: { color: '#569CD6' }, // Blue keywords
-      },
-      {
-        types: ['string', 'attr-value'],
-        style: { color: '#CE9178' }, // Orange strings
-      },
-      {
-        types: ['number', 'boolean'],
-        style: { color: '#B5CEA8' }, // Light green numbers
-      },
-      {
-        types: ['function', 'class-name'],
-        style: { color: '#DCDCAA' }, // Yellow functions
-      },
-      {
-        types: ['property', 'attr-name'],
-        style: { color: '#9CDCFE' }, // Light blue properties
-      },
-      {
-        types: ['punctuation'],
-        style: { color: '#D4D4D4' }, // Gray punctuation
-      },
+      { types: ['comment', 'prolog', 'doctype', 'cdata'], style: { color: '#6A9955' } },
+      { types: ['keyword', 'tag', 'operator'], style: { color: '#569CD6' } },
+      { types: ['string', 'attr-value'], style: { color: '#CE9178' } },
+      { types: ['number', 'boolean'], style: { color: '#B5CEA8' } },
+      { types: ['function', 'class-name'], style: { color: '#DCDCAA' } },
+      { types: ['property', 'attr-name'], style: { color: '#9CDCFE' } },
+      { types: ['punctuation'], style: { color: '#D4D4D4' } },
     ],
   };
 
-  // Language badge colors
   const langColors: Record<string, string> = {
-    typescript: 'bg-blue-600',
-    javascript: 'bg-yellow-500',
-    json: 'bg-slate-600',
-    yaml: 'bg-red-600',
-    graphql: 'bg-pink-600',
-    bash: 'bg-green-700',
-    python: 'bg-blue-400',
-    sql: 'bg-orange-500',
-    css: 'bg-purple-500',
-    html: 'bg-orange-600',
-    rust: 'bg-orange-700',
-    go: 'bg-cyan-500',
-    swift: 'bg-orange-400',
+    typescript: 'bg-blue-600', javascript: 'bg-yellow-500', json: 'bg-slate-600',
+    yaml: 'bg-red-600', graphql: 'bg-pink-600', bash: 'bg-green-700',
+    python: 'bg-blue-400', sql: 'bg-orange-500', css: 'bg-purple-500',
   };
 
   return (
-    <div className="my-4 overflow-hidden border border-win31-gray-darker">
-      {/* Title bar */}
+    <div className="my-4 overflow-hidden rounded-sm border-2 border-win31-black">
       <div className="flex items-center gap-2 bg-win31-gray-darker px-3 py-1.5">
         {language && language !== 'text' && (
-          <span
-            className={cn(
-              'rounded px-2 py-0.5 text-xs font-medium uppercase text-white',
-              langColors[language] || 'bg-slate-600'
-            )}
-          >
+          <span className={cn('rounded px-2 py-0.5 text-xs font-medium uppercase text-white', langColors[language] || 'bg-slate-600')}>
             {language}
           </span>
         )}
-        {filename && (
-          <span className="text-xs text-win31-gray-light">{filename}</span>
-        )}
         <div className="flex-1" />
-        <button
-          onClick={handleCopy}
-          className="flex items-center gap-1 rounded px-2 py-0.5 text-xs text-win31-gray-light hover:bg-win31-gray hover:text-white"
-        >
+        <button onClick={handleCopy} className="flex items-center gap-1 rounded px-2 py-0.5 text-xs text-win31-gray-light hover:bg-win31-gray hover:text-white">
           {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
           {copied ? 'Copied' : 'Copy'}
         </button>
       </div>
-
-      {/* Code content */}
       <Highlight theme={win31Theme} code={code.trim()} language={language}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={cn(
-              'overflow-x-auto p-4 font-mono text-sm leading-relaxed',
-              className
-            )}
-            style={style}
-          >
+          <pre className={cn('overflow-x-auto p-4 font-mono text-sm leading-relaxed', className)} style={style}>
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line })} className="table-row">
-                <span className="table-cell select-none pr-4 text-right text-win31-gray-darker/50">
-                  {i + 1}
-                </span>
-                <span className="table-cell">
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token })} />
-                  ))}
-                </span>
+                <span className="table-cell select-none pr-4 text-right text-win31-gray-darker/50">{i + 1}</span>
+                <span className="table-cell">{line.map((token, key) => <span key={key} {...getTokenProps({ token })} />)}</span>
               </div>
             ))}
           </pre>
@@ -744,27 +894,17 @@ function CodeBlock({ code, language, filename }: CodeBlockProps) {
  */
 
 function MarkdownTable({ lines }: { lines: string[] }) {
-  const parseRow = (line: string) => {
-    return line
-      .split('|')
-      .slice(1, -1)
-      .map(cell => cell.trim());
-  };
-
+  const parseRow = (line: string) => line.split('|').slice(1, -1).map(cell => cell.trim());
   const headers = parseRow(lines[0]);
-  // Skip the separator line (index 1)
   const rows = lines.slice(2).map(parseRow);
 
   return (
     <div className="my-4 overflow-x-auto">
-      <table className="w-full border-collapse border border-win31-gray-darker text-sm">
+      <table className="w-full border-collapse border-2 border-win31-black text-sm">
         <thead>
           <tr className="bg-win31-gray">
             {headers.map((header, i) => (
-              <th
-                key={i}
-                className="border border-win31-gray-darker px-3 py-2 text-left font-semibold text-win31-navy"
-              >
+              <th key={i} className="border border-win31-gray-darker px-3 py-2 text-left font-semibold text-win31-navy">
                 {renderInline(header)}
               </th>
             ))}
@@ -774,9 +914,7 @@ function MarkdownTable({ lines }: { lines: string[] }) {
           {rows.map((row, i) => (
             <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-win31-gray-light/50'}>
               {row.map((cell, j) => (
-                <td key={j} className="border border-win31-gray-darker px-3 py-2">
-                  {renderInline(cell)}
-                </td>
+                <td key={j} className="border border-win31-gray-darker px-3 py-2">{renderInline(cell)}</td>
               ))}
             </tr>
           ))}
@@ -792,7 +930,6 @@ function MarkdownTable({ lines }: { lines: string[] }) {
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
-// Color patterns
 const COLOR_PATTERNS = {
   hex: /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/,
   rgb: /^rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*([0-9.]+))?\s*\)$/,
@@ -800,287 +937,87 @@ const COLOR_PATTERNS = {
   oklch: /^oklch\(\s*([0-9.]+%?)\s+([0-9.]+)\s+([0-9.]+)\s*(?:\/\s*([0-9.]+%?))?\s*\)$/i,
 };
 
-// Size patterns
 const SIZE_PATTERN = /^(\d+(?:\.\d+)?)(px|rem|em|%|vw|vh|pt|ch)$/;
-
-// Font weight patterns
 const FONT_WEIGHT_PATTERN = /^(100|200|300|400|500|600|700|800|900|thin|extralight|light|normal|medium|semibold|bold|extrabold|black)$/i;
-
-// CSS variable pattern
 const CSS_VAR_PATTERN = /^--[\w-]+$/;
 
-type DesignTokenType = 'color' | 'size' | 'font-weight' | 'border-radius' | 'css-var' | 'font-family' | null;
+type DesignTokenType = 'color' | 'size' | 'font-weight' | 'css-var' | 'font-family' | null;
 
 function detectDesignToken(value: string): DesignTokenType {
   const trimmed = value.trim();
-  
-  // Check for colors
-  if (COLOR_PATTERNS.hex.test(trimmed)) return 'color';
-  if (COLOR_PATTERNS.rgb.test(trimmed)) return 'color';
-  if (COLOR_PATTERNS.hsl.test(trimmed)) return 'color';
-  if (COLOR_PATTERNS.oklch.test(trimmed)) return 'color';
-  
-  // Check for font weights
+  if (COLOR_PATTERNS.hex.test(trimmed) || COLOR_PATTERNS.rgb.test(trimmed) || COLOR_PATTERNS.hsl.test(trimmed) || COLOR_PATTERNS.oklch.test(trimmed)) return 'color';
   if (FONT_WEIGHT_PATTERN.test(trimmed)) return 'font-weight';
-  
-  // Check for CSS variables
   if (CSS_VAR_PATTERN.test(trimmed)) return 'css-var';
-  
-  // Check for font families (quoted or common names)
-  if (/^["'].*["']$/.test(trimmed) || /^(sans-serif|serif|monospace|system-ui|Inter|Roboto|Arial|Helvetica)$/i.test(trimmed)) {
-    return 'font-family';
-  }
-  
-  // Check for sizes (must be last as it's more generic)
-  if (SIZE_PATTERN.test(trimmed)) {
-    // Distinguish border-radius context from general size
-    return 'size';
-  }
-  
+  if (/^["'].*["']$/.test(trimmed) || /^(sans-serif|serif|monospace|system-ui|Inter|Roboto|Arial|Helvetica)$/i.test(trimmed)) return 'font-family';
+  if (SIZE_PATTERN.test(trimmed)) return 'size';
   return null;
 }
 
-function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-    hex.length === 4 ? hex.replace(/([a-f\d])/gi, '$1$1') : hex
-  );
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16),
-  } : null;
-}
-
-function getContrastColor(hexColor: string): string {
-  const rgb = hexToRgb(hexColor);
-  if (!rgb) return '#000000';
-  const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
-  return luminance > 0.5 ? '#000000' : '#ffffff';
-}
-
-interface ColorSwatchProps {
-  value: string;
-  showFormats?: boolean;
-}
-
-function ColorSwatch({ value, showFormats = true }: ColorSwatchProps) {
-  const [showTooltip, setShowTooltip] = React.useState(false);
-  const [copied, setCopied] = React.useState<string | null>(null);
-
-  // Normalize color for CSS
-  const cssColor = value;
-  
-  // Try to parse hex for format conversion
-  const isHex = COLOR_PATTERNS.hex.test(value);
-  const rgb = isHex ? hexToRgb(value) : null;
-  
-  const formats: { label: string; value: string }[] = [
-    { label: 'Original', value },
-  ];
-  
-  if (rgb) {
-    formats.push({ label: 'RGB', value: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` });
-    // Approximate OKLCH (simplified)
-    const l = (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
-    formats.push({ label: 'OKLCH', value: `oklch(${(l * 100).toFixed(1)}% 0.1 0)` });
-  }
-
-  const handleCopy = async (format: string) => {
-    await navigator.clipboard.writeText(format);
-    setCopied(format);
-    setTimeout(() => setCopied(null), 1500);
-  };
-
-  const contrastColor = isHex ? getContrastColor(value) : '#000';
-
+function ColorSwatch({ value }: { value: string }) {
   return (
-    <span 
-      className="relative inline-flex items-center gap-1"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
-    >
-      {/* Color swatch */}
-      <span
-        className="inline-flex h-5 w-5 items-center justify-center rounded border border-win31-gray-darker shadow-sm"
-        style={{ backgroundColor: cssColor }}
-        title={value}
-      />
-      {/* Color value */}
-      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">
-        {value}
-      </code>
-      
-      {/* Tooltip with formats */}
-      {showTooltip && showFormats && (
-        <span className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded border border-win31-gray-darker bg-white p-2 shadow-lg">
-          <span className="mb-2 block text-xs font-semibold text-win31-navy">Color Formats</span>
-          <span className="space-y-1">
-            {formats.map(({ label, value: fmt }) => (
-              <span 
-                key={label} 
-                className="flex items-center justify-between gap-2 text-xs cursor-pointer hover:bg-win31-gray-light rounded px-1"
-                onClick={() => handleCopy(fmt)}
-              >
-                <span className="text-win31-gray-darker">{label}:</span>
-                <span className="font-mono">{fmt}</span>
-                {copied === fmt && <Check className="h-3 w-3 text-emerald-500" />}
-              </span>
-            ))}
-          </span>
-          {/* Large preview */}
-          <span 
-            className="mt-2 flex h-8 w-full items-center justify-center rounded border text-xs font-medium"
-            style={{ backgroundColor: cssColor, color: contrastColor }}
-          >
-            Preview
-          </span>
-        </span>
-      )}
+    <span className="inline-flex items-center gap-1" title={value}>
+      <span className="inline-flex h-5 w-5 items-center justify-center rounded border border-win31-gray-darker shadow-sm" style={{ backgroundColor: value }} />
+      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">{value}</code>
     </span>
   );
 }
 
-interface SizeVisualizerProps {
-  value: string;
-  type?: 'size' | 'border-radius';
-}
-
-function SizeVisualizer({ value, type = 'size' }: SizeVisualizerProps) {
+function SizeVisualizer({ value }: { value: string }) {
   const match = value.match(SIZE_PATTERN);
   if (!match) return <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs">{value}</code>;
-  
   const [, num, unit] = match;
-  const numValue = parseFloat(num);
-  
-  // Convert to pixels for visualization (approximate)
-  let pxValue = numValue;
-  if (unit === 'rem') pxValue = numValue * 16;
-  if (unit === 'em') pxValue = numValue * 16;
-  
-  // Cap visualization size
+  let pxValue = parseFloat(num);
+  if (unit === 'rem' || unit === 'em') pxValue = pxValue * 16;
   const visualSize = Math.min(Math.max(pxValue, 4), 48);
-  
-  if (type === 'border-radius') {
-    return (
-      <span className="inline-flex items-center gap-1.5">
-        <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">
-          {value}
-        </code>
-        <span 
-          className="inline-block h-5 w-5 border-2 border-win31-navy bg-win31-gray-light"
-          style={{ borderRadius: `${Math.min(visualSize, 10)}px` }}
-          title={`Border radius: ${value}`}
-        />
-      </span>
-    );
-  }
-  
+
   return (
     <span className="inline-flex items-center gap-1.5">
-      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">
-        {value}
-      </code>
-      {/* Size bar */}
-      <span 
-        className="inline-block h-2 bg-win31-navy rounded-sm"
-        style={{ width: `${visualSize}px`, minWidth: '4px', maxWidth: '48px' }}
-        title={`${value}${unit !== 'px' ? ` ≈ ${pxValue.toFixed(0)}px` : ''}`}
-      />
+      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">{value}</code>
+      <span className="inline-block h-2 bg-win31-navy rounded-sm" style={{ width: `${visualSize}px`, minWidth: '4px', maxWidth: '48px' }} title={`${value}${unit !== 'px' ? ` ≈ ${pxValue.toFixed(0)}px` : ''}`} />
     </span>
   );
 }
 
-interface FontWeightVisualizerProps {
-  value: string;
-}
-
-function FontWeightVisualizer({ value }: FontWeightVisualizerProps) {
-  const weightMap: Record<string, number> = {
-    thin: 100, extralight: 200, light: 300, normal: 400,
-    medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900,
-  };
-  
+function FontWeightVisualizer({ value }: { value: string }) {
+  const weightMap: Record<string, number> = { thin: 100, extralight: 200, light: 300, normal: 400, medium: 500, semibold: 600, bold: 700, extrabold: 800, black: 900 };
   const numericWeight = weightMap[value.toLowerCase()] || parseInt(value, 10) || 400;
-  
+
   return (
     <span className="inline-flex items-center gap-1.5">
-      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">
-        {value}
-      </code>
-      <span 
-        className="inline-block px-1.5 py-0.5 text-xs bg-win31-navy text-white rounded-sm"
-        style={{ fontWeight: numericWeight }}
-      >
-        Aa
-      </span>
+      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">{value}</code>
+      <span className="inline-block px-1.5 py-0.5 text-xs bg-win31-navy text-white rounded-sm" style={{ fontWeight: numericWeight }}>Aa</span>
     </span>
   );
 }
 
-interface FontFamilyVisualizerProps {
-  value: string;
-}
-
-function FontFamilyVisualizer({ value }: FontFamilyVisualizerProps) {
+function FontFamilyVisualizer({ value }: { value: string }) {
   const cleanValue = value.replace(/["']/g, '');
-  
   return (
     <span className="inline-flex items-center gap-1.5">
-      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">
-        {value}
-      </code>
-      <span 
-        className="inline-block px-1.5 py-0.5 text-xs bg-win31-gray border border-win31-gray-darker rounded-sm"
-        style={{ fontFamily: cleanValue }}
-      >
-        The quick brown fox
-      </span>
+      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">{value}</code>
+      <span className="inline-block px-1.5 py-0.5 text-xs bg-win31-gray border border-win31-gray-darker rounded-sm" style={{ fontFamily: cleanValue }}>Sample</span>
     </span>
   );
 }
 
-interface CssVarVisualizerProps {
-  value: string;
-}
-
-function CssVarVisualizer({ value }: CssVarVisualizerProps) {
+function CssVarVisualizer({ value }: { value: string }) {
   return (
     <span className="inline-flex items-center gap-1">
-      <span className="rounded-sm bg-purple-100 px-1 py-0.5 text-xs text-purple-700 border border-purple-300">
-        var
-      </span>
-      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-purple-700 border border-win31-gray-darker">
-        {value}
-      </code>
+      <span className="rounded-sm bg-purple-100 px-1 py-0.5 text-xs text-purple-700 border border-purple-300">var</span>
+      <code className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-purple-700 border border-win31-gray-darker">{value}</code>
     </span>
   );
 }
 
 function renderDesignToken(value: string, key: number): React.ReactNode {
   const tokenType = detectDesignToken(value);
-  
   switch (tokenType) {
-    case 'color':
-      return <ColorSwatch key={key} value={value} />;
-    case 'size':
-      return <SizeVisualizer key={key} value={value} />;
-    case 'border-radius':
-      return <SizeVisualizer key={key} value={value} type="border-radius" />;
-    case 'font-weight':
-      return <FontWeightVisualizer key={key} value={value} />;
-    case 'font-family':
-      return <FontFamilyVisualizer key={key} value={value} />;
-    case 'css-var':
-      return <CssVarVisualizer key={key} value={value} />;
-    default:
-      return (
-        <code
-          key={key}
-          className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker"
-        >
-          {value}
-        </code>
-      );
+    case 'color': return <ColorSwatch key={key} value={value} />;
+    case 'size': return <SizeVisualizer key={key} value={value} />;
+    case 'font-weight': return <FontWeightVisualizer key={key} value={value} />;
+    case 'font-family': return <FontFamilyVisualizer key={key} value={value} />;
+    case 'css-var': return <CssVarVisualizer key={key} value={value} />;
+    default: return <code key={key} className="rounded-sm bg-win31-gray-light px-1.5 py-0.5 font-mono text-xs text-win31-navy border border-win31-gray-darker">{value}</code>;
   }
 }
 
@@ -1096,55 +1033,36 @@ function renderInline(text: string): React.ReactNode {
   let key = 0;
 
   while (remaining.length > 0) {
-    // Bold
     const boldMatch = remaining.match(/\*\*(.+?)\*\*/);
     if (boldMatch && boldMatch.index !== undefined) {
-      if (boldMatch.index > 0) {
-        parts.push(remaining.slice(0, boldMatch.index));
-      }
+      if (boldMatch.index > 0) parts.push(remaining.slice(0, boldMatch.index));
       parts.push(<strong key={key++}>{boldMatch[1]}</strong>);
       remaining = remaining.slice(boldMatch.index + boldMatch[0].length);
       continue;
     }
 
-    // Italic
     const italicMatch = remaining.match(/(?<!\*)\*([^*]+)\*(?!\*)/);
     if (italicMatch && italicMatch.index !== undefined) {
-      if (italicMatch.index > 0) {
-        parts.push(remaining.slice(0, italicMatch.index));
-      }
+      if (italicMatch.index > 0) parts.push(remaining.slice(0, italicMatch.index));
       parts.push(<em key={key++}>{italicMatch[1]}</em>);
       remaining = remaining.slice(italicMatch.index + italicMatch[0].length);
       continue;
     }
 
-    // Inline code - with design token detection
     const codeMatch = remaining.match(/`([^`]+)`/);
     if (codeMatch && codeMatch.index !== undefined) {
-      if (codeMatch.index > 0) {
-        parts.push(remaining.slice(0, codeMatch.index));
-      }
-      // Check if it's a design token
+      if (codeMatch.index > 0) parts.push(remaining.slice(0, codeMatch.index));
       parts.push(renderDesignToken(codeMatch[1], key++));
       remaining = remaining.slice(codeMatch.index + codeMatch[0].length);
       continue;
     }
 
-    // Links
     const linkMatch = remaining.match(/\[([^\]]+)\]\(([^)]+)\)/);
     if (linkMatch && linkMatch.index !== undefined) {
-      if (linkMatch.index > 0) {
-        parts.push(remaining.slice(0, linkMatch.index));
-      }
+      if (linkMatch.index > 0) parts.push(remaining.slice(0, linkMatch.index));
       const isExternal = linkMatch[2].startsWith('http');
       parts.push(
-        <a
-          key={key++}
-          href={linkMatch[2]}
-          target={isExternal ? '_blank' : undefined}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
-          className="text-win31-navy underline hover:text-win31-blue"
-        >
+        <a key={key++} href={linkMatch[2]} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noopener noreferrer' : undefined} className="text-win31-navy underline hover:text-win31-blue">
           {linkMatch[1]}
           {isExternal && <ExternalLink className="ml-0.5 inline h-3 w-3" />}
         </a>
@@ -1153,36 +1071,9 @@ function renderInline(text: string): React.ReactNode {
       continue;
     }
 
-    // No more formatting
     parts.push(remaining);
     break;
   }
 
   return parts;
 }
-
-/*
- * ═══════════════════════════════════════════════════════════════════════════
- * HELPER COMPONENTS
- * ═══════════════════════════════════════════════════════════════════════════
- */
-
-function DifficultyBadge({ difficulty }: { difficulty: Skill['difficulty'] }) {
-  const styles = {
-    beginner: 'bg-win31-green/20 text-win31-green border-win31-green/40',
-    intermediate: 'bg-win31-yellow/20 text-win31-gray-darker border-win31-yellow/40',
-    advanced: 'bg-win31-red/20 text-win31-red border-win31-red/40',
-  };
-
-  return (
-    <span
-      className={cn(
-        'rounded-sm border px-2 py-0.5 text-xs font-medium capitalize',
-        styles[difficulty]
-      )}
-    >
-      {difficulty}
-    </span>
-  );
-}
-
