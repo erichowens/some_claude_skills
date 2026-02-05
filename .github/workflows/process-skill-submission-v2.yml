@@ -19,7 +19,7 @@ on:
 
 # Secrets needed:
 # - GITHUB_TOKEN (automatic)
-# - REPLICATE_API_TOKEN (for image generation)
+# - IDEOGRAM_API_KEY (for hero image generation)
 # - CLOUDFLARE_DEPLOY_HOOK (for triggering builds)
 
 jobs:
@@ -85,13 +85,13 @@ jobs:
           echo "✅ Created skill at ${SKILL_DIR}/SKILL.md"
 
       # ─────────────────────────────────────────────────────────────────────────
-      # STEP 3: Generate hero image via Replicate
+      # STEP 3: Generate hero image via Ideogram
       # ─────────────────────────────────────────────────────────────────────────
       - name: Generate hero image
-        if: steps.parse.outputs.valid == 'true' && env.REPLICATE_API_TOKEN != ''
+        if: steps.parse.outputs.valid == 'true' && env.IDEOGRAM_API_KEY != ''
         id: hero-image
         env:
-          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          IDEOGRAM_API_KEY: ${{ secrets.IDEOGRAM_API_KEY }}
         run: |
           SKILL_ID="${{ steps.parse.outputs.skill_id }}"
           SKILL_TITLE="${{ steps.parse.outputs.skill_title }}"
@@ -119,57 +119,56 @@ jobs:
           # Build prompt following hero image style guide
           PROMPT="Pixel art desktop workstation scene showing ${SKILL_TITLE} themed interface on retro monitor, ${PALETTE} color scheme, retro Windows 95 interface with title bar and scrollbars, 16-bit video game aesthetic, keyboard and desk plant in foreground, clean pixel art style, no anti-aliasing"
 
-          echo "🎨 Generating hero image with prompt: ${PROMPT}"
+          NEGATIVE_PROMPT="photorealistic, modern flat UI, Material Design, iOS style, text, words, letters, watermark, signature, blurry, gradient"
 
-          # Call Replicate API (SDXL model)
+          echo "🎨 Generating hero image with Ideogram"
+          echo "   Prompt: ${PROMPT}"
+
+          # Call Ideogram API
           RESPONSE=$(curl -s -X POST \
-            -H "Authorization: Token ${REPLICATE_API_TOKEN}" \
+            -H "Api-Key: ${IDEOGRAM_API_KEY}" \
             -H "Content-Type: application/json" \
             -d "{
-              \"version\": \"39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b\",
-              \"input\": {
+              \"image_request\": {
                 \"prompt\": \"${PROMPT}\",
-                \"width\": 1024,
-                \"height\": 576,
-                \"num_outputs\": 1,
-                \"guidance_scale\": 7.5,
-                \"negative_prompt\": \"photorealistic, modern flat UI, Material Design, iOS style, text, words, letters, watermark, signature\"
+                \"negative_prompt\": \"${NEGATIVE_PROMPT}\",
+                \"aspect_ratio\": \"ASPECT_16_9\",
+                \"model\": \"V_2\",
+                \"magic_prompt_option\": \"AUTO\",
+                \"style_type\": \"DESIGN\"
               }
             }" \
-            "https://api.replicate.com/v1/predictions")
+            "https://api.ideogram.ai/generate")
 
-          # Get prediction ID and poll for result
-          PREDICTION_ID=$(echo $RESPONSE | jq -r '.id')
-          
-          if [ "$PREDICTION_ID" = "null" ]; then
-            echo "⚠️ Failed to start image generation"
+          # Check for errors
+          ERROR=$(echo "$RESPONSE" | jq -r '.error // empty')
+          if [ -n "$ERROR" ]; then
+            echo "⚠️ Ideogram API error: $ERROR"
             echo "hero_generated=false" >> $GITHUB_OUTPUT
             exit 0
           fi
 
-          echo "⏳ Waiting for image generation (ID: ${PREDICTION_ID})..."
+          # Extract image URL from response
+          IMAGE_URL=$(echo "$RESPONSE" | jq -r '.data[0].url // empty')
           
-          for i in {1..60}; do
-            sleep 5
-            STATUS=$(curl -s -H "Authorization: Token ${REPLICATE_API_TOKEN}" \
-              "https://api.replicate.com/v1/predictions/${PREDICTION_ID}" | jq -r '.status')
-            
-            if [ "$STATUS" = "succeeded" ]; then
-              IMAGE_URL=$(curl -s -H "Authorization: Token ${REPLICATE_API_TOKEN}" \
-                "https://api.replicate.com/v1/predictions/${PREDICTION_ID}" | jq -r '.output[0]')
-              
-              mkdir -p website/static/img/skills
-              curl -s -o "website/static/img/skills/${SKILL_ID}-hero.png" "$IMAGE_URL"
-              
-              echo "✅ Hero image saved to website/static/img/skills/${SKILL_ID}-hero.png"
-              echo "hero_generated=true" >> $GITHUB_OUTPUT
-              break
-            elif [ "$STATUS" = "failed" ]; then
-              echo "⚠️ Image generation failed"
-              echo "hero_generated=false" >> $GITHUB_OUTPUT
-              break
-            fi
-          done
+          if [ -z "$IMAGE_URL" ]; then
+            echo "⚠️ No image URL in response"
+            echo "Response: $RESPONSE"
+            echo "hero_generated=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Download the image
+          mkdir -p website/static/img/skills
+          curl -s -o "website/static/img/skills/${SKILL_ID}-hero.png" "$IMAGE_URL"
+          
+          if [ -f "website/static/img/skills/${SKILL_ID}-hero.png" ]; then
+            echo "✅ Hero image saved to website/static/img/skills/${SKILL_ID}-hero.png"
+            echo "hero_generated=true" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️ Failed to download image"
+            echo "hero_generated=false" >> $GITHUB_OUTPUT
+          fi
 
       # ─────────────────────────────────────────────────────────────────────────
       # STEP 4: Generate MDX documentation page

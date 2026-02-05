@@ -82,7 +82,7 @@ Triggered when an issue receives the `skill-submission` label.
 
 ### 3. Hero Image Generation
 
-**Method:** Replicate API (SDXL model)
+**Method:** Ideogram API (V2 model with DESIGN style)
 
 **Prompt Template:**
 ```
@@ -103,7 +103,7 @@ clean pixel art style, no anti-aliasing
 | Code Quality, DevOps | terminal green on black |
 | Others | lavender and soft purple workspace |
 
-**Fallback:** If Replicate API unavailable, skill is created without hero image (can be added manually later).
+**Fallback:** If Ideogram API unavailable, skill is created without hero image (can be added manually later).
 
 ### 4. Build Trigger
 
@@ -121,16 +121,16 @@ Set these in **Settings > Secrets > Actions**:
 | Secret | Required | Purpose |
 |--------|----------|---------|
 | `GITHUB_TOKEN` | Auto | Created automatically by GitHub |
-| `REPLICATE_API_TOKEN` | Optional | For AI hero image generation |
+| `IDEOGRAM_API_KEY` | Optional | For AI hero image generation |
 | `CLOUDFLARE_DEPLOY_HOOK` | Optional | For manual deploy trigger |
 
-### Getting Replicate API Token
+### Getting Ideogram API Key
 
-1. Go to [replicate.com](https://replicate.com)
-2. Sign up/login (free tier available)
-3. Go to Account Settings > API Tokens
-4. Create new token
-5. Add to GitHub Secrets as `REPLICATE_API_TOKEN`
+1. Go to [ideogram.ai](https://ideogram.ai)
+2. Sign in to your account
+3. Go to **Account Settings** → **API**
+4. Generate or copy your API key
+5. Add to GitHub Secrets as `IDEOGRAM_API_KEY`
 
 ### Getting Cloudflare Deploy Hook
 
