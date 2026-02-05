@@ -1,13 +1,27 @@
 # Changelog: skill-architect
 
+## v2.1.1 (2026-02-05)
+
+### Clarifications
+
+**Agent parseability** — Clarified that Mermaid works for both agents AND humans. Agents read Mermaid as a text-based graph DSL with explicit edge semantics (`A -->|Yes| B`); they don't need rendered pictures. Added "Can Agents Actually Interpret Mermaid?" section to `references/visual-artifacts.md` explaining why formal graph notation is actually more precise for agents than equivalent prose.
+
+**YAML frontmatter is optional** — Demoted YAML frontmatter from "here's how to configure" to "this is purely for rendering customization; agents ignore it; skip it unless publishing polished docs." Updated both SKILL.md and `references/visual-artifacts.md`.
+
+**Raw vs. quoted Mermaid** — Added guidance: use raw ` ```mermaid ` blocks in SKILL.md (operative content the agent interprets). Only use outer ` ````markdown ` fences in docs *about* Mermaid (illustrative examples). Added SKILL.md's own 6-step process as a raw Mermaid flowchart — eating our own cooking.
+
+---
+
 ## v2.1.0 (2026-02-05)
 
 ### Visual Artifacts
 
-**New section in SKILL.md**: "Visual Artifacts: Mermaid Diagrams & Code" — encourages skills to render decision trees, workflows, architectures, timelines, and data models as Mermaid diagrams instead of prose. Includes a quick-reference table mapping skill content types to optimal diagram types, plus Mermaid YAML frontmatter configuration syntax.
+**New section in SKILL.md**: "Visual Artifacts: Mermaid Diagrams & Code" — encourages skills to render decision trees, workflows, architectures, timelines, and data models as Mermaid diagrams. Includes quick-reference table mapping content types to diagram types.
 
 **New reference**: `references/visual-artifacts.md` — comprehensive guide to all 16+ Mermaid diagram types with:
-- Full YAML frontmatter configuration (themes, themeVariables, per-diagram config)
+- "Can Agents Interpret Mermaid?" section (yes — it's a text DSL with explicit graph structure)
+- Raw vs. quoted Mermaid guidance
+- Full YAML frontmatter configuration (optional — for rendering only)
 - Concrete examples for every diagram type: flowchart, sequence, state, ER, gantt, mindmap, timeline, pie, quadrant, gitgraph, class, user journey, sankey, XY chart, block, architecture, kanban
 - Node shapes, edge styles, and features for each diagram type
 - Decision matrix: which diagram type for which skill content

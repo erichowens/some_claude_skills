@@ -153,6 +153,17 @@ allowed-tools: Read,Write
 
 ## The 6-Step Skill Creation Process
 
+```mermaid
+flowchart LR
+  S1[1. Gather Examples] --> S2[2. Plan Contents]
+  S2 --> S3[3. Initialize]
+  S3 --> S4[4. Write Skill]
+  S4 --> S5[5. Validate]
+  S5 --> S6{Errors?}
+  S6 -->|Yes| S4
+  S6 -->|No| S7[6. Ship & Iterate]
+```
+
 ### Step 1: Gather Concrete Examples
 
 Collect 3-5 real queries that should trigger this skill, and 3-5 that should NOT.
@@ -234,9 +245,9 @@ The subagent's prompt should have four sections:
 
 ## Visual Artifacts: Mermaid Diagrams & Code
 
-Skills that produce visual artifacts — Mermaid diagrams, structured code blocks, annotated tables — are dramatically more useful than prose-only skills. A decision tree rendered as a flowchart is parsed instantly; the same logic in paragraph form forces mental graph reconstruction.
+Skills that include Mermaid diagrams serve two audiences at once. **For humans**, diagrams render as visual flowcharts, state machines, and timelines — instantly parseable. **For agents**, Mermaid is a text-based graph DSL — `A -->|Yes| B` is an explicit, unambiguous edge that's actually easier to reason about than equivalent prose. The agent reads the text; the human sees the picture. Both win.
 
-**Rule**: If a skill describes a process, decision tree, architecture, state machine, timeline, or data relationship, render it as a Mermaid diagram.
+**Rule**: If a skill describes a process, decision tree, architecture, state machine, timeline, or data relationship, include a Mermaid diagram. Use raw ` ```mermaid ` blocks directly in SKILL.md — not wrapped in outer markdown fences.
 
 ### Which Diagram for Which Content
 
@@ -252,29 +263,24 @@ Skills that produce visual artifacts — Mermaid diagrams, structured code block
 | System architecture | `block-beta` or `architecture-beta` |
 | Project timelines | `gantt` |
 
-### Mermaid YAML Frontmatter
+### YAML Frontmatter in Mermaid (Optional)
 
-Every Mermaid diagram supports a YAML config block for theming and layout:
+Mermaid supports an optional `---` frontmatter block for rendering customization (themes, colors, spacing). **It is not required.** Agents ignore it. Renderers apply sensible defaults without it. Only add it when you need specific visual styling for published documentation.
 
-````markdown
-```mermaid
+```yaml
+# Optional — only for render customization
 ---
-title: Decision Flow
+title: My Diagram
 config:
   theme: neutral
   flowchart:
     curve: basis
-    nodeSpacing: 50
 ---
-flowchart TD
-  A{Skill exists?} -->|Yes| B[Audit]
-  A -->|No| C[Create]
 ```
-````
 
-Themes: `default`, `dark`, `forest`, `neutral`, `base` (for full customization via `themeVariables`).
+Themes: `default`, `dark`, `forest`, `neutral`, `base`. Full config reference: https://mermaid.ai/open-source/config/configuration.html
 
-**Full diagram catalog, node shapes, edge styles, and configuration reference**: See `references/visual-artifacts.md`
+**Full diagram catalog with examples of all 16+ types**: See `references/visual-artifacts.md`
 
 ---
 

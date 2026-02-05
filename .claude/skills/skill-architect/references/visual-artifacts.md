@@ -1,29 +1,68 @@
 # Visual Artifacts in Skills: Mermaid Diagrams & Code
 
-Skills that produce visual artifacts — Mermaid diagrams, structured code blocks, annotated tables — are dramatically more useful than skills that produce only prose. A decision tree rendered as a flowchart is parsed instantly; the same logic in paragraph form forces the reader to mentally reconstruct the graph.
+Skills that include Mermaid diagrams serve two audiences simultaneously:
 
-**Rule of thumb**: If a skill describes a process, decision tree, architecture, state machine, timeline, or data relationship, it should include or generate a Mermaid diagram for it.
+- **For humans reading docs**: Diagrams render as visual flowcharts, state machines, ER models, timelines. Structure is parsed at a glance.
+- **For agents executing tasks**: Mermaid is a text-based graph DSL. `A -->|Yes| B` is an explicit, unambiguous directed edge. The agent reads the raw text and reasons over the graph structure directly — it never "sees" the rendered picture.
 
----
+This dual utility is what makes Mermaid ideal for skills. Prose like "if the skill exists, audit it; otherwise create it" requires the agent to parse natural language for branching logic. The Mermaid equivalent — `A{Exists?} -->|Yes| B[Audit]` / `A -->|No| C[Create]` — encodes the same branching as an explicit graph the agent can traverse.
 
-## Why Mermaid in Skills
-
-Mermaid diagrams are text-based, version-controllable, and render natively in GitHub, Docusaurus, most Markdown renderers, and Claude's own output. They cost very few tokens relative to their information density.
-
-| Medium | Tokens | Comprehension | Version-controllable |
-|--------|--------|---------------|---------------------|
-| Prose paragraph | ~200 | Slow, sequential | Yes but hard to diff |
-| Markdown table | ~80 | Fast for comparisons | Yes |
-| Mermaid diagram | ~60 | Instant for relationships | Yes, text-based |
-| ASCII art | ~150 | Fragile, breaks easily | Painful to maintain |
-
-**Prefer Mermaid over ASCII art.** Mermaid is semantic; ASCII art is visual noise that breaks on re-flow.
+**Rule of thumb**: If a skill describes a process, decision tree, architecture, state machine, timeline, or data relationship, it should include a Mermaid diagram. The agent benefits from the formal structure; the human benefits from the visual rendering.
 
 ---
 
-## Mermaid YAML Frontmatter Configuration
+## Can Agents Actually Interpret Mermaid?
 
-Every Mermaid diagram can include a YAML frontmatter block (delimited by `---`) before the diagram definition. This controls theme, layout direction, and per-diagram-type settings.
+Yes. Mermaid is just text — a concise DSL for describing graphs, sequences, and relationships. When a skill contains:
+
+```mermaid
+flowchart TD
+  A{Has tests?} -->|Yes| B[Safe to refactor]
+  A -->|No| C[Write tests first]
+```
+
+The agent reads: node A is a decision ("Has tests?"), with a "Yes" edge to node B ("Safe to refactor") and a "No" edge to node C ("Write tests first"). This is actually **more precise** than equivalent prose, because:
+
+1. **Edges are explicit** — prose can be ambiguous about which condition leads where
+2. **Node types encode meaning** — `{diamond}` = decision, `[rectangle]` = action, `([stadium])` = start/end
+3. **Structure is formal** — the graph topology is machine-readable
+4. **Token cost is low** — the Mermaid above is ~30 tokens; prose equivalent is ~40 tokens
+
+The tradeoff: Mermaid is slightly less natural to *write* than prose. But it's more precise to *consume*, for both agents and humans.
+
+**When prose is better**: Explanatory context, rationale, nuance, caveats. "Use X because Y" is better as a sentence. "If X then A, if Y then B" is better as a flowchart.
+
+---
+
+## Why Mermaid Over Other Formats
+
+| Medium | Tokens | Agent-parseable | Human-readable | Version-controllable |
+|--------|--------|-----------------|----------------|---------------------|
+| Prose paragraph | ~200 | Ambiguous branching | Familiar but slow | Yes but hard to diff |
+| Markdown table | ~80 | Good for comparisons | Fast scan | Yes |
+| Mermaid diagram | ~60 | Explicit graph structure | Instant visual | Yes, text-based |
+| ASCII art | ~150 | Fragile, misaligned | Breaks on re-flow | Painful to maintain |
+
+**Prefer Mermaid over ASCII art.** Mermaid is semantic (explicit nodes and edges); ASCII art is visual layout that breaks on re-flow and is harder for agents to parse reliably.
+
+---
+
+## Raw Mermaid vs. Quoted Mermaid
+
+**In SKILL.md (skill's own content)**: Use raw ` ```mermaid ` blocks. These are the skill's actual diagrams — the agent reads them directly, and humans see rendered versions.
+
+**In reference docs (showing how to write Mermaid)**: Use ` ````markdown ` outer fences to wrap ` ```mermaid ` examples. This is meta-documentation — examples of what to write, not diagrams to interpret.
+
+**Never**: Wrap a skill's own decision tree in a `````markdown` fence. That turns it from "follow this logic" into "here's an example of a diagram" — the agent treats quoted content as illustrative, not operative.
+
+---
+
+## Mermaid YAML Frontmatter Configuration (Optional)
+
+Mermaid diagrams can optionally include a YAML frontmatter block (delimited by `---`) before the diagram definition. **This is purely for rendering customization** — themes, colors, spacing. Agents ignore it. Renderers apply sensible defaults without it.
+
+**When to use frontmatter**: Published documentation where visual consistency matters.
+**When to skip it**: Skills, reference files, agent-consumed content. Plain Mermaid is cleaner and lower-token.
 
 ### Basic Structure
 
@@ -645,37 +684,37 @@ flowchart TD
   F --> G[Validate]
 ```
 
-The flowchart is ~40 tokens. The prose is ~35 tokens. The flowchart is instantly parseable. Always prefer the diagram.
+The flowchart is ~40 tokens. The prose is ~35 tokens. For a human, the flowchart is instantly parseable. For an agent, the flowchart encodes explicit branching structure (`-->|Yes|`, `-->|No|`) that prose leaves ambiguous. Both audiences benefit; neither is disadvantaged.
 
 ### 3. Prefer Specific Diagram Types Over Generic Flowcharts
 
 A sequence diagram for protocol interactions is more informative than a flowchart of the same protocol. A state diagram for lifecycle management is clearer than a flowchart with "go back to step 2" arrows. Choose the diagram type that matches the underlying structure.
 
-### 4. Use YAML Frontmatter for Consistent Styling
+### 4. Skip YAML Frontmatter Unless Publishing
 
-If a skill produces multiple diagrams, use the same theme configuration so they look cohesive:
+YAML frontmatter in Mermaid is for rendering customization only — themes, colors, spacing. **Agents don't use it. Renderers apply defaults without it.** Only add frontmatter when you're publishing polished documentation and need visual consistency across multiple diagrams.
 
-````markdown
+For skills and references, plain Mermaid is cleaner and costs fewer tokens:
+
 ```mermaid
----
-config:
-  theme: neutral
-  themeVariables:
-    fontSize: "14px"
----
 flowchart LR
   A --> B
 ```
-````
 
-### 5. Keep Diagrams Self-Contained
+If you do need it (e.g., for a published site), the syntax is a `---` block before the diagram type. See the Configuration section above for all options.
+
+### 5. Use Raw Mermaid, Not Quoted Mermaid
+
+In SKILL.md and references, use raw ` ```mermaid ` blocks — these are content the agent should interpret and act on. Only use outer ` ````markdown ` fences in documentation *about* Mermaid (like this file), where the example is illustrative, not operative.
+
+### 6. Keep Diagrams Self-Contained
 
 Each diagram should be understandable without reading the surrounding prose. Use descriptive node labels, not cryptic abbreviations:
 
 - ✅ `A[Check description has NOT clause]`
 - ❌ `A[Step 2.3]`
 
-### 6. Code Blocks Are Visual Artifacts Too
+### 7. Code Blocks Are Visual Artifacts Too
 
 Don't neglect inline code examples as visual artifacts. A 5-line code snippet is worth 50 words of description:
 
