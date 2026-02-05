@@ -1,5 +1,42 @@
 # Changelog: skill-architect
 
+## v2.0.0 (2026-02-05)
+
+### Major Improvements
+
+**SKILL.md rewrite** — Reduced from 637 lines to 350 lines (was violating its own <500 line rule). Restructured for clarity and actionability.
+
+**Description Formula** — Expanded with concrete bad→good examples covering 7 common failure modes: too vague, overlapping, mini-manual, missing exclusions, wrong keywords, name mismatch, catch-all. Full guide moved to `references/description-guide.md`.
+
+**Frontmatter Documentation** — Added newly documented optional fields: `argument-hint`, `disable-model-invocation`, `user-invocable`, `context` (fork), and `metadata`. Previous version was incomplete about what's valid.
+
+**Subagent-Aware Skill Design** — New section covering how to design skills that subagents consume effectively: three loading layers (preloaded, dynamic, execution-time), subagent prompt structure (identity, skill rules, task loop, constraints), and orchestrator patterns (single-specialist, chain, parallel).
+
+**Progressive Disclosure** — Enhanced with specific lazy-loading rules: reference files are NOT auto-loaded, teach agents to load on-demand per-step, never instruct "read all files first."
+
+**Anti-Pattern #9** — Added "Eager Loading" to the anti-pattern catalog.
+
+### New Reference Files
+
+- `references/description-guide.md` — Comprehensive guide to writing skill descriptions with bad→good examples, keyword strategy, length guidelines, and testing checklist
+- `references/subagent-design.md` — Full guide to designing skills for subagent consumption, including three loading layers, subagent prompt structure, orchestrator patterns, input/output contracts, and lazy-loading best practices
+
+### Updated Reference Files
+
+- `references/subagent-template.md` — Added four-section prompt structure (Identity, Skill Usage Rules, Task-Handling Loop, Constraints), YAML config with skill references, and skill-aware example patterns
+
+### Removed (Deduplicated)
+
+- Case studies removed from SKILL.md (were already duplicated in `references/antipatterns.md`)
+- Verbose code examples moved to reference files where they belong
+- Redundant script example removed (already in `references/self-contained-tools.md`)
+
+### Philosophy Update
+
+From "progressive disclosure machines" to "progressive disclosure machines with lazy-loaded references" — emphasizing that reference files are only loaded when the agent decides they're relevant to the current step, not eagerly.
+
+---
+
 ## v1.0.0 (2026-01-14)
 
 ### Created
