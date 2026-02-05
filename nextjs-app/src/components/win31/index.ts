@@ -7,3 +7,7 @@ export type { DesktopIconProps } from './icon';
 export { Taskbar, TaskbarButton } from './taskbar';
 
 export { StartMenu, StartMenuItem, StartMenuDivider } from './start-menu';
+
+export { SkillBrowser } from './skill-browser';
+
+export { SkillDocument } from './skill-document';

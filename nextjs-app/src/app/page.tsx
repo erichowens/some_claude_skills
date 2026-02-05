@@ -4,19 +4,15 @@ import { useState } from 'react';
 import {
   Folder,
   FileText,
-  Settings,
   HelpCircle,
-  Monitor,
-  Cpu,
-  Sparkles,
-  Search,
   Star,
-  PlusCircle,
   Book,
-  Zap,
   Power,
+  Search,
+  Cpu,
 } from 'lucide-react';
 
+import { type Skill, getSkillById } from '@/lib/skills';
 import { Button } from '@/components/ui/button';
 import {
   Window,
@@ -28,248 +24,259 @@ import {
   StartMenu,
   StartMenuItem,
   StartMenuDivider,
+  SkillBrowser,
+  SkillDocument,
 } from '@/components/win31';
 
 /*
  * ═══════════════════════════════════════════════════════════════════════════
  * WINDOWS 3.1 POCKET EDITION - Homepage
- * A smartphone from 1992 that never existed
+ * Document-centric skill browser
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
+type ActiveView = 
+  | { type: 'desktop' }
+  | { type: 'browser' }
+  | { type: 'skill'; skill: Skill }
+  | { type: 'readme' }
+  | { type: 'about' };
+
 export default function HomePage() {
   const [startOpen, setStartOpen] = useState(false);
-  const [activeWindow, setActiveWindow] = useState<string | null>(null);
+  const [activeView, setActiveView] = useState<ActiveView>({ type: 'desktop' });
 
-  const openWindow = (id: string) => {
-    setActiveWindow(id);
+  const openSkillBrowser = () => {
+    setActiveView({ type: 'browser' });
     setStartOpen(false);
   };
 
-  const closeWindow = () => {
-    setActiveWindow(null);
+  const openSkill = (skill: Skill) => {
+    setActiveView({ type: 'skill', skill });
+  };
+
+  const navigateToSkill = (skillId: string) => {
+    const skill = getSkillById(skillId);
+    if (skill) {
+      setActiveView({ type: 'skill', skill });
+    }
+  };
+
+  const goToDesktop = () => {
+    setActiveView({ type: 'desktop' });
+  };
+
+  const getActiveTitle = (): string => {
+    switch (activeView.type) {
+      case 'browser': return 'Skills';
+      case 'skill': return activeView.skill.title;
+      case 'readme': return 'README';
+      case 'about': return 'About';
+      default: return '';
+    }
   };
 
   return (
     <div className="win-desktop flex flex-col no-bounce">
-      {/* Desktop Area */}
-      <main className="flex-1 overflow-auto p-4 pb-16">
-        {/* Desktop Icons Grid */}
-        {!activeWindow && (
-          <div className="grid grid-cols-4 gap-1 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
-            <DesktopIcon
-              icon={Folder}
-              label="Skills"
-              size="touch"
-              onDoubleClick={() => openWindow('skills')}
-            />
-            <DesktopIcon
-              icon={Cpu}
-              label="MCP Servers"
-              size="touch"
-              onDoubleClick={() => openWindow('mcp')}
-            />
-            <DesktopIcon
-              icon={Star}
-              label="Favorites"
-              size="touch"
-              onDoubleClick={() => openWindow('favorites')}
-            />
-            <DesktopIcon
-              icon={Book}
-              label="Docs"
-              size="touch"
-              onDoubleClick={() => openWindow('docs')}
-            />
-            <DesktopIcon
-              icon={FileText}
-              label="README"
-              size="touch"
-              onDoubleClick={() => openWindow('readme')}
-            />
-            <DesktopIcon
-              icon={Settings}
-              label="Control Panel"
-              size="touch"
-              onDoubleClick={() => openWindow('settings')}
+      {/* Main Area */}
+      <main className="flex-1 overflow-hidden pb-12">
+        {/* Desktop Icons */}
+        {activeView.type === 'desktop' && (
+          <div className="h-full overflow-auto p-4">
+            <div className="grid grid-cols-4 gap-1 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
+              <DesktopIcon
+                icon={Folder}
+                label="Skills"
+                size="touch"
+                onDoubleClick={openSkillBrowser}
+              />
+              <DesktopIcon
+                icon={Star}
+                label="Favorites"
+                size="touch"
+                onDoubleClick={() => setActiveView({ type: 'browser' })}
+              />
+              <DesktopIcon
+                icon={Cpu}
+                label="MCP Servers"
+                size="touch"
+                onDoubleClick={() => setActiveView({ type: 'browser' })}
+              />
+              <DesktopIcon
+                icon={Book}
+                label="Docs"
+                size="touch"
+                onDoubleClick={() => setActiveView({ type: 'readme' })}
+              />
+              <DesktopIcon
+                icon={FileText}
+                label="README"
+                size="touch"
+                onDoubleClick={() => setActiveView({ type: 'readme' })}
+              />
+              <DesktopIcon
+                icon={HelpCircle}
+                label="About"
+                size="touch"
+                onDoubleClick={() => setActiveView({ type: 'about' })}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Skill Browser */}
+        {activeView.type === 'browser' && (
+          <div className="h-full p-2 sm:p-4">
+            <SkillBrowser
+              onSelectSkill={openSkill}
+              onClose={goToDesktop}
             />
           </div>
         )}
 
-        {/* Skills Window */}
-        {activeWindow === 'skills' && (
-          <Window
-            title="Skills - 90+ Expert Agents"
-            icon={<Folder className="h-4 w-4" />}
-            onClose={closeWindow}
-            mobile
-            className="mx-auto max-w-2xl animate-fade-in"
-          >
-            <WindowContent>
-              {/* Search Bar */}
-              <div className="mb-4 flex gap-2">
-                <div className="flex flex-1 items-center gap-2 border border-win31-gray-darker bg-white px-3 py-2 shadow-[inset_1px_1px_0_var(--color-win31-gray-darker)]">
-                  <Search className="h-4 w-4 text-win31-gray-darker" />
-                  <input
-                    type="text"
-                    placeholder="Search skills..."
-                    className="flex-1 bg-transparent text-sm outline-none placeholder:text-win31-gray-darker"
-                  />
-                </div>
-                <Button variant="default" size="icon">
-                  <Search className="h-4 w-4" />
-                </Button>
-              </div>
+        {/* Skill Document */}
+        {activeView.type === 'skill' && (
+          <div className="h-full p-2 sm:p-4">
+            <SkillDocument
+              skill={activeView.skill}
+              onClose={openSkillBrowser}
+              onNavigate={navigateToSkill}
+            />
+          </div>
+        )}
 
-              {/* Skills Grid */}
-              <WindowWell className="p-3">
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-                  {[
-                    { name: 'TypeScript Dev', icon: '📘' },
-                    { name: 'System Architect', icon: '🏗️' },
-                    { name: 'DevOps Engineer', icon: '🔧' },
-                    { name: 'UI Designer', icon: '🎨' },
-                    { name: 'Data Analyst', icon: '📊' },
-                    { name: 'Security Auditor', icon: '🔒' },
-                    { name: 'API Designer', icon: '🔌' },
-                    { name: 'Test Engineer', icon: '🧪' },
-                    { name: 'Doc Writer', icon: '📝' },
-                  ].map((skill) => (
-                    <button
-                      key={skill.name}
-                      className="flex items-center gap-2 rounded-none border border-transparent p-2 text-left text-sm hover:border-win31-navy hover:bg-win31-navy/10 active:bg-win31-navy active:text-white"
-                    >
-                      <span className="text-lg">{skill.icon}</span>
-                      <span className="truncate">{skill.name}</span>
-                    </button>
-                  ))}
-                </div>
+        {/* README */}
+        {activeView.type === 'readme' && (
+          <div className="h-full p-2 sm:p-4">
+            <Window
+              title="README.TXT - Welcome"
+              icon={<FileText className="h-4 w-4" />}
+              onClose={goToDesktop}
+              className="mx-auto h-full max-w-3xl animate-fade-in"
+              mobile
+            >
+              <WindowWell className="m-2 flex-1 overflow-auto p-4 sm:p-6">
+                <article className="space-y-4 text-sm leading-relaxed">
+                  <h1 className="text-2xl font-bold text-win31-navy">
+                    Some Claude Skills
+                  </h1>
+                  <p className="text-base text-win31-gray-darker">
+                    A curated collection of 90+ expert AI agents for Claude Code.
+                  </p>
+
+                  <hr className="border-win31-gray-darker" />
+
+                  <h2 className="text-lg font-semibold text-win31-navy">What are Skills?</h2>
+                  <p>
+                    Skills are specialized prompts that transform Claude into an expert in a specific
+                    domain. Each skill contains instructions, best practices, and patterns for tasks
+                    like TypeScript development, system architecture, DevOps, and more.
+                  </p>
+
+                  <h2 className="text-lg font-semibold text-win31-navy">Getting Started</h2>
+                  <ol className="list-inside list-decimal space-y-2">
+                    <li>
+                      <strong>Browse Skills</strong> - Open the Skills folder to explore available skills
+                    </li>
+                    <li>
+                      <strong>Read the Documentation</strong> - Each skill includes detailed instructions
+                    </li>
+                    <li>
+                      <strong>Install</strong> - Copy the install command to add skills to your project
+                    </li>
+                    <li>
+                      <strong>Use</strong> - Claude will automatically apply the skill&apos;s expertise
+                    </li>
+                  </ol>
+
+                  <h2 className="text-lg font-semibold text-win31-navy">About This Interface</h2>
+                  <p>
+                    This is <strong>Windows 3.1 Pocket Edition</strong> - imagining what a smartphone
+                    would look like if Microsoft made one in 1992.
+                  </p>
+                  <p className="text-win31-gray-darker">
+                    Built with Next.js 15, Tailwind CSS v4, and Cloudflare Pages.
+                  </p>
+
+                  <div className="mt-8 rounded-none border border-win31-gray-darker bg-win31-gray-light p-4">
+                    <h3 className="mb-2 font-semibold">Quick Tips</h3>
+                    <ul className="list-inside list-disc space-y-1 text-xs">
+                      <li>Double-tap icons to open them</li>
+                      <li>Use the Start menu for navigation</li>
+                      <li>Skills show references in the sidebar</li>
+                      <li>Works great on mobile devices</li>
+                    </ul>
+                  </div>
+                </article>
               </WindowWell>
-
-              {/* Action Buttons */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                <Button variant="primary" size="touch" className="flex-1">
-                  <Zap className="h-4 w-4" />
-                  Browse All
+              <div className="flex justify-end gap-2 p-2">
+                <Button variant="primary" onClick={openSkillBrowser}>
+                  Browse Skills
                 </Button>
-                <Button variant="default" size="touch">
-                  <PlusCircle className="h-4 w-4" />
-                  Submit
+                <Button variant="default" onClick={goToDesktop}>
+                  OK
                 </Button>
               </div>
-            </WindowContent>
-          </Window>
+            </Window>
+          </div>
         )}
 
-        {/* README Window */}
-        {activeWindow === 'readme' && (
-          <Window
-            title="README.TXT"
-            icon={<FileText className="h-4 w-4" />}
-            onClose={closeWindow}
-            mobile
-            className="mx-auto max-w-2xl animate-fade-in"
-          >
-            <WindowWell className="m-2 max-h-[60vh] overflow-auto p-4">
-              <h1 className="mb-4 font-display text-xl text-win31-navy">
-                Welcome to Skills 3.1
-              </h1>
-              <div className="space-y-3 text-sm leading-relaxed">
-                <p>
-                  <strong>Some Claude Skills</strong> is a curated collection of 90+ expert
-                  AI agents for Claude Code.
+        {/* About */}
+        {activeView.type === 'about' && (
+          <div className="h-full p-2 sm:p-4">
+            <Window
+              title="About Skills 3.1"
+              icon={<HelpCircle className="h-4 w-4" />}
+              onClose={goToDesktop}
+              className="mx-auto max-w-md animate-fade-in"
+              mobile
+            >
+              <WindowContent className="text-center">
+                <div className="mb-4 text-6xl">🖥️</div>
+                <h1 className="mb-1 text-xl font-bold text-win31-navy">
+                  Skills 3.1 Pocket Edition
+                </h1>
+                <p className="mb-4 text-sm text-win31-gray-darker">
+                  Version 1.0.0
                 </p>
-                <p>
-                  Each skill transforms Claude into a specialized expert—from TypeScript
-                  development to system architecture, DevOps to UI design.
-                </p>
-                <h2 className="mt-4 font-semibold text-win31-navy">Getting Started</h2>
-                <ol className="list-inside list-decimal space-y-1">
-                  <li>Browse the Skills folder</li>
-                  <li>Find a skill that matches your task</li>
-                  <li>Copy the skill to your project</li>
-                  <li>Claude becomes an expert</li>
-                </ol>
-                <h2 className="mt-4 font-semibold text-win31-navy">About This UI</h2>
-                <p>
-                  This is Windows 3.1 Pocket Edition—imagining what a smartphone would
-                  look like if Microsoft made one in 1992.
-                </p>
-                <p className="text-win31-gray-darker">
-                  Built with Next.js 15, Tailwind CSS v4, and deployed on Cloudflare Pages.
-                </p>
+
+                <div className="mb-4 space-y-1 text-xs">
+                  <p>© 2024 Some Claude Skills</p>
+                  <p>Made by Erich Owens</p>
+                  <p className="text-win31-gray-darker">Ex-Meta ML Engineer</p>
+                </div>
+
+                <div className="rounded-none border border-win31-gray-darker bg-win31-gray-light p-3 text-left text-xs">
+                  <p className="mb-2 font-semibold">System Info:</p>
+                  <p>• Next.js 15 (App Router)</p>
+                  <p>• Tailwind CSS v4</p>
+                  <p>• Radix UI Primitives</p>
+                  <p>• Cloudflare Pages</p>
+                </div>
+              </WindowContent>
+              <div className="flex justify-center p-2">
+                <Button variant="default" onClick={goToDesktop}>
+                  OK
+                </Button>
               </div>
-            </WindowWell>
-            <div className="flex justify-end gap-2 p-2">
-              <Button variant="default" onClick={closeWindow}>
-                OK
-              </Button>
-            </div>
-          </Window>
-        )}
-
-        {/* Settings Window */}
-        {activeWindow === 'settings' && (
-          <Window
-            title="Control Panel"
-            icon={<Settings className="h-4 w-4" />}
-            onClose={closeWindow}
-            mobile
-            className="mx-auto max-w-md animate-fade-in"
-          >
-            <WindowContent>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { icon: Monitor, label: 'Display' },
-                  { icon: Cpu, label: 'System' },
-                  { icon: HelpCircle, label: 'About' },
-                ].map(({ icon: Icon, label }) => (
-                  <button
-                    key={label}
-                    className="flex flex-col items-center gap-2 p-3 hover:bg-win31-navy/10 active:bg-win31-navy active:text-white"
-                  >
-                    <Icon className="h-8 w-8" />
-                    <span className="text-xs">{label}</span>
-                  </button>
-                ))}
-              </div>
-            </WindowContent>
-          </Window>
-        )}
-
-        {/* Placeholder for other windows */}
-        {activeWindow && !['skills', 'readme', 'settings'].includes(activeWindow) && (
-          <Window
-            title={activeWindow.charAt(0).toUpperCase() + activeWindow.slice(1)}
-            icon={<Sparkles className="h-4 w-4" />}
-            onClose={closeWindow}
-            mobile
-            className="mx-auto max-w-md animate-fade-in"
-          >
-            <WindowContent className="py-8 text-center">
-              <Sparkles className="mx-auto mb-4 h-12 w-12 text-win31-navy" />
-              <p className="text-sm text-win31-gray-darker">
-                Coming soon...
-              </p>
-            </WindowContent>
-            <div className="flex justify-center gap-2 p-2">
-              <Button variant="default" onClick={closeWindow}>
-                OK
-              </Button>
-            </div>
-          </Window>
+            </Window>
+          </div>
         )}
       </main>
 
       {/* Taskbar */}
       <Taskbar onStartClick={() => setStartOpen(!startOpen)}>
-        {activeWindow && (
+        {activeView.type !== 'desktop' && (
           <TaskbarButton
             active
-            icon={<Folder className="h-3 w-3" />}
+            icon={
+              activeView.type === 'browser' ? <Folder className="h-3 w-3" /> :
+              activeView.type === 'skill' ? <FileText className="h-3 w-3" /> :
+              <FileText className="h-3 w-3" />
+            }
             onClick={() => {}}
           >
-            {activeWindow.charAt(0).toUpperCase() + activeWindow.slice(1)}
+            {getActiveTitle()}
           </TaskbarButton>
         )}
       </Taskbar>
@@ -279,45 +286,39 @@ export default function HomePage() {
         <StartMenuItem
           icon={Folder}
           label="Skills"
-          onClick={() => openWindow('skills')}
-        />
-        <StartMenuItem
-          icon={Cpu}
-          label="MCP Servers"
-          onClick={() => openWindow('mcp')}
+          onClick={openSkillBrowser}
         />
         <StartMenuItem
           icon={Star}
           label="Favorites"
-          onClick={() => openWindow('favorites')}
+          onClick={openSkillBrowser}
         />
         <StartMenuItem
-          icon={Book}
-          label="Documentation"
-          onClick={() => openWindow('docs')}
+          icon={Cpu}
+          label="MCP Servers"
+          onClick={openSkillBrowser}
         />
         <StartMenuDivider />
         <StartMenuItem
           icon={Search}
           label="Find..."
           shortcut="Ctrl+F"
-          onClick={() => openWindow('skills')}
+          onClick={openSkillBrowser}
         />
         <StartMenuItem
-          icon={Settings}
-          label="Control Panel"
-          onClick={() => openWindow('settings')}
+          icon={Book}
+          label="Documentation"
+          onClick={() => { setActiveView({ type: 'readme' }); setStartOpen(false); }}
         />
         <StartMenuItem
           icon={HelpCircle}
-          label="Help"
-          shortcut="F1"
-          onClick={() => openWindow('readme')}
+          label="About"
+          onClick={() => { setActiveView({ type: 'about' }); setStartOpen(false); }}
         />
         <StartMenuDivider />
         <StartMenuItem
           icon={Power}
-          label="Shut Down..."
+          label="Close Menu"
           onClick={() => setStartOpen(false)}
         />
       </StartMenu>
