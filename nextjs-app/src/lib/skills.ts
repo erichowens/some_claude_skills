@@ -400,6 +400,180 @@ async function verifyPassword(password: string, hash: string): Promise<boolean> 
 5. **Report**: Findings with severity and remediation
 `,
   },
+  {
+    id: 'api-architect',
+    title: 'API Architect',
+    description: 'Design and implement robust, scalable REST and GraphQL APIs following best practices.',
+    category: 'architecture',
+    icon: '🔌',
+    tags: ['api', 'rest', 'graphql', 'openapi', 'backend'],
+    difficulty: 'intermediate',
+    installCommand: 'claude skill add api-architect',
+    references: [
+      { title: 'REST API Design', type: 'guide', url: '/docs/guides/rest-design' },
+      { title: 'GraphQL Best Practices', type: 'external', url: 'https://graphql.org/learn/best-practices/' },
+      { title: 'Security Auditor', type: 'related-skill', url: '/skills/security-auditor' },
+    ],
+    content: `# API Architect
+
+You are an expert API architect focused on designing clean, consistent, and scalable APIs.
+
+## Core Principles
+
+### REST API Design
+
+Use consistent resource naming and HTTP methods:
+
+\`\`\`yaml
+# OpenAPI Specification Example
+openapi: 3.0.3
+info:
+  title: Users API
+  version: 1.0.0
+
+paths:
+  /users:
+    get:
+      summary: List all users
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+    post:
+      summary: Create a user
+
+  /users/{id}:
+    get:
+      summary: Get user by ID
+    patch:
+      summary: Update user
+    delete:
+      summary: Delete user
+\`\`\`
+
+### GraphQL Schema Design
+
+\`\`\`graphql
+type Query {
+  user(id: ID!): User
+  users(first: Int, after: String): UserConnection!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+  updateUser(id: ID!, input: UpdateUserInput!): UpdateUserPayload!
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+  createdAt: DateTime!
+}
+
+type UserConnection {
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+\`\`\`
+
+## API Design Rules
+
+- ✅ DO: Use plural nouns for collections
+- ✅ DO: Use lowercase with hyphens
+- ✅ DO: Keep URLs shallow (max 2-3 levels)
+- ✅ DO: Use query params for filtering
+
+- ❌ DON'T: Use verbs in URLs
+- ❌ DON'T: Nest too deeply
+- ❌ DON'T: Return different structures for same endpoint
+- ❌ DON'T: Ignore versioning
+
+- ⚠️ IMPORTANT: Never remove fields without deprecation period
+- ⚠️ IMPORTANT: Always version your API
+
+- 💡 TIP: Use consistent response envelopes
+
+## Response Structures
+
+\`\`\`json
+{
+  "data": {
+    "id": "user_123",
+    "email": "jane@example.com",
+    "name": "Jane Doe"
+  },
+  "meta": {
+    "requestId": "req_abc123",
+    "timestamp": "2024-01-15T10:30:00Z"
+  }
+}
+\`\`\`
+
+For errors:
+
+\`\`\`json
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid email format",
+    "details": [
+      {
+        "field": "email",
+        "message": "Must be a valid email address"
+      }
+    ]
+  }
+}
+\`\`\`
+
+## HTTP Status Codes
+
+| Code | Meaning | When to Use |
+|------|---------|-------------|
+| 200 | OK | Successful GET, PUT, PATCH |
+| 201 | Created | Successful POST creating resource |
+| 204 | No Content | Successful DELETE |
+| 400 | Bad Request | Invalid input |
+| 401 | Unauthorized | Missing/invalid auth |
+| 403 | Forbidden | Valid auth, no permission |
+| 404 | Not Found | Resource doesn't exist |
+| 429 | Too Many Requests | Rate limited |
+
+## Authentication Best Practices
+
+- ✅ DO: Use short-lived JWTs (15 min - 1 hour)
+- ✅ DO: Implement refresh token rotation
+- ✅ DO: Store tokens securely (httpOnly cookies)
+- ✅ DO: Validate tokens on every request
+
+- ❌ DON'T: Store JWTs in localStorage
+- ❌ DON'T: Include sensitive data in JWT payload
+- ❌ DON'T: Use long-lived tokens without refresh
+- ❌ DON'T: Skip token validation
+
+- NOTE: API Keys for server-to-server, OAuth for user delegation
+
+## Rate Limiting
+
+\`\`\`bash
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1640000000
+Retry-After: 60
+\`\`\`
+
+## When to Use This Skill
+
+- Designing new API endpoints
+- Reviewing API contracts
+- Creating OpenAPI specifications
+- Implementing GraphQL schemas
+`,
+  },
 ];
 
 export function getSkillById(id: string): Skill | undefined {
