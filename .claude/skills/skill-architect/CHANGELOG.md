@@ -1,5 +1,26 @@
 # Changelog: skill-architect
 
+## v2.1.0 (2026-02-05)
+
+### Visual Artifacts
+
+**New section in SKILL.md**: "Visual Artifacts: Mermaid Diagrams & Code" — encourages skills to render decision trees, workflows, architectures, timelines, and data models as Mermaid diagrams instead of prose. Includes a quick-reference table mapping skill content types to optimal diagram types, plus Mermaid YAML frontmatter configuration syntax.
+
+**New reference**: `references/visual-artifacts.md` — comprehensive guide to all 16+ Mermaid diagram types with:
+- Full YAML frontmatter configuration (themes, themeVariables, per-diagram config)
+- Concrete examples for every diagram type: flowchart, sequence, state, ER, gantt, mindmap, timeline, pie, quadrant, gitgraph, class, user journey, sankey, XY chart, block, architecture, kanban
+- Node shapes, edge styles, and features for each diagram type
+- Decision matrix: which diagram type for which skill content
+- Best practices for Mermaid in progressive-disclosure skills
+
+**Anti-pattern #10**: "Prose-Only Processes" — if a skill describes a decision tree or workflow in paragraph form when it could be a Mermaid diagram, that's an improvement opportunity.
+
+**Updated validation checklist**: Now includes "Decision trees/workflows use Mermaid diagrams, not prose."
+
+**Updated Step 4**: Skill creation now explicitly calls out visual artifacts and Mermaid as part of the writing process.
+
+---
+
 ## v2.0.0 (2026-02-05)
 
 ### Major Improvements

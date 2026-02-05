@@ -51,6 +51,14 @@ Required: `name`, `description`
 
 Optional: `allowed-tools`, `argument-hint`, `license`, `disable-model-invocation`, `user-invocable`, `context`, `metadata`
 
+### Visual Artifacts
+
+Skills should render processes, decision trees, architectures, and temporal knowledge as **Mermaid diagrams** instead of prose. Mermaid is text-based, version-controllable, and renders natively in GitHub, Docusaurus, and Claude's output.
+
+16+ diagram types are available: flowchart, sequence, state, ER, timeline, mindmap, quadrant, gantt, gitgraph, class, user journey, sankey, XY chart, block, architecture, kanban, pie.
+
+See `references/visual-artifacts.md` for the full catalog with examples and YAML configuration.
+
 ### Subagent-Aware Design
 
 Skills consumed by subagents should have:
@@ -73,11 +81,12 @@ Expert knowledge that separates novices from experts:
 
 ```
 skill-architect/
-├── SKILL.md                          # Core instructions (350 lines)
+├── SKILL.md                          # Core instructions (<500 lines)
 ├── CHANGELOG.md                      # Version history
 ├── README.md                         # This file
 └── references/
     ├── description-guide.md          # How to write effective descriptions
+    ├── visual-artifacts.md           # Mermaid diagram catalog & configuration
     ├── antipatterns.md               # Shibboleths and case studies
     ├── self-contained-tools.md       # Scripts, MCP, subagent patterns
     ├── subagent-design.md            # Designing skills for subagent consumption
@@ -98,6 +107,7 @@ skill-architect/
 | 7 | Catch-All Skill | Split by expertise type |
 | 8 | Vague Description | Use the description formula |
 | 9 | Eager Loading | Lazy-load references, never "read all first" |
+| 10 | Prose-Only Processes | Use Mermaid for decision trees, workflows, architectures |
 
 ## Success Metrics
 
@@ -110,6 +120,7 @@ skill-architect/
 
 ## Version History
 
+- **v2.1.0** (2026-02-05) — Visual artifacts: Mermaid diagram guide, 16+ diagram types, YAML config, anti-pattern #10
 - **v2.0.0** (2026-02-05) — Major rewrite: description guide, subagent design, frontmatter fields, lazy loading, trimmed to 350 lines
 - **v1.0.0** (2026-01-14) — Initial unified meta-skill combining skill-coach + skill-creator
 

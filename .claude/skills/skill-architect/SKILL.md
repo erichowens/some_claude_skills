@@ -136,7 +136,7 @@ allowed-tools: Read,Write
 ❌ NOT for: [D, E, F — explicit boundaries]
 
 ## Core Process
-[Decision trees: "If X → do A. If Y → do B." Not prose.]
+[Decision trees as Mermaid flowcharts, not prose. See visual-artifacts.md]
 
 ## Anti-Patterns
 ### [Pattern Name]
@@ -181,9 +181,10 @@ Write in imperative form: "To accomplish X, do Y" not "You should do X."
 Answer these questions in SKILL.md:
 1. **Purpose**: What is this skill for? (1-2 sentences)
 2. **Activation**: What triggers it? What shouldn't?
-3. **Process**: Step-by-step decision trees
+3. **Process**: Step-by-step decision trees — use Mermaid flowcharts, not prose
 4. **Anti-patterns**: What do novices get wrong?
-5. **References**: What files exist and when to consult them?
+5. **Visual artifacts**: Render workflows, architectures, timelines as Mermaid diagrams (see `references/visual-artifacts.md`)
+6. **References**: What files exist and when to consult them?
 
 ### Step 5: Validate
 
@@ -228,6 +229,52 @@ The subagent's prompt should have four sections:
 4. **Constraints**: Quality bar, safety rules, tie-breaking priorities.
 
 **Full templates and orchestration patterns**: See `references/subagent-design.md`
+
+---
+
+## Visual Artifacts: Mermaid Diagrams & Code
+
+Skills that produce visual artifacts — Mermaid diagrams, structured code blocks, annotated tables — are dramatically more useful than prose-only skills. A decision tree rendered as a flowchart is parsed instantly; the same logic in paragraph form forces mental graph reconstruction.
+
+**Rule**: If a skill describes a process, decision tree, architecture, state machine, timeline, or data relationship, render it as a Mermaid diagram.
+
+### Which Diagram for Which Content
+
+| Skill Content | Diagram Type |
+|---------------|-------------|
+| Decision trees / troubleshooting | `flowchart` |
+| Agent/API communication | `sequenceDiagram` |
+| Lifecycle / status transitions | `stateDiagram-v2` |
+| Data models / schemas | `erDiagram` |
+| Temporal knowledge / evolution | `timeline` |
+| Domain taxonomy / concept maps | `mindmap` |
+| Priority matrices (effort vs. impact) | `quadrantChart` |
+| System architecture | `block-beta` or `architecture-beta` |
+| Project timelines | `gantt` |
+
+### Mermaid YAML Frontmatter
+
+Every Mermaid diagram supports a YAML config block for theming and layout:
+
+````markdown
+```mermaid
+---
+title: Decision Flow
+config:
+  theme: neutral
+  flowchart:
+    curve: basis
+    nodeSpacing: 50
+---
+flowchart TD
+  A{Skill exists?} -->|Yes| B[Audit]
+  A -->|No| C[Create]
+```
+````
+
+Themes: `default`, `dark`, `forest`, `neutral`, `base` (for full customization via `themeVariables`).
+
+**Full diagram catalog, node shapes, edge styles, and configuration reference**: See `references/visual-artifacts.md`
 
 ---
 
@@ -301,6 +348,7 @@ Expert knowledge that separates novices from experts. Things LLMs get wrong due 
 | 7 | Catch-All Skill | Split by expertise type, not domain |
 | 8 | Vague Description | Use `[What] [When] [Keywords]. NOT for [Exclusions]` |
 | 9 | Eager Loading | Never "read all files first"; lazy-load references |
+| 10 | Prose-Only Processes | Use Mermaid diagrams for decision trees, workflows, architectures |
 
 **Full case studies**: See `references/antipatterns.md`
 
@@ -318,6 +366,7 @@ Expert knowledge that separates novices from experts. Things LLMs get wrong due 
 □ All referenced files actually exist (no phantoms)
 □ Scripts work (not templates), have clear CLI, handle errors
 □ Reference files each have a 1-line purpose in SKILL.md
+□ Decision trees/workflows use Mermaid diagrams, not prose
 □ CHANGELOG.md tracks version history
 □ If subagent-consumed: output contracts are defined
 ```
@@ -346,5 +395,6 @@ Consult these for deep dives — they are NOT loaded by default:
 | `references/antipatterns.md` | Looking for shibboleths, case studies, or temporal patterns |
 | `references/self-contained-tools.md` | Adding scripts, MCP servers, or subagents to a skill |
 | `references/subagent-design.md` | Designing skills for subagent consumption or orchestration |
+| `references/visual-artifacts.md` | Adding Mermaid diagrams: type catalog, YAML config, best practices |
 | `references/mcp-template.md` | Building an MCP server for a skill |
 | `references/subagent-template.md` | Defining subagent prompts and multi-agent pipelines |
