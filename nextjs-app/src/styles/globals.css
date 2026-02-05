@@ -1,0 +1,250 @@
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * GOOGLE FONTS IMPORT - Must be first
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * TAILWIND CSS v4 THEME CONFIGURATION
+ * Windows 3.1 Design System + shadcn/ui tokens
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+@theme {
+  /* ─────────────────────────────────────────────────────────────────────────
+     COLORS - Windows 3.1 Palette
+     ───────────────────────────────────────────────────────────────────────── */
+  
+  /* Classic Win31 Grays */
+  --color-win31-gray: #c0c0c0;
+  --color-win31-dark-gray: #808080;
+  --color-win31-light-gray: #dfdfdf;
+  --color-win31-white: #ffffff;
+  --color-win31-black: #000000;
+
+  /* Classic Win31 Colors */
+  --color-win31-navy: #000080;
+  --color-win31-blue: #0000ff;
+  --color-win31-teal: #008080;
+  --color-win31-desktop: #008080;
+
+  /* Vibrant Accents */
+  --color-win31-yellow: #ffff00;
+  --color-win31-bright-yellow: #ffd700;
+  --color-win31-red: #ff0000;
+  --color-win31-bright-red: #dc143c;
+  --color-win31-magenta: #ff00ff;
+  --color-win31-lime: #00ff00;
+  --color-win31-cyan: #00ffff;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     SEMANTIC COLORS (shadcn/ui compatible)
+     ───────────────────────────────────────────────────────────────────────── */
+  
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #6366f1;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #0f172a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-success: #22c55e;
+  --color-success-foreground: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-foreground: #000000;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #6366f1;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - Font Families
+     ───────────────────────────────────────────────────────────────────────── */
+  
+  --font-display: 'Press Start 2P', cursive;
+  --font-window: 'VT323', monospace;
+  --font-system: 'IBM Plex Mono', monospace;
+  --font-body: 'Courier Prime', 'Courier New', monospace;
+  --font-code: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BORDER RADIUS
+     ───────────────────────────────────────────────────────────────────────── */
+  
+  --radius-win31: 0px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BOX SHADOWS - Win31 Beveled Effects
+     ───────────────────────────────────────────────────────────────────────── */
+  
+  --shadow-win31-outset: 
+    inset 1px 1px 0 #ffffff,
+    inset -1px -1px 0 #808080,
+    2px 2px 0 rgba(0, 0, 0, 0.25);
+  
+  --shadow-win31-inset: 
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #808080;
+  
+  --shadow-win31-window: 
+    inset 2px 2px 0 #ffffff,
+    inset -2px -2px 0 #808080,
+    6px 6px 0 rgba(0, 0, 0, 0.4);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     ANIMATIONS
+     ───────────────────────────────────────────────────────────────────────── */
+  
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-fade-out: fade-out 0.2s ease-out;
+  --animate-slide-in-from-top: slide-in-from-top 0.3s ease-out;
+  --animate-slide-in-from-bottom: slide-in-from-bottom 0.3s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes slide-in-from-top {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+
+  @keyframes slide-in-from-bottom {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * DARK MODE OVERRIDES
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: #0f172a;
+    --color-foreground: #f8fafc;
+    --color-card: #1e293b;
+    --color-card-foreground: #f8fafc;
+    --color-popover: #1e293b;
+    --color-popover-foreground: #f8fafc;
+    --color-primary: #818cf8;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #334155;
+    --color-secondary-foreground: #f8fafc;
+    --color-muted: #334155;
+    --color-muted-foreground: #94a3b8;
+    --color-accent: #334155;
+    --color-accent-foreground: #f8fafc;
+    --color-destructive: #7f1d1d;
+    --color-destructive-foreground: #f8fafc;
+    --color-border: #334155;
+    --color-input: #334155;
+    --color-ring: #6366f1;
+  }
+}
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * BASE LAYER
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * WIN31 UTILITY CLASSES
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+@utility bevel-outset {
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--color-win31-white);
+  border-left-color: var(--color-win31-white);
+  border-bottom-color: var(--color-win31-black);
+  border-right-color: var(--color-win31-black);
+  box-shadow: 
+    inset -1px -1px 0 var(--color-win31-dark-gray),
+    inset 1px 1px 0 var(--color-win31-light-gray);
+}
+
+@utility bevel-inset {
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: var(--color-win31-black);
+  border-left-color: var(--color-win31-black);
+  border-bottom-color: var(--color-win31-white);
+  border-right-color: var(--color-win31-white);
+  box-shadow: inset 1px 1px 0 var(--color-win31-dark-gray);
+}
+
+@utility win31-window {
+  background: var(--color-win31-gray);
+  border: 3px solid var(--color-win31-black);
+  box-shadow: var(--shadow-win31-window);
+}
+
+@utility win31-titlebar {
+  background: linear-gradient(90deg, var(--color-win31-navy), var(--color-win31-blue));
+  color: var(--color-win31-white);
+  padding: 2px 4px;
+  font-family: var(--font-window);
+  font-size: 14px;
+}
+
+@utility win31-desktop {
+  background-color: var(--color-win31-teal);
+  min-height: 100vh;
+}
