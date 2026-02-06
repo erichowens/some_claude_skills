@@ -490,6 +490,8 @@ Consult for deep dives:
 
 | File | Consult When |
 |------|-------------|
-| `references/visualization-research.md` | Choosing visualization libraries, implementing live state updates |
-| `references/execution-engines.md` | Implementing the execution engine, process models, failure handling |
-| `references/dag-schema.md` | Full YAML schema for DAG and node definitions |
+| `references/sdk-implementation.md` | Implementing on Claude SDK, OpenAI, Ollama; LLM-agnostic provider layer; streaming; Temporal durable execution |
+| `references/skills-vs-research.md` | Understanding when skill libraries help vs. on-the-fly research agents; cost model; hybrid architecture |
+| `references/skill-gap-analysis.md` | Auditing the 180-skill library for winDAGs; consolidation plan for 26 dag-* skills; 15 missing skills enumerated by priority |
+| `references/visualization-research.md` | Choosing visualization libraries; UX patterns from Temporal/Dagster/Prefect/LangGraph/CrewAI; ReactFlow components |
+| `references/execution-engines.md` | Execution engine design; topological scheduling; failure handling; DAG mutation; cost tracking |
