@@ -489,8 +489,9 @@ Consult for deep dives:
 
 | File | Consult When |
 |------|-------------|
+| `references/progressive-revelation.md` | Vague nodes, sub-DAG expansion, context management across waves, domain meta-skills |
 | `references/business-model.md` | Monetization (open core + cloud + marketplace); skill marketplace network effects; go-to-market |
-| `references/skill-lifecycle.md` | Four evaluators (self/peer/downstream/human); Elo ranking; Kuhnian revolution; crystallization pipeline |
+| `references/skill-lifecycle.md` | Lifecycle states with Thompson sampling; four evaluators; drift detection; Kuhnian revolution |
 | `references/llm-routing.md` | Choosing which model per DAG node; tier-based, adaptive, cascading, and RouteLLM approaches; cost model |
 | `references/sdk-implementation.md` | Implementing on Claude SDK, OpenAI, Ollama; LLM-agnostic provider layer; streaming; Temporal durable execution |
 | `references/skills-vs-research.md` | Understanding when skill libraries help vs. on-the-fly research agents; cost model; hybrid architecture |

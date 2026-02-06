@@ -171,6 +171,18 @@ This is a genuine data network effect:
 
 The moat isn't the software (it's open source) — it's the **execution data and skill rankings** that only exist on the centralized platform.
 
+### Lessons from Developer Marketplace Research
+
+**npm pattern (dependency graph lock-in)**: npm's network effects come from transitive dependencies — a single `npm install` pulls hundreds of packages, creating a multiplicative value graph. winDAGs' equivalent: skills depend on other skills (a DAG template uses 5-10 skills), creating the same multiplicative lock-in. The more skills in the ecosystem, the more useful every DAG template becomes.
+
+**VS Code pattern (strategic complement)**: VS Code's marketplace exists to sell Azure, Copilot, and GitHub Enterprise — the marketplace itself is free. winDAGs should follow the same pattern: the skill marketplace is free; revenue comes from the cloud execution platform.
+
+**Terraform pattern (state-based lock-in)**: Terraform's lock-in comes from state files — once you manage infrastructure through Terraform, migrating requires reconstructing state for every resource. winDAGs' equivalent: execution history, skill rankings, and template DAG configurations create organizational switching costs that increase with usage.
+
+**The infrastructure trap**: npm became critical infrastructure but couldn't sustain itself as a standalone business (Microsoft acquired it). winDAGs must avoid this by monetizing the cloud layer early, not waiting until the open source becomes too critical to charge for.
+
+**Community trust**: HashiCorp's BSL license change and the OpenTofu fork demonstrate that developer communities will fork alternatives if they perceive overreach. winDAGs' open source core must remain genuinely open. The paid layer must offer genuine additional value (durability, visualization, team features), not artificial restrictions on the free tier.
+
 ---
 
 ## Competitive Positioning
