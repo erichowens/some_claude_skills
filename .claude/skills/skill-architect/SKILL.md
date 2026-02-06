@@ -400,6 +400,7 @@ Consult these for deep dives — they are NOT loaded by default:
 
 | File | Consult When |
 |------|-------------|
+| `references/knowledge-engineering.md` | KE methods for extracting expert knowledge into skills; protocol analysis, repertory grids, aha! moments |
 | `references/description-guide.md` | Writing or rewriting a skill description |
 | `references/antipatterns.md` | Looking for shibboleths, case studies, or temporal patterns |
 | `references/self-contained-tools.md` | Adding scripts, MCP servers, or subagents to a skill |

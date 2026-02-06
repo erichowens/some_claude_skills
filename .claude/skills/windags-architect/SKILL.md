@@ -479,7 +479,7 @@ Every DAG execution generates quality signals that feed back into the skill libr
 
 Signals feed an **Elo ranking** per skill per domain. Skills with high downstream acceptance on cheap models rank highest. Declining skills get flagged for improvement or replacement. When anomalies accumulate past a threshold (a **Kuhnian crisis** — the paradigm shifted but the skill didn't), the system seeks or crystallizes a replacement. New skills enter unranked and must earn their way up.
 
-This lifecycle is the core network effect: every execution makes the skill library smarter. See `references/skill-lifecycle.md` and `references/business-model.md`.
+This lifecycle is the core network effect. See `references/skill-lifecycle.md` and `references/business-model.md`.
 
 ---
 
@@ -496,5 +496,6 @@ Consult for deep dives:
 | `references/sdk-implementation.md` | Implementing on Claude SDK, OpenAI, Ollama; LLM-agnostic provider layer; streaming; Temporal durable execution |
 | `references/skills-vs-research.md` | Understanding when skill libraries help vs. on-the-fly research agents; cost model; hybrid architecture |
 | `references/skill-gap-analysis.md` | Auditing the 180-skill library for winDAGs; consolidation plan for 26 dag-* skills; 15 missing skills enumerated by priority |
+| `references/user-experience.md` | Persistence, saved runs, pluripotent nodes, cost projections, versioned skills, export formats, template gallery |
 | `references/visualization-research.md` | Choosing visualization libraries; UX patterns from Temporal/Dagster/Prefect/LangGraph/CrewAI; ReactFlow components |
 | `references/execution-engines.md` | Execution engine design; topological scheduling; failure handling; DAG mutation; cost tracking |

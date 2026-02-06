@@ -122,6 +122,16 @@ async def expand_vague_node(
     return sub_nodes
 ```
 
+### Implementation Patterns from Workflow Orchestrators
+
+The vague-node expansion pattern maps to proven production mechanisms:
+
+- **Temporal**: Dynamic child workflows via imperative code. A workflow spawns children in a loop whose count and shape are determined at runtime. Each child gets its own event history for durability. For very large fan-outs (>2K children), use continue-as-new to checkpoint progress and reset the event history. winDAGs' vague node expansion maps directly to Temporal's child workflow pattern.
+- **Prefect**: `task.map()` over iterables — spawns one task run per element at runtime. Returns `PrefectFutureList` for downstream dependencies. Good for data-parallel fan-outs but limited for arbitrary DAG shapes (all mapped tasks share the same dependency structure).
+- **Dagster**: `DynamicPartitionsDefinition` — partition keys added at runtime via sensors. Declarative and incremental (you declare that new partitions exist; Dagster materializes them). Best when dynamic work maps to data partitions, not arbitrary agent tasks.
+
+**winDAGs synthesis**: Use Temporal's child workflow model for the execution engine (full durability, arbitrary DAG shapes). Use Dagster's partition model as inspiration for template DAGs with parameterized slots. Use Prefect's `.map()` as the ergonomic API for simple fan-out nodes.
+
 ### Recursive Expansion
 
 Vague nodes can expand into sub-DAGs that themselves contain vague nodes. This is how the system handles arbitrary depth of unknown structure:
@@ -222,6 +232,28 @@ Full node outputs are expensive to carry forward. The Context Store uses **progr
 - **Any wave**: Full output loadable on demand if the node explicitly requests it.
 
 This mirrors how human teams work: recent decisions are fresh in memory, older decisions are remembered as key takeaways, and ancient decisions are available in meeting notes if you go look.
+
+### Context Engineering Best Practices (From Framework Research)
+
+LangGraph, AutoGen, CrewAI, and OpenAI Swarm converge on four context management strategies. The Context Store should support all four:
+
+**1. Write context** (persist outside the window): Scratchpads, checkpoint files, state objects. Anthropic's own multi-agent researcher saves plans to memory when approaching 200K tokens. The Context Store's `output_full` field serves this role.
+
+**2. Select context** (retrieve only what's relevant): Embedding search, keyword/grep, knowledge graph retrieval, with re-ranking for relevance. The Context Store's `rank_by_relevance()` implements this. RAG for tool/skill descriptions improves selection accuracy by 3x.
+
+**3. Compress context** (reduce token cost): Recursive summarization, tool-result clearing, trained pruners. The Context Store's progressive summarization (full → summary → one-line) implements this. Auto-compact should trigger at ~80% of the node's token budget.
+
+**4. Isolate context** (separate across agents): Each DAG node gets its own context window. The orchestrator maintains the global view; nodes see only filtered slices. Multi-agent architectures outperform single-agent despite 15x higher token usage (Anthropic research) because each agent's focused context produces better reasoning.
+
+### Layered Memory Architecture
+
+```
+L1 (Active Context):  Current node's working memory — in the LLM context window
+L2 (Session Cache):   Context Store entries for the current DAG execution
+L3 (Long-term Store): Cross-execution memories — successful patterns, skill rankings, user preferences
+```
+
+L1 is populated from L2 via the `get_relevant_context()` method. L3 feeds the meta-DAG's skill selection and domain meta-skill choices.
 
 ---
 
