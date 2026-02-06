@@ -127,11 +127,14 @@ HTML flow plots showing event-driven method architecture. No runtime state color
 | Run history trends | Prefect | Scatter plot of DAG execution history |
 | React + ELK rendering | ReactFlow | Custom agent nodes with live state updates |
 
-### Custom Agent Node Component
+### Custom Agent Node Component (ReactFlow v12)
+
+**v12 critical changes**: `xPos`/`yPos` → `positionAbsoluteX`/`positionAbsoluteY`; `nodeInternals` → `nodeLookup`; always create new objects to trigger re-renders.
 
 ```typescript
+import { Handle, Position, type NodeProps } from '@xyflow/react';
+
 interface AgentNodeData {
-  id: string;
   role: string;
   skills: string[];
   status: 'pending' | 'scheduled' | 'running' | 'completed' | 'failed' | 'retrying' | 'paused' | 'skipped' | 'mutated';
@@ -146,47 +149,47 @@ interface AgentNodeData {
   error?: string;
 }
 
-const AgentNode = ({ data }: NodeProps<AgentNodeData>) => {
-  const statusColors = {
-    pending: '#9CA3AF',
-    scheduled: '#3B82F6',
-    running: '#3B82F6',
-    completed: '#10B981',
-    failed: '#EF4444',
-    retrying: '#F59E0B',
-    paused: '#8B5CF6',
-    skipped: '#D1D5DB',
-    mutated: '#EAB308',
-  };
+const STATUS_COLORS: Record<string, string> = {
+  pending: '#9CA3AF',
+  scheduled: '#3B82F6',
+  running: '#3B82F6',
+  completed: '#10B981',
+  failed: '#EF4444',
+  retrying: '#F59E0B',
+  paused: '#8B5CF6',
+  skipped: '#D1D5DB',
+  mutated: '#EAB308',
+};
 
+function AgentNode({ id, data }: NodeProps<AgentNodeData>) {
   return (
     <div
       className={`agent-node status-${data.status}`}
-      style={{ borderColor: statusColors[data.status] }}
+      style={{ borderColor: STATUS_COLORS[data.status] }}
     >
       <Handle type="target" position={Position.Top} />
-      
+
       <div className="node-header">
         <StatusIcon status={data.status} />
         <span className="role">{data.role}</span>
       </div>
-      
+
       <div className="node-skills">
         {data.skills.map(s => (
           <span key={s} className="skill-badge">{s}</span>
         ))}
       </div>
-      
+
       {data.status === 'completed' && data.output && (
         <div className="node-output-preview">
           {data.output.summary?.slice(0, 80)}...
         </div>
       )}
-      
+
       {data.status === 'failed' && data.error && (
         <div className="node-error">{data.error}</div>
       )}
-      
+
       <div className="node-metrics">
         {data.metrics.duration_ms > 0 && (
           <span>{(data.metrics.duration_ms / 1000).toFixed(1)}s</span>
@@ -195,17 +198,134 @@ const AgentNode = ({ data }: NodeProps<AgentNodeData>) => {
           <span>${data.metrics.cost_usd.toFixed(3)}</span>
         )}
       </div>
-      
+
       <Handle type="source" position={Position.Bottom} />
     </div>
   );
+}
+
+// Register the node type (must be defined OUTSIDE the component, or memoized)
+const nodeTypes = { agentNode: AgentNode };
+```
+```
+
+### Zustand Store for DAG State (Recommended v12 Pattern)
+
+Zustand is ReactFlow's internal state manager. Use it for the DAG editor too — one store for both the graph and execution state:
+
+```typescript
+import { create } from 'zustand';
+import {
+  applyNodeChanges, applyEdgeChanges,
+  type Node, type Edge, type OnNodesChange, type OnEdgesChange,
+} from '@xyflow/react';
+
+interface DAGStore {
+  nodes: Node[];
+  edges: Edge[];
+  runningNodeId: string | null;
+
+  onNodesChange: OnNodesChange;
+  onEdgesChange: OnEdgesChange;
+  setNodes: (nodes: Node[]) => void;
+  setEdges: (edges: Edge[]) => void;
+
+  updateNodeData: (nodeId: string, data: Partial<AgentNodeData>) => void;
+}
+
+const useDAGStore = create<DAGStore>((set, get) => ({
+  nodes: [],
+  edges: [],
+  runningNodeId: null,
+
+  onNodesChange: (changes) => {
+    set({ nodes: applyNodeChanges(changes, get().nodes) });
+  },
+  onEdgesChange: (changes) => {
+    set({ edges: applyEdgeChanges(changes, get().edges) });
+  },
+  setNodes: (nodes) => set({ nodes }),
+  setEdges: (edges) => set({ edges }),
+
+  // Critical: create a NEW object to trigger ReactFlow re-render
+  updateNodeData: (nodeId, data) => {
+    set({
+      nodes: get().nodes.map((node) =>
+        node.id === nodeId
+          ? { ...node, data: { ...node.data, ...data } }
+          : node
+      ),
+    });
+  },
+}));
+```
+
+### ELKjs Auto-Layout Hook
+
+Reusable hook for applying ELK layout to the DAG. Call on initial load and after DAG mutations:
+
+```typescript
+import ELK from 'elkjs/lib/elk.bundled.js';
+import { useCallback } from 'react';
+import { useReactFlow } from '@xyflow/react';
+
+const elk = new ELK();
+
+const DEFAULT_ELK_OPTIONS = {
+  'elk.algorithm': 'layered',
+  'elk.direction': 'DOWN',
+  'elk.spacing.nodeNode': '80',
+  'elk.layered.spacing.nodeNodeBetweenLayers': '100',
+  'elk.edgeRouting': 'ORTHOGONAL',
+  'elk.layered.nodePlacement.strategy': 'NETWORK_SIMPLEX',
+  'elk.portConstraints': 'FIXED_ORDER',
 };
+
+export function useAutoLayout() {
+  const { fitView } = useReactFlow();
+
+  const layoutElements = useCallback(
+    async (nodes: Node[], edges: Edge[], options: Record<string, string> = {}) => {
+      const isHorizontal = (options['elk.direction'] ?? 'DOWN') === 'RIGHT';
+
+      const graph = {
+        id: 'root',
+        layoutOptions: { ...DEFAULT_ELK_OPTIONS, ...options },
+        children: nodes.map((node) => ({
+          ...node,
+          targetPosition: isHorizontal ? 'left' : 'top',
+          sourcePosition: isHorizontal ? 'right' : 'bottom',
+          width: node.measured?.width ?? 220,   // agent node default
+          height: node.measured?.height ?? 120,
+        })),
+        edges,
+      };
+
+      const layouted = await elk.layout(graph);
+
+      const layoutedNodes = layouted.children!.map((elkNode) => ({
+        ...nodes.find((n) => n.id === elkNode.id)!,
+        position: { x: elkNode.x!, y: elkNode.y! },
+      }));
+
+      // requestAnimationFrame ensures DOM measurements are complete before fitView
+      window.requestAnimationFrame(() => fitView());
+
+      return { nodes: layoutedNodes, edges };
+    },
+    [fitView]
+  );
+
+  return { layoutElements };
+}
 ```
 
 ### WebSocket State Streaming
 
+Connect the execution engine's state updates to the Zustand store:
+
 ```typescript
-// Server emits state updates
+// Server emits typed events
 interface DAGStateEvent {
   type: 'node_state_change' | 'edge_active' | 'dag_mutated' | 'execution_complete';
   dag_id: string;
@@ -219,26 +339,97 @@ interface DAGStateEvent {
   };
 }
 
-// Client consumes via WebSocket
-const ws = new WebSocket(`/api/dags/${dagId}/stream`);
-ws.onmessage = (event) => {
-  const update: DAGStateEvent = JSON.parse(event.data);
-  
-  switch (update.type) {
-    case 'node_state_change':
-      updateNodeState(update.payload.node_id, update.payload.status);
-      break;
-    case 'edge_active':
-      animateEdge(update.payload.from, update.payload.to);
-      break;
-    case 'dag_mutated':
-      applyMutation(update.payload.mutation);
-      break;
-    case 'execution_complete':
-      showSummary(update.payload);
-      break;
-  }
-};
+// Client hook: connects WebSocket to Zustand store
+function useDAGStreamConnection(dagId: string) {
+  const updateNodeData = useDAGStore((s) => s.updateNodeData);
+  const { layoutElements } = useAutoLayout();
+
+  useEffect(() => {
+    const ws = new WebSocket(`/api/dags/${dagId}/stream`);
+
+    ws.onmessage = (event) => {
+      const update: DAGStateEvent = JSON.parse(event.data);
+
+      switch (update.type) {
+        case 'node_state_change':
+          // Update node in Zustand → triggers ReactFlow re-render
+          updateNodeData(update.payload.node_id!, {
+            status: update.payload.status!,
+            output: update.payload.output,
+            metrics: update.payload.metrics,
+          });
+          break;
+
+        case 'dag_mutated':
+          // DAG topology changed — re-layout with ELK
+          const { nodes, edges } = applyMutation(update.payload.mutation!);
+          layoutElements(nodes, edges);
+          break;
+
+        case 'execution_complete':
+          showSummary(update.payload);
+          break;
+      }
+    };
+
+    return () => ws.close();
+  }, [dagId, updateNodeData, layoutElements]);
+}
+```
+
+### Putting It Together: The DAG Dashboard Component
+
+```typescript
+import { ReactFlow, ReactFlowProvider, Panel } from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
+
+const nodeTypes = { agentNode: AgentNode };
+
+function DAGDashboard({ dagId }: { dagId: string }) {
+  const { nodes, edges, onNodesChange, onEdgesChange } = useDAGStore();
+  const { layoutElements } = useAutoLayout();
+
+  // Connect WebSocket → Zustand → ReactFlow
+  useDAGStreamConnection(dagId);
+
+  // Initial layout on mount
+  useLayoutEffect(() => {
+    if (nodes.length > 0) {
+      layoutElements(nodes, edges).then(({ nodes: ln }) => {
+        useDAGStore.getState().setNodes(ln);
+      });
+    }
+  }, []);
+
+  return (
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      nodeTypes={nodeTypes}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      fitView
+    >
+      <Panel position="top-right">
+        <button onClick={() => layoutElements(nodes, edges, { 'elk.direction': 'DOWN' })}>
+          Vertical
+        </button>
+        <button onClick={() => layoutElements(nodes, edges, { 'elk.direction': 'RIGHT' })}>
+          Horizontal
+        </button>
+      </Panel>
+    </ReactFlow>
+  );
+}
+
+// Wrap in provider at app level
+export default function DAGPage({ dagId }: { dagId: string }) {
+  return (
+    <ReactFlowProvider>
+      <DAGDashboard dagId={dagId} />
+    </ReactFlowProvider>
+  );
+}
 ```
 
 ### Animation CSS
