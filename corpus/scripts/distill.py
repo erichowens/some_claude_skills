@@ -12,7 +12,7 @@ Usage:
   python distill.py corpus/books/  # Process all files in directory
 
 Supports: PDF, DOCX, Markdown, plain text
-Requires: pip install anthropic pymupdf python-docx
+Requires: pip install anthropic pymupdf python-docx beautifulsoup4
 
 Cost estimate: ~$0.19 per 300-page book
 """
@@ -58,6 +58,125 @@ def extract_text_from_docx(path: str) -> str:
     return "\n\n".join(p.text for p in doc.paragraphs if p.text.strip())
 
 
+def extract_text_from_mhtml(path: str) -> str:
+    """Extract text from MHTML (web archive) files."""
+    import email
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print("Install BeautifulSoup: pip install beautifulsoup4")
+        sys.exit(1)
+    
+    raw = Path(path).read_bytes()
+    # MHTML is MIME-encoded; parse as email message
+    msg = email.message_from_bytes(raw)
+    
+    html_parts = []
+    if msg.is_multipart():
+        for part in msg.walk():
+            ct = part.get_content_type()
+            if ct == 'text/html':
+                charset = part.get_content_charset() or 'utf-8'
+                payload = part.get_payload(decode=True)
+                if payload:
+                    html_parts.append(payload.decode(charset, errors='replace'))
+            elif ct == 'text/plain' and not html_parts:
+                charset = part.get_content_charset() or 'utf-8'
+                payload = part.get_payload(decode=True)
+                if payload:
+                    html_parts.append(payload.decode(charset, errors='replace'))
+    else:
+        payload = msg.get_payload(decode=True)
+        if payload:
+            charset = msg.get_content_charset() or 'utf-8'
+            html_parts.append(payload.decode(charset, errors='replace'))
+    
+    full_html = "\n".join(html_parts)
+    
+    if '<html' in full_html.lower() or '<body' in full_html.lower():
+        soup = BeautifulSoup(full_html, 'html.parser')
+        # Remove script, style, nav, footer elements
+        for tag in soup(['script', 'style', 'nav', 'footer', 'header', 'aside']):
+            tag.decompose()
+        text = soup.get_text(separator='\n\n', strip=True)
+    else:
+        text = full_html
+    
+    return text
+
+
+def extract_text_from_pages(path: str) -> str:
+    """Extract text from Apple Pages files (.pages is a zip archive)."""
+    import zipfile
+    try:
+        from bs4 import BeautifulSoup
+    except ImportError:
+        print("Install BeautifulSoup: pip install beautifulsoup4")
+        sys.exit(1)
+    
+    text_parts = []
+    
+    try:
+        with zipfile.ZipFile(path, 'r') as z:
+            names = z.namelist()
+            
+            # Pages stores content in index.xml or Document.xml or preview text
+            # Try multiple known locations
+            for candidate in ['index.xml', 'Index/Document.iwa', 'preview.pdf']:
+                if candidate in names:
+                    if candidate.endswith('.pdf'):
+                        # Extract the preview PDF to a temp file and read it
+                        import tempfile
+                        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+                            tmp.write(z.read(candidate))
+                            tmp_path = tmp.name
+                        text = extract_text_from_pdf(tmp_path)
+                        os.unlink(tmp_path)
+                        return text
+                    elif candidate.endswith('.xml'):
+                        xml_content = z.read(candidate).decode('utf-8', errors='replace')
+                        soup = BeautifulSoup(xml_content, 'html.parser')
+                        text_parts.append(soup.get_text(separator='\n\n', strip=True))
+            
+            # Fallback: try to find any XML or text content
+            if not text_parts:
+                for name in names:
+                    if name.endswith('.xml') or name.endswith('.txt'):
+                        try:
+                            content = z.read(name).decode('utf-8', errors='replace')
+                            if len(content) > 100:  # Skip tiny metadata files
+                                soup = BeautifulSoup(content, 'html.parser')
+                                extracted = soup.get_text(separator='\n', strip=True)
+                                if len(extracted) > 50:
+                                    text_parts.append(extracted)
+                        except Exception:
+                            continue
+            
+            # Last resort: try the preview PDF if it exists under any path
+            if not text_parts:
+                for name in names:
+                    if 'preview' in name.lower() and name.endswith('.pdf'):
+                        import tempfile
+                        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+                            tmp.write(z.read(name))
+                            tmp_path = tmp.name
+                        text = extract_text_from_pdf(tmp_path)
+                        os.unlink(tmp_path)
+                        if text.strip():
+                            return text
+    except zipfile.BadZipFile:
+        raise ValueError(f"File {path} is not a valid .pages (zip) archive")
+    
+    if not text_parts:
+        raise ValueError(
+            f"Could not extract text from {path}. "
+            "Apple Pages .iwa format is proprietary. "
+            "Please export as PDF or DOCX from Pages and re-add."
+        )
+    
+    return "\n\n".join(text_parts)
+
+
 def extract_text(path: str) -> str:
     """Extract text from any supported format."""
     ext = Path(path).suffix.lower()
@@ -67,8 +186,23 @@ def extract_text(path: str) -> str:
         return extract_text_from_docx(path)
     elif ext in ('.md', '.txt', '.text'):
         return Path(path).read_text(encoding='utf-8', errors='replace')
+    elif ext == '.mhtml':
+        return extract_text_from_mhtml(path)
+    elif ext == '.pages':
+        return extract_text_from_pages(path)
+    elif ext in ('.htm', '.html'):
+        try:
+            from bs4 import BeautifulSoup
+        except ImportError:
+            print("Install BeautifulSoup: pip install beautifulsoup4")
+            sys.exit(1)
+        html = Path(path).read_text(encoding='utf-8', errors='replace')
+        soup = BeautifulSoup(html, 'html.parser')
+        for tag in soup(['script', 'style', 'nav', 'footer']):
+            tag.decompose()
+        return soup.get_text(separator='\n\n', strip=True)
     else:
-        raise ValueError(f"Unsupported file format: {ext}. Supported: .pdf, .docx, .md, .txt")
+        raise ValueError(f"Unsupported file format: {ext}. Supported: .pdf, .docx, .md, .txt, .mhtml, .pages, .html")
 
 
 # ============================================================================
@@ -436,9 +570,10 @@ async def main():
     
     if input_path.is_dir():
         # Process all supported files in directory
+        SUPPORTED = ('.pdf', '.docx', '.md', '.txt', '.text', '.mhtml', '.pages', '.html', '.htm')
         files = sorted([
             str(f) for f in input_path.iterdir()
-            if f.suffix.lower() in ('.pdf', '.docx', '.md', '.txt')
+            if f.suffix.lower() in SUPPORTED
         ])
         print(f"Found {len(files)} files to process")
         for filepath in files:
