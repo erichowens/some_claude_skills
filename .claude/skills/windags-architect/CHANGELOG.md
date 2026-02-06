@@ -15,6 +15,9 @@
 - `references/visualization-research.md` — Deep research on DAG visualization libraries (ReactFlow, Cytoscape, GoJS, JointJS, dagre, ELKjs, d3-dag), UX patterns from Temporal/Dagster/Prefect/LangGraph/CrewAI, custom agent node React component, WebSocket state streaming, CSS animations
 - `references/execution-engines.md` — Execution models, topological scheduling, failure handling matrix, DAG mutation on failure, node state machine, cost tracking
 
+### LLM Routing (v1.0.2)
+- `references/llm-routing.md` — Comprehensive LLM routing guide based on Martian, Unify.ai, and RouteLLM research. Covers: tier-based static routing (node role → model class), adaptive routing (learns from execution history), cascading router (try cheap first, escalate on low quality), RouteLLM integration (matrix factorization on preference data). Cost model showing 76-92% savings. 4-phase adoption roadmap.
+
 ### Research Additions (v1.0.1)
 - `references/sdk-implementation.md` — Claude Messages API integration, LLM-agnostic provider abstraction (Claude + OpenAI + Ollama), provider router for mixed-model DAGs, streaming for live visualization, Temporal durable execution pattern
 - `references/skills-vs-research.md` — Deep analysis: skills compress repeated decision costs (54% cost savings), prevent the errors that matter most (anti-patterns), define output contracts (DAG reliability), enable model downgrading (10x cost reduction). Hybrid architecture: skill-first, research-augmented.
