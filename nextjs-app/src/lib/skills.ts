@@ -1,7 +1,7 @@
 /*
  * ═══════════════════════════════════════════════════════════════════════════
  * SKILL DATA - IMPORTED FROM .claude/skills/
- * Generated: 2026-02-07T13:20:46.517Z
+ * Generated: 2026-02-07T17:10:17.808Z
  * Total Skills: 173
  * 
  * DO NOT EDIT - Run 'npm run import:skills' to regenerate
@@ -62,7 +62,7 @@ export const skills: Skill[] = [
     title: '2000s Visualization Expert',
     description: `Expert in 2000s-era music visualization (Milkdrop, AVS, Geiss) and modern WebGL implementations. Specializes in Butterchurn integration, Web Audio API AnalyserNode FFT data, GLSL shaders for audio-reactive visuals, and psychedelic generative art. Activate on "Milkdrop", "music visualization", "WebGL visualizer", "Butterchurn", "audio reactive", "FFT visualization", "spectrum analyzer". NOT for simple bar charts/waveforms (use basic canvas), video editing, or non-audio visuals.`,
     category: 'development',
-    icon: '💻',
+    icon: '📈',
     tags: ["audio","webgl","visualization","shaders","music"],
     difficulty: 'intermediate',
     content: `# 2000s Music Visualization Expert
@@ -253,7 +253,7 @@ float glow = smoothstep(0.5 - u_bass * 0.3, 0.0, dist);
     title: '2026 Legal Research Agent',
     description: `>`,
     category: 'development',
-    icon: '💻',
+    icon: '⚖️',
     tags: ["imported","needs-review"],
     difficulty: 'advanced',
     content: `# 2026 Legal Research Agent
@@ -567,7 +567,7 @@ See \`references/\` folder for:
     title: 'Adhd Daily Planner',
     description: `Time-blind friendly planning, executive function support, and daily structure for ADHD brains. Specializes in realistic time estimation, dopamine-aware task design, and building systems that actually work for neurodivergent minds.`,
     category: 'development',
-    icon: '💻',
+    icon: '📋',
     tags: ["adhd","productivity","planning","neurodivergent","executive-function"],
     difficulty: 'advanced',
     content: `# ADHD Daily Planner
@@ -853,7 +853,7 @@ Progress over perfection. Compassion over criticism. Systems over willpower.`,
     title: 'Adhd Design Expert',
     description: `Designs digital experiences for ADHD brains using neuroscience research and UX principles. Expert in reducing cognitive load, time blindness solutions, dopamine-driven engagement, and compassionate design patterns. Activate on 'ADHD design', 'cognitive load', 'accessibility', 'neurodivergent UX', 'time blindness', 'dopamine-driven', 'executive function'. NOT for general accessibility (WCAG only), neurotypical UX design, or simple UI styling without ADHD context.`,
     category: 'development',
-    icon: '🎨',
+    icon: '🧠',
     tags: ["adhd","ux","accessibility","neurodivergent","cognitive-load"],
     difficulty: 'intermediate',
     content: `# ADHD-Friendly Design Expert
@@ -1354,7 +1354,7 @@ describe('Admin Metrics Endpoint', () => {
     title: 'Agent Creator',
     description: `Meta-agent for creating new custom agents, skills, and MCP integrations. Expert in agent design, MCP development, skill architecture, and rapid prototyping. Activate on 'create agent', 'new skill', 'MCP server', 'custom tool', 'agent design'. NOT for using existing agents (invoke them directly), general coding (use language-specific skills), or infrastructure setup (use deployment-engineer).`,
     category: 'development',
-    icon: '💻',
+    icon: '✨',
     tags: ["agents","mcp","automation","meta","skill-development"],
     difficulty: 'advanced',
     content: `# Agent Creator
@@ -1534,7 +1534,7 @@ Agent Creator:
     title: 'Ai Engineer',
     description: `Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements vector search, multimodal AI, agent orchestration, and enterprise AI integrations. Use PROACTIVELY for LLM features, chatbots, AI agents, or AI-powered applications.`,
     category: 'development',
-    icon: '🤖',
+    icon: '👷',
     tags: ["llm","rag","agents","ai","production","embeddings"],
     difficulty: 'intermediate',
     content: `# AI Engineer
@@ -2358,7 +2358,7 @@ Load for detailed implementations:
     title: 'Background Job Orchestrator',
     description: `Expert in background job processing with Bull/BullMQ (Redis), Celery, and cloud queues. Implements retries, scheduling, priority queues, and worker management. Use for async task processing, email campaigns, report generation, batch operations. Activate on "background job", "async task", "queue", "worker", "BullMQ", "Celery". NOT for real-time WebSocket communication, synchronous API calls, or simple setTimeout operations.`,
     category: 'development',
-    icon: '💻',
+    icon: '💼',
     tags: [],
     difficulty: 'advanced',
     content: `# Background Job Orchestrator
@@ -3328,7 +3328,7 @@ This skill works well with other existing skills:
     title: 'Chatbot Analytics',
     description: `Implement AI chatbot analytics and conversation monitoring. Use when adding conversation metrics, tracking AI usage, measuring user engagement with chat, or building conversation dashboards. Activates for AI analytics, token tracking, conversation categorization, and chat performance.`,
     category: 'data',
-    icon: '📊',
+    icon: '💬',
     tags: ["analytics","chatbot","ai-metrics"],
     difficulty: 'advanced',
     content: `# AI Chatbot Analytics
@@ -4313,7 +4313,7 @@ python scripts/diagnose_clip_issue.py --image path/to/image --query "your query"
     title: 'Cloudflare Worker Dev',
     description: `Cloudflare Workers, KV, Durable Objects, and edge computing development. Use for serverless APIs, caching, rate limiting, real-time features. Activate on "Workers", "KV", "Durable Objects", "wrangler", "edge function", "Cloudflare". NOT for Cloudflare Pages configuration (use deployment docs), DNS management, or general CDN settings.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔶',
     tags: ["cloudflare","workers","edge-computing","serverless","kv","caching","rate-limiting"],
     difficulty: 'advanced',
     content: `# Cloudflare Workers Development
@@ -5101,7 +5101,7 @@ Generate thorough, contextual code review checklists that help reviewers focus o
     title: 'Collage Layout Expert',
     description: `Expert in ALL computational collage composition: photo mosaics, grid layouts, scrapbook/journal styles, magazine editorial, vision boards, mood boards, social media collages, memory walls, abstract/generative arrangements, and art-historical techniques (Hockney joiners, Dadaist photomontage, Surrealist assemblage, Rauschenberg combines). Masters edge-based assembly, Poisson blending, optimal transport color harmonization, and aesthetic optimization. Activate on 'collage', 'photo mosaic', 'grid layout', 'scrapbook', 'vision board', 'mood board', 'photo wall', 'magazine layout', 'Hockney', 'joiner', 'photomontage'. NOT for simple image editing (use native-app-designer), generating new images (use Stability AI), single photo enhancement (use photo-composition-critic), or basic image similarity search (use clip-aware-embeddings).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["collage","layout","photo-mosaic","composition","blending"],
     difficulty: 'advanced',
     content: `# Collage & Layout Composition Expert
@@ -5314,7 +5314,7 @@ Expert in **ALL forms of computational collage composition** - from Instagram gr
     title: 'Color Contrast Auditor',
     description: `Detects and fixes color contrast violations using WCAG 2.1 guidelines and perceptual analysis. Expert in contrast ratio calculation, color blindness simulation, and providing accessible alternatives. Activate on "check contrast", "color accessibility", "WCAG audit", "readability check", "contrast ratio", "hard to read", "can't see text". NOT for general color theory (use color-theory-palette-harmony-expert), brand color selection (use web-design-expert), or non-visual accessibility (use ux-friction-analyzer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎨',
     tags: ["accessibility","wcag","contrast","color","a11y","visual-design"],
     difficulty: 'advanced',
     content: `# Color Contrast Auditor
@@ -5751,7 +5751,7 @@ Before shipping:
     title: 'Color Theory Palette Harmony Expert',
     description: `Expert in color theory, palette harmony, and perceptual color science for computational photo composition. Specializes in earth-mover distance optimization, warm/cool alternation, diversity-aware palette selection, and hue-based photo sequencing. Activate on "color palette", "color harmony", "warm cool", "earth mover distance", "Wasserstein", "LAB space", "hue sorted", "palette matching". NOT for basic RGB manipulation (use standard image processing), single-photo color grading (use native-app-designer), UI color schemes (use vaporwave-glassomorphic-ui-designer), or color blindness simulation (accessibility specialists).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎨',
     tags: ["color","palette","harmony","lab-space","perceptual"],
     difficulty: 'advanced',
     content: `# Color Theory & Palette Harmony Expert
@@ -6253,7 +6253,7 @@ Cartographer:
     title: 'Computer Vision Pipeline',
     description: `Build production computer vision pipelines for object detection, tracking, and video analysis. Handles drone footage, wildlife monitoring, and real-time detection. Supports YOLO, Detectron2, TensorFlow, PyTorch. Use for archaeological surveys, conservation, security. Activate on "object detection", "video analysis", "YOLO", "tracking", "drone footage". NOT for simple image filters, photo editing, or face recognition APIs.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔧',
     tags: [],
     difficulty: 'advanced',
     content: `# Computer Vision Pipeline
@@ -8374,7 +8374,7 @@ describe('Crisis Detection', () => {
     title: 'Cv Creator',
     description: `Professional CV and resume builder transforming career narratives into ATS-optimized, multi-format resumes. Integrates with career-biographer for data and competitive-cartographer for positioning. Generates PDF, DOCX, LaTeX, JSON Resume, HTML, and Markdown. Activate on 'resume', 'CV', 'ATS optimization', 'job application'. NOT for cover letters, portfolio websites (use web-design-expert), LinkedIn optimization, or interview preparation.`,
     category: 'development',
-    icon: '💼',
+    icon: '📄',
     tags: ["resume","ats","career","pdf","latex"],
     difficulty: 'advanced',
     content: `# CV Creator
@@ -8560,7 +8560,7 @@ CV Creator:
     title: 'Dag Capability Ranker',
     description: `Ranks skill matches by fit, performance history, and contextual relevance. Applies multi-factor scoring including success rate, resource usage, and task alignment. Activate on 'rank skills', 'best skill for', 'skill ranking', 'compare skills', 'optimal skill'. NOT for semantic matching (use dag-semantic-matcher) or skill catalog (use dag-skill-registry).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","registry","ranking","scoring","optimization"],
     difficulty: 'advanced',
     content: `You are a DAG Capability Ranker, an expert at ranking skill candidates based on multiple factors. You consider semantic match quality, historical performance, resource efficiency, and contextual fit to recommend the optimal skill for each task.
@@ -8957,7 +8957,7 @@ Multi-factor ranking. Optimal selection. Data-driven decisions.`,
     title: 'Dag Confidence Scorer',
     description: `Assigns confidence scores to agent outputs based on multiple factors including source quality, consistency, and reasoning depth. Produces calibrated confidence estimates. Activate on 'confidence score', 'how confident', 'certainty level', 'output confidence', 'reliability score'. NOT for validation (use dag-output-validator) or hallucination detection (use dag-hallucination-detector).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","quality","confidence","scoring","reliability"],
     difficulty: 'advanced',
     content: `You are a DAG Confidence Scorer, an expert at assigning calibrated confidence scores to agent outputs. You analyze multiple factors including reasoning depth, source quality, internal consistency, and uncertainty markers to produce reliable confidence estimates that inform downstream decisions.
@@ -9462,7 +9462,7 @@ Calibrated confidence. Multi-factor scoring. Informed decisions.`,
     title: 'Dag Context Bridger',
     description: `Manages context passing between DAG nodes and spawned agents. Handles context summarization, selective forwarding, and token budget optimization. Activate on 'bridge context', 'pass context', 'summarize context', 'context management', 'agent context'. NOT for execution (use dag-parallel-executor) or aggregation (use dag-result-aggregator).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","context","summarization","token-management"],
     difficulty: 'advanced',
     content: `You are a DAG Context Bridger, an expert at managing context flow between DAG nodes and spawned agents. You optimize context passing to minimize token usage while preserving essential information for downstream tasks.
@@ -9814,7 +9814,7 @@ Context flows. Information preserved. Tokens optimized.`,
     title: 'Dag Convergence Monitor',
     description: `Tracks iteration progress toward task completion goals. Monitors quality trends, detects plateauing, and recommends when to stop iterating. Activate on 'convergence tracking', 'iteration progress', 'quality trend', 'stop iterating', 'progress monitoring'. NOT for iteration detection (use dag-iteration-detector) or feedback synthesis (use dag-feedback-synthesizer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","feedback","convergence","monitoring","quality-trends"],
     difficulty: 'advanced',
     content: `You are a DAG Convergence Monitor, an expert at tracking iteration progress toward task completion. You analyze quality trends, detect plateauing, predict convergence, and make informed recommendations about when to continue iterating versus accepting results or escalating.
@@ -10347,7 +10347,7 @@ Track progress. Detect plateaus. Know when to stop.`,
     title: 'Dag Dependency Resolver',
     description: `Validates DAG structures, performs topological sorting, detects cycles, and resolves dependency conflicts. Uses Kahn's algorithm for optimal execution ordering. Activate on 'resolve dependencies', 'topological sort', 'cycle detection', 'dependency order', 'validate dag'. NOT for building DAGs (use dag-graph-builder) or scheduling execution (use dag-task-scheduler).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","topological-sort","dependencies","cycle-detection"],
     difficulty: 'advanced',
     content: `You are a DAG Dependency Resolver, an expert at validating directed acyclic graph structures and computing optimal execution orders. You ensure graphs are well-formed and provide the foundation for efficient parallel execution.
@@ -10645,7 +10645,7 @@ Order from chaos. Dependencies resolved. Ready to execute.`,
     title: 'Dag Dynamic Replanner',
     description: `Modifies DAG structure during execution in response to failures, new requirements, or runtime discoveries. Supports node insertion, removal, and dependency rewiring. Activate on 'replan dag', 'modify workflow', 'add node', 'remove node', 'dynamic modification'. NOT for initial DAG building (use dag-graph-builder) or scheduling (use dag-task-scheduler).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","replanning","dynamic","adaptation"],
     difficulty: 'advanced',
     content: `You are a DAG Dynamic Replanner, an expert at modifying DAG structures during execution. You handle runtime adaptations including node insertion, removal, dependency rewiring, and recovery strategies in response to failures or changing requirements.
@@ -11049,7 +11049,7 @@ Adapt and overcome. Dynamic execution. Resilient workflows.`,
     title: 'Dag Execution Tracer',
     description: `Traces complete execution paths through DAG workflows. Records timing, inputs, outputs, and state transitions for all nodes. Activate on 'execution trace', 'trace execution', 'execution path', 'debug execution', 'execution log'. NOT for performance analysis (use dag-performance-profiler) or failure investigation (use dag-failure-analyzer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","observability","tracing","debugging","logging"],
     difficulty: 'advanced',
     content: `You are a DAG Execution Tracer, an expert at recording and analyzing complete execution paths through DAG workflows. You capture timing, inputs, outputs, state transitions, and context for all nodes to enable debugging, analysis, and learning.
@@ -11607,7 +11607,7 @@ Full visibility. Complete history. Every execution recorded.`,
     title: 'Dag Executor',
     description: `End-to-end DAG execution orchestrator that decomposes arbitrary tasks into agent graphs and executes them in parallel. The intelligence layer that makes DAG Framework operational.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","task-decomposition","parallel-execution","agent-spawning"],
     difficulty: 'advanced',
     content: `You are a DAG Executor, the intelligence layer that makes the DAG Framework operational. Your job is to take arbitrary natural language tasks, decompose them into executable agent graphs, and orchestrate parallel execution using Claude Code's Task tool.
@@ -11882,7 +11882,7 @@ Invoke this skill when user says:
     title: 'Dag Failure Analyzer',
     description: `Performs root cause analysis on DAG execution failures. Traces failure propagation, identifies systemic issues, and generates actionable remediation guidance. Activate on 'failure analysis', 'root cause', 'why did it fail', 'debug failure', 'error investigation'. NOT for execution tracing (use dag-execution-tracer) or performance issues (use dag-performance-profiler).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","observability","debugging","failures","root-cause"],
     difficulty: 'advanced',
     content: `You are a DAG Failure Analyzer, an expert at performing root cause analysis on DAG execution failures. You trace failure propagation through the graph, identify systemic issues versus transient errors, classify failure types, and generate actionable remediation guidance.
@@ -12610,7 +12610,7 @@ Understand failures. Find root causes. Enable recovery.`,
     title: 'Dag Feedback Synthesizer',
     description: `Synthesizes actionable feedback from validation results, confidence scores, and iteration triggers. Creates structured improvement guidance for re-execution. Activate on 'synthesize feedback', 'improvement suggestions', 'actionable feedback', 'iteration guidance', 'feedback generation'. NOT for iteration detection (use dag-iteration-detector) or convergence tracking (use dag-convergence-monitor).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","feedback","iteration","guidance","improvement"],
     difficulty: 'advanced',
     content: `You are a DAG Feedback Synthesizer, an expert at creating actionable improvement guidance from quality signals. You analyze validation results, confidence breakdowns, and iteration triggers to generate structured feedback that maximizes the likelihood of successful re-execution.
@@ -13160,7 +13160,7 @@ Actionable feedback. Prioritized improvements. Clear path forward.`,
     title: 'Dag Graph Builder',
     description: `Parses complex problems into DAG (Directed Acyclic Graph) execution structures. Decomposes tasks into nodes with dependencies, identifies parallelization opportunities, and creates optimal execution plans. Activate on 'build dag', 'create workflow graph', 'decompose task', 'execution graph', 'task graph'. NOT for simple linear tasks or when an existing DAG structure is provided.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","graph","task-decomposition","workflow"],
     difficulty: 'advanced',
     content: `You are a DAG Graph Builder, an expert at decomposing complex problems into directed acyclic graph structures for parallel execution. You transform natural language task descriptions into executable DAG workflows.
@@ -13389,7 +13389,7 @@ Transform chaos into structure. Build graphs that flow.`,
     title: 'Dag Hallucination Detector',
     description: `Detects fabricated content, false citations, and unverifiable claims in agent outputs. Uses source verification and consistency checking. Activate on 'detect hallucination', 'fact check', 'verify claims', 'check accuracy', 'find fabrications'. NOT for validation (use dag-output-validator) or confidence scoring (use dag-confidence-scorer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","quality","hallucination","fact-checking","verification"],
     difficulty: 'advanced',
     content: `You are a DAG Hallucination Detector, an expert at identifying fabricated content, false citations, and unverifiable claims in agent outputs. You use source verification, cross-referencing, and consistency analysis to detect when agents have generated plausible-sounding but incorrect information.
@@ -13988,7 +13988,7 @@ Truth detection. Source verification. No hallucinations pass.`,
     title: 'Dag Isolation Manager',
     description: `Manages agent isolation levels and resource boundaries. Configures strict, moderate, and permissive isolation profiles. Activate on 'isolation level', 'agent isolation', 'resource boundaries', 'sandboxing', 'agent containment'. NOT for permission validation (use dag-permission-validator) or runtime enforcement (use dag-scope-enforcer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","permissions","isolation","sandboxing","containment"],
     difficulty: 'advanced',
     content: `You are a DAG Isolation Manager, an expert at configuring and managing agent isolation levels. You define resource boundaries, configure sandboxing, and ensure appropriate containment based on task sensitivity and trust levels.
@@ -14433,7 +14433,7 @@ Appropriate boundaries. Right-sized access. Secure by default.`,
     title: 'Dag Iteration Detector',
     description: `Identifies when task outputs require iteration based on quality signals, unmet requirements, or explicit feedback. Triggers appropriate re-execution strategies. Activate on 'needs iteration', 'retry needed', 'not good enough', 'try again', 'refine output'. NOT for feedback generation (use dag-feedback-synthesizer) or convergence tracking (use dag-convergence-monitor).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","feedback","iteration","refinement","quality"],
     difficulty: 'advanced',
     content: `You are a DAG Iteration Detector, an expert at identifying when task outputs require additional iteration. You analyze quality signals, validation results, confidence scores, and explicit feedback to determine when re-execution is needed and what type of iteration strategy is appropriate.
@@ -14905,7 +14905,7 @@ Smart iteration. Know when to retry. Know when to stop.`,
     title: 'Dag Output Validator',
     description: `Validates agent outputs against expected schemas and quality criteria. Ensures outputs meet structural requirements and content standards. Activate on 'validate output', 'output validation', 'schema validation', 'check output', 'output quality'. NOT for confidence scoring (use dag-confidence-scorer) or hallucination detection (use dag-hallucination-detector).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","quality","validation","schemas","outputs"],
     difficulty: 'advanced',
     content: `You are a DAG Output Validator, an expert at validating agent outputs against expected schemas and quality criteria. You ensure outputs meet structural requirements, contain required fields, and satisfy quality thresholds before being passed to downstream nodes.
@@ -15462,7 +15462,7 @@ Structured validation. Quality gates. No bad outputs pass.`,
     title: 'Dag Parallel Executor',
     description: `Executes DAG waves with controlled parallelism using the Task tool. Manages concurrent agent spawning, resource limits, and execution coordination. Activate on 'execute dag', 'parallel execution', 'concurrent tasks', 'run workflow', 'spawn agents'. NOT for scheduling (use dag-task-scheduler) or building DAGs (use dag-graph-builder).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","parallel-execution","concurrency","task-tool"],
     difficulty: 'advanced',
     content: `You are a DAG Parallel Executor, an expert at executing scheduled DAG waves with controlled concurrency. You manage agent spawning, parallel task execution, and coordination between concurrent operations using Claude's Task tool.
@@ -15836,7 +15836,7 @@ Parallel power. Controlled execution. Maximum throughput.`,
     title: 'Dag Pattern Learner',
     description: `Learns from DAG execution history to improve future performance. Identifies successful patterns, detects anti-patterns, and provides recommendations. Activate on 'learn patterns', 'execution patterns', 'what worked', 'optimize based on history', 'pattern analysis'. NOT for failure analysis (use dag-failure-analyzer) or performance profiling (use dag-performance-profiler).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","observability","learning","patterns","optimization"],
     difficulty: 'advanced',
     content: `You are a DAG Pattern Learner, an expert at extracting actionable knowledge from DAG execution history. You identify successful patterns, detect anti-patterns, correlate configurations with outcomes, and generate recommendations that improve future DAG performance.
@@ -16550,7 +16550,7 @@ Learn from history. Find what works. Continuously improve.`,
     title: 'Dag Performance Profiler',
     description: `Profiles DAG execution performance including latency, token usage, cost, and resource consumption. Identifies bottlenecks and optimization opportunities. Activate on 'performance profile', 'execution metrics', 'latency analysis', 'token usage', 'cost analysis'. NOT for execution tracing (use dag-execution-tracer) or failure analysis (use dag-failure-analyzer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","observability","performance","metrics","optimization"],
     difficulty: 'advanced',
     content: `You are a DAG Performance Profiler, an expert at analyzing execution performance across DAG workflows. You measure latency, token usage, cost, and resource consumption to identify bottlenecks, optimize scheduling, and provide actionable performance insights.
@@ -17138,7 +17138,7 @@ Measure everything. Find bottlenecks. Optimize continuously.`,
     title: 'Dag Permission Validator',
     description: `Validates permission inheritance between parent and child agents. Ensures child permissions are equal to or more restrictive than parent. Activate on 'validate permissions', 'permission check', 'inheritance validation', 'permission matrix', 'security validation'. NOT for runtime enforcement (use dag-scope-enforcer) or isolation management (use dag-isolation-manager).`,
     category: 'development',
-    icon: '🔒',
+    icon: '🔀',
     tags: ["dag","permissions","security","validation","inheritance"],
     difficulty: 'advanced',
     content: `You are a DAG Permission Validator, an expert at validating permission inheritance between parent and child agents. You ensure the fundamental security principle that child agents can only have permissions equal to or more restrictive than their parent.
@@ -17582,7 +17582,7 @@ Strict inheritance. Secure spawning. No escalation.`,
     title: 'Dag Result Aggregator',
     description: `Combines and synthesizes outputs from parallel DAG branches. Handles merge strategies, conflict resolution, and result formatting. Activate on 'aggregate results', 'combine outputs', 'merge branches', 'synthesize results', 'fan-in'. NOT for execution (use dag-parallel-executor) or scheduling (use dag-task-scheduler).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","aggregation","merge","fan-in"],
     difficulty: 'advanced',
     content: `You are a DAG Result Aggregator, an expert at combining outputs from parallel DAG branches into unified results. You handle various merge strategies, resolve conflicts between parallel outputs, and format results for downstream consumption.
@@ -17958,7 +17958,7 @@ Many inputs. One output. Unified results.`,
     title: 'Dag Scope Enforcer',
     description: `Runtime enforcement of file system boundaries and tool access restrictions. Blocks unauthorized operations and logs violations. Activate on 'enforce scope', 'access control', 'boundary enforcement', 'tool restrictions', 'runtime security'. NOT for validation (use dag-permission-validator) or isolation management (use dag-isolation-manager).`,
     category: 'development',
-    icon: '🔒',
+    icon: '🔀',
     tags: ["dag","permissions","enforcement","security","runtime"],
     difficulty: 'advanced',
     content: `You are a DAG Scope Enforcer, responsible for runtime enforcement of permission boundaries. You intercept tool calls and file operations, verify they comply with the agent's permission matrix, block unauthorized operations, and log all access attempts.
@@ -18378,7 +18378,7 @@ Runtime protection. Every operation checked. No unauthorized access.`,
     title: 'Dag Semantic Matcher',
     description: `Matches natural language task descriptions to appropriate skills using semantic similarity. Handles fuzzy matching, intent extraction, and capability alignment. Activate on 'find skill', 'match task', 'semantic search', 'skill lookup', 'what skill for'. NOT for ranking matches (use dag-capability-ranker) or skill catalog (use dag-skill-registry).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","registry","semantic-matching","nlp","discovery"],
     difficulty: 'advanced',
     content: `You are a DAG Semantic Matcher, an expert at finding the right skills for natural language task descriptions. You use semantic understanding to match task requirements with skill capabilities, extracting intent and aligning capabilities even when descriptions don't use exact terminology.
@@ -18772,7 +18772,7 @@ Natural language in. Perfect skills out. Semantic understanding.`,
     title: 'Dag Skill Registry',
     description: `Central catalog of available skills with metadata, capabilities, and performance history. Provides skill discovery and lookup services. Activate on 'skill registry', 'list skills', 'skill catalog', 'available skills', 'skill metadata'. NOT for matching skills to tasks (use dag-semantic-matcher) or ranking (use dag-capability-ranker).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","registry","skills","catalog","discovery"],
     difficulty: 'advanced',
     content: `You are a DAG Skill Registry, the central catalog of all available skills. You maintain metadata about skills, their capabilities, performance history, and relationships. You provide discovery and lookup services for other DAG components.
@@ -19157,7 +19157,7 @@ Central knowledge. Fast discovery. Informed decisions.`,
     title: 'Dag Task Scheduler',
     description: `Wave-based parallel scheduling for DAG execution. Manages execution order, resource allocation, and parallelism constraints. Activate on 'schedule dag', 'execution waves', 'parallel scheduling', 'task queue', 'resource allocation'. NOT for building DAGs (use dag-graph-builder) or actual execution (use dag-parallel-executor).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔀',
     tags: ["dag","orchestration","scheduling","parallelism","resource-allocation"],
     difficulty: 'advanced',
     content: `You are a DAG Task Scheduler, an expert at creating optimal execution schedules for directed acyclic graphs. You manage wave-based parallelism, resource allocation, and execution timing to maximize throughput while respecting constraints.
@@ -19477,7 +19477,7 @@ Optimal schedules. Maximum parallelism. Minimal waste.`,
     title: 'Dag Visual Editor Design',
     description: `Design modern, intuitive DAG/workflow visual editors that feel like LEGO, not LabView`,
     category: 'design',
-    icon: '🎨',
+    icon: '🔀',
     tags: ["dag","workflow","visual-programming","node-editor","react-flow","ux-design"],
     difficulty: 'intermediate',
     content: `# DAG Visual Editor Design
@@ -19755,7 +19755,7 @@ const SkillNode = ({ data, selected }) => (
     title: 'Dark Mode Design Expert',
     description: `Master dark mode UI design with atmospheric theming, WCAG accessibility, and cross-platform best practices. Specializes in weather/sky/ocean-inspired color systems that adapt to time of day and environmental conditions.`,
     category: 'design',
-    icon: '🎨',
+    icon: '🌙',
     tags: ["dark-mode","accessibility","theming"],
     difficulty: 'advanced',
     content: `# Dark Mode Design Expert
@@ -20642,7 +20642,7 @@ function getAtmosphereFromWeather(
     title: 'Data Pipeline Engineer',
     description: `Expert data engineer for ETL/ELT pipelines, streaming, data warehousing. Activate on: data pipeline, ETL, ELT, data warehouse, Spark, Kafka, Airflow, dbt, data modeling, star schema, streaming data, batch processing, data quality. NOT for: API design (use api-architect), ML training (use ML skills), dashboards (use design skills).`,
     category: 'data',
-    icon: '📊',
+    icon: '👷',
     tags: ["etl","spark","kafka","airflow","data-warehouse"],
     difficulty: 'intermediate',
     content: `# Data Pipeline Engineer
@@ -21565,7 +21565,7 @@ Inform users of scope and cost before beginning.
     title: 'Design Critic',
     description: `Aesthetic assessment and remix partner with trained visual taste. Provides structured design critiques using a 6-dimension scoring system inspired by VisualQuality-R1 chain-of-thought reasoning.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎭',
     tags: ["aesthetics","critique","scoring","remix","visual-quality","assessment","design-review"],
     difficulty: 'advanced',
     content: `# Design Critic
@@ -22161,7 +22161,7 @@ LEGAL/EXPUNGEMENT SPECIFIC
     title: 'Design System Creator',
     description: `Builds comprehensive design systems and design bibles with production-ready CSS. Expert in design tokens, component libraries, CSS architecture. Use for design system creation, token architecture, component documentation, style guide generation. Activate on "design system", "design tokens", "CSS architecture", "component library", "style guide", "design bible". NOT for typography deep-dives (use typography-expert), color theory mathematics (use color-theory-palette-harmony-expert), brand identity strategy (use web-design-expert), or actual UI implementation (use web-design-expert or native-app-designer).`,
     category: 'development',
-    icon: '💻',
+    icon: '✨',
     tags: ["design-system","tokens","components","css","style-guide"],
     difficulty: 'advanced',
     content: `# Design System Creator
@@ -22401,7 +22401,7 @@ styles/
     title: 'Design System Generator',
     description: `Design system generator that matches natural language descriptions to design trends. Expert in Swiss Modern, Neobrutalism, Glassmorphism, and 20+ other design trends. Includes trend matching scripts and comprehensive design pattern library.`,
     category: 'design',
-    icon: '🎨',
+    icon: '⚡',
     tags: ["design-system","trends","generator"],
     difficulty: 'advanced',
     content: `# Design System Generator
@@ -22464,7 +22464,7 @@ The script will analyze the description and return the best matching design tren
     title: 'Devops Automator',
     description: `Expert DevOps engineer for CI/CD, IaC, Kubernetes, and deployment automation. Activate on: CI/CD, GitHub Actions, Terraform, Docker, Kubernetes, Helm, ArgoCD, GitOps, deployment pipeline, infrastructure as code, container orchestration. NOT for: application code (use language skills), database schema (use data-pipeline-engineer), API design (use api-architect).`,
     category: 'development',
-    icon: '💻',
+    icon: '🤖',
     tags: ["ci-cd","terraform","docker","kubernetes","gitops"],
     difficulty: 'intermediate',
     content: `# DevOps Automator
@@ -22674,7 +22674,7 @@ Run \`./scripts/validate-devops-skill.sh\` to check:
     title: 'Diagramming Expert',
     description: `Master of text-based visual communication using ASCII art, Unicode box-drawing, and structured diagram notation. Creates clear, maintainable diagrams for systems, processes, hierarchies, relationships, and psychological structures. Proactively generates diagrams to enhance understanding. Activate on visualization needs, system architecture, process flows, psychological mapping, or when complex concepts would benefit from visual representation. NOT for photo editing, vector graphics, or GUI-based design tools.`,
     category: 'documentation',
-    icon: '📝',
+    icon: '📊',
     tags: ["diagrams","ascii","visualization","architecture","documentation"],
     difficulty: 'intermediate',
     content: `# Diagramming Expert
@@ -22995,7 +22995,7 @@ graph TD
     title: 'Digital Estate Planner',
     description: `Organizing digital life for legacy, emergency access, and death preparedness. Specializes in password management, account documentation, digital asset preservation, and ensuring loved ones can access what they need.`,
     category: 'development',
-    icon: '💻',
+    icon: '📦',
     tags: ["legacy","passwords","estate","death-preparedness","digital-assets"],
     difficulty: 'advanced',
     content: `# Digital Estate Planner
@@ -23323,7 +23323,7 @@ That's love in practical form.`,
     title: 'Document Generation Pdf',
     description: `Generate, fill, and assemble PDF documents at scale. Handles legal forms, contracts, invoices, certificates. Supports form filling (pdf-lib), template rendering (Puppeteer, LaTeX), digital signatures (DocuSign), and document assembly. Use for legal tech, HR automation, invoice generation. Activate on "PDF generation", "form filling", "document automation", "digital signatures". NOT for simple PDF viewing, basic file conversion, or OCR text extraction.`,
     category: 'development',
-    icon: '💻',
+    icon: '📑',
     tags: [],
     difficulty: 'advanced',
     content: `# Document Generation & PDF Automation
@@ -24077,7 +24077,7 @@ Common positions (Letter size):
     title: 'Drizzle Migrations',
     description: `Manage database schema with Drizzle ORM and SQLite migrations. Use when adding tables, modifying columns, creating indexes, or running migrations. Activates for database schema changes, migration generation, and Drizzle query patterns.`,
     category: 'data',
-    icon: '🗃️',
+    icon: '🔄',
     tags: ["database","drizzle","migrations"],
     difficulty: 'advanced',
     content: `# Drizzle ORM Migrations
@@ -24493,7 +24493,7 @@ await db.transaction(async (tx) => {
     title: 'Drone Cv Expert',
     description: `Expert in drone systems, computer vision, and autonomous navigation. Specializes in flight control, SLAM, object detection, sensor fusion, and path planning. Activate on "drone", "UAV", "SLAM", "visual odometry", "PID control", "MAVLink", "Pixhawk", "path planning", "A*", "RRT", "EKF", "sensor fusion", "optical flow", "ByteTrack". NOT for domain-specific inspection tasks like fire detection, roof damage assessment, or thermal analysis (use drone-inspection-specialist), GPU shader optimization (use metal-shader-expert), or general image classification without drone context (use clip-aware-embeddings).`,
     category: 'development',
-    icon: '🚁',
+    icon: '📄',
     tags: ["drone","slam","navigation","sensor-fusion","path-planning"],
     difficulty: 'advanced',
     content: `# Drone CV Expert
@@ -24712,7 +24712,7 @@ Detailed implementations in \`references/\`:
     title: 'Drone Inspection Specialist',
     description: `Advanced CV for infrastructure inspection including forest fire detection, wildfire precondition assessment, roof inspection, hail damage analysis, thermal imaging, and 3D Gaussian Splatting reconstruction. Expert in multi-modal detection, insurance risk modeling, and reinsurance data pipelines. Activate on "fire detection", "wildfire risk", "roof inspection", "hail damage", "thermal analysis", "Gaussian Splatting", "3DGS", "insurance inspection", "defensible space", "property assessment", "catastrophe modeling", "NDVI", "fuel load". NOT for general drone flight control, SLAM, path planning, or sensor fusion (use drone-cv-expert), GPU shader development (use metal-shader-expert), or generic object detection without inspection context (use clip-aware-embeddings).`,
     category: 'development',
-    icon: '💻',
+    icon: '🚁',
     tags: ["inspection","fire-detection","thermal","gaussian-splatting","insurance"],
     difficulty: 'advanced',
     content: `# Drone Inspection Specialist
@@ -24948,7 +24948,7 @@ Detailed implementations in \`references/\`:
     title: 'Email Composer',
     description: `Draft professional emails for various contexts including business, technical, and customer communication. Use when the user needs help writing emails or composing professional messages.`,
     category: 'documentation',
-    icon: '📝',
+    icon: '📧',
     tags: ["email","communication","professional-writing"],
     difficulty: 'intermediate',
     content: `# Email Composer
@@ -25273,7 +25273,7 @@ Cheers,
     title: 'Event Detection Temporal Intelligence Expert',
     description: `Expert in temporal event detection, spatio-temporal clustering (ST-DBSCAN), and photo context understanding. Use for detecting photo events, clustering by time/location, shareability prediction, place recognition, event significance scoring, and life event detection. Activate on 'event detection', 'temporal clustering', 'ST-DBSCAN', 'spatio-temporal', 'shareability prediction', 'place recognition', 'life events', 'photo events', 'temporal diversity'. NOT for individual photo aesthetic quality (use photo-composition-critic), color palette analysis (use color-theory-palette-harmony-expert), face recognition implementation (use photo-content-recognition-curation-expert), or basic EXIF timestamp extraction.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["temporal","clustering","events","spatio-temporal","photo-context"],
     difficulty: 'advanced',
     content: `# Event Detection & Temporal Intelligence Expert
@@ -25832,7 +25832,7 @@ See \`/references/process-signals.md\` for Unix signal handling details.`,
     title: 'Fancy Yard Landscaper',
     description: `Expert landscape designer transforming yards through photo mapping, 3D visualization, seasonal planning, and deep plant knowledge. Specializes in fast-growing privacy screens (knows arborvitae pitfalls), architecture-appropriate design, outdoor living spaces, and realistic maintenance expectations. Activate on "landscape design", "yard design", "garden planning", "plant selection", "privacy screen", "outdoor living", "backyard makeover", "arborvitae", "hedge", "fast growing tree", "landscaping ideas". NOT for interior design (use interior-design-expert), hardscape construction (consult contractors), or lawn care chemicals (consult local experts).`,
     category: 'development',
-    icon: '💻',
+    icon: '🌳',
     tags: ["landscaping","garden","plants","outdoor","privacy-screen"],
     difficulty: 'advanced',
     content: `# Fancy Yard Landscaper
@@ -26400,7 +26400,7 @@ When running \`npm run feature:health\`:
     title: 'Form Validation Architect',
     description: `End-to-end form handling with react-hook-form, Zod schemas, validation patterns, error messaging, field arrays, and multi-step wizards. Use for complex forms, validation architecture, autosave, field dependencies. Activate on "form validation", "react-hook-form", "Zod", "form error", "multi-step form", "wizard". NOT for simple HTML forms, backend validation only, or non-React frameworks.`,
     category: 'development',
-    icon: '💻',
+    icon: '📝',
     tags: [],
     difficulty: 'advanced',
     content: `# Form Validation Architect
@@ -26994,7 +26994,7 @@ const onSubmit = async (data) => {
     title: 'Frontend Architect',
     description: `Frontend stack expert for Cloudflare deployment, shadcn/ui components, and internal tools architecture. Guides technology choices, deployment patterns, and design system integration.`,
     category: 'development',
-    icon: '💻',
+    icon: '🏗️',
     tags: ["frontend","cloudflare","deployment","components","internal-tools","architecture","stack-selection"],
     difficulty: 'intermediate',
     content: `# Frontend Architect
@@ -27303,7 +27303,7 @@ When making recommendations:
     title: 'Fullstack Debugger',
     description: `Expert debugger for Next.js + Cloudflare Workers + Supabase stacks. Systematic troubleshooting for auth, caching, workers, RLS, CORS, and build issues. Activate on: 'debug', 'not working', 'error', 'broken', '500', '401', '403', 'cache issue', 'RLS', 'CORS'. NOT for: feature development (use language skills), architecture design (use system-architect).`,
     category: 'testing',
-    icon: '🧪',
+    icon: '🐛',
     tags: ["debugging","nextjs","cloudflare-workers","supabase","troubleshooting"],
     difficulty: 'advanced',
     content: `# Fullstack Debugger
@@ -27850,7 +27850,7 @@ When debugging, always provide:
     title: 'Geospatial Data Pipeline',
     description: `Process, analyze, and visualize geospatial data at scale. Handles drone imagery, GPS tracks, GeoJSON optimization, coordinate transformations, and tile generation. Use for mapping apps, drone data processing, location-based services. Activate on "geospatial", "GIS", "PostGIS", "GeoJSON", "map tiles", "coordinate systems". NOT for simple address validation, basic distance calculations, or static map embeds.`,
     category: 'development',
-    icon: '💻',
+    icon: '🌍',
     tags: [],
     difficulty: 'advanced',
     content: `# Geospatial Data Pipeline
@@ -28264,7 +28264,7 @@ SELECT ST_Distance(
     title: 'Github Actions Pipeline Builder',
     description: `Build production CI/CD pipelines with GitHub Actions. Implements matrix builds, caching, deployments, testing, security scanning. Use for automated testing, deployments, release workflows. Activate on "GitHub Actions", "CI/CD", "workflow", "deployment pipeline", "automated testing". NOT for Jenkins/CircleCI, manual deployments, or non-GitHub repositories.`,
     category: 'development',
-    icon: '💻',
+    icon: '🐙',
     tags: [],
     difficulty: 'advanced',
     content: `# GitHub Actions Pipeline Builder
@@ -28732,7 +28732,7 @@ jobs:
     title: 'Grief Companion',
     description: `Compassionate bereavement support, memorial creation, grief education, and healing journey guidance. Specializes in understanding grief stages, creating meaningful tributes, and supporting the non-linear path of loss.`,
     category: 'development',
-    icon: '💻',
+    icon: '💝',
     tags: ["grief","bereavement","memorial","healing","loss"],
     difficulty: 'advanced',
     content: `# Grief Companion
@@ -28997,7 +28997,7 @@ The goal is not to "fix" grief but to walk alongside it.`,
     title: 'Hand Drawn Infographic Creator',
     description: `Generate hand-drawn style diagrams and infographics for recovery education articles. Creates anatomist's notebook aesthetic visuals - brain diagrams, timelines, social comparisons, and process flows using continuous line art, semantic color coding, and margin annotations.`,
     category: 'development',
-    icon: '💻',
+    icon: '✨',
     tags: ["infographics","hand-drawn","diagrams","education","recovery","neuroscience","AI-image-generation","accessibility"],
     difficulty: 'advanced',
     content: `# Hand-Drawn Infographic Creator
@@ -30011,7 +30011,7 @@ Always maintain the **scholarly intimacy** of the anatomist's notebook aesthetic
     title: 'Hipaa Compliance',
     description: `Ensure HIPAA compliance when handling PHI (Protected Health Information). Use when writing code that accesses user health data, check-ins, journal entries, or any sensitive information. Activates for audit logging, data access, security events, and compliance questions.`,
     category: 'testing',
-    icon: '🔒',
+    icon: '🏥',
     tags: ["hipaa","compliance","security"],
     difficulty: 'intermediate',
     content: `# HIPAA Compliance for Recovery Coach
@@ -30232,7 +30232,7 @@ Break glass access:
     title: 'Hr Network Analyst',
     description: `Professional network graph analyst identifying Gladwellian superconnectors, mavens, and influence brokers using betweenness centrality, structural holes theory, and multi-source network reconstruction. Activate on 'superconnectors', 'network analysis', 'who knows who', 'professional network', 'influence mapping', 'betweenness centrality'. NOT for surveillance, discrimination, stalking, privacy violation, or speculation without data.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔍',
     tags: ["network","superconnectors","influence","graph-theory","hr"],
     difficulty: 'intermediate',
     content: `# HR Network Analyst
@@ -30426,7 +30426,7 @@ Process:
     title: 'Hrv Alexithymia Expert',
     description: `Heart rate variability biometrics and emotional awareness training. Expert in HRV analysis, interoception training, biofeedback, and emotional intelligence. Activate on 'HRV', 'heart rate variability', 'alexithymia', 'biofeedback', 'vagal tone', 'interoception', 'RMSSD', 'autonomic nervous system'. NOT for general fitness tracking without HRV focus, simple heart rate monitoring, or diagnosing medical conditions (only licensed professionals diagnose).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["hrv","biofeedback","interoception","emotional-awareness","vagal"],
     difficulty: 'advanced',
     content: `# HRV & Alexithymia Expert
@@ -30597,7 +30597,7 @@ Elite HRV, HRV4Training, Welltory, HeartMath
     title: 'Indie Monetization Strategist',
     description: `Monetization strategies for indie developers, solopreneurs, and small teams. Covers freemium models, SaaS pricing, sponsorships, donations, email list building, and passive income for developer tools, content sites, and educational apps. Activate on 'monetization', 'make money', 'pricing', 'freemium', 'SaaS', 'sponsorship', 'donations', 'passive income', 'indie hacker'. NOT for enterprise sales, B2B outbound, VC fundraising, or large-scale advertising (use enterprise/marketing skills).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎯',
     tags: ["monetization","pricing","saas","indie","passive-income"],
     difficulty: 'advanced',
     content: `# Indie Monetization Strategist
@@ -30856,7 +30856,7 @@ Day 30: Direct pitch with deadline
     title: 'Interior Design Expert',
     description: `Expert interior designer with deep knowledge of space planning, color theory (Munsell, NCS), lighting design (IES standards), furniture proportions, and AI-assisted visualization. Use for room layout optimization, lighting calculations, color palette selection for interiors, furniture placement, style consultation. Activate on "interior design", "room layout", "lighting design", "furniture placement", "space planning", "Munsell color". NOT for exterior/landscape design, architectural structure, web/UI design (use web-design-expert), brand color theory (use color-theory-palette-harmony-expert), or building codes/permits.`,
     category: 'development',
-    icon: '💻',
+    icon: '🏠',
     tags: ["interior","lighting","furniture","space-planning","color"],
     difficulty: 'advanced',
     content: `# Interior Design Expert
@@ -31085,7 +31085,7 @@ cartoon, illustration, low quality, watermark
     title: 'Job Application Optimizer',
     description: `Strategic job application planning and Resume SEO optimization. Approaches applications like marketing campaigns with market research, opportunity qualification, and content optimization. Activate on 'optimize resume', 'tailor resume', 'ATS optimization', 'job fit score', 'should I apply'. NOT for initial career narratives (career-biographer), portfolio design (cv-creator), or market positioning (competitive-cartographer).`,
     category: 'development',
-    icon: '💻',
+    icon: '💼',
     tags: ["job-search","ats","resume-seo","application","optimization"],
     difficulty: 'intermediate',
     content: `# Job Application Optimizer
@@ -31600,7 +31600,7 @@ FIND AN ANALYST:
     title: 'Knot Theory Educator',
     description: `Expert in visualizing and explaining braid theory, knot mathematics, and topological concepts for educational purposes. Use for creating interactive visualizations, explainer cards, step-wise animations, and translating abstract algebra into intuitive understanding. Activate on keywords: braid theory, knot visualization, σ notation, crossing diagrams, Yang-Baxter, topological education. NOT for general math tutoring, pure knot invariant computation, or non-educational knot theory research.`,
     category: 'documentation',
-    icon: '📝',
+    icon: '✨',
     tags: ["knots","topology","braid-theory","visualization","education"],
     difficulty: 'advanced',
     content: `# Knot Theory Educator
@@ -31924,7 +31924,7 @@ When using the simulation's physics engine for demonstrations:
     title: 'Large Scale Map Visualization',
     description: `Master of high-performance web map implementations handling 5,000-100,000+ geographic data points. Specializes in Leaflet.js optimization, Supercluster algorithms, viewport-based loading, canvas rendering, and progressive disclosure UX patterns.`,
     category: 'data',
-    icon: '📊',
+    icon: '📈',
     tags: ["maps","leaflet","geospatial","clustering","performance","visualization","supercluster","react"],
     difficulty: 'advanced',
     content: `# Large-Scale Map Visualization Expert
@@ -33979,7 +33979,7 @@ plants and books everywhere, maximalist interior"
     title: 'Mcp Creator',
     description: `Expert MCP (Model Context Protocol) server developer creating safe, performant, production-ready servers with proper security, error handling, and developer experience. Activate on 'create MCP', 'MCP server', 'build MCP', 'custom tool server', 'MCP development', 'Model Context Protocol'. NOT for using existing MCPs (just invoke them), general API development (use backend-architect), or skills/agents without external state (use skill-coach/agent-creator).`,
     category: 'development',
-    icon: '💻',
+    icon: '✨',
     tags: ["mcp","model-context-protocol","tools","integration","servers"],
     difficulty: 'advanced',
     content: `# MCP Creator
@@ -34622,7 +34622,7 @@ For edge cases, manually escape in source:
     title: 'Metal Shader Expert',
     description: `20 years Weta/Pixar experience in real-time graphics, Metal shaders, and visual effects. Expert in MSL shaders, PBR rendering, tile-based deferred rendering (TBDR), and GPU debugging. Activate on 'Metal shader', 'MSL', 'compute shader', 'vertex shader', 'fragment shader', 'PBR', 'ray tracing', 'tile shader', 'GPU profiling', 'Apple GPU'. NOT for WebGL/GLSL (different architecture), general OpenGL (deprecated on Apple), CUDA (NVIDIA only), or CPU-side rendering optimization.`,
     category: 'development',
-    icon: '💻',
+    icon: '✨',
     tags: ["metal","shaders","gpu","pbr","apple"],
     difficulty: 'advanced',
     content: `# Metal Shader Expert
@@ -34771,7 +34771,7 @@ For edge cases, manually escape in source:
     title: 'Mobile Ux Optimizer',
     description: `Mobile-first UX optimization for touch interfaces, responsive layouts, and performance. Use for viewport handling, touch targets, gestures, mobile navigation. Activate on mobile, touch, responsive, dvh, viewport, safe area, hamburger menu. NOT for native app development (use React Native skills), desktop-only features, or general CSS (use Tailwind docs).`,
     category: 'development',
-    icon: '🎨',
+    icon: '📱',
     tags: ["mobile","ux","touch","responsive","viewport","safe-area","navigation"],
     difficulty: 'advanced',
     content: `# Mobile-First UX Optimization
@@ -35196,7 +35196,7 @@ See \`/references/\` for detailed guides:
     title: 'Modern Auth 2026',
     description: `Modern authentication implementation for 2026 - passkeys (WebAuthn), OAuth (Google, Apple), magic links, and cross-device sync. Use for passwordless-first authentication, social login setup, Supabase Auth, Next.js auth flows, and multi-factor authentication. Activate on "passkeys", "WebAuthn", "Google Sign-In", "Apple Sign-In", "magic link", "passwordless", "authentication", "login", "OAuth", "social login". NOT for session management without auth (use standard JWT docs), authorization/RBAC (use security-auditor), or API key management (use api-architect).`,
     category: 'development',
-    icon: '💻',
+    icon: '🔐',
     tags: ["authentication","passkeys","webauthn","oauth","passwordless","supabase","mfa","social-login"],
     difficulty: 'advanced',
     content: `# Modern Authentication Expert (2026)
@@ -36528,7 +36528,7 @@ Solutions:
     title: 'National Expungement Expert',
     description: `Deep expertise in criminal record expungement laws across all 50 US states and DC. Knows eligibility rules, waiting periods, processes, fees, and common misconceptions.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["expungement","criminal-records","legal","clean-slate"],
     difficulty: 'advanced',
     content: `# National Expungement Expert
@@ -36603,7 +36603,7 @@ Alabama, Arizona, South Carolina, Wyoming
     title: 'Native App Designer',
     description: `Creates breathtaking iOS/Mac and web apps with organic, non-AI aesthetic. Expert in SwiftUI, React animations, physics-based motion, and human-crafted design. Use for iOS/Mac app UI, React/Vue animations, native-feel web apps, physics-based motion design. Activate on "SwiftUI", "iOS app", "native app", "React animation", "motion design", "UIKit", "physics animation". NOT for backend logic, API design (use backend-architect), simple static sites (use web-design-expert), or pure graphic design (use design-system-creator).`,
     category: 'development',
-    icon: '💻',
+    icon: '⚛️',
     tags: ["ios","swiftui","react","animations","motion"],
     difficulty: 'advanced',
     content: `# Native App Designer
@@ -37541,7 +37541,7 @@ Design research based on:
     title: 'Nextjs App Router Expert',
     description: `Expert in Next.js 14/15 App Router architecture, React Server Components (RSC), Server Actions, and modern full-stack React development. Specializes in routing patterns, data fetching strategies, caching, streaming, and deployment optimization.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["nextjs","react","app-router","rsc","server-components","full-stack"],
     difficulty: 'advanced',
     content: `# Next.js App Router Expert
@@ -37856,7 +37856,7 @@ async function RevenueCard() {
     title: 'Oauth Oidc Implementer',
     description: `Expert in implementing OAuth 2.0 and OpenID Connect (OIDC) authentication flows. Specializes in secure token handling, social login integration, API authorization, and identity provider configuration. Handles both client-side and server-side flows with security best practices.`,
     category: 'development',
-    icon: '🔒',
+    icon: '🔐',
     tags: ["oauth","oidc","authentication","authorization","jwt","security"],
     difficulty: 'advanced',
     content: `# OAuth/OIDC Implementer
@@ -38232,7 +38232,7 @@ export async function getOIDCConfig(issuer: string): Promise<OIDCConfig> {
     title: 'Openapi Spec Writer',
     description: `Expert in writing OpenAPI 3.0/3.1 specifications for REST APIs. Specializes in schema design, documentation best practices, API-first development, and tooling integration. Generates comprehensive API documentation that serves as both documentation and contract.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔌',
     tags: ["openapi","swagger","api-documentation","rest","api-design"],
     difficulty: 'advanced',
     content: `# OpenAPI Spec Writer
@@ -38870,7 +38870,7 @@ rules:
     title: 'Orchestrator',
     description: `Master coordinator that delegates to specialist skills, synthesizes outputs, AND creates new skills on-the-fly when needed. Expert in problem decomposition, skill orchestration, quality assurance, and skill creation for capability gaps. Use for multi-skill coordination, complex task decomposition, workflow design. Activates on 'orchestrate', 'coordinate', 'multi-skill', 'complex task'. NOT for single-domain tasks or simple linear workflows.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎼',
     tags: ["coordination","multi-skill","delegation","synthesis","workflow"],
     difficulty: 'advanced',
     content: `You are a master orchestrator and meta-agent specializing in coordinating multiple specialized skills to solve complex, multi-faceted problems. You are pluripotent—capable of adapting to any domain by intelligently delegating to and coordinating specialist agents.
@@ -39720,7 +39720,7 @@ Every hollow knock is a question. Take your time finding the answers.`,
     title: 'Partner Text Coach',
     description: `Real-time communication coach for navigating partner/relationship texts. Analyzes incoming messages for emotional subtext, suggests thoughtful responses, helps de-escalate conflict, and provides follow-up conversation strategies. Expert in attachment theory, nonviolent communication (NVC), Gottman research, and healthy relationship dynamics. Activate on "what should I say", "how to respond", "partner text", "relationship message", "what does this mean", "text my partner", "conversation with partner". NOT for manipulation tactics, revenge/ghosting advice, replacing couples therapy, or abusive relationships (seek professional help).`,
     category: 'development',
-    icon: '💻',
+    icon: '🏋️',
     tags: ["relationships","communication","nvc","conflict","attachment"],
     difficulty: 'advanced',
     content: `# Partner Text Coach
@@ -40141,7 +40141,7 @@ THIS SKILL WILL:
     title: 'Personal Finance Coach',
     description: `Expert personal finance coach with deep knowledge of tax optimization, investment theory (MPT, factor investing), retirement mathematics (Trinity Study, SWR research), and wealth-building strategies grounded in academic research. Activate on 'personal finance', 'investing', 'retirement planning', 'tax optimization', 'FIRE', 'SWR', '4% rule', 'portfolio optimization'. NOT for tax preparation services, specific securities recommendations, guaranteed return promises, or replacing licensed financial advisors for complex situations.`,
     category: 'development',
-    icon: '💰',
+    icon: '🏋️',
     tags: ["finance","investing","fire","tax","retirement"],
     difficulty: 'intermediate',
     content: `# Personal Finance Coach
@@ -40316,7 +40316,7 @@ INVESTMENTS:
     title: 'Pet Memorial Creator',
     description: `Compassionate support for pet loss, memorial creation, and honoring the bond between humans and their animal companions. Specializes in tribute writing, keepsake ideas, and navigating the unique grief of losing a pet.`,
     category: 'development',
-    icon: '💻',
+    icon: '✨',
     tags: ["pets","memorial","grief","tribute","loss"],
     difficulty: 'advanced',
     content: `# Pet Memorial Creator
@@ -40649,7 +40649,7 @@ The grief you feel is the price of the love you shared. It's worth it. They were
     title: 'Photo Composition Critic',
     description: `Expert photography composition critic grounded in graduate-level visual aesthetics education, computational aesthetics research (AVA, NIMA, LAION-Aesthetics, VisualQuality-R1), and professional image analysis with custom tooling. Use for image quality assessment, composition analysis, aesthetic scoring, photo critique. Activate on "photo critique", "composition analysis", "image aesthetics", "NIMA", "AVA dataset", "visual quality". NOT for photo editing/retouching (use native-app-designer), generating images (use Stability AI directly), or basic image processing (use clip-aware-embeddings).`,
     category: 'development',
-    icon: '💻',
+    icon: '📸',
     tags: ["photography","composition","aesthetics","nima","critique"],
     difficulty: 'advanced',
     content: `# Photo Composition Critic
@@ -40822,7 +40822,7 @@ Load these for detailed implementations:
     title: 'Photo Content Recognition Curation Expert',
     description: `Expert in photo content recognition, intelligent curation, and quality filtering. Specializes in face/animal/place recognition, perceptual hashing for de-duplication, screenshot/meme detection, burst photo selection, and quick indexing strategies. Activate on 'face recognition', 'face clustering', 'perceptual hash', 'near-duplicate', 'burst photo', 'screenshot detection', 'photo curation', 'photo indexing', 'NSFW detection', 'pet recognition', 'DINOHash', 'HDBSCAN faces'. NOT for GPS-based location clustering (use event-detection-temporal-intelligence-expert), color palette extraction (use color-theory-palette-harmony-expert), semantic image-text matching (use clip-aware-embeddings), or video analysis/frame extraction.`,
     category: 'development',
-    icon: '💻',
+    icon: '📸',
     tags: ["face-recognition","deduplication","curation","indexing","nsfw"],
     difficulty: 'advanced',
     content: `# Photo Content Recognition & Curation Expert
@@ -41171,7 +41171,7 @@ torch transformers facenet-pytorch ultralytics hdbscan opencv-python scipy numpy
     title: 'Physics Rendering Expert',
     description: `Real-time rope/cable physics using Position-Based Dynamics (PBD), Verlet integration, and constraint solvers. Expert in quaternion math, Gauss-Seidel/Jacobi solvers, and tangling detection. Activate on 'rope simulation', 'PBD', 'Position-Based Dynamics', 'Verlet', 'constraint solver', 'quaternion', 'cable dynamics', 'cloth simulation', 'leash physics'. NOT for fluid dynamics (SPH/MPM), fracture simulation (FEM), offline cinematic physics, molecular dynamics, or general game physics engines (use Unity/Unreal built-ins).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["physics","pbd","verlet","simulation","constraints"],
     difficulty: 'advanced',
     content: `# Physics & Rendering Expert: Rope Dynamics & Constraint Solving
@@ -41342,7 +41342,7 @@ Expert in computational physics for real-time rope/cable dynamics, constraint so
     title: 'Pixel Art Infographic Creator',
     description: `Generate pixel art diagrams and infographics for recovery education articles in retro 16-bit game aesthetic`,
     category: 'development',
-    icon: '💻',
+    icon: '🎮',
     tags: ["pixel-art","infographics","education","retro-gaming"],
     difficulty: 'advanced',
     content: `# Pixel Art Infographic Creator
@@ -42662,7 +42662,7 @@ When running this skill, produce:
     title: 'Project Management Guru Adhd',
     description: `Expert project manager for ADHD engineers managing multiple concurrent projects. Specializes in hyperfocus management, context-switching minimization, and parakeet-style gentle reminders. Activate on 'ADHD project management', 'context switching', 'hyperfocus', 'task prioritization', 'multiple projects', 'productivity for ADHD', 'task chunking', 'deadline management'. NOT for neurotypical project management, rigid waterfall processes, or general productivity advice without ADHD context.`,
     category: 'development',
-    icon: '💻',
+    icon: '🧠',
     tags: ["adhd","project-management","context-switching","hyperfocus","deadlines"],
     difficulty: 'advanced',
     content: `# Project Management Guru (ADHD-Specialized)
@@ -42869,7 +42869,7 @@ Expert project manager for ADHD engineers managing multiple concurrent projects 
     title: 'Prompt Engineer',
     description: `Expert prompt optimization for LLMs and AI systems. Use PROACTIVELY when building AI features, improving agent performance, or crafting system prompts. Masters prompt patterns and techniques.`,
     category: 'development',
-    icon: '🤖',
+    icon: '👷',
     tags: ["prompts","llm","optimization","ai","system-design"],
     difficulty: 'advanced',
     content: `# Prompt Engineer
@@ -43068,7 +43068,7 @@ Fix: Add periodic context summaries + clear role reminders
     title: 'Pwa Expert',
     description: `Progressive Web App development with Service Workers, offline support, and app-like behavior. Use for caching strategies, install prompts, push notifications, background sync. Activate on "PWA", "Service Worker", "offline", "install prompt", "beforeinstallprompt", "manifest.json", "workbox", "cache-first". NOT for native app development (use React Native), general web performance (use performance docs), or server-side rendering.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["pwa","service-worker","offline","caching","installable","workbox","manifest"],
     difficulty: 'advanced',
     content: `# Progressive Web App Expert
@@ -43424,7 +43424,7 @@ Detailed implementations in \`/references/\`:
     title: 'React Performance Optimizer',
     description: `Optimize React apps for 60fps performance. Implements memoization, virtualization, code splitting, bundle optimization. Use for slow renders, large lists, bundle bloat. Activate on "React performance", "slow render", "useMemo", "bundle size", "virtualization". NOT for backend optimization, non-React frameworks, or premature optimization.`,
     category: 'development',
-    icon: '💻',
+    icon: '⚛️',
     tags: [],
     difficulty: 'advanced',
     content: `# React Performance Optimizer
@@ -43877,7 +43877,7 @@ function Dashboard() {
     title: 'Reactive Dashboard Performance',
     description: `Expert in building blazing-fast reactive dashboards with comprehensive testing. Masters React performance patterns, testing strategies for async components, and real-world patterns from Linear, Vercel, Notion.`,
     category: 'development',
-    icon: '🧪',
+    icon: '⚛️',
     tags: ["react","performance","testing","dashboard","optimization"],
     difficulty: 'advanced',
     content: `# Reactive Dashboard Performance
@@ -44604,7 +44604,7 @@ class OptimisticEditor {
     title: 'Recovery App Legal Terms',
     description: `Generate legally-sound terms of service, privacy policies, and medical disclaimers for recovery and wellness applications. Expert in HIPAA, GDPR, CCPA compliance. Activate on 'terms of service', 'privacy policy', 'legal terms', 'medical disclaimer', 'HIPAA', 'user agreement'. NOT for contract negotiation (use attorney), app development (use domain skills), or moderation (use recovery-community-moderator).`,
     category: 'development',
-    icon: '❤️',
+    icon: '⚖️',
     tags: ["document","strategy","health","production-ready","beginner-friendly"],
     difficulty: 'intermediate',
     content: `# Recovery App Legal Terms
@@ -45389,7 +45389,7 @@ See \`/references/\` for detailed guides:
     title: 'Recovery Coach Patterns',
     description: `Follow Recovery Coach codebase patterns and conventions. Use when writing new code, components, API routes, or database queries. Activates for general development, code organization, styling, and architectural decisions in this project.`,
     category: 'development',
-    icon: '💻',
+    icon: '🏋️',
     tags: ["recovery","patterns","next-js"],
     difficulty: 'advanced',
     content: `# Recovery Coach Development Patterns
@@ -45945,7 +45945,7 @@ The skill includes helper scripts in the \`scripts/\` directory:
     title: 'Recovery Education Writer',
     description: `Write neuroscientific, peer-oriented drug education content that roots experiences in body/brain mechanisms. Use when creating educational articles, explaining neurological phenomena, demystifying recovery challenges, or answering "why does this happen?" questions. Activates for harm reduction content, psychoeducation, recovery science writing, and content that reduces shame through understanding.`,
     category: 'development',
-    icon: '💻',
+    icon: '✍️',
     tags: ["recovery","education","neuroscience","harm-reduction","psychoeducation"],
     difficulty: 'advanced',
     content: `# Recovery Education Writer
@@ -46859,7 +46859,7 @@ Detailed implementations in \`/references/\`:
     title: 'Refactoring Surgeon',
     description: `Expert code refactoring specialist for improving code quality without changing behavior. Activate on: refactor, code smell, technical debt, legacy code, cleanup, simplify, extract method, extract class, DRY, SOLID principles. NOT for: new feature development (use feature skills), bug fixing (use debugging skills), performance optimization (use performance skills).`,
     category: 'testing',
-    icon: '🧪',
+    icon: '🌍',
     tags: ["refactoring","code-smells","solid","dry","cleanup"],
     difficulty: 'intermediate',
     content: `# Refactoring Surgeon
@@ -47059,7 +47059,7 @@ Run \`./scripts/validate-refactoring.sh\` to check:
     title: 'Research Analyst',
     description: `Conducts thorough landscape research, competitive analysis, best practices evaluation, and evidence-based recommendations. Expert in market research and trend analysis.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔍',
     tags: ["research","analysis","landscape","competitive","evidence-based"],
     difficulty: 'advanced',
     content: `You are an expert research analyst specializing in landscape research, competitive analysis, and methodology evaluation. You excel at synthesizing information from diverse sources and identifying effective working styles and best practices.
@@ -48047,7 +48047,7 @@ security-scan:
     title: 'Seo Visibility Expert',
     description: `Comprehensive SEO, discoverability, and AI crawler optimization for web projects. Use for technical SEO audits, llms.txt/robots.txt setup, schema markup, social launch strategies (Product Hunt, HN, Reddit), and Answer Engine Optimization (AEO). Activate on 'SEO', 'discoverability', 'llms.txt', 'robots.txt', 'Product Hunt', 'launch strategy', 'get traffic', 'be found', 'search ranking'. NOT for paid advertising, PPC campaigns, or social media content creation (use marketing skills).`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["seo","llms-txt","discoverability","product-hunt","aeo"],
     difficulty: 'advanced',
     content: `# SEO & Visibility Expert
@@ -48277,7 +48277,7 @@ Sitemap: https://yoursite.com/sitemap.xml
     title: 'Site Reliability Engineer',
     description: `Docusaurus build health validation and deployment safety for Claude Skills showcase. Pre-commit MDX validation (Liquid syntax, angle brackets, prop mismatches), pre-build link checking, post-build health reports. Activate on 'build errors', 'commit hooks', 'deployment safety', 'site health', 'MDX validation'. NOT for general DevOps (use deployment-engineer), Kubernetes/cloud infrastructure (use kubernetes-architect), runtime monitoring (use observability-engineer), or non-Docusaurus projects.`,
     category: 'development',
-    icon: '💻',
+    icon: '👷',
     tags: ["docusaurus","build-health","mdx","validation","deployment"],
     difficulty: 'advanced',
     content: `# Site Reliability Engineer
@@ -48437,7 +48437,7 @@ After installing hooks:
     title: 'Skill Architect',
     description: `Authoritative meta-skill for creating, auditing, and improving Agent Skills. Combines skill-coach expertise with skill-creator workflows. Use for skill creation, validation, improvement, activation debugging, and progressive disclosure design. NOT for general Claude Code features, runtime debugging, or non-skill coding.`,
     category: 'development',
-    icon: '💻',
+    icon: '🏗️',
     tags: [],
     difficulty: 'advanced',
     content: `# Skill Architect: The Authoritative Meta-Skill
@@ -49105,7 +49105,7 @@ For deep dives on specific topics:
     title: 'Skill Coach',
     description: `Guides creation of high-quality Agent Skills with domain expertise, anti-pattern detection, and progressive disclosure best practices. Activate on keywords: create skill, review skill, skill quality, skill best practices, skill anti-patterns, improve skill, skill audit. NOT for general coding advice, slash commands, MCP development, or non-skill Claude Code features.`,
     category: 'development',
-    icon: '💻',
+    icon: '🏋️',
     tags: ["skills","quality","anti-patterns","best-practices","review"],
     difficulty: 'advanced',
     content: `# Skill Coach: Creating Expert-Level Agent Skills
@@ -49463,7 +49463,7 @@ Run \`python scripts/test_activation.py <path>\` to validate
     title: 'Skill Creator',
     description: `Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.`,
     category: 'development',
-    icon: '📝',
+    icon: '✨',
     tags: ["creation","templates","documentation","beginner-friendly"],
     difficulty: 'advanced',
     content: `# Skill Creator
@@ -49679,7 +49679,7 @@ After testing the skill, users may request improvements. Often this happens righ
     title: 'Skill Documentarian',
     description: `Documentation expert for Claude Skills showcase website. Maintains skill-to-website sync, manages tag taxonomy and badges, creates blog-style artifacts, and preserves multi-skill collaborations for posterity. Activate on 'document', 'sync skills', 'create artifact', 'validate skills', 'add tags', 'tag management', 'badge', 'metadata'. NOT for code implementation (use domain skills), design creation (use web-design-expert), testing (use test-automator), or project planning (use orchestrator).`,
     category: 'documentation',
-    icon: '📝',
+    icon: '📄',
     tags: ["documentation","skills","sync","artifacts","metadata"],
     difficulty: 'advanced',
     content: `You are the skill-documentarian, guardian of the Claude Skills showcase website. You ensure every skill in \`.claude/skills/\` has matching documentation, accurate metadata, proper tags, and that greatness is captured in artifacts.
@@ -51347,7 +51347,7 @@ const Charts = dynamic(() => import('./Charts'), { loading: () => <ChartSkeleton
     title: 'Sound Engineer',
     description: `Expert in spatial audio, procedural sound design, game audio middleware, and app UX sound design. Specializes in HRTF/Ambisonics, Wwise/FMOD integration, UI sound design, and adaptive music systems. Activate on 'spatial audio', 'HRTF', 'binaural', 'Wwise', 'FMOD', 'procedural sound', 'footstep system', 'adaptive music', 'UI sounds', 'notification audio', 'sonic branding'. NOT for music composition/production (use DAW), audio post-production for film (linear media), voice cloning/TTS (use voice-audio-engineer), podcast editing (use standard audio editors), or hardware design.`,
     category: 'development',
-    icon: '💻',
+    icon: '👷',
     tags: ["audio","spatial","wwise","fmod","game-audio"],
     difficulty: 'advanced',
     content: `# Sound Engineer: Spatial Audio, Procedural Sound & App UX Audio
@@ -52137,7 +52137,7 @@ See \`/references/\` for detailed guides:
     title: 'Swift Executor',
     description: `Rapid task execution without hesitation or deterrence. Expert in overcoming blockers, making quick decisions, and maintaining forward momentum. Use for urgent tasks, breaking through impediments, decisive action. Activates on 'swift', 'execute quickly', 'undeterred', 'overcome blocker', 'just do it'. NOT for strategic planning, careful analysis, or research tasks.`,
     category: 'development',
-    icon: '💻',
+    icon: '🐦',
     tags: ["execution","urgency","decisiveness","momentum","blockers"],
     difficulty: 'advanced',
     content: `You are a swift executor who specializes in rapid, decisive action without getting deterred by obstacles. You maintain forward momentum, make quick decisions, and overcome blockers through pragmatic solutions.
@@ -52436,7 +52436,7 @@ Swift execution fails when:
     title: 'Team Builder',
     description: `Designs high-performing team structures using organizational psychology AND creates new skills on-the-fly when team needs unmet expertise. Expert in team composition, personality balancing, collaboration ritual design, and skill creation for missing capabilities. Use for team design, role definition, skill gap identification. Activates on 'team building', 'team composition', 'skills needed', 'what skills'. NOT for general project management or solo work planning.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔨',
     tags: ["teams","composition","roles","collaboration","skills"],
     difficulty: 'advanced',
     content: `You are an expert in organizational psychology, team dynamics, and management science. You specialize in building high-performing teams with complementary personalities and skills that naturally produce exceptional results.
@@ -52760,7 +52760,7 @@ Remember: Great teams aren't found—they're deliberately designed and carefully
     title: 'Tech Entrepreneur Coach Adhd',
     description: `Big tech ML engineer to indie founder transition coach. Expert in idea validation, MVP development, marketing, monetization, and sustainable growth for ADHD entrepreneurs. Activate on 'entrepreneur', 'indie founder', 'startup', 'MVP', 'monetization', 'big tech to indie', 'ADHD business', 'app launch', 'side project'. NOT for neurotypical entrepreneurship, VC-backed startups, or traditional business consulting without ADHD context.`,
     category: 'development',
-    icon: '💻',
+    icon: '🧠',
     tags: ["entrepreneur","adhd","startup","mvp","indie"],
     difficulty: 'advanced',
     content: `# Tech Entrepreneur Coach (ADHD-Specialized)
@@ -52983,7 +52983,7 @@ Start before you're ready. Ship before it's perfect. Charge before you feel wort
     title: 'Technical Writer',
     description: `Expert technical documentation specialist for developer docs, API references, and runbooks. Activate on: documentation, docs, README, API reference, technical writing, user guide, runbook, ADR, changelog, release notes, tutorial, how-to guide. NOT for: marketing copy (use copywriting skills), blog posts (use content skills), code comments (handled by developers).`,
     category: 'documentation',
-    icon: '📝',
+    icon: '✍️',
     tags: ["documentation","readme","api-docs","tutorials","runbooks"],
     difficulty: 'advanced',
     content: `# Technical Writer
@@ -53160,7 +53160,7 @@ Run \`./scripts/validate-docs.sh\` to check:
     title: 'Terraform Iac Expert',
     description: `Expert in Infrastructure as Code using Terraform and OpenTofu. Specializes in module design, state management, multi-cloud deployments, and CI/CD integration. Handles complex infrastructure patterns including multi-environment setups, remote state backends, and secure secrets management.`,
     category: 'development',
-    icon: '💻',
+    icon: '📝',
     tags: ["terraform","iac","infrastructure","aws","gcp","azure","opentofu"],
     difficulty: 'advanced',
     content: `# Terraform IaC Expert
@@ -53549,7 +53549,7 @@ output "db_connection_string" {
     title: 'Test Automation Expert',
     description: `Comprehensive test automation specialist covering unit, integration, and E2E testing strategies. Expert in Jest, Vitest, Playwright, Cypress, pytest, and modern testing frameworks. Guides test pyramid design, coverage optimization, flaky test detection, and CI/CD integration. Activate on 'test strategy', 'unit tests', 'integration tests', 'E2E testing', 'test coverage', 'flaky tests', 'mocking', 'test fixtures', 'TDD', 'BDD', 'test automation'. NOT for manual QA processes, load/performance testing (use performance-engineer), or security testing (use security-auditor).`,
     category: 'testing',
-    icon: '🧪',
+    icon: '🎓',
     tags: ["testing","jest","playwright","tdd","coverage"],
     difficulty: 'advanced',
     content: `# Test Automation Expert
@@ -54121,7 +54121,7 @@ npm test -- -u
     title: 'Typography Expert',
     description: `Master typographer specializing in font pairing, typographic hierarchy, OpenType features, variable fonts, and performance-optimized web typography. Use for font selection, type scales, web font optimization, and typographic systems. Activate on "typography", "font pairing", "type scale", "variable fonts", "web fonts", "OpenType", "font loading". NOT for logo design, icon fonts, general CSS styling, or image-based typography.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["typography","fonts","type-scale","variable-fonts","opentype"],
     difficulty: 'advanced',
     content: `# Typography Expert
@@ -54853,7 +54853,7 @@ When running this skill, produce a document with:
     title: 'Vaporwave Glassomorphic Ui Designer',
     description: `Vaporwave + glassomorphic UI designer for photo/memory apps. Masters SwiftUI Material effects, neon pastels, frosted glass blur, retro-futuristic design. Expert in 2025 UI trends (glassmorphism, neubrutalism, Y2K), iOS HIG, dark mode, accessibility, Metal shaders. Activate on 'vaporwave', 'glassmorphism', 'SwiftUI design', 'frosted glass', 'neon aesthetic', 'retro-futuristic', 'Y2K design'. NOT for backend/API (use backend-architect), Windows 3.1 retro (use windows-3-1-web-designer), generic web (use web-design-expert), non-photo apps (use native-app-designer).`,
     category: 'development',
-    icon: '💻',
+    icon: '🌊',
     tags: ["vaporwave","glassmorphism","swiftui","retro-futuristic","neon"],
     difficulty: 'advanced',
     content: `# Vaporwave & Glassomorphic UI Designer
@@ -55857,7 +55857,7 @@ LLMs trained on older data may suggest dated interpretations of vibes`,
     title: 'Video Processing Editing',
     description: `FFmpeg automation for cutting, trimming, concatenating videos. Audio mixing, timeline editing, transitions, effects. Export optimization for YouTube, social media. Subtitle handling, color grading, batch processing. Use for videogen projects, content creation, automated video production. Activate on "video editing", "FFmpeg", "trim video", "concatenate", "transitions", "export optimization". NOT for real-time video editing UI, 3D compositing, or motion graphics.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎬',
     tags: [],
     difficulty: 'advanced',
     content: `# Video Processing & Editing
@@ -56840,7 +56840,7 @@ expect(input).toHaveValue('input value');
     title: 'Voice Audio Engineer',
     description: `Expert in voice synthesis, TTS, voice cloning, podcast production, speech processing, and voice UI design via ElevenLabs integration. Specializes in vocal clarity, loudness standards (LUFS), de-essing, dialogue mixing, and voice transformation. Activate on 'TTS', 'text-to-speech', 'voice clone', 'voice synthesis', 'ElevenLabs', 'podcast', 'voice recording', 'speech-to-speech', 'voice UI', 'audiobook', 'dialogue'. NOT for spatial audio (use sound-engineer), music production (use DAW tools), game audio middleware (use sound-engineer), sound effects generation (use sound-engineer with ElevenLabs SFX), or live concert audio.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔊',
     tags: ["voice","tts","elevenlabs","podcast","synthesis"],
     difficulty: 'advanced',
     content: `# Voice & Audio Engineer: Voice Synthesis, TTS & Speech Processing
@@ -57173,7 +57173,7 @@ model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v3
     title: 'Vr Avatar Engineer',
     description: `Expert in photorealistic and stylized VR avatar systems for Apple Vision Pro, Meta Quest, and cross-platform metaverse. Specializes in facial tracking (52+ blend shapes), subsurface scattering, Persona-style generation, Photon networking, and real-time LOD. Activate on 'VR avatar', 'Vision Pro Persona', 'Meta avatar', 'facial tracking', 'blend shapes', 'avatar networking', 'photorealistic avatar'. NOT for 2D profile pictures (use image generation), non-VR game characters (use game engine tools), static 3D models (use modeling tools), or motion capture hardware setup.`,
     category: 'development',
-    icon: '💻',
+    icon: '🥽',
     tags: ["vr","avatar","facial-tracking","vision-pro","metaverse"],
     difficulty: 'advanced',
     content: `# VR Avatar Excellence Engineer
@@ -58095,7 +58095,7 @@ module.exports = {
     title: 'Web Design Expert',
     description: `Creates unique web designs with brand identity, color palettes, typography, and modern UI/UX patterns. Use for brand identity development, visual design systems, layout composition, and responsive web design. Activate on "web design", "brand identity", "color palette", "UI design", "visual design", "layout". NOT for typography details (use typography-expert), color theory deep-dives (use color-theory-expert), design system tokens (use design-system-creator), or code implementation without design direction.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎓',
     tags: ["web","brand","ui-ux","layout","visual-design"],
     difficulty: 'advanced',
     content: `# Web Design Expert
@@ -59417,7 +59417,7 @@ For complete atmospheric scenes, combine water and cloud effects:
     title: 'Web Weather Creator',
     description: `Master of stylized atmospheric effects using SVG filters and CSS animations. Creates clouds, waves, lightning, rain, fog, aurora borealis, god rays, lens flares, twilight skies, and ocean spray—all with a premium aesthetic that's stylized but never cheap-looking.`,
     category: 'design',
-    icon: '🎨',
+    icon: '🌤️',
     tags: ["svg","animations","weather-effects","atmospheric","css-animations"],
     difficulty: 'advanced',
     content: `# Web Weather Creator
@@ -61617,7 +61617,7 @@ python -m pytest --tracing=on tests/test_login.py
     title: 'Wedding Immortalist',
     description: `Transform thousands of wedding photos and hours of footage into an immersive 3D Gaussian Splatting experience with theatre mode replay, face-clustered guest roster, and AI-curated best photos per person. Expert in 3DGS pipelines, face clustering, aesthetic scoring, and adaptive design matching the couple's wedding theme (disco, rustic, modern, LGBTQ+ celebrations). Activate on "wedding photos", "wedding video", "3D wedding", "Gaussian Splatting wedding", "wedding memory", "wedding immortalize", "face clustering wedding", "best wedding photos". NOT for general photo editing (use native-app-designer), non-wedding 3DGS (use drone-inspection-specialist), or event planning (not a wedding planner).`,
     category: 'development',
-    icon: '💻',
+    icon: '💒',
     tags: ["wedding","3dgs","gaussian-splatting","face-clustering","memories"],
     difficulty: 'advanced',
     content: `# Wedding Immortalist
@@ -62062,7 +62062,7 @@ wedding-immortalist-output/
     title: 'Win31 Audio Design',
     description: `Expert in Windows 3.1 era sound vocabulary for modern web/mobile apps. Creates satisfying retro UI sounds using CC-licensed 8-bit audio, Web Audio API, and haptic coordination. Activate on 'win31 sounds', 'retro audio', '90s sound effects', 'chimes', 'tada', 'ding', 'satisfying UI sounds'. NOT for modern flat UI sounds, voice synthesis, or music composition.`,
     category: 'development',
-    icon: '💻',
+    icon: '🔊',
     tags: ["audio","retro","windows","90s","ui-sounds"],
     difficulty: 'advanced',
     content: `# Win31 Audio Design: Satisfying Retro Sound Vocabulary
@@ -62385,7 +62385,7 @@ await playWithHaptic('error', Haptics.ImpactFeedbackStyle.Heavy);
     title: 'Win31 Pixel Art Designer',
     description: `Expert in Windows 3.1 era pixel art and graphics. Creates icons, banners, splash screens, and UI assets with authentic 16/256-color palettes, dithering patterns, and Program Manager styling. Activate on 'win31 icons', 'pixel art 90s', 'retro icons', '16-color', 'dithering', 'program manager icons', 'VGA palette'. NOT for modern flat icons, vaporwave art, or high-res illustrations.`,
     category: 'development',
-    icon: '💻',
+    icon: '🎮',
     tags: ["pixel-art","icons","retro","windows","90s","dithering"],
     difficulty: 'advanced',
     content: `# Win31 Pixel Art Designer
@@ -62752,7 +62752,7 @@ convert input.png -bordercolor black -border 1 output.png
     title: 'Windows 3 1 Web Designer',
     description: `Modern web applications with authentic Windows 3.1 aesthetic. Solid navy title bars, Program Manager navigation, beveled borders, single window controls. Extrapolates Win31 to AI chatbots (Cue Card paradigm), mobile UIs (pocket computing). Activate on 'windows 3.1', 'win31', 'program manager', 'retro desktop', '90s aesthetic', 'beveled'. NOT for Windows 95 (use windows-95-web-designer - has gradients, Start menu), vaporwave/synthwave, macOS, flat design.`,
     category: 'development',
-    icon: '💻',
+    icon: '🪟',
     tags: [],
     difficulty: 'advanced',
     content: `# Windows 3.1 Web Designer
@@ -63318,7 +63318,7 @@ For authentic Win31 feel:
     title: 'Windows 95 Web Designer',
     description: `Modern web applications with authentic Windows 95 aesthetic. Gradient title bars, Start menu paradigm, taskbar patterns, 3D beveled chrome. Extrapolates Win95 to AI chatbots, mobile UIs, responsive layouts. Activate on 'windows 95', 'win95', 'start menu', 'taskbar', 'retro desktop', '95 aesthetic', 'clippy'. NOT for Windows 3.1 (use windows-3-1-web-designer), vaporwave/synthwave, macOS, flat design.`,
     category: 'development',
-    icon: '💻',
+    icon: '🪟',
     tags: [],
     difficulty: 'advanced',
     content: `# Windows 95 Web Designer
@@ -63815,7 +63815,7 @@ Is it a notification?
     title: 'Wisdom Accountability Coach',
     description: `Longitudinal memory tracking, philosophy teaching, and personal accountability with compassion. Expert in pattern recognition, Stoicism/Buddhism, and growth guidance. Activate on 'accountability', 'philosophy', 'Stoicism', 'Buddhism', 'personal growth', 'commitment tracking', 'wisdom teaching'. NOT for therapy or mental health treatment (refer to professionals), crisis intervention, or replacing professional coaching credentials.`,
     category: 'development',
-    icon: '💻',
+    icon: '🏋️',
     tags: ["accountability","stoicism","buddhism","growth","philosophy"],
     difficulty: 'advanced',
     content: `# Wisdom & Accountability Coach

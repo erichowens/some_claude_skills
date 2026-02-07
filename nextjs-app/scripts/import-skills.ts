@@ -221,10 +221,117 @@ function readReferences(skillDir: string): ReferenceFile[] {
   return references;
 }
 
-// Get icon based on category and tags
-function getIcon(category: string, tags: string[] | undefined): string {
+// Get icon based on category, tags, and skill ID
+function getIcon(category: string, tags: string[] | undefined, skillId?: string): string {
   const safeTags = Array.isArray(tags) ? tags : [];
   const tagSet = new Set(safeTags.map(t => t.toLowerCase()));
+  const id = (skillId || '').toLowerCase();
+  
+  // Skill ID specific icons (most specific)
+  const skillIdIcons: Record<string, string> = {
+    'dag': '🔀',
+    'workflow': '⚙️',
+    'react': '⚛️',
+    'typescript': '🔷',
+    'python': '🐍',
+    'rust': '🦀',
+    'swift': '🐦',
+    'docker': '🐳',
+    'kubernetes': '☸️',
+    'aws': '☁️',
+    'cloudflare': '🔶',
+    'github': '🐙',
+    'git': '📦',
+    'audio': '🔊',
+    'music': '🎵',
+    'video': '🎬',
+    'visualization': '📈',
+    'webgl': '🌐',
+    'shader': '✨',
+    'pixel': '🎮',
+    'game': '🎮',
+    'mobile': '📱',
+    'ios': '📱',
+    'android': '🤖',
+    'email': '📧',
+    'chat': '💬',
+    'bot': '🤖',
+    'discord': '💬',
+    'slack': '💬',
+    'calendar': '📅',
+    'planner': '📋',
+    'adhd': '🧠',
+    'grief': '💝',
+    'wellness': '❤️',
+    'health': '❤️',
+    'psychology': '🧠',
+    'career': '💼',
+    'resume': '📄',
+    'cv': '📄',
+    'job': '💼',
+    'interview': '🎤',
+    'wedding': '💒',
+    'photo': '📸',
+    'image': '🖼️',
+    'drone': '🚁',
+    'vr': '🥽',
+    'avatar': '👤',
+    '3d': '🎲',
+    'diagram': '📊',
+    'chart': '📈',
+    'map': '🗺️',
+    'geo': '🌍',
+    'weather': '🌤️',
+    'landscap': '🌳',
+    'interior': '🏠',
+    'color': '🎨',
+    'dark-mode': '🌙',
+    'accessibility': '♿',
+    'form': '📝',
+    'validation': '✅',
+    'testing': '🧪',
+    'debug': '🐛',
+    'performance': '⚡',
+    'security': '🔒',
+    'auth': '🔐',
+    'hipaa': '🏥',
+    'legal': '⚖️',
+    'compliance': '📋',
+    'migration': '🔄',
+    'database': '🗄️',
+    'sql': '🗃️',
+    'api': '🔌',
+    'graphql': '🔗',
+    'pdf': '📑',
+    'document': '📄',
+    'writer': '✍️',
+    'critic': '🎭',
+    'coach': '🏋️',
+    'mentor': '🧑‍🏫',
+    'strategist': '🎯',
+    'analyst': '🔍',
+    'architect': '🏗️',
+    'engineer': '👷',
+    'expert': '🎓',
+    'master': '🏆',
+    'creator': '✨',
+    'builder': '🔨',
+    'generator': '⚡',
+    'automator': '🤖',
+    'orchestrat': '🎼',
+    'pipeline': '🔧',
+    'windags': '🔀',
+    'win31': '🖥️',
+    'windows': '🪟',
+    'retro': '📼',
+    'vaporwave': '🌊',
+    'memphis': '🎨',
+  };
+  
+  // Check skill ID for matching patterns
+  for (const [pattern, icon] of Object.entries(skillIdIcons)) {
+    if (id.includes(pattern)) return icon;
+  }
   
   // Tag-based icons
   if (tagSet.has('ai') || tagSet.has('llm') || tagSet.has('ml')) return '🤖';
@@ -243,6 +350,12 @@ function getIcon(category: string, tags: string[] | undefined): string {
   if (tagSet.has('finance') || tagSet.has('money')) return '💰';
   if (tagSet.has('psychology') || tagSet.has('mental')) return '🧠';
   if (tagSet.has('bot') || tagSet.has('discord') || tagSet.has('telegram')) return '🤖';
+  if (tagSet.has('audio') || tagSet.has('music') || tagSet.has('sound')) return '🔊';
+  if (tagSet.has('webgl') || tagSet.has('shader') || tagSet.has('visualization')) return '✨';
+  if (tagSet.has('react') || tagSet.has('frontend')) return '⚛️';
+  if (tagSet.has('backend') || tagSet.has('server')) return '🖥️';
+  if (tagSet.has('mobile') || tagSet.has('ios') || tagSet.has('android')) return '📱';
+  if (tagSet.has('game') || tagSet.has('gaming')) return '🎮';
 
   // Category-based icons
   const categoryIcons: Record<string, string> = {
@@ -354,7 +467,7 @@ function generateSkillsFile(skills: ParsedSkill[]): void {
   const skillEntries = skills.map(skill => {
     const category = CATEGORY_MAP[skill.frontmatter.category || ''] || 'development';
     const tags = Array.isArray(skill.frontmatter.tags) ? skill.frontmatter.tags : [];
-    const icon = getIcon(category, tags);
+    const icon = getIcon(category, tags, skill.id);
     const difficulty = getDifficulty(skill.content, tags);
     
     // Build title from name
