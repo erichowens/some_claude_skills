@@ -107,7 +107,8 @@ export default function HomePage() {
         icons: catSkills.slice(0, 9).map(s => ({
           id: `skill:${s.id}`,
           label: s.title.substring(0, 11),
-          icon: s.icon || meta.icon,
+          // Use generated skillIcon if available, else emoji
+          icon: s.skillIcon || s.icon || meta.icon,
         })),
       });
 
