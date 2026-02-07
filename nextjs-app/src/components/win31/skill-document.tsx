@@ -81,17 +81,38 @@ export function SkillDocument({ skill, onClose, onNavigate }: SkillDocumentProps
                   <div className="flex h-full flex-col">
                     {/* Hero image area */}
                     <div className="relative mb-4 aspect-video w-full overflow-hidden rounded bg-gradient-to-br from-win31-navy via-win31-blue to-indigo-600">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-8xl opacity-30">{skill.icon}</span>
-                      </div>
-                      {/* Pixel grid overlay */}
-                      <div 
-                        className="absolute inset-0 opacity-10"
-                        style={{
-                          backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px),
-                                           repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px)`,
-                        }}
-                      />
+                      {/* Actual hero image if available */}
+                      {skill.heroImage ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={skill.heroImage}
+                            alt={skill.title}
+                            className="absolute inset-0 h-full w-full object-cover"
+                            onError={(e) => {
+                              // Hide image on error, show fallback
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                          {/* Subtle overlay for text readability */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                        </>
+                      ) : (
+                        <>
+                          {/* Fallback: gradient + icon */}
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="text-8xl opacity-30">{skill.icon}</span>
+                          </div>
+                          {/* Pixel grid overlay */}
+                          <div 
+                            className="absolute inset-0 opacity-10"
+                            style={{
+                              backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px),
+                                               repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px)`,
+                            }}
+                          />
+                        </>
+                      )}
                       {/* Category badge */}
                       <div className="absolute left-3 top-3">
                         <span className="inline-flex items-center gap-1.5 rounded-sm bg-black/50 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
@@ -130,10 +151,28 @@ export function SkillDocument({ skill, onClose, onNavigate }: SkillDocumentProps
                       </div>
                     </div>
 
-                    {/* Install CTA - Prominent */}
+                    {/* Install CTA - Both Steps */}
                     <div className="mt-4 pt-4 border-t border-win31-gray-darker/30">
+                      {/* Step 1 - One time */}
+                      <div className="mb-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-win31-lime text-xs font-bold text-black">1</span>
+                          <span className="text-xs text-win31-gray-darker">Add marketplace (one-time)</span>
+                        </div>
+                        <div className="flex items-center gap-2 rounded bg-win31-gray-darker px-3 py-1.5">
+                          <Terminal className="h-3 w-3 text-win31-gray-light flex-shrink-0" />
+                          <code className="flex-1 truncate font-mono text-xs text-win31-gray-light">
+                            /plugin marketplace add erichowens/some_claude_skills
+                          </code>
+                        </div>
+                      </div>
+                      {/* Step 2 - Install */}
                       <div className="flex items-center gap-3">
                         <div className="flex-1 overflow-hidden">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="inline-flex items-center justify-center h-5 w-5 rounded-full bg-win31-yellow text-xs font-bold text-black">2</span>
+                            <span className="text-xs text-win31-gray-darker">Install this skill</span>
+                          </div>
                           <div className="flex items-center gap-2 rounded bg-win31-black px-3 py-2">
                             <Terminal className="h-4 w-4 text-win31-lime flex-shrink-0" />
                             <code className="flex-1 truncate font-mono text-sm text-win31-lime">
@@ -145,7 +184,7 @@ export function SkillDocument({ skill, onClose, onNavigate }: SkillDocumentProps
                           variant="primary" 
                           size="lg" 
                           onClick={handleCopy}
-                          className="flex-shrink-0"
+                          className="flex-shrink-0 mt-auto"
                         >
                           {copied ? (
                             <>
@@ -155,7 +194,7 @@ export function SkillDocument({ skill, onClose, onNavigate }: SkillDocumentProps
                           ) : (
                             <>
                               <Copy className="h-4 w-4 mr-2" />
-                              Install
+                              Copy
                             </>
                           )}
                         </Button>

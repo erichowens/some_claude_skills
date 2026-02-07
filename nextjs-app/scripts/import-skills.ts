@@ -1,103 +1,424 @@
 #!/usr/bin/env npx tsx
 /**
- * Import skills from the Docusaurus site's generated data
- * Transforms the data format for the Next.js app
+ * Import Skills from .claude/skills/ to Next.js App
+ * 
+ * This script reads actual SKILL.md files and their references,
+ * then generates the skills.ts data file for the Next.js app.
+ * 
+ * Run: npm run import:skills
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
 
-// Read the source skills file
-const sourceSkillsPath = path.join(__dirname, '../../website/src/data/skills.ts');
-const sourceContent = fs.readFileSync(sourceSkillsPath, 'utf-8');
+// Paths
+const SKILLS_SOURCE_DIR = path.resolve(__dirname, '../../.claude/skills');
+const HERO_IMAGES_SOURCE = path.resolve(__dirname, '../../website/static/img/skills');
+const HERO_IMAGES_DEST = path.resolve(__dirname, '../public/img/skills');
+const OUTPUT_FILE = path.resolve(__dirname, '../src/lib/skills.ts');
 
-// Extract skill descriptions
-const descriptionsMatch = sourceContent.match(/const skillDescriptions: Record<string, string> = ({[\s\S]*?});/);
-const descriptions: Record<string, string> = {};
-if (descriptionsMatch) {
-  const descStr = descriptionsMatch[1];
-  const regex = /"([^"]+)":\s*"((?:[^"\\]|\\.)*)"/g;
-  let match;
-  while ((match = regex.exec(descStr)) !== null) {
-    descriptions[match[1]] = match[2].replace(/\\"/g, '"').replace(/\\n/g, '\n');
-  }
+// Types
+interface SkillFrontmatter {
+  name: string;
+  description: string;
+  'allowed-tools'?: string;
+  category?: string;
+  tags?: string[];
+  'pairs-with'?: Array<{ skill: string; reason: string }>;
 }
 
-console.log(`Found ${Object.keys(descriptions).length} descriptions`);
+interface ReferenceFile {
+  title: string;
+  filename: string;
+  content: string;
+  type: 'guide' | 'example' | 'related-skill' | 'external';
+}
 
-// Parse skills from the skills array
 interface ParsedSkill {
   id: string;
-  title: string;
-  category: string;
-  tags: string[];
-  heroImage?: string;
+  frontmatter: SkillFrontmatter;
+  content: string;
+  references: ReferenceFile[];
+  hasHeroImage: boolean;
 }
-
-const skills: ParsedSkill[] = [];
-const skillRegex = /\{\s*id:\s*'([^']+)',\s*title:\s*'([^']+)',\s*category:\s*'([^']+)'[^}]*tags:\s*\[([^\]]*)\][^}]*(heroImage:\s*'([^']+)')?/g;
-
-let match;
-while ((match = skillRegex.exec(sourceContent)) !== null) {
-  const tags = match[4] ? match[4].split(',').map(t => t.trim().replace(/'/g, '')).filter(Boolean) : [];
-  skills.push({
-    id: match[1],
-    title: match[2].replace(/\\'/g, "'"),
-    category: match[3],
-    tags,
-    heroImage: match[6],
-  });
-}
-
-console.log(`Parsed ${skills.length} skills`);
 
 // Category mapping
-const categoryMapping: Record<string, string> = {
-  'AI & Machine Learning': 'development',
+const CATEGORY_MAP: Record<string, string> = {
   'Code Quality & Testing': 'testing',
-  'Content & Writing': 'documentation',
+  'Development': 'development',
+  'Architecture': 'architecture',
+  'DevOps & Infrastructure': 'devops',
+  'DevOps': 'devops',
+  'Design & UX': 'design',
+  'Design': 'design',
   'Data & Analytics': 'data',
-  'Design & Creative': 'design',
-  'DevOps & Site Reliability': 'devops',
-  'Business & Monetization': 'architecture',
-  'Research & Analysis': 'data',
-  'Productivity & Meta': 'architecture',
-  'Lifestyle & Personal': 'documentation',
+  'Data': 'data',
+  'Content & Writing': 'documentation',
+  'Documentation': 'documentation',
+  'Security': 'security',
+  'Productivity & Meta': 'development',
+  'Lifestyle & Wellness': 'documentation',
+  'AI & Machine Learning': 'development',
+  'Domain Expertise': 'documentation',
 };
 
-const categoryIcons: Record<string, string> = {
-  'AI & Machine Learning': '🤖',
-  'Code Quality & Testing': '🧪',
-  'Content & Writing': '✍️',
-  'Data & Analytics': '📊',
-  'Design & Creative': '🎨',
-  'DevOps & Site Reliability': '🔧',
-  'Business & Monetization': '💼',
-  'Research & Analysis': '🔍',
-  'Productivity & Meta': '⚡',
-  'Lifestyle & Personal': '🌱',
-};
+// Parse inline array like [a, b, c]
+function parseInlineArray(value: string): string[] {
+  if (!value.startsWith('[') || !value.endsWith(']')) {
+    return [];
+  }
+  const inner = value.slice(1, -1);
+  return inner.split(',').map(item => item.trim()).filter(Boolean);
+}
 
-function getDifficulty(tags: string[]): string {
-  if (tags.includes('beginner-friendly')) return 'beginner';
-  if (tags.includes('advanced') || tags.includes('production-ready')) return 'advanced';
+// Parse YAML frontmatter
+function parseFrontmatter(content: string): { frontmatter: SkillFrontmatter; body: string } {
+  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) {
+    throw new Error('No frontmatter found');
+  }
+
+  const yamlContent = match[1];
+  const body = match[2];
+
+  // Simple YAML parser for our specific format
+  const frontmatter: SkillFrontmatter = {
+    name: '',
+    description: '',
+  };
+
+  const lines = yamlContent.split('\n');
+  let currentKey = '';
+  let currentArray: string[] | Array<{ skill: string; reason: string }> = [];
+  let inArray = false;
+  let arrayType = '';
+
+  for (const line of lines) {
+    // Check for array items
+    if (line.startsWith('  - ') && inArray) {
+      if (arrayType === 'tags') {
+        (currentArray as string[]).push(line.substring(4).trim());
+      } else if (arrayType === 'pairs-with') {
+        // Start a new pairing
+        const skillMatch = line.match(/skill:\s*(.+)/);
+        if (skillMatch) {
+          (currentArray as Array<{ skill: string; reason: string }>).push({
+            skill: skillMatch[1].trim(),
+            reason: '',
+          });
+        }
+      }
+      continue;
+    }
+
+    // Check for reason in pairs-with
+    if (line.startsWith('    reason:') && arrayType === 'pairs-with') {
+      const pairings = currentArray as Array<{ skill: string; reason: string }>;
+      if (pairings.length > 0) {
+        pairings[pairings.length - 1].reason = line.replace('    reason:', '').trim();
+      }
+      continue;
+    }
+
+    // End current array if we hit a new key
+    if (!line.startsWith('  ') && !line.startsWith('    ') && line.includes(':')) {
+      if (inArray && currentKey) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (frontmatter as any)[currentKey] = currentArray;
+        inArray = false;
+        currentArray = [];
+      }
+    }
+
+    // Parse key-value pairs
+    const kvMatch = line.match(/^([a-z-]+):\s*(.*)$/i);
+    if (kvMatch) {
+      const [, key, value] = kvMatch;
+      currentKey = key;
+
+      if (value === '' || value === undefined) {
+        // This is an array start
+        inArray = true;
+        arrayType = key;
+        currentArray = key === 'pairs-with' ? [] : [];
+      } else if (value.startsWith('[') && value.endsWith(']')) {
+        // Inline array like [a, b, c]
+        const items = parseInlineArray(value);
+        if (key === 'tags') {
+          frontmatter.tags = items;
+        } else if (key === 'pairs-with') {
+          // Convert simple list to SkillPairing format
+          frontmatter['pairs-with'] = items.map(skill => ({
+            skill: skill.trim(),
+            reason: 'Complementary skill',
+          }));
+        } else {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (frontmatter as any)[key] = items;
+        }
+      } else {
+        // Simple value
+        let cleanValue = value.trim();
+        // Remove surrounding quotes
+        if ((cleanValue.startsWith('"') && cleanValue.endsWith('"')) ||
+            (cleanValue.startsWith("'") && cleanValue.endsWith("'"))) {
+          cleanValue = cleanValue.slice(1, -1);
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (frontmatter as any)[key] = cleanValue;
+      }
+    }
+  }
+
+  // Don't forget the last array
+  if (inArray && currentKey) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (frontmatter as any)[currentKey] = currentArray;
+  }
+
+  return { frontmatter, body };
+}
+
+// Read reference files from a skill directory
+function readReferences(skillDir: string): ReferenceFile[] {
+  const refsDir = path.join(skillDir, 'references');
+  const references: ReferenceFile[] = [];
+
+  if (!fs.existsSync(refsDir)) {
+    return references;
+  }
+
+  const files = fs.readdirSync(refsDir);
+  for (const file of files) {
+    const filePath = path.join(refsDir, file);
+    const stat = fs.statSync(filePath);
+    
+    if (stat.isFile()) {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const ext = path.extname(file);
+      const title = path.basename(file, ext)
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      // Determine type based on extension and content
+      let type: 'guide' | 'example' | 'related-skill' | 'external' = 'guide';
+      if (ext === '.yaml' || ext === '.yml' || ext === '.json') {
+        type = 'example';
+      } else if (file.includes('example') || file.includes('sample')) {
+        type = 'example';
+      }
+
+      references.push({
+        title,
+        filename: file,
+        content,
+        type,
+      });
+    }
+  }
+
+  return references;
+}
+
+// Get icon based on category and tags
+function getIcon(category: string, tags: string[] | undefined): string {
+  const safeTags = Array.isArray(tags) ? tags : [];
+  const tagSet = new Set(safeTags.map(t => t.toLowerCase()));
+  
+  // Tag-based icons
+  if (tagSet.has('ai') || tagSet.has('llm') || tagSet.has('ml')) return '🤖';
+  if (tagSet.has('api') || tagSet.has('graphql')) return '🔌';
+  if (tagSet.has('security') || tagSet.has('auth')) return '🔒';
+  if (tagSet.has('testing') || tagSet.has('test')) return '🧪';
+  if (tagSet.has('design') || tagSet.has('ui') || tagSet.has('ux')) return '🎨';
+  if (tagSet.has('data') || tagSet.has('analytics')) return '📊';
+  if (tagSet.has('documentation') || tagSet.has('docs')) return '📝';
+  if (tagSet.has('devops') || tagSet.has('ci') || tagSet.has('cd')) return '🔧';
+  if (tagSet.has('database') || tagSet.has('sql')) return '🗃️';
+  if (tagSet.has('video') || tagSet.has('media')) return '🎬';
+  if (tagSet.has('drone') || tagSet.has('robotics')) return '🚁';
+  if (tagSet.has('health') || tagSet.has('wellness')) return '❤️';
+  if (tagSet.has('career') || tagSet.has('resume')) return '💼';
+  if (tagSet.has('finance') || tagSet.has('money')) return '💰';
+  if (tagSet.has('psychology') || tagSet.has('mental')) return '🧠';
+  if (tagSet.has('bot') || tagSet.has('discord') || tagSet.has('telegram')) return '🤖';
+
+  // Category-based icons
+  const categoryIcons: Record<string, string> = {
+    development: '💻',
+    architecture: '🏗️',
+    devops: '🔧',
+    design: '🎨',
+    data: '📊',
+    testing: '🧪',
+    documentation: '📝',
+    security: '🔒',
+  };
+
+  return categoryIcons[category] || '⚡';
+}
+
+// Get difficulty based on content analysis
+function getDifficulty(content: string, tags: string[] | undefined): 'beginner' | 'intermediate' | 'advanced' {
+  const safeTags = Array.isArray(tags) ? tags : [];
+  const tagSet = new Set(safeTags.map(t => t.toLowerCase()));
+  
+  // Advanced indicators
+  if (tagSet.has('advanced') || tagSet.has('expert')) return 'advanced';
+  if (content.includes('expert') || content.includes('production-grade')) return 'advanced';
+  if (content.length > 8000) return 'advanced';
+  
+  // Beginner indicators
+  if (tagSet.has('beginner') || tagSet.has('starter')) return 'beginner';
+  if (content.includes('getting started') || content.includes('introduction')) return 'beginner';
+  if (content.length < 2000) return 'beginner';
+  
   return 'intermediate';
 }
 
-function escapeForTemplate(str: string): string {
-  return str.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$');
+// Parse a skill directory
+function parseSkill(skillId: string): ParsedSkill | null {
+  const skillDir = path.join(SKILLS_SOURCE_DIR, skillId);
+  const skillFile = path.join(skillDir, 'SKILL.md');
+
+  if (!fs.existsSync(skillFile)) {
+    console.warn(`  ⚠️  No SKILL.md found for ${skillId}`);
+    return null;
+  }
+
+  try {
+    const content = fs.readFileSync(skillFile, 'utf-8');
+    const { frontmatter, body } = parseFrontmatter(content);
+    const references = readReferences(skillDir);
+
+    // Check for hero image
+    const heroImagePng = path.join(HERO_IMAGES_SOURCE, `${skillId}-hero.png`);
+    const heroImageWebp = path.join(HERO_IMAGES_SOURCE, `${skillId}-hero.webp`);
+    const hasHeroImage = fs.existsSync(heroImagePng) || fs.existsSync(heroImageWebp);
+
+    return {
+      id: skillId,
+      frontmatter,
+      content: body.trim(),
+      references,
+      hasHeroImage,
+    };
+  } catch (error) {
+    console.error(`  ❌ Error parsing ${skillId}:`, error);
+    return null;
+  }
 }
 
-// Build output
-let output = `/*
+// Copy hero images
+function copyHeroImages(skills: ParsedSkill[]): void {
+  console.log('\n📸 Copying hero images...');
+  
+  // Create destination directory
+  if (!fs.existsSync(HERO_IMAGES_DEST)) {
+    fs.mkdirSync(HERO_IMAGES_DEST, { recursive: true });
+  }
+
+  let copied = 0;
+  for (const skill of skills) {
+    const srcPng = path.join(HERO_IMAGES_SOURCE, `${skill.id}-hero.png`);
+    const srcWebp = path.join(HERO_IMAGES_SOURCE, `${skill.id}-hero.webp`);
+    const destPng = path.join(HERO_IMAGES_DEST, `${skill.id}-hero.png`);
+    const destWebp = path.join(HERO_IMAGES_DEST, `${skill.id}-hero.webp`);
+
+    if (fs.existsSync(srcPng) && !fs.existsSync(destPng)) {
+      fs.copyFileSync(srcPng, destPng);
+      copied++;
+    }
+    if (fs.existsSync(srcWebp) && !fs.existsSync(destWebp)) {
+      fs.copyFileSync(srcWebp, destWebp);
+      copied++;
+    }
+  }
+
+  console.log(`  ✅ Copied ${copied} new images`);
+}
+
+// Escape string for template literal
+function escapeForTemplate(str: string): string {
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/`/g, '\\`')
+    .replace(/\$/g, '\\$');
+}
+
+// Generate the skills.ts file
+function generateSkillsFile(skills: ParsedSkill[]): void {
+  console.log('\n📝 Generating skills.ts...');
+
+  const skillEntries = skills.map(skill => {
+    const category = CATEGORY_MAP[skill.frontmatter.category || ''] || 'development';
+    const tags = Array.isArray(skill.frontmatter.tags) ? skill.frontmatter.tags : [];
+    const icon = getIcon(category, tags);
+    const difficulty = getDifficulty(skill.content, tags);
+    
+    // Build title from name
+    const title = skill.frontmatter.name
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+
+    // Build references array
+    const references = skill.references.map(ref => ({
+      title: ref.title,
+      type: ref.type,
+      url: `#ref-${ref.filename}`,
+      description: `${ref.filename} - ${ref.content.split('\n')[0].substring(0, 100)}`,
+    }));
+
+    // Escape content for template literal
+    const escapedContent = escapeForTemplate(skill.content);
+    const escapedDescription = escapeForTemplate(skill.frontmatter.description);
+
+    // Build the skill object as a string
+    const refsJson = JSON.stringify(references, null, 2).split('\n').map((line, i) => i === 0 ? line : '    ' + line).join('\n');
+    const tagsJson = JSON.stringify(tags);
+    const pairsWithJson = skill.frontmatter['pairs-with'] 
+      ? JSON.stringify(skill.frontmatter['pairs-with'], null, 2).split('\n').map((line, i) => i === 0 ? line : '    ' + line).join('\n')
+      : 'undefined';
+
+    return `  {
+    id: '${skill.id}',
+    title: '${title.replace(/'/g, "\\'")}',
+    description: \`${escapedDescription}\`,
+    category: '${category}',
+    icon: '${icon}',
+    tags: ${tagsJson},
+    difficulty: '${difficulty}',
+    content: \`${escapedContent}\`,
+    installCommand: '/plugin install ${skill.id}@some-claude-skills',
+    references: ${refsJson},
+    heroImage: ${skill.hasHeroImage ? `'/img/skills/${skill.id}-hero.png'` : 'undefined'},
+    pairsWith: ${pairsWithJson},
+  }`;
+  });
+
+  const output = `/*
  * ═══════════════════════════════════════════════════════════════════════════
- * SKILL DATA - AUTO-GENERATED FROM DOCUSAURUS
+ * SKILL DATA - IMPORTED FROM .claude/skills/
  * Generated: ${new Date().toISOString()}
  * Total Skills: ${skills.length}
  * 
  * DO NOT EDIT - Run 'npm run import:skills' to regenerate
  * ═══════════════════════════════════════════════════════════════════════════
  */
+
+export interface SkillReference {
+  title: string;
+  type: 'guide' | 'example' | 'related-skill' | 'external';
+  url: string;
+  description?: string;
+}
+
+export interface SkillPairing {
+  skill: string;
+  reason: string;
+}
 
 export interface Skill {
   id: string;
@@ -111,13 +432,7 @@ export interface Skill {
   installCommand: string;
   references?: SkillReference[];
   heroImage?: string;
-}
-
-export interface SkillReference {
-  title: string;
-  type: 'guide' | 'example' | 'related-skill' | 'external';
-  url: string;
-  description?: string;
+  pairsWith?: SkillPairing[];
 }
 
 export type SkillCategory =
@@ -142,70 +457,69 @@ export const categoryMeta: Record<SkillCategory, { label: string; icon: string }
 };
 
 export const skills: Skill[] = [
-`;
+${skillEntries.join(',\n')}
+];
 
-for (const skill of skills) {
-  const desc = descriptions[skill.id] || 'A powerful Claude skill for enhancing your workflow.';
-  const safeTitle = skill.title.replace(/'/g, "\\'");
-  const mappedCategory = categoryMapping[skill.category] || 'development';
-  const icon = categoryIcons[skill.category] || '📦';
-  const difficulty = getDifficulty(skill.tags);
-  
-  const content = `# ${skill.title}
-
-${desc}
-
-## Installation
-
-\`\`\`bash
-claude skill add ${skill.id}
-\`\`\`
-
-## When to Use
-
-This skill activates automatically based on context, or you can explicitly request it.
-
-## Tags
-
-${skill.tags.map(t => `- ${t}`).join('\n')}`;
-
-  output += `  {
-    id: '${skill.id}',
-    title: '${safeTitle}',
-    description: ${JSON.stringify(desc)},
-    category: '${mappedCategory}',
-    icon: '${icon}',
-    tags: ${JSON.stringify(skill.tags)},
-    difficulty: '${difficulty}',
-    content: \`${escapeForTemplate(content)}\`,
-    installCommand: 'claude skill add ${skill.id}',${skill.heroImage ? `
-    heroImage: '${skill.heroImage}',` : ''}
-  },
-`;
-}
-
-output += `];
-
+// Helper functions
 export function getSkillById(id: string): Skill | undefined {
-  return skills.find((s) => s.id === id);
+  return skills.find(s => s.id === id);
 }
 
 export function getSkillsByCategory(category: SkillCategory): Skill[] {
-  return skills.filter((s) => s.category === category);
+  return skills.filter(s => s.category === category);
 }
 
 export function searchSkills(query: string): Skill[] {
-  const lower = query.toLowerCase();
-  return skills.filter(
-    (s) =>
-      s.title.toLowerCase().includes(lower) ||
-      s.description.toLowerCase().includes(lower) ||
-      s.tags.some((t) => t.toLowerCase().includes(lower))
+  const q = query.toLowerCase();
+  return skills.filter(s =>
+    s.title.toLowerCase().includes(q) ||
+    s.description.toLowerCase().includes(q) ||
+    s.tags.some(t => t.toLowerCase().includes(q))
   );
 }
 `;
 
-// Write output
-const outputPath = path.join(__dirname, '../src/lib/skills.ts');
-fs.writeFileSync(outputPath, output);
-console.log(`✅ Written ${skills.length} skills to ${outputPath}`);
+  fs.writeFileSync(OUTPUT_FILE, output, 'utf-8');
+  console.log(`  ✅ Generated ${OUTPUT_FILE}`);
+}
+
+// Main
+async function main() {
+  console.log('🚀 Importing skills from .claude/skills/\n');
+
+  // Get all skill directories
+  const skillDirs = fs.readdirSync(SKILLS_SOURCE_DIR).filter(name => {
+    const skillPath = path.join(SKILLS_SOURCE_DIR, name);
+    return fs.statSync(skillPath).isDirectory();
+  });
+
+  console.log(`📂 Found ${skillDirs.length} skill directories\n`);
+
+  // Parse all skills
+  const skills: ParsedSkill[] = [];
+  for (const skillId of skillDirs) {
+    process.stdout.write(`  Parsing ${skillId}...`);
+    const skill = parseSkill(skillId);
+    if (skill) {
+      skills.push(skill);
+      console.log(' ✅');
+    } else {
+      console.log(' ⚠️ skipped');
+    }
+  }
+
+  console.log(`\n✅ Successfully parsed ${skills.length} skills`);
+
+  // Copy hero images
+  copyHeroImages(skills);
+
+  // Generate skills.ts
+  generateSkillsFile(skills);
+
+  console.log('\n🎉 Import complete!');
+  console.log(`   Skills: ${skills.length}`);
+  console.log(`   With hero images: ${skills.filter(s => s.hasHeroImage).length}`);
+  console.log(`   With references: ${skills.filter(s => s.references.length > 0).length}`);
+}
+
+main().catch(console.error);
