@@ -495,6 +495,11 @@ function generateSkillsFile(skills: ParsedSkill[]): void {
       ? JSON.stringify(skill.frontmatter['pairs-with'], null, 2).split('\n').map((line, i) => i === 0 ? line : '    ' + line).join('\n')
       : 'undefined';
 
+    // Check for generated skill icon
+    const skillIconPath = path.join(__dirname, '../public/img/skill-icons', `${skill.id}.png`);
+    const hasSkillIcon = fs.existsSync(skillIconPath);
+    const skillIcon = hasSkillIcon ? `/img/skill-icons/${skill.id}.png` : undefined;
+
     return `  {
     id: '${skill.id}',
     title: '${title.replace(/'/g, "\\'")}',
@@ -507,6 +512,7 @@ function generateSkillsFile(skills: ParsedSkill[]): void {
     installCommand: '/plugin install ${skill.id}@some-claude-skills',
     references: ${refsJson},
     heroImage: ${skill.hasHeroImage ? `'/img/skills/${skill.id}-hero.png'` : 'undefined'},
+    skillIcon: ${skillIcon ? `'${skillIcon}'` : 'undefined'},
     pairsWith: ${pairsWithJson},
   }`;
   });
@@ -545,6 +551,7 @@ export interface Skill {
   installCommand: string;
   references?: SkillReference[];
   heroImage?: string;
+  skillIcon?: string;
   pairsWith?: SkillPairing[];
 }
 
